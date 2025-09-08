@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div>
-        <h1 className='text-4xl text-red-500'>Abhiraj Singh</h1>
+        <h1 className='text-4xl text-red-500'>Kalpana Patwal as a developer</h1>
       </div>
       
     </>
