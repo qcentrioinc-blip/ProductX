@@ -1,18 +1,30 @@
-import HowWeDo from "./HowWeDo"
+import Footer from "../Footer/Footer"
 import LandingPage from "./LandingPage"
+import VisionImpact from "./VisionImpact"
 import Partnership from "./Partnership"
-import Testimonial from "./Testimonial"
+import HowWeDo from "./HowWeDo"
 import TargetAudience from "./TargetAudience"
+import Testimonial from "./Testimonial"
 import Counter from "./Counter"
+
 const HeroSection = () => {
     return (
         <div>
-            <LandingPage />
-            <Partnership/>
+            <div id="landingpage">
+                <LandingPage />
+            </div>
+            <div id="visionimpact">
+                <VisionImpact />
+            </div>
+
+             <Partnership/>
             <HowWeDo/>
             <TargetAudience/>
             <Testimonial/>
             <Counter/>
+            <div id="footer">
+                <Footer />
+            </div>
         </div>
     )
 }
