@@ -85,7 +85,7 @@ const Testimonial = () => {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [currentIndex, testimonials.length]);
+  }, [currentIndex]);
 
   const translateX = -currentIndex * totalCardWidth + 50;
 
