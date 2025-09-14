@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
+import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
+import { useEffect, useState } from 'react'
+
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
 
