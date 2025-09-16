@@ -2,16 +2,20 @@ import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
 import Contact from './components/Contact/Contact' // Make sure this path is correct
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
+import { Route, Routes, useParams } from 'react-router-dom'
+import HighTech from './routes/industries/HighTech'
+import BankingAndFinance from './routes/industries/BankingAndFinance'
+import LifeSciences from './routes/industries/LifeSciences'
 
 
 
 
 
 // Create a Home component for your main page
-const Home = () => {
+const App = () => {
   const [activeSection, setActiveSection] = useState("landingpage");
 
   useEffect(() => {
@@ -31,26 +35,24 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, []);
 
+  const IndustryPage = () => {
+    const {industry} = useParams();
+    if(industry === "high-tech") return <HighTech />;
+    if(industry === "banking-and-finance") return <BankingAndFinance />;
+    if(industry === "life-sciences") return <LifeSciences />;
+    return <div>Industry not found</div>;
+  }
   return (
-    <div>
-      <Navbar activeSection={activeSection} />
-      <HeroSection />
-
-
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        
-  
-      </Routes>
-    </Router>
+    <>
+      <div>
+        <Navbar activeSection={activeSection} />
+        <Routes>
+          <Route path='/' element={<HeroSection/>} />
+          <Route path="/industries/:industry" element={<IndustryPage />} />
+          <Route path='/contact' element={<Contact/>} />
+        </Routes>
+      </div>
+    </>
   )
 }
 
