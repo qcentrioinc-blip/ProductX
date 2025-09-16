@@ -17,11 +17,11 @@ const HeroSection = () => {
                 <VisionImpact />
             </div>
 
-             <Partnership/>
-            <HowWeDo/>
-            <TargetAudience/>
-            <Testimonial/>
-            <Counter/>
+            <Partnership />
+            <HowWeDo />
+            <TargetAudience />
+            <Testimonial />
+            <Counter />
             <div id="footer">
                 <Footer />
             </div>

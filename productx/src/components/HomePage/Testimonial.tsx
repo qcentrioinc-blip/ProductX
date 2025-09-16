@@ -6,7 +6,7 @@ const testimonials = [
     text: "Cadence completely changed how I work. I get more done in less time without feeling overwhelmed.",
     name: "Emily R.",
     title: "Freelance Designer",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b332c647?w=40&h=40&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face"
   },
   {
     id: 2,
@@ -49,25 +49,39 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  
-  const extendedTestimonials = [
-    testimonials[testimonials.length - 1],
-    ...testimonials,
-    testimonials[0]
-  ];
-
-  const cardWidth = 448; 
+  const cardWidth = 448;
+  const mobileCardWidth = 280;
   const gap = 24;
-  const totalCardWidth = cardWidth + gap;
+  const mobileGap = 16;
+  
+  // Get responsive values based on screen size
+  const getResponsiveValues = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return {
+        cardWidth: mobileCardWidth,
+        gap: mobileGap,
+        visibleCards: 1
+      };
+    }
+    return {
+      cardWidth: cardWidth,
+      gap: gap,
+      visibleCards: 3
+    };
+  };
+
+  const { cardWidth: currentCardWidth, gap: currentGap, visibleCards } = getResponsiveValues();
+  const totalCardWidth = currentCardWidth + currentGap;
+  const maxIndex = testimonials.length - visibleCards;
 
   const nextSlide = () => {
-    if (isAnimating) return;
+    if (isAnimating || currentIndex >= maxIndex) return;
     setIsAnimating(true);
     setCurrentIndex(prev => prev + 1);
   };
 
   const prevSlide = () => {
-    if (isAnimating) return;
+    if (isAnimating || currentIndex <= 0) return;
     setIsAnimating(true);
     setCurrentIndex(prev => prev - 1);
   };
@@ -75,93 +89,80 @@ const Testimonial = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAnimating(false);
-      
-      // Reset to actual positions for infinite loop
-      if (currentIndex >= testimonials.length + 1) {
-        setCurrentIndex(1);
-      } else if (currentIndex <= 0) {
-        setCurrentIndex(testimonials.length);
-      }
     }, 300);
 
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
-  const translateX = -currentIndex * totalCardWidth + 50;
+  const translateX = -currentIndex * totalCardWidth;
 
   return (
-
-    <div className="w-full relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16">
-      <div className="w-full">
-        <h2 className='text-center text-5xl pb-6'>
+    <div className="w-full relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 sm:py-12 md:py-16">
+      <div className="w-full px-4 sm:px-6">
+        <h2 className='text-center text-3xl sm:text-4xl md:text-5xl pb-4 sm:pb-6 font-bold'>
           What Clients Say
         </h2>
-        
-        <div className="relative w-full">
+
+        <div className="relative w-full flex justify-center">
           {/* Left Chevron */}
           <button
             onClick={prevSlide}
-            disabled={isAnimating}
-            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50"
+            disabled={currentIndex === 0 || isAnimating}
+            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '20px',
+              width: '32px',
+              height: '32px',
+              borderRadius: '16px',
               borderWidth: '0.5px',
-              padding: '8px',
-              left: '21px'
+              padding: '6px',
+              left: '8px'
             }}
           >
-            <svg width="24" height="24"  viewBox="0 0 24 24" fill="none" className="text-gray-600">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-600">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-            
-            {/* right chevron */}
-            <button
-            onClick={nextSlide}
-            disabled={isAnimating}
-            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50"
-            style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '20px',
-                borderWidth: '0.5px',
-                padding: '8px',
-                right: '21px'
-            }}
-            >
-            <img 
-                src="/Chevron.png" 
-                alt="Next" 
-                className="w-4 h-4 object-contain"
-            />
-            </button>
 
-          {/* Carousel Container */}
-          <div 
-            className="overflow-hidden w-full relative"
+          {/* Right chevron */}
+          <button
+            onClick={nextSlide}
+            disabled={currentIndex >= maxIndex || isAnimating}
+            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
             style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '16px',
+              borderWidth: '0.5px',
+              padding: '6px',
+              right: '8px'
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-600">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Desktop Carousel Container - Shows 3 cards */}
+          <div
+            className="hidden md:block overflow-hidden relative"
+            style={{
+              width: `${3 * cardWidth + 2 * gap}px`,
               height: '200px',
             }}
           >
-            {/* Fade gradients on edges */}
-            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
-            
-            <div 
+            <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{
                 transform: `translateX(${translateX}px)`,
-                gap: '24px'
+                gap: `${gap}px`
               }}
             >
-              {extendedTestimonials.map((testimonial, index) => (
+              {testimonials.map((testimonial) => (
                 <div
-                  key={`${testimonial.id}-${index}`}
+                  key={testimonial.id}
                   className="flex-shrink-0 bg-black text-white rounded-lg"
                   style={{
-                    width: '448px',
+                    width: `${cardWidth}px`,
                     height: '200px',
                     borderRadius: '16px',
                     paddingTop: '24px',
@@ -170,8 +171,7 @@ const Testimonial = () => {
                     paddingLeft: '32px'
                   }}
                 >
-                  {/* Text area */}
-                  <div 
+                  <div
                     className="flex flex-col justify-between h-full"
                     style={{
                       width: '383px',
@@ -182,7 +182,7 @@ const Testimonial = () => {
                     <p className="text-white text-lg leading-relaxed flex-1">
                       "{testimonial.text}"
                     </p>
-                    
+
                     <div className="flex items-center gap-3">
                       <img
                         src={testimonial.avatar}
@@ -202,6 +202,73 @@ const Testimonial = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Carousel Container - Shows 1 card */}
+          <div
+            className="md:hidden overflow-hidden relative w-full max-w-sm"
+            style={{
+              height: '240px',
+            }}
+          >
+            <div
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{
+                transform: `translateX(${translateX}px)`,
+                gap: `${mobileGap}px`
+              }}
+            >
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="flex-shrink-0 bg-black text-white rounded-lg mx-2"
+                  style={{
+                    width: `${mobileCardWidth}px`,
+                    height: '220px',
+                    borderRadius: '12px',
+                    padding: '20px'
+                  }}
+                >
+                  <div className="flex flex-col justify-between h-full">
+                    <p className="text-white text-sm sm:text-base leading-relaxed flex-1 mb-4">
+                      "{testimonial.text}"
+                    </p>
+
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
+                      />
+                      <div>
+                        <div className="text-white font-semibold text-xs sm:text-sm">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-gray-300 text-xs sm:text-sm">
+                          {testimonial.title}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Pagination Dots */}
+          <div className="md:hidden absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                disabled={isAnimating}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? "bg-black w-6" 
+                    : "bg-gray-300 hover:bg-gray-400"
+                } ${isAnimating ? "cursor-not-allowed" : ""}`}
+              />
+            ))}
           </div>
         </div>
       </div>
