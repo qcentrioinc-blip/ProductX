@@ -1,11 +1,17 @@
 import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
+import Contact from './components/Contact/Contact' // Make sure this path is correct
 import { useEffect, useState } from 'react'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
 
-function App() {
+
+
+
+
+// Create a Home component for your main page
+const Home = () => {
   const [activeSection, setActiveSection] = useState("landingpage");
 
   useEffect(() => {
@@ -24,14 +30,27 @@ function App() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, []);
-  return (
-    <>
-      <div>
-        <Navbar activeSection={activeSection} />
-        <HeroSection />
-      </div>
 
-    </>
+  return (
+    <div>
+      <Navbar activeSection={activeSection} />
+      <HeroSection />
+
+
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        
+  
+      </Routes>
+    </Router>
   )
 }
 

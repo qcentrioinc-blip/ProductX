@@ -11,7 +11,7 @@ const LandingPage = () => {
     {
       id: 1,
       name: "Banking",
-      image: "/LandingPage/Landing1.png", // Updated to use correct image path
+      image: "/LandingPage/Landing1.png", // Updated to use correct image pathS
       backgroundImage: "/LandingPage/Landing1.png", // Updated to use correct image path
       buttonText: "VIEW BANKING SOLUTIONS",
     },
