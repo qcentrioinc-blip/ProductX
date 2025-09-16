@@ -1,5 +1,6 @@
 import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
+import Contact from './components/Contact/Contact' // Make sure this path is correct
 import { useEffect, useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
@@ -9,7 +10,12 @@ import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
 
-function App() {
+
+
+
+
+// Create a Home component for your main page
+const App = () => {
   const [activeSection, setActiveSection] = useState("landingpage");
 
   useEffect(() => {
@@ -43,6 +49,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HeroSection/>} />
           <Route path="/industries/:industry" element={<IndustryPage />} />
+          <Route path='/contact' element={<Contact/>} />
         </Routes>
       </div>
     </>

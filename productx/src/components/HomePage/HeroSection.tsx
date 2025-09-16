@@ -6,7 +6,9 @@ import HowWeDo from "./HowWeDo"
 import TargetAudience from "./TargetAudience"
 import Testimonial from "./Testimonial"
 import Counter from "./Counter"
-
+import WhatWeDo from "./WhatWeDo"
+import CallToAction from "./CallToAction"
+ 
 const HeroSection = () => {
     return (
         <div>
@@ -16,17 +18,19 @@ const HeroSection = () => {
             <div id="visionimpact">
                 <VisionImpact />
             </div>
-
+            <WhatWeDo/>
             <Partnership />
             <HowWeDo />
             <TargetAudience />
             <Testimonial />
             <Counter />
+            <CallToAction />
             <div id="footer">
                 <Footer />
             </div>
         </div>
     )
 }
-
+ 
 export default HeroSection
+ 
