@@ -4,7 +4,8 @@ import type React from "react"
 import "@fontsource/quicksand/400.css"
 import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react"
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate,Link } from 'react-router-dom';
+
 
 type SolutionsTab = "Banking and Finance" | "EHS and PMS" | "High Tech"
 
@@ -13,6 +14,7 @@ type NavbarProps = {
 }
 
 const Navbar = ({ activeSection }: NavbarProps) => {
+  const navigate = useNavigate();
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false)
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
@@ -203,6 +205,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 className={`hidden sm:flex items-center ${currentStyle.btnBg} ${currentStyle.btnText} px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 text-sm font-medium gap-2 border ${currentStyle.border} shadow-sm hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 cursor-pointer`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                 onClick={() => navigate('/Contact')}
               >
                 <span className="transition-colors duration-300">CONTACT US</span>
                 {isHovered ? (
