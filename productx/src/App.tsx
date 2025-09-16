@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
+import { Route, Routes, useParams } from 'react-router-dom'
+import HighTech from './routes/industries/HighTech'
+import BankingAndFinance from './routes/industries/BankingAndFinance'
+import LifeSciences from './routes/industries/LifeSciences'
 
 function App() {
   const [activeSection, setActiveSection] = useState("landingpage");
@@ -24,13 +28,23 @@ function App() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, []);
+
+  const IndustryPage = () => {
+    const {industry} = useParams();
+    if(industry === "high-tech") return <HighTech />;
+    if(industry === "banking-and-finance") return <BankingAndFinance />;
+    if(industry === "life-sciences") return <LifeSciences />;
+    return <div>Industry not found</div>;
+  }
   return (
     <>
       <div>
         <Navbar activeSection={activeSection} />
-        <HeroSection />
+        <Routes>
+          <Route path='/' element={<HeroSection/>} />
+          <Route path="/industries/:industry" element={<IndustryPage />} />
+        </Routes>
       </div>
-
     </>
   )
 }
