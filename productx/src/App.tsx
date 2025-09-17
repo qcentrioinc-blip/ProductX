@@ -11,9 +11,6 @@ import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
 
 
-
-
-
 // Create a Home component for your main page
 const App = () => {
   const [activeSection, setActiveSection] = useState("landingpage");
@@ -36,20 +33,20 @@ const App = () => {
   }, []);
 
   const IndustryPage = () => {
-    const {industry} = useParams();
-    if(industry === "high-tech") return <HighTech />;
-    if(industry === "banking-and-finance") return <BankingAndFinance />;
-    if(industry === "life-sciences") return <LifeSciences />;
+    const { industry } = useParams();
+    if (industry === "high-tech") return <HighTech />;
+    if (industry === "banking-and-finance") return <BankingAndFinance />;
+    if (industry === "life-sciences") return <LifeSciences />;
     return <div>Industry not found</div>;
   }
   return (
     <>
+      <Navbar activeSection={activeSection} />
       <div>
-        <Navbar activeSection={activeSection} />
         <Routes>
-          <Route path='/' element={<HeroSection/>} />
+          <Route path='/' element={<HeroSection />} />
           <Route path="/industries/:industry" element={<IndustryPage />} />
-          <Route path='/contact' element={<Contact/>} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </div>
     </>
