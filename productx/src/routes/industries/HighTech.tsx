@@ -1,13 +1,14 @@
 import InsightThought from "../../components/HighTech/InsightThought"
 import LandingPage from "../../components/HighTech/LandingPage"
 import HowWeDoIn from "../../components/HighTech/HowWeDoIn"
+import Footer from "../../components/Footer/Footer"
 
 const HighTech = () => (
   <div>
     <HowWeDoIn/>
     <InsightThought />
     <LandingPage />
-
+    <Footer />
   </div>
 )
 export default HighTech
