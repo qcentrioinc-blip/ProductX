@@ -1,262 +1,127 @@
 import { useState } from "react";
-import { ArrowUpRight } from 'lucide-react'
-import { ContactUs } from '../../styles/Button';
-import { H2 } from "../../styles/Typography";
+import {
+  BusinessCenterOutlined,
+  AttachMoneyOutlined,
+  LightbulbOutlined,
+  CodeOutlined,
+} from "@mui/icons-material";
 
 const HowWeDo = () => {
-  const [active, setActive] = useState<string | null>("impactful");
+  const [active, setActive] = useState<string>("");
 
   const cards = [
-    { id: "impactful", label: "Impactful", icon: "💼", desc: "Unlock AI's potential to optimize operations, enhance customer experiences, drive data-informed decisions, and stay competitive in a fast-evolving market." },
-    { id: "scalable", label: "Scalable", icon: "💰", desc: "Scale effortlessly with adaptable solutions designed to grow alongside your business needs." },
-    { id: "innovative", label: "Innovative", icon: "💡", desc: "Foster creativity and breakthrough ideas with cutting-edge technologies and unique approaches." },
-    { id: "impact-centric", label: "Impact-Centric", icon: "</>", desc: "Focus on delivering measurable outcomes that truly create value for industries and communities." },
+    {
+      id: "business-man",
+      label: "Business Man",
+      icon: <BusinessCenterOutlined fontSize="large" />,
+      desc: "Unlock AI's potential to optimize operations, enhance customer experiences, drive data-informed decisions, and stay competitive in a fast-evolving market.",
+    },
+    {
+      id: "investors",
+      label: "Investors",
+      icon: <AttachMoneyOutlined fontSize="large" />,
+      desc: "Scale effortlessly with adaptable solutions designed to grow alongside your business needs and maximize return on investment.",
+    },
+    {
+      id: "founder",
+      label: "Founder",
+      icon: <LightbulbOutlined fontSize="large" />,
+      desc: "Foster creativity and breakthrough ideas with cutting-edge technologies and unique approaches to transform your vision into reality.",
+    },
+    {
+      id: "developers",
+      label: "Developers",
+      icon: <CodeOutlined fontSize="large" />,
+      desc: "Focus on delivering measurable outcomes that truly create value for industries and communities through robust technical solutions.",
+    },
   ];
 
   return (
-    <div className="max-w-[1285px] mb-16 sm:mb-24 md:mb-32 mx-auto bg-white px-4 sm:px-6 lg:px-0">
-      {/* Header Section */}
-      <div className="relative mx-2 sm:mx-6 md:mx-10 pt-8 sm:pt-12 md:pt-20 px-4 sm:px-8 md:px-20">
-        {/* Mobile Layout */}
-        <div className="block lg:hidden">
-          <div className="flex flex-col gap-4 sm:gap-6 text-center">
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 sm:w-16 border-t-2 border-dotted border-blue-400"></div>
-              <span className="text-sm text-gray-600 whitespace-nowrap">
-                <h3>How We Do</h3>
-              </span>
-              <div className="w-12 sm:w-16 border-t-2 border-dotted border-blue-400"></div>
-            </div>
-
-            <div>
-              {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-                Approach That Turns{" "}
-                <span className="text-gray-700">
-                  Innovation Into Industry Impact
-                </span>
-              </h2> */}
-              <H2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-                Approach That Turns{" "}
-                <span className="text-gray-700">
-                  Innovation Into Industry Impact
-                </span>
-              </H2>
-            </div>
-
-            <div className="mt-4">
-              {/* <button className="w-full sm:w-[180px] h-12 sm:h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
-                CONTACT US
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button> */}
-              <ContactUs>CONTACT US
-                <ArrowUpRight className="h-6 w-6 font-bold" />
-              </ContactUs>
-            </div>
+    <div className="w-screen min-h-screen bg-black text-white">
+      {/* Header */}
+      <div className="w-full px-6 lg:px-16 py-12 flex flex-col lg:flex-row justify-between items-start gap-8">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-4">
+            <h2 className="text-lg sm:text-xl font-bricolage font-semibold flex items-center gap-2">
+              <span className="inline-block w-8 h-[4px] bg-white rounded-full"></span>
+              How We Do
+            </h2>
           </div>
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight mt-6">
+            Approach That Turns <br />
+            <span className="text-gray-400">
+              Innovation Into Industry Impact
+            </span>
+          </h1>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:block">
-          <div className="absolute left-10 top-20 flex flex-col gap-8">
-            <div className="flex items-center gap-4">
-              <div className="w-16 border-t-2 border-dotted border-blue-400"></div>
-              <span className="text-sm text-gray-600 whitespace-nowrap">
-                <h3>How We Do</h3>
-              </span>
-            </div>
-
-            <div>
-              {/* <h2 className="text-5xl gap-2 font-extrabold leading-2.5">
-                Approach That Turns <br />
-                <span className="text-gray-700">
-                  Innovation Into Industry Impact
-                </span>
-              </h2> */}
-              <H2 className="text-5xl gap-2 font-extrabold leading-2.5">
-                Approach That Turns <br />
-                <span className="text-gray-700">
-                  Innovation Into Industry Impact
-                </span>
-              </H2>
-            </div>
-          </div>
-
-          {/* Right side contact button */}
-          <div className="absolute right-20 top-20">
-            {/* <button className="w-[180px] h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
-              CONTACT US
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </button> */}
-            <ContactUs>CONTACT US
-              {/* <ArrowUpRight className="h-[20px] w-[20px] font-bold ml-[8px]" /> */}
-            </ContactUs>
-          </div>
-        </div>
+        <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors duration-300">
+          <span className="text-xs sm:text-sm font-medium">CONTACT US</span>
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </button>
       </div>
 
-      {/* Spacer */}
-      <div className="h-12 sm:h-24 md:h-32 lg:h-48"></div>
-
-      {/* Black Box Section */}
-      <div className="bg-black relative w-full max-w-[1145px] mx-auto rounded-xl p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col items-center"
-           style={{ 
-             height: 'auto',
-             minHeight: '400px',
-           }}>
-        
-        {/* Mobile Cards Layout */}
-        <div className="block sm:hidden w-full">
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {cards.map((card) => (
-              <div
-                key={card.id}
-                onClick={() => setActive(card.id)}
-                className={`relative flex flex-col items-center justify-center w-full h-32 border transition-all duration-500 cursor-pointer ${
-                  active === card.id
-                    ? "border-blue-500 rounded-full"
-                    : "border-gray-600 rounded-xl"
-                }`}
-              >
-                {active === card.id && (
-                  <div className="absolute inset-0 rounded-full animate-spin-slow bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.3),_transparent_70%)]"></div>
-                )}
-
-                <span className="text-2xl relative z-10">
-                  {card.icon}
-                </span>
-                <p
-                  className={`mt-2 text-xs font-medium relative z-10 text-center ${
-                    active === card.id ? "text-white" : "text-gray-400"
-                  }`}
-                >
-                  {card.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tablet Cards Layout */}
-        <div className="hidden sm:block md:hidden w-full">
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            {cards.map((card) => (
-              <div
-                key={card.id}
-                onClick={() => setActive(card.id)}
-                className={`relative flex flex-col items-center justify-center w-full h-40 border transition-all duration-500 cursor-pointer ${
-                  active === card.id
-                    ? "border-blue-500 rounded-full"
-                    : "border-gray-600 rounded-xl"
-                }`}
-              >
-                {active === card.id && (
-                  <div className="absolute inset-0 rounded-full animate-spin-slow bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.3),_transparent_70%)]"></div>
-                )}
-
-                <span className="text-3xl relative z-10">
-                  {card.icon}
-                </span>
-                <p
-                  className={`mt-3 text-sm font-medium relative z-10 text-center ${
-                    active === card.id ? "text-white" : "text-gray-400"
-                  }`}
-                >
-                  {card.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Medium Screen Cards Layout */}
-        <div className="hidden md:block lg:hidden w-full">
-          <div className="grid grid-cols-4 gap-4 mb-8">
-            {cards.map((card) => (
-              <div
-                key={card.id}
-                onClick={() => setActive(card.id)}
-                className={`relative flex flex-col items-center justify-center w-full h-36 border transition-all duration-500 cursor-pointer ${
-                  active === card.id
-                    ? "border-blue-500 rounded-full"
-                    : "border-gray-600 rounded-xl"
-                }`}
-              >
-                {active === card.id && (
-                  <div className="absolute inset-0 rounded-full animate-spin-slow bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.3),_transparent_70%)]"></div>
-                )}
-
-                <span className="text-3xl relative z-10">
-                  {card.icon}
-                </span>
-                <p
-                  className={`mt-3 text-sm font-medium relative z-10 text-center ${
-                    active === card.id ? "text-white" : "text-gray-400"
-                  }`}
-                >
-                  {card.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Cards Layout - Keep Original */}
-        <div className="hidden lg:flex justify-between w-full mb-12">
+      {/* Cards */}
+      <div className="w-full px-6 sm:px-10 lg:px-16 pb-16">
+      
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {cards.map((card) => (
             <div
               key={card.id}
-              onClick={() => setActive(card.id)}
-              className={`relative flex flex-col items-center justify-center w-52 h-52 border transition-all duration-500 cursor-pointer ${
-                active === card.id
-                  ? "border-blue-500 rounded-full"
-                  : "border-gray-600 rounded-xl"
-              }`}
+              onMouseEnter={() => setActive(card.id)}
+              className={`relative flex flex-col items-center justify-center
+                aspect-square h-40 sm:h-48 md:h-60 lg:h-72
+                border transition-all duration-500 cursor-pointer
+                ${
+                  active === card.id
+                    ? "border-blue-500 border-4 rounded-full"
+                    : "border-gray-700 rounded-2xl sm:rounded-3xl hover:rounded-full hover:border-blue-500 hover:border-4"
+                }`}
             >
-              {active === card.id && (
-                <div className="absolute inset-0 rounded-full animate-spin-slow bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.3),_transparent_70%)]"></div>
-              )}
+              {/* Background animation */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500
+                  ${active === card.id ? "opacity-100" : "opacity-0"}`}
+              >
+                <img
+                  src="/WhatWeDo/img2.jpg"
+                  alt="bg"
+                  className="w-full h-full blur-sm opacity-60 animate-spin-slow"
+                />
+              </div>
 
-              <span className="text-4xl relative z-10">
+              {/* Icon */}
+              <span className="mb-3 text-xl sm:text-2xl md:text-3xl">
                 {card.icon}
               </span>
-              <p
-                className={`mt-4 text-lg font-medium relative z-10 ${
+
+              {/* Label */}
+              <span
+                className={`text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-center ${
                   active === card.id ? "text-white" : "text-gray-400"
                 }`}
               >
                 {card.label}
-              </p>
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Bottom Description Box */}
-        <div className="w-full bg-[#111] text-gray-300 text-center py-4 sm:py-6 px-4 sm:px-6 md:px-8 rounded-2xl sm:rounded-3xl border border-gray-700">
-          <p className="text-xs sm:text-sm leading-relaxed">
+        {/* Description */}
+        <div className="mt-8 sm:mt-10 bg-gray-900/50 border border-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed text-center">
             {cards.find((c) => c.id === active)?.desc}
           </p>
         </div>

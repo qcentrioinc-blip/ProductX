@@ -1,19 +1,22 @@
 import InsightThought from "../../components/HighTech/InsightThought"
-import LandingPage from "../../components/HighTech/LandingPage"
 import HowWeDoIn from "../../components/HighTech/HowWeDoIn"
 import Footer from "../../components/Footer/Footer"
+import Process from "../../components/HighTech/Process"
+import WhatWeDoIn from "../../components/HighTech/WhatWeDoIn"
+import Partnership from "../../components/HomePage/Partnership"
 import BeyondBanking from "../../components/HighTech/BeyondBanking"
 import HWD from "../../components/HighTech/HWD"
-import Process from "../../components/HighTech/Process"
-
+import LandingPage from "../../components/HomePage/LandingPage"
 const HighTech = () => (
   <div>
+    <LandingPage />
+    <Partnership/>
     <HowWeDoIn/>
-    <InsightThought />
+    <WhatWeDoIn/>
     <BeyondBanking />
     <HWD />
+    <InsightThought />
     <Process />
-    <LandingPage />
     <Footer />
   </div>
 )

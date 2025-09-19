@@ -1,25 +1,8 @@
 'use client'
 
-<<<<<<< HEAD
-import { useEffect, useState, useRef } from 'react';
-import {H1} from '../../styles/Typography'
-
-interface ScrollState {
-    scrollProgress: number;
-    imageScale: number;
-    imageOpacity: number;
-    sideImageOffset: number;
-    sideImageOpacity: number;
-    showOverlayText: boolean;
-    showBottomText: boolean;
-    perspective: number;
-    centerImageTransform: string;
-}
-=======
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
->>>>>>> 8d881da4c38293de31e617503a228dd76a38e021
 
 const VisionImpact: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -49,14 +32,6 @@ const VisionImpact: React.FC = () => {
     return (
         <div className="bg-black">
             {/* Title Section */}
-<<<<<<< HEAD
-            <div className="flex items-center justify-center py-20">
-                {/* <h1 className="text-4xl md:text-7xl text-center font-bold text-white px-4">
-                    From Vision To Impact
-                </h1> */}
-                <H1>From Vision To Impact</H1>
-            </div>
-=======
             <motion.div
                 className="flex items-center justify-center"
                 initial={{ opacity: 0, y: 50 }}
@@ -89,28 +64,12 @@ const VisionImpact: React.FC = () => {
                     </motion.h1>
                 </div>
             </motion.div>
->>>>>>> 8d881da4c38293de31e617503a228dd76a38e021
 
             {/* Main Animation Section */}
             <div
                 ref={containerRef}
                 className="relative h-[210vh]" // This height controls the scroll animation speed
             >
-<<<<<<< HEAD
-                <div 
-                    // In the class name there is an attribute named: Sticky.  In the problems, the error is:
-                    // both sticky and relative has the same properties. so I removed sticky. Now its working same as previous
-                    className="top-0 h-screen flex items-center justify-center overflow-hidden relative"
-                    style={{ perspective: `${scrollState.perspective}px` }}
-                >
-
-                    {/* Image Gallery Container with enhanced 3D transforms */}
-                    <div className="flex items-center justify-center gap-4 md:gap-8 w-full max-w-7xl px-4 relative">
-
-                        {/* Left Side Images with enhanced perspective */}
-                        <div
-                            className="flex gap-4 transition-all duration-700 ease-out transform-gpu"
-=======
                 <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                     <motion.div
                         className="flex items-center justify-center w-full max-w-7xl px-4 relative"
@@ -119,7 +78,6 @@ const VisionImpact: React.FC = () => {
                         {/* Left Images */}
                         <motion.div
                             className="flex gap-4"
->>>>>>> 8d881da4c38293de31e617503a228dd76a38e021
                             style={{
                                 x: leftImageX,
                                 opacity: leftImageOpacity,
