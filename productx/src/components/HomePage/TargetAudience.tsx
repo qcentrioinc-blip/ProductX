@@ -75,7 +75,7 @@ const TargetAudience = () => {
     <div className="w-full bg-black text-white">
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Left Column - Title */}
+      
           <div className="lg:col-span-1 mb-10 lg:mb-0">
             <div className="sticky top-10 pl-2 sm:pl-6">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
@@ -85,9 +85,9 @@ const TargetAudience = () => {
           </div>
 
           {/* Middle Column - Industries */}
-          <div className="lg:col-span-1 w-full max-w-md mx-auto">
-            <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-white text-black bg-opacity-10 rounded-full text-xs sm:text-sm mb-2">
+          <div className="lg:col-span-1 w-full max-w-md ">
+            <div className="mb-10">
+              <span className="inline-block px-4 py-2 bg-white text-black bg-opacity-10 rounded-full text-xs sm:text-sm mb-4">
                 We Focus On
               </span>
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
@@ -107,10 +107,10 @@ const TargetAudience = () => {
                   ref={(el) => {
                     industryRefs.current[index] = el;
                   }}
-                  className="py-2 sm:py-4"
+                  className="py-2 sm:py-2"
                 >
                   <h2
-                    className={`text-2xl sm:text-3xl lg:text-5xl font-bold transition-colors duration-500 ${
+                    className={`text-2xl sm:text-3xl lg:text-4xl font-bold transition-colors duration-500 ${
                       index === activeIndex
                         ? "text-white opacity-100"
                         : "text-white opacity-30"
@@ -141,7 +141,7 @@ const TargetAudience = () => {
                   {industries[activeIndex]?.description}
                 </p>
 
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+                <div className="text-4xl sm:text-4xl md:text-5xl font-bold text-white">
                   {industries[activeIndex]?.percentage}
                 </div>
               </div>

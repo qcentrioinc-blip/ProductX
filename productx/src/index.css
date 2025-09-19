@@ -43,7 +43,9 @@ html, body {
 
 h1{
 font-family: "Bricolage Grotesque",sans-serif;
+font-style:"bold" ;
 }
+
 
 h2{
 font-family: "Bricolage Grotesque",sans-serif;
@@ -82,9 +84,25 @@ p {
   display: flex;
   animation: marquee 8s linear infinite;
 }
-.animate-spin-slow {
-  animation: spin-slow 6s linear infinite;
-}
+
+
+
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+  }
+
+
+
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
