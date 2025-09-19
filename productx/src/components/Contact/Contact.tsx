@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
-
+// import { ArrowUpRight } from "lucide-react";
+import { H2 } from "../../styles/Typography";
+import { Submit } from "../../styles/Button";
 const Contact: React.FC = () => {
   return (
     <section className="w-full h-[666px] flex bg-white pl-6 ">
@@ -9,10 +10,11 @@ const Contact: React.FC = () => {
         <div className="flex flex-col  h-[458px] w-[517px]  ml-[40px] justify-center lg:col-span-1">
 
 
-          <h2 className="text-3xl md:text-[64px] font-bold text-gray-900 mb-6">
+          {/* <h2 className="text-3xl md:text-[64px] font-bold text-gray-900 mb-6">
             Quam finibus
           </h2>
-
+ */}
+          <H2 className="text-black mb-6">Quam finibus</H2>
           <form className="space-y-4">
             <input
               type="text"
@@ -38,12 +40,13 @@ const Contact: React.FC = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg   focus:outline-none focus:ring-2 focus:ring-black"
             />
 
-            <button
+            {/* <button
               type="submit"
               className="px-6 py-2 bg-black text-white rounded-xl  flex items-center gap-2"
             >
               SUBMIT <ArrowUpRight className="h-6 w-6 font-bold" />
-            </button>
+            </button> */}
+            <Submit> SUBMIT</Submit>
           </form>
         </div>
 

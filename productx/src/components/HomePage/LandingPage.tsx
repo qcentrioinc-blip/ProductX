@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
+import {H1} from '../../styles/Typography'
 
 const LandingPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -118,8 +119,8 @@ const LandingPage = () => {
         <div className="flex-1 flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
-              <h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 md:mb-8"
+              <H1 
+                // className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 md:mb-8"
                 style={{
                   opacity: isTransitioning ? 0 : 1,
                   transform: isTransitioning ? "translateY(40px)" : "translateY(0)",
@@ -130,7 +131,7 @@ const LandingPage = () => {
                 Shaping the Future
                 <br />
                 <span className="block">Across Every Sector.</span>
-              </h1>
+              </H1>
 
               <button 
                 className="inline-flex items-center gap-2 bg-white text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8"

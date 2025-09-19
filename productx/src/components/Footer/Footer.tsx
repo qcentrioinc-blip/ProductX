@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import { H1 } from '../../styles/Typography';
 
 const Footer = () => {
     const [transform, setTransform] = useState({ scale: 0.2, opacity: 0 });
@@ -203,9 +204,10 @@ const Footer = () => {
                     <div className={`transform transition-all duration-1000 ease-out ${
                         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
                     }`}>
-                        <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold text-white tracking-widest text-center">
+                        {/* <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold text-white tracking-widest text-center">
                             ANIMA
-                        </h1>
+                        </h1> */}
+                        <H1>ANIMA</H1>
                     </div>
                 </div>
             </div>

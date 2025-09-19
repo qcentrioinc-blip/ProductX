@@ -15,10 +15,10 @@ const HeroSection = () => {
             <div id="landingpage">
                 <LandingPage />
             </div>
-            <WhatWeDo/>
             <div id="visionimpact">
                 <VisionImpact />
             </div>
+            <WhatWeDo/>
             <Partnership />
             <HowWeDo />
             <TargetAudience />

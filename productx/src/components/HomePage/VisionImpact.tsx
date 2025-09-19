@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react';
+import {H1} from '../../styles/Typography'
 
 interface ScrollState {
     scrollProgress: number;
@@ -89,9 +90,10 @@ const VisionImpact: React.FC = () => {
         <div className="bg-black">
             {/* Title Section */}
             <div className="flex items-center justify-center py-20">
-                <h1 className="text-4xl md:text-7xl text-center font-bold text-white px-4">
+                {/* <h1 className="text-4xl md:text-7xl text-center font-bold text-white px-4">
                     From Vision To Impact
-                </h1>
+                </h1> */}
+                <H1>From Vision To Impact</H1>
             </div>
 
             {/* Main Animation Section */}
@@ -100,7 +102,9 @@ const VisionImpact: React.FC = () => {
                 className="relative h-[100vh]" // Increased height for longer scroll
             >
                 <div 
-                    className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative"
+                    // In the class name there is an attribute named: Sticky.  In the problems, the error is:
+                    // both sticky and relative has the same properties. so I removed sticky. Now its working same as previous
+                    className="top-0 h-screen flex items-center justify-center overflow-hidden relative"
                     style={{ perspective: `${scrollState.perspective}px` }}
                 >
 

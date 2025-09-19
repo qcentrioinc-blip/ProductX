@@ -1,7 +1,12 @@
+import { H1 } from "../../styles/Typography";
+
 const InsightThought = () => {
     return (
-        <div className="max-w-7xl mx-auto mt-4">
-            <h1 className="text-4xl font-bold text-foreground mb-12">Insights and Thoughts</h1>
+        <div className="max-w-7xl mx-auto">
+            {/* <h1 className="text-4xl font-bold text-foreground mb-12">Insights and Thoughts</h1> */}
+            <H1 className="text-black">
+                Insights and Thoughts
+            </H1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* First Card */}
