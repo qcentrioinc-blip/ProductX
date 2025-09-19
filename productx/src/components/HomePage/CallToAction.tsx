@@ -14,7 +14,7 @@ const CallToAction = () => {
           <p className="text-gray-300 leading-relaxed pt-0 lg:pt-3 pb-6 lg:pb-4 text-justify">
             Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-            quisquam est, qui dolorem ipsum olad dolor sit amet.
+            quisquam est, qui dolorem ipsum olad dolor sit amet deregthyjuyk.
           </p>
           <button className="p-3 bg-white text-black font-semibold rounded-lg flex items-center gap-2 mx-auto lg:mx-0 w-fit">
             EXPLORE ALL PRODUCTS 
