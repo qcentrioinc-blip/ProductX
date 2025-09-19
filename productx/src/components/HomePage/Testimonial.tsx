@@ -50,7 +50,7 @@ const Testimonial = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const cardWidth = 448;
-  const mobileCardWidth = 280;
+  const mobileCardWidth = 370;
   const gap = 24;
   const mobileGap = 16;
   
@@ -98,12 +98,19 @@ const Testimonial = () => {
 
   return (
     <div className="w-full relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 sm:py-12 md:py-16">
-      <div className="w-full px-4 sm:px-6">
+      <div className="w-full">
         <h2 className='text-center text-3xl sm:text-4xl md:text-5xl pb-4 sm:pb-6 font-bold'>
           What Clients Say
         </h2>
 
         <div className="relative w-full flex justify-center">
+
+         <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-l from-transparent via-white/60  to-white z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 h-full w-32   bg-gradient-to-r from-transparent via-white/60  to-white z-10 pointer-events-none"></div>
+
+   
+
+
           {/* Left Chevron */}
           <button
             onClick={prevSlide}
@@ -144,12 +151,14 @@ const Testimonial = () => {
 
           {/* Desktop Carousel Container - Shows 3 cards */}
           <div
-            className="hidden md:block overflow-hidden relative"
+            className="hidden md:block overflow-hidden  relative"
             style={{
               width: `${3 * cardWidth + 2 * gap}px`,
               height: '200px',
             }}
           >
+
+       
             <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{
