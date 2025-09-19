@@ -16,7 +16,7 @@ const HeroSection = () => {
                 <LandingPage />
             </div>
             <WhatWeDo/>
-            <div id="visionimpact">
+            <div id="visionimpact" className="min-h-screen">
                 <VisionImpact />
             </div>
             <Partnership />
