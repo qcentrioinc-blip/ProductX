@@ -5,7 +5,8 @@ import Footer from "../../components/Footer/Footer"
 import Process from "../../components/HighTech/Process"
 import WhatWeDoIn from "../../components/HighTech/WhatWeDoIn"
 import Partnership from "../../components/HomePage/Partnership"
-import LandingPag from "../../components/HighTech/LandingPage"
+import LandingPage from "../../components/HighTech/LandingPage"
+import LandingPag from "../../components/HomePage/LandingPage"
 const HighTech = () => (
   <div>
     <LandingPag/>
@@ -14,7 +15,7 @@ const HighTech = () => (
     <WhatWeDoIn/>
     <InsightThought />
     <Process />
-    {/* <LandingPage /> */}
+    <LandingPage />
     <Footer />
   </div>
 )

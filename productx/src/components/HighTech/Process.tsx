@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
 
 type ProcessStepProps = {
-    step: string;
+    step: string;   
     title: string;
     description: string;
 };
