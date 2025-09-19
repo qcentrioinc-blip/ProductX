@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import {H1} from '../../styles/Typography'
+import { H2 } from "../../styles/Typography";
 
 const TargetAudience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,9 +80,10 @@ const TargetAudience = () => {
           {/* Left Column - Title */}
           <div className="lg:col-span-1 mb-10 lg:mb-0">
             <div className="sticky top-10 pl-2 sm:pl-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
+              {/* <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
                 Built <br /> For
-              </h1>
+              </h1> */}
+              <H1>Built <br /> For</H1>
             </div>
           </div>
 
@@ -109,7 +112,7 @@ const TargetAudience = () => {
                   }}
                   className="py-2 sm:py-4"
                 >
-                  <h2
+                  {/* <h2
                     className={`text-2xl sm:text-3xl lg:text-5xl font-bold transition-colors duration-500 ${
                       index === activeIndex
                         ? "text-white opacity-100"
@@ -117,7 +120,16 @@ const TargetAudience = () => {
                     }`}
                   >
                     {industry.name}
-                  </h2>
+                  </h2> */}
+                  <H2
+                    className={`transition-colors duration-500 ${
+                      index === activeIndex
+                        ? "text-white opacity-100"
+                        : "text-white opacity-30"
+                    }`}
+                  >
+                    {industry.name}
+                  </H2>
                 </div>
               ))}
             </div>

@@ -1,12 +1,17 @@
+import { H2 } from "../../styles/Typography";
+
 const Partnership = () => {
   const items = ["lorem", "lorem", "lorem", "lorem", "lorem"];
 
   return (
     <div className="w-screen bg-black pt-16 md:pt-32 pb-8">
       <div className="max-w-[872px] w-full text-center mx-auto relative overflow-hidden px-4">
-        <h2 className="text-white mb-6 font-bold text-2xl sm:text-3xl md:text-4xl">
+        {/* <h2 className="text-white mb-6 font-bold text-2xl sm:text-3xl md:text-4xl">
           Whom we work with
-        </h2>
+        </h2> */}
+        <H2>
+          Whom we work with
+        </H2>
 
         <div className="relative overflow-hidden">
           {/* fade overlays */}

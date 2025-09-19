@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { ArrowUpRight } from 'lucide-react'
+import { ContactUs } from '../../styles/Button';
+import { H2 } from "../../styles/Typography";
 
 const HowWeDo = () => {
   const [active, setActive] = useState<string | null>("impactful");
@@ -26,16 +29,22 @@ const HowWeDo = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+              {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
                 Approach That Turns{" "}
                 <span className="text-gray-700">
                   Innovation Into Industry Impact
                 </span>
-              </h2>
+              </h2> */}
+              <H2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+                Approach That Turns{" "}
+                <span className="text-gray-700">
+                  Innovation Into Industry Impact
+                </span>
+              </H2>
             </div>
 
             <div className="mt-4">
-              <button className="w-full sm:w-[180px] h-12 sm:h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
+              {/* <button className="w-full sm:w-[180px] h-12 sm:h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
                 CONTACT US
                 <svg
                   className="w-4 h-4"
@@ -50,7 +59,10 @@ const HowWeDo = () => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </button> */}
+              <ContactUs>CONTACT US
+                <ArrowUpRight className="h-6 w-6 font-bold" />
+              </ContactUs>
             </div>
           </div>
         </div>
@@ -66,18 +78,24 @@ const HowWeDo = () => {
             </div>
 
             <div>
-              <h2 className="text-5xl gap-2 font-extrabold leading-2.5">
+              {/* <h2 className="text-5xl gap-2 font-extrabold leading-2.5">
                 Approach That Turns <br />
                 <span className="text-gray-700">
                   Innovation Into Industry Impact
                 </span>
-              </h2>
+              </h2> */}
+              <H2 className="text-5xl gap-2 font-extrabold leading-2.5">
+                Approach That Turns <br />
+                <span className="text-gray-700">
+                  Innovation Into Industry Impact
+                </span>
+              </H2>
             </div>
           </div>
 
           {/* Right side contact button */}
           <div className="absolute right-20 top-20">
-            <button className="w-[180px] h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
+            {/* <button className="w-[180px] h-10 bg-black text-white rounded-lg px-6 py-3 flex items-center justify-center gap-2 font-medium hover:bg-gray-800 transition-colors">
               CONTACT US
               <svg
                 className="w-4 h-4"
@@ -92,7 +110,10 @@ const HowWeDo = () => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </button>
+            </button> */}
+            <ContactUs>CONTACT US
+              {/* <ArrowUpRight className="h-[20px] w-[20px] font-bold ml-[8px]" /> */}
+            </ContactUs>
           </div>
         </div>
       </div>
