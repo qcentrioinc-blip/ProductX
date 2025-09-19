@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
+// import {H1} from '../../styles/Typography'
 
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(false)

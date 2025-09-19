@@ -91,5 +91,4 @@ const WhatWeDo = () => {
     </div>
   );
 };
-
 export default WhatWeDo;

@@ -19,6 +19,7 @@ const HeroSection = () => {
             <div id="visionimpact" className="min-h-screen">
                 <VisionImpact />
             </div>
+            <WhatWeDo/>
             <Partnership />
             <HowWeDo />
             <TargetAudience />
