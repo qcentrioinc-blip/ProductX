@@ -4,8 +4,7 @@ import {
   AttachMoneyOutlined,
   LightbulbOutlined,
   CodeOutlined,
-} from "@mui/icons-material"; // using Material UI outlined icons
-// If you want lucide-react instead: import { Briefcase, DollarSign, Lightbulb, Code } from "lucide-react";
+} from "@mui/icons-material";
 
 const HowWeDo = () => {
   const [active, setActive] = useState<string>("");
@@ -43,19 +42,21 @@ const HowWeDo = () => {
       <div className="w-full px-6 lg:px-16 py-12 flex flex-col lg:flex-row justify-between items-start gap-8">
         <div className="max-w-2xl">
           <div className="flex items-center gap-4">
-            <div className="w-16 border-t border-gray-600"></div>
-            <span className="text-sm text-gray-400 uppercase tracking-wider">
+            <h2 className="text-lg sm:text-xl font-bricolage font-semibold flex items-center gap-2">
+              <span className="inline-block w-8 h-[4px] bg-white rounded-full"></span>
               How We Do
-            </span>
+            </h2>
           </div>
-          <h1 className="text-3xl lg:text-5xl font-bold leading-tight mt-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight mt-6">
             Approach That Turns <br />
-            <span className="text-gray-400">Innovation Into Industry Impact</span>
+            <span className="text-gray-400">
+              Innovation Into Industry Impact
+            </span>
           </h1>
         </div>
 
-        <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black px-6 py-3 rounded-lg transition-colors duration-300">
-          <span className="text-sm font-medium">CONTACT US</span>
+        <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors duration-300">
+          <span className="text-xs sm:text-sm font-medium">CONTACT US</span>
           <svg
             className="w-4 h-4"
             fill="none"
@@ -73,58 +74,58 @@ const HowWeDo = () => {
       </div>
 
       {/* Cards */}
-      <div className="w-full px-auto lg:px-16 pb-16">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 ">
-    {cards.map((card) => (
-      <div
-        key={card.id}
-        onMouseEnter={() => setActive(card.id)}
-        className={` relative flex flex-col items-center justify-center 
-          aspect-square h-48 lg:h-72
-          border transition-all duration-500 cursor-pointer
-          ${
-            active === card.id
-              ? "border-blue-500 border-4 rounded-full"
-              : "border-gray-700 rounded-3xl hover:rounded-full hover:border-blue-500 hover:border-4"
-          }`}
-      >
+      <div className="w-full px-6 sm:px-10 lg:px-16 pb-16">
+      
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+          {cards.map((card) => (
+            <div
+              key={card.id}
+              onMouseEnter={() => setActive(card.id)}
+              className={`relative flex flex-col items-center justify-center
+                aspect-square h-40 sm:h-48 md:h-60 lg:h-72
+                border transition-all duration-500 cursor-pointer
+                ${
+                  active === card.id
+                    ? "border-blue-500 border-4 rounded-full"
+                    : "border-gray-700 rounded-2xl sm:rounded-3xl hover:rounded-full hover:border-blue-500 hover:border-4"
+                }`}
+            >
+              {/* Background animation */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500
+                  ${active === card.id ? "opacity-100" : "opacity-0"}`}
+              >
+                <img
+                  src="/WhatWeDo/img2.jpg"
+                  alt="bg"
+                  className="w-full h-full blur-sm opacity-60 animate-spin-slow"
+                />
+              </div>
 
+              {/* Icon */}
+              <span className="mb-3 text-xl sm:text-2xl md:text-3xl">
+                {card.icon}
+              </span>
 
-          <div
-    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500
-      ${active === card.id ? "opacity-100" : "opacity-0"}`}
-  >
-    <img
-      src="/WhatWeDo/img2.jpg"
-      alt="bg"
-      className="w-full h-full blur-sm opacity-60 animate-spin-slow"
-    />
-  </div>
-        {/* Icon */}
-        <span className="mb-3 text-2xl lg:text-3xl">
-          {card.icon}
-        </span>
+              {/* Label */}
+              <span
+                className={`text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-center ${
+                  active === card.id ? "text-white" : "text-gray-400"
+                }`}
+              >
+                {card.label}
+              </span>
+            </div>
+          ))}
+        </div>
 
-        {/* Label */}
-        <span
-          className={`text-lg lg:text-xl font-semibold text-center ${
-            active === card.id ? "text-white" : "text-gray-400"
-          }`}
-        >
-          {card.label}
-        </span>
+        {/* Description */}
+        <div className="mt-8 sm:mt-10 bg-gray-900/50 border border-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed text-center">
+            {cards.find((c) => c.id === active)?.desc}
+          </p>
+        </div>
       </div>
-    ))}
-  </div>
-
-  {/* Description */}
-  <div className="mt-10 bg-gray-900/50 border border-gray-800 rounded-2xl p-6 lg:p-8">
-    <p className="text-base text-gray-300 leading-relaxed text-center">
-      {cards.find((c) => c.id === active)?.desc}
-    </p>
-  </div>
-      </div>
-
     </div>
   );
 };

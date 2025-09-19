@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import cta_img from "/CTA/cta-img-1.png";
 
+
 const CallToAction = () => {
   return (
     <div className="w-full h-auto lg:h-[482px] bg-gradient-to-tr from-black via-[#01010c] to-[#000000] text-white relative overflow-hidden">
@@ -11,6 +12,8 @@ const CallToAction = () => {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug text-white">
             Sed ut perspiciatis unde omnis iste
           </h1>
+
+         
           <p className="text-gray-300 leading-relaxed pt-4 pb-6 text-sm sm:text-base lg:text-justify">
             Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro

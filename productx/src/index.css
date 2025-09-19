@@ -43,7 +43,9 @@ html, body {
 
 h1{
 font-family: "Bricolage Grotesque",sans-serif;
+font-style:"bold" ;
 }
+
 
 h2{
 font-family: "Bricolage Grotesque",sans-serif;
@@ -134,3 +136,4 @@ button:focus-visible {
 } */
 
 @import "tailwindcss";
+
