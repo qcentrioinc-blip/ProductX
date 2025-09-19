@@ -4,6 +4,7 @@ import HowWeDoIn from "../../components/HighTech/HowWeDoIn"
 import Footer from "../../components/Footer/Footer"
 import BeyondBanking from "../../components/HighTech/BeyondBanking"
 import HWD from "../../components/HighTech/HWD"
+import Process from "../../components/HighTech/Process"
 
 const HighTech = () => (
   <div>
@@ -11,6 +12,7 @@ const HighTech = () => (
     <InsightThought />
     <BeyondBanking />
     <HWD />
+    <Process />
     <LandingPage />
     <Footer />
   </div>
