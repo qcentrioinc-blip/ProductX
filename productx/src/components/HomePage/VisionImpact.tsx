@@ -100,7 +100,7 @@ const VisionImpact: React.FC = () => {
                 className="relative h-[100vh]" // Increased height for longer scroll
             >
                 <div 
-                    className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative"
+                    className="top-0 h-screen flex items-center justify-center overflow-hidden relative"
                     style={{ perspective: `${scrollState.perspective}px` }}
                 >
 
@@ -137,9 +137,9 @@ const VisionImpact: React.FC = () => {
                         </div>
 
                         {/* Center Image with enhanced 3D scaling and perspective */}
-                        <div className="relative z-20 flex items-center justify-center">
+                        <div className="relative z-20  flex items-center justify-center">
                             <div
-                                className="relative overflow-hidden rounded-lg shadow-2xl"
+                                className="relative overflow-hidden  rounded-lg shadow-2xl"
                                 style={{
                                     transform: scrollState.centerImageTransform,
                                     opacity: scrollState.imageOpacity,
