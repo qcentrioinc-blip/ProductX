@@ -39,6 +39,13 @@ html, body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.font-bricolage {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+}
 
 
 h1{

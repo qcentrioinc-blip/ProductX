@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { H2, P } from '../../styles/Typography';
 
 const testimonials = [
   {
@@ -98,10 +99,16 @@ const Testimonial = () => {
 
   return (
     <div className="w-full relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 sm:py-12 md:py-16">
+      <div className="w-full px-4 sm:px-6">
+        {/* <h2 className='text-center text-3xl sm:text-4xl md:text-5xl pb-4 sm:pb-6 font-bold'>
       <div className="w-full">
         <h2 className='text-center text-3xl sm:text-4xl md:text-5xl pb-4 sm:pb-6 font-bold'>
           What Clients Say
-        </h2>
+        </h2> */}
+        <H2 className='text-center pb-4 sm:pb-6 text-black'>
+          What Clients Say
+        </H2>
+
 
         <div className="relative w-full flex justify-center">
 
@@ -188,9 +195,9 @@ const Testimonial = () => {
                       gap: '56px'
                     }}
                   >
-                    <p className="text-white text-lg leading-relaxed flex-1">
+                    <P className="text-white text-lg leading-relaxed flex-1">
                       "{testimonial.text}"
-                    </p>
+                    </P>
 
                     <div className="flex items-center gap-3">
                       <img
@@ -239,9 +246,9 @@ const Testimonial = () => {
                   }}
                 >
                   <div className="flex flex-col justify-between h-full">
-                    <p className="text-white text-sm sm:text-base leading-relaxed flex-1 mb-4">
+                    <P className="text-white text-sm sm:text-base leading-relaxed flex-1 mb-4">
                       "{testimonial.text}"
-                    </p>
+                    </P>
 
                     <div className="flex items-center gap-3">
                       <img

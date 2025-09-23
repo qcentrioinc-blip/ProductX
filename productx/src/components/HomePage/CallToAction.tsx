@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import cta_img from "/CTA/cta-img-1.png";
+import { H2, P } from "../../styles/Typography";
 
 
 const CallToAction = () => {
@@ -9,16 +10,25 @@ const CallToAction = () => {
         
         {/* Left side - Text content */}
         <div className="w-full lg:w-[685px] h-auto text-center lg:text-left">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug text-white">
+          {/* <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug text-white">
             Sed ut perspiciatis unde omnis iste
-          </h1>
+          </h1> */}
+          <H2>
+            Sed ut perspiciatis unde omnis iste
+          </H2>
 
          
-          <p className="text-gray-300 leading-relaxed pt-4 pb-6 text-sm sm:text-base lg:text-justify">
+          {/* <p className="text-gray-300 leading-relaxed pt-4 pb-6 text-sm sm:text-base lg:text-justify">
             Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
             quisquam est, qui dolorem ipsum olad dolor sit amet.
-          </p>
+          </p> */}
+          <P>
+            Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
+            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
+            quisquam est, qui dolorem ipsum olad dolor sit amet.
+
+          </P>
           <button className="px-5 py-3 bg-white text-black font-semibold rounded-lg flex items-center gap-2 mx-auto lg:mx-0">
             EXPLORE ALL PRODUCTS 
             <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 font-bold" />
