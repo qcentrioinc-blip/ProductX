@@ -3,6 +3,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import img1 from "/Image1.jpg";
 import img2 from "/Image2.jpg";
 import img3 from "/Image3.jpg";
+import { H2, H3, P } from "../../styles/Typography";
+import { ContactUs } from "../../styles/Button";
 
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -55,16 +57,20 @@ const WhatWeDoIn = () => {
         {/* top line with curved rectangle */}
         <div className="flex items-center gap-3">
           <div className="w-8 h-1 rounded-full bg-white"></div>
-          <h3 className="text-xl font-semibold">Who is it for</h3>
+          {/* <h3 className="text-xl font-semibold">Who is it for</h3> */}
+          <H3>Who is it for</H3>
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-bold leading-tight mt-2">
+        {/* <h2 className="text-4xl md:text-5xl font-bold leading-tight mt-2">
           Sed ut perspiciatis unde omnis
-        </h2>
-        <p className="text-gray-300 mt-3 max-w-2xl">
+        </h2> */}
+        <H2>Sed ut perspiciatis unde omnis</H2>
+        {/* <p className="text-gray-300 mt-3 max-w-2xl">
           Advanced Loan Solutions Beyond Traditional Banking
-        </p>
-
+        </p> */}
+        <P>
+           Advanced Loan Solutions Beyond Traditional Banking
+        </P>
         {/* Progress bar + button */}
         <div className="flex items-center justify-between mt-6">
           {/* progress bar */}
@@ -75,9 +81,12 @@ const WhatWeDoIn = () => {
             />
           </motion.div>
         </div>
-        <button className="bg-white absolute mr-8 right-0 my-4 text-black px-6 py-2 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-200 transition">
+        {/* <button className="bg-white absolute mr-8 right-0 my-4 text-black px-6 py-2 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-200 transition">
           CONTACT US <span>→</span>
-        </button>
+        </button> */}
+        <ContactUs className="bg-white text-black">
+          CONTACT US
+        </ContactUs>
       </div>
 
       {/* Content Section */}

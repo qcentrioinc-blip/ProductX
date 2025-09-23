@@ -1,4 +1,4 @@
-import { H2 } from "../../styles/Typography";
+import { H2, P } from "../../styles/Typography";
 
 const Partnership = () => {
   const items = ["lorem", "lorem", "lorem", "lorem", "lorem"];
@@ -26,9 +26,9 @@ const Partnership = () => {
                 key={i}
                 className="flex-none w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-24 flex items-center justify-center"
               >
-                <p className="text-white text-base sm:text-lg md:text-xl">
+                <P>
                   {text}
-                </p>
+                </P>
               </div>
             ))}
             {/* 2nd set (duplicate for seamless loop) */}
@@ -37,9 +37,9 @@ const Partnership = () => {
                 key={`dup-${i}`}
                 className="flex-none w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-24 flex items-center justify-center"
               >
-                <p className="text-white text-base sm:text-lg md:text-xl">
+                <P>
                   {text}
-                </p>
+                </P>
               </div>
             ))}
           </div>

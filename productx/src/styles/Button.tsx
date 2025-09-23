@@ -17,7 +17,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         rounded-[8px]
         font-quicksand
         text-[14px] sm:text-[16px] md:text-[16px]
-        font-bold
+        font-bold.
         bg-[rgba(1,1,1,1)]
         text-white
         transition-all duration-300 ease-in-out
@@ -75,3 +75,4 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
     </button>
   );
 };
+

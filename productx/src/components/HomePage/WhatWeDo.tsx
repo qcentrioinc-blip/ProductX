@@ -4,6 +4,7 @@ import img1 from "/WhatWeDo/img1.jpg";
 import img2 from "/WhatWeDo/img2.jpg";
 import img3 from "/WhatWeDo/img3.jpg";
 import img4 from "/WhatWeDo/img4.png";
+import { P } from "../../styles/Typography";
 
 const WhatWeDo = () => {
   return (
@@ -63,18 +64,18 @@ const WhatWeDo = () => {
 
             {/* Paragraphs */}
             <div className="space-y-6 text-sm sm:text-base font-Quicksand text-justify">
-              <p>
+              <P>
                 We design and deliver products that simplify complexity and
                 create real impact across industries. From Environment, Health &
                 Safety (EHS) and Project Management Systems (PMS) to
                 cutting-edge High-Tech solutions,
-              </p>
-              <p>
+              </P>
+              <P>
                 We help organizations operate smarter, safer, and faster. Our
                 strength lies in building adaptable platforms that don’t just
                 solve today’s challenges but prepare businesses for tomorrow’s
                 opportunities.
-              </p>
+              </P>
             </div>
           </div>
         </div>
