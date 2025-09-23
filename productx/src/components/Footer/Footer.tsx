@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useInView } from 'framer-motion';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Submit } from '../../styles/Button';
+import { H3, P } from '../../styles/Typography';
 
 const Footer = () => {
     // State for tracking scroll behavior and bottom reach
@@ -133,9 +135,10 @@ const Footer = () => {
 
                 {/* Company Description */}
                 <div className="mt-6 max-w-md">
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    {/* <p className="text-gray-300 text-sm leading-relaxed">
                         We are more than a technology provider; we are your strategic partner in progress.
-                    </p>
+                    </p> */}
+                    <P>We are more than a technology provider; we are your strategic partner in progress.</P>
                 </div>
 
                 {/* Social Icons */}
@@ -156,7 +159,8 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Industries Column */}
                     <div>
-                        <h3 className="text-white font-medium text-lg mb-6">Industries</h3>
+                        {/* <h3 className="text-white font-medium text-lg mb-6">Industries</h3> */}
+                        <H3>Industries</H3>
                         <ul className="space-y-3">
                             <li><a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">High Tech</a></li>
                             <li><a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">Banking and Finance</a></li>
@@ -166,7 +170,8 @@ const Footer = () => {
 
                     {/* Quick Links Column */}
                     <div>
-                        <h3 className="text-white font-medium text-lg mb-6">Quick Links</h3>
+                        {/* <h3 className="text-white font-medium text-lg mb-6">Quick Links</h3> */}
+                        <H3>Quick Links</H3>
                         <ul className="space-y-3">
                             <li><a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">Industries</a></li>
                             <li><a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">Solutions</a></li>
@@ -178,28 +183,34 @@ const Footer = () => {
 
                     {/* Contact Sales Column */}
                     <div>
-                        <h3 className="text-white font-medium text-lg mb-6">Contact Sales</h3>
+                        {/* <h3 className="text-white font-medium text-lg mb-6">Contact Sales</h3> */}
+                        <H3>Contact Sales</H3>
                         <div className="space-y-3">
-                            <p className="text-gray-300 text-sm">info@abc.com</p>
-                            <p className="text-gray-300 text-sm">040-7418529630</p>
+                            {/* <p className="text-gray-300 text-sm">info@abc.com</p>
+                            <p className="text-gray-300 text-sm">040-7418529630</p> */}
+                            <P>info@abc.com</P>
+                            <P>040-7418529630</P>
                         </div>
                     </div>
 
                     {/* Stay Up to Date Column */}
                     <div>
-                        <h3 className="text-white font-medium text-lg mb-6">Stay Up to date</h3>
-                        <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                        {/* <h3 className="text-white font-medium text-lg mb-6">Stay Up to date</h3> */}
+                        <H3>Stay up to date</H3>
+                        {/* <p className="text-gray-300 text-sm mb-6 leading-relaxed">
                             Subscribe to our Insights, our monthly look at the critical issues facing global businesses.
-                        </p>
+                        </p> */}
+                        <P>Subscribe to our Insights, our monthly look at the critical issues facing global businesses.</P>
                         <div className="flex gap-2">
                             <input
                                 type="email"
                                 placeholder="Email"
                                 className="flex-1 bg-transparent border border-gray-600 rounded px-4 py-2 text-sm text-white placeholder-gray-400 focus:border-gray-400 focus:outline-none"
                             />
-                            <button className="bg-gray-600 hover:bg-gray-500 text-white px-6 py-2 rounded text-sm font-medium transition-colors">
+                            {/* <button className="bg-gray-600 hover:bg-gray-500 text-white px-6 py-2 rounded text-sm font-medium transition-colors">
                                 SUBMIT
-                            </button>
+                            </button> */}
+                            <Submit>SUBMIT</Submit>
                         </div>
                     </div>
                 </div>
