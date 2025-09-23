@@ -27,19 +27,19 @@ const WhatWeDoIn = () => {
       id: 1,
       title: "Banks",
       content:
-        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.",
+        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together. Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.",
     },
     {
       id: 2,
-      title: "Credit Unions",
+      title: "Credit",
       content:
-        "Our collaborative spirit extends to our clients, consultants, and the communities we serve.",
+        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together. Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.",
     },
     {
       id: 3,
       title: "NBFCs",
       content:
-        "Working together fosters innovation and leads to the most successful and holistic solutions.",
+        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together. Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together.",
     },
   ];
 
@@ -66,15 +66,17 @@ const WhatWeDoIn = () => {
         </p>
 
         {/* Progress bar + button */}
-        <div className="flex items-center justify-between mt-6">
-          {/* progress bar */}
-          <motion.div className="h-1 bg-gray-700 relative flex-1 rounded">
-            <motion.div
-              className="absolute left-1/2 top-0 h-full bg-white origin-left"
-              style={{ scaleX: progress }}
-            />
-          </motion.div>
-        </div>
+       <div className="flex items-center justify-between mt-6">
+  {/* Progress bar container */}
+  <motion.div className="h-1 bg-gray-700 relative flex-1 rounded overflow-hidden">
+    {/* White fill that grows with scroll */}
+    <motion.div
+      className="absolute left-0 top-0 h-full bg-white origin-left"
+      style={{ scaleX: progress }}
+    />
+  </motion.div>
+</div>
+
         <button className="bg-white absolute mr-8 right-0 my-4 text-black px-6 py-2 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-200 transition">
           CONTACT US <span>→</span>
         </button>
@@ -83,67 +85,54 @@ const WhatWeDoIn = () => {
       {/* Content Section */}
       <div className="flex flex-1 flex-col md:flex-row w-full max-w-[1360px] mx-auto mt-10 px-4 md:px-8">
         {/* Image Side */}
-        <div className="w-full md:w-3/5 h-[500px] md:h-screen">
+        <div className="w-full md:w-2/5 h-[500px] md:h-screen">
           <img
-            src={images[openIndex]} // 🔑 switch image based on tab
+            src={images[openIndex]} 
             alt="Who we serve"
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Accordion Side */}
-        <div className="w-full md:w-2/5 flex flex-col justify-center">
+        <div className="w-full md:w-3/5 flex flex-col justify-center">
           {accordionData.map((item, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
-                key={item.id}
-                className={`border-b border-gray-700 cursor-pointer transition-all duration-500 ease-in-out ${
-                  isOpen ? "bg-gray-900 min-h-[275px]" : "min-h-[150px]"
-                }`}
-                onClick={() => setOpenIndex(index)}
-              >
-            
-                {/* Number + Title */}
-                <div className="flex items-center gap-4 p-4">
-                  <h4
-                    className={`text-5xl font-bold transition-all duration-500 ${
-                      isOpen ? "text-white" : "text-gray-400"
-                    }`}
-                  >
-                    {String(item.id).padStart(2, "0")}
-                  </h4>
+             <div
+  key={item.id}
+  className={`relative border-b border-gray-700 cursor-pointer overflow-hidden transition-all duration-500 ease-in-out ${
+    isOpen ? "bg-gray-900 min-h-[275px]" : "min-h-[100px]"
+  }`}
+  onClick={() => setOpenIndex(index)}
+>
+  {/* Number is always visible */}
+  <span
+    className={`absolute left-6 top-6 text-6xl md:text-7xl font-bold transition-colors duration-500 ${
+      isOpen ? "text-white" : "text-neutral-800"
+    }`}
+  >
+    {String(item.id).padStart(2, "0")}
+  </span>
 
-                  {/* Title beside number */}
-                  <motion.p
-                    className="text-2xl font-semibold"
-                    animate={{
-                      x: isOpen ? 0 : 40, // shift slightly when closed
-                      color: isOpen ? "#ffffff" : "#d1d5db",
-                    }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    {item.title}
-                  </motion.p>
-                </div>
+  {/* Title → shifts position */}
+  <motion.h3
+    className="text-lg md:text-3xl font-semibold absolute top-8 transition-colors duration-500"
+    initial={false}
+    animate={{
+      right: isOpen ? "auto" : "1.5rem", 
+      left: isOpen ? "8rem" : "auto",   
+      color: isOpen ? "#ffffff" : "#d1d5db",
+    }}
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+  >
+    {item.title}
+  </motion.h3>
 
-                {/* Content with slide-in effect */}
-                {isOpen && (
-                  <motion.div
-                    className="px-10 py-10"
-                    initial={{ opacity: 0, x: 80 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 80 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                      {item.content}
-                    </p>
-                  </motion.div>
-                )}
-              </div>
-            );
+
+{isOpen && ( 
+  <motion.p
+  className="pr-12 pl-40 text-justify py-32" initial={{ opacity: 0, x: 80 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 80 }} transition={{ duration: 0.6, ease: "easeOut" }} > <p className="text-gray-400 text-sm md:text-base leading-relaxed"> {item.content} </p> </motion.p> )} </div> );
           })}
         </div>
       </div>
