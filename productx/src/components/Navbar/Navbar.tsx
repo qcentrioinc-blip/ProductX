@@ -342,10 +342,23 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
+
+                  {/* <Link 
+  to="/industries/high-tech"
+  onClick={(e) => {
+    e.preventDefault();
+    window.open('/industries/high-tech', '_blank');
+  }}
+>
+  High Tech
+</Link> */}
                   <Link
                     to="/industries/high-tech"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
-                    onClick={() => setIsIndustriesOpen(false)}
+                     onClick={(e) => {
+    e.preventDefault();
+    window.open('/industries/high-tech', '_blank');
+  }}
                   >
                     <span>Explore</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

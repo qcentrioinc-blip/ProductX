@@ -195,105 +195,107 @@ const LandingPage = () => {
                 </div>
               )}
         {/* ✅ Responsive Bottom Section */}
-        <div className="border-t border-white/20 bg-transparent">
+        <div className=" border-white/20 bg-transparent">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
             {isMobile ? (
-              // --------- Mobile Layout ----------
-              <div className="h-screen flex flex-col justify-center">
-                {/* Title + Subtitle */}
-                <div className="flex-1 flex items-center justify-center text-center px-4">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentTitleData.title}
-                      initial={{ opacity: 0, x: -50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 50 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                      <h1 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
-                        {currentTitleData.title}
-                      </h1>
-                      <p className="text-base sm:text-lg text-white/80 mt-2">
-                        {currentTitleData.subtitle}
-                      </p>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+              // --------- Mobile Layout ---------
+<div className="flex flex-col justify-start">
+  {/* Title + Subtitle + Button */}
+  <div className="text-center mb-6">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentTitleData.title}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -30 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
+          {currentTitleData.title}
+          <br />
+          <span className="block text-white/90">
+            {currentTitleData.subtitle}
+          </span>
+        </h1>
+        <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors duration-300 group">
+          CONTACT US
+          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+        </button>
+      </motion.div>
+    </AnimatePresence>
+  </div>
 
-                {/* Navigation Arrows */}
-                <div className="flex justify-center gap-6 mb-4">
-                  <button
-                    onClick={handlePrevSlide}
-                    disabled={currentSlide === 0 || isTransitioning}
-                    className={`w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${
-                      currentSlide === 0 || isTransitioning
-                        ? "opacity-40 cursor-not-allowed"
-                        : "hover:bg-white/10 hover:border-white/60"
-                    }`}
-                  >
-                    <ChevronLeft className="w-4 h-4 text-white" />
-                  </button>
+  {/* Sector Cards with Arrows */}
+  <div className="relative">
+    {/* Left Arrow */}
+    <button
+      onClick={handlePrevSlide}
+      disabled={currentSlide === 0 || isTransitioning}
+      className={`absolute -left-3 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-white/30 bg-black/40 flex items-center justify-center ${
+        currentSlide === 0 || isTransitioning
+          ? "opacity-40 cursor-not-allowed"
+          : "hover:bg-white/20"
+      }`}
+    >
+      <ChevronLeft className="w-4 h-4 text-white" />
+    </button>
 
-                  <button
-                    onClick={handleNextSlide}
-                    disabled={currentSlide === totalSlides - 1 || isTransitioning}
-                    className={`w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${
-                      currentSlide === totalSlides - 1 || isTransitioning
-                        ? "opacity-40 cursor-not-allowed"
-                        : "hover:bg-white/10 hover:border-white/60"
-                    }`}
-                  >
-                    <ChevronRight className="w-4 h-4 text-white" />
-                  </button>
-                </div>
+  {/* Scrollable Sectors */}
+<div className="flex gap-4  overflow-x-auto scrollbar-hide py-4">
+  {sectorsData.map((sector, index) => (
+    <div
+      key={sector.id}
+      className={`flex-shrink-0 cursor-pointer ${
+        currentSlide === index + 1 ? "" : ""
+      }`}
+      onClick={() => !isTransitioning && handleSectorClick(index)}
+      style={{
+        width: index < 2 ? "160px" : "30vw", 
+        height: "96px",
+        borderRadius: "0.5rem"
+      }}
+    >
+      <p className="text-center text-white mt-2 text-sm">{sector.name}</p>
+      <img
+        src={sector.image || "/placeholder.svg"}
+        alt={sector.name}
+        className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+      />
+      
+    </div>
+  ))}
+</div>
 
-                {/* Sector Images */}
-                <div className="w-full overflow-x-auto mb-4">
-                  <div className="flex gap-4 px-2" style={{ width: "max-content" }}>
-                    {sectorsData.map((sector, index) => (
-                      <div
-                        key={sector.id}
-                        className={`group flex-shrink-0 ${
-                          isTransitioning ? "cursor-not-allowed" : "cursor-pointer"
-                        }`}
-                        onClick={() => !isTransitioning && handleSectorClick(index)}
-                      >
-                        <div
-                          className={`overflow-hidden rounded-lg transition-all duration-300 ${
-                            currentSlide === index + 1 ? "ring-2 ring-blue-500" : ""
-                          }`}
-                          style={{
-                            width: index < 2 ? "45vw" : "30vw",
-                            height: "140px"
-                          }}
-                        >
-                          <img
-                            src={sector.image || "/placeholder.svg"}
-                            alt={sector.name}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Dots */}
-                <div className="flex justify-center gap-2 mb-6">
-                  {Array.from({ length: totalSlides }).map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleDotClick(index)}
-                      disabled={isTransitioning}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                        index === currentSlide
-                          ? "bg-blue-500"
-                          : "bg-white/30 hover:bg-white/50"
-                      } ${isTransitioning ? "cursor-not-allowed" : ""}`}
-                    />
-                  ))}
-                </div>
-              </div>
+    {/* Right Arrow */}
+    <button
+      onClick={handleNextSlide}
+      disabled={currentSlide === totalSlides - 1 || isTransitioning}
+      className={`absolute -right-3 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-white/30 bg-black/40 flex items-center justify-center ${
+        currentSlide === totalSlides - 1 || isTransitioning
+          ? "opacity-40 cursor-not-allowed"
+          : "hover:bg-white/20"
+      }`}
+    >
+      <ChevronRight className="w-4 h-4 text-white" />
+    </button>
+  </div>
+
+  {/* Dots */}
+  <div className="flex justify-center gap-2 mt-6">
+    {Array.from({ length: totalSlides }).map((_, index) => (
+      <button
+        key={index}
+        onClick={() => handleDotClick(index)}
+        disabled={isTransitioning}
+        className={`w-2.5 h-2.5 rounded-full ${
+          index === currentSlide ? "bg-blue-500" : "bg-white/30 hover:bg-white/50"
+        } ${isTransitioning ? "cursor-not-allowed" : ""}`}
+      />
+    ))}
+  </div>
+</div>
+
             ) : (
               // --------- Desktop Layout ----------
               <div className="flex items-start gap-8 lg:gap-12">

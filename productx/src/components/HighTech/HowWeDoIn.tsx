@@ -42,7 +42,7 @@ const  HowWeDoIn = () => {
       </div>
  
       {/* Cards Section */}
-      <div className="grid mt-10 grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-3 p-6">
+      <div className="grid mt-10 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-6">
         {icons.map((item, i) => (
           <div
             key={i}

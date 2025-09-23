@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BusinessCenterOutlined,
   AttachMoneyOutlined,
@@ -35,6 +35,21 @@ const HowWeDo = () => {
       desc: "Focus on delivering measurable outcomes that truly create value for industries and communities through robust technical solutions.",
     },
   ];
+
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) return; 
+
+    let index = 0;
+    setActive(cards[index].id);
+
+    const interval = setInterval(() => {
+      index = (index + 1) % cards.length;
+      setActive(cards[index].id);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  });
 
   return (
     <div className="w-screen min-h-screen bg-black text-white">
@@ -75,12 +90,13 @@ const HowWeDo = () => {
 
       {/* Cards */}
       <div className="w-full px-6 sm:px-10 lg:px-16 pb-16">
-      
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {cards.map((card) => (
             <div
               key={card.id}
-              onMouseEnter={() => setActive(card.id)}
+              onMouseEnter={() =>
+                window.innerWidth >= 768 && setActive(card.id) // desktop hover only
+              }
               className={`relative flex flex-col items-center justify-center
                 aspect-square h-40 sm:h-48 md:h-60 lg:h-72
                 border transition-all duration-500 cursor-pointer

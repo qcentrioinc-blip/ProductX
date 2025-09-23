@@ -43,21 +43,21 @@ const WhatWeDo = () => {
           {/* Icons and paragraph */}
           <div className="flex flex-col lg:flex-row lg:items-start mt-12 gap-8">
             {/* Images */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-shrink-0">
+            <div className="flex gap-2  sm:grid sm:grid-cols-3  sm:gap-4 flex-shrink-0">
               <img
                 src={img1}
                 alt="Image 1"
-                className="w-full h-48 sm:h-48 object-cover rounded-lg"
+                className="w-20 flex-1 h-24 sm:h-48  sm:w-full  object-cover rounded-lg"
               />
               <img
                 src={img2}
                 alt="Image 2"
-                className="w-full h-48 sm:h-48 object-cover rounded-lg"
+                className="w-20 flex-1 sm:w-full h-24 sm:h-48 object-cover rounded-lg"
               />
               <img
                 src={img3}
                 alt="Image 3"
-                className="w-full h-48 sm:h-48   object-cover rounded-lg"
+                className="w-20 flex-1 h-24 sm:h-48  sm:w-full   object-cover rounded-lg"
               />
             </div>
 
