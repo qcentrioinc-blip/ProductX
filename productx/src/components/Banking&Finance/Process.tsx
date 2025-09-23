@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
-import { H1, H3, P } from '../../styles/Typography';
+// import { H1, H3, P } from '../../styles/Typography';
 
 type ProcessStepProps = {
     step: string;   
@@ -10,18 +10,16 @@ type ProcessStepProps = {
 
 const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) => {
     return (
-        <div className="w-[80vw] md:w-[45vw] flex-shrink-0">
+        <div className="w-[80vw] md:w-[45vw] flex-shrink-0" style={{ fontFamily: 'Bricolage Grotesque' }}>
             <div className="relative flex flex-col items-start px-4">
                 <div className="relative bg-white z-10 p-1">
-                    <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white font-semibold text-xs">
+                    <div className="w-24 h-24 bg-black rounded-full flex items-center justify-center text-white font-semibold text-lg">
                         {step}
                     </div>
                 </div>
                 <div className="mt-8 text-left">
-                    {/* <h3 className="font-bold text-xs tracking-widest uppercase text-gray-800 mb-4">{title}</h3> */}
-                    <H3 className='text-black'>{title}</H3>
-                    {/* <p className="text-gray-600 text-sm leading-relaxed">{description}</p> */}
-                    <P className='text-black'>{description}</P>
+                    <h3 className="font-semibold text-[40px] tracking-widest uppercase text-gray-800 mb-4">{title}</h3>
+                    <p className="text-gray-600 text-[16px] leading-relaxed">{description}</p>
                 </div>
             </div>
         </div>
@@ -113,34 +111,33 @@ const Process = () => {
     }, [handleWheel]);
 
     return (
-        <div className="bg-white font-sans">
+        <div className="bg-white font-sans" id='our-process'>
             {/* **FULL FRAME STICKY SECTION**: Header + Horizontal Animation in one viewport */}
-            <div ref={containerRef} className="relative bg-white overflow-hidden py-8">
+            <div ref={containerRef} className="relative bg-white overflow-hidden">
                 <div className="sticky top-0 flex flex-col bg-white">
                     
                     {/* **HEADER SECTION**: Now part of sticky container */}
                     <div className="flex-none pt-8 pb-4">
                         <div className="container mx-auto px-4">
                             <div className="text-center">
-                                {/* <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Process</h1> */}
-                                <H1 className='text-black'>Our Process</H1>
-                                {/* <p className="text-lg text-gray-600">
+                                <h1 className="text-[40px] font-bold text-gray-800 mb-4" style={{ fontFamily: 'Bricolage Grotesque' }}>Our Process</h1>
+                                <p className="text-[16px] font-bold text-gray-600" style={{ fontFamily: 'Quicksand' }} >
                                     Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
-                                </p> */}
-                                <P className='text-black'>
+                                </p>
+                                <p className='text-black'>
                                     Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
-                                </P>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     {/* **HORIZONTAL SCROLL SECTION**: Flexible container for steps */}
-                    <div className="flex-1 flex items-center overflow-hidden">
+                    <div className="flex-1 flex items-center overflow-hidden py-16">
                         <motion.div 
                             style={{ x }} 
                             className="flex gap-x-8 md:gap-x-16"
                         >
-                            <div className="absolute top-8 left-0 w-[400vw] h-px z-0">
+                            <div className="absolute top-12 left-10 w-[190vw] h-px z-0">
                                 <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
                             </div>
 

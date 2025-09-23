@@ -1,16 +1,38 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useInView } from 'framer-motion';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Submit } from '../../styles/Button';
-import { H1, H3, P } from '../../styles/Typography';
+import { H3, P } from '../../styles/Typography';
 
 const Footer = () => {
-    const [transform, setTransform] = useState({ scale: 0.2, opacity: 0 });
-    const [isVisible, setIsVisible] = useState(false);
+    // State for tracking scroll behavior and bottom reach
     const [hasReachedBottom, setHasReachedBottom] = useState(false);
     const rafRef = useRef<number | null>(null);
     const footerRef = useRef<HTMLDivElement | null>(null);
     const lastScrollY = useRef(0);
-    // const previousScrollY = useRef(0);
+    
+    // Motion values for the blue circle animation
+    const scaleValue = useMotionValue(0.1);
+    const opacityValue = useMotionValue(0);
+    
+    // ADDED: useSpring for very slow, smooth animations
+    const scale = useSpring(scaleValue, { 
+        stiffness: 80,    // Very low stiffness for slow movement
+        damping: 40,      // High damping for smooth, non-bouncy motion
+        mass: 1.2           // Higher mass for slower response
+    });
+    
+    const opacity = useSpring(opacityValue, { 
+        stiffness: 100,    // Even lower stiffness for opacity
+        damping: 40,      // Higher damping for smooth fade
+        mass: 1
+    });
+    
+    // InView hook for visibility detection
+    const isInView = useInView(footerRef, { 
+        amount: 0.05,
+        margin: '0px 0px 0px 0px'
+    });
 
     const updateTransform = useCallback(() => {
         if (!footerRef.current) return;
@@ -20,7 +42,7 @@ const Footer = () => {
         const documentHeight = document.documentElement.scrollHeight;
         
         // Check if user has reached the very bottom of the page
-        const isAtBottom = (windowHeight + currentScrollY) >= (documentHeight - 10)
+        const isAtBottom = (windowHeight + currentScrollY) >= (documentHeight - 10);
         
         // Detect scroll direction
         const isScrollingUp = currentScrollY < lastScrollY.current;
@@ -35,7 +57,7 @@ const Footer = () => {
         // 1. User has reached bottom at least once
         // 2. User is currently scrolling UP
         // 3. Footer is visible
-        if (hasReachedBottom && isScrollingUp && isVisible) {
+        if (hasReachedBottom && isScrollingUp && isInView) {
             const rect = footerRef.current.getBoundingClientRect();
             const footerTop = rect.top;
             const footerHeight = rect.height;
@@ -45,18 +67,21 @@ const Footer = () => {
             
             if (footerTop < windowHeight) {
                 const visibleHeight = windowHeight - footerTop;
-                scrollProgress = Math.min(visibleHeight / (footerHeight * 0.8), 1);
+                scrollProgress = Math.min(visibleHeight / (footerHeight * 0.3), 1);
             }
             
             const newScale = 0.2 + (scrollProgress * 1.3);
-            const newOpacity = scrollProgress * 0.4;
+            const newOpacity = scrollProgress * 2;
             
-            setTransform({ scale: newScale, opacity: newOpacity });
+            // Update motion values (useSpring will handle smooth animation)
+            scaleValue.set(newScale);
+            opacityValue.set(newOpacity);
         } else if (!isScrollingUp || !hasReachedBottom) {
             // Reset animation when scrolling down or haven't reached bottom
-            setTransform({ scale: 0.2, opacity: 0 });
+            scaleValue.set(0.2);
+            opacityValue.set(0);
         }
-    }, [hasReachedBottom, isVisible]);
+    }, [hasReachedBottom, isInView, scaleValue, opacityValue]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -67,20 +92,6 @@ const Footer = () => {
             rafRef.current = requestAnimationFrame(updateTransform);
         };
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(entry.isIntersecting);
-            },
-            { 
-                threshold: 0.1,
-                rootMargin: '0px 0px -5% 0px'
-            }
-        );
-
-        if (footerRef.current) {
-            observer.observe(footerRef.current);
-        }
-
         // Initialize scroll position
         lastScrollY.current = window.scrollY;
         
@@ -88,9 +99,6 @@ const Footer = () => {
         
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            if (footerRef.current) {
-                observer.unobserve(footerRef.current);
-            }
             if (rafRef.current) {
                 cancelAnimationFrame(rafRef.current);
             }
@@ -98,22 +106,23 @@ const Footer = () => {
     }, [updateTransform]);
 
     return (
-        <div 
+        <motion.div 
             ref={footerRef}
             className="bg-black text-white relative overflow-hidden min-h-screen"
         >
-            {/* Scroll-triggered Blue Circle - Only on scroll UP from bottom */}
-            <div 
-                className="absolute bottom-0 left-1/2 pointer-events-none transition-all duration-300 ease-out"
+            {/* Scroll-triggered Blue Circle - MODIFIED: Very slow spring animation */}
+            <motion.div 
+                className="absolute bottom-0 left-1/2 pointer-events-none z-50"
                 style={{
-                    transform: `translate(-50%, 50%) perspective(1200px) scale(${transform.scale})`,
-                    opacity: transform.opacity,
-                    willChange: 'transform, opacity',
-                    transformOrigin: 'center bottom'
+                    scale,          // Using spring-animated values
+                    opacity,        // Using spring-animated values
+                    x: '-50%',
+                    y: '50%',
+                    transformOrigin: 'center bottom',
                 }}
             >
-                <div className="w-[800px] h-[800px] lg:w-[1200px] lg:h-[1200px] rounded-full bg-blue-600"></div>
-            </div>
+                <div className="w-[800px] h-[800px] lg:w-[1200px] lg:h-[1200px] rounded-full bg-[#011eff]"></div>
+            </motion.div>
 
             {/* Top Section */}
             <div className="px-10 pt-16 pb-8 relative z-10">
@@ -211,17 +220,21 @@ const Footer = () => {
             <div className="px-10 relative z-10">
                 {/* ANIMA Text - Centered at Bottom */}
                 <div className="flex justify-center">
-                    <div className={`transform transition-all duration-1000 ease-out ${
-                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-                    }`}>
-                        {/* <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold text-white tracking-widest text-center">
+                    <motion.div
+                        initial={{ y: 48, opacity: 0 }}
+                        animate={{ 
+                            y: isInView ? 0 : 48, 
+                            opacity: isInView ? 1 : 0 
+                        }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                    >
+                        <h1 className="text-6xl lg:text-8xl xl:text-9xl font-bold text-white tracking-widest text-center">
                             ANIMA
-                        </h1> */}
-                        <H1>ANIMA</H1>
-                    </div>
+                        </h1>
+                    </motion.div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
