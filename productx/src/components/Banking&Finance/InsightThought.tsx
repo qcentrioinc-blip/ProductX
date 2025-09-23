@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { H3, P } from '../../styles/Typography';
 
 const InsightThought = () => {
 
@@ -43,10 +44,12 @@ const InsightThought = () => {
                         </motion.div>
                     </div>
                     <div className="p-4 sm:p-6">
-                        <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p>
-                        <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
+                        {/* <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p> */}
+                        <P className='text-black'>Sedut perspiciatis</P>
+                        {/* <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
                             At vero eos et accusamus et iusto odio dignissimos ducimus
-                        </h3>
+                        </h3> */}
+                        <H3 className='text-black'>At vero eos et accusamus et iusto odio dignissimos ducimus</H3>
                         <div className="flex items-center justify-between text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,10 +113,12 @@ const InsightThought = () => {
                         </motion.div>
                     </div>
                     <div className="p-4 sm:p-6">
-                        <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p>
-                        <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
+                        {/* <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p> */}
+                        <P className='text-black'>Sedut perspiciatis</P>
+                        {/* <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
                             At vero eos et accusamus et iusto odio dignissimos ducimus
-                        </h3>
+                        </h3> */}
+                        <H3 className='text-black'>At vero eos et accusamus et iusto odio dignissimos ducimus</H3>
                         <div className="flex items-center justify-between text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,10 +182,14 @@ const InsightThought = () => {
                         </motion.div>
                     </div>
                     <div className="p-4 sm:p-6">
-                        <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p>
-                        <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
+                        {/* <p className="text-sm text-muted-foreground mb-3">Sedut perspiciatis</p> */}
+                        <P className='text-black'>Sedut perspiciatis</P>
+                        {/* <h3 className="text-base sm:text-lg font-medium text-foreground mb-4 leading-relaxed">
                             At vero eos et accusamus et iusto odio dignissimos ducimus
-                        </h3>
+                        </h3> */}
+                        <H3 className='text-black'>
+                            At vero eos et accusamus et iusto odio dignissimos ducimus
+                        </H3>
                         <div className="flex items-center justify-between text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

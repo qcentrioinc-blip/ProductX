@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {H1} from '../../styles/Typography'
+import {H1, P} from '../../styles/Typography'
 import { H2 } from "../../styles/Typography";
 
 const TargetAudience = () => {
@@ -93,10 +93,14 @@ const TargetAudience = () => {
               <span className="inline-block px-4 py-2 bg-white text-black bg-opacity-10 rounded-full text-xs sm:text-sm mb-4">
                 We Focus On
               </span>
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              {/* <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 Our products are built to empower organizations across
                 industries, helping them streamline work
-              </p>
+              </p> */}
+              <P>
+                Our products are built to empower organizations across
+                industries, helping them streamline work
+              </P>
             </div>
 
             <div
@@ -149,9 +153,9 @@ const TargetAudience = () => {
               </div>
 
               <div className="space-y-4">
-                <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                <P className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
                   {industries[activeIndex]?.description}
-                </p>
+                </P>
 
                 <div className="text-4xl sm:text-4xl md:text-5xl font-bold text-white">
                   {industries[activeIndex]?.percentage}

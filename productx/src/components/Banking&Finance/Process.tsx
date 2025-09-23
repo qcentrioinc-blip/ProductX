@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
+// import { H1, H3, P } from '../../styles/Typography';
 
 type ProcessStepProps = {
     step: string;   
@@ -121,6 +122,9 @@ const Process = () => {
                             <div className="text-center">
                                 <h1 className="text-[40px] font-bold text-gray-800 mb-4" style={{ fontFamily: 'Bricolage Grotesque' }}>Our Process</h1>
                                 <p className="text-[16px] font-bold text-gray-600" style={{ fontFamily: 'Quicksand' }} >
+                                    Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
+                                </p>
+                                <p className='text-black'>
                                     Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
                                 </p>
                             </div>
