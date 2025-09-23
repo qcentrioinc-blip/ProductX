@@ -37,7 +37,7 @@ const HWD = () => {
     return (
       <>
         {/* Top Section */}
-        <div className="p-6 md:p-8 bg-[rgba(245,245,245,1)]">
+        <div className="p-6 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
           {/* Icon */}
           <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
           <div className="text-justify">

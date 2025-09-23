@@ -331,13 +331,14 @@ const Navbar = ({ activeSection }: NavbarProps) => {
               <div className="border-b border-gray-200 mb-8"></div>
 
               <div className="grid grid-cols-3 gap-8 relative">
+
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-black">High Tech</h3>
+                  <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
                   <Link
-                    to="/industries/high-tech"
+                    to="/industries/banking-and-finance"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
                   >
@@ -349,12 +350,12 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 <div className="absolute left-1/3 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2"></div>
 
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
+                  <h3 className="text-lg font-medium text-black">High Tech</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
                   <Link
-                    to="/industries/banking-and-finance"
+                    to="/industries/high-tech"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
                   >

@@ -1,7 +1,26 @@
+import BankFinanceNavbar from "../../components/Banking&Finance/BankFinanceNavbar"
+import BeyondBanking from "../../components/Banking&Finance/BeyondBanking"
+import HowWeDoIn from "../../components/Banking&Finance/HowWeDoIn"
+import HWD from "../../components/Banking&Finance/HWD"
+import InsightThought from "../../components/Banking&Finance/InsightThought"
+import Process from "../../components/Banking&Finance/Process"
+import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
+import Footer from "../../components/Footer/Footer"
+import LandingPage from "../../components/HomePage/LandingPage"
+import Partnership from "../../components/HomePage/Partnership"
+
 const BankingAndFinance = () => (
-  <div className="p-8">
-    <h1 className="text-3xl font-bold mb-4">Banking and Finance</h1>
-    <p>Welcome to the Banking and Finance industry page.</p>
+  <div>
+    <LandingPage />
+    <BankFinanceNavbar />
+    <Partnership />
+    <HowWeDoIn/>
+    <WhatWeDoIn/>
+    <BeyondBanking />
+    <HWD />
+    <InsightThought />
+    <Process />
+    <Footer />
   </div>
 )
 export default BankingAndFinance
