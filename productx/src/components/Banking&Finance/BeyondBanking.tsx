@@ -24,7 +24,7 @@ const BeyondBanking = () => {
   return (
     <section
       ref={ref}
-      className="relative w-full h-screen bg-black flex items-center justify-center text-center overflow-hidden"
+      className="relative w-full h-screen bg-black flex items-center justify-center text-center overflow-hidden" id="products"
     >
       <motion.img
         src={building1}

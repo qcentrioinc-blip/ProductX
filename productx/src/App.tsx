@@ -34,8 +34,8 @@ const App = () => {
 
   const IndustryPage = () => {
     const { industry } = useParams();
-    if (industry === "high-tech") return <HighTech />;
     if (industry === "banking-and-finance") return <BankingAndFinance />;
+    if (industry === "high-tech") return <HighTech />;
     if (industry === "life-sciences") return <LifeSciences />;
     return <div>Industry not found</div>;
   }

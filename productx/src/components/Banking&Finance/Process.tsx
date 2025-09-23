@@ -110,7 +110,7 @@ const Process = () => {
     }, [handleWheel]);
 
     return (
-        <div className="bg-white font-sans">
+        <div className="bg-white font-sans" id='our-process'>
             {/* **FULL FRAME STICKY SECTION**: Header + Horizontal Animation in one viewport */}
             <div ref={containerRef} className="relative bg-white overflow-hidden">
                 <div className="sticky top-0 flex flex-col bg-white">
