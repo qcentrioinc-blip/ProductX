@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
+import { H1, H3, P } from '../../styles/Typography';
 
 type ProcessStepProps = {
     step: string;   
@@ -17,8 +18,10 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                     </div>
                 </div>
                 <div className="mt-8 text-left">
-                    <h3 className="font-bold text-xs tracking-widest uppercase text-gray-800 mb-4">{title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+                    {/* <h3 className="font-bold text-xs tracking-widest uppercase text-gray-800 mb-4">{title}</h3> */}
+                    <H3 className='text-black'>{title}</H3>
+                    {/* <p className="text-gray-600 text-sm leading-relaxed">{description}</p> */}
+                    <P className='text-black'>{description}</P>
                 </div>
             </div>
         </div>
@@ -119,10 +122,14 @@ const Process = () => {
                     <div className="flex-none pt-8 pb-4">
                         <div className="container mx-auto px-4">
                             <div className="text-center">
-                                <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Process</h1>
-                                <p className="text-lg text-gray-600">
+                                {/* <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Process</h1> */}
+                                <H1 className='text-black'>Our Process</H1>
+                                {/* <p className="text-lg text-gray-600">
                                     Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
-                                </p>
+                                </p> */}
+                                <P className='text-black'>
+                                    Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
+                                </P>
                             </div>
                         </div>
                     </div>

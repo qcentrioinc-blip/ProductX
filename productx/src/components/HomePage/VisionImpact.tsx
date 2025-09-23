@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { P } from '../../styles/Typography';
 
 const VisionImpact: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -197,12 +198,12 @@ const VisionImpact: React.FC = () => {
                         viewport={{ once: true, amount: 0.3 }}
                         className="text-right"
                     >
-                        <p
+                        <P
                             className="text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-300 font-light"
                             style={{ fontFamily: '"Quicksand", sans-serif' }}
                         >
                             Over the years, we've transformed bold ideas into scalable products that solve real-world challenges, bridging gaps where traditional systems fall short. With a diverse portfolio spanning multiple domains, ABC doesn't just build tools—we build foundations for growth, efficiency, and innovation. Our mission is simple: to deliver technology that adapts, scales, and creates value for every industry we touch.
-                        </p>
+                        </P>
                     </motion.div>
                 </div>
             </div>

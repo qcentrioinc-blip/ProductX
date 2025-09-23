@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
+import { H3, P } from '../../styles/Typography';
 
 const HWD = () => {
   const cardVariants = {
@@ -42,13 +43,19 @@ const HWD = () => {
           <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
           <div className="text-justify">
             {/* Title */}
-            <h3 className="text-2xl font-normal font-bricolage-grotesque mb-4 text-black">
+            {/* <h3 className="text-2xl font-normal font-bricolage-grotesque mb-4 text-black">
               Sed ut perspiciatis unde
-            </h3>
+            </h3> */}
+            <H3 className='text-black'>
+              Sed ut perspiciatis unde
+            </H3>
             {/* Paragraph */}
-            <p className="text-base font-normal font-quicksand text-black">
+            {/* <p className="text-base font-normal font-quicksand text-black">
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
+            </p> */}
+            <P className='text-black'>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </P>
           </div>
         </div>
 
@@ -64,7 +71,8 @@ const HWD = () => {
             ].map((item, index) => (
               <li key={index} className="flex items-center gap-2">
                 <Check size={24} className="text-white" />
-                <p className="text-base font-normal font-quicksand text-gray-300">{item}</p>
+                {/* <p className="text-base font-normal font-quicksand text-gray-300">{item}</p> */}
+                <P>{item}</P>
               </li>
             ))}
           </ul>
@@ -83,7 +91,7 @@ const HWD = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }} // replay on every scroll
+            viewport={{ once: true }} 
           >
             {"Quis autem".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-2">
@@ -102,7 +110,7 @@ const HWD = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }} // replay on every scroll
+            viewport={{ once: true}}
           >
             {"Sed ut perspecious".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-2">
@@ -125,7 +133,7 @@ const HWD = () => {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.5 }} // replay on every scroll
+              viewport={{ once: true}}
             >
               <CardContent />
             </motion.div>

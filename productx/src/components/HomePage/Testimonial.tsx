@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { H2 } from '../../styles/Typography';
+import { H2, P } from '../../styles/Typography';
 
 const testimonials = [
   {
@@ -195,9 +195,9 @@ const Testimonial = () => {
                       gap: '56px'
                     }}
                   >
-                    <p className="text-white text-lg leading-relaxed flex-1">
+                    <P className="text-white text-lg leading-relaxed flex-1">
                       "{testimonial.text}"
-                    </p>
+                    </P>
 
                     <div className="flex items-center gap-3">
                       <img
@@ -246,9 +246,9 @@ const Testimonial = () => {
                   }}
                 >
                   <div className="flex flex-col justify-between h-full">
-                    <p className="text-white text-sm sm:text-base leading-relaxed flex-1 mb-4">
+                    <P className="text-white text-sm sm:text-base leading-relaxed flex-1 mb-4">
                       "{testimonial.text}"
-                    </p>
+                    </P>
 
                     <div className="flex items-center gap-3">
                       <img
