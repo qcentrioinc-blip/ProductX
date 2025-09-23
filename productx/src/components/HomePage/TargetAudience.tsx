@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import {H1, P} from '../../styles/Typography'
+import { H2 } from "../../styles/Typography";
 
 const TargetAudience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,9 +80,10 @@ const TargetAudience = () => {
       
           <div className="lg:col-span-1 mb-10 lg:mb-0">
             <div className="sticky top-10 pl-2 sm:pl-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
+              {/* <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
                 Built <br /> For
-              </h1>
+              </h1> */}
+              <H1>Built <br /> For</H1>
             </div>
           </div>
 
@@ -90,10 +93,14 @@ const TargetAudience = () => {
               <span className="inline-block px-4 py-2 bg-white text-black bg-opacity-10 rounded-full text-xs sm:text-sm mb-4">
                 We Focus On
               </span>
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              {/* <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 Our products are built to empower organizations across
                 industries, helping them streamline work
-              </p>
+              </p> */}
+              <P>
+                Our products are built to empower organizations across
+                industries, helping them streamline work
+              </P>
             </div>
 
             <div
@@ -109,15 +116,24 @@ const TargetAudience = () => {
                   }}
                   className="py-2 sm:py-2"
                 >
-                  <h2
-                    className={`text-2xl sm:text-3xl lg:text-4xl font-bold transition-colors duration-500 ${
+                  {/* <h2
+                    className={`text-2xl sm:text-3xl lg:text-5xl font-bold transition-colors duration-500 ${
                       index === activeIndex
                         ? "text-white opacity-100"
                         : "text-white opacity-30"
                     }`}
                   >
                     {industry.name}
-                  </h2>
+                  </h2> */}
+                  <H2
+                    className={`transition-colors duration-500 ${
+                      index === activeIndex
+                        ? "text-white opacity-100"
+                        : "text-white opacity-30"
+                    }`}
+                  >
+                    {industry.name}
+                  </H2>
                 </div>
               ))}
             </div>
@@ -137,9 +153,9 @@ const TargetAudience = () => {
               </div>
 
               <div className="space-y-4">
-                <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                <P className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
                   {industries[activeIndex]?.description}
-                </p>
+                </P>
 
                 <div className="text-4xl sm:text-4xl md:text-5xl font-bold text-white">
                   {industries[activeIndex]?.percentage}

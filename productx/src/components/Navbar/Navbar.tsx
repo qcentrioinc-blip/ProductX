@@ -5,6 +5,9 @@ import "@fontsource/quicksand/400.css"
 import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useNavigate,Link } from 'react-router-dom';
+import { H2 } from "../../styles/Typography"
+// import { ContactUs } from "../../styles/Button"
+
 
 type SolutionsTab = "Banking and Finance" | "EHS and PMS" | "High Tech"
 
@@ -21,11 +24,6 @@ const Navbar = ({ activeSection }: NavbarProps) => {
   const [clickedDropdown, setClickedDropdown] = useState<string | null>(null)
   const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  
-  // Separate mobile dropdown states
-  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false)
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false)
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false)
 
   const sectionStyles: Record<string, { bg: string; text: string; btnBg: string; btnText: string; border: string }> = {
     landingpage: { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" },
@@ -120,25 +118,6 @@ const Navbar = ({ activeSection }: NavbarProps) => {
     }
   }
 
-  // Mobile dropdown handlers
-  const handleMobileIndustriesToggle = () => {
-    setMobileIndustriesOpen(!mobileIndustriesOpen)
-    setMobileSolutionsOpen(false)
-    setMobileResourcesOpen(false)
-  }
-
-  const handleMobileSolutionsToggle = () => {
-    setMobileSolutionsOpen(!mobileSolutionsOpen)
-    setMobileIndustriesOpen(false)
-    setMobileResourcesOpen(false)
-  }
-
-  const handleMobileResourcesToggle = () => {
-    setMobileResourcesOpen(!mobileResourcesOpen)
-    setMobileIndustriesOpen(false)
-    setMobileSolutionsOpen(false)
-  }
-
   const solutionsData = {
     "Banking and Finance": [
       { name: "Remitree", description: "Enables banks to setup single window to process all their Inward" },
@@ -228,7 +207,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 className={`hidden sm:flex items-center ${currentStyle.btnBg} ${currentStyle.btnText} px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 text-sm font-medium gap-2 border ${currentStyle.border} shadow-sm hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 cursor-pointer`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                onClick={() => navigate('/Contact')}
+                 onClick={() => navigate('/Contact')}
               >
                 <span className="transition-colors duration-300">CONTACT US</span>
                 {isHovered ? (
@@ -237,6 +216,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                   <ArrowUpRight className={`w-4 h-4 transition-all duration-300 ${currentStyle.btnText}`} />
                 )}
               </button>
+              {/* <ContactUs>CONTACT US</ContactUs> */}
 
               {/* Mobile Menu Button */}
               <button
@@ -255,13 +235,17 @@ const Navbar = ({ activeSection }: NavbarProps) => {
             <div className="px-4 py-4 space-y-4">
               <div className="space-y-3">
                 <button
-                  onClick={handleMobileIndustriesToggle}
+                  onClick={() => {
+                    setIsIndustriesOpen(!isIndustriesOpen)
+                    setIsSolutionsOpen(false)
+                    setIsResourcesOpen(false)
+                  }}
                   className="flex items-center justify-between w-full text-left text-gray-800 font-medium hover:text-gray-600"
                 >
                   <span>Industries</span>
-                  {mobileIndustriesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  {isIndustriesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
-                {mobileIndustriesOpen && (
+                {isIndustriesOpen && (
                   <div className="pl-4 space-y-2 border-l-2 border-gray-200">
                     <div className="text-sm text-gray-700">High Tech</div>
                     <div className="text-sm text-gray-700">Banking and Finance</div>
@@ -270,13 +254,17 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 )}
 
                 <button
-                  onClick={handleMobileSolutionsToggle}
+                  onClick={() => {
+                    setIsSolutionsOpen(!isSolutionsOpen)
+                    setIsIndustriesOpen(false)
+                    setIsResourcesOpen(false)
+                  }}
                   className="flex items-center justify-between w-full text-left text-gray-800 font-medium hover:text-gray-600"
                 >
                   <span>Solutions</span>
-                  {mobileSolutionsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  {isSolutionsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
-                {mobileSolutionsOpen && (
+                {isSolutionsOpen && (
                   <div className="pl-4 space-y-2 border-l-2 border-gray-200">
                     <div className="space-y-2">
                       {Object.keys(solutionsData).map((category) => (
@@ -290,13 +278,17 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 <div className="text-gray-800 font-medium hover:text-gray-600 cursor-pointer">Company</div>
 
                 <button
-                  onClick={handleMobileResourcesToggle}
+                  onClick={() => {
+                    setIsResourcesOpen(!isResourcesOpen)
+                    setIsIndustriesOpen(false)
+                    setIsSolutionsOpen(false)
+                  }}
                   className="flex items-center justify-between w-full text-left text-gray-800 font-medium hover:text-gray-600"
                 >
                   <span>Resources</span>
-                  {mobileResourcesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  {isResourcesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
-                {mobileResourcesOpen && (
+                {isResourcesOpen && (
                   <div className="pl-4 space-y-2 border-l-2 border-gray-200">
                     <div className="text-sm text-gray-700">Blogs</div>
                     <div className="text-sm text-gray-700">Glossary</div>
@@ -319,7 +311,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
         )}
       </nav>
 
-      {/* Keep all desktop dropdowns exactly the same - they work perfectly */}
+      {/* Desktop Dropdowns - Keep exactly the same */}
       {isIndustriesOpen && (
         <div
           className="hidden lg:block fixed top-[73px] left-0 w-full bg-white border-b border-gray-200 z-40 shadow-sm"
@@ -330,15 +322,19 @@ const Navbar = ({ activeSection }: NavbarProps) => {
           <div className="px-6 py-8">
             <div className="max-w-7xl mx-auto">
               <div className="mb-6">
-                <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2>
+                {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
+                <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
+
                 <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               </div>
 
               <div className="border-b border-gray-200 mb-8"></div>
 
               <div className="grid grid-cols-3 gap-8 relative">
+
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-black">High Tech</h3>
+
+                  <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
@@ -353,7 +349,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
   High Tech
 </Link> */}
                   <Link
-                    to="/industries/high-tech"
+                    to="/industries/banking-and-finance"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                      onClick={(e) => {
     e.preventDefault();
@@ -368,12 +364,12 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 <div className="absolute left-1/3 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2"></div>
 
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
+                  <h3 className="text-lg font-medium text-black">High Tech</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
                   <Link
-                    to="/industries/banking-and-finance"
+                    to="/industries/high-tech"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
                   >
@@ -404,6 +400,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
         </div>
       )}
 
+
       {isSolutionsOpen && (
         <div
           className="hidden lg:block fixed top-[73px] left-0 w-full bg-white border-b border-gray-200 z-40 shadow-sm"
@@ -414,7 +411,8 @@ const Navbar = ({ activeSection }: NavbarProps) => {
           <div className="px-6 py-6">
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-normal text-black">View Marketplace</h2>
+                {/* <h2 className="text-2xl font-normal text-black">View Marketplace</h2> */}
+                <H2 className="text-black">View Marketplace</H2>
                 <button className="flex items-center bg-black text-white px-6 py-2.5 rounded-lg text-sm font-medium space-x-2 hover:bg-gray-900">
                   <span>VIEW</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -472,7 +470,9 @@ const Navbar = ({ activeSection }: NavbarProps) => {
           <div className="px-6 py-8">
             <div className="max-w-7xl mx-auto">
               <div className="mb-6">
-                <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2>
+                {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
+                <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
+      
                 <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               </div>
 

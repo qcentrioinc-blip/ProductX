@@ -6,10 +6,7 @@ import {
   CodeOutlined,
 } from "@mui/icons-material";
 
-const HowWeDo = () => {
-  const [active, setActive] = useState<string>("");
-
-  const cards = [
+const cards = [
     {
       id: "business-man",
       label: "Business Man",
@@ -36,9 +33,15 @@ const HowWeDo = () => {
     },
   ];
 
+const HowWeDo = () => {
+  const [active, setActive] = useState<string>("");
 
+  
+
+  // 🔥 Auto rotate only on mobile
   useEffect(() => {
-    if (window.innerWidth >= 768) return; 
+    const isMobile = window.innerWidth < 768; // md se chhota = mobile
+    if (!isMobile) return;
 
     let index = 0;
     setActive(cards[index].id);
@@ -46,10 +49,10 @@ const HowWeDo = () => {
     const interval = setInterval(() => {
       index = (index + 1) % cards.length;
       setActive(cards[index].id);
-    }, 5000);
+    }, 5000); // 5 second
 
     return () => clearInterval(interval);
-  });
+  }, []);
 
   return (
     <div className="w-screen min-h-screen bg-black text-white">
@@ -94,9 +97,7 @@ const HowWeDo = () => {
           {cards.map((card) => (
             <div
               key={card.id}
-              onMouseEnter={() =>
-                window.innerWidth >= 768 && setActive(card.id) // desktop hover only
-              }
+              onMouseEnter={() => setActive(card.id)} 
               className={`relative flex flex-col items-center justify-center
                 aspect-square h-40 sm:h-48 md:h-60 lg:h-72
                 border transition-all duration-500 cursor-pointer

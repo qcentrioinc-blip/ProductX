@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+// import { P } from '../../styles/Typography';
 
 const VisionImpact: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -21,13 +22,15 @@ const VisionImpact: React.FC = () => {
     const rightImageOpacity = useTransform(scrollYProgress, [0.2, 0.6, 0.7], [1, 1, 0]);
 
     // Center image transforms
-    const centerImageScale = useTransform(scrollYProgress, [0.2, 0.9], [1, 9]);
+    const centerImageScaleX = useTransform(scrollYProgress, [0.2, 0.9], [1, 9]);
+    const centerImageScaleY = useTransform(scrollYProgress, [0.2, 0.9], [1, 5]);
     const centerImageZ = useTransform(scrollYProgress, [0.2, 0.9], [10, 100]);
     const centerImageOpacity = useTransform(scrollYProgress, [0.2, 1], [1, 0.8]);
 
     // Text animations
-    const overlayTextOpacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
-    const overlayTextY = useTransform(scrollYProgress, [0.5, 0.8], [100, 0]);
+    const textOpacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
+    const textY = useTransform(scrollYProgress, [0.5, 0.8], [100, 0]);
+
 
     return (
         <div className="bg-black">
@@ -103,7 +106,8 @@ const VisionImpact: React.FC = () => {
                         <motion.div
                             className="relative mx-4"
                             style={{
-                                scale: centerImageScale,
+                                scaleX: centerImageScaleX,
+                                scaleY: centerImageScaleY, // Explicitly set to prevent vertical scaling
                                 zIndex: centerImageZ,
                                 opacity: centerImageOpacity,
                                 transformOrigin: 'center center',
@@ -145,15 +149,15 @@ const VisionImpact: React.FC = () => {
 
                     {/* Text overlay on expanded image */}
                     <motion.div
-                        className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
+                        className="absolute inset-0 flex items-center justify-end z-50 pointer-events-none"
                         style={{
-                            opacity: overlayTextOpacity,
-                            y: overlayTextY,
+                            opacity: textOpacity,
+                            y: textY,
                         }}
                     >
-                        <div className="text-center text-white max-w-2xl px-8">
+                        <div className="text-center text-white max-w-2xl px-8 sm:mt-0 lg:mt-96">
                             <motion.p
-                                className="text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 font-light"
+                                className="text-lg md:text-xl lg:text-2xl leading-relaxed font-light text-right"
                                 style={{
                                     fontFamily: '"Quicksand", sans-serif',
                                     textShadow: '0 2px 10px rgba(0,0,0,0.8)'
@@ -167,7 +171,7 @@ const VisionImpact: React.FC = () => {
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
                                 <span
-                                    className="font-semibold text-sm md:text-base tracking-wider underline group-hover:no-underline transition-all duration-300"
+                                    className="font-semibold text-sm md:text-base tracking-wider underline group-hover:no-underline transition-all duration-300 text-right"
                                     style={{
                                         fontFamily: '"Quicksand", sans-serif',
                                         textShadow: '0 2px 10px rgba(0,0,0,0.8)'
@@ -189,23 +193,26 @@ const VisionImpact: React.FC = () => {
 
             {/* --- MODIFIED: Bottom Section is now outside and pulled up with negative margin --- */}
             <div className="bg-black relative z-10 mt-[-100vh]">
-                <div className="max-w-4xl mx-auto px-8">
+                <div className="w-full px-8">
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        className="text-right"
+                        className="flex justify-end"
+                        style={{
+                            opacity: textOpacity,
+                            y: textY,
+                        }}
                     >
-                        <p
-                            className="text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-300 font-light"
-                            style={{ fontFamily: '"Quicksand", sans-serif' }}
-                        >
-                            Over the years, we've transformed bold ideas into scalable products that solve real-world challenges, bridging gaps where traditional systems fall short. With a diverse portfolio spanning multiple domains, ABC doesn't just build tools—we build foundations for growth, efficiency, and innovation. Our mission is simple: to deliver technology that adapts, scales, and creates value for every industry we touch.
-                        </p>
+                        <div className="max-w-4xl">
+                            <p
+                                className="text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-300 font-light text-right line-clamp-6 md:line-clamp-6"
+                                style={{ fontFamily: '"Quicksand", sans-serif' }}
+                            >
+                                Over the years, we've transformed bold ideas into scalable products that solve real-world challenges, bridging gaps where traditional systems fall short. With a diverse portfolio spanning multiple domains, ABC doesn't just build tools—we build foundations for growth, efficiency, and innovation. Our mission is simple: to deliver technology that adapts, scales, and creates value for every industry we touch.
+                            </p>
+                        </div>
                     </motion.div>
                 </div>
             </div>
+
         </div>
     );
 };
