@@ -10,7 +10,7 @@ import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
 import ProductsPage from './components/Banking&Finance/Products/ProductsPage'
-
+import Blogs from './components/Blogs/Blogs'
 
 // Create a Home component for your main page
 const App = () => {
@@ -49,6 +49,7 @@ const App = () => {
           <Route path="/industries/:industry" element={<IndustryPage />} />
           <Route path="/industries/banking-and-finance/products" element={<ProductsPage />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </div>
     </>

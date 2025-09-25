@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { H2, H3, P } from "../../styles/Typography";
 
 const CounterCard = ({
   number,
@@ -61,12 +62,23 @@ const CounterCard = ({
         ${dark ? "bg-black text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"}
       `}
     >
-      <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl pt-2 sm:pt-4 font-bold text-blue-500">
+      {/* <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl pt-2 sm:pt-4 font-bold text-blue-500">
         {count}
         {suffix}
-      </h2>
-      <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3>
-      <p className="text-xs sm:text-sm">{description}</p>
+      </h2> */}
+      
+      <H2 className="text-blue-500 mb-[100px]"> 
+        {count}
+        {suffix}
+      </H2>
+      {/* <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3> */}
+      <H3 className="hover:bg-white hover:text-black">
+        {title}
+      </H3>
+      {/* <p className="text-xs sm:text-sm">{description}</p> */}
+      <P className="hover:bg-white hover:text-black">
+        {description}
+      </P>
     </div>
   );
 };
@@ -75,11 +87,18 @@ const Counter = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white">
       <div className="max-w-6xl mx-auto text-center mb-8 sm:mb-12 px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2>
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+        {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2> */}
+        <H2 className="text-black">
+          Lorem ipsum dolor sit amet consectetur
+        </H2>
+        {/* <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
           Behind every number is a team achieving more — see how high-performing workflows,
           speed, and satisfaction come together.
-        </p>
+        </p> */}
+        <P className="text-black">
+          Behind every number is a team achieving more — see how high-performing workflows,
+          speed, and satisfaction come together.
+        </P>
       </div>
 
       <div className="w-full max-w-[1359px] mx-auto px-4 sm:px-6">

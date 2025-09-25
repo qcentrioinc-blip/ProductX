@@ -4,6 +4,7 @@ import img1 from "/WhatWeDo/img1.jpg";
 import img2 from "/WhatWeDo/img2.jpg";
 import img3 from "/WhatWeDo/img3.jpg";
 import img4 from "/WhatWeDo/img4.png";
+import { P } from "../../styles/Typography";
 
 const WhatWeDo = () => {
   return (
@@ -43,38 +44,38 @@ const WhatWeDo = () => {
           {/* Icons and paragraph */}
           <div className="flex flex-col lg:flex-row lg:items-start mt-12 gap-8">
             {/* Images */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-shrink-0">
+            <div className="flex gap-2  sm:grid sm:grid-cols-3  sm:gap-4 flex-shrink-0">
               <img
                 src={img1}
                 alt="Image 1"
-                className="w-full h-48 sm:h-48 object-cover rounded-lg"
+                className="w-20 flex-1 h-24 sm:h-48  sm:w-full  object-cover rounded-lg"
               />
               <img
                 src={img2}
                 alt="Image 2"
-                className="w-full h-48 sm:h-48 object-cover rounded-lg"
+                className="w-20 flex-1 sm:w-full h-24 sm:h-48 object-cover rounded-lg"
               />
               <img
                 src={img3}
                 alt="Image 3"
-                className="w-full h-48 sm:h-48   object-cover rounded-lg"
+                className="w-20 flex-1 h-24 sm:h-48  sm:w-full   object-cover rounded-lg"
               />
             </div>
 
             {/* Paragraphs */}
             <div className="space-y-6 text-sm sm:text-base font-Quicksand text-justify">
-              <p>
+              <P>
                 We design and deliver products that simplify complexity and
                 create real impact across industries. From Environment, Health &
                 Safety (EHS) and Project Management Systems (PMS) to
                 cutting-edge High-Tech solutions,
-              </p>
-              <p>
+              </P>
+              <P>
                 We help organizations operate smarter, safer, and faster. Our
                 strength lies in building adaptable platforms that don’t just
                 solve today’s challenges but prepare businesses for tomorrow’s
                 opportunities.
-              </p>
+              </P>
             </div>
           </div>
         </div>
