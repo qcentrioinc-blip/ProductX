@@ -9,6 +9,8 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
+import Glossary from './components/Banking&Finance/Glossary'
+
 import ProductsPage from './components/Banking&Finance/Products/ProductsPage'
 import Blogs from './components/Blogs/Blogs'
 
@@ -49,6 +51,7 @@ const App = () => {
           <Route path="/industries/:industry" element={<IndustryPage />} />
           <Route path="/industries/banking-and-finance/products" element={<ProductsPage />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/glossary' element={<Glossary />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </div>
