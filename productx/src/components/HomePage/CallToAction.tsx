@@ -46,7 +46,11 @@ const CallToAction = () => {
           <img
             src={cta_img}
             alt="CTA"
-            className="relative w-52 sm:w-72 md:w-96 lg:w-full h-auto object-contain transform lg:rotate-[-7.88deg] drop-shadow-2xl"
+            className="relative w-[300px] h-[300px] 
+               sm:w-[380px] sm:h-[380px] 
+               md:w-[450px] md:h-[450px] 
+               lg:w-full lg:h-auto 
+               object-contain transform lg:rotate-[-7.88deg] drop-shadow-2xl"
           />
         </div>
       </div>
