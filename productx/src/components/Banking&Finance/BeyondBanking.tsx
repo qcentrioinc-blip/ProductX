@@ -5,9 +5,11 @@ import shape2 from '/BeyondBanking/shape2.png';
 import building1 from '/BeyondBanking/building1.jpg';
 import building2 from '/BeyondBanking/building2.jpg';
 import { H2 } from "../../styles/Typography";
+import { useNavigate } from "react-router-dom";
 
 const BeyondBanking = () => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"], 
@@ -57,7 +59,9 @@ const BeyondBanking = () => {
         <H2>
             Beyond banking—solutions that make lending seamless, secure, and scalable.
         </H2>
-        <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition">
+        <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition"
+          onClick={() => navigate("/industries/banking-and-finance/products")}
+        >
           EXPLORE ALL PRODUCTS →
         </button>
       </div>
