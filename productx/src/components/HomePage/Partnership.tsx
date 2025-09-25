@@ -1,4 +1,4 @@
-import { H2 } from "../../styles/Typography";
+import { H2, P } from "../../styles/Typography";
 
 const Partnership = () => {
   const items = ["lorem", "lorem", "lorem", "lorem", "lorem"];
@@ -9,7 +9,7 @@ const Partnership = () => {
         {/* <h2 className="text-white mb-6 font-bold text-2xl sm:text-3xl md:text-4xl">
           Whom we work with
         </h2> */}
-        <H2>
+        <H2 className="text-white">
           Whom we work with
         </H2>
 
@@ -19,16 +19,16 @@ const Partnership = () => {
           <div className="absolute right-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-l from-black to-transparent z-10"></div>
 
           {/* marquee container */}
-          <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex text-white animate-marquee whitespace-nowrap">
             {/* 1st set */}
             {items.map((text, i) => (
               <div
                 key={i}
                 className="flex-none w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-24 flex items-center justify-center"
               >
-                <p className="text-white text-base sm:text-lg md:text-xl">
+                <P>
                   {text}
-                </p>
+                </P>
               </div>
             ))}
             {/* 2nd set (duplicate for seamless loop) */}
@@ -37,9 +37,9 @@ const Partnership = () => {
                 key={`dup-${i}`}
                 className="flex-none w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-24 flex items-center justify-center"
               >
-                <p className="text-white text-base sm:text-lg md:text-xl">
+                <P>
                   {text}
-                </p>
+                </P>
               </div>
             ))}
           </div>
