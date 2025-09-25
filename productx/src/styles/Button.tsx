@@ -10,21 +10,16 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
       className={`
-        relative overflow-hidden
+        
         flex items-center justify-center
         w-[185px] h-[48px]
         px-[24px] py-[12px]
         rounded-[8px]
         font-quicksand
         text-[14px] sm:text-[16px] md:text-[16px]
-        font-bold.
-        bg-[rgba(1,1,1,1)]
-        text-white
-        transition-all duration-300 ease-in-out
-        hover:bg-white
-        hover:text-black
-        hover:border-b-4 hover:border-black
-        group
+        font-bold
+        border-2
+      
         ${className}
       `}
     >
