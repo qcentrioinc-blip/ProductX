@@ -19,7 +19,7 @@ const Partnership = () => {
           <div className="absolute right-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-l from-black to-transparent z-10"></div>
 
           {/* marquee container */}
-          <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex text-white animate-marquee whitespace-nowrap">
             {/* 1st set */}
             {items.map((text, i) => (
               <div

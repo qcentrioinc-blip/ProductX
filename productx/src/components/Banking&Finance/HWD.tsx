@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
 import { H3, P } from '../../styles/Typography';
-
+ 
 const HWD = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -12,17 +12,18 @@ const HWD = () => {
       transition: { duration: 0.8, ease: 'easeOut' as Easing },
     },
   };
-
+ 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
+ 
   const CardContent = () => (
     <>
       {/* Top Section */}
@@ -37,6 +38,7 @@ const HWD = () => {
         </div>
       </div>
 
+ 
       {/* Bottom List Section */}
       <div className="p-6 md:p-8 text-justify">
         <ul className="space-y-4">
@@ -57,6 +59,7 @@ const HWD = () => {
     </>
   );
 
+ 
   return (
     <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
@@ -67,7 +70,7 @@ const HWD = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }} 
+            viewport={{ once: true }}
           >
             {"Quis autem".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-2">
@@ -79,7 +82,7 @@ const HWD = () => {
               </span>
             ))}
           </motion.h1>
-
+ 
           {/* Second Heading */}
           <motion.h2
             className="text-[#2A2A2A] font-bricolage font-semibold text-[40px]"
@@ -100,6 +103,7 @@ const HWD = () => {
           </motion.h2>
         </div>
 
+ 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (
@@ -119,5 +123,5 @@ const HWD = () => {
     </div>
   );
 };
-
+ 
 export default HWD;

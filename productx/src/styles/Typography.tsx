@@ -6,16 +6,16 @@ type TypographyProps = {
   style?: CSSProperties;
 };
 
-// H1
 export const H1 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h1
       className={`
-        text-[32px] sm:text-[48px] md:text-[64px]
-        mb-[8px] sm:mb-[12px] md:mb-[16px] 
+        text-2xl md:text-5xl
+        mb-2 sm:mb-3 md:mb-4 
         font-bricolage
         font-bold
-        leading-[120%]
+        leading-tight
+        
         ${className}`}
     >
       {children}
@@ -28,11 +28,11 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
       className={`
-        text-[24px] sm:text-[32px] md:text-[40px]
-        mb-[8px] sm:mb-[12px] md:mb-[16px] 
+        text-xl sm:text-2xl md:text-4xl
+        mb-2 sm:mb-3 md:mb-4 
         font-bricolage
         font-semibold
-        leading-[120%]
+        leading-tight
         ${className}`}
     >
       {children}
@@ -45,11 +45,12 @@ export const H3 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h3
       className={`
-        text-[20px] sm:text-[24px] md:text-[32px]
-        mb-[8px] sm:mb-[12px] md:mb-[16px] 
+        text-lg sm:text-xl md:text-2xl
+        mb-2 sm:mb-3 md:mb-4 
         font-bricolage
         font-semibold
-        leading-[120%]
+        leading-tight
+     
         ${className}`}
     >
       {children}
@@ -62,11 +63,12 @@ export const H4 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h4
       className={`
-        text-[16px] sm:text-[20px] md:text-[24px]
-        mb-[8px] sm:mb-[12px] md:mb-[16px] 
+        text-base sm:text-lg md:text-xl
+        mb-2 sm:mb-3 md:mb-4 
         font-bricolage
         font-semibold
-        leading-[120%]
+        leading-tight
+       
         ${className}`}
     >
       {children}
@@ -79,10 +81,11 @@ export const P = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
       className={`
-        text-[14px] sm:text-[16px] md:text-[16px]
-        mb-[16px] sm:mb-[24px] md:mb-[32px] 
+        text-sm sm:text-base md:text-base
+        mb-4 sm:mb-6 md:mb-8 
         font-quicksand
-        leading-[120%]
+        leading-tight
+        
         ${className}`}
     >
       {children}
@@ -95,9 +98,10 @@ export const S = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
       className={`
-        text-[12px] sm:text-[12px] md:text-[14px]
+        text-xs sm:text-xs md:text-sm
         font-quicksand
-        leading-[120%]
+        leading-tight
+       
         ${className}`}
     >
       {children}

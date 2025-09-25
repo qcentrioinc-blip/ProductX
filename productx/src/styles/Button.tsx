@@ -10,7 +10,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
       className={`
-       
+        
         flex items-center justify-center
         w-[185px] h-[48px]
         px-[24px] py-[12px]
@@ -19,7 +19,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         text-[14px] sm:text-[16px] md:text-[16px]
         font-bold
         border-2
-     
+      
         ${className}
       `}
     >
