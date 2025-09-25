@@ -9,6 +9,7 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
+import Glossary from './components/Banking&Finance/Glossary'
 
 
 // Create a Home component for your main page
@@ -47,6 +48,9 @@ const App = () => {
           <Route path='/' element={<HeroSection />} />
           <Route path="/industries/:industry" element={<IndustryPage />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/glossary' element={<Glossary />} />
+          <Route path='/glossary' element={<Glossary />} />
+
         </Routes>
       </div>
     </>

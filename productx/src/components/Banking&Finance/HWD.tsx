@@ -9,85 +9,61 @@ const HWD = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut' as Easing,
-      },
+      transition: { duration: 0.8, ease: 'easeOut' as Easing },
     },
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
+    visible: { opacity: 1, y: 0 },
   };
 
-  const CardContent = () => {
-    return (
-      <>
-        {/* Top Section */}
-        <div className="p-6 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
-          {/* Icon */}
-          <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
-          <div className="text-justify">
-            {/* Title */}
-            {/* <h3 className="text-2xl font-normal font-bricolage-grotesque mb-4 text-black">
-              Sed ut perspiciatis unde
-            </h3> */}
-            <H3 className='text-black'>
-              Sed ut perspiciatis unde
-            </H3>
-            {/* Paragraph */}
-            {/* <p className="text-base font-normal font-quicksand text-black">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p> */}
-            <P className='text-black'>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </P>
-          </div>
+  const CardContent = () => (
+    <>
+      {/* Top Section */}
+      <div className="p-6 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
+        {/* Icon */}
+        <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
+        <div className="text-justify">
+          <H3 className='text-black'>Sed ut perspiciatis unde</H3>
+          <P className='text-black'>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </P>
         </div>
+      </div>
 
-        {/* Bottom List Section */}
-        <div className="p-6 md:p-8 text-justify">
-          <ul className="space-y-4">
-            {[
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla",
-              "Duis aute irure dolor in reprehenderit in",
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse",
-              "Duis aute irure dolor in reprehenderit in voluptate",
-              "Duis aute irure dolor in reprehenderit in voluptate wertg",
-            ].map((item, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <Check size={24} className="text-white" />
-                {/* <p className="text-base font-normal font-quicksand text-gray-300">{item}</p> */}
-                <P>{item}</P>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </>
-    );
-  };
+      {/* Bottom List Section */}
+      <div className="p-6 md:p-8 text-justify">
+        <ul className="space-y-4">
+          {[
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla",
+            "Duis aute irure dolor in reprehenderit in",
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse",
+            "Duis aute irure dolor in reprehenderit in voluptate",
+            "Duis aute irure dolor in reprehenderit in voluptate wertg",
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <Check size={20} className="text-white flex-shrink-0" />
+              <P className="text-sm sm:text-base md:text-base">{item}</P>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 
   return (
-    <div className="w-full relative bg-white flex flex-col items-center py-20">
-      <div className="w-[1360px] px-10">
-        <div className="w-[1360px] h-[110px] flex flex-col bricolage-grotesque text-justify">
+    <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
+      <div className="max-w-[1360px] w-full">
+        <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
           {/* First Heading */}
           <motion.h1
-            className="w-[185px] h-[30px] font-medium text-2xl text-[#2A2A2A] bricolage-grotesque mb-[5px]"
+            className="font-medium text-2xl text-[#2A2A2A]"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -106,11 +82,11 @@ const HWD = () => {
 
           {/* Second Heading */}
           <motion.h2
-            className="w-[470px] h-[48px] text-[#2A2A2A] font-bricolage text-[40px] font-semibold"
+            className="text-[#2A2A2A] font-bricolage font-semibold text-[40px]"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true}}
+            viewport={{ once: true }}
           >
             {"Sed ut perspecious".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-2">
@@ -124,8 +100,8 @@ const HWD = () => {
           </motion.h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
@@ -133,7 +109,7 @@ const HWD = () => {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true}}
+              viewport={{ once: true }}
             >
               <CardContent />
             </motion.div>
