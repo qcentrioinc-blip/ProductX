@@ -126,7 +126,7 @@ const LandingPage = () => {
   const currentTitleData = getCurrentTitle()
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen w-screen relative overflow-hidden">
       <BackgroundSlider currentImage={getCurrentBackgroundImage()} />
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 

@@ -48,7 +48,7 @@ html, body {
 }
 
 
-h1{
+/* h1{
 font-family: "Bricolage Grotesque",sans-serif;
 font-style:"bold" ;
 }
@@ -66,7 +66,7 @@ line-height: 48px;
 h3{
   font-family: "Bricolage Grotesque",sans-serif;
 font-weight: 300;
-/* font-size: 32px; */
+
 }
 
 p {
@@ -74,8 +74,8 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 120%;
-  /* color: #ffffff; */
-}
+ 
+} */
 
 
 @keyframes marquee {
