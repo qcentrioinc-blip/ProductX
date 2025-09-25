@@ -9,10 +9,10 @@ const Partnership = () => {
         {/* <h2 className="text-white mb-6 font-bold text-2xl sm:text-3xl md:text-4xl">
           Whom we work with
         </h2> */}
-        <H2>
+        <H2 className="text-white">
           Whom we work with
         </H2>
-
+          
         <div className="relative overflow-hidden">
           {/* fade overlays */}
           <div className="absolute left-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-r from-black to-transparent z-10"></div>
@@ -26,7 +26,7 @@ const Partnership = () => {
                 key={i}
                 className="flex-none w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-24 flex items-center justify-center"
               >
-                <P>
+                <P className="text-white">
                   {text}
                 </P>
               </div>
