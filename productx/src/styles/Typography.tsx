@@ -23,6 +23,7 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
+// H2
 export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
@@ -39,6 +40,7 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
+// H3
 export const H3 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h3
@@ -56,6 +58,7 @@ export const H3 = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
+// H4
 export const H4 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h4
@@ -73,6 +76,7 @@ export const H4 = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
+// Paragraph
 export const P = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
@@ -89,7 +93,7 @@ export const P = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
-// S - Supporting text
+// Supporting text
 export const S = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
