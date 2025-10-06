@@ -31,7 +31,7 @@ const Process = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollProgress = useMotionValue(0);
     const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
-    const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | 'still'>('still');
+    const [, setScrollDirection] = useState<'up' | 'down' | 'still'>('still');
     const lastScrollY = useRef(0);
     const scrollContext = useContext(ScrollContext);
 
@@ -219,7 +219,7 @@ const Process = () => {
                     </div>
 
                     {/* **DEBUG INDICATOR WITH SCROLL DIRECTION** */}
-                    <div className="fixed bottom-4 right-4 bg-black text-white p-2 rounded text-sm z-50">
+                    {/* <div className="fixed bottom-4 right-4 bg-black text-white p-2 rounded text-sm z-50">
                         {canHorizontalScroll ? (
                             <div>
                                 🟢 Horizontal Active<br />
@@ -228,7 +228,7 @@ const Process = () => {
                         ) : (
                             "🔴 Positioning..."
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
