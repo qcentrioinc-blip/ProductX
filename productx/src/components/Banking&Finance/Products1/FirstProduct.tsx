@@ -1,6 +1,46 @@
 import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+
+// Custom useInView hook
+type InViewOptions = {
+  threshold?: number;
+  rootMargin?: string;
+};
+
+const useInView = (options: InViewOptions = {}) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting);
+    }, {
+      threshold: options.threshold || 0.2,
+      rootMargin: options.rootMargin || '-50px 0px',
+      ...options
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [options.threshold, options.rootMargin]);
+
+  return { ref, inView };
+};
 
 const FirstProduct = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    rootMargin: '-50px 0px'
+  });
+
   return (
     <div className="min-h-screen bg-gray-900 relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16 mt-10">
       {/* Background geometric pattern */}
@@ -42,17 +82,47 @@ const FirstProduct = () => {
           <ArrowUpRight className="w-5 h-5" />
         </button>
 
-        {/* Dashboard Preview */}
-        <div className="w-full max-w-6xl mx-auto">
-          <div className="relative">
+        {/* Dashboard Preview with SCROLL-TRIGGERED Animation */}
+        <div 
+          ref={ref}
+          className="w-full max-w-6xl mx-auto"
+          style={{ perspective: '1200px' }}
+        >
+          <motion.div 
+            className="relative"
+            initial={{
+              transform: "perspective(1200px) translateY(-21.28px) scale(1.0532) rotateX(12.77deg)"
+            }}
+            animate={inView ? {
+              transform: "perspective(1200px) translateY(0px) scale(1) rotateX(0deg)"
+            } : {
+              transform: "perspective(1200px) translateY(-21.28px) scale(1.0532) rotateX(12.77deg)"
+            }}
+            transition={{
+              duration: 2.5,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: 0.3
+            }}
+            style={{
+              willChange: 'transform',
+              opacity: 1
+            }}
+          >
             <img 
               src="https://framerusercontent.com/images/kH2dYUYz6bTbR4cjVTdgUbxd3jk.png?width=2400&height=1350" 
               alt="Banking Dashboard Interface"
               className="w-full h-auto rounded-2xl shadow-2xl border border-gray-700/50"
+              style={{
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                borderRadius: 'inherit',
+                objectPosition: 'center',
+                objectFit: 'contain'
+              }}
             />
-            {/* Subtle glow effect around the dashboard */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-transparent to-purple-500/20 -z-10 blur-xl scale-105"></div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

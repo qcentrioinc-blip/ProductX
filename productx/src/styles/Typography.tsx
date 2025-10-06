@@ -29,7 +29,6 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
     <h2
       className={`
         text-xl sm:text-2xl md:text-4xl
-        mb-2 sm:mb-3 md:mb-4 
         font-bricolage
         font-semibold
         leading-tight
@@ -82,7 +81,6 @@ export const P = ({ children, className = "" }: TypographyProps) => {
     <p
       className={`
         text-sm sm:text-base md:text-base
-        mb-4 sm:mb-6 md:mb-8 
         font-quicksand
         leading-tight
         

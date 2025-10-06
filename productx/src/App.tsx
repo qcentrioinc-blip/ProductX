@@ -1,7 +1,6 @@
 import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
-import Contact from './components/Contact/Contact'
-import { useEffect, useState } from 'react'
+import Contact from './components/Contact/Contact' // Make sure this path is correct
 
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
@@ -9,33 +8,16 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
-import Glossary from './components/Banking&Finance/Glossary'
-
-import ProductsPage from './components/Banking&Finance/Products/ProductsPage'
 import Blogs from './components/Blogs/Blogs'
-import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
+import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
+import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
+import { ScrollProvider } from './context/ScrollContext'
 import AML from './components/Banking&Finance/ProductAML/AML'
+import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
+import Glossary from './components/Banking&Finance/Glossary'
 
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("landingpage");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["landingpage", "visionimpact", "footer"];
-      let current = "landingpage";
-
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 80) {
-          current = id;
-        }
-      }
-      setActiveSection(current);
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, []);
 
   const IndustryPage = () => {
     const { industry } = useParams();
@@ -44,21 +26,30 @@ const App = () => {
     if (industry === "life-sciences") return <LifeSciences />;
     return <div>Industry not found</div>;
   }
+
+  const ProductsPage = () => {
+    const { productId } = useParams();
+    if (productId === "1") return <ProductsPage1 />;
+    if (productId === "2") return <ProductsPage2 />;
+    if (productId ==="3")   return <AML/>;
+    if (productId === "4") return <ProductDetailthree/>
+    return <div>Product not found</div>;
+  }
   return (
     <>
-      <Navbar activeSection={activeSection} />
-      <div>
-        <Routes>
-          <Route path='/' element={<HeroSection />} />
-          <Route path="/industries/:industry" element={<IndustryPage />} />
-          <Route path="/industries/banking-and-finance/products" element={<ProductsPage />} />
-          <Route path="/industries/banking-and-finance/product-pago" element={<ProductDetailthree />} />
-          <Route path="/industries/banking-and-finance/product-aml" element={<AML/>}/>
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/glossary' element={<Glossary />} />
-          <Route path="/blogs" element={<Blogs />} />
-        </Routes>
-      </div>
+      <ScrollProvider>
+        <div data-scroll-container>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<HeroSection />} />
+            <Route path="/industries/:industry" element={<IndustryPage />} />
+            <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path='/glossary' element={<Glossary />} />
+          </Routes>
+        </div>
+      </ScrollProvider>
     </>
   )
 }
