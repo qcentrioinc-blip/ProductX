@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion"; // ✅ import hooks
+import { motion } from "framer-motion"; // ✅ import hooks
 import img1 from "/Image1.jpg";
 import img2 from "/Image2.jpg";
 import img3 from "/Image3.jpg";
@@ -10,17 +10,7 @@ const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const targetRef = useRef(null);
 
-  // ✅ Scroll progress setup
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"], // start when enters, finish when leaves
-  });
 
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   const accordionData = [
     {
@@ -61,11 +51,21 @@ const WhatWeDoIn = () => {
         <H2>Sed ut perspiciatis unde omnis</H2>
         <P>Advanced Loan Solutions Beyond Traditional Banking</P>
 
-        {/* ✅ Progress Bar (slim white rectangle that fills) */}
+        <div className="relative w-full mt-4">
+      
+        <div className="h-0.5 w-full bg-white opacity-10 rounded-full" />
+        
+
         <motion.div
-          style={{ scaleX }}
-          className="h-1 mt-4 bg-white origin-left rounded-full"
+          className="absolute top-0 left-0 h-0.5 w-full bg-white origin-left rounded-full"
+          initial={{ scaleX: 0, opacity: 0.3 }}   
+          whileInView={{ scaleX: 1, opacity: 1 }} 
+          transition={{ duration: 2.0, ease: "easeInOut" }}
+          viewport={{ once: true }} 
         />
+      </div>
+
+        
 
         <ContactUs className="bg-white px-6 py-2 absolute flex items-center mr-8 right-0 my-4 text-black">
           CONTACT US
@@ -97,8 +97,8 @@ const WhatWeDoIn = () => {
                 onClick={() => setOpenIndex(index)}
               >
                 <span
-                  className={`absolute left-6 top-6 text-6xl md:text-7xl font-bold transition-colors duration-500 ${
-                    isOpen ? "text-white" : "text-neutral-800"
+                  className={`absolute left-6 pb-4 pt-2 text-6xl md:text-7xl font-bold transition-colors duration-500 ${
+                    isOpen ? "text-white  " : "text-neutral-800"
                   }`}
                 >
                   {String(item.id).padStart(2, "0")}

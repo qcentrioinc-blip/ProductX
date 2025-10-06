@@ -192,7 +192,7 @@ const Testimonial = () => {
                     style={{
                       width: '383px',
                       height: '144px',
-                      gap: '56px'
+                      
                     }}
                   >
                     <P className="text-white text-lg leading-relaxed flex-1">
