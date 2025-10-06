@@ -22,6 +22,7 @@ const HWD = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
  
   const CardContent = () => (
     <>
@@ -36,6 +37,7 @@ const HWD = () => {
           </P>
         </div>
       </div>
+
  
       {/* Bottom List Section */}
       <div className="p-6 md:p-8 text-justify">
@@ -56,6 +58,7 @@ const HWD = () => {
       </div>
     </>
   );
+
  
   return (
     <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
@@ -99,6 +102,7 @@ const HWD = () => {
             ))}
           </motion.h2>
         </div>
+
  
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

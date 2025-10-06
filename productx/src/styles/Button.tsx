@@ -1,11 +1,11 @@
 import React from 'react';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
-
+ 
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
 }
-
+ 
 export const ContactUs = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
@@ -35,7 +35,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
     </button>
   );
 };
-
+ 
 export const Submit = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
@@ -70,4 +70,3 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
     </button>
   );
 };
-
