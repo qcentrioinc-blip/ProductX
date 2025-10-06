@@ -1,8 +1,5 @@
+import { H1 } from '../../../styles/Typography';
 import Sec1_img from '/Sec-1-img.jpg';
-import { H1 } from '../../styles/Typography';
-import CallToAction from '../HomePage/CallToAction';
-import Footer from '../Footer/Footer';
-import AlphabetSec from './AlphabetSec';
 
 const Glossary = () => {
   return (
@@ -15,19 +12,15 @@ const Glossary = () => {
         alt="Section Background"
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
-      <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div> 
+      <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div> 
 
       {/* Text content */}
       <div className="relative z-10 flex items-center h-full px-8 sm:px-16 md:px-24">
         <H1 className="text-white max-w-2xl">
-          Sed ut perspiciatis unde <br /> omnis iste natus
+          Sed ut perspiciatis unde omnis iste natus
         </H1>
       </div>
     </section>
-    
-    <AlphabetSec />
-    <CallToAction />
-    <Footer />
     </>
   );
 };

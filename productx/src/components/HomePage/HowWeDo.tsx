@@ -5,6 +5,7 @@ import {
   LightbulbOutlined,
   CodeOutlined,
 } from "@mui/icons-material";
+import { ContactUs } from "../../styles/Button";
 
 const cards = [
     {
@@ -73,7 +74,7 @@ const HowWeDo = () => {
           </h1>
         </div>
 
-        <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors duration-300">
+        {/* <button className="flex items-center gap-2 border border-gray-600 hover:bg-white hover:text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors duration-300">
           <span className="text-xs sm:text-sm font-medium">CONTACT US</span>
           <svg
             className="w-4 h-4"
@@ -88,7 +89,10 @@ const HowWeDo = () => {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
-        </button>
+        </button> */}
+        <div className="flex justify-center lg:justify-start mt-4 lg:mt-0">
+          <ContactUs>CONTACT US</ContactUs>
+        </div>
       </div>
 
       {/* Cards */}

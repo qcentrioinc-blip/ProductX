@@ -1,6 +1,6 @@
 // import { ArrowUpRight } from "lucide-react";
 import { H2 } from "../../styles/Typography";
-import { ContactUs } from "../../styles/Button";
+import { Submit } from "../../styles/Button";
 const Contact: React.FC = () => {
   return (
     <section className="w-full h-[666px] flex bg-white pl-6 ">
@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
             >
               SUBMIT <ArrowUpRight className="h-6 w-6 font-bold" />
             </button> */}
-            <ContactUs> SUBMIT</ContactUs>
+            <Submit> SUBMIT</Submit>
            
           </form>
         </div>
