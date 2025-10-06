@@ -5,9 +5,11 @@ import shape2 from '/BeyondBanking/shape2.png';
 import building1 from '/BeyondBanking/building1.jpg';
 import building2 from '/BeyondBanking/building2.jpg';
 import { H3 } from "../../styles/Typography";
+import { useNavigate } from "react-router-dom";
  
 const BeyondBanking = () => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const isInView = useInView(ref, { once: false }); // set to false if you want replay
  
   return (
@@ -47,7 +49,7 @@ const BeyondBanking = () => {
         <H3 className="text-white mix-blend-difference -mt-10 px-6 lg:text-4xl">
           Beyond banking—solutions that make lending seamless, <br />secure, and scalable.
         </H3>
-        <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition">
+        <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition" onClick={() => navigate("/industries/banking-and-finance/products")}>
           EXPLORE ALL PRODUCTS →
         </button>
       </div>
