@@ -23,7 +23,6 @@ const HWD = () => {
     visible: { opacity: 1, y: 0 },
   };
 
- 
   const CardContent = () => (
     <>
       {/* Top Section */}
@@ -38,7 +37,6 @@ const HWD = () => {
         </div>
       </div>
 
- 
       {/* Bottom List Section */}
       <div className="p-6 md:p-8 text-justify">
         <ul className="space-y-4">
@@ -59,7 +57,6 @@ const HWD = () => {
     </>
   );
 
- 
   return (
     <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
@@ -72,15 +69,18 @@ const HWD = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {"Quis autem".split(" ").map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-2">
-                {word.split("").map((char, charIndex) => (
-                  <motion.span key={charIndex} variants={itemVariants}>
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
+            <div className="flex items-center gap-x-2">
+              <div className="w-8 h-1 rounded-full bg-gray-400"></div>
+              {"Quis autem".split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="inline-block mr-2">
+                  {word.split("").map((char, charIndex) => (
+                    <motion.span key={charIndex} variants={itemVariants}>
+                      {char}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
+            </div>
           </motion.h1>
  
           {/* Second Heading */}
@@ -103,7 +103,6 @@ const HWD = () => {
           </motion.h2>
         </div>
 
- 
         {/* Cards Grid */}
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (

@@ -16,12 +16,11 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         px-[24px] py-[12px]
         rounded-[8px]
         font-quicksand font-bold
-        text-[16px]
+        text-[16px] 
         border-2 border-[#141414]
         bg-white text-[#141414]
         shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
         transition-all duration-300 ease-in-out
- 
         hover:bg-[#141414] hover:text-white
         ${className}
       `}
@@ -38,7 +37,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
     </button>
   );
 };
- 
+
 export const Submit = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
@@ -49,12 +48,11 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
         px-[20px] py-[12px]
         rounded-[8px]
         font-quicksand font-bold
-        text-[16px]
+        text-[16px] 
         border-2 border-[#141414]
         bg-white text-[#141414]
         shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
         transition-all duration-300 ease-in-out
- 
         hover:bg-[#141414] hover:text-white
         ${className}
       `}
