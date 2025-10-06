@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import {H1, P} from '../../styles/Typography'
-import { H2 } from "../../styles/Typography";
+import {H1,H2, P} from '../../styles/Typography'
+
 
 const TargetAudience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -76,14 +76,12 @@ const TargetAudience = () => {
   return (
     <div className="w-full bg-black text-white">
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       
           <div className="lg:col-span-1 mb-10 lg:mb-0">
-            <div className="sticky top-10 pl-2 sm:pl-6">
-              {/* <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
-                Built <br /> For
-              </h1> */}
-              <H1>Built <br /> For</H1>
+            <div className="sticky top-20 pl-2 sm:pl-6">
+            
+              <H1 className="text-4xl">Built <br /> For</H1>
             </div>
           </div>
 

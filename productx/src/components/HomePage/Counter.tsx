@@ -66,8 +66,8 @@ const CounterCard = ({
         {count}
         {suffix}
       </h2> */}
-     
-      <H2 className="text-blue-500 pt-2 sm:pt-4">
+      
+      <H2 className="text-blue-500 pt-2 sm:pt-4"> 
         {count}
         {suffix}
       </H2>
@@ -100,7 +100,6 @@ const Counter = () => {
           speed, and satisfaction come together.
         </P>
       </div>
- 
       <div className="w-full max-w-9xl   mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
           <CounterCard

@@ -1,6 +1,6 @@
-// import { ArrowUpRight } from "lucide-react";
+
 import { H2 } from "../../styles/Typography";
-import { Submit } from "../../styles/Button";
+import { ContactUs } from "../../styles/Button";
 const Contact: React.FC = () => {
   return (
     <section className="w-full h-[666px] flex bg-white pl-6 ">
@@ -40,19 +40,12 @@ const Contact: React.FC = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg   focus:outline-none focus:ring-2 focus:ring-black"
             />
 
-            {/* <button
-              type="submit"
-              className="px-6 py-2 bg-black text-white rounded-xl  flex items-center gap-2"
-            >
-              SUBMIT <ArrowUpRight className="h-6 w-6 font-bold" />
-            </button> */}
-            <Submit> SUBMIT</Submit>
+            <ContactUs> SUBMIT</ContactUs>
            
           </form>
         </div>
 
-        {/* Right Side - Dot Grid (spans 2 columns for bigger area) */}
-       {/* Right Side - Dot Grid (spans 2 columns for bigger area) */}
+      
             <div className="relative ml-40 lg:col-span-2">
             <div className="absolute inset-0  bg-[radial-gradient(circle,_rgba(0,0,0,0.1)_2px,_transparent_1px)] [background-size:12px_12px]" />
             </div>

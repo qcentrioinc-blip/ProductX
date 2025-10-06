@@ -35,13 +35,13 @@ const cards = [
   ];
 
 const HowWeDo = () => {
-  const [active, setActive] = useState<string>("");
+  const [active, setActive] = useState<string>(cards[0].id);
 
   
 
-  // 🔥 Auto rotate only on mobile
+
   useEffect(() => {
-    const isMobile = window.innerWidth < 768; // md se chhota = mobile
+    const isMobile = window.innerWidth < 768; 
     if (!isMobile) return;
 
     let index = 0;
@@ -50,7 +50,7 @@ const HowWeDo = () => {
     const interval = setInterval(() => {
       index = (index + 1) % cards.length;
       setActive(cards[index].id);
-    }, 5000); // 5 second
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, []);
