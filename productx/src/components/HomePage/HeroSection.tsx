@@ -8,30 +8,38 @@ import Testimonial from "./Testimonial"
 import Counter from "./Counter"
 import WhatWeDo from "./WhatWeDo"
 import CallToAction from "./CallToAction"
- 
+
 const HeroSection = () => {
     return (
-        <div>
+        <div >
             <div id="landingpage">
                 <LandingPage />
             </div>
-            <WhatWeDo/>
-             <Partnership />
-            <div id="visionimpact" className="min-h-screen">
+            <div id="whatwedo">
+                <WhatWeDo />
+            </div>
+            <div id="partnership">
+                <Partnership />
+            </div>
+            <div id="howwedo">
+                <HowWeDo />
+            </div>
+            <div id="targetaudience">
+                <TargetAudience />
+            </div>
+            <div id="testimonial">
+                <Testimonial />
+            </div>
+            <div id="visionimpact">
                 <VisionImpact />
             </div>
-           
-            <HowWeDo />
-            <TargetAudience />
-            <Testimonial />
-            <Counter />
-            <CallToAction />
+            <div id="counter"><Counter /></div>
+            <div id="calltoaction"><CallToAction /></div>
             <div id="footer">
                 <Footer />
             </div>
         </div>
     )
 }
- 
+
 export default HeroSection
- 
