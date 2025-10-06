@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState, useContext } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
- import { H1, H3, P } from '../../styles/Typography';
+import { H1, H3, P } from '../../styles/Typography';
+import { ScrollContext } from '../../context/ScrollContext';
 
 type ProcessStepProps = {
     step: string;   
@@ -18,7 +19,6 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                     </div>
                 </div>
                 <div className="mt-8 text-left">
-                    {/* <h3 className="font-semibold text-[40px] tracking-widest uppercase text-gray-800 mb-4">{title}</h3> */}
                     <H3>{title}</H3>
                     <p className="text-gray-600 text-[16px] leading-relaxed">{description}</p>
                 </div>
@@ -29,8 +29,11 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
 
 const Process = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    // const scrollerRef = useRef<HTMLDivElement>(null);
     const scrollProgress = useMotionValue(0);
+    const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
+    const [, setScrollDirection] = useState<'up' | 'down' | 'still'>('still');
+    const lastScrollY = useRef(0);
+    const scrollContext = useContext(ScrollContext);
 
     const steps = [
         {
@@ -55,86 +58,147 @@ const Process = () => {
         },
     ];
 
-    // **TRANSFORM BASED ON MANUAL SCROLL PROGRESS**
-    const x = useTransform(scrollProgress, [0, 1], ["40%", "-90%"]);
+    // **DETECT SCROLL DIRECTION**
+    const detectScrollDirection = useCallback(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!scrollContainer) return;
+        const currentScrollY = scrollContainer.scrollTop;
+        
+        if (currentScrollY > lastScrollY.current) {
+            setScrollDirection('down');
+        } else if (currentScrollY < lastScrollY.current) {
+            setScrollDirection('up');
+        } else {
+            setScrollDirection('still');
+        }
+        
+        lastScrollY.current = currentScrollY;
+    }, [scrollContext]);
 
-    // **WHEEL EVENT HANDLER**: Complete scroll hijacking
+    // **BIDIRECTIONAL SCROLL POSITION CHECK**
+    const checkScrollPosition = useCallback(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!containerRef.current || !scrollContainer) return;
+        
+        const rect = containerRef.current.getBoundingClientRect();
+        
+        // **ENABLE HORIZONTAL SCROLL IN BOTH DIRECTIONS WHEN CONTAINER IS PROPERLY POSITIONED**
+        const shouldEnableHorizontalScroll = (
+            rect.top <= 100 && // Container has scrolled up enough (with buffer for header)
+            rect.top >= -100 && // But not scrolled too far past
+            rect.bottom > scrollContainer.clientHeight * 0.6 // Enough content still visible
+        );
+        
+        setCanHorizontalScroll(shouldEnableHorizontalScroll);
+        
+        // **ALSO DETECT SCROLL DIRECTION**
+        detectScrollDirection();
+    }, [detectScrollDirection, scrollContext]);
+
+    // **LISTEN FOR SCROLL EVENTS TO UPDATE POSITION AND DIRECTION**
+    useEffect(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!scrollContainer) return;
+
+        const handleScroll = () => {
+            checkScrollPosition();
+        };
+
+        // **INITIALIZE LAST SCROLL POSITION**
+        lastScrollY.current = scrollContainer.scrollTop;
+
+        scrollContainer.addEventListener('scroll', handleScroll);
+        // **INITIAL CHECK**
+        checkScrollPosition();
+
+        return () => {
+            scrollContainer.removeEventListener('scroll', handleScroll);
+        };
+    }, [checkScrollPosition, scrollContext]);
+
+    // **TRANSFORM BASED ON MANUAL SCROLL PROGRESS**
+    const x = useTransform(scrollProgress, [0, 1], ["50%", "-90%"]);
+
+    // **BIDIRECTIONAL WHEEL EVENT HANDLER**
     const handleWheel = useCallback((e: WheelEvent) => {
         if (!containerRef.current) return;
+        const scrollContainer = scrollContext?.current;
 
         const container = containerRef.current;
         const rect = container.getBoundingClientRect();
-        const isInView = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+        const isInView = rect.top <= 100 && rect.bottom >= (scrollContainer?.clientHeight ?? 0) * 0.5;
 
         if (!isInView) return;
 
-        // **PREVENT ALL DEFAULT SCROLLING**
-        e.preventDefault();
-        e.stopPropagation();
+        // **ONLY ALLOW HORIZONTAL SCROLLING WHEN SECTION IS PROPERLY POSITIONED (BOTH DIRECTIONS)**
+        if (!canHorizontalScroll) {
+            return;
+        }
 
         const currentProgress = scrollProgress.get();
-        const scrollSensitivity = 0.001; // Adjust for scroll speed
-        const newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+        const scrollSensitivity = 0.002;
+        
+        // **HANDLE BOTH SCROLL DIRECTIONS THE SAME WAY**
+        let newProgress;
+        if (e.deltaY > 0) {
+            // **SCROLLING DOWN - MOVE FORWARD**
+            newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+        } else {
+            // **SCROLLING UP - MOVE BACKWARD** 
+            newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+        }
         
         scrollProgress.set(newProgress);
-
-        // **MANAGE BODY SCROLL STATE**
+        
+        // **MANAGE SCROLL HIJACKING**
+        // If we are between 0 and 1, prevent default vertical scroll.
         if (newProgress > 0 && newProgress < 1) {
-            document.body.style.overflow = 'hidden';
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollContainer) scrollContainer.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'auto';
-            
-            // **CONTINUE SCROLLING IN BOTH DIRECTIONS**
-            if (newProgress >= 1) {
-                // **SCROLL DOWN**: Animation finished, continue scrolling down
-                window.scrollBy(0, e.deltaY);
-            } else if (newProgress <= 0 && e.deltaY < 0) {
-                // **SCROLL UP**: Animation at start, continue scrolling up [web:253][web:258]
-                window.scrollBy(0, e.deltaY);
-            }
+            // Otherwise, allow default vertical scroll to take over.
+            if (scrollContainer) scrollContainer.style.overflow = 'auto';
+
+            // A tiny timeout helps ensure the overflow style applies before the next scroll event.
+            // This prevents a "jump" when exiting the horizontal scroll.
+            setTimeout(() => { if (scrollContainer) scrollContainer.style.overflow = 'auto'; }, 50);
         }
-    }, [scrollProgress]);
+    }, [scrollProgress, canHorizontalScroll, scrollContext]);
 
     // **ATTACH WHEEL EVENT LISTENERS**
     useEffect(() => {
         const container = containerRef.current;
-        if (!container) return;
+        const scrollContainer = scrollContext?.current;
+        if (!container || !scrollContainer) return;
 
-        // **PASSIVE: FALSE ALLOWS preventDefault()**
         container.addEventListener('wheel', handleWheel, { passive: false });
-        document.addEventListener('wheel', handleWheel, { passive: false });
+        // We only need to listen on the container, not the whole document
 
         return () => {
             container.removeEventListener('wheel', handleWheel);
-            document.removeEventListener('wheel', handleWheel);
-            document.body.style.overflow = 'auto'; // **CLEANUP**
+            if (scrollContainer) scrollContainer.style.overflow = 'auto';
         };
-    }, [handleWheel]);
+    }, [handleWheel, scrollContext]);
 
     return (
         <div className="bg-white font-sans" id='our-process'>
-            {/* **FULL FRAME STICKY SECTION**: Header + Horizontal Animation in one viewport */}
-            <div ref={containerRef} className="relative bg-white overflow-hidden">
-                <div className="sticky top-0 flex flex-col bg-white">
+            {/* **CONTAINER WITH EXTRA HEIGHT FOR BIDIRECTIONAL SCROLLING** */}
+            <div ref={containerRef} className="relative bg-white h-[80vh]">
+                <div className="sticky top-0 flex flex-col bg-white h-screen">
                     
-                    {/* **HEADER SECTION**: Now part of sticky container */}
-                    <div className="flex-none pt-8 pb-4">
+                    {/* **HEADER SECTION** */}
+                    <div className="flex-none pt-6 pb-6">
                         <div className="container mx-auto px-4">
                             <div className="text-center">
-                                {/* <h1 className="text-[40px] font-bold text-gray-800 mb-4" style={{ fontFamily: 'Bricolage Grotesque' }}>Our Process</h1> */}
                                 <H1>Our Process</H1>
-                                {/* <p className="text-[16px] font-bold text-gray-600" style={{ fontFamily: 'Quicksand' }} >
-                                    Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment
-                                </p> */}
-
                                 <P>Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment</P>
-                               
                             </div>
                         </div>
                     </div>
 
-                    {/* **HORIZONTAL SCROLL SECTION**: Flexible container for steps */}
-                    <div className="flex-1 flex items-center overflow-hidden py-16">
+                    {/* **HORIZONTAL SCROLL SECTION** */}
+                    <div className="flex-1 flex items-start justify-center overflow-hidden">
                         <motion.div 
                             style={{ x }} 
                             className="flex gap-x-8 md:gap-x-16"
@@ -153,6 +217,18 @@ const Process = () => {
                             ))}
                         </motion.div>
                     </div>
+
+                    {/* **DEBUG INDICATOR WITH SCROLL DIRECTION** */}
+                    {/* <div className="fixed bottom-4 right-4 bg-black text-white p-2 rounded text-sm z-50">
+                        {canHorizontalScroll ? (
+                            <div>
+                                🟢 Horizontal Active<br />
+                                Direction: {scrollDirection === 'down' ? '⬇️' : scrollDirection === 'up' ? '⬆️' : '⏸️'}
+                            </div>
+                        ) : (
+                            "🔴 Positioning..."
+                        )}
+                    </div> */}
                 </div>
             </div>
         </div>
@@ -160,4 +236,3 @@ const Process = () => {
 };
 
 export default Process;
-

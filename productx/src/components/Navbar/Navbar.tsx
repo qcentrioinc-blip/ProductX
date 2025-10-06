@@ -1,37 +1,73 @@
 "use client"
  
 import type React from "react"
-import "@fontsource/quicksand/400.css"
+import "@fontsource/quicksand/400.css";
 import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext, useRef, useCallback } from "react"
 import { useNavigate,Link } from 'react-router-dom';
+import { ScrollContext } from "../../context/ScrollContext";
 import { H2 } from "../../styles/Typography"
 // import { ContactUs } from "../../styles/Button"
  
  
 type SolutionsTab = "Banking and Finance" | "EHS and PMS" | "High Tech"
  
-type NavbarProps = {
-  activeSection?: string;
-}
+
  
-const Navbar = ({ activeSection }: NavbarProps) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const navbarRef = useRef<HTMLElement>(null);
+  const scrollContext = useContext(ScrollContext);
+
+  // State for dropdowns
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false)
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false)
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
   const [activeSolutionsTab, setActiveSolutionsTab] = useState<SolutionsTab>("Banking and Finance")
   const [clickedDropdown, setClickedDropdown] = useState<string | null>(null)
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // State for dynamic styling
+  const [navStyle, setNavStyle] = useState('light'); // 'light' or 'dark'
+
+  const lightStyle = { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" };
+  const darkStyle = { bg: "bg-black", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-gray-700" };
  
-  const sectionStyles: Record<string, { bg: string; text: string; btnBg: string; btnText: string; border: string }> = {
-    landingpage: { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" },
-    visionimpact: { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" },
-    footer: { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" },
-  };
- 
-  const currentStyle = sectionStyles[activeSection || "landingpage"];
+  const currentStyle = navStyle === 'dark' ? darkStyle : lightStyle;
+
+  // Global background detection logic
+  const checkBackgroundColor = useCallback(() => {
+    if (!navbarRef.current) return;
+
+    const navbarHeight = navbarRef.current.offsetHeight;
+    const checkPointX = window.innerWidth / 2;
+    const checkPointY = navbarHeight + 5; // Check 5px below the navbar
+
+    const element = document.elementFromPoint(checkPointX, checkPointY);
+    if (!element) return;
+
+    const bgColor = window.getComputedStyle(element).backgroundColor;
+
+    // Simple check for light vs dark background color (rgb(255, 255, 255) is white)
+    // This can be made more sophisticated by checking luminance
+    if (bgColor === 'rgb(255, 255, 255)' || bgColor === 'rgb(249, 250, 251)' /* gray-50 */) {
+      setNavStyle('dark');
+    } else {
+      setNavStyle('light');
+    }
+  }, []);
+
+  useEffect(() => {
+    const scrollContainer = scrollContext?.current;
+    if (!scrollContainer) return;
+
+    // Initial check
+    checkBackgroundColor();
+
+    scrollContainer.addEventListener('scroll', checkBackgroundColor);
+    return () => scrollContainer.removeEventListener('scroll', checkBackgroundColor);
+  }, [scrollContext, checkBackgroundColor]);
  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -146,6 +182,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
   return (
     <>
       <nav
+        ref={navbarRef}
         className={`fixed top-0 left-0 w-full z-50 border-b transition-colors duration-500 ${currentStyle.bg} ${currentStyle.border} backdrop-blur-lg`}
         style={{ fontFamily: "Quicksand, sans-serif" }}
       >
