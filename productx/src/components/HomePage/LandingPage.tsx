@@ -6,7 +6,7 @@ import {H1,P} from '../../styles/Typography'
 //import Button from "../../styles/Button"
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(false)
-
+ 
   // ✅ Detect screen size and update on resize
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 768)
@@ -14,7 +14,7 @@ const LandingPage = () => {
     window.addEventListener("resize", checkScreen)
     return () => window.removeEventListener("resize", checkScreen)
   }, [])
-
+ 
   const BackgroundSlider = ({ currentImage }: { currentImage: string }) => {
     return (
       <AnimatePresence mode="wait">
@@ -30,11 +30,11 @@ const LandingPage = () => {
       </AnimatePresence>
     )
   }
-
+ 
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const totalSlides = 4
-
+ 
   const sectorsData = [
     {
       id: 1,
@@ -64,17 +64,17 @@ const LandingPage = () => {
       subtitle: "With Cutting-Edge High-Tech Solutions"
     }
   ]
-
+ 
   const getCurrentBackgroundImage = () =>
     currentSlide === 0
       ? "/LandingPage/Landing0.png"
       : sectorsData[currentSlide - 1].backgroundImage
-
+ 
   const getCurrentButtonText = () =>
     currentSlide === 0
       ? "EXPLORE OUR SOLUTIONS"
       : sectorsData[currentSlide - 1].buttonText
-
+ 
   const getCurrentTitle = () =>
     currentSlide === 0
       ? { title: "Shaping the Future", subtitle: "Across Every Sector." }
@@ -82,7 +82,7 @@ const LandingPage = () => {
           title: sectorsData[currentSlide - 1].title,
           subtitle: sectorsData[currentSlide - 1].subtitle
         }
-
+ 
   const handleNextSlide = () => {
     if (currentSlide < totalSlides - 1 && !isTransitioning) {
       setIsTransitioning(true)
@@ -92,7 +92,7 @@ const LandingPage = () => {
       }, 100)
     }
   }
-
+ 
   const handlePrevSlide = () => {
     if (currentSlide > 0 && !isTransitioning) {
       setIsTransitioning(true)
@@ -102,7 +102,7 @@ const LandingPage = () => {
       }, 100)
     }
   }
-
+ 
   const handleSectorClick = (sectorIndex: number) => {
     if (!isTransitioning) {
       setIsTransitioning(true)
@@ -112,7 +112,7 @@ const LandingPage = () => {
       }, 100)
     }
   }
-
+ 
   const handleDotClick = (slideIndex: number) => {
     if (!isTransitioning && slideIndex !== currentSlide) {
       setIsTransitioning(true)
@@ -122,9 +122,9 @@ const LandingPage = () => {
       }, 100)
     }
   }
-
+ 
   const currentTitleData = getCurrentTitle()
-
+ 
   return (
     <div className="md:min-h-screen w-screen relative overflow-hidden">
       <BackgroundSlider currentImage={getCurrentBackgroundImage()} />
@@ -159,7 +159,7 @@ const LandingPage = () => {
                   </motion.span>
                 </motion.h1>
               </AnimatePresence>
-
+ 
               <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8">
                 <span className="hidden sm:inline">{getCurrentButtonText()}</span>
                 <span className="sm:hidden">EXPLORE SOLUTIONS</span>
@@ -168,7 +168,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-
+ 
               {!isMobile && (
                 <div className="flex px-4 sm:px-2  lg:px-8 gap-4">
                   <button
@@ -182,7 +182,7 @@ const LandingPage = () => {
                   >
                     <ChevronLeft className="w-5 h-5 text-white" />
                   </button>
-
+ 
                   <button
                     onClick={handleNextSlide}
                     disabled={currentSlide === totalSlides - 1 || isTransitioning}
@@ -201,7 +201,6 @@ const LandingPage = () => {
           <div className="container mx-auto   sm:px-6 lg:px-8 pb-4 pt-16 sm:py-6 md:py-8">
             {isMobile ? (
               // --------- Mobile Layout ---------
-
 <div className="flex flex-col min-h-full  pt-32">
   {/* Title + Subtitle + Button */}
   <div className="text-left px-4 mb-10">
@@ -227,7 +226,6 @@ const LandingPage = () => {
       </motion.div>
     </AnimatePresence>
   </div>
-
   {/* Bottom Section: Chevrons + Sector Cards + Dots */}
   <div className="px-3 pb-8">
     {/* Navigation Chevrons */}
@@ -243,7 +241,6 @@ const LandingPage = () => {
       >
         <ChevronLeft className="w-5 h-5 text-white" />
       </button>
-
       <button
         onClick={handleNextSlide}
         disabled={currentSlide === totalSlides - 1 || isTransitioning}
@@ -257,7 +254,6 @@ const LandingPage = () => {
       </button>
    
     </div>
-
   {/* Swipeable Sector Cards */}
     <div className="relative mb-6 overflow-hidden">
       <motion.div
@@ -288,7 +284,6 @@ const LandingPage = () => {
         ))}
       </motion.div>
     </div>
-
     {/* Dots */}
     <div className="flex gap-2">
       {Array.from({ length: totalSlides }).map((_, index) => (
@@ -313,7 +308,7 @@ const LandingPage = () => {
                   <div className="text-3xl lg:text-4xl font-bold text-white mb-4">
                     {String(currentSlide).padStart(2, "0")}
                   </div>
-
+ 
                   <div className="flex gap-2">
                     {Array.from({ length: totalSlides }).map((_, index) => (
                       <button
@@ -329,7 +324,7 @@ const LandingPage = () => {
                     ))}
                   </div>
                 </div>
-
+ 
                 <div className="flex-1">
                   <div className="flex gap-6 lg:gap-8 justify-start">
                     {sectorsData.map((sector, index) => (

@@ -7,16 +7,16 @@ import Building from "./Building"
 import Capabilities from "./Capabilities"
 import Enterprises from "./Enterprises"
 import FirstProduct from "./FirstProduct"
-import Pricing from "./Pricing"
+// import Pricing from "./Pricing"
 
-const ProductsPage = () => {
+const ProductsPage1 = () => {
     return (
         <div>
             <FirstProduct />
             <Capabilities />
             <Enterprises />
             <Building />
-            <Pricing />
+            {/* <Pricing /> */}
             <HWD />
             <InsightThought />
             <Counter />
@@ -26,4 +26,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage
+export default ProductsPage1
