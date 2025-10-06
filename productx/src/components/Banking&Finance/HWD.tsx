@@ -27,7 +27,7 @@ const HWD = () => {
   const CardContent = () => (
     <>
       {/* Top Section */}
-      <div className="p-6 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
+      <div className="p-6 pb-12 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
         {/* Icon */}
         <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
         <div className="text-justify">
@@ -105,7 +105,7 @@ const HWD = () => {
 
  
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}

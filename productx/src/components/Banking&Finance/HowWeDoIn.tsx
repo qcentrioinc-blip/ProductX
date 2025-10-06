@@ -75,16 +75,16 @@ const HowWeDoIn = () => {
 
   return (
     <>
-      <div className="w-screen mt-10 min-h-screen bg-gray-50 px-10" id="who-is-it-for">
-        {/* Top Section */}
-        <div className="flex pt-10 mx-auto flex-wrap max-w-[1360px]">
-          <div className="flex-1">
-            <p className="text-sm text-gray-500">Quis autem</p>
-            {/* <h2 className="text-4xl font-extrabold">Sed ut perspiciatis unde</h2> */}
-            <H2>Sed ut perspiciatis unde</H2>
-          </div>
-          <div className="flex-1">
-            {/* <p className="text-gray-700 text-justify">
+    <div className="w-screen  min-h-screen bg-gray-300 px-10" id="who-is-it-for">
+      {/* Top Section */}
+      <div className="flex pt-10 mx-auto flex-wrap max-w-[1360px]">
+        <div className="flex-1">
+          <p className="text-sm text-gray-500">Quis autem</p>
+          {/* <h2 className="text-4xl font-extrabold">Sed ut perspiciatis unde</h2> */}
+          <H2>Sed ut perspiciatis unde</H2>
+        </div>
+        <div className="flex-1">
+          {/* <p className="text-gray-700 text-justify">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p> */}
