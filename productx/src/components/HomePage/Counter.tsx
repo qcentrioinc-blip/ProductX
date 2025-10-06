@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { H2, H3, P } from "../../styles/Typography";
-
+ 
 const CounterCard = ({
   number,
   suffix = "",
@@ -17,7 +17,7 @@ const CounterCard = ({
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,13 +31,13 @@ const CounterCard = ({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
+ 
   useEffect(() => {
     if (!isVisible) return;
     let start = 0;
     const duration = 2000;
     const increment = number / (duration / 16);
-
+ 
     const counter = setInterval(() => {
       start += increment;
       if (start >= number) {
@@ -51,10 +51,10 @@ const CounterCard = ({
         }
       }
     }, 16);
-
+ 
     return () => clearInterval(counter);
   }, [isVisible, number]);
-
+ 
   return (
     <div
       ref={ref}
@@ -82,7 +82,7 @@ const CounterCard = ({
     </div>
   );
 };
-
+ 
 const Counter = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white">
@@ -100,7 +100,6 @@ const Counter = () => {
           speed, and satisfaction come together.
         </P>
       </div>
-
       <div className="w-full max-w-9xl   mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
           <CounterCard
@@ -128,5 +127,5 @@ const Counter = () => {
     </section>
   );
 };
-
+ 
 export default Counter;

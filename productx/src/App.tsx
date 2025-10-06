@@ -14,7 +14,9 @@ import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
-import Glossary from './components/Banking&Finance/Glossary'
+import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
+import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
+import Glossary from './components/Banking&Finance/Glossary/TitlePage'
 
 
 const App = () => {
@@ -33,6 +35,10 @@ const App = () => {
     if (productId === "2") return <ProductsPage2 />;
     if (productId ==="3")   return <AML/>;
     if (productId === "4") return <ProductDetailthree/>
+    if (productId === "5") return <ProductDetails_4_page/>
+    if (productId === "6") return <Cos_Page/>
+
+
     return <div>Product not found</div>;
   }
   return (
