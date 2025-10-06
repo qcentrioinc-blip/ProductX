@@ -12,8 +12,11 @@ import Blogs from './components/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
+import AML from './components/Banking&Finance/ProductAML/AML'
+import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
+import Glossary from './components/Banking&Finance/Glossary'
 
-// Create a Home component for your main page
+
 const App = () => {
 
   const IndustryPage = () => {
@@ -28,6 +31,8 @@ const App = () => {
     const { productId } = useParams();
     if (productId === "1") return <ProductsPage1 />;
     if (productId === "2") return <ProductsPage2 />;
+    if (productId ==="3")   return <AML/>;
+    if (productId === "4") return <ProductDetailthree/>
     return <div>Product not found</div>;
   }
   return (
@@ -41,6 +46,7 @@ const App = () => {
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path='/glossary' element={<Glossary />} />
           </Routes>
         </div>
       </ScrollProvider>

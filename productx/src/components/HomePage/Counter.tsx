@@ -67,16 +67,16 @@ const CounterCard = ({
         {suffix}
       </h2> */}
       
-      <H2 className="text-blue-500 mb-[100px]"> 
+      <H2 className="text-blue-500 pt-2 sm:pt-4"> 
         {count}
         {suffix}
       </H2>
       {/* <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3> */}
-      <H3 className="hover:bg-white hover:text-black">
+      <H3 className=" mt-8 sm:mt-10 md:mt-12 lg:mt-20 ">
         {title}
       </H3>
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
-      <P className="hover:bg-white hover:text-black">
+      <P >
         {description}
       </P>
     </div>
@@ -86,9 +86,9 @@ const CounterCard = ({
 const Counter = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white">
-      <div className="max-w-6xl mx-auto text-center mb-8 sm:mb-12 px-4">
+      <div className="max-w-6xl mx-auto text-center mb-8 sm:mb-12 px-4 ">
         {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2> */}
-        <H2 className="text-black">
+        <H2>
           Lorem ipsum dolor sit amet consectetur
         </H2>
         {/* <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
@@ -101,7 +101,7 @@ const Counter = () => {
         </P>
       </div>
 
-      <div className="w-full max-w-[1359px] mx-auto px-4 sm:px-6">
+      <div className="w-full max-w-9xl   mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
           <CounterCard
             number={120}

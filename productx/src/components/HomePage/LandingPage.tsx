@@ -129,9 +129,9 @@ const LandingPage = () => {
     <div className="md:min-h-screen w-screen relative overflow-hidden">
       <BackgroundSlider currentImage={getCurrentBackgroundImage()} />
       <div className="absolute inset-0 bg-black/40 z-0"></div>
- 
+
      <div className={`relative z-10 flex flex-col ${isMobile ? "" : "justify-between min-h-screen"}`}>
- 
+
         {/* Shared Top Section (Title + Button + Arrows on desktop) */}
         <div className="md:flex-1 hidden md:flex items-center">
           <div className="container mx-auto px-4 sm:px-6  hidden md:block lg:px-8">
@@ -201,7 +201,6 @@ const LandingPage = () => {
           <div className="container mx-auto   sm:px-6 lg:px-8 pb-4 pt-16 sm:py-6 md:py-8">
             {isMobile ? (
               // --------- Mobile Layout ---------
- 
 <div className="flex flex-col min-h-full  pt-32">
   {/* Title + Subtitle + Button */}
   <div className="text-left px-4 mb-10">
@@ -227,7 +226,6 @@ const LandingPage = () => {
       </motion.div>
     </AnimatePresence>
   </div>
- 
   {/* Bottom Section: Chevrons + Sector Cards + Dots */}
   <div className="px-3 pb-8">
     {/* Navigation Chevrons */}
@@ -243,7 +241,6 @@ const LandingPage = () => {
       >
         <ChevronLeft className="w-5 h-5 text-white" />
       </button>
- 
       <button
         onClick={handleNextSlide}
         disabled={currentSlide === totalSlides - 1 || isTransitioning}
@@ -257,7 +254,6 @@ const LandingPage = () => {
       </button>
    
     </div>
- 
   {/* Swipeable Sector Cards */}
     <div className="relative mb-6 overflow-hidden">
       <motion.div
@@ -267,7 +263,7 @@ const LandingPage = () => {
         dragElastic={0.1}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-       
+        
         {sectorsData.map((sector, index) => (
           <motion.div
             key={sector.id}
@@ -288,7 +284,6 @@ const LandingPage = () => {
         ))}
       </motion.div>
     </div>
- 
     {/* Dots */}
     <div className="flex gap-2">
       {Array.from({ length: totalSlides }).map((_, index) => (
@@ -304,8 +299,8 @@ const LandingPage = () => {
     </div>
   </div>
 </div>
- 
- 
+
+
             ) : (
               // --------- Desktop Layout ----------
               <div className="flex items-start gap-8 lg:gap-12">
@@ -368,5 +363,6 @@ const LandingPage = () => {
     </div>
   )
 }
- 
+
 export default LandingPage
+  
