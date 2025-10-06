@@ -1,8 +1,9 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useContext } from 'react';
 import { motion, useMotionValue, useSpring, useInView } from 'framer-motion';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Submit } from '../../styles/Button';
 import { H3, P } from '../../styles/Typography';
+import { ScrollContext } from '../../context/ScrollContext';
 
 const Footer = () => {
     // State for tracking scroll behavior and bottom reach
@@ -10,6 +11,7 @@ const Footer = () => {
     const rafRef = useRef<number | null>(null);
     const footerRef = useRef<HTMLDivElement | null>(null);
     const lastScrollY = useRef(0);
+    const scrollContext = useContext(ScrollContext);
     
     // Motion values for the blue circle animation
     const scaleValue = useMotionValue(0.1);
@@ -29,19 +31,22 @@ const Footer = () => {
     });
     
     // InView hook for visibility detection
-    const isInView = useInView(footerRef, { 
+    const isInView = useInView(footerRef, {
+        root: scrollContext ?? undefined,
         amount: 0.05,
         margin: '0px 0px 0px 0px'
     });
 
     const updateTransform = useCallback(() => {
-        if (!footerRef.current) return;
+        const scrollContainer = scrollContext?.current;
+        if (!footerRef.current || !scrollContainer) return;
 
-        const currentScrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
+        const currentScrollY = scrollContainer.scrollTop;
+        const windowHeight = scrollContainer.clientHeight;
+        const documentHeight = scrollContainer.scrollHeight;
         
         // Check if user has reached the very bottom of the page
+        // A small buffer (e.g., 10px) helps with floating point inaccuracies
         const isAtBottom = (windowHeight + currentScrollY) >= (documentHeight - 10);
         
         // Detect scroll direction
@@ -81,29 +86,31 @@ const Footer = () => {
             scaleValue.set(0.2);
             opacityValue.set(0);
         }
-    }, [hasReachedBottom, isInView, scaleValue, opacityValue]);
+    }, [hasReachedBottom, isInView, scaleValue, opacityValue, scrollContext]);
 
     useEffect(() => {
+        const scrollContainer = scrollContext?.current;
+
         const handleScroll = () => {
             if (rafRef.current) {
                 cancelAnimationFrame(rafRef.current);
             }
-            
             rafRef.current = requestAnimationFrame(updateTransform);
         };
 
-        // Initialize scroll position
-        lastScrollY.current = window.scrollY;
-        
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
+        if (scrollContainer) {
+            // Initialize scroll position
+            lastScrollY.current = scrollContainer.scrollTop;
+            scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+        }
+
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            scrollContainer?.removeEventListener('scroll', handleScroll);
             if (rafRef.current) {
                 cancelAnimationFrame(rafRef.current);
             }
         };
-    }, [updateTransform]);
+    }, [updateTransform, scrollContext]);
 
     return (
         <motion.div 
