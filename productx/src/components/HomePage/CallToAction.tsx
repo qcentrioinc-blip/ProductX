@@ -23,7 +23,7 @@ const CallToAction = () => {
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
             quisquam est, qui dolorem ipsum olad dolor sit amet.
           </p> */}
-          <P>
+          <P className="mb-[16px] md:mb-[24px] lg:mb-[32px] mt-[8px] md:mt-[12px] lg:mt-[16px]">
             Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
             quisquam est, qui dolorem ipsum olad dolor sit amet.

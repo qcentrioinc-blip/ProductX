@@ -17,13 +17,14 @@ const HeroSection = () => {
             </div>
             <WhatWeDo/>
              <Partnership />
-            <div id="visionimpact" className="min-h-screen">
-                <VisionImpact />
-            </div>
            
             <HowWeDo />
             <TargetAudience />
             <Testimonial />
+            <div id="visionimpact" className="min-h-screen">
+                <VisionImpact />
+            </div>
+
             <Counter />
             <CallToAction />
             <div id="footer">

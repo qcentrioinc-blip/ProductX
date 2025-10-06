@@ -9,10 +9,12 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/LifeSciences'
-import Glossary from './components/Banking&Finance/Glossary'
 
 import ProductsPage from './components/Banking&Finance/Products/ProductsPage'
 import Blogs from './components/Blogs/Blogs'
+import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
+import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
 
 // Create a Home component for your main page
 const App = () => {
@@ -50,8 +52,10 @@ const App = () => {
           <Route path='/' element={<HeroSection />} />
           <Route path="/industries/:industry" element={<IndustryPage />} />
           <Route path="/industries/banking-and-finance/products" element={<ProductsPage />} />
+          <Route path='/industries/banking-and-finance/productdetails4' element={<ProductDetails_4_page />} />
+          <Route path='productdetails(cos)' element={<Cos_Page />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/glossary' element={<Glossary />} />
+          <Route path='glossary' element={<GlossaryPage />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </div>
