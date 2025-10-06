@@ -1,6 +1,6 @@
 import './App.css'
 import HeroSection from './components/HomePage/HeroSection'
-import Contact from './components/Contact/Contact' // Make sure this path is correct
+import Contact from './components/Contact/Contact'
 import { useEffect, useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
@@ -13,8 +13,10 @@ import Glossary from './components/Banking&Finance/Glossary'
 
 import ProductsPage from './components/Banking&Finance/Products/ProductsPage'
 import Blogs from './components/Blogs/Blogs'
+import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
+import AML from './components/Banking&Finance/ProductAML/AML'
 
-// Create a Home component for your main page
+
 const App = () => {
   const [activeSection, setActiveSection] = useState("landingpage");
 
@@ -50,6 +52,8 @@ const App = () => {
           <Route path='/' element={<HeroSection />} />
           <Route path="/industries/:industry" element={<IndustryPage />} />
           <Route path="/industries/banking-and-finance/products" element={<ProductsPage />} />
+          <Route path="/industries/banking-and-finance/product-pago" element={<ProductDetailthree />} />
+          <Route path="/industries/banking-and-finance/product-aml" element={<AML/>}/>
           <Route path='/contact' element={<Contact />} />
           <Route path='/glossary' element={<Glossary />} />
           <Route path="/blogs" element={<Blogs />} />

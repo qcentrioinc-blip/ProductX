@@ -27,7 +27,7 @@ const  HowWeDoIn = () => {
  
   return (
     <>
-    <div className="w-screen mt-10 min-h-screen bg-gray-50 px-10" id="who-is-it-for">
+    <div className="w-screen  min-h-screen bg-gray-300 px-10" id="who-is-it-for">
       {/* Top Section */}
       <div className="flex pt-10 mx-auto flex-wrap max-w-[1360px]">
         <div className="flex-1">

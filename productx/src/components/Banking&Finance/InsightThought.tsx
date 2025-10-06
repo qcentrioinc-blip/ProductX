@@ -6,7 +6,7 @@ const InsightThought = () => {
  
     return (
         <div className="max-w-7xl mx-auto mt-4 px-4 sm:px-6 lg:px-0" id='blogs'>
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 sm:mb-12">Insights and Thoughts</h1>
+            {/* <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 sm:mb-12">Insights and Thoughts</h1> */}
  
         <H2>Insights and Thoughts</H2>
 

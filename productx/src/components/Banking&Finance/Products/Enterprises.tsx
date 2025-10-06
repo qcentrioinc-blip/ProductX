@@ -1,78 +1,122 @@
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import Typography from "@mui/material/Typography"
+import { motion } from "framer-motion";
+import Image2 from "/Image2.jpg";
+import Image3 from "/Image3.jpg";
+import { H2, P, H3 } from "../../../styles/Typography";
 
 const Enterprises = () => {
-    return (
-        <div className="min-h-screen bg-black text-white py-16 px-4">
-            {/* Header Section*/}
-            <div className="max-w-6xl mx-auto text-center mb-16">
-                <Typography variant="h3" className="text-lg md:text-xl font-bold mb-6 text-white text-center">
-                    Itaque earum rerum hic tenetur a sapiente delectus
-                </Typography>
+  return (
+    <section className="bg-black h-full w-screen text-white py-10 px-4 md:px-8">
+      {/* Heading */}
+      <div className="max-w-4xl pt-10 mx-auto text-center mb-16">
+        <H2>Itaque earum rerum hic tenetur a sapiente delectus</H2>
+        
+        <P>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit.
+        </P>
+      </div>
 
-                <Typography variant="h6" className="text-md md:text-lg text-gray-300 max-w-3xl leading-relaxed text-center">
-                    From fast-moving startups to structured enterprises, Taskos adapts to your team's real-world workflows — not
-                    the other way around.
-                </Typography>
-            </div>
+      {/* Grid */}
+      <div className="grid grid-cols-1 w-8xl md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
+        {/* First tall card */}
+        <div className="bg-white text-black rounded-lg p-6 flex flex-col md:row-span-2 max-h-[800px]">
+          <div>
+            <H3>Banks werf erdcd sedrtg werft</H3>
+            <P>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. 
+            </P>
+          </div>
 
-            {/* Card Grid */}
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Card 1 - Stay organized */}
-                <Card className="bg-white text-black border-none h-96 rounded-xl shadow-lg">
-                    <CardContent className="p-6">
-                        <Typography variant="h5" component="h3" className="font-semibold mb-2 text-black text-xl">
-                            Stay organized, effortlessly.
-                        </Typography>
-                        <Typography variant="body1" className="text-gray-600 mb-6 leading-relaxed">
-                            Easily track tasks, assignees, and statuses in one place.
-                        </Typography>
-                        <div className="bg-gray-200 rounded-lg h-48 w-full" />
-                    </CardContent>
-                </Card>
+          <div className="mt-4 flex-1 rounded-lg p-2 overflow-hidden min-h-[200px]">
+            <motion.img
+              src={Image2}
+              alt="Enterprise 1"
+              className="rounded-md object-cover w-full h-full"
+              initial={{ 
+                opacity: 0, 
+                x: 80,           
+                rotateZ: 20, 
+                scale: 0.95       
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0, 
+                rotateZ: 0,      
+                scale: 1          
+              }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 0.1, 0.25, 1] 
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+            />
+          </div>
 
-                {/* Card 2 - Built for fast-moving teams */}
-                <Card className="bg-white text-black border-none h-96 rounded-xl shadow-lg">
-                    <CardContent className="p-6">
-                        <Typography variant="h5" component="h3" className="font-semibold mb-2 text-black text-xl">
-                            Built for fast-moving teams.
-                        </Typography>
-                        <Typography variant="body1" className="text-gray-600 mb-6 leading-relaxed">
-                            Collaborate in real time with live edits and comments.
-                        </Typography>
-                        <div className="bg-gray-200 rounded-lg h-48 w-full" />
-                    </CardContent>
-                </Card>
-
-                {/* Card 3 - Precision-Driven Portfolio Growth (top right) */}
-                <Card className="bg-white text-black border-none h-96 rounded-xl shadow-lg">
-                    <CardContent className="p-6">
-                        <Typography variant="h5" component="h3" className="font-semibold mb-2 text-black text-xl">
-                            Precision-Driven Portfolio Growth
-                        </Typography>
-                        <Typography variant="body1" className="text-gray-600 mb-6 leading-relaxed">
-                            View tasks as lists, boards, calendars, or timelines.
-                        </Typography>
-                        <div className="bg-gray-200 rounded-lg h-48 w-full" />
-                    </CardContent>
-                </Card>
-
-                {/* Card 4 - Precision-Driven Portfolio Growth (bottom) */}
-                <Card className="bg-white text-black border-none h-96 rounded-xl shadow-lg">
-                    <CardContent className="p-6">
-                        <Typography variant="h5" component="h3" className="font-semibold mb-2 text-black text-xl">
-                            Precision-Driven Portfolio Growth
-                        </Typography>
-                        <Typography variant="body1" className="text-gray-600 mb-6 leading-relaxed">
-                            Let AI suggest assignments, priorities, and deadlines.
-                        </Typography>
-                        <div className="bg-gray-200 rounded-lg h-48 w-full" />
-                    </CardContent>
-                </Card>
-            </div>
         </div>
-    )
-}
 
-export default Enterprises
+        {/* Middle normal cards */}
+        {[2, 3].map((i, index) => (
+          <div
+            key={i}
+            className="bg-white text-black rounded-lg p-4 flex flex-col max-h-[388px]"
+          >
+            <div>
+              <H3>Banks werf erdcd sedrtg werft</H3>
+              <P>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur.
+              </P>
+            </div>
+
+            <div className=" flex-1   rounded-lg p-2 overflow-hidden min-h-[231px]">
+              <motion.img
+                src={Image3}
+                alt={`Enterprise ${i}`}
+                className="rounded-md object-cover w-full h-full"
+                initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: index * 0.2,
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              />
+            </div>
+          </div>
+        ))}
+
+        {/* Wide bottom card */}
+        <div className="bg-white text-black rounded-lg p-4 flex flex-col md:col-span-2 lg:col-span-2 max-h-[380px]">
+          <div>
+            <H3>Banks werf erdcd sedrtg werft</H3>
+            <P>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </P>
+          </div>
+
+          <div className=" flex-1   rounded-lg p-2 overflow-hidden min-h-[100px]">
+            <motion.img
+              src={Image3}
+              alt="Enterprise 4"
+              className="rounded-md object-cover w-full h-full"
+              initial={{ opacity: 0, y: 50, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.4,
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Enterprises;
