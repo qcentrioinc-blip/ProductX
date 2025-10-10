@@ -6,13 +6,13 @@ import HWD from "../HWD"
 
 const AML = () => {
   return (
- <div className="h-screen overflow-y-auto overflow-x-hidden">
-      <HeroSection/>
-      <Testimonial/>
-         
-      <Banks/>
-    <Description/> 
-      <HWD/>
+    <div>
+      <HeroSection />
+      <Testimonial />
+
+      <Banks />
+      <Description />
+      <HWD />
     </div>
   )
 }

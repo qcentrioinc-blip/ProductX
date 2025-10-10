@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from "react";
-import {H1,H2, P} from '../../styles/Typography'
+import { useState, useEffect, useRef, useContext } from "react";
+import { H1, H2, P } from '../../styles/Typography'
+import { ScrollContext } from "../../context/ScrollContext";
 
 
 const TargetAudience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const industryRefs = useRef<Array<HTMLDivElement | null>>([]);
-
+  const scrollableContainerRef = useContext(ScrollContext);
   const industries = [
     {
       name: "Banking",
@@ -52,35 +53,51 @@ const TargetAudience = () => {
   ];
 
   useEffect(() => {
+    const scrollableElement = scrollableContainerRef?.current;
     const handleScroll = () => {
+      if (!scrollableElement) return; // Guard clause
+
+      const containerRect = scrollableElement.getBoundingClientRect();
+      const viewportCenter = containerRect.height / 2;
+
       let newIndex = 0;
+      let minDistance = Infinity;
+
       industryRefs.current.forEach((ref, idx) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        if (
-          rect.top < window.innerHeight / 2 &&
-          rect.bottom > window.innerHeight / 2
-        ) {
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - elementCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
           newIndex = idx;
         }
       });
       setActiveIndex(newIndex);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    if (scrollableElement) {
+      scrollableElement.addEventListener("scroll", handleScroll);
+      handleScroll(); // Initial check
+    }
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Cleanup function
+    return () => {
+      if (scrollableElement) {
+        scrollableElement.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [scrollableContainerRef]); // Rerun effect if the ref changes
 
   return (
     <div className="w-full bg-black text-white">
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      
+
           <div className="lg:col-span-1 mb-10 lg:mb-0">
             <div className="sticky top-20 pl-2 sm:pl-6">
-            
+
               <H1 className="text-4xl">Built <br /> For</H1>
             </div>
           </div>
@@ -124,11 +141,11 @@ const TargetAudience = () => {
                     {industry.name}
                   </h2> */}
                   <H2
-                    className={`transition-colors duration-500 ${
-                      index === activeIndex
-                        ? "text-white opacity-100"
-                        : "text-white opacity-30"
-                    }`}
+                    className={`transition-all duration-500 transform ${
+                    index === activeIndex
+                      ? "text-white opacity-100 scale-110"
+                      : "text-white opacity-30 scale-100"
+                  }`}
                   >
                     {industry.name}
                   </H2>

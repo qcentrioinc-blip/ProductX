@@ -2,7 +2,7 @@ import { H1, H2,P } from "../../../styles/Typography"
 
 const CTA = () => {
   return (
-     <div className="h-full w-screen ">
+     <div className="h-full w-full ">
      
   
       <section className="px-4 sm:px-6 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-32">
