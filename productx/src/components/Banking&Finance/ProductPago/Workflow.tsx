@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollContext } from "../../../context/ScrollContext";
 
 // Replace with your real images
 const images = [
@@ -20,33 +21,53 @@ const steps = [
 
 const Workflow = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const scrollableContainerRef = useContext(ScrollContext);
 
   // Scroll detection
   useEffect(() => {
+    const scrollableElement = scrollableContainerRef?.current;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const height = rect.height;
+      if (!scrollableElement) return;
 
-      // Calculate scroll percentage
-      const scrollY = Math.min(Math.max(-rect.top, 0), height);
-      const progress = scrollY / height;
+      const viewportHeight = scrollableElement.clientHeight;
+      const viewportCenter = viewportHeight / 2;
 
-      // Determine step based on scroll
-      const newStep = Math.min(
-        steps.length - 1,
-        Math.floor(progress * steps.length)
-      );
-      setActiveStep(newStep);
+      let closestStep = 0;
+      let minDistance = Infinity;
+
+      stepRefs.current.forEach((ref, idx) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const elementCenter = rect.top + (rect.height / 2);
+        const distance = Math.abs(elementCenter - viewportCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestStep = idx;
+        }
+      });
+
+      if (minDistance < viewportHeight / 3) { // Only update if step is close enough
+        setActiveStep(closestStep);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (scrollableElement) {
+      scrollableElement.addEventListener("scroll", handleScroll);
+      handleScroll(); // Initial check
+    }
+
+    return () => {
+      if (scrollableElement) {
+        scrollableElement.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [scrollableContainerRef]);
 
   return (
-    <div ref={containerRef} className="w-full min-h-screen bg-[#a50044] py-20">
+    <div className="w-full min-h-screen bg-[#a50044] py-20">
       {/* Title */}
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-white">
@@ -65,7 +86,7 @@ const Workflow = () => {
             <motion.img
               key={activeStep}
               src={images[activeStep]}
-              alt="step-img"
+              alt={`step-${activeStep + 1}`}
               className="absolute inset-0 w-full h-full object-cover"
               initial={{ scale: 1.2, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -78,7 +99,10 @@ const Workflow = () => {
         {/* Right - Steps */}
         <div className="relative flex flex-col gap-6">
           {steps.map((text, idx) => (
-            <div key={idx} className="flex items-center gap-4">
+            <div 
+            key={idx} 
+            ref={(el) => { stepRefs.current[idx] = el; }}
+            className="flex items-center gap-4">
               <motion.div
                 className="flex items-center justify-center rounded-full border-2 border-white text-white font-bold"
                 animate={{
@@ -92,7 +116,13 @@ const Workflow = () => {
               >
                 {idx + 1}
               </motion.div>
-              <p className="text-gray-100 max-w-md">{text}</p>
+              <p 
+                className={`text-gray-100 max-w-md transition-opacity duration-500 ${
+                  activeStep === idx ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                {text}
+              </p>
             </div>
           ))}
 

@@ -74,7 +74,7 @@ const AlphabetSec = () => {
         ref={alphabetBarRef}
         className={`${
           isSticky ? "fixed top-[73px] z-20 shadow-sm" : "relative"
-        } w-screen bg-black text-white py-3 px-2 overflow-x-auto transition-all`}
+        } w-full bg-black text-white py-3 px-2 overflow-x-auto transition-all`}
       >
         <div className="flex justify-between min-w-[100%]">
           {alphabet.map((letter) => (

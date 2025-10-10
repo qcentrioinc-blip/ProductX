@@ -5,10 +5,10 @@ import TitlePage from './TitlePage';
 const GlossaryPage = () => {
   return (
     <>
-    <TitlePage />
-    <AlphabetsSection />
-    <CallToAction />
-    <Footer />
+      <TitlePage />
+      <AlphabetsSection />
+      <CallToAction />
+      <Footer />
     </>
   );
 };
