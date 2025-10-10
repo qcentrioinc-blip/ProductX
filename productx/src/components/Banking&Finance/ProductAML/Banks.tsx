@@ -3,7 +3,7 @@ import { H3, P } from "../../../styles/Typography";
 
 const Banks = () => {
   return (
-   <div className="w-full  bg-gray-700 min-h-screen pb-20  px-6 sm:px-12 md:px-16  lg:px-20 xl:px-28 relative z-10">
+   <div className="w-full bg-gray-700 min-h-screen pb-20  px-6 sm:px-12 md:px-16  lg:px-20 xl:px-28 relative z-10">
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         

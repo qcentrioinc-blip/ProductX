@@ -4,7 +4,7 @@ import Image1 from "/AML/image64.png";
 
 const HeroSection = () => {
   return (
-    <div className="w-screen mt-28 mb-12 ">
+    <div className="w-full mt-28 mb-12 ">
     
       <div className=" px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between items-center gap-8">
         

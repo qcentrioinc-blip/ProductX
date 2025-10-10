@@ -4,7 +4,7 @@ const Partnership = () => {
   const items = ["lorem", "lorem", "lorem", "lorem", "lorem"];
 
   return (
-    <div className="w-screen bg-black pt-16 md:pt-32 pb-8">
+    <div className="w-full bg-black pt-16 md:pt-32 pb-8">
       <div className="max-w-[872px] w-full text-center mx-auto relative overflow-hidden px-4">
         {/* <h2 className="text-white mb-6 font-bold text-2xl sm:text-3xl md:text-4xl">
           Whom we work with

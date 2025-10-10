@@ -2,7 +2,8 @@ import { ArrowRight } from 'lucide-react';
 
 const NewFooter = () => {
     return (
-        <footer className="min-h-screen bg-[#f5f5f5] px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 relative overflow-hidden flex items-center">
+        <footer className="min-h-screen bg-[#f5f5f5] px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 relative overflow-hidden flex items-center"
+        >
             {/* Background Circles - Hidden on mobile, visible from tablet up */}
             <div className="absolute inset-0 pointer-events-none hidden md:block">
                 <div className="absolute top-1/2 left-[8%] -translate-y-1/2 w-64 h-64 rounded-full bg-gray-200 opacity-40"></div>
@@ -11,10 +12,10 @@ const NewFooter = () => {
                 <div className="absolute top-1/2 right-[8%] -translate-y-1/2 w-56 h-56 rounded-full bg-gray-200 opacity-40"></div>
             </div>
 
-            <div className="w-full max-w-[1400px] mx-auto relative z-10">
+            <div className="w-full max-w-[1400px] mx-auto relative z-10 pointer-events-auto">
                 {/* Mobile & Tablet: Stack layout | Desktop: 14-column grid */}
                 <div className="flex flex-col gap-12 sm:gap-14 lg:gap-0 lg:grid lg:grid-cols-14 lg:items-start">
-                    
+
                     {/* Newsletter Section */}
                     <div className="lg:col-span-3">
                         <h3 className="text-[24px] sm:text-[28px] font-bold text-gray-900 mb-2 leading-tight">Updates?</h3>

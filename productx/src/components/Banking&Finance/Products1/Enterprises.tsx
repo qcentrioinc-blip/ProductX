@@ -4,7 +4,7 @@ import Image3 from "/Image3.jpg";
 import { H2, P, H3 } from "../../../styles/Typography";
 const Enterprises = () => {
   return (
-    <section className="bg-black  h-full w-screen text-white py-10  px-4 md:px-8">
+    <section className="bg-black  h-full w-full text-white py-10  px-4 md:px-8">
       {/* Heading */}
       <div className="max-w-4xl mx-auto text-center mb-16">
         <H2>Itaque earum rerum hic tenetur a sapiente delectus</H2>

@@ -40,13 +40,12 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Lock the viewport */
+  /* overflow: hidden; */
 }
 
 #root {
   height: 100%;
   width: 100%;
-  position: relative;
 }
 
 .font-bricolage {
@@ -116,6 +115,8 @@ p {
   .animate-spin-slow {
     animation: spin-slow 4s linear infinite;
   }
+
+  
 
 
 

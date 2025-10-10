@@ -16,7 +16,8 @@ import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
 import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
-import Glossary from './components/Banking&Finance/Glossary/TitlePage'
+import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
+import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
     if (productId === "4") return <ProductDetailthree/>
     if (productId === "5") return <ProductDetails_4_page/>
     if (productId === "6") return <Cos_Page/>
+    if( productId === "7") return <ProductsPage7/>
 
 
     return <div>Product not found</div>;
@@ -52,7 +54,7 @@ const App = () => {
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path='/glossary' element={<Glossary />} />
+            <Route path='/glossary' element={<GlossaryPage />} />
           </Routes>
         </div>
       </ScrollProvider>
