@@ -6,7 +6,7 @@ interface FeatureItemProps {
   text: string;
 }
 
-// Reusable component for the numbered feature items
+// Reusable component for the numbered feature items (no changes needed here)
 const FeatureItem: React.FC<FeatureItemProps> = ({ number, text }) => {
   return (
     <div className="flex flex-col py-2 sm:py-3 pr-1 sm:pr-2"> 
@@ -24,7 +24,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ number, text }) => {
 
 export default function FeatureGrid() {
   return (
-    <div className="w-full min-h-[60vh] sm:min-h-[70vh] bg-gray-200 py-6 sm:py-8 md:py-10 px-3 sm:px-6 md:px-10 flex items-center justify-center">
+    // UPDATED: Adjusted min-height for 'sm' screens and reduced vertical padding 'sm:py-6'
+    <div className="w-full min-h-[60vh] sm:min-h-[50vh] bg-gray-200 py-6 sm:py-10 md:py-10 px-3 sm:px-6 md:px-10 flex items-center justify-center">
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-start">
 
         {/* Column 1: Heading (Left Side) */}
