@@ -20,6 +20,7 @@ import AboutUs from './components/Banking&Finance/AboutUs/AboutUsPage'
 import Marketing from './components/Banking&Finance/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
+import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 
 
@@ -43,6 +44,7 @@ const App = () => {
     if (productId === "6") return <Cos_Page/>
     if (productId === "8") return <Sams_Page/>
     if (productId === "9") return <PDPage9/>
+    if( productId === "7") return <ProductsPage7/>
 
 
     return <div>Product not found</div>;

@@ -217,7 +217,7 @@ export default function Blogs() {
 
       </section>
 
-      <section className="bg-white h-full w-screen">
+      <section className="bg-white h-full w-full">
         <div className="mx-10 py-8">
           <H2 className="text-black ">All Posts</H2>
 

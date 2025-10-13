@@ -38,7 +38,7 @@ const WhatWeDoIn = () => {
   return (
     <div
       ref={targetRef}
-      className="bg-black text-white w-screen h-full py-20 flex flex-col"
+      className="bg-black text-white w-full h-full py-20 flex flex-col"
       id="benefits"
     >
       {/* Heading Section */}

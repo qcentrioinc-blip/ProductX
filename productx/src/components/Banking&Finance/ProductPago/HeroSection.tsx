@@ -2,7 +2,7 @@ import { H1,P } from "../../../styles/Typography";
 import Image1 from "/ProductDetailsThree/image67.png"
 const HeroSection = () => {
   return (
-    <section className="relative w-screen bg-white pt-32 pb-10 px-4 text-center">
+    <section className="relative w-full bg-white pt-32 pb-10 px-4 text-center">
       {/* Text Content */}
       <div className="max-w-3xl mx-auto">
         <H1 className=" text-gray-900">

@@ -56,7 +56,7 @@ const HowWeDo = () => {
   }, []);
 
   return (
-    <div className="w-screen min-h-screen bg-black text-white">
+    <div className="w-full min-h-screen bg-black text-white">
       {/* Header */}
       <div className="w-full px-6 lg:px-16 py-12 flex flex-col lg:flex-row justify-between items-start gap-8">
         <div className="max-w-2xl">

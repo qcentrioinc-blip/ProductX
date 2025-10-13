@@ -3,7 +3,7 @@ import { P, H3, H4 } from "../../../styles/Typography"
 
 const Description = () => {
   return (
-    <div className="w-screen  bg-gray-200 h-full  py-12 px-6 sm:px-12 md:px-16 lg:py-20 lg:px-20 xl:px-28">
+    <div className="w-full  bg-gray-200 h-full  py-12 px-6 sm:px-12 md:px-16 lg:py-20 lg:px-20 xl:px-28">
       
       {/* Top Heading */}
       <div className="lg:py-16 lg:w-3/5 w-full py-8">
