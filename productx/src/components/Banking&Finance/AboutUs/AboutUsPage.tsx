@@ -1,0 +1,24 @@
+import HeroSection from "./HeroSection";
+import Overview from "./Overview";
+import HighLights from "./HighLights";
+import Capabilities from "../Products1/Capabilities";
+import Process from "../Process";
+import Counter from "../../HomePage/Counter";
+import ContactUS from "../Products2/ContactUS";
+import NewFooter from "../Products2/NewFooter";
+
+const AboutUsPage = () => {
+  return (
+    <>
+    <HeroSection />
+    <Overview />
+    <HighLights />
+    <Capabilities />
+    <Process />
+    <Counter />
+    <ContactUS />
+    <NewFooter />
+    </>
+  )
+}
+export default AboutUsPage;
