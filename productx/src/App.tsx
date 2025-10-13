@@ -16,7 +16,11 @@ import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
 import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
-import Glossary from './components/Banking&Finance/Glossary/TitlePage'
+import AboutUs from './components/Banking&Finance/AboutUs/AboutUsPage'
+import Marketing from './components/Banking&Finance/Marketing/MarketPage'
+import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
+import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
+import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 
 
 const App = () => {
@@ -37,6 +41,8 @@ const App = () => {
     if (productId === "4") return <ProductDetailthree/>
     if (productId === "5") return <ProductDetails_4_page/>
     if (productId === "6") return <Cos_Page/>
+    if (productId === "8") return <Sams_Page/>
+    if (productId === "9") return <PDPage9/>
 
 
     return <div>Product not found</div>;
@@ -52,7 +58,9 @@ const App = () => {
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path='/glossary' element={<Glossary />} />
+            <Route path='/glossary' element={<GlossaryPage />} />
+            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path= 'marketplace' element={<Marketing />} />
           </Routes>
         </div>
       </ScrollProvider>
