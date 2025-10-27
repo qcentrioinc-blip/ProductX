@@ -5,7 +5,7 @@ import {
   LightbulbOutlined,
   CodeOutlined,
 } from "@mui/icons-material";
-import { ContactUs } from "../../styles/Button";
+import { ContactUs } from "../../../styles/Button";
 
 const cards = [
     {

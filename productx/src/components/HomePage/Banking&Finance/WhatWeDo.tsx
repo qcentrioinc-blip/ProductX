@@ -4,7 +4,7 @@ import img1 from "/WhatWeDo/img1.jpg";
 import img2 from "/WhatWeDo/img2.jpg";
 import img3 from "/WhatWeDo/img3.jpg";
 import img4 from "/WhatWeDo/img4.png";
-import { P } from "../../styles/Typography";
+import { P } from "../../../styles/Typography";
 
 const WhatWeDo = () => {
   return (

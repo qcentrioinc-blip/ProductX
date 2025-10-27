@@ -9,61 +9,50 @@ const NewsLetter = () => {
     ];
 
     return (
-        <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
-            <div className="max-w-6xl w-full">
+        <div className="bg-gray-50 flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+            <div className="w-full max-w-6xl">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-pink-800 leading-tight">
                     Subscribe to our newsletter<br />
                     to stay in touch with the latest.
                 </h1>
 
-                <div className="relative">
-                    {/* Circles - Mobile: Stack vertically, Tablet+: Horizontal */}
-                    <div className="hidden sm:flex justify-between items-center mb-6 sm:mb-8">
-                        {items.map((_, index) => (
-                            <div
-                                key={index}
-                                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-gray-300 rounded-full flex-shrink-0"
-                            ></div>
-                        ))}
-                    </div>
+                {/* Horizontal Timeline - All Screen Sizes */}
+                <div className="overflow-x-auto scrollbar-hide pb-4">
+                    <div className="min-w-max px-2">
+                        {/* Circles Row */}
+                        <div className="flex justify-between items-center mb-6 sm:mb-8 gap-8 sm:gap-12 md:gap-16 lg:gap-20">
+                            {items.map((_, index) => (
+                                <div
+                                    key={index}
+                                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-300 rounded-full flex-shrink-0"
+                                ></div>
+                            ))}
+                        </div>
 
-                    {/* Mobile: Vertical timeline */}
-                    <div className="sm:hidden space-y-6 mb-8">
-                        {items.map((item, index) => (
-                            <div key={index} className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
-                                <div className="w-3 h-3 bg-pink-700 rounded-full flex-shrink-0"></div>
-                                <p className="text-base font-semibold text-black">{item}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Desktop: Horizontal timeline - Hidden on mobile */}
-                    <div className="hidden sm:block">
                         {/* Line and Dots Container */}
                         <div className="relative mb-8 sm:mb-10 md:mb-12">
                             {/* Pink Line */}
-                            <div className="absolute top-1/2 left-3 right-3 sm:left-4 sm:right-4 md:left-6 md:right-6 h-0.5 bg-pink-700 transform -translate-y-1/3"></div>
+                            <div className="absolute top-1/2 left-8 right-8 sm:left-10 sm:right-10 md:left-12 md:right-12 lg:left-16 lg:right-14 h-0.5 bg-pink-700 transform -translate-y-1/2"></div>
 
                             {/* Pink Dots */}
-                            <div className="flex justify-between items-center relative">
+                            <div className="flex justify-between items-center relative gap-8 sm:gap-12 md:gap-16 lg:gap-20 px-8 sm:px-10 md:px-12 lg:px-14">
                                 {items.map((_, index) => (
                                     <div
                                         key={index}
-                                        className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-pink-700 rounded-full flex-shrink-0 z-10 mx-2 sm:mx-3 md:mx-4"
+                                        className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-pink-700 rounded-full flex-shrink-0 z-10"
                                     ></div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Labels */}
-                        <div className="flex justify-between items-center">
+                        {/* Labels Row */}
+                        <div className="flex justify-between items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
                             {items.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="text-center flex-1 px-1 sm:px-2"
+                                    className="text-center flex-shrink-0 min-w-[60px] sm:min-w-[80px] md:min-w-[96px] lg:min-w-[112px]"
                                 >
-                                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-black break-words">
+                                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-black whitespace-nowrap">
                                         {item}
                                     </p>
                                 </div>
@@ -72,6 +61,17 @@ const NewsLetter = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Hide scrollbar CSS */}
+            <style>{`
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}</style>
         </div>
     );
 };

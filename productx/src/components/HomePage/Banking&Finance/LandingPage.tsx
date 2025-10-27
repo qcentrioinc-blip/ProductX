@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
-import { H1, P } from '../../styles/Typography'
+import { H1, P } from '../../../styles/Typography'
 //import Button from "../../styles/Button"
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(false)

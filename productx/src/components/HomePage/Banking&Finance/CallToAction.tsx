@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import cta_img from "/CTA/cta-img-1.png";
-import { H2, P } from "../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 
 const CallToAction = () => {
