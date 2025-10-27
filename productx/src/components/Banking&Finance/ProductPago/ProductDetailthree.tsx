@@ -6,15 +6,28 @@ import HeroSection from "./HeroSection"
 import ImageGrid from "./ImageGrid"
 import Workflow from "./Workflow"
 import Cards from "./Cards"
+import PagoNavbar from "./PagoNavbar"
+ 
+import FAQ from "../ProductDetails4/FAQ"
+import InsightThought from "../InsightThought"
+import ContactUS from "../Products2/ContactUS"
+import NewFooter from "../Products2/NewFooter"
 const ProductDetailthree = () => {
   return (
     <div >
     <HeroSection/>
+    <PagoNavbar/>
     <CTA/>
     <Workflow/>
+  
     <Cards/>
     <ImageGrid/>
     <HWD/>
+    <FAQ />
+    <InsightThought />
+    <ContactUS />
+    <NewFooter />
+
     </div>
   )
 }

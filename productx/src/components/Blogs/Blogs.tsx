@@ -1,7 +1,6 @@
 import { H1, H2, P } from "../../styles/Typography";
 //import { motion } from 'framer-motion';
 import Image2 from "/Image2.jpg"
-import CallToAction from "../HomePage/CallToAction";
 import Footer from "../Footer/Footer";
 
 export default function Blogs() {
@@ -217,7 +216,7 @@ export default function Blogs() {
 
       </section>
 
-      <section className="bg-white h-full w-screen">
+      <section className="bg-white h-full w-full">
         <div className="mx-10 py-8">
           <H2 className="text-black ">All Posts</H2>
 
@@ -300,4 +299,5 @@ export default function Blogs() {
 }
 
 import { useState } from "react";
+import CallToAction from "../HomePage/Banking&Finance/CallToAction";
 

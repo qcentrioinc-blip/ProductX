@@ -3,16 +3,20 @@ import HeroSection from "./HeroSection"
 import Testimonial from "./Testimonial"
 import Banks from "./Banks"
 import HWD from "../HWD"
+import InsightThought from "../InsightThought"
+import NewFooter from "../Products2/NewFooter"
 
 const AML = () => {
   return (
- <div className="h-screen overflow-y-auto overflow-x-hidden">
-      <HeroSection/>
-      <Testimonial/>
-         
-      <Banks/>
-    <Description/> 
-      <HWD/>
+    <div>
+      <HeroSection />
+      <Testimonial />
+      <Description />
+      <Banks />
+      <HWD />
+      <InsightThought/>
+      
+      <NewFooter/>
     </div>
   )
 }
