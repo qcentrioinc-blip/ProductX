@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import ContactUS from "../Products2/ContactUS";
 import ThreeTab from "../Products2/ThreeTab";
 import Feature from "./Feature";
-import Title_Sec from "./Title_Sec";
+import Title_Sec from "./HeroSection";
 import NewFooter from "../Products2/NewFooter";
 
 const Sams_Page = () => {

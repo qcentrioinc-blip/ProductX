@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { H2, H3, P } from '../../../styles/Typography';
 import { ContactUs } from '../../../styles/Button';
 
-
 interface FaqItem {
   question: string;
   answer: string;
@@ -47,10 +46,10 @@ const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full px-6 py-16 bg-white">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+    <section className="w-full px-6 py-16 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 relative">
         {/* Left Section */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 relative z-20">
           <div className="mb-4 text-sm text-gray-700 flex items-center">
             <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
             <H3>Quis autem</H3>
@@ -64,8 +63,40 @@ const FaqSection: React.FC = () => {
           <ContactUs>CONTACT US </ContactUs>
         </div>
 
+        {/* Center Image */}
+        <div
+          className="
+            absolute 
+            
+            
+            -translate-x-1/2 
+            lg:translate-x-0 
+            xs:left-[350px]
+            bottom-[420px]
+            sm:left-[500px]
+            md:left-[650px]
+            md:bottom-[350px]
+            sm:bottom-[370px]
+            lg:left-[140px]
+            xl: left-[250px]
+            lg:bottom-[-100px] 
+            w-[280px] 
+            sm:w-[300px] 
+            md:w-[350px] 
+            lg:w-[540px] 
+            h-auto 
+            z-0
+          "
+        >
+          <img
+            src="/ProductDetails4/faq_img.png"
+            alt="FAQ Illustration"
+            className="w-full h-auto object-contain opacity-100"
+          />
+        </div>
+
         {/* Right Section (Accordion) */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 relative z-20">
           {faqData.map((item, index) => {
             const isOpen = index === openIndex;
             return (
@@ -83,7 +114,9 @@ const FaqSection: React.FC = () => {
                 </button>
                 <div
                   id={`faq-content-${index}`}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'} text-gray-600`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                  } text-gray-600`}
                 >
                   <div className="pb-4 pr-4">
                     {item.answer}
@@ -99,4 +132,3 @@ const FaqSection: React.FC = () => {
 };
 
 export default FaqSection;
-                                                                                                                                                                                                                              

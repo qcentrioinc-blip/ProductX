@@ -51,7 +51,7 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
   const activeContent = FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#C1D7F3]">
       <div className="max-w-[1280px] mx-auto">
         {/* Section Title */}
         <H2 className="text-gray-900 mb-5 text-center tracking-tight leading-snug">
@@ -70,11 +70,11 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
                     key={item.id}
                     onClick={() => setActiveFeatureId(item.id)}
                     className={`w-full py-3 px-6 mb-5 text-left rounded-full transition-all duration-300
-                      text-base font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+                      text-base font-semibold focus:outline-none focus:ring-indigo-500 focus:ring-offset-2
                       ${
                         isActive
-                          ? 'bg-indigo-100 text-indigo-800'
-                          : 'bg-white text-gray-900 border border-gray-300 hover:bg-indigo-50 hover:text-indigo-700'
+                          ? 'bg-blue-600 text-white '
+                          : 'bg-transparent text-black border border-gray-400 hover:bg-gray-100'
                       }`}
                   >
                     {item.buttonLabel}
