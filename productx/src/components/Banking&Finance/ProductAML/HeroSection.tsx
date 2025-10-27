@@ -33,18 +33,18 @@ const HeroSection = () => {
       }
     };
   return (
-    <div  className="w-full bg-gradient-to-b from-[#C1D7F3]  to-[#ffd900d0] mt-16 mb-12">
+    <div  className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mt-16 mb-12">
 -
 
       <div className=" px-8 sm:px-12 md:px-16  lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
 
         {/* Left Text */}
-        <div className="w-full text-[var(--primary-color)] text-center lg:text-left">
+        <div className="w-full text-(--primary-color) text-center lg:text-left">
           <H1>Lorem ipsum dolor , consectetur adipis</H1>
         </div>
 
         
-        <div className="w-full bg-[var(--secondary-color)] rounded-lg lg:w-3/5 flex flex-col  lg:pt-4 text-center  lg:text-left">
+        <div className="w-full bg-(--secondary-color) rounded-lg lg:w-3/5 flex flex-col  lg:pt-4 text-center  lg:text-left">
           <P className="px-4 lg:pt-2 pt-6">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu Excepteur sint occaecat cupidatat non proident,
@@ -71,7 +71,7 @@ const HeroSection = () => {
             {images.map((img, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[80vw] snap-center"
+                className="shrink-0 w-[80vw] snap-center"
               >
                 <img
                   src={img}

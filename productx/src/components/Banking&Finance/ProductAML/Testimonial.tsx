@@ -88,7 +88,7 @@ export default function Testimonial() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="flex-shrink-0"
+                className=" shrink-0"
                 style={{ width: 'calc(33.333% - 16px)' }}
               >
                 <div className="bg-gray-200 rounded-lg p-6 h-[200px]">
@@ -143,7 +143,7 @@ export default function Testimonial() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="flex-shrink-0 w-[85vw] snap-center"
+                className="shrink-0 w-[85vw] snap-center"
               >
                 <div className="bg-white border-2 border-gray-200 shadow-gray-500 shadow-sm rounded-lg p-6 h-[200px]">
                   {/* Avatar */}

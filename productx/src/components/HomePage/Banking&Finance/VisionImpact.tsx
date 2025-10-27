@@ -293,7 +293,7 @@ const VisionImpact: React.FC = () => {
                 }}
                 viewport={{ once: true }}
             >
-                <div className="text-center -mb-8 sm:-mb-0">
+                <div className="text-center -mb-8 sm:mb-0">
                     <motion.div
                         className="font-mono text-white text-xs sm:text-sm md:text-base lg:text-lg mb-0.5 sm:mb-2 md:mb-3 lg:mb-6 opacity-60"
                         initial={{ opacity: 0 }}
@@ -334,7 +334,7 @@ const VisionImpact: React.FC = () => {
                 {/* Main Animation Section */}
                 <div
                     ref={containerRef}
-                    className="relative h-[140vh] sm:h-[160vh] md:h-[180vh] lg:h-[140vh] xl:h-[160vh] 2xl:h-[180vh] -mt-12 sm:-mt-0 md:-mt-0 lg:mt-0"
+                    className="relative h-[140vh] sm:h-[160vh] md:h-[180vh] lg:h-[140vh] xl:h-[160vh] 2xl:h-[180vh] -mt-12 sm:mt-0 md:mt-0 lg:mt-0"
                 >
                     <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                         <motion.div

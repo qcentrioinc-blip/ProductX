@@ -87,7 +87,7 @@ const WhatWeDoIn = () => {
   <div className="absolute top-0 left-0 w-full h-full bg-amber-400 rounded-xl z-0"></div>
 
   {/* Vector Curve Overlay on Yellow Border */}
-  <div className="absolute top-0 left-0 w-full h-full z-[1]">
+  <div className="absolute top-0 left-0 w-full h-full z-1">
     <img
       src="/VectorCurve.png"
       alt="Decorative Curve"
@@ -96,7 +96,7 @@ const WhatWeDoIn = () => {
   </div>
 
   {/* Main Image Container - offset to reveal yellow border */}
-  <div className="absolute top-10 left-5 right-0 bottom-0 w-[calc(100%-20px)] h-[calc(100%-20px)] z-[2]">
+  <div className="absolute top-10 left-5 right-0 bottom-0 w-[calc(100%-20px)] h-[calc(100%-20px)] z-2">
     <img
       src={images[openIndex]}
       alt="Who we serve"

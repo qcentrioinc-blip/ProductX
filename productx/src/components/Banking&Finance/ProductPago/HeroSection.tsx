@@ -53,8 +53,8 @@ const HeroSection = () => {
               className="
                 group 
                 flex items-center justify-center
-                w-[185px] h-[48px]
-                px-[24px] py-[12px]
+                
+                h-12 px-6 py-3
                 rounded-md
                 font-bold
                 text-[14px]
@@ -65,9 +65,12 @@ const HeroSection = () => {
                 hover:bg-white hover:text-black
               "
             >
+               {/* w-[185px] h-[48px] */}
+                 {/* px-[24px] py-[12px] */}
               BOOK A DEMO
               <span className="flex items-center gap-2 ml-2">
-                <span className="relative flex items-center h-[20px] w-[20px]">
+                <span className="relative flex items-center h-5 w-5"> 
+                  {/* h-[20px] w-[20px] */}
                   <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                   <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
@@ -78,7 +81,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom Image Section */}
-      <div className="w-full bg-gradient-to-b from-transparent via-[var(--secondary-color)] to-[var(--secondary-color)] pb-10 md:pb-20">
+      <div className="w-full bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20">
         {/* Mobile Slider (visible only on small screens) */}
         <div className="md:hidden mt-6 px-4">
           <div 
@@ -94,7 +97,7 @@ const HeroSection = () => {
             {images.map((img, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[80vw] snap-center"
+                className="shrink-0 w-[80vw] snap-center"
               >
                 <img
                   src={img}
