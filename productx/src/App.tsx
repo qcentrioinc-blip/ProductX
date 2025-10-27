@@ -1,6 +1,4 @@
 import './App.css'
-import Contact from './components/Contact/Contact' // Make sure this path is correct
-
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
 import { Route, Routes, useParams } from 'react-router-dom'
@@ -21,6 +19,12 @@ import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Pa
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+import Platform from './components/Platform/Platform'
+import Career from './components/Career/Career'
+import About from './components/EHR/AboutUs/About'
+import Clinic from './components/EHR/ClinicApp/Clinic'
+ 
+import Connect from './components/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
 
 
@@ -56,13 +60,18 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path='/' element={<HeroSection />} />
+             
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
-            <Route path='/contact' element={<Contact />} />
+            <Route path='/contact' element={<Connect />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path='/glossary' element={<GlossaryPage />} />
             <Route path='/aboutus' element={<AboutUs/>}/>
-            <Route path= '/marketplace' element={<Marketing />} />
+            <Route path= 'marketplace' element={<Marketing />} />
+            <Route path="/platform" element={<Platform/>}/>
+            <Route path ="/career" element={<Career/>}/>
+           <Route path="/ehr/aboutus" element={<About/>}/>
+           <Route path="/ehr/clinicapp" element={<Clinic/>}/>
           </Routes>
         </div>
       </ScrollProvider>

@@ -1,26 +1,33 @@
-import BankFinanceNavbar from "../../components/Banking&Finance/BankFinanceNavbar"
-import BeyondBanking from "../../components/Banking&Finance/BeyondBanking"
-import HowWeDoIn from "../../components/Banking&Finance/HowWeDoIn"
-import HWD from "../../components/Banking&Finance/HWD"
+import Audit from "../../components/Banking&Finance/Audit"
+import Counter from "../../components/Banking&Finance/Counter"
+import HeroSection from "../../components/Banking&Finance/HeroSection"
 import InsightThought from "../../components/Banking&Finance/InsightThought"
+import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
-import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
-import Footer from "../../components/Footer/Footer"
-import LandingPage from "../../components/HomePage/Banking&Finance/LandingPage"
-import Partnership from "../../components/HomePage/Banking&Finance/Partnership"
 
-const BankingAndFinance = () => (
-  <div>
-    <LandingPage />
-    <BankFinanceNavbar />
-    <Partnership />
-    <HowWeDoIn/>
-    <WhatWeDoIn/>
-    <BeyondBanking />
-    <HWD />
-    <InsightThought />
-    <Process />
-    <Footer />
-  </div>
-)
+import Products from "../../components/Banking&Finance/Products"
+import  NewFooter from "../../components/Banking&Finance/Products2/NewFooter"
+import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
+import Testimonial from "../../components/HomePage/Banking&Finance/Testimonial"
+
+  
+const BankingAndFinance = () => {
+  return (
+    <div>
+      
+      <HeroSection/>
+      <Intro/>
+      <Products/>
+      <WhatWeDoIn/>
+      <Counter/>
+      <Audit/>
+      <Process/>
+       <Testimonial/>
+      <InsightThought/>
+      <NewFooter/>
+      
+    </div>
+  )
+}
+
 export default BankingAndFinance
