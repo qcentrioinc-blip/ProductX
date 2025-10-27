@@ -75,19 +75,18 @@ const Building = () => {
 
   const currentContent = contentData[activeFilter]
 
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="text-center py-16 px-4">
+      <div className="text-center py-8 px-4">
         <h1 className="sm:text-5xl lg:text-[40px] md:text-5xl font-bold text-[#2A2A2A] mb-6" style={{ fontFamily: 'Bricolage Grotesque' }}>Itaque earum rerum hic</h1>
         <p className="sm:text-2xl lg:text-[20px] text-[#141414] max-w-2xl mx-auto mb-12" style={{ fontFamily: 'Quicksand' }}>
           From fast-moving startups to structured enterprises, Taskos adapts to your team's real-world workflows — not
           the other way around.
         </p>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        {/* Filter Buttons - Desktop: Flex Wrap (Unchanged) */}
+        <div className="hidden lg:flex flex-wrap justify-center gap-3 mb-4">
           {filters.map((filter) => (
             <button
               key={filter}
@@ -101,6 +100,24 @@ const Building = () => {
             </button>
           ))}
         </div>
+
+        {/* Filter Buttons - Mobile/Tablet: Horizontal Scroll */}
+        <div className="lg:hidden overflow-x-auto scrollbar-hide mb-4 px-2">
+          <div className="flex gap-3 min-w-max">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-6 py-2 rounded-full text-[16px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${activeFilter === filter
+                  ? "bg-gray-900 text-white shadow-md"
+                  : "bg-white text-gray-600 hover:bg-gray-100 hover:shadow-sm border border-gray-200"
+                  }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Main Content - 50/50 Split */}
@@ -112,7 +129,6 @@ const Building = () => {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: true }}
-
           >
             <img
               src={currentContent.image}
@@ -133,34 +149,6 @@ const Building = () => {
         </div>
 
         {/* Right Side - Content (50%) */}
-        {/* <div className="lg:w-1/2 bg-white p-3 lg:p-6 flex flex-col justify-center">
-          
-          <div className="flex gap-2 mb-8">
-            <Chip label={activeFilter} size="small" className="bg-gray-100 text-gray-700" />
-          </div>
-
-          
-          <div className="space-y-6">
-            {currentContent.paragraphs.map((paragraph, index) => (
-              <Typography key={index} variant="body1" className="text-gray-700 leading-relaxed">
-                {paragraph}
-              </Typography>
-            ))}
-          </div>
-
-          <hr className="my-12 border-b border-gray-400" />
-          
-          <div className="flex gap-12">
-            {currentContent.stats.map((stat, index) => (
-              <div key={index}>
-                <Typography variant="h2" className="text-5xl font-bold text-gray-900">
-                  {stat}
-                </Typography>
-              </div>
-            ))}
-          </div>
-        </div> */}
-
         <div className="lg:w-1/2 bg-white p-8 lg:p-12 flex flex-col">
           <div>
             <div className="flex gap-2 mb-8">
@@ -191,6 +179,17 @@ const Building = () => {
           </div>
         </div>
       </div>
+
+      {/* Hide scrollbar CSS */}
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </div>
   )
 }

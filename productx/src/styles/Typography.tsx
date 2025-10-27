@@ -10,11 +10,10 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h1
       className={`
-        text-2xl md:text-5xl
-        mb-2 sm:mb-3 md:mb-4 
+        text-[32px] md:text-[48px] lg:text-[64px]
         font-bricolage
-        font-bold
-        leading-tight
+        
+        leading-[120%]
         
         ${className}`}
     >
@@ -28,10 +27,10 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
       className={`
-        text-xl sm:text-2xl md:text-4xl
+        text-[24px] md:text-[32px] lg:text-[40px]
         font-bricolage
         font-semibold
-        leading-tight
+        leading-[120%]
         ${className}`}
     >
       {children}
@@ -44,11 +43,10 @@ export const H3 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h3
       className={`
-        text-lg sm:text-xl md:text-2xl
-        mb-2 sm:mb-3 md:mb-4 
+        text-[20px] md:text-[24px] lg:text-[32px]
         font-bricolage
         font-semibold
-        leading-tight
+        leading-[120%]
      
         ${className}`}
     >
@@ -62,11 +60,10 @@ export const H4 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h4
       className={`
-        text-base sm:text-lg md:text-xl
-        mb-2 sm:mb-3 md:mb-4 
+        text-[16px] md:text-[20px] lg:text-[24px]
         font-bricolage
         font-semibold
-        leading-tight
+        leading-[120%]
        
         ${className}`}
     >
@@ -80,9 +77,9 @@ export const P = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
       className={`
-        text-sm sm:text-base md:text-base
+        text-[14px] md:text-[16px] lg:text-[16px]
         font-quicksand
-        leading-tight
+        leading-[120%]
         
         ${className}`}
     >
@@ -96,9 +93,9 @@ export const S = ({ children, className = "" }: TypographyProps) => {
   return (
     <p
       className={`
-        text-xs sm:text-xs md:text-sm
+        text-[12px] md:text-[12px] lg:text-[14px]
         font-quicksand
-        leading-tight
+        leading-[120%]
        
         ${className}`}
     >

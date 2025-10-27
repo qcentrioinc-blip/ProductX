@@ -1,6 +1,8 @@
+import CareersPage from "../../components/HighTech/Careers/CareersPage"
+
 const HighTech = () => (
   <div>
-    Hello Abhiraj
+    <CareersPage/>
   </div>
 )
 export default HighTech
