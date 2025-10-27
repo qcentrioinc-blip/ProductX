@@ -38,7 +38,7 @@ const AboutFeaturesSection = () => {
         {features.map((item, index) => (
           <div
             key={index}
-            className="bg-blue-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+            className="bg-[#F5DDA9] p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
           >
             {/* Circle Icon Placeholder */}
             <div className="w-10 h-10 bg-white rounded-full mb-4"></div>
@@ -52,7 +52,7 @@ const AboutFeaturesSection = () => {
             </P>
 
             {/* White Rectangle (Image/Content Placeholder) */}
-            <div className="w-full bg-white h-45 rounded-xl mb-[-24px]"></div>
+            <div className="w-full bg-white h-50 rounded-t-xl rounded-b-none mb-[-24px]"></div>
           </div>
         ))}
       </div>

@@ -62,7 +62,7 @@ const App = () => {
             <Route path="/blogs" element={<Blogs />} />
             <Route path='/glossary' element={<GlossaryPage />} />
             <Route path='/aboutus' element={<AboutUs/>}/>
-            <Route path= 'marketplace' element={<Marketing />} />
+            <Route path= '/marketplace' element={<Marketing />} />
           </Routes>
         </div>
       </ScrollProvider>

@@ -1,11 +1,8 @@
-import FirstProduct from "../../components/Banking&Finance/Products1/FirstProduct"
-import LandingFirstPage from "../../components/HighTech/LandingFirstPage"
+import CareersPage from "../../components/HighTech/Careers/CareersPage"
 
 const HighTech = () => (
   <div>
-    Hello Abhiraj
-    <FirstProduct />
-    <LandingFirstPage />
+    <CareersPage/>
   </div>
 )
 export default HighTech

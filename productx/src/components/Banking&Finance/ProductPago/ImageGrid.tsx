@@ -1,5 +1,4 @@
 import { H1, H2, H3, P } from "../../../styles/Typography";
-
 import Image1 from "/ProductDetailsThree/Rectangle283.png";
 import Image2 from "/ProductDetailsThree/Rectangle284.png";
 
@@ -34,21 +33,21 @@ const ImageGrid = () => {
           </div>
 
           {/* Right Column - Image Grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
             
             {/* Left Sub-column */}
-            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Image 1 */}
-              <div className="overflow-hidden rounded-lg shadow-md">
+              <div className="flex-1 overflow-hidden rounded-lg shadow-md">
                 <img
                   src={Image1}
                   alt="Main"
-                  className="w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
               {/* Card 1 */}
-              <div className="bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center min-h-[140px] xs:h-[160px] sm:h-[200px] md:h-[240px] lg:h-[280px] xl:h-[300px]">
+              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center">
                 <H3>Lorem ipsum dolor</H3>
                 <P className="mt-1.5 sm:mt-2">
                   Duis aute irure dolor in reprehenderit in voluptate velit
@@ -57,9 +56,9 @@ const ImageGrid = () => {
             </div>
 
             {/* Right Sub-column */}
-            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Card 2 */}
-              <div className="bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center min-h-[140px] xs:h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[300px]">
+              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center">
                 <H3>Lorem ipsum dolor</H3>
                 <P className="mt-1.5 sm:mt-2">
                   Duis aute irure dolor in reprehenderit in voluptate velit
@@ -67,11 +66,11 @@ const ImageGrid = () => {
               </div>
 
               {/* Image 2 */}
-              <div className="overflow-hidden rounded-lg shadow-md">
+              <div className="flex-1 overflow-hidden rounded-lg shadow-md">
                 <img
                   src={Image2}
                   alt="Secondary"
-                  className="w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
