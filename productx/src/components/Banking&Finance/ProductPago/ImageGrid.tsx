@@ -1,13 +1,13 @@
-import { H1, H2, H3, P } from "../../../styles/Typography";
+ import { H1, H2, H3, P } from "../../../styles/Typography";
 import Image1 from "/ProductDetailsThree/Rectangle283.png";
 import Image2 from "/ProductDetailsThree/Rectangle284.png";
-
+ 
 const ImageGrid = () => {
   return (
     <div className="w-full min-h-screen">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
-          
+         
           {/* Left Column - Content */}
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
             <span className="px-3 py-1 text-xs sm:text-sm rounded-full border border-gray-300 w-fit">
@@ -18,23 +18,23 @@ const ImageGrid = () => {
               Duis aute irure dolor in voluptate velit esse voluptate velit esse
               reprehenderit in voluptate velit esse voluptate velit esse
             </P>
-
+ 
             <div className="bg-gray-100 rounded-lg p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px]">
               <H2>Lorem ipsum dolor gamis consecte ipsum ipsum lorem</H2>
               <P className="mt-2 sm:mt-3">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse,
                 Duis aute irure dolor in reprehenderit in voluptate velit esse
               </P>
-              
+             
               <button className="mt-4 sm:mt-5 md:mt-6 px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white text-sm sm:text-base rounded-md font-medium hover:bg-gray-800 transition-colors w-fit">
                 CONTACT US
               </button>
             </div>
           </div>
-
+ 
           {/* Right Column - Image Grid */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
-            
+           
             {/* Left Sub-column */}
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Image 1 */}
@@ -45,7 +45,7 @@ const ImageGrid = () => {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-
+ 
               {/* Card 1 */}
               <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center">
                 <H3>Lorem ipsum dolor</H3>
@@ -54,7 +54,7 @@ const ImageGrid = () => {
                 </P>
               </div>
             </div>
-
+ 
             {/* Right Sub-column */}
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Card 2 */}
@@ -64,7 +64,7 @@ const ImageGrid = () => {
                   Duis aute irure dolor in reprehenderit in voluptate velit
                 </P>
               </div>
-
+ 
               {/* Image 2 */}
               <div className="flex-1 overflow-hidden rounded-lg shadow-md">
                 <img
@@ -75,11 +75,11 @@ const ImageGrid = () => {
               </div>
             </div>
           </div>
-
+ 
         </div>
       </div>
     </div>
   );
 };
-
+ 
 export default ImageGrid;
