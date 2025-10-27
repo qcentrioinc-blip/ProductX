@@ -1,5 +1,4 @@
 import './App.css'
-import HeroSection from './components/HomePage/HeroSection'
 import Contact from './components/Contact/Contact' // Make sure this path is correct
 
 import Navbar from './components/Navbar/Navbar'
@@ -22,6 +21,7 @@ import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Pa
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+import HeroSection from './components/HomePage/HeroSection'
 
 
 const App = () => {

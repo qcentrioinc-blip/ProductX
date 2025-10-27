@@ -25,17 +25,17 @@ const ThreeTab = () => {
         <div className="bg-black text-white flex flex-col items-center justify-center min-h-screen">
             <div className="border-b border-gray-800 w-full">
                 <div className="max-w-7xl mx-auto">
-                    {/* Mobile & Tablet: Responsive Tab Navigation */}
-                    <div className="lg:hidden">
-                        <div className="flex flex-col sm:flex-row overflow-x-auto">
+                    {/* Mobile & Tablet: Horizontal Scrollable Tabs in Single Row */}
+                    <div className="lg:hidden overflow-x-auto scrollbar-hide ">
+                        <div className="flex min-w-max gap-4">
                             {tabs.map((tab, index) => (
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(index)}
-                                    className={`px-6 sm:px-12 md:px-16 py-4 sm:py-6 md:py-8 text-sm sm:text-base md:text-lg font-normal transition-colors flex-shrink-0 min-w-0 w-full sm:w-auto ${
+                                    className={`px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-8 text-sm sm:text-base md:text-lg font-normal transition-all duration-300 rounded-xl ${
                                         activeTab === index
                                             ? 'bg-gray-600 text-white'
-                                            : 'bg-black text-white hover:bg-gray-900'
+                                            : 'bg-transparent text-white border-2 border-gray-600 hover:bg-gray-800'
                                     }`}
                                 >
                                     {tab}
@@ -45,15 +45,15 @@ const ThreeTab = () => {
                     </div>
 
                     {/* Desktop: Original Tab Navigation (unchanged) */}
-                    <div className="hidden lg:flex">
+                    <div className="hidden lg:flex gap-4">
                         {tabs.map((tab, index) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(index)}
-                                className={`px-44 py-12 text-xl font-normal transition-colors ${
+                                className={`px-40 py-12 text-xl font-normal transition-all duration-300 rounded-3xl ${
                                     activeTab === index
                                         ? 'bg-gray-600 text-white'
-                                        : 'bg-black text-white hover:bg-gray-900'
+                                        : 'bg-transparent text-white border-2 border-gray-600 hover:bg-gray-800'
                                 }`}
                             >
                                 {tab}
@@ -90,6 +90,17 @@ const ThreeTab = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Hide scrollbar CSS */}
+            <style>{`
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}</style>
         </div>
     )
 }

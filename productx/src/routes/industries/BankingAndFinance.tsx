@@ -6,8 +6,8 @@ import InsightThought from "../../components/Banking&Finance/InsightThought"
 import Process from "../../components/Banking&Finance/Process"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
 import Footer from "../../components/Footer/Footer"
-import LandingPage from "../../components/HomePage/LandingPage"
-import Partnership from "../../components/HomePage/Partnership"
+import LandingPage from "../../components/HomePage/Banking&Finance/LandingPage"
+import Partnership from "../../components/HomePage/Banking&Finance/Partnership"
 
 const BankingAndFinance = () => (
   <div>
