@@ -1,4 +1,4 @@
-import { H2, P } from "../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 const Partnership = () => {
   const items = ["lorem", "lorem", "lorem", "lorem", "lorem"];
