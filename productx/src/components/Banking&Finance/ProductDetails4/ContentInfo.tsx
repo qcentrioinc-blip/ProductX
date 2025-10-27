@@ -4,7 +4,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 export default function Sec_4() {
   return (
     <section className="w-full flex justify-center items-center py-8 md:py-12">
-      <div className="w-full max-w-[1280px] flex flex-col md:flex-row bg-white mx-auto">
+      <div className="w-full max-w-[1280px] flex flex-col md:flex-row bg-[#E4E4E4] mx-auto">
         {/* Left text section */}
         <div className="flex-1 w-full flex flex-col justify-center px-6 py-6 md:px-8 md:py-8">
           <H2 className="text-3xl md:text-4xl lg:text-5xl leading-snug">

@@ -2,7 +2,7 @@ import { H2, P } from "../../../styles/Typography";
 
 export default function StatsSection() {
   return (
-    <section className="bg-black text-white py-16 px-8 lg:px-20 flex flex-col lg:flex-row items-start justify-between">
+    <section className="bg-black text-white py-16 px-8 lg:px-20 flex flex-col lg:flex-row md:items-center items-center lg:justify-between justify-center">
       {/* Left content */}
       <div className="lg:w-1/2 mb-8 lg:mb-0">
         <H2 className="mb-4">
