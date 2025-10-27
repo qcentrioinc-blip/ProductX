@@ -15,7 +15,6 @@ const AML = () => {
       <Banks />
       <HWD />
       <InsightThought/>
-      
       <NewFooter/>
     </div>
   )

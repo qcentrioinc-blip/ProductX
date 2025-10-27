@@ -16,19 +16,19 @@ const Description = () => {
            
           className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
         >
-          <button className="snap-center flex-shrink-0 w-[70vw] py-4  bg-white  rounded-full border-gray-400 text-black font-semibold text-lg">
+          <button className="snap-center shrink-0 w-[70vw] py-4  bg-white  rounded-full border-gray-400 text-black font-semibold text-lg">
             Duis aute irure
           </button>
-          <button className="snap-center flex-shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
+          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
             Duis aute irure
           </button>
-          <button className="snap-center flex-shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
+          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
             Duis aute irure
           </button>
-          <button className="snap-center flex-shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
+          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
             Duis aute irure
           </button>
-          <button className="snap-center flex-shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
+          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
             Duis aute irure
           </button>
           
@@ -101,7 +101,7 @@ const Description = () => {
       {/* Mobile Content - Below Image */}
       <div className="lg:hidden mt-6 space-y-6">
         {/* Stats Box for Mobile */}
-        <div className="bg-[#FFFFFF78] text-[var(--primary-color)] rounded-lg p-6">
+        <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-6">
           <H3 className="mb-4 ">
             Lorem ipsum dolor <br/>consectetur
           </H3>
@@ -123,7 +123,7 @@ const Description = () => {
 
         {/* Content Section for Mobile */}
         <div className="bg-white rounded-lg p-6 space-y-4">
-          <H3 className="text-[var(--primary-color)]">
+          <H3 className="text-(--primary-color)">
             Lorem ipsum dolor , consectetur adipis  
           </H3>
           <P className="text-black">
@@ -140,7 +140,7 @@ const Description = () => {
 
       {/* Bottom Buttons */}
       <div className="md:flex md:flex-wrap md:justify-between  hidden mt-8">
-        <button className="px-4 py-4  w-[14vw] rounded-full bg-[var(--primary-color)] text-white  ">
+        <button className="px-4 py-4  w-[14vw] rounded-full bg-(--primary-color) text-white  ">
           Duis aute irure
         </button>
         <button className="px-4 py-4  w-[14vw] rounded-full border border-gray-300 text-black hover:bg-gray-100">

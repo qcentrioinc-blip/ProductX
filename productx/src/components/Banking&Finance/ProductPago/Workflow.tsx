@@ -107,7 +107,7 @@ export default function Workflow() {
       >
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start px-6 lg:px-16">
           {/* LEFT SIDE - Sticky Image */}
-          <div className="sticky top-24 h-[400px] md:h-[600px] order-1 md:order-none">
+          <div className="sticky top-24 h-[400px] md:h-[600px] order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.img
@@ -159,7 +159,7 @@ export default function Workflow() {
                         ? "0 4px 20px rgba(66, 133, 244, 0.4)" 
                         : "0 2px 8px rgba(0, 0, 0, 0.1)",
                     }}
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0"
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0"
                   >
                     {step.id}
                   </motion.div>

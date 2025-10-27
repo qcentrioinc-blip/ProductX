@@ -158,7 +158,7 @@ const TargetAudience = () => {
           <div className="lg:col-span-1 w-full max-w-lg mx-auto">
             <div className="sticky top-16">
               <div className="bg-gray-100 overflow-hidden mb-6 rounded-lg">
-                <div className="aspect-[4/3] bg-white flex items-center justify-center">
+                <div className="aspect-4/3 bg-white flex items-center justify-center">
                   <img
                     src={industries[activeIndex]?.image}
                     alt={industries[activeIndex]?.name}
