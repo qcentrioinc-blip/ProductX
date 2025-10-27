@@ -84,10 +84,7 @@ const HowWeDoIn = () => {
           <H2>Sed ut perspiciatis unde</H2>
         </div>
         <div className="flex-1">
-          {/* <p className="text-gray-700 text-justify">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p> */}
+        
             <p>
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

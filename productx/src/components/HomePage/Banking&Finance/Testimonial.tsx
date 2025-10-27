@@ -132,11 +132,11 @@ const Testimonial = () => {
 
         <div className="relative w-full flex justify-center items-center">
           {/* Left Gradient */}
-          <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
+          <div className="absolute left-0 top-0 h-full w-10 bg-linear-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}
           ></div>
           {/* Right Gradient */}
-          <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-r from-transparent via-white/50 to-white z-10 pointer-events-none"
+          <div className="absolute right-0 top-0 h-full w-10 bg-linear-to-r from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}
           ></div>
 
@@ -172,7 +172,7 @@ const Testimonial = () => {
               style={{ transform: `translateX(${translateX}px)`, gap: `${gap}px` }}
             >
               {clonedSlides.map((testimonial, idx) => (
-                <div key={idx} className="flex-shrink-0 bg-black text-white rounded-lg" style={{
+                <div key={idx} className="flex shrink-0 bg-[#ACCAEF] text-white rounded-lg" style={{
                   width: `${cardWidth}px`,
                   height: '200px',
                   borderRadius: '16px',
@@ -183,8 +183,8 @@ const Testimonial = () => {
                     <div className="flex items-center gap-3">
                       <img src={testimonial.avatar} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover"/>
                       <div>
-                        <div className="text-white font-semibold text-sm">{testimonial.name}</div>
-                        <div className="text-gray-300 text-sm">{testimonial.title}</div>
+                        <div className="text-black text-sm">{testimonial.name}</div>
+                        <div className="text-black text-sm">{testimonial.title}</div>
                       </div>
                     </div>
                   </div>
