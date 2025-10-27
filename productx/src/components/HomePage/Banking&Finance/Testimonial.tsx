@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { H2, P } from '../../styles/Typography';
+import { H2, P } from '../../../styles/Typography';
 
 const testimonials = [
   {

@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 
 const ArrowBuilding = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-gray-100 min-h-screen px-4 sm:px-6 md:px-8 lg:px-12">
+    <div className="flex flex-col lg:flex-row items-center bg-gray-100 max-h-screen px-4 sm:px-6 md:px-8 lg:px-12">
       {/* Left Column - Image */}
       <div className="flex-1 w-full lg:w-auto mb-6 lg:mb-0 flex justify-center lg:justify-start">
         <img 

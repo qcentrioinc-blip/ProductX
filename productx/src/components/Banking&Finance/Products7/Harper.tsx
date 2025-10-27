@@ -1,37 +1,410 @@
+// "use client"
+
+// import { useRef, useEffect, useCallback, useState, useContext } from 'react';
+// import { motion, useTransform, useMotionValue } from 'motion/react';
+// import { ScrollContext } from '../../../context/ScrollContext';
+
+// const Harper = () => {
+//     const containerRef = useRef<HTMLDivElement>(null);
+//     const scrollProgress = useMotionValue(0);
+//     const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
+//     const [, setScrollDirection] = useState<'up' | 'down' | 'still'>('still');
+//     const lastScrollY = useRef(0);
+//     const scrollContext = useContext(ScrollContext);
+
+//     // Array of Harper1 images to display multiple times
+//     const images = [
+//         { id: 1, src: "/Products/Products7/Harper1.png", alt: "Harper1-1" },
+//         { id: 2, src: "/Products/Products7/Harper1.png", alt: "Harper1-2" },
+//         { id: 3, src: "/Products/Products7/Harper1.png", alt: "Harper1-3" },
+//         { id: 4, src: "/Products/Products7/Harper1.png", alt: "Harper1-4" },
+//     ];
+
+//     // **DETECT SCROLL DIRECTION**
+//     const detectScrollDirection = useCallback(() => {
+//         const scrollContainer = scrollContext?.current;
+//         if (!scrollContainer) return;
+//         const currentScrollY = scrollContainer.scrollTop;
+
+//         if (currentScrollY > lastScrollY.current) {
+//             setScrollDirection('down');
+//         } else if (currentScrollY < lastScrollY.current) {
+//             setScrollDirection('up');
+//         } else {
+//             setScrollDirection('still');
+//         }
+
+//         lastScrollY.current = currentScrollY;
+//     }, [scrollContext]);
+
+//     // **BIDIRECTIONAL SCROLL POSITION CHECK**
+//     const checkScrollPosition = useCallback(() => {
+//         const scrollContainer = scrollContext?.current;
+//         if (!containerRef.current || !scrollContainer) return;
+
+//         const rect = containerRef.current.getBoundingClientRect();
+
+//         // **ENABLE HORIZONTAL SCROLL IN BOTH DIRECTIONS WHEN CONTAINER IS PROPERLY POSITIONED**
+//         const shouldEnableHorizontalScroll = (
+//             rect.top <= 100 && 
+//             rect.top >= -100 && 
+//             rect.bottom > scrollContainer.clientHeight * 0.6
+//         );
+
+//         setCanHorizontalScroll(shouldEnableHorizontalScroll);
+//         detectScrollDirection();
+//     }, [detectScrollDirection, scrollContext]);
+
+//     // **LISTEN FOR SCROLL EVENTS TO UPDATE POSITION AND DIRECTION**
+//     useEffect(() => {
+//         const scrollContainer = scrollContext?.current;
+//         if (!scrollContainer) return;
+
+//         const handleScroll = () => {
+//             checkScrollPosition();
+//         };
+
+//         lastScrollY.current = scrollContainer.scrollTop;
+//         scrollContainer.addEventListener('scroll', handleScroll);
+//         checkScrollPosition();
+
+//         return () => {
+//             scrollContainer.removeEventListener('scroll', handleScroll);
+//         };
+//     }, [checkScrollPosition, scrollContext]);
+
+//     // **TRANSFORM BASED ON MANUAL SCROLL PROGRESS**
+//     const x = useTransform(scrollProgress, [0, 1], ["50%", "-90%"]);
+
+//     // **BIDIRECTIONAL WHEEL EVENT HANDLER**
+//     const handleWheel = useCallback((e: WheelEvent) => {
+//         if (!containerRef.current) return;
+//         const scrollContainer = scrollContext?.current;
+
+//         const container = containerRef.current;
+//         const rect = container.getBoundingClientRect();
+//         const isInView = rect.top <= 100 && rect.bottom >= (scrollContainer?.clientHeight ?? 0) * 0.5;
+
+//         if (!isInView) return;
+
+//         if (!canHorizontalScroll) {
+//             return;
+//         }
+
+//         const currentProgress = scrollProgress.get();
+//         const scrollSensitivity = 0.002;
+
+//         let newProgress;
+//         if (e.deltaY > 0) {
+//             newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+//         } else {
+//             newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+//         }
+
+//         scrollProgress.set(newProgress);
+
+//         if (newProgress > 0 && newProgress < 1) {
+//             e.preventDefault();
+//             e.stopPropagation();
+//             if (scrollContainer) scrollContainer.style.overflow = 'hidden';
+//         } else {
+//             if (scrollContainer) scrollContainer.style.overflow = 'auto';
+//             setTimeout(() => { if (scrollContainer) scrollContainer.style.overflow = 'auto'; }, 50);
+//         }
+//     }, [scrollProgress, canHorizontalScroll, scrollContext]);
+
+//     // **ATTACH WHEEL EVENT LISTENERS**
+//     useEffect(() => {
+//         const container = containerRef.current;
+//         const scrollContainer = scrollContext?.current;
+//         if (!container || !scrollContainer) return;
+
+//         container.addEventListener('wheel', handleWheel, { passive: false });
+
+//         return () => {
+//             container.removeEventListener('wheel', handleWheel);
+//             if (scrollContainer) scrollContainer.style.overflow = 'auto';
+//         };
+//     }, [handleWheel, scrollContext]);
+
+//     return (
+//         <div className="font-sans bg-[#ecf4ff]">
+//             {/* **CONTAINER WITH EXTRA HEIGHT FOR BIDIRECTIONAL SCROLLING** */}
+//             <div ref={containerRef} className="relative bg-[#ecf4ff] h-[80vh]">
+//                 <div className="sticky top-0 flex flex-col bg-[#ecf4ff] h-screen">
+
+//                     {/* **HEADER SECTION** */}
+//                     <div className="flex-none px-6 md:px-20 py-16">
+//                         <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold text-gray-900 text-left ml-4 sm:ml-12 md:ml-24">
+//                             Sed ut perspiciatis Sed ut
+//                         </h1>
+//                     </div>
+
+//                     {/* **HORIZONTAL SCROLL SECTION** */}
+//                     <div className="flex-1 flex items-center justify-center overflow-hidden px-6 md:px-20">
+//                         <motion.div 
+//                             style={{ x }} 
+//                             className="flex gap-x-8 md:gap-x-16"
+//                         >
+//                             {images.map((image) => (
+//                                 <div 
+//                                     key={image.id} 
+//                                     className="w-[80vw] md:w-[60vw] flex-shrink-0"
+//                                 >
+//                                     <div className="relative mx-auto max-w-[1200px] h-[300px] sm:h-[400px] md:h-[560px] rounded-[24px] overflow-visible">
+//                                         <img
+//                                             src={image.src}
+//                                             alt={image.alt}
+//                                             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[85%] md:w-[99%] h-auto object-contain"
+//                                         />
+//                                     </div>
+//                                 </div>
+//                             ))}
+//                         </motion.div>
+//                     </div>
+
+//                     {/* **DEBUG INDICATOR** (uncomment if needed) */}
+//                     {/* <div className="fixed bottom-4 right-4 bg-black text-white p-2 rounded text-sm z-50">
+//                         {canHorizontalScroll ? "🟢 Horizontal Active" : "🔴 Positioning..."}
+//                     </div> */}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Harper;
+
+
 "use client"
 
+import { useRef, useEffect, useCallback, useState, useContext } from 'react';
+import { motion, useTransform, useMotionValue } from 'motion/react';
+import { ScrollContext } from '../../../context/ScrollContext';
+
 const Harper = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrollProgress = useMotionValue(0);
+    const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
+    const [, setScrollDirection] = useState<'up' | 'down' | 'still'>('still');
+    const lastScrollY = useRef(0);
+    const scrollContext = useContext(ScrollContext);
+
+    // Array of content for mobile and desktop
+    const content = [
+        { 
+            id: 1, 
+            desktopImage: "/Products/Products7/Harper1.png",
+            mobileImage: "/Products/Products7/Harper0.png",
+            alt: "Harper-1",
+            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit"
+        },
+        { 
+            id: 2, 
+            desktopImage: "/Products/Products7/Harper1.png",
+            mobileImage: "/Products/Products7/Harper0.png",
+            alt: "Harper-2",
+            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit"
+        },
+        { 
+            id: 3, 
+            desktopImage: "/Products/Products7/Harper1.png",
+            mobileImage: "/Products/Products7/Harper0.png",
+            alt: "Harper-3",
+            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit"
+        },
+        { 
+            id: 4, 
+            desktopImage: "/Products/Products7/Harper1.png",
+            mobileImage: "/Products/Products7/Harper0.png",
+            alt: "Harper-4",
+            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit"
+        },
+    ];
+
+    const detectScrollDirection = useCallback(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!scrollContainer) return;
+        const currentScrollY = scrollContainer.scrollTop;
+
+        if (currentScrollY > lastScrollY.current) {
+            setScrollDirection('down');
+        } else if (currentScrollY < lastScrollY.current) {
+            setScrollDirection('up');
+        } else {
+            setScrollDirection('still');
+        }
+
+        lastScrollY.current = currentScrollY;
+    }, [scrollContext]);
+
+    const checkScrollPosition = useCallback(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!containerRef.current || !scrollContainer) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+
+        const shouldEnableHorizontalScroll = (
+            rect.top <= 100 &&
+            rect.top >= -100 &&
+            rect.bottom > scrollContainer.clientHeight * 0.6
+        );
+
+        setCanHorizontalScroll(shouldEnableHorizontalScroll);
+        detectScrollDirection();
+    }, [detectScrollDirection, scrollContext]);
+
+    useEffect(() => {
+        const scrollContainer = scrollContext?.current;
+        if (!scrollContainer) return;
+
+        const handleScroll = () => {
+            checkScrollPosition();
+        };
+
+        lastScrollY.current = scrollContainer.scrollTop;
+        scrollContainer.addEventListener('scroll', handleScroll);
+        checkScrollPosition();
+
+        return () => {
+            scrollContainer.removeEventListener('scroll', handleScroll);
+        };
+    }, [checkScrollPosition, scrollContext]);
+
+    const x = useTransform(scrollProgress, [0, 1], ["50%", "-90%"]);
+
+    const handleWheel = useCallback((e: WheelEvent) => {
+        if (!containerRef.current) return;
+        const scrollContainer = scrollContext?.current;
+
+        const container = containerRef.current;
+        const rect = container.getBoundingClientRect();
+        const isInView = rect.top <= 100 && rect.bottom >= (scrollContainer?.clientHeight ?? 0) * 0.5;
+
+        if (!isInView || !canHorizontalScroll) return;
+
+        const currentProgress = scrollProgress.get();
+        const scrollSensitivity = 0.002;
+
+        const newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
+        scrollProgress.set(newProgress);
+
+        if (newProgress > 0 && newProgress < 1) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollContainer) scrollContainer.style.overflow = 'hidden';
+        } else {
+            if (scrollContainer) scrollContainer.style.overflow = 'auto';
+            setTimeout(() => { if (scrollContainer) scrollContainer.style.overflow = 'auto'; }, 50);
+        }
+    }, [scrollProgress, canHorizontalScroll, scrollContext]);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        const scrollContainer = scrollContext?.current;
+        if (!container || !scrollContainer) return;
+
+        const isDesktop = window.innerWidth >= 1024;
+        
+        if (isDesktop) {
+            container.addEventListener('wheel', handleWheel, { passive: false });
+        }
+
+        return () => {
+            if (isDesktop) {
+                container.removeEventListener('wheel', handleWheel);
+            }
+            if (scrollContainer) scrollContainer.style.overflow = 'auto';
+        };
+    }, [handleWheel, scrollContext]);
+
     return (
-        <div className="min-h-screen bg-[#ecf4ff] px-6 md:px-20 py-16">
-            {/* Heading - Responsive margins */}
-            <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold text-gray-900 text-left ml-4 sm:ml-12 md:ml-24 mb-8 md:mb-0">
-                Sed ut perspiciatis Sed ut
-            </h1>
+        <div className="font-sans bg-[#ecf4ff]">
+            
+            {/* **MOBILE & TABLET: VERTICAL LAYOUT WITH HARPER0 ONLY** */}
+            <div className="block lg:hidden bg-[#ecf4ff] py-8 px-4">
+                {/* Header for Mobile/Tablet */}
+                <div className="mb-8">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-left ml-2 sm:ml-4">
+                        Sed ut perspiciatis Sed ut
+                    </h1>
+                </div>
 
-            {/* Stage - Responsive container */}
-            <div className="relative mx-auto max-w-[1200px] h-[300px] sm:h-[400px] md:h-[560px] rounded-[24px] overflow-visible">
+                {/* Vertical Stack - Only Harper0 Image with Text */}
+                <div className="flex flex-col gap-y-8 sm:gap-y-10">
+                    {content.map((item) => (
+                        <div 
+                            key={item.id} 
+                            className="w-full"
+                        >
+                            {/* Only Harper0 Image */}
+                            <div className="relative mx-auto max-w-[600px] h-[280px] sm:h-[340px] md:h-[420px] rounded-[16px] sm:rounded-[20px] overflow-hidden mb-4 sm:mb-6">
+                                <img
+                                    src={item.mobileImage}
+                                    alt={item.alt}
+                                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[92%] h-auto object-contain"
+                                />
+                            </div>
 
-                {/* Harper1 - Center with responsive sizing */}
-                <img
-                    src="/Products/Products7/Harper1.png"
-                    alt="Harper1"
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[85%] md:w-[99%] h-auto object-contain z-10"
-                />
+                            {/* Text Content Below Image */}
+                            <div className="mx-auto max-w-[600px] px-3 sm:px-4">
+                                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-snug">
+                                    {item.title}
+                                </h2>
+                                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
-                {/* Harper2 - Responsive positioning and sizing */}
-                <img
-                    src="/Products/Products7/Harper2.png"
-                    alt="Harper2"
-                    className="absolute 
-                        right-[-40px] sm:right-[-80px] md:right-[-160px] 
-                        top-1/2 -translate-y-1/2 
-                        w-[15%] sm:w-[13%] md:w-[12%] 
-                        h-[80%] sm:h-[90%] md:h-[100%] 
-                        object-contain z-50"
-                />
+            {/* **DESKTOP: HORIZONTAL SCROLL LAYOUT** (UNCHANGED) */}
+            <div ref={containerRef} className="hidden lg:block relative bg-[#ecf4ff] h-[80vh]">
+                <div className="sticky top-0 flex flex-col bg-[#ecf4ff] h-screen">
+                    
+                    {/* Header for Desktop */}
+                    <div className="flex-none px-20 py-16">
+                        <h1 className="text-6xl font-bold text-gray-900 text-left ml-24">
+                            Sed ut perspiciatis Sed ut
+                        </h1>
+                    </div>
+
+                    {/* Horizontal Scroll Section */}
+                    <div className="flex-1 flex items-center justify-center overflow-hidden px-20">
+                        <motion.div 
+                            style={{ x }} 
+                            className="flex gap-x-16"
+                        >
+                            {content.map((item) => (
+                                <div 
+                                    key={item.id} 
+                                    className="w-[60vw] flex-shrink-0"
+                                >
+                                    <div className="relative mx-auto max-w-[1200px] h-[560px] rounded-[24px] overflow-visible">
+                                        <img
+                                            src={item.desktopImage}
+                                            alt={item.alt}
+                                            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[99%] h-auto object-contain"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Harper
+export default Harper;
+
+
+
+
