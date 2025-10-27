@@ -30,7 +30,7 @@ const HWD = () => {
         {/* Icon */}
         <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
         <div className="text-justify">
-          <H3 className='text-black'>Sed ut perspiciatis unde</H3>
+          <H3 className='text-[#2B68C3] mb-1'>Sed ut reprehenderit in </H3>
           <P className='text-black'>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </P>
@@ -48,7 +48,7 @@ const HWD = () => {
             "Duis aute irure dolor in reprehenderit in voluptate wertg",
           ].map((item, index) => (
             <li key={index} className="flex items-center gap-2">
-              <Check size={20} className="text-white flex-shrink-0" />
+              <Check size={20} className="text-[#A80040] flex-shrink-0" />
               <P className="text-sm sm:text-base md:text-base">{item}</P>
             </li>
           ))}
@@ -71,8 +71,8 @@ const HWD = () => {
           >
             <div className="flex items-center gap-x-2">
               <div className="w-8 h-1 rounded-full bg-gray-400"></div>
-              {"Quis autem".split(" ").map((word, wordIndex) => (
-                <span key={wordIndex} className="inline-block mr-2">
+              {"Quis autim".split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="">
                   {word.split("").map((char, charIndex) => (
                     <motion.span key={charIndex} variants={itemVariants}>
                       {char}
@@ -83,32 +83,31 @@ const HWD = () => {
             </div>
           </motion.h1>
  
-          {/* Second Heading */}
+          {/* Second Heading (Fixed — absolutely no gap) */}
           <motion.h2
-            className="text-[#2A2A2A] font-bricolage font-semibold text-[40px]"
+            className="text-[#2A2A2A] font-bricolage font-semibold text-[40px] leading-none"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {"Sed ut perspecious".split(" ").map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-2">
-                {word.split("").map((char, charIndex) => (
-                  <motion.span key={charIndex} variants={itemVariants}>
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
+            {/* Render without any spaces */}
+            {"Sed ut perspecious"
+              .split("")
+              .map((char, i) => (
+                <motion.span key={i} variants={itemVariants}>
+                  {char}
+                </motion.span>
+              ))}
           </motion.h2>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="relative bg-black rounded-lg text-white overflow-hidden shadow-lg"
+              className="relative bg-[#C1D7F3] rounded-lg text-black overflow-hidden shadow-lg"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
