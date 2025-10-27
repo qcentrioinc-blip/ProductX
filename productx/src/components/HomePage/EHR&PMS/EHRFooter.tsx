@@ -1,0 +1,106 @@
+const EHRFooter = () => {
+  return (
+    <footer className="bg-gradient-to-b from-[#A8D5C3] via-[#7CB89D] to-[#5A9B80] text-white">
+      {/* Top Section - Logo and Tagline */}
+      <div className="bg-[#A8D5C3] py-16 px-8 md:px-16 lg:px-24">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Logo */}
+          <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-wider">
+            <span className="text-black">Q</span>
+            <span className="text-[#3D7A63]">N</span>
+            <span className="text-black">E</span>
+            <span className="text-[#3D7A63]">S</span>
+            <span className="text-black">T</span>
+          </h1>
+
+          {/* Tagline */}
+          <p className="text-gray-800 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat cillum dolore eu fugiat
+          </p>
+        </div>
+      </div>
+
+      {/* Navigation Sections */}
+      <div className="flex flex-col">
+        {/* Home */}
+        <div className="bg-[#7CB89D] border-b border-[#6BA88A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center">
+          <span className="text-white text-2xl md:text-3xl font-bold">Home</span>
+        </div>
+
+        {/* About Us with LinkedIn */}
+        <div className="bg-[#6FAA8F] border-b border-[#5E9880] py-6 px-8 md:px-16 lg:px-24 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            {/* LinkedIn Icon */}
+            <div className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </div>
+            {/* Arrow */}
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
+            </svg>
+          </div>
+          <span className="text-white text-2xl md:text-3xl font-bold">About Us</span>
+        </div>
+
+        {/* Clinic App */}
+        <div className="bg-[#62A082] border-b border-[#528E71] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center">
+          <span className="text-white text-2xl md:text-3xl font-bold">Clinic App</span>
+        </div>
+
+        {/* Blogs with X (Twitter) */}
+        <div className="bg-[#569775] border-b border-[#478566] py-6 px-8 md:px-16 lg:px-24 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            {/* X Icon */}
+            <div className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            {/* Arrow */}
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
+            </svg>
+          </div>
+          <span className="text-white text-2xl md:text-3xl font-bold">Blogs</span>
+        </div>
+
+        {/* Case Studies */}
+        <div className="bg-[#4A8D68] border-b border-[#3D7A5A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center">
+          <span className="text-white text-2xl md:text-3xl font-bold">Case Studies</span>
+        </div>
+
+        {/* Careers with Instagram */}
+        <div className="bg-[#3D835B] py-6 px-8 md:px-16 lg:px-24 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            {/* Instagram Icon */}
+            <div className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            {/* Arrow */}
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
+            </svg>
+          </div>
+          <span className="text-white text-2xl md:text-3xl font-bold">Careers</span>
+        </div>
+      </div>
+
+      {/* Bottom Section - Copyright and Links */}
+      <div className="bg-[#2D7250] py-6 px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-white text-sm">© 2025 Qnest. All rights reserved.</p>
+        <div className="flex gap-8">
+          <a href="#" className="text-white text-sm hover:underline">Privacy Policy</a>
+          <a href="#" className="text-white text-sm hover:underline">Cookie Policy</a>
+          <a href="#" className="text-white text-sm hover:underline">Terms and Conditions</a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default EHRFooter;

@@ -9,11 +9,14 @@ import CookiePolicyPage from "../../components/EHR&PMS/CookiePolicy/CookiePolicy
 import TermsAndConditionsPage from "../../components/EHR&PMS/TermsAndConditions/TermsAndConditionsPage"
 
 import PrivacyPolicyPage from "../../components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage"
+import HeroSectionEHR from "../../components/HomePage/EHR&PMS/HeroSectionEHR"
 
 
 const LifeSciences = () => (
   <div>
+    <HeroSectionEHR/>
     <CareersPage/>
+    
     <BlogsPage/>
     <JobDescriptionPage/>
     <CaseStudiesPage/>
