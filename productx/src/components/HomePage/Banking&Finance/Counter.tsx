@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { H2, H3, P } from "../../styles/Typography";
+import { H2, H3, P } from "../../../styles/Typography";
  
 const CounterCard = ({
   number,

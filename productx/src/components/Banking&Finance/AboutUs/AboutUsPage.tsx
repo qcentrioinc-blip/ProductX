@@ -3,9 +3,9 @@ import Overview from "./Overview";
 import HighLights from "./HighLights";
 import Capabilities from "../Products1/Capabilities";
 import Process from "../Process";
-import Counter from "../../HomePage/Counter";
 import ContactUS from "../Products2/ContactUS";
 import NewFooter from "../Products2/NewFooter";
+import Counter from "../../HomePage/Banking&Finance/Counter";
 
 const AboutUsPage = () => {
   return (

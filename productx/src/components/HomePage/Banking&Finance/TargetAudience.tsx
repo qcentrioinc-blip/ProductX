@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useContext } from "react";
-import { H1, H2, P } from '../../styles/Typography'
-import { ScrollContext } from "../../context/ScrollContext";
+import { H1, H2, P } from "../../../styles/Typography";
+import { ScrollContext } from "../../../context/ScrollContext";
 
 
 const TargetAudience = () => {
