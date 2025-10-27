@@ -1,4 +1,4 @@
-import WhatWeDoIn from "../../Banking&Finance/WhatWeDoIn"
+import WhatWeDo from "./WhatWeDo"
 import Footer from "../../Footer/Footer"
 import CallToAction from "./CallToAction"
 import Counter from "./Counter"
@@ -17,7 +17,7 @@ const HeroSectionBanking = () => {
                 <LandingPage />
             </div>
             <div id="whatwedo">
-                <WhatWeDoIn />
+                 <WhatWeDo/>
             </div>
             <div id="partnership">
                 <Partnership />
