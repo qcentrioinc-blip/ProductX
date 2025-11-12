@@ -95,7 +95,7 @@ const BulletList: React.FC<ListProps> = ({ items }) => (
 // --- 1. Sticky Sidebar (Desktop/Tablet View - Top Right) ---
 const StickyJobActions: React.FC = () => (
     // Sticky position with 70px offset from the top
-    <div className="sticky top-[70px] p-4 lg:p-0">
+    <div className="sticky top-[70px]  p-4 lg:p-0">
 
         {/* Submit Application Button */}
         {/* Note: Since the form section is removed, this link now points to the top of the page */}
@@ -177,6 +177,7 @@ const MobileFixedActions: React.FC = () => (
                 Apply Now
             </a>
         </div>
+         
     </div>
 );
 

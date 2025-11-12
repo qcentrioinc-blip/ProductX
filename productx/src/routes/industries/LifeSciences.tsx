@@ -19,10 +19,11 @@ const LifeSciences = () => (
     
     <BlogsPage/>
     <JobDescriptionPage/>
+    <PrivacyPolicyPage/>
     <CaseStudiesPage/>
     <ApplicationFormPage/> 
     <ContactFormPage/>
-    <PrivacyPolicyPage/>
+    
     <CookiePolicyPage/>
     <TermsAndConditionsPage/>
   </div>

@@ -3,13 +3,13 @@ import { H1, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
+ 
 const handleImageError: ImgHTMLAttributes<HTMLImageElement>["onError"] = (e) => {
   const target = e.target as HTMLImageElement;
   target.onerror = null;
   target.src = "https://placehold.co/300x400/CCCCCC/333333?text=Placeholder";
 };
-
+ 
 const morphContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -17,16 +17,16 @@ const morphContainerVariants = {
     transition: { staggerChildren: 0.3 }
   }
 };
-
+ 
 const morphItemVariants = {
-  hidden: { 
+  hidden: {
     scale: 0.3,
     opacity: 0,
     borderRadius: "50%",
     rotate: -180,
     filter: "blur(20px)"
   },
-  visible: { 
+  visible: {
     scale: 1,
     opacity: 1,
     borderRadius: "8px",
@@ -35,25 +35,25 @@ const morphItemVariants = {
     transition: { duration: 1.2 }
   }
 };
-
+ 
 export default function HeroSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-
+ 
   const images = [
     "/ProductDetails(COS)/img1.png",
     "/ProductDetails(COS)/img2.png",
     "/ProductDetails(COS)/img3.png",
   ];
-
+ 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative w-full flex items-start justify-center overflow-hidden pt-0 mt-0">
       {/* Backgrounds */}
       <div className="absolute inset-0 hidden md:flex">
         <div className="w-1/2 bg-[#FED600]" />
         <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Desktop Circles */}
-          <div 
+          <div
             className="absolute z-0"
             style={{
               width: '512.22px',
@@ -66,8 +66,8 @@ export default function HeroSection() {
               opacity: 1
             }}
           />
-          
-          <div 
+         
+          <div
             className="absolute z-0"
             style={{
               width: '387.64px',
@@ -82,13 +82,13 @@ export default function HeroSection() {
           />
         </div>
       </div>
-
+ 
       {/* Mobile & Tablet Background with Circles */}
       <div className="absolute inset-0 flex flex-col md:hidden">
         <div className="flex-1 bg-[#FED600]" />
         <div className="flex-1 bg-[#2B68C3] relative">
           {/* Mobile & Tablet Circles - Responsive */}
-          <div 
+          <div
             className="absolute z-0"
             style={{
               width: '280px',
@@ -101,8 +101,8 @@ export default function HeroSection() {
               opacity: 1
             }}
           />
-          
-          <div 
+         
+          <div
             className="absolute z-0"
             style={{
               width: '200px',
@@ -117,13 +117,13 @@ export default function HeroSection() {
           />
         </div>
       </div>
-
+ 
       {/* Tablet Circles */}
       <div className="absolute inset-0 hidden md:flex lg:hidden">
         <div className="w-1/2 bg-[#FED600]" />
         <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Tablet Circles */}
-          <div 
+          <div
             className="absolute z-0"
             style={{
               width: '400px',
@@ -136,8 +136,8 @@ export default function HeroSection() {
               opacity: 1
             }}
           />
-          
-          <div 
+         
+          <div
             className="absolute z-0"
             style={{
               width: '300px',
@@ -152,9 +152,9 @@ export default function HeroSection() {
           />
         </div>
       </div>
-
+ 
       {/* Animated Lines - Responsive */}
-      <div className="absolute bottom-[60px] md:left-[50%] left-6 flex flex-col gap-2 z-[2]">
+      <div className="absolute bottom-[30px] md:left-[50%]  left-6 flex flex-col gap-2 z-[2]">
         {/* Desktop Lines */}
         <div className="hidden md:flex flex-col gap-2">
           {[350, 310, 270].map((width, i) => (
@@ -171,7 +171,7 @@ export default function HeroSection() {
             />
           ))}
         </div>
-
+ 
         {/* Mobile Lines */}
         <div className="flex flex-col gap-2 md:hidden">
           {[200, 180, 160].map((width, i) => (
@@ -189,12 +189,13 @@ export default function HeroSection() {
           ))}
         </div>
       </div>
-
+ 
       {/* Main Content */}
-      <div className="relative w-full flex flex-col md:flex-row items-center px-4 sm:px-8 py-[80px] md:py-0 max-w-[1440px] mx-auto gap-4 z-10">
+     <div className="relative w-full items-center flex flex-col md:flex-row   px-4 sm:px-8 py-0 md:py-0 max-w-[1440px] mx-auto gap-4 z-10">
+ 
         {/* Text Section */}
-        <div className="relative w-full md:w-1/2 flex flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-0">
-          <H1 className="mb-6 text-[#202020]">
+        <div className="relative w-full md:w-1/2 flex  mt-10 flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-0">
+          <H1 className="mb-6  text-[#202020]">
             Lorem ipsum dolor, consectetur adipis
           </H1>
           <P className="mb-8 max-w-md mx-auto md:mx-0 text-[#202020]">
@@ -206,17 +207,17 @@ export default function HeroSection() {
             <ContactUs>CONTACT US</ContactUs>
           </div>
         </div>
-
+ 
         {/* Image Section */}
-        <div className="relative w-screen md:w-1/2 bg-[#2B68C3] md:bg-transparent pb-5 flex justify-center">
+        <div className="relative w-screen md:mt-22  md:w-1/2 bg-[#2B68C3] md:bg-transparent pb-5 flex justify-center">
           {/* Mobile layout */}
           <motion.div
-            className="flex flex-col md:hidden gap-4 mt-5 z-10"
+            className="flex flex-col md:hidden gap-4 z-10"
             variants={morphContainerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            <div className="flex gap-4 justify-center mx-[30px]">
+            <div className="flex gap-4 mt-20 justify-center mx-[30px]">
               <motion.img
                 src={images[0]}
                 alt="Image 1"
@@ -242,7 +243,7 @@ export default function HeroSection() {
               />
             </div>
           </motion.div>
-
+ 
           {/* Desktop layout - Reduced img2 height */}
           <motion.div
             className="hidden md:grid grid-cols-[auto_auto] items-center justify-center gap-6 mx-auto mt-10 lg:mt-16 max-w-[700px] lg:max-w-[800px] px-6 z-10"
@@ -261,7 +262,7 @@ export default function HeroSection() {
                 className="max-w-[380px] max-h-[520px] w-full h-auto object-contain shadow-xl rounded-lg"
               />
             </motion.div>
-
+ 
             <motion.img
               src={images[1]}
               alt="Top image"
@@ -269,7 +270,7 @@ export default function HeroSection() {
               variants={morphItemVariants}
               className="max-w-[260px] max-h-[250px] w-full h-auto object-cover shadow-xl rounded-lg"
             />
-
+ 
             <motion.img
               src={images[2]}
               alt="Bottom image"

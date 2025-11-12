@@ -60,8 +60,9 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
 
         {/* Main Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-10 gap-y-12 items-center">
-          {/* Left Buttons */}
-          <div className="sm:col-span-1 lg:col-span-3 space-y-4 flex flex-col justify-center order-1">
+          
+          {/* Left Buttons (Desktop) */}
+          <div className="hidden lg:flex lg:col-span-3 space-y-4 flex-col justify-center order-1">
             <nav aria-label="Feature Selection">
               {FEATURES.map((item) => {
                 const isActive = item.id === activeFeatureId;
@@ -84,20 +85,41 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
             </nav>
           </div>
 
+          {/* Horizontal Scroll Buttons (Mobile & Tablet) */}
+          <div className="flex lg:hidden overflow-x-auto space-x-3 pb-4 order-1">
+            {FEATURES.map((item) => {
+              const isActive = item.id === activeFeatureId;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveFeatureId(item.id)}
+                  className={`flex-shrink-0 whitespace-nowrap py-2 px-5 rounded-full text-sm font-semibold transition-all duration-300
+                    ${
+                      isActive
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-white text-black border border-gray-400 hover:bg-gray-100'
+                    }`}
+                >
+                  {item.buttonLabel}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Center Image */}
-          <div className="lg:col-span-5 flex justify-center order-3 sm:order-3 lg:order-2">
+          <div className="lg:col-span-5 flex justify-center order-2">
             <div className="relative max-w-xl w-full">
               <img
                 src={activeContent.imageSrc}
                 alt={activeContent.title}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain rounded-xl"
               />
             </div>
           </div>
 
           {/* Right Content */}
-          <div className="sm:col-span-1 lg:col-span-4 space-y-6 text-gray-700 flex flex-col justify-center order-2 sm:order-2 lg:order-3">
-            <H3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+          <div className="lg:col-span-4 space-y-6 text-gray-700 flex flex-col justify-center text-center order-3">
+            <H3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
               {activeContent.title}
             </H3>
             <P className="text-base">{activeContent.p1}</P>
