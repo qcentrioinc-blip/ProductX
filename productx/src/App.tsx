@@ -1,10 +1,10 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import './index.css'
-import { Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes, useLocation, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
-import LifeSciences from './routes/industries/LifeSciences'
+import LifeSciences from './routes/industries/EHRandPMS'
 import Blogs from './components/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
@@ -18,7 +18,7 @@ import Marketing from './components/Banking&Finance/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
-import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+ 
 import Platform from './components/Platform/Platform'
 import Career from './components/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
@@ -30,18 +30,32 @@ import JobDescription from './components/Banking&Finance/JobDescription/JobDescr
 import Contact from './components/Banking&Finance/BNFContact/Contact'
 import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform'
  
+ 
+
+ 
+import CookiePolicyPage from './components/EHR&PMS/CookiePolicy/CookiePolicyPage'
+import PrivacyPolicyPage from './components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage'
+import TermsAndConditionsPage from './components/EHR&PMS/TermsAndConditions/TermsAndConditionsPage'
+import CaseStudiesPage from './components/EHR&PMS/CaseStudies/CaseStudiesPage'
+import BlogsPage from './components/EHR&PMS/Blogs/BlogsPage'
+import JobDescriptionPage from './components/EHR&PMS/JobDescription/JobDescriptionPage'
+import ApplicationFormPage from './components/EHR&PMS/ApplicationForm/ApplicationFormPage'
+import CareersPage from './components/EHR&PMS/Careers/CareersPage'
+import ContactFormPage from './components/EHR&PMS/ContactForm.tsx/ContactFormPage'
 
 import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
 import Resources from './components/HighTech/Resources/Resources'
 import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
-
+import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+ 
 const App = () => {
-
+  const location = useLocation();
+  const showNavbar = location.pathname === '/';
   const IndustryPage = () => {
     const { industry } = useParams();
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
-    if (industry === "life-sciences") return <LifeSciences />;
+    if (industry === "ehr-and-pms") return <LifeSciences />;
     return <div>Industry not found</div>;
   }
 
@@ -49,31 +63,46 @@ const App = () => {
     const { productId } = useParams();
     if (productId === "1") return <ProductsPage1 />;
     if (productId === "2") return <ProductsPage2 />;
-    if (productId ==="3")   return <AML/>;
-    if (productId === "4") return <ProductDetailthree/>
-    if (productId === "5") return <ProductDetails_4_page/>
-    if (productId === "6") return <Cos_Page/>
-    if (productId === "8") return <Sams_Page/>
-    if (productId === "9") return <PDPage9/>
-    if( productId === "7") return <ProductsPage7/>
-
-
+    if (productId === "3") return <AML />;
+    if (productId === "4") return <ProductDetailthree />
+    if (productId === "5") return <ProductDetails_4_page />
+    if (productId === "6") return <Cos_Page />
+    if (productId === "8") return <Sams_Page />
+    if (productId === "9") return <PDPage9 />
+    if (productId === "7") return <ProductsPage7 />
     return <div>Product not found</div>;
   }
+
+  const EhrPmsPageRouter = () => {
+    const { page } = useParams();
+    if (page === "blogs") return <BlogsPage />;
+    if (page === "career") return <CareersPage />;
+    if (page === "job-description") return <JobDescriptionPage />;
+    if (page === "application-form") return <ApplicationFormPage />;
+    if (page === "privacy-policy") return <PrivacyPolicyPage />;
+    if (page === "cookie-policy") return <CookiePolicyPage />;
+    if (page === "terms-and-conditions") return <TermsAndConditionsPage />;
+    if (page === "case-studies") return <CaseStudiesPage />;
+    if (page === "contact-us") return <ContactFormPage />;
+    if (page === "about-us") return <About />;
+    if (page === "clinic-app") return <Clinic />;
+    return <div>Page not found</div>;
+  };
+
   return (
     <>
       <ScrollProvider>
         <div data-scroll-container>
-          <Navbar />
+          {showNavbar && <Navbar />}
           <Routes>
             
             <Route path='/' element={<HeroSection />} />
-             
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path='/glossary' element={<GlossaryPage />} />
+            <Route path='/glossary' element={<GlossaryPage/>}/>
             <Route path='/aboutus' element={<AboutUs/>}/>
             <Route path= 'marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform/>}/>
@@ -86,6 +115,10 @@ const App = () => {
            <Route path="/industries/high-tech/aboutus" element={<AboutHighTech/>}/>
            <Route path="/industries/high-tech/resources" element={<Resources/>}/>
            <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail/>}/>
+            <Route path='/aboutus' element={<AboutUs />} />
+            <Route path='marketplace' element={<Marketing />} />
+            <Route path="/platform" element={<Platform />} />
+            <Route path="/career" element={<Career />} />
           </Routes>
         </div>
       </ScrollProvider>

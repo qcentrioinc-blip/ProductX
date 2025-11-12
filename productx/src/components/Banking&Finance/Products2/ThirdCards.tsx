@@ -1,12 +1,14 @@
+import { H1 } from "../../../styles/Typography";
+
 const ThirdCards = () => {
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12">
       
       {/* Container for the heading */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <H1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           Sed ut perspiciatis unde
-        </h1>
+        </H1>
       </div>
 
       {/* Desktop - Static Grid (Unchanged) */}

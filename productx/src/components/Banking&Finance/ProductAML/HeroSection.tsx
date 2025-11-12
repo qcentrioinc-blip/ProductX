@@ -64,14 +64,11 @@ const HeroSection = () => {
   };
  
   return (
-    <motion.div
-      className="w-full bg-linear-to-b from-[#C1D7F3] to-[#ffd900d0] mt-16 mb-12"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {/* TEXT SECTION */}
-      <div className="px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
+    <div  className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
+-
+
+      <div className=" px-8 sm:px-12 md:px-16  lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
+
         {/* Left Text */}
         <motion.div
           className="w-full text-(--primary-color) text-center lg:text-left"
@@ -172,7 +169,8 @@ const HeroSection = () => {
           transition={{ type: "spring", stiffness: 100 }}
         />
       </div>
-    </motion.div>
+    </div>
+    
   );
 };
  

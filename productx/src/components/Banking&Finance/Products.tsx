@@ -1,4 +1,3 @@
- 
 import { useNavigate } from "react-router-dom";
 import { H2, P } from "../../styles/Typography";
 const Products = () => {
@@ -88,7 +87,7 @@ const Products = () => {
     }
   ];
 
- return (
+  return (
     <section className="w-full bg-[#E7E7E7] py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-8xl md:px-0  md:mx-10 px-4 sm:px-8 lg:px-8">
         {/* Header */}

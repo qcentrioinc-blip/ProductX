@@ -208,7 +208,7 @@ const Footer = () => {
                             Subscribe to our Insights, our monthly look at the critical issues facing global businesses.
                         </p> */}
                         <P>Subscribe to our Insights, our monthly look at the critical issues facing global businesses.</P>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 mt-2">
                             <input
                                 type="email"
                                 placeholder="Email"
