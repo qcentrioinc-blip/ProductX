@@ -2,7 +2,7 @@ import { ContactUs } from "../../styles/Button";
  
  
 const Intro = () => {
- 
+  
   return (
     <section className="relative w-full bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
       {/* Decorative Images */}
@@ -17,9 +17,9 @@ const Intro = () => {
  
       {/* Star - Bottom Right */}
       <div className="absolute bottom-8 right-8 sm:bottom-12 sm:right-12 md:bottom-0 md:right-0 w-16 sm:w-20 md:w-24 lg:w-32  pointer-events-none md:pb-10">
-        <img
-          src="/Star.png"
-          alt=""
+        <img 
+          src="/Star.png" 
+          alt="" 
           className="w-full h-auto"
         />
       </div>

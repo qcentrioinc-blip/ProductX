@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2, H4, P } from "../../../styles/Typography";
  
 const CounterCard = ({
   number,
@@ -72,11 +72,11 @@ const CounterCard = ({
         {suffix}
       </H2>
       {/* <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3> */}
-      <H3 className=" mt-8 sm:mt-10 md:mt-12 lg:mt-20 ">
+      <H4 className=" mt-8 sm:mt-10 md:mt-18 lg:mt-20 ">
         {title}
-      </H3>
+      </H4>
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
-      <P >
+      <P className="lg:py-4 py-4 md:pt-2 md:pb-0">
         {description}
       </P>
     </div>
@@ -86,40 +86,40 @@ const CounterCard = ({
 const Counter = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white">
-      <div className="max-w-6xl mx-auto text-center mb-8 sm:mb-12 px-4 ">
+      <div className="max-w-7xl mx-auto text-center mb-8 sm:mb-12 px-4 ">
         {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2> */}
         <H2>
-          Lorem ipsum dolor sit amet consectetur
+          Sed ut perspiciatis unde
         </H2>
         {/* <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
           Behind every number is a team achieving more — see how high-performing workflows,
           speed, and satisfaction come together.
         </p> */}
-        <P className="text-black">
+        {/* <P className="text-black">
           Behind every number is a team achieving more — see how high-performing workflows,
           speed, and satisfaction come together.
-        </P>
+        </P> */}
       </div>
-      <div className="w-full max-w-9xl   mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
+      <div className="w-full     px-6 lg:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[250px]">
           <CounterCard
             number={120}
             suffix="K+"
-            title="Tasks Managed Weekly"
-            description="Thousands of workflows run every single week."
+            title="Emily"
+            description="Sed ut perspiciatis unde"
             dark
           />
           <CounterCard
             number={98}
             suffix="%+"
-            title="Task Completion Rate"
-            description="Tasks are completed faster, with fewer delays."
+            title="Emily"
+            description="Sed ut perspiciatis unde"
             dark
           />
           <CounterCard
             number={4.9}
-            title="User Satisfaction Score"
-            description="Praised for speed, clarity, and collaboration."
+            title="Emily"
+            description="Sed ut perspiciatis unde"
             dark
           />
         </div>
