@@ -125,12 +125,13 @@
 
 
 import { useState } from "react";
+import { H1, H2, P } from "../../../styles/Typography";
 
 const LandingPageEHS = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div className="relative w-full overflow-hidden mt-16">
+        <div className="relative w-full overflow-hidden">
             {/* Top Bar - Full Width */}
             <div className="bg-gradient-to-r from-green-100 to-yellow-100 border-t-4 border-blue-400 py-2 px-4 sm:px-8 md:px-16 flex justify-between items-center w-full">
                 <span className="text-gray-700 font-medium text-sm sm:text-base">LOGO</span>
@@ -143,7 +144,7 @@ const LandingPageEHS = () => {
             {/* Wrapper for entire section with single circles image */}
             <div className="relative">
                 {/* Single Circles Image - Spans from Navbar to Bottom Cards - Hidden on mobile */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[55%] z-10 pointer-events-none hidden md:block">
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[55%] z-50 pointer-events-none hidden md:block">
                     <img
                         src="/EHRandPMS/circles.png"
                         alt="Green Spiral"
@@ -224,21 +225,21 @@ const LandingPageEHS = () => {
                 </div>
 
                 {/* Hero Section with Gradient Background */}
-                <div className="relative bg-gradient-to-br from-green-100 via-yellow-100 to-orange-100">
+                <div className="relative bg-gradient-to-b from-yellow-100 to-green-100">
                     {/* Left Content */}
-                    <div className="relative z-20 px-4 sm:px-6 md:px-16 py-8 sm:py-12 md:py-16 max-w-3xl">
+                    <div className="relative z-20 px-4 sm:px-6 md:px-12 py-8 sm:py-12 md:py-16 max-w-3xl">
                         {/* Main Heading */}
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#2D7A5C] leading-tight mb-4 sm:mb-6 break-words">
+                        <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#2D7A5C] leading-tight mb-4 sm:mb-6 break-words">
                             Shaping the Future<br className="hidden sm:block" />
                             <span className="sm:hidden"> </span>Across Every Sector.
-                        </h1>
+                        </H1>
 
                         {/* Description */}
-                        <p className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-2xl">
+                        <P className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-2xl">
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
-                        </p>
+                        </P>
 
                         {/* Contact Button */}
                         <button className="bg-[#F4A261] text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold flex items-center gap-2 sm:gap-3 hover:bg-[#E89551] transition-all text-sm sm:text-base">
@@ -254,9 +255,9 @@ const LandingPageEHS = () => {
                 <div className="bg-white py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-16 border-t border-gray-200 relative">
                     <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 max-w-7xl mx-auto relative z-20">
                         {/* Left Heading */}
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D7A5C] leading-tight text-center md:text-left">
+                        <H2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D7A5C] leading-tight text-center md:text-left">
                             Duis<br />aute<br />irure
-                        </h2>
+                        </H2>
 
                         {/* Logo Cards - Responsive Grid */}
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 flex-1 justify-center md:justify-start md:ml-12 w-full md:w-auto">

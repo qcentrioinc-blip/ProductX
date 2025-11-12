@@ -1,19 +1,19 @@
 "use client"
- 
+
 import type React from "react"
 import "@fontsource/quicksand/400.css";
 import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react"
 import { useState, useEffect, useContext, useRef, useCallback } from "react"
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ScrollContext } from "../../context/ScrollContext";
 import { H2 } from "../../styles/Typography"
 // import { ContactUs } from "../../styles/Button"
- 
- 
-type SolutionsTab = "Banking and Finance" | "EHS and PMS" | "High Tech"
- 
 
- 
+
+type SolutionsTab = "Banking and Finance" | "EHS and PMS" | "High Tech"
+
+
+
 const Navbar = () => {
   const navigate = useNavigate();
   const navbarRef = useRef<HTMLElement>(null);
@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const lightStyle = { bg: "bg-transparent", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-white" };
   const darkStyle = { bg: "bg-black", text: "text-white", btnBg: "bg-white", btnText: "text-black", border: "border-gray-700" };
- 
+
   const currentStyle = navStyle === 'dark' ? darkStyle : lightStyle;
 
   // Global background detection logic
@@ -66,7 +66,7 @@ const Navbar = () => {
     scrollContainer.addEventListener('scroll', checkBackgroundColor);
     return () => scrollContainer.removeEventListener('scroll', checkBackgroundColor);
   }, [scrollContext, checkBackgroundColor]);
- 
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement
@@ -77,29 +77,29 @@ const Navbar = () => {
         setClickedDropdown(null)
       }
     }
- 
+
     document.addEventListener("click", handleClickOutside)
     return () => document.removeEventListener("click", handleClickOutside)
   }, [])
- 
+
   const handleIndustriesHover = () => {
     if (clickedDropdown !== "industries") {
       setIsIndustriesOpen(true)
     }
   }
- 
+
   const handleSolutionsHover = () => {
     if (clickedDropdown !== "solutions") {
       setIsSolutionsOpen(true)
     }
   }
- 
+
   const handleResourcesHover = () => {
     if (clickedDropdown !== "resources") {
       setIsResourcesOpen(true)
     }
   }
- 
+
   const handleDropdownLeave = () => {
     if (!clickedDropdown) {
       setTimeout(() => {
@@ -112,7 +112,7 @@ const Navbar = () => {
       }, 100)
     }
   }
- 
+
   const handleIndustriesClick = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (clickedDropdown === "industries") {
@@ -125,7 +125,7 @@ const Navbar = () => {
       setClickedDropdown("industries")
     }
   }
- 
+
   const handleSolutionsClick = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (clickedDropdown === "solutions") {
@@ -138,7 +138,7 @@ const Navbar = () => {
       setClickedDropdown("solutions")
     }
   }
- 
+
   const handleResourcesClick = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (clickedDropdown === "resources") {
@@ -151,7 +151,7 @@ const Navbar = () => {
       setClickedDropdown("resources")
     }
   }
- 
+
   const solutionsData = {
     "Banking and Finance": [
       { name: "Remitree", description: "Enables banks to setup single window to process all their Inward" },
@@ -176,7 +176,7 @@ const Navbar = () => {
       { name: "DataFlow", description: "Real-time data processing and analytics solution" },
     ],
   }
- 
+
   return (
     <>
       <nav
@@ -191,7 +191,7 @@ const Navbar = () => {
               <Link to="/" className={`${currentStyle.btnBg} ${currentStyle.btnText} px-3 sm:px-4 py-2 text-lg sm:text-xl rounded-md flex items-center`}>
                 <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </Link>
- 
+
               {/* Desktop Navigation Menu */}
               <div className={`hidden lg:flex items-center space-x-8 text-[16px] font-[quicksand] font-normal leading-[100%] tracking-[0] text-center ${currentStyle.text}`}>
                 <div
@@ -204,7 +204,7 @@ const Navbar = () => {
                   <span>Industries</span>
                   <span>{isIndustriesOpen ? <ChevronUp className={currentStyle.text} /> : <ChevronDown className={currentStyle.text} />}</span>
                 </div>
- 
+
                 <div
                   className={`flex items-center space-x-1 cursor-pointer transition-colors relative ${currentStyle.text} hover:underline`}
                   data-dropdown
@@ -229,20 +229,20 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
- 
+
             {/* Right Section - Search and Contact */}
             <div className="flex items-center space-x-2">
               {/* Search Button */}
               <button className={`p-2 rounded-full transition-colors ${currentStyle.btnBg} ${currentStyle.btnText} border ${currentStyle.border}`}>
                 <Search className={`w-4 h-4 sm:w-5 sm:h-5 ${currentStyle.btnText}`} />
               </button>
- 
+
               {/* Contact Us Button - Hidden on mobile, shown on tablet+ */}
               <button
                 className={`hidden sm:flex items-center ${currentStyle.btnBg} ${currentStyle.btnText} px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 text-sm font-medium gap-2 border ${currentStyle.border} shadow-sm hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 cursor-pointer`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                 onClick={() => navigate('/Contact')}
+                onClick={() => navigate('/Contact')}
               >
                 <span className="transition-colors duration-300">CONTACT US</span>
                 {isHovered ? (
@@ -252,7 +252,7 @@ const Navbar = () => {
                 )}
               </button>
               {/* <ContactUs>CONTACT US</ContactUs> */}
- 
+
               {/* Mobile Menu Button */}
               <button
                 className={`lg:hidden p-2 rounded-full transition-colors ${currentStyle.btnBg} ${currentStyle.btnText} border ${currentStyle.border}`}
@@ -263,7 +263,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
- 
+
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
@@ -284,10 +284,10 @@ const Navbar = () => {
                   <div className="pl-4 space-y-2 border-l-2 border-gray-200">
                     <div className="text-sm text-gray-700">High Tech</div>
                     <div className="text-sm text-gray-700">Banking and Finance</div>
-                    <div className="text-sm text-gray-700">Life Sciences</div>
+                    <div className="text-sm text-gray-700">EHR and PMS</div>
                   </div>
                 )}
- 
+
                 <button
                   onClick={() => {
                     setIsSolutionsOpen(!isSolutionsOpen)
@@ -308,10 +308,10 @@ const Navbar = () => {
                     </div>
                   </div>
                 )}
- 
+
                 <div className="text-gray-800 font-medium hover:text-gray-600 cursor-pointer">Platforms</div>
                 <div className="text-gray-800 font-medium hover:text-gray-600 cursor-pointer">Company</div>
- 
+
                 <button
                   onClick={() => {
                     setIsResourcesOpen(!isResourcesOpen)
@@ -333,7 +333,7 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
- 
+
               {/* Mobile Contact Button */}
               <div className="pt-4 border-t border-gray-200">
                 <button className="w-full flex items-center justify-center bg-black text-white px-6 py-3 rounded-lg transition-all duration-300 text-sm font-medium gap-2">
@@ -345,7 +345,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
- 
+
       {/* Desktop Dropdowns - Keep exactly the same */}
       {isIndustriesOpen && (
         <div
@@ -359,14 +359,14 @@ const Navbar = () => {
               <div className="mb-6">
                 {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
                 <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
- 
+
                 <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               </div>
- 
+
               <div className="border-b border-gray-200 mb-8"></div>
- 
+
               <div className="grid grid-cols-3 gap-8 relative">
- 
+
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -376,14 +376,17 @@ const Navbar = () => {
                     to="/industries/banking-and-finance"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+
                   >
                     <span>Explore</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
- 
+
                 <div className="absolute left-1/3 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2"></div>
- 
+
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-black">High Tech</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -393,23 +396,27 @@ const Navbar = () => {
                     to="/industries/high-tech"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <span>Explore</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
- 
+
                 <div className="absolute left-2/3 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2"></div>
- 
+
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-black">Life Sciences</h3>
+                  <h3 className="text-lg font-medium text-black">EHR and PMS</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
                   </p>
                   <Link
-                    to="/industries/life-sciences"
+                    to="/industries/ehr-and-pms"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
                     onClick={() => setIsIndustriesOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <span>Explore</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -420,8 +427,8 @@ const Navbar = () => {
           </div>
         </div>
       )}
- 
- 
+
+
       {isSolutionsOpen && (
         <div
           className="hidden lg:block fixed top-[73px] left-0 w-full bg-white border-b border-gray-200 z-40 shadow-sm"
@@ -439,9 +446,9 @@ const Navbar = () => {
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
- 
+
               <div className="border-b border-gray-200 mb-6"></div>
- 
+
               <div className="flex gap-0">
                 <div className="w-80 bg-gray-100 rounded-l-lg">
                   {Object.keys(solutionsData).map((tab) => (
@@ -461,7 +468,7 @@ const Navbar = () => {
                     </div>
                   ))}
                 </div>
- 
+
                 <div className="flex-1 bg-gray-50 rounded-r-lg p-6">
                   <div className="grid grid-cols-3 gap-4">
                     {solutionsData[activeSolutionsTab].map((solution, index) => (
@@ -480,7 +487,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
- 
+
       {isResourcesOpen && (
         <div
           className="hidden lg:block fixed top-[73px] left-0 w-full bg-white border-b border-gray-200 z-40 shadow-sm"
@@ -493,12 +500,12 @@ const Navbar = () => {
               <div className="mb-6">
                 {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
                 <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
-     
+
                 <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               </div>
- 
+
               <div className="border-b border-gray-200 mb-8"></div>
- 
+
               <div className="grid grid-cols-2 gap-16 relative">
                 <div className="space-y-8">
                   <div className="space-y-2">
@@ -507,14 +514,14 @@ const Navbar = () => {
                       Praesent eget laoreet arcu, nec iaculis massa.
                     </p>
                   </div>
- 
+
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Glossary</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
                     </p>
                   </div>
- 
+
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Whitepapers</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -522,9 +529,9 @@ const Navbar = () => {
                     </p>
                   </div>
                 </div>
- 
+
                 <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2"></div>
- 
+
                 <div className="space-y-8">
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">News</h3>
@@ -532,7 +539,7 @@ const Navbar = () => {
                       Praesent eget laoreet arcu, nec iaculis massa.
                     </p>
                   </div>
- 
+
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Events</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -548,5 +555,5 @@ const Navbar = () => {
     </>
   )
 }
- 
+
 export default Navbar;

@@ -3,25 +3,24 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { H1, P } from '../../../styles/Typography';
 import type { Variants } from 'framer-motion';
 import {motion} from 'framer-motion'
-
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  
+ 
   // Mock images - replace with your actual images
   const images = [
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png"
   ];
-
+ 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.target as HTMLDivElement;
     const slideWidth = container.offsetWidth * 0.8;
     const newSlide = Math.round(container.scrollLeft / slideWidth);
     setCurrentSlide(newSlide);
   };
-
+ 
   const scrollToSlide = (index: number) => {
     const container = scrollContainerRef.current;
     if (container) {
@@ -122,7 +121,6 @@ const HeroSection = () => {
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
               </H1>
             </motion.div>
-
             <motion.div variants={itemVariants} className="text-white mt-4">
               <P className="text-white">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
@@ -130,7 +128,6 @@ const HeroSection = () => {
                 proident, sunt in culpa qui officia deserunt mollit.
               </P>
             </motion.div>
-
             {/* Centered Button */}
             <motion.div variants={itemVariants} className="mt-8 flex justify-center">
               <button
@@ -166,7 +163,7 @@ const HeroSection = () => {
         
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
         <div className="md:hidden mt-6 px-4">
-          <div 
+          <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
             className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
@@ -189,7 +186,7 @@ const HeroSection = () => {
               </div>
             ))}
           </div>
-          
+         
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-4">
             {images.map((_, index) => (
@@ -197,8 +194,8 @@ const HeroSection = () => {
                 key={index}
                 onClick={() => scrollToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentSlide === index 
-                    ? 'bg-blue-600 w-6' 
+                  currentSlide === index
+                    ? 'bg-blue-600 w-6'
                     : 'bg-gray-300'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -249,7 +246,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-
+ 
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -258,5 +255,5 @@ const HeroSection = () => {
     </section>
   );
 };
-
+ 
 export default HeroSection;

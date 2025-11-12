@@ -43,7 +43,6 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-
       {/* Keyframe animations */}
       <style>{`
         @keyframes slideInLeft {
@@ -56,7 +55,6 @@ const HeroSection = () => {
             transform: translateX(0);
           }
         }
-
         @keyframes scaleIn {
           from {
             transform: scale(1.1);
@@ -71,5 +69,5 @@ const HeroSection = () => {
     </div>
   );
 };
-
+ 
 export default HeroSection;

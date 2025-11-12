@@ -1,5 +1,7 @@
 "use client"
 
+import { H2, P } from "../../../styles/Typography"
+
 /**
  * new SecondSection component that matches the black two-column reference
  */
@@ -22,7 +24,7 @@ export default function SecondSection() {
         >
           {/* Left: Tight multi-line headline */}
           <div className="w-full lg:basis-[50%] lg:max-w-[720px]">
-            <h2
+            <H2
               className="
                 font-bold font-sans
                 text-2xl sm:text-3xl md:text-4xl lg:text-[44px]
@@ -35,12 +37,12 @@ export default function SecondSection() {
               <span>perspiciatisSed ut</span>
               <br className="hidden lg:block" />
               <span>perspiciatis</span>
-            </h2>
+            </H2>
           </div>
 
           {/* Right: Long paragraph, light gray and vertically centered */}
           <div className="w-full lg:basis-[50%] lg:max-w-[620px]">
-            <p
+            <P
               className="
                 text-sm sm:text-base md:text-lg lg:text-[20px]
                 leading-[1.6] sm:leading-[1.55] lg:leading-[1.5]
@@ -51,7 +53,7 @@ export default function SecondSection() {
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. Duis aute irure
               dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
               occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-            </p>
+            </P>
           </div>
         </div>
       </div>

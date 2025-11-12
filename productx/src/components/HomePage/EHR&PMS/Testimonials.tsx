@@ -1,3 +1,5 @@
+import { H2, P } from "../../../styles/Typography";
+
 interface Testimonial {
   quote: string;
   author: string;
@@ -43,13 +45,13 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
   return (
     <div className="w-full bg-[#f5f5f5] py-16" data-testid="testimonials-section">
       <div className="max-w-7xl mx-auto">
-        <h2 
+        <H2 
           className="text-4xl font-semibold text-center mb-12"
           style={{ color: 'hsl(142, 76%, 36%)' }}
           data-testid="text-heading"
         >
           Sed ut persp iciatis Unde Se
-        </h2>
+        </H2>
         
         <div className="relative">
           <div 
@@ -66,12 +68,12 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
                 className="flex-none w-[300px] bg-card rounded-xl p-12 shadow-2xl"
                 data-testid={`card-testimonial-${index}`}
               >
-                <p 
+                <P 
                   className="text-foreground text-sm leading-relaxed mb-8"
                   data-testid={`text-quote-${index}`}
                 >
                   {testimonial.quote}
-                </p>
+                </P>
                 
                 <div className="flex items-center gap-4">
                   <div 

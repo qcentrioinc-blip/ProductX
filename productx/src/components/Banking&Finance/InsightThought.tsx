@@ -15,7 +15,6 @@ const InsightThought = () => {
                         </svg>
                     </button>
                 </div>
- 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* First Card */}
@@ -71,7 +70,7 @@ const InsightThought = () => {
                             </div>
                         </div>
                     </motion.div>
- 
+
                     {/* Second Card */}
                     <motion.div
                         className="bg-white rounded-lg overflow-hidden shadow-md border-16 border-white cursor-pointer"
@@ -125,7 +124,7 @@ const InsightThought = () => {
                             </div>
                         </div>
                     </motion.div>
- 
+
                     {/* Third Card */}
                     <motion.div
                         className="bg-white rounded-lg overflow-hidden shadow-md border-16 border-white cursor-pointer"
@@ -184,5 +183,5 @@ const InsightThought = () => {
         </div>
     );
 };
- 
+
 export default InsightThought;
