@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { H2, P } from '../../../styles/Typography';
 import { useLocation } from "react-router-dom";
- 
 const testimonials = [
   {
     id: 1,
@@ -43,18 +42,18 @@ const testimonials = [
     text: "The best part about Cadence is how customizable it is. I tailored it to fit my exact workflow and it works like a charm.",
     name: "James A.",
     title: "Managing Director",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22  "
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22" 
   }
 ];
  
 const Testimonial = () => {
   const location = useLocation();
 const isBankingPage = location.pathname === "/industries/banking-and-finance";
- 
-const cardBg = isBankingPage ? "#ACCAEF" : "#000";
+
+const cardBg = isBankingPage ? "#ACCAEF" : "#000"; 
 const textColor = isBankingPage ? "#000" : "#fff";
- 
- 
+
+
   const [currentIndex, setCurrentIndex] = useState(1); // start at first real slide
   const [isAnimating, setIsAnimating] = useState(false);
   const [visibleCards, setVisibleCards] = useState(3);
@@ -137,7 +136,6 @@ const textColor = isBankingPage ? "#000" : "#fff";
     <div className="w-full relative py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 sm:px-6">
         <H2 className='text-center pb-4 sm:pb-8 text-black'>Sed ut perspiciatis unde</H2>
- 
         <div className="relative w-full flex justify-center items-center">
           {/* Left Gradient */}
           {/* <div className="absolute left-0 top-0 h-full w-10 bg-linear-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
@@ -147,14 +145,13 @@ const textColor = isBankingPage ? "#000" : "#fff";
           {/* <div className="absolute right-0 top-0 h-full w-10 bg-linear-to-r from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}
           ></div> */}
- 
           {/* Left Chevron */}
           <button
   onClick={prevSlide}
   disabled={isAnimating}
-  className="absolute top-1/2 transform -translate-y-1/2 z-20
-             rounded-full flex items-center justify-start
-             shadow-md hover:shadow-lg transition-shadow
+  className="absolute top-1/2 transform -translate-y-1/2 z-20 
+             rounded-full flex items-center justify-start 
+             shadow-md hover:shadow-lg transition-shadow 
              border border-gray-400 bg-[#F5F5F5]"
   style={{
     width: "44px",
@@ -179,15 +176,15 @@ const textColor = isBankingPage ? "#000" : "#fff";
     />
   </svg>
 </button>
- 
- 
+
+
           {/* Right Chevron */}
           <button
   onClick={nextSlide}
   disabled={isAnimating}
-  className="absolute top-1/2 transform -translate-y-1/2 z-20
-             rounded-full flex items-center justify-end
-             shadow-md hover:shadow-lg transition-shadow
+  className="absolute top-1/2 transform -translate-y-1/2 z-20 
+             rounded-full flex items-center justify-end 
+             shadow-md hover:shadow-lg transition-shadow 
              border border-gray-400 bg-[#F5F5F5]"
   style={{
     width: "44px",
@@ -212,8 +209,8 @@ const textColor = isBankingPage ? "#000" : "#fff";
     />
   </svg>
 </button>
- 
- 
+
+
           {/* Carousel Track */}
           <div className="overflow-hidden w-full" style={{ maxWidth: `${visibleCards * cardWidth + (visibleCards - 1) * gap}px` }}>
             <div
@@ -252,4 +249,3 @@ const textColor = isBankingPage ? "#000" : "#fff";
 };
  
 export default Testimonial;
- 

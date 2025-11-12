@@ -304,7 +304,7 @@ const HeroSection: React.FC = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
-
+ 
   return (
     <motion.section 
       ref={sectionRef}
@@ -445,5 +445,4 @@ const HeroSection: React.FC = () => {
     </motion.section>
   );
 };
-
 export default HeroSection;

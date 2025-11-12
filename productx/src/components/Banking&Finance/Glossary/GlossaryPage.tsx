@@ -9,7 +9,10 @@ const GlossaryPage = () => {
       <HeroSec/>
       <AlphabetsSection />
       <CallToAction />
+       
       <Footer />
+       
+      
     </>
   );
 };

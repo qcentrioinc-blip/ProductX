@@ -5,7 +5,6 @@ import { ContactUs } from "../../styles/Button";
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const targetRef = useRef(null);
- 
   const accordionData = [
     {
       id: 1,
@@ -32,9 +31,9 @@ const WhatWeDoIn = () => {
       ]
     },
   ];
- 
+
   const images = ["/Image1.jpg", "/Image2.jpg", "/Image3.jpg"];
- 
+
   return (
     <div
       ref={targetRef}
@@ -42,9 +41,9 @@ const WhatWeDoIn = () => {
       id="benefits"
     >
       {/* Heading Section */}
-      <div className="relative mb-20 mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
+      <div className="relative mb-20 mx-4 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
          
-        <H2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2B68C3]">
+        <H2 className=" font-bold text-[#2B68C3]">
           Consecte <span className="text-[#666666]"> adipiscing </span> Consecte
           <br />
            
@@ -52,8 +51,8 @@ const WhatWeDoIn = () => {
         <P className="max-w-3xl pt-4 text-justify leading-tight text-gray-600">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
         </P>
-       
-       
+        
+        
          <ContactUs className=" hidden max-w-8xl absolute lg:flex items-center top-12   right-12 text-black">
           CONTACT US
         </ContactUs>
@@ -61,14 +60,12 @@ const WhatWeDoIn = () => {
           CONTACT US
         </ContactUs>
       </div>
- 
       {/* Desktop Layout */}
       <div className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
         {/* Image Side with Yellow Border */}
         <div className="relative md:w-[500px] w-full h-[500px] md:h-[550px] flex items-center justify-start">
           {/* Yellow Border Background */}
           <div className="absolute top-0 left-0 w-full h-full bg-[#FFD700] rounded-lg z-0"></div>
- 
           {/* Main Image Container - offset to reveal yellow border */}
           <div className="absolute top-8 left-8 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
             <img
@@ -78,7 +75,6 @@ const WhatWeDoIn = () => {
             />
           </div>
         </div>
- 
         {/* Accordion Side */}
         <div className="w-full md:w-3/5 flex flex-col justify-center gap-4">
           {accordionData.map((item, index) => {
@@ -137,14 +133,12 @@ const WhatWeDoIn = () => {
           })}
         </div>
       </div>
- 
       {/* Mobile/Tablet Layout */}
       <div className="lg:hidden flex flex-col w-full px-4 sm:px-8">
         {/* Image with Yellow Border */}
         <div className="relative w-full h-[400px] mb-8">
           {/* Yellow Border Background */}
           <div className="absolute top-0 left-0 w-[calc(100%-2rem)] h-full bg-[#FFD700] rounded-lg z-0"></div>
- 
           {/* Main Image Container */}
           <div className="absolute top-6 left-6 w-[calc(100%-2rem)] h-[calc(100%-1.5rem)] z-10">
             <img
@@ -154,12 +148,10 @@ const WhatWeDoIn = () => {
             />
           </div>
         </div>
- 
         {/* Accordion Items */}
         <div className="w-full flex flex-col gap-4">
           {accordionData.map((item, index) => {
             const isOpen = openIndex === index;
- 
             return (
               <div
                 key={item.id}
@@ -176,7 +168,6 @@ const WhatWeDoIn = () => {
                   >
                     {String(item.id).padStart(2, "0")}
                   </span>
- 
                   <H3
                     className={`text-xl font-semibold transition-colors duration-500 ${
                       isOpen ? "text-[#3E3E3E]" : "#000000"
@@ -185,7 +176,6 @@ const WhatWeDoIn = () => {
                     {item.title}
                   </H3>
                 </div>
- 
                 {isOpen && (
                   <motion.div
                     className="px-6 pb-6 text-justify"
@@ -213,5 +203,4 @@ const WhatWeDoIn = () => {
     </div>
   );
 };
- 
 export default WhatWeDoIn;

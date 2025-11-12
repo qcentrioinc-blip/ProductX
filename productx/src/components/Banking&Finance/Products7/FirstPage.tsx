@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { H1, P } from "../../../styles/Typography";
 
 const FirstPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -103,14 +104,14 @@ const FirstPage = () => {
         {/* Header Section */}
         <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-center">
-            <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+            <H1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
               Lorem ipsum dolor, consectetur adipis
-            </h1>
+            </H1>
           </div>
           <div className="flex flex-col justify-center space-y-6">
-            <p className="text-base leading-relaxed text-foreground/80 md:text-lg">
+            <P className="text-base leading-relaxed text-foreground/80 md:text-lg">
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            </p>
+            </P>
             <div>
               <button className="group bg-black px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors items-center inline-flex">
                 CONTACT US
