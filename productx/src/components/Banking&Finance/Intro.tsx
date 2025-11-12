@@ -2,6 +2,7 @@ import { ContactUs } from "../../styles/Button";
 
  
 const Intro = () => {
+  
   return (
     <section className="relative w-full bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
       {/* Decorative Images */}
@@ -15,7 +16,7 @@ const Intro = () => {
       </div>
 
       {/* Star - Bottom Right */}
-      <div className="absolute bottom-8 right-8 sm:bottom-12 sm:right-12 md:bottom-0 md:right-0 w-16 sm:w-20 md:w-24 lg:w-32  pointer-events-none">
+      <div className="absolute bottom-8 right-8 sm:bottom-12 sm:right-12 md:bottom-0 md:right-0 w-16 sm:w-20 md:w-24 lg:w-32  pointer-events-none md:pb-10">
         <img 
           src="/Star.png" 
           alt="" 
@@ -24,7 +25,7 @@ const Intro = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative max-w-7xl mx-10 px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
         <div className="max-w-4xl">
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">

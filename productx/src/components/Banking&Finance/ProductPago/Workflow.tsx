@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+ 
+import { useState, useEffect, useRef, useContext, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { ScrollContext } from "../../../context/ScrollContext";
+ 
 const PRIMARY_COLOR = "#4285F4";
-const LIGHT_BLUE_BG = "#C1D7F3";
+// const LIGHT_BLUE_BG = "#C1D7F3";
 const BUTTON_COLOR = "#000000";
-
+ 
 const steps = [
   {
     id: 1,
@@ -42,72 +44,107 @@ const steps = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
 ];
-
+ 
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
-  const stepsContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-
+  const scrollableContainerRef = useContext(ScrollContext);
+ 
   useEffect(() => {
+    const scrollContainer = scrollableContainerRef?.current;
+    if (!scrollContainer) return;
+ 
     const handleScroll = () => {
-      if (!stepsContainerRef.current) return;
-
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      // Find which step is currently in view
-      let newActiveStep = 1;
-      let minDistance = Infinity;
-
-      stepRefs.current.forEach((stepEl, index) => {
-        if (stepEl) {
-          const rect = stepEl.getBoundingClientRect();
-          const stepTop = rect.top + window.scrollY;
-          const stepCenter = stepTop + rect.height / 2;
-          const distance = Math.abs(scrollPosition - stepCenter);
-
-          // Debug: Uncomment to see values in console
-          // console.log(`Step ${index + 1}: distance=${distance}, active=${distance < minDistance}`);
-
-          if (distance < minDistance) {
-            minDistance = distance;
-            newActiveStep = index + 1;
-          }
-        }
-      });
-
+      if (!sectionRef.current) return;
+ 
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const containerScrollTop = scrollContainer.scrollTop;
+ 
+      // Calculate scroll position relative to the section
+      const sectionTop = sectionRect.top - containerRect.top + containerScrollTop;
+      const sectionBottom = sectionTop + sectionRect.height;
+      const scrollPosition = containerScrollTop + containerRect.height / 2;
+ 
+      // Check if we're within the section bounds
+      if (scrollPosition < sectionTop || scrollPosition > sectionBottom) {
+        return;
+      }
+ 
+      // Calculate progress through the section (0 to 1)
+      const sectionProgress = (scrollPosition - sectionTop) / sectionRect.height;
+      setScrollProgress(sectionProgress);
+ 
+      // Map progress to step (1 to 5)
+      const stepProgress = Math.min(
+        Math.max(sectionProgress * steps.length, 0),
+        steps.length - 0.01
+      );
+      const newActiveStep = Math.floor(stepProgress) + 1;
+ 
       setActiveStep(newActiveStep);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+ 
+    scrollContainer.addEventListener("scroll", handleScroll);
+    handleScroll();
+ 
+    return () => {
+      scrollContainer.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollableContainerRef]);
+ 
+  // Calculate background gradient color based on scroll progress
+  const backgroundGradient = useMemo(() => {
+    // Progress from 0 (black) to 1 (light blue)
+    const progress = scrollProgress;
+   
+    // Black RGB: 0, 0, 0
+    // Light Blue RGB: 193, 215, 243 (#C1D7F3)
+    const r = Math.round(0 + (193 - 0) * progress);
+    const g = Math.round(0 + (215 - 0) * progress);
+    const b = Math.round(0 + (243 - 0) * progress);
+   
+    return `rgb(${r}, ${g}, ${b})`;
+  }, [scrollProgress]);
+ 
   return (
-    <div style={{ backgroundColor: LIGHT_BLUE_BG }} className="w-full relative pb-20">
+    <motion.div
+      ref={sectionRef}
+      style={{
+        backgroundColor: backgroundGradient,
+        transition: 'background-color 0.1s ease-out'
+      }}
+      className="w-full relative pb-20 min-h-[400vh]"
+    >
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center text-center pt-16 pb-16 px-6 md:px-20">
-        <h1 
+        <h1
           style={{ color: PRIMARY_COLOR }}
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-snug"
         >
           Lorem ipsum dolor gamis consecte ipsum
         </h1>
-        <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-2xl">
+        <motion.p
+          style={{
+            color: scrollProgress > 0.3 ? '#374151' : '#9CA3AF'
+          }}
+          className="text-sm md:text-base leading-relaxed max-w-2xl transition-colors duration-300"
+        >
           Duis aute irure dolor in voluptate velit esse voluptate velit esse
           essereprehenderit in voluptate velit esse voluptate velit esse Duis
           aute irure dolor in voluptate velit esse voluptate velit esse
           reprehenderit in voluptate velit esse voluptate
-        </p>
+        </motion.p>
       </div>
-
-      <div
-        ref={stepsContainerRef}
-        className="relative flex justify-center items-start"
-      >
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start px-6 lg:px-16">
+ 
+      {/* Sticky Content Container */}
+      <div className="sticky top-10 h-screen flex items-center justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-16">
+         
           {/* LEFT SIDE - Sticky Image */}
-          <div className="sticky top-24 h-[400px] md:h-[600px] order-1 md:order-0">
+          <div className="h-[400px] md:h-[600px] order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.img
@@ -123,15 +160,15 @@ export default function Workflow() {
               </AnimatePresence>
             </div>
           </div>
-
-          {/* RIGHT SIDE - Steps */}
-          <div className="flex flex-col space-y-16 md:space-y-24 relative py-10">
+ 
+          {/* RIGHT SIDE - All 5 Steps in View */}
+          <div className="flex flex-col relative space-y-4 md:space-y-8 mt-6">
             {/* Connecting line */}
             <div
               style={{ backgroundColor: PRIMARY_COLOR }}
-              className="absolute left-5 top-0 bottom-0 w-[3px] rounded-full opacity-30"
+              className="absolute left-7 top-0 bottom-30 w-[3px] rounded-full opacity-30 hidden md:block"
             />
-
+ 
             {steps.map((step, index) => {
               const isActive = step.id === activeStep;
               return (
@@ -140,7 +177,7 @@ export default function Workflow() {
                   ref={(el) => {
                     stepRefs.current[index] = el;
                   }}
-                  className="flex items-start gap-6 relative z-10 min-h-[120px]"
+                  className="flex items-start gap-4 md:gap-6 relative z-10"
                 >
                   {/* Circle */}
                   <motion.div
@@ -155,15 +192,15 @@ export default function Workflow() {
                     }}
                     style={{
                       color: isActive ? "white" : PRIMARY_COLOR,
-                      boxShadow: isActive 
-                        ? "0 4px 20px rgba(66, 133, 244, 0.4)" 
+                      boxShadow: isActive
+                        ? "0 4px 20px rgba(66, 133, 244, 0.4)"
                         : "0 2px 8px rgba(0, 0, 0, 0.1)",
                     }}
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0"
+                    className="w-15 h-15 rounded-full flex items-center justify-center font-bold text-lg shrink-0"
                   >
                     {step.id}
                   </motion.div>
-
+ 
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -173,24 +210,31 @@ export default function Workflow() {
                     transition={{ duration: 0.3 }}
                     className="flex-1 rounded-lg"
                     style={{
-                      padding: isActive ? "20px" : "0px",
-                      boxShadow: isActive ? "0 4px 20px rgba(0, 0, 0, 0.08)" : "none",
+                      padding: isActive ? "20px" : "10px",
+                      boxShadow: isActive
+                        ? "0 4px 20px rgba(0, 0, 0, 0.08)"
+                        : "none",
                     }}
                   >
-                    <h3
+                    <motion.h3
+                      style={{
+                        color: isActive
+                          ? '#111827'
+                          : scrollProgress > 0.4 ? '#4B5563' : '#9CA3AF'
+                      }}
                       className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
-                        isActive ? "text-gray-900 font-medium" : "text-gray-600"
+                        isActive ? "font-medium" : ""
                       }`}
                     >
                       {step.title}
-                    </h3>
+                    </motion.h3>
                   </motion.div>
                 </motion.div>
               );
             })}
-
+ 
             {/* Book A Demo Button */}
-            <div className="pl-16 pt-8">
+            <div className="pl-0 md:pl-16 pt-4">
               <button
                 style={{ backgroundColor: BUTTON_COLOR }}
                 className="flex items-center gap-2 px-6 py-3 text-white rounded-md transition-all duration-200 hover:scale-105 hover:shadow-lg font-semibold text-sm"
@@ -213,6 +257,7 @@ export default function Workflow() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
+ 

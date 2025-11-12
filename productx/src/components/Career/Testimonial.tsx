@@ -1,4 +1,4 @@
-import { H1, H2 } from "../../styles/Typography";
+import { H2, H4 ,P } from "../../styles/Typography";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -11,24 +11,24 @@ interface TestimonialItem {
 const testimonials: TestimonialItem[] = [
   {
     title: "Sed ut perspiciatis",
-    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
   },
   {
     title: "Sed ut perspiciatis",
-    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
   },
   {
     title: "Sed ut perspiciatis",
-    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
   },
 ];
 
 const Testimonial = () => {
   return (
-    <div className="bg-white text-black py-20 px-6 md:px-16">
-      <H1 className="mb-10 lg:mb-20">Sed ut perspiciatis</H1>
+    <div className="bg-white  text-black py-20 px-6 md:px-10">
+      <H2 className="mb-10 mx-4 lg:mx-10 md:mx-0 lg:mb-20">Sed ut perspiciatis</H2>
 
-      <div className="grid px-10 gap-10 md:grid-cols-3">
+      <div className="grid md:px-0 lg:px-10  sm:px-4    md:gap-x-10 lg:gap-24 md:grid-cols-3">
         {testimonials.map((item, index) => (
           <AnimatedCard key={index} item={item} delay={index * 0.2} />
         ))}
@@ -59,13 +59,13 @@ const AnimatedCard = ({ item, delay }: AnimatedCardProps) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y:70 }}
       animate={controls}
       className="text-center md:text-left"
     >
-      <div className="w-10 h-10 bg-gray-300 rounded-full mx-auto md:mx-0 mb-4"></div>
-      <H2 className="mb-4 lg:mb-8">{item.title}</H2>
-      <p className="text-gray-600 text-sm leading-normal">{item.text}</p>
+      <div className="w-12 h-12 bg-gray-300 rounded-full  mx-auto md:mx-0 mb-6"></div>
+      <H4 className="mb-4 ">{item.title}</H4>
+      <P className="text-gray-600   leading-tight text-justify">{item.text}</P>
     </motion.div>
   );
 };

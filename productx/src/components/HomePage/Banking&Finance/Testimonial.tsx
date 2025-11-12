@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { H2, P } from '../../../styles/Typography';
+import { useLocation } from "react-router-dom";
 
 const testimonials = [
   {
@@ -47,12 +48,19 @@ const testimonials = [
 ];
 
 const Testimonial = () => {
+  const location = useLocation();
+const isBankingPage = location.pathname === "/industries/banking-and-finance";
+
+const cardBg = isBankingPage ? "#ACCAEF" : "#000"; 
+const textColor = isBankingPage ? "#000" : "#fff";
+
+
   const [currentIndex, setCurrentIndex] = useState(1); // start at first real slide
   const [isAnimating, setIsAnimating] = useState(false);
   const [visibleCards, setVisibleCards] = useState(3);
   const [cardWidth, setCardWidth] = useState(448);
   const [gap, setGap] = useState(24);
-  const [gradientWidth, setGradientWidth] = useState(72);
+  // const [gradientWidth, setGradientWidth] = useState(72);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const clonedSlides = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
@@ -62,17 +70,17 @@ const Testimonial = () => {
       setVisibleCards(1);
       setCardWidth(window.innerWidth - 32); // full width minus padding
       setGap(16);
-      setGradientWidth(28);
+      // setGradientWidth(28);
     } else if (window.innerWidth < 1024) {
       setVisibleCards(2);
       setCardWidth((window.innerWidth - 64 - 20) / 2); // two cards minus total padding & gap
       setGap(20);
-      setGradientWidth(38);
+      // setGradientWidth(38);
     } else {
       setVisibleCards(3);
       setCardWidth((window.innerWidth - 96 - 48) / 3); // three cards minus total padding & gaps
       setGap(24);
-      setGradientWidth(50);
+      // setGradientWidth(50);
     }
   };
 
@@ -128,41 +136,83 @@ const Testimonial = () => {
   return (
     <div className="w-full relative py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 sm:px-6">
-        <H2 className='text-center pb-4 sm:pb-6 text-black'>What Clients Say</H2>
+        <H2 className='text-center pb-4 sm:pb-8 text-black'>Sed ut perspiciatis unde</H2>
 
         <div className="relative w-full flex justify-center items-center">
           {/* Left Gradient */}
-          <div className="absolute left-0 top-0 h-full w-10 bg-linear-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
+          {/* <div className="absolute left-0 top-0 h-full w-10 bg-linear-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}
-          ></div>
+          ></div> */}
           {/* Right Gradient */}
-          <div className="absolute right-0 top-0 h-full w-10 bg-linear-to-r from-transparent via-white/50 to-white z-10 pointer-events-none"
+          {/* <div className="absolute right-0 top-0 h-full w-10 bg-linear-to-r from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}
-          ></div>
+          ></div> */}
 
           {/* Left Chevron */}
           <button
-            onClick={prevSlide}
-            disabled={isAnimating}
-            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
-            style={{ width: '42px', height: '42px', left: '14px', padding: '6px', backgroundColor: 'transparent', border: 'none' }}
-          >
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" className="text-white">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+  onClick={prevSlide}
+  disabled={isAnimating}
+  className="absolute top-1/2 transform -translate-y-1/2 z-20 
+             rounded-full flex items-center justify-start 
+             shadow-md hover:shadow-lg transition-shadow 
+             border border-gray-400 bg-[#F5F5F5]"
+  style={{
+    width: "44px",
+    height: "44px",
+    left: "0px",
+    padding: "6px",
+  }}
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    className="text-black"
+  >
+    <path
+      d="M15 18L9 12L15 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</button>
+
 
           {/* Right Chevron */}
           <button
-            onClick={nextSlide}
-            disabled={isAnimating}
-            className="absolute top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full border border-gray-200 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"  
-            style={{ width: '42px', height: '42px', right: '14px', padding: '6px', backgroundColor: 'transparent', border: 'none' }}
-          >
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" className="text-white">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+  onClick={nextSlide}
+  disabled={isAnimating}
+  className="absolute top-1/2 transform -translate-y-1/2 z-20 
+             rounded-full flex items-center justify-end 
+             shadow-md hover:shadow-lg transition-shadow 
+             border border-gray-400 bg-[#F5F5F5]"
+  style={{
+    width: "44px",
+    height: "44px",
+    right: "0px",
+    padding: "6px",
+  }}
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    className="text-black"
+  >
+    <path
+      d="M9 6L15 12L9 18"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</button>
+
 
           {/* Carousel Track */}
           <div className="overflow-hidden w-full" style={{ maxWidth: `${visibleCards * cardWidth + (visibleCards - 1) * gap}px` }}>
@@ -172,19 +222,21 @@ const Testimonial = () => {
               style={{ transform: `translateX(${translateX}px)`, gap: `${gap}px` }}
             >
               {clonedSlides.map((testimonial, idx) => (
-                <div key={idx} className="flex shrink-0 bg-[#ACCAEF] text-white rounded-lg" style={{
+                <div key={idx} className="flex shrink-0 bg-[#ACCAEF]  rounded-lg" style={{
                   width: `${cardWidth}px`,
                   height: '200px',
                   borderRadius: '16px',
-                  padding: '24px 32px'
+                  padding: '24px 32px',
+                  backgroundColor: cardBg,
+                  color: textColor,
                 }}>
                   <div className="flex flex-col justify-between h-full">
-                    <P className="text-white text-lg leading-relaxed flex-1">"{testimonial.text}"</P>
+                    <P  style={{ color: textColor }} className="  text-lg leading-relaxed flex-1">"{testimonial.text}"</P>
                     <div className="flex items-center gap-3">
                       <img src={testimonial.avatar} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover"/>
                       <div>
-                        <div className="text-black text-sm">{testimonial.name}</div>
-                        <div className="text-black text-sm">{testimonial.title}</div>
+                         <div style={{ color: textColor }} className="text-sm">{testimonial.name}</div>
+                        <div style={{ color: textColor }} className="text-sm">{testimonial.title}</div>
                       </div>
                     </div>
                   </div>
