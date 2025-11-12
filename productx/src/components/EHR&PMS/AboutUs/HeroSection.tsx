@@ -10,7 +10,7 @@ const HeroSection = () => {
           background: 'radial-gradient(circle, #FFF9F3 0%, #C8FFD7 100%)'
         }}
       >
-        <H1 className=" font-thin  p-20 text-[#166D48] text-center mx-2 px-2 md:mx-20 md:px-20">
+        <H1 className=" font-thin   lg:p-40 text-[#166D48] text-center ">
           A new era of healthcare, a new world of practice well-being
         </H1>
       </div>

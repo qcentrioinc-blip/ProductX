@@ -9,6 +9,7 @@ import WhatWeDoIn from "./WhatWeDoIn"
 import NewFooter from "./Products2/NewFooter"
 import InsightThought from "./InsightThought"
  
+ 
 const Landingpage = () => {
   return (
     <div>
@@ -21,7 +22,9 @@ const Landingpage = () => {
       <Process/>
       <Testimonial/>
       <InsightThought/>
+      
       <NewFooter/>
+
     </div>
   )
 }

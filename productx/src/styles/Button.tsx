@@ -44,7 +44,7 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
       className={`
         group
         flex items-center justify-center
-        w-[130px] h-[48px]
+        w-[130px] h-[48px] 
         px-[20px] py-[12px]
         rounded-[8px]
         font-quicksand font-bold

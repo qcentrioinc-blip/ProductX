@@ -3,8 +3,9 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
 import { H1, P } from '../../../styles/Typography'
-//import Button from "../../styles/Button"
+ 
 const LandingPage = () => {
+   
   const [isMobile, setIsMobile] = useState(false)
 
   // ✅ Detect screen size and update on resize
@@ -43,7 +44,8 @@ const LandingPage = () => {
       backgroundImage: "/LandingPage/Landing1.png",
       buttonText: "VIEW BANKING SOLUTIONS",
       title: "Transforming Financial Services",
-      subtitle: "With Innovative Banking Solutions"
+      subtitle: "With Innovative Banking Solutions",
+      url: "/industries/banking-and-finance"
     },
     {
       id: 2,
@@ -52,7 +54,8 @@ const LandingPage = () => {
       backgroundImage: "/LandingPage/Landing2.png",
       buttonText: "VIEW EHS AND PMS SOLUTIONS",
       title: "Environmental Excellence",
-      subtitle: "Through Smart EHS & PMS Solutions"
+      subtitle: "Through Smart EHS & PMS Solutions",
+       url: "/industries/life-sciences" 
     },
     {
       id: 3,
@@ -61,7 +64,8 @@ const LandingPage = () => {
       backgroundImage: "/LandingPage/Landing3.png",
       buttonText: "VIEW HIGH TECH SOLUTIONS",
       title: "Driving Technology Forward",
-      subtitle: "With Cutting-Edge High-Tech Solutions"
+      subtitle: "With Cutting-Edge High-Tech Solutions",
+      url: "/industries/high-tech"
     }
   ]
 
@@ -126,16 +130,17 @@ const LandingPage = () => {
   const currentTitleData = getCurrentTitle()
 
   return (
-    <div className="md:min-h-screen w-full relative overflow-hidden">
+    <div className="md:min-h-screen w-full  lg:px-10 relative overflow-hidden">
       <BackgroundSlider currentImage={getCurrentBackgroundImage()} />
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       <div className={`relative z-10 flex flex-col ${isMobile ? "" : "justify-between min-h-screen"}`}>
 
         {/* Shared Top Section (Title + Button + Arrows on desktop) */}
-        <div className="md:flex-1 hidden md:flex items-center">
+        <div className="md:flex-1 hidden md:flex items-center ">
           <div className="container mx-auto px-4 sm:px-6  hidden md:block lg:px-8">
-            <div className="max-w-4xl">
+            <div className="max-w-4xl lg:pt-32">
+
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={currentTitleData.title}
@@ -143,7 +148,7 @@ const LandingPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 1, ease: "easeOut" }}
-                  className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-6 md:mb-8"
+                  className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bricolage font-bold text-white leading-tight mb-6 md:mb-8"
                 >
                   {currentTitleData.title}
                   <br />
@@ -160,7 +165,7 @@ const LandingPage = () => {
                 </motion.h1>
               </AnimatePresence>
 
-              <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8">
+              <button className="inline-flex items-center gap-2 bg-white font-bricolage  text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3  rounded-lg font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8">
                 <span className="hidden sm:inline">{getCurrentButtonText()}</span>
                 <span className="sm:hidden">EXPLORE SOLUTIONS</span>
                 <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -194,12 +199,12 @@ const LandingPage = () => {
             </button>
           </div>
         )}
-        {/* ✅ Responsive Bottom Section */}
+        
         <div className=" border-white/20 bg-transparent">
           <div className="container mx-auto   sm:px-6 lg:px-8 pb-4 pt-16 sm:py-6 md:py-8">
             {isMobile ? (
               // --------- Mobile Layout ---------
-              <div className="flex flex-col min-h-full  pt-32">
+              <div className="flex flex-col min-h-full pt-20 lg:pt-32">
                 {/* Title + Subtitle + Button */}
                 <div className="text-left px-4 mb-10">
                   <AnimatePresence mode="wait">
@@ -217,7 +222,7 @@ const LandingPage = () => {
                           {currentTitleData.subtitle}
                         </span>
                       </H1>
-                      <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors duration-300 group">
+                      <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-md font-bricolage font-semibold text-sm hover:bg-gray-100 transition-colors duration-300 group">
                         CONTACT US
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                       </button>
@@ -241,7 +246,7 @@ const LandingPage = () => {
                     <button
                       onClick={handleNextSlide}
                       disabled={currentSlide === totalSlides - 1 || isTransitioning}
-                      className={`w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === totalSlides - 1 || isTransitioning
+                      className={`w-8 h-8  rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === totalSlides - 1 || isTransitioning
                           ? "opacity-40 cursor-not-allowed"
                           : "hover:bg-white/10 hover:border-white/60"
                         }`}
@@ -267,12 +272,15 @@ const LandingPage = () => {
                           onClick={() => !isTransitioning && handleSectorClick(index)}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <P className="text-white">{sector.name}</P>
+                          <P className="text-white mb-2">{sector.name}</P>
                           <div className="w-[140px] h-[90px] rounded-lg overflow-hidden mb-2">
                             <img
                               src={sector.image}
                               alt={sector.name}
                               className="w-full h-full object-cover"
+                              onClick={() => window.open(sector.url, "_blank")}
+
+                               
                             />
                           </div>
                           {/* <P className="text-white">{sector.name}</P> */}
@@ -340,6 +348,8 @@ const LandingPage = () => {
                               src={sector.image || "/placeholder.svg"}
                               alt={sector.name}
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              onClick={() => window.open(sector.url, "_blank")}
+
                             />
                           </div>
                         </div>

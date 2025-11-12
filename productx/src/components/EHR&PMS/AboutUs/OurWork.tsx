@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
- import { H3,P,H2 } from "../../../styles/Typography";
+ import {H3 } from "../../../styles/Typography";
 const OurWork = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -68,25 +68,23 @@ const OurWork = () => {
 
         <div className="flex flex-col lg:flex-row gap-8 relative">
           {/* Text Column - Left Side */}
-         <div className="w-full lg:w-[45%]  relative">
-            {cards.map((card, index) => (
-              <div
-                key={`text-${card.id}`}
-                className="sticky p-8 mb-[20px] transition-all duration-1000 ease-out"
-                style={{ 
-                  top: `${ 100 + index * 180}px`,
-                  marginBottom: index === cards.length - 1 ? '300px' : '300px',
-                  opacity: visibleCards.includes(index) ? 1 : 1,
-                  transform: visibleCards.includes(index) ? 'translateY()' : 'translateY(50px)',
-                  zIndex: index + 1
-                }}
-              >
-                <H2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 leading-snug">
+        <div className="w-full lg:w-[45%] relative">
+  {cards.map((card, index) => (
+    <div
+      key={`text-${card.id}`}
+      className="p-8   transition-all duration-1000 ease-out"
+      style={{ 
+        
+        transform: visibleCards.includes(index) ? 'translateY(0)' : 'translateY(20px)',
+      }}
+    >
+
+                <H3 className="text-sm  font-semibold text-gray-800 mb-4 leading-snug">
                   {card.title}
-                </H2>
-                <P className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                </H3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   {card.text}
-                </P>
+                </p>
               </div>
             ))}
             {/* Spacer to allow last card to be visible */}
