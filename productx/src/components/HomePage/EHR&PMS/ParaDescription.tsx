@@ -218,7 +218,7 @@ const ParaDescription = () => {
                 />
 
                 {/* Text Overlay - left (Mobile: Below image, Desktop: Overlay) */}
-                <div className="relative absolute top-70 lg:absolute lg:left-12 lg:bottom-0 max-w-2xl lg:h-[300px] -mt-16 sm:-mt-20 lg:mt-0 mx-4 lg:mx-0 z-20">
+                <div className="absolute top-70 lg:absolute lg:left-12 lg:bottom-0 max-w-2xl lg:h-[300px] -mt-16 sm:-mt-20 lg:mt-0 mx-4 lg:mx-0 z-20">
                     <div
                         className="backdrop-blur-sm p-6 sm:p-8 lg:p-10 rounded-xl border border-neutral-400/50 lg:h-full flex flex-col justify-center items-center"
                         style={{
@@ -239,7 +239,7 @@ const ParaDescription = () => {
             </div>
 
             {/* Right Green Card - Mobile: Below text overlay, Desktop: Overlay */}
-            <div className="relative absolute bottom-40 lg:absolute lg:right-12 lg:top-[400px] w-full px-4 lg:w-[450px] lg:px-0 mb-8 sm:mb-12 lg:mb-0 lg:-mt-0 z-10">
+            <div className="absolute bottom-40 lg:absolute lg:right-12 lg:top-[400px] w-full px-4 lg:w-[450px] lg:px-0 mb-8 sm:mb-12 lg:mb-0 lg:-mt-0 z-10">
                 <div className="bg-[#2D9D78] rounded-xl overflow-hidden shadow-2xl">
                     <div className="p-6 sm:p-8 lg:p-10">
                         <p className="text-white text-sm sm:text-base leading-relaxed">
@@ -382,7 +382,7 @@ const ParaDescription = () => {
             </div>
 
             {/* Text Overlay - Bottom Right (Mobile: Below card, Desktop: Overlay) */}
-            <div className="relative absolute bottom-115 lg:absolute lg:right-12 lg:bottom-0 max-w-2xl lg:h-[300px] mx-4 lg:mx-0 z-20 mb-8 lg:mb-0">
+            <div className="absolute bottom-115 lg:absolute lg:right-12 lg:bottom-0 max-w-2xl lg:h-[300px] mx-4 lg:mx-0 z-20 mb-8 lg:mb-0">
                 <div
                     className="backdrop-blur-sm p-6 sm:p-8 lg:p-10 rounded-xl border border-neutral-400/50 lg:h-full flex flex-col justify-center items-center"
                     style={{

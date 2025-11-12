@@ -216,7 +216,7 @@ export default function HeroSection() {
             })
           }}
         >
-          <H1 className="mb-4  pt-16 md:pt-0">
+          <H1 className="mb-4  pt-10 md:pt-0">
             Lorem ipsum dolor,<br /> consectetur adipis
           </H1>
           <p className="mb-8 text-gray-700 max-w-[450px]">

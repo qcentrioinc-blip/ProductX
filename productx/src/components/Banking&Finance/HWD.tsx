@@ -1,9 +1,17 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
+import { useLocation } from "react-router-dom";
 import { H3, P } from '../../styles/Typography';
  
 const HWD = () => {
+  const location = useLocation();
+  const isBankingPage = location.pathname === "/industries/banking-and-finance";
+  
+  const cardBg = isBankingPage ? "#ACCAEF" : "#141414";
+  const cardBg2 = isBankingPage ? "#C1D7F3" : "#E7D6FF";
+  const textColor = isBankingPage ? "#000" : "#CCCCCC";
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -26,12 +34,14 @@ const HWD = () => {
   const CardContent = () => (
     <>
       {/* Top Section */}
-      <div className="p-6 pb-12 md:p-8 bg-[rgba(245,245,245,1)]" id='use-cases'>
+      <div className="p-6 pb-12 md:p-8 " 
+      style={{backgroundColor:cardBg}} id='use-cases'>
         {/* Icon */}
         <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
         <div className="text-justify">
           <H3 className='text-[#2B68C3] mb-1'>Sed ut reprehenderit in </H3>
-          <P className='text-black'>
+          <P className=''
+          style={{color: textColor}}>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </P>
         </div>
@@ -70,7 +80,8 @@ const HWD = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-x-2">
-              <div className="w-8 h-1 rounded-full bg-gray-400"></div>
+              <div className="w-8 h-1 rounded-full bg-gray-400"
+              ></div>
               {"Quis autim".split(" ").map((word, wordIndex) => (
                 <span key={wordIndex} className="">
                   {word.split("").map((char, charIndex) => (
@@ -108,6 +119,7 @@ const HWD = () => {
             <motion.div
               key={i}
               className="relative bg-[#C1D7F3] rounded-lg text-black overflow-hidden shadow-lg"
+              style={{backgroundColor:cardBg2}}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
