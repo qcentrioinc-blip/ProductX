@@ -5,13 +5,13 @@ import BannerImage from "/Image3.jpg" // replace with your image
 const Banner = () => {
   const slides = [
     {
-      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. is aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
-      text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+      text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
-      text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
     },
   ]
 

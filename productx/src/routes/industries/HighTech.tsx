@@ -1,8 +1,10 @@
-import CareersPage from "../../components/HighTech/Careers/CareersPage"
+// import CareersPage from "../../components/HighTech/Careers/CareersPage"
+import PDPage from "../../components/HighTech/ProductDetails/PDPage"
 
 const HighTech = () => (
   <div>
-    <CareersPage/>
+    {/* <CareersPage/> */}
+    <PDPage/>
   </div>
 )
 export default HighTech

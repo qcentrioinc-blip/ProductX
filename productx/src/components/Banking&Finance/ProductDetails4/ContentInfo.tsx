@@ -6,7 +6,7 @@ export default function Sec_4() {
     <section className="w-full flex justify-center items-center py-8 md:py-12">
       <div className="w-full max-w-[1280px] flex flex-col md:flex-row bg-[#E4E4E4] mx-auto">
         {/* Left text section */}
-        <div className="flex-1 w-full flex flex-col justify-center px-6 py-6 md:px-8 md:py-8">
+        <div className="flex-1 w-full flex flex-col justify-center items-center px-6 py-6 md:px-8 md:py-8">
           <H2 className="text-3xl md:text-4xl lg:text-5xl leading-snug">
             Lorem ipsum dolor,<br />
             consectetur adipis
@@ -33,7 +33,7 @@ export default function Sec_4() {
         </div>
 
         {/* Right image section */}
-        <div className="flex-1 w-full flex items-center justify-center mt-6 md:mt-0">
+        <div className="flex-1 w-full flex items-center justify-center mb-6 md:mt-0">
           <img
             src="/ProductDetails4/Sec4_img.jpg"
             alt="Illustrative"

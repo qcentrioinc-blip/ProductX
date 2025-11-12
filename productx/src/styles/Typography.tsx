@@ -12,11 +12,7 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
       className={`
         text-[32px] md:text-[48px] lg:text-[64px]
         font-bricolage
-<<<<<<< HEAD
         
-=======
-        font-bold
->>>>>>> c8880669b1c1ee4247eb425e55ad4dafc5a97b89
         leading-[120%]
         
         ${className}`}
@@ -31,7 +27,7 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
       className={`
-        text-[24px] md:text-[32px] lg:text-[40px]
+        text-[24px] md:text-[32px] lg:text-[42px]
         font-bricolage
         font-semibold
         leading-[120%]

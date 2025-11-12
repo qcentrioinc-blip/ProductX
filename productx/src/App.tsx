@@ -26,6 +26,11 @@ import Clinic from './components/EHR/ClinicApp/Clinic'
  
 import Connect from './components/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
+import CareersPage from './components/HighTech/Careers/CareersPage'
+import ContactPage from './components/HighTech/ContactForm/ContactPage'
+import JDPage from './components/HighTech/JobDescription/JDPage'
+import PolicyPage from './components/HighTech/Policy/PolicyPage'
+import PDPage from './components/HighTech/ProductDetails/PDPage'
 
 
 const App = () => {
@@ -72,6 +77,11 @@ const App = () => {
             <Route path ="/career" element={<Career/>}/>
            <Route path="/ehr/aboutus" element={<About/>}/>
            <Route path="/ehr/clinicapp" element={<Clinic/>}/>
+           <Route path='/industries/high-tech/careers' element={<CareersPage/>}/>
+           <Route path='/industries/high-tech/contactform' element={<ContactPage/>}/>
+           <Route path='/industries/high-tech/jobdescription' element={<JDPage/>}/>
+           <Route path='/industries/high-tech/policy' element={<PolicyPage/>}/>
+           <Route path='/industries/high-tech/product-details' element={<PDPage/>}/>
           </Routes>
         </div>
       </ScrollProvider>
