@@ -3,7 +3,6 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { H1, P } from '../../../styles/Typography';
 import type { Variants } from 'framer-motion';
 import {motion} from 'framer-motion'
- 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -32,9 +31,9 @@ const HeroSection = () => {
       });
     }
   };
- 
+
   // --- Framer Motion Animation Variants ---
- 
+
   // Container for staggered children animations
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -46,36 +45,36 @@ const HeroSection = () => {
       }
     }
   };
- 
+
   // Text and button animation: slide up and fade in
   const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100
-      }
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100 
+      } 
     }
   };
- 
+
   // Image animation: subtle scale and fade
   const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
         duration: 0.8, // Slightly longer duration for the initial animation
-        ease: "easeOut"
-      }
+        ease: "easeOut" 
+      } 
     }
   };
- 
+
   // Hover animation for images
   const imageHoverVariants: Variants = {
-    hover: {
+    hover: { 
       scale: 1.05,        // Scale up slightly
       boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)", // More pronounced shadow
       transition: {
@@ -84,19 +83,19 @@ const HeroSection = () => {
       }
     }
   };
- 
+
   // Background 'expansion' animation
   const backgroundCoverVariants: Variants = {
     hidden: { width: "0%" },
-    visible: {
-      width: "100%",
-      transition: {
-        duration: 1.2,
-        ease: [0.6, 0.01, -0.05, 0.9] as [number, number, number, number]
-      }
+    visible: { 
+      width: "100%", 
+      transition: { 
+        duration: 1.2, 
+        ease: [0.6, 0.01, -0.05, 0.9] as [number, number, number, number] 
+      } 
     }
   };
- 
+
   return (
     <section className="relative w-full text-center">
       {/* Top Section Container - Relative for background overlay */}
@@ -108,9 +107,9 @@ const HeroSection = () => {
           animate="visible"
           className="absolute inset-0 bg-blue-600 z-0"
         />
- 
+
         {/* Top Section Content - Use motion.div for text staggering */}
-        <motion.div
+        <motion.div 
           className="relative pt-32 pb-10   px-4 text-white z-10"
           variants={containerVariants}
           initial="hidden"
@@ -122,7 +121,6 @@ const HeroSection = () => {
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
               </H1>
             </motion.div>
- 
             <motion.div variants={itemVariants} className="text-white mt-4">
               <P className="text-white">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
@@ -130,12 +128,11 @@ const HeroSection = () => {
                 proident, sunt in culpa qui officia deserunt mollit.
               </P>
             </motion.div>
- 
             {/* Centered Button */}
             <motion.div variants={itemVariants} className="mt-8 flex justify-center">
               <button
                 className="
-                  group
+                  group 
                   flex items-center justify-center
                   h-12 px-6 py-3
                   rounded-md
@@ -150,7 +147,7 @@ const HeroSection = () => {
               >
                 BOOK A DEMO
                 <span className="flex items-center gap-2 ml-2">
-                  <span className="relative flex items-center h-5 w-5">
+                  <span className="relative flex items-center h-5 w-5"> 
                     <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                     <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </span>
@@ -160,10 +157,10 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-     
+      
       {/* --- Bottom Image Section (Animations focused here) --- */}
       <div className="w-full bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20">
-       
+        
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
         <div className="md:hidden mt-6 px-4">
           <div
@@ -206,42 +203,42 @@ const HeroSection = () => {
             ))}
           </div>
         </div>
- 
+
         {/* Desktop Layout - Framer Motion Integration */}
-        <motion.div
+        <motion.div 
           className="hidden md:block relative max-w-8xl mx-auto mt-6"
           initial="hidden"
           animate="visible"
           variants={containerVariants} // Use container to stagger image animations
         >
           <div className="relative flex justify-center items-center">
-           
+            
             {/* Left Image */}
             <motion.img
         variants={{ ...imageVariants, ...imageHoverVariants }} // <-- Combined variants
-        whileHover="hover"
-        custom={-1}
+        whileHover="hover" 
+        custom={-1} 
         src={images[0]}
         alt="Left"
         className="w-60 h-52 lg:w-lg lg:h-80 rounded-lg shadow-md absolute left-1/2 -translate-x-[120%] top-1/2 -translate-y-1/2 z-0"
     />
-           
+            
           <motion.img
         variants={{ ...imageVariants, ...imageHoverVariants }} // <-- Combined variants
-        whileHover="hover"
+        whileHover="hover" 
         custom={0}
-        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }} 
         src={images[1]}
         alt="Center"
         className="w-80 h-64 lg:w-2xl lg:h-96 rounded-lg shadow-2xl relative z-10"
     />
-   
+    
     {/* Right Image - Slightly more delayed */}
     <motion.img
         variants={{ ...imageVariants, ...imageHoverVariants }} // <-- Combined variants
-        whileHover="hover"
+        whileHover="hover" 
         custom={1}
-        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }} 
         src={images[2]}
         alt="Right"
         className="w-60 h-52 lg:w-lg lg:h-80 rounded-lg shadow-md absolute right-1/2 translate-x-[120%] top-1/2 -translate-y-1/2 z-0"

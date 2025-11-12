@@ -55,7 +55,7 @@ const LandingPage = () => {
       buttonText: "VIEW EHS AND PMS SOLUTIONS",
       title: "Environmental Excellence",
       subtitle: "Through Smart EHS & PMS Solutions",
-       url: "/industries/ehr-and-pms"
+       url: "/industries/life-sciences" 
     },
     {
       id: 3,
@@ -140,7 +140,6 @@ const LandingPage = () => {
         <div className="md:flex-1 hidden md:flex items-center ">
           <div className="container mx-auto px-4 sm:px-6  hidden md:block lg:px-8">
             <div className="max-w-4xl lg:pt-32">
- 
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={currentTitleData.title}
@@ -164,7 +163,6 @@ const LandingPage = () => {
                   </motion.span>
                 </motion.h1>
               </AnimatePresence>
- 
               <button className="inline-flex items-center gap-2 bg-white font-bricolage  text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3  rounded-lg font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8">
                 <span className="hidden sm:inline">{getCurrentButtonText()}</span>
                 <span className="sm:hidden">EXPLORE SOLUTIONS</span>
@@ -199,7 +197,7 @@ const LandingPage = () => {
             </button>
           </div>
         )}
-       
+        
         <div className=" border-white/20 bg-transparent">
           <div className="container mx-auto   sm:px-6 lg:px-8 pb-4 pt-16 sm:py-6 md:py-8">
             {isMobile ? (
@@ -279,7 +277,6 @@ const LandingPage = () => {
                               alt={sector.name}
                               className="w-full h-full object-cover"
                               onClick={() => window.open(sector.url, "_blank")}
- 
                                
                             />
                           </div>
@@ -349,7 +346,6 @@ const LandingPage = () => {
                               alt={sector.name}
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                               onClick={() => window.open(sector.url, "_blank")}
- 
                             />
                           </div>
                         </div>

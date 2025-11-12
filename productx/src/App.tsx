@@ -18,14 +18,21 @@ import Marketing from './components/Banking&Finance/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
-import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+ 
 import Platform from './components/Platform/Platform'
 import Career from './components/Career/Career'
-import About from './components/EHR/AboutUs/About'
-import Clinic from './components/EHR/ClinicApp/Clinic'
-
+import About from './components/EHR&PMS/AboutUs/About'
+import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
+ 
 import Connect from './components/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
+import JobDescription from './components/Banking&Finance/JobDescription/JobDescription'
+import Contact from './components/Banking&Finance/BNFContact/Contact'
+import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform'
+ 
+ 
+
+ 
 import CookiePolicyPage from './components/EHR&PMS/CookiePolicy/CookiePolicyPage'
 import PrivacyPolicyPage from './components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage'
 import TermsAndConditionsPage from './components/EHR&PMS/TermsAndConditions/TermsAndConditionsPage'
@@ -36,7 +43,11 @@ import ApplicationFormPage from './components/EHR&PMS/ApplicationForm/Applicatio
 import CareersPage from './components/EHR&PMS/Careers/CareersPage'
 import ContactFormPage from './components/EHR&PMS/ContactForm.tsx/ContactFormPage'
 
-
+import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
+import Resources from './components/HighTech/Resources/Resources'
+import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
+import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+ 
 const App = () => {
   const location = useLocation();
   const showNavbar = location.pathname === '/';
@@ -84,13 +95,26 @@ const App = () => {
         <div data-scroll-container>
           {showNavbar && <Navbar />}
           <Routes>
+            
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path='/glossary' element={<GlossaryPage />} />
+            <Route path='/glossary' element={<GlossaryPage/>}/>
+            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path= 'marketplace' element={<Marketing />} />
+            <Route path="/platform" element={<Platform/>}/>
+            <Route path ="/career" element={<Career/>}/>
+           <Route path="/industries/ehr/aboutus" element={<About/>}/>
+           <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/>
+           <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
+           <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
+           <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
+           <Route path="/industries/high-tech/aboutus" element={<AboutHighTech/>}/>
+           <Route path="/industries/high-tech/resources" element={<Resources/>}/>
+           <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail/>}/>
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />

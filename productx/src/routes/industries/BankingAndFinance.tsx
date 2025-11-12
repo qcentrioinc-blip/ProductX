@@ -9,7 +9,7 @@ import Products from "../../components/Banking&Finance/Products"
 import  NewFooter from "../../components/Banking&Finance/Products2/NewFooter"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
 import Testimonial from "../../components/HomePage/Banking&Finance/Testimonial"
-
+import ContactUS from "../../components/Banking&Finance/Products2/ContactUS"
   
 const BankingAndFinance = () => {
   return (
@@ -24,6 +24,7 @@ const BankingAndFinance = () => {
       <Process/>
        <Testimonial/>
       <InsightThought/>
+      <ContactUS/>
       <NewFooter/>
       
     </div>

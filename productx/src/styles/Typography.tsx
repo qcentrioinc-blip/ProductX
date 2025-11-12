@@ -12,7 +12,7 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
       className={`
         text-[32px] md:text-[48px] lg:text-[64px]
         font-bricolage
-        font-bold
+        
         leading-[120%]
         
         ${className}`}
@@ -85,6 +85,21 @@ export const P = ({ children, className = "" }: TypographyProps) => {
     >
       {children}
     </p>
+  );
+};
+
+export const Li = ({ children, className = "" }: TypographyProps) => {
+  return (
+    <li
+      className={`
+        text-[14px] md:text-[16px] lg:text-[16px]
+        font-quicksand
+        leading-[120%]
+        
+        ${className}`}
+    >
+      {children}
+    </li>
   );
 };
 

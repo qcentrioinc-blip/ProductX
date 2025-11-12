@@ -49,7 +49,7 @@ const Counter = () => {
       />
  
       {/* Content Container */}
-      <div className="max-w-8xl md:mx-10 mx-8   sm:mx-16">
+      <div className="max-w-8xl md:mx-10 mx-8 sm:mx-16">
         {/* Heading */}
         <H2 className="  font-bold mb-12 mx-6 md:mb-28">
           <span className="text-[#2B68C3]">Lorem ipsum dolor sit amet,</span>
@@ -66,7 +66,7 @@ const Counter = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0  px-0 sm:px-6 lg:px-6"
+              className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0 sm:px-6 lg:px-8"
             >
               {/* Text above */}
               <P className="text-[#141414] mb-[30px]  lg:mb-[84px] max-w-[240px]">
@@ -80,7 +80,7 @@ const Counter = () => {
                   alt="Trend icon"
                   className="h-12 md:h-14 lg:h-18"
                 />
-                <h2 className="   text-[#141414] text-2xl md:text-4xl font-light lg:text-[64px] font-bricolage">
+                <h2 className="   text-[#141414] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
                   {inView && (
                     <CountUp
                       start={0}

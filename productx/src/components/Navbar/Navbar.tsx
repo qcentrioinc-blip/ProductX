@@ -48,9 +48,7 @@ const Navbar = () => {
     if (!element) return;
 
     const bgColor = window.getComputedStyle(element).backgroundColor;
-
-    // Simple check for light vs dark background color (rgb(255, 255, 255) is white)
-    // This can be made more sophisticated by checking luminance
+ 
     if (bgColor === 'rgb(255, 255, 255)' || bgColor === 'rgb(249, 250, 251)' /* gray-50 */) {
       setNavStyle('dark');
     } else {

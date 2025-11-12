@@ -455,7 +455,7 @@ import { ScrollContext } from "../../../context/ScrollContext";
 const PRIMARY_COLOR = "#4285F4";
 // const LIGHT_BLUE_BG = "#C1D7F3";
 const BUTTON_COLOR = "#000000";
-
+ 
 const steps = [
   {
     id: 1,
@@ -493,7 +493,7 @@ const steps = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
 ];
-
+ 
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -516,7 +516,6 @@ export default function Workflow() {
       const sectionTop = sectionRect.top - containerRect.top + containerScrollTop;
       const sectionBottom = sectionTop + sectionRect.height;
       const scrollPosition = containerScrollTop + containerRect.height / 2;
-
       // Check if we're within the section bounds
       if (scrollPosition < sectionTop || scrollPosition > sectionBottom) {
         return;
@@ -606,7 +605,6 @@ export default function Workflow() {
               </AnimatePresence>
             </div>
           </div>
-
           {/* RIGHT SIDE - All 5 Steps in View */}
           <div className="flex flex-col relative space-y-4 md:space-y-8 mt-6">
             {/* Connecting line */}
@@ -614,7 +612,7 @@ export default function Workflow() {
               style={{ backgroundColor: PRIMARY_COLOR }}
               className="absolute left-8 top-0 bottom-30 w-[3px] rounded-full opacity-30 hidden md:block"
             />
-
+ 
             {steps.map((step, index) => {
               const isActive = step.id === activeStep;
               return (
@@ -646,7 +644,7 @@ export default function Workflow() {
                   >
                     {step.id}
                   </motion.div>
-
+ 
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -678,7 +676,7 @@ export default function Workflow() {
                 </motion.div>
               );
             })}
-
+ 
             {/* Book A Demo Button */}
             <div className="pl-0 md:pl-16 pt-4">
               <button
@@ -706,4 +704,3 @@ export default function Workflow() {
     </motion.div>
   );
 }
-

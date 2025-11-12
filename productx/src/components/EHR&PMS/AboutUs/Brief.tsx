@@ -2,9 +2,9 @@ import { P } from "../../../styles/Typography";
 
 const Brief = () => {
   return (
-    <section className="w-full bg-[#fce2c6] py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16">
-      <div className="max-full justify-between items-center px-10 mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+    <section className="w-full bg-[#fce2c6] py-12 md:py-16 lg:py-20 px-4  ">
+      <div className="max-8xl mx-4 lg:mx-10 justify-between items-center  ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           <div className="space-y-4">
                 <h2 
@@ -21,7 +21,7 @@ const Brief = () => {
           </div>
  
           <div className="space-y-4">
-            <P className="  text-black leading-relaxed">
+            <P className="  text-black lg:px-14  leading-relaxed">
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             </P>
           </div>
