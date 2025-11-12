@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { H1, H3, P } from "../../../styles/Typography";
 
 const healthFeatures = [
   {
@@ -75,12 +76,12 @@ const HealthFeatures = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Left side - Title and navigation */}
           <div className="lg:col-span-4 relative z-10">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F5A47] leading-tight mb-4 sm:mb-6">
+            <H1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F5A47] leading-tight mb-4 sm:mb-6">
               Sed ut persp<br />iciatis Unde Se
-            </h1>
-            <p className="text-sm sm:text-base text-[#4A7565] mb-6 sm:mb-8 max-w-md">
+            </H1>
+            <P className="text-sm sm:text-base text-[#4A7565] mb-6 sm:mb-8 max-w-md">
               Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </p>
+            </P>
 
             {/* Navigation buttons */}
             <div className="flex gap-3 sm:gap-4 mb-8 lg:mb-0">
@@ -131,7 +132,7 @@ const HealthFeatures = () => {
           <div className="lg:col-span-8">
             <div className="relative overflow-hidden">
               <div
-                className="flex gap-4 sm:gap-6 lg:gap-8 transition-transform duration-500 ease-out"
+                className="flex gap-4 sm:gap-6 lg:gap-10 transition-transform duration-500 ease-out"
                 style={{
                   transform: `translateX(-${currentIndex * (100 / cardsPerView + (cardsPerView === 1 ? 4 : 4))}%)`,
                 }}
@@ -139,15 +140,15 @@ const HealthFeatures = () => {
                 {healthFeatures.map((feature) => (
                   <div
                     key={feature.id}
-                    className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-16px)]"
+                    className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-0px)]"
                   >
-                    <p className="text-xs sm:text-sm text-[#4A7565] mb-3 sm:mb-4">{feature.date}</p>
-                    <h3 className="text-lg sm:text-xl font-semibold text-[#0F5A47] mb-3 sm:mb-4 leading-snug">
+                    <P className="text-xs sm:text-sm text-[#4A7565] mb-3 sm:mb-4">{feature.date}</P>
+                    <H3 className="text-lg sm:text-xl font-semibold text-[#0F5A47] mb-3 sm:mb-4 leading-snug">
                       {feature.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#4A7565] mb-4 sm:mb-6 leading-relaxed">
+                    </H3>
+                    <P className="text-xs sm:text-sm text-[#4A7565] mb-4 sm:mb-6 leading-relaxed">
                       {feature.description}
-                    </p>
+                    </P>
                     <div className="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
                         src={feature.image}
