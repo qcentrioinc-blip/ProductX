@@ -181,6 +181,7 @@
 import { useRef, useEffect, useCallback, useState, useContext } from 'react';
 import { motion, useTransform, useMotionValue } from 'motion/react';
 import { ScrollContext } from '../../../context/ScrollContext';
+import { H1, H2, P } from '../../../styles/Typography';
 
 const Harper = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -275,7 +276,7 @@ const Harper = () => {
         };
     }, [checkScrollPosition, scrollContext]);
 
-    const x = useTransform(scrollProgress, [0, 1], ["50%", "-90%"]);
+    const x = useTransform(scrollProgress, [0, 1], ["50%", "-50%"]);
 
     const handleWheel = useCallback((e: WheelEvent) => {
         if (!containerRef.current) return;
@@ -329,9 +330,9 @@ const Harper = () => {
             <div className="block lg:hidden bg-[#ecf4ff] py-8 px-4">
                 {/* Header for Mobile/Tablet */}
                 <div className="mb-8">
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-left ml-2 sm:ml-4">
+                    <H1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-left ml-2 sm:ml-4">
                         Sed ut perspiciatis Sed ut
-                    </h1>
+                    </H1>
                 </div>
 
                 {/* Vertical Stack - Only Harper0 Image with Text */}
@@ -352,12 +353,12 @@ const Harper = () => {
 
                             {/* Text Content Below Image */}
                             <div className="mx-auto max-w-[600px] px-3 sm:px-4">
-                                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-snug">
+                                <H2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-snug">
                                     {item.title}
-                                </h2>
-                                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                                </H2>
+                                <P className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
                                     {item.description}
-                                </p>
+                                </P>
                             </div>
                         </div>
                     ))}
@@ -369,10 +370,10 @@ const Harper = () => {
                 <div className="sticky top-0 flex flex-col bg-[#ecf4ff] h-screen">
                     
                     {/* Header for Desktop */}
-                    <div className="flex-none px-20 py-16">
-                        <h1 className="text-6xl font-bold text-gray-900 text-left ml-24">
+                    <div className="flex-none px-20 py-12">
+                        <H1 className="text-6xl font-bold text-gray-900 text-left ml-24">
                             Sed ut perspiciatis Sed ut
-                        </h1>
+                        </H1>
                     </div>
 
                     {/* Horizontal Scroll Section */}
