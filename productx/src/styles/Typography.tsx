@@ -27,7 +27,7 @@ export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
       className={`
-        text-[24px] md:text-[32px] lg:text-[40px]
+        text-[24px] md:text-[32px] lg:text-[42px]
         font-bricolage
         font-semibold
         leading-[120%]

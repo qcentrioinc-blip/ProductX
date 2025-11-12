@@ -26,6 +26,11 @@ import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
  
 import Connect from './components/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
+import CareersPage from './components/HighTech/Careers/CareersPage'
+import ContactPage from './components/HighTech/ContactForm/ContactPage'
+import JDPage from './components/HighTech/JobDescription/JDPage'
+import PolicyPage from './components/HighTech/Policy/PolicyPage'
+import PDPage from './components/HighTech/ProductDetails/PDPage'
 import JobDescription from './components/Banking&Finance/JobDescription/JobDescription'
 import Contact from './components/Banking&Finance/BNFContact/Contact'
 import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform'
@@ -40,7 +45,6 @@ import CaseStudiesPage from './components/EHR&PMS/CaseStudies/CaseStudiesPage'
 import BlogsPage from './components/EHR&PMS/Blogs/BlogsPage'
 import JobDescriptionPage from './components/EHR&PMS/JobDescription/JobDescriptionPage'
 import ApplicationFormPage from './components/EHR&PMS/ApplicationForm/ApplicationFormPage'
-import CareersPage from './components/EHR&PMS/Careers/CareersPage'
 import ContactFormPage from './components/EHR&PMS/ContactForm.tsx/ContactFormPage'
 
 import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
@@ -107,6 +111,11 @@ const App = () => {
             <Route path= 'marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform/>}/>
             <Route path ="/career" element={<Career/>}/>
+           <Route path='/industries/high-tech/careers' element={<CareersPage/>}/>
+           <Route path='/industries/high-tech/contactform' element={<ContactPage/>}/>
+           <Route path='/industries/high-tech/jobdescription' element={<JDPage/>}/>
+           <Route path='/industries/high-tech/policy' element={<PolicyPage/>}/>
+           <Route path='/industries/high-tech/product-details' element={<PDPage/>}/>
            <Route path="/industries/ehr/aboutus" element={<About/>}/>
            <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/>
            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>

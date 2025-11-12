@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useTransform, useMotionValue, MotionValue, animate } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { H1 } from "../../../styles/Typography";
 
 const TitleSec = () => {
   const images: string[] = [
@@ -24,7 +25,7 @@ const TitleSec = () => {
   const infiniteImages = [...images, ...images, ...images, ...images];
 
   useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 768);
+    const checkWidth = () => setIsMobile(window.innerWidth < 1440);
     checkWidth();
     window.addEventListener("resize", checkWidth);
     return () => window.removeEventListener("resize", checkWidth);
@@ -68,7 +69,7 @@ const TitleSec = () => {
         const targetX = -(index + 1) * cardWidth;
         
         animationRef.current = animate(carouselX, targetX, {
-          duration: 3.5,
+          duration: 2.5,
           ease: "linear",
           onComplete: () => {
             let nextIndex = index + 1;
@@ -222,10 +223,11 @@ const TitleSec = () => {
 
   return (
     <section
-      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      className="relative w-full xl:min-h-screen overflow-hidden flex justify-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('/HighTech/Careers/bg_img.png')`,
         perspective: "1000px",
+        marginBottom: "-1px",
       }}
     >
       {/* Black overlay */}
@@ -233,23 +235,23 @@ const TitleSec = () => {
 
       {/* Mobile Layout */}
       {isMobile ? (
-        <div className="w-full h-full flex flex-col relative z-10">
+        <div className="w-full h-full relative z-10">
           {/* Heading at top */}
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={textFadeIn(0.3)}
-            className="pt-16 pb-8 px-4"
-          >
-            <h1 className="text-white text-center text-3xl font-semibold leading-snug">
+            className="pt-20 pb-20 px-4"
+          > */}
+            <H1 className="text-white text-center pt-32 pb-32 px-4">
               Shaping the Future <br /> Across Every Sector
-            </h1>
-          </motion.div>
+            </H1>
+          {/* </motion.div> */}
 
           {/* Carousel at bottom */}
-          <div className="flex-1 flex items-end pb-12">
-            <div className="w-full overflow-hidden" style={{ perspective: "1200px" }}>
+          <div className=" items-center">
+            <div className="w-full overflow-hidden pt-12 mb-0 pb-10 md:pb-26" style={{ perspective: "1200px" }}>
               <motion.div
                 className="flex gap-4 px-4"
                 drag="x"
@@ -283,11 +285,11 @@ const TitleSec = () => {
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
             variants={textFadeIn(0.6)}
-            className="z-10 text-center px-4"
+            className="z-20 text-center px-4"
           >
-            <h1 className="text-white text-center mx-auto text-[2.6rem] lg:text-[3rem] xl:text-[3.4rem] leading-snug font-semibold">
+            <H1 className="text-white mx-auto md:mt-[-320px] lg:mt-[-400px] xl:mt-70">
               Shaping the Future <br /> Across Every Sector
-            </h1>
+            </H1>
           </motion.div>
 
           <div
