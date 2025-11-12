@@ -8,80 +8,80 @@ import { H2 } from "../../../styles/Typography";
 // );
 
 const TitleSec: React.FC = () => {
-  return (
-    <section className="relative w-full min-h-screen bg-gradient-to-r from-[#E6FFEF] to-[#C8FFD7] flex items-center justify-center py-10 px-4">
-      {/* Changed lg:grid-cols-3 to lg:grid-cols-2 for a 50/50 split on large screens */}
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-5 mt-10">
-        
-        {/* --- LEFT: FORM (50% width on large screens) --- */}
-        {/* Changed lg:col-span-2 to lg:col-span-1 */}
-        <div className="lg:col-span-1 flex justify-center lg:justify-start">
-          {/* Changed max-w-2xl to max-w-full to utilize the new, larger column width */}
-          <div className="bg-white shadow-md rounded-2xl p-8 sm:p-10 lg:p-12 w-full max-w-3xl">
-            {/* Using the stubbed H2 component */}
-            <H2 className="text-green-900 mb-6 text-center lg:text-left">
-              Front Desk Office Executive
-            </H2>
+    return (
+        <section className="relative w-full min-h-screen bg-gradient-to-r from-[#E6FFEF] to-[#C8FFD7] flex items-center justify-center py-10 px-4">
+            {/* Changed lg:grid-cols-3 to lg:grid-cols-2 for a 50/50 split on large screens */}
+            <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-5 mt-10">
 
-            <form className="space-y-5">
-              {/* Name */}
-              <div>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
-                />
-              </div>
+                {/* --- LEFT: FORM (50% width on large screens) --- */}
+                {/* Changed lg:col-span-2 to lg:col-span-1 */}
+                <div className="lg:col-span-1 flex justify-center lg:justify-start">
+                    {/* Changed max-w-2xl to max-w-full to utilize the new, larger column width */}
+                    <div className="bg-white shadow-md rounded-2xl p-8 sm:p-10 lg:p-12 w-full max-w-3xl">
+                        {/* Using the stubbed H2 component */}
+                        <H2 className="text-green-900 mb-6 text-center lg:text-left">
+                            Front Desk Office Executive
+                        </H2>
 
-              {/* Email */}
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
-                />
-              </div>
+                        <form className="space-y-5">
+                            {/* Name */}
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
+                                />
+                            </div>
 
-              {/* Resume Upload */}
-              <div className="flex justify-between items-center border border-green-700 rounded-lg px-4 py-3">
-                <span className="text-gray-500">Resume</span>
-                <label
-                  htmlFor="resumeUpload"
-                  className="text-green-700 font-semibold cursor-pointer hover:underline"
-                >
-                  Upload
-                </label>
-                <input type="file" id="resumeUpload" className="hidden" />
-              </div>
+                            {/* Email */}
+                            <div>
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
+                                />
+                            </div>
 
-              {/* Message */}
-              <div>
-                <textarea
-                  placeholder="Tell us about yourself"
-                  rows={4}
-                  className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
-                ></textarea>
-              </div>
+                            {/* Resume Upload */}
+                            <div className="flex justify-between items-center border border-green-700 rounded-lg px-4 py-3">
+                                <span className="text-gray-500">Resume</span>
+                                <label
+                                    htmlFor="resumeUpload"
+                                    className="text-green-700 font-semibold cursor-pointer hover:underline"
+                                >
+                                    Upload
+                                </label>
+                                <input type="file" id="resumeUpload" className="hidden" />
+                            </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200"
-              >
-                CONTACT US <ArrowUpRight size={18} />
-              </button>
-            </form>
-          </div>
-        </div>
+                            {/* Message */}
+                            <div>
+                                <textarea
+                                    placeholder="Tell us about yourself"
+                                    rows={4}
+                                    className="w-full border border-green-700 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-700"
+                                ></textarea>
+                            </div>
 
-        {/* --- RIGHT: IMAGE (50% width on large screens) --- */}
-        {/* This column implicitly takes lg:col-span-1 */}
-        <div className="relative flex justify-center lg:justify-end items-center">
-          <div className="w-full flex justify-center">
-            <img
-              src="/EHR-PMS/ContactForm/shape1.png"
-              alt="Application form illustration"
-              className="
+                            {/* Submit Button */}
+                            <button
+                                type="submit"
+                                className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-200"
+                            >
+                                CONTACT US <ArrowUpRight size={18} />
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {/* --- RIGHT: IMAGE (50% width on large screens) --- */}
+                {/* This column implicitly takes lg:col-span-1 */}
+                <div className="relative flex justify-center lg:justify-end items-center">
+                    <div className="w-full flex justify-center">
+                        <img
+                            src="/EHR-PMS/ContactForm/shape1.png"
+                            alt="Application form illustration"
+                            className="
                 w-[90%]
                 sm:w-[85%]
                 md:w-[80%]
@@ -90,12 +90,12 @@ const TitleSec: React.FC = () => {
                 h-auto
                 object-contain
               "
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default TitleSec;

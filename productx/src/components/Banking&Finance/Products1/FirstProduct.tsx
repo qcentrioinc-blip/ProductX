@@ -42,7 +42,7 @@ const FirstProduct = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16 mt-10">
+    <div className="min-h-screen bg-gray-900 relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16">
       {/* Background geometric pattern */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 border border-gray-700/30 rotate-12 rounded-lg"></div>

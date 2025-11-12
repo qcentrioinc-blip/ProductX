@@ -46,8 +46,8 @@ const ContactUS = () => {
           <div
             className="absolute inset-0 h-full w-full"
             style={{
-              backgroundImage: `url('/Products/Products2/FormBackground.png')`,
-              backgroundSize: 'cover',
+              backgroundImage: `url('/Products/Products2/FormBackground1.png')`,
+              backgroundSize: 'contain',
               backgroundPosition: 'center',
             }}
           ></div>

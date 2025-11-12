@@ -1,158 +1,209 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";  
-import img1 from "/Image1.jpg";
-import img2 from "/Image2.jpg";
-import img3 from "/Image3.jpg";
-import { H2, P } from "../../styles/Typography";
+import { motion } from "framer-motion";
+import { H2, H3, P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
-
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const targetRef = useRef(null);
-
-
-
+ 
   const accordionData = [
     {
       id: 1,
       title: "Banks",
-      content:
-        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together...",
+      content: [
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+        "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+      ]
     },
     {
       id: 2,
       title: "Credit",
-      content:
-        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together...",
+      content: [
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+        "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+      ]
     },
     {
       id: 3,
-      title: "NBFCs",
-      content:
-        "Collaboration is at the heart of our approach. We value the synergy created when diverse minds come together...",
+      title: "NBFC's",
+      content: [
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+        "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat",
+      ]
     },
   ];
-
-  const images = [img1, img2, img3];
-
+ 
+  const images = ["/Image1.jpg", "/Image2.jpg", "/Image3.jpg"];
+ 
   return (
     <div
       ref={targetRef}
-      className="bg-white text-black w-full h-full py-20 flex flex-col"
+      className="bg-white text-black max-w-8xl overflow-hidden h-full py-20 flex flex-col"
       id="benefits"
     >
       {/* Heading Section */}
-      <div className="w-full relative mb-20 max-w-[1360px] mx-auto px-4 md:px-8 pt-10">
-        {/* <div className="flex items-center gap-3">
-          <div className="w-8 h-1 rounded-full bg-white"></div>
-          <H3>Who is it for</H3>
-        </div> */}
-
-        <H2 className="text-[#2B68C3] ">Sed ut perspiciatis unde omnis
-          <br/>
-          <span className="text-gray-400">
-          Consectetur adipisicing elit.
-          </span>
+      <div className="relative mb-20 mx-4 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
+         
+        <H2 className=" font-bold text-[#2B68C3]">
+          Consecte <span className="text-[#666666]"> adipiscing </span> Consecte
+          <br />
+           
         </H2>
-        <P className="max-w-3xl pt-4 text-justify">Advanced Loan Solutions Beyond Traditional Banking.lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis harum reprehenderit amet sint eius nulla esse culpa suscipit nihil mollitia sunt id, labore quidem fugit, ratione corporis est impedit.
+        <P className="max-w-3xl pt-4 text-justify leading-tight text-gray-600">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
         </P>
-
-        <div className="relative w-full mt-4">
-      
-        <div className="h-0.5 w-full bg-white opacity-10 rounded-full" />
-        
-
-        <motion.div
-          className="absolute top-0 left-0 h-0.5 w-full bg-black origin-left rounded-full"
-          initial={{ scaleX: 0, opacity: 0.3 }}   
-          whileInView={{ scaleX: 1, opacity: 1 }} 
-          transition={{ duration: 2.0, ease: "easeInOut" }}
-          viewport={{ once: true }} 
-        />
-      </div>
-
-        
-
-        <ContactUs className="bg-white px-6 py-2 absolute flex items-center mr-8 right-0 my-4 text-black">
+       
+       
+         <ContactUs className=" hidden max-w-8xl absolute lg:flex items-center top-12   right-12 text-black">
+          CONTACT US
+        </ContactUs>
+        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden    text-black">
           CONTACT US
         </ContactUs>
       </div>
-
-      {/* Content Section */}
-      <div className="flex   flex-1 flex-col md:flex-row w-full max-w-[1360px] mx-auto mt-10 px-4 md:px-8">
-  {/* Image Side */}
-<div className="relative w-full md:w-2/5 h-[500px] md:h-screen flex items-center justify-center">
-  {/* Yellow Border Background - visible from top-left only */}
-  <div className="absolute top-0 left-0 w-full h-full bg-amber-400 rounded-xl z-0"></div>
-
-  {/* Vector Curve Overlay on Yellow Border */}
-  <div className="absolute top-0 left-0 w-full h-full z-1">
-    <img
-      src="/VectorCurve.png"
-      alt="Decorative Curve"
-      className="w-full h-full object-cover rounded-xl"
-    />
-  </div>
-
-  {/* Main Image Container - offset to reveal yellow border */}
-  <div className="absolute top-10 left-5 right-0 bottom-0 w-[calc(100%-20px)] h-[calc(100%-20px)] z-2">
-    <img
-      src={images[openIndex]}
-      alt="Who we serve"
-      className="w-full h-full object-cover rounded-lg"
-    />
-  </div>
-</div>
-
-
-
+ 
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
+        {/* Image Side with Yellow Border */}
+        <div className="relative md:w-[500px] w-full h-[500px] md:h-[550px] flex items-center justify-start">
+          {/* Yellow Border Background */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[#FFD700] rounded-lg z-0"></div>
+ 
+          {/* Main Image Container - offset to reveal yellow border */}
+          <div className="absolute top-8 left-8 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
+            <img
+              src={images[openIndex]}
+              alt="Who we serve"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        </div>
+ 
         {/* Accordion Side */}
-        <div className="w-full md:w-3/5 flex flex-col justify-center">
+        <div className="w-full md:w-3/5 flex flex-col justify-center gap-4">
           {accordionData.map((item, index) => {
             const isOpen = openIndex === index;
-
+ 
             return (
               <div
                 key={item.id}
-                className={`relative border-b border-gray-700 cursor-pointer overflow-hidden transition-all duration-500 ease-in-out ${
-                  isOpen ? "bg-[#F6F6F6] min-h-[275px]" : "min-h-[100px]"
+                className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg ${
+                  isOpen ? "bg-[#F6F6F6] min-h-[50px]" : "bg-[#F6F6F6] min-h-[100px]"
                 }`}
                 onClick={() => setOpenIndex(index)}
               >
                 <span
-                  className={`absolute left-6 pb-4 pt-2 text-6xl md:text-7xl font-bold transition-colors duration-500 ${
-                    isOpen ? "text-[#3E3E3E]  " : "text-[#2B68C3]"
+                  className={`absolute left-6 top-4 text-6xl md:text-7xl font-bold transition-colors duration-500 ${
+                    isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
                   }`}
                 >
                   {String(item.id).padStart(2, "0")}
                 </span>
-
+ 
                 <motion.h3
-                  className="text-lg md:text-3xl font-semibold absolute top-8 transition-colors duration-500"
+                  className="text-lg md:text-2xl lg:text-3xl font-semibold absolute top-8 transition-colors duration-500"
                   initial={false}
                   animate={{
                     right: isOpen ? "auto" : "1.5rem",
                     left: isOpen ? "8rem" : "auto",
-                    color: isOpen ? "#3E3E3E" : "#2B68C3",
+                    color: isOpen ? "#3E3E3E" : "#000000",
                   }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   {item.title}
                 </motion.h3>
-
+ 
                 {isOpen && (
-                  <motion.p
-                    className="pr-12 pl-40 text-justify py-32"
+                  <motion.div
+                    className="pr-12 pl-32 md:pl-72 text-justify pt-24 pb-2"
                     initial={{ opacity: 0, x: 80 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 80 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <p className="text-black text-sm md:text-base leading-relaxed">
-                      {item.content}
-                    </p>
-                  </motion.p>
+                    {Array.isArray(item.content) ? (
+                      item.content.map((para, i) => (
+                        <P key={i} className="text-gray-700 pb-4 leading-tight text-base">
+                          {para}
+                        </P>
+                      ))
+                    ) : (
+                      <P className="text-gray-700 leading-tight text-base">{item.content}</P>
+                    )}
+                  </motion.div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+ 
+      {/* Mobile/Tablet Layout */}
+      <div className="lg:hidden flex flex-col w-full px-4 sm:px-8">
+        {/* Image with Yellow Border */}
+        <div className="relative w-full h-[400px] mb-8">
+          {/* Yellow Border Background */}
+          <div className="absolute top-0 left-0 w-[calc(100%-2rem)] h-full bg-[#FFD700] rounded-lg z-0"></div>
+ 
+          {/* Main Image Container */}
+          <div className="absolute top-6 left-6 w-[calc(100%-2rem)] h-[calc(100%-1.5rem)] z-10">
+            <img
+              src={images[openIndex]}
+              alt="Who we serve"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        </div>
+ 
+        {/* Accordion Items */}
+        <div className="w-full flex flex-col gap-4">
+          {accordionData.map((item, index) => {
+            const isOpen = openIndex === index;
+ 
+            return (
+              <div
+                key={item.id}
+                className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg ${
+                  isOpen ? "bg-[#F6F6F6] min-h-[200px]" : "bg-[#F6F6F6] min-h-[80px]"
+                }`}
+                onClick={() => setOpenIndex(index)}
+              >
+                <div className="flex items-center p-6">
+                  <span
+                    className={`text-5xl font-bold transition-colors duration-500 mr-6 ${
+                      isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                    }`}
+                  >
+                    {String(item.id).padStart(2, "0")}
+                  </span>
+ 
+                  <H3
+                    className={`text-xl font-semibold transition-colors duration-500 ${
+                      isOpen ? "text-[#3E3E3E]" : "#000000"
+                    }`}
+                  >
+                    {item.title}
+                  </H3>
+                </div>
+ 
+                {isOpen && (
+                  <motion.div
+                    className="px-6 pb-6 text-justify"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    {Array.isArray(item.content) ? (
+                      item.content.map((para, i) => (
+                        <P key={i} className="text-gray-700 mb-4 text-sm leading-relaxed">
+                          {para}
+                        </P>
+                      ))
+                    ) : (
+                      <P className="text-gray-700 text-sm leading-relaxed">{item.content}</P>
+                    )}
+                  </motion.div>
                 )}
               </div>
             );
@@ -162,5 +213,5 @@ const WhatWeDoIn = () => {
     </div>
   );
 };
-
+ 
 export default WhatWeDoIn;
