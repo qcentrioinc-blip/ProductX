@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import { H1 } from '../../../styles/Typography';
 
 const ArrowBuilding = () => {
   return (
@@ -14,10 +15,10 @@ const ArrowBuilding = () => {
 
       {/* Right Column - Content */}
       <div className="flex-1 px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 text-center lg:text-left">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+        <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
           Consecte adipiscing<br />
           werdasec ku
-        </h1>
+        </H1>
         
         <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 

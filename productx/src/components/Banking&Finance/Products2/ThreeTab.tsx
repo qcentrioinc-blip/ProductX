@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import { H1, P } from "../../../styles/Typography";
 
 const ThreeTab = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -68,12 +69,12 @@ const ThreeTab = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     {/* Left Content */}
                     <div className="space-y-6">
-                        <h1 className="text-5xl font-normal leading-tight">
+                        <H1 className="text-4xl font-normal leading-tight">
                             {tabContents[activeTab].title}
-                        </h1>
-                        <p className="text-gray-300 text-lg leading-relaxed">
+                        </H1>
+                        <P className="text-gray-300 text-lg leading-relaxed">
                             {tabContents[activeTab].text}
-                        </p>
+                        </P>
                         <button className="bg-white text-black px-8 py-4 rounded hover:bg-gray-200 transition-colors flex items-center gap-2 font-medium">
                             CONTACT US
                             <ArrowUpRight size={20} />

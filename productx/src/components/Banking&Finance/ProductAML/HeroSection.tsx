@@ -3,19 +3,19 @@ import { H1, P } from "../../../styles/Typography";
 import Image1 from "/AML/image64.png";
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-
+ 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [typedText, setTypedText] = useState("");
   const fullText = "Lorem ipsum dolor, consectetur adipis";
-
+ 
   const images = [
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png",
   ];
-
+ 
   // --- Typed effect for heading ---
   useEffect(() => {
     let index = 0;
@@ -26,14 +26,14 @@ const HeroSection = () => {
     }, 40); // speed of typing
     return () => clearInterval(interval);
   }, []);
-
+ 
   // --- Image floating animation controls ---
   const controlsLeft = useAnimation();
   const controlsCenter = useAnimation();
   const controlsRight = useAnimation();
-
+ 
   useEffect(() => {
-    const floatAnimation = async (controls: any, delay = 0) => {
+    const floatAnimation = async (controls: ReturnType<typeof useAnimation>, delay = 0) => {
       await controls.start({
         y: [0, -8, 0],
         transition: { duration: 4, repeat: Infinity, delay, ease: "easeInOut" },
@@ -43,7 +43,7 @@ const HeroSection = () => {
     floatAnimation(controlsCenter, 1);
     floatAnimation(controlsRight, 0.5);
   }, [controlsLeft, controlsCenter, controlsRight]);
-
+ 
   // --- Mobile scroll ---
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.target as HTMLDivElement;
@@ -51,7 +51,7 @@ const HeroSection = () => {
     const newSlide = Math.round(container.scrollLeft / slideWidth);
     setCurrentSlide(newSlide);
   };
-
+ 
   const scrollToSlide = (index: number) => {
     const container = scrollContainerRef.current;
     if (container) {
@@ -62,16 +62,13 @@ const HeroSection = () => {
       });
     }
   };
-
+ 
   return (
-    <motion.div
-      className="w-full bg-linear-to-b from-[#C1D7F3] to-[#ffd900d0] mt-16 mb-12"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {/* TEXT SECTION */}
-      <div className="px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
+    <div  className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
+-
+
+      <div className=" px-8 sm:px-12 md:px-16  lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
+
         {/* Left Text */}
         <motion.div
           className="w-full text-(--primary-color) text-center lg:text-left"
@@ -81,7 +78,7 @@ const HeroSection = () => {
         >
           <H1 className="font-semibold tracking-tight">{typedText}</H1>
         </motion.div>
-
+ 
         {/* Right Text Block */}
         <motion.div
           className="w-full bg-(--secondary-color) rounded-lg lg:w-3/5 flex flex-col lg:pt-4 text-center lg:text-left"
@@ -104,7 +101,7 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-
+ 
       {/* --- MOBILE SLIDER --- */}
       <div className="lg:hidden mt-6 px-4 pb-10">
         <div
@@ -127,7 +124,7 @@ const HeroSection = () => {
             </div>
           ))}
         </div>
-
+ 
         {/* Dots Indicator */}
         <div className="flex justify-center gap-2 mt-4">
           {images.map((_, index) => (
@@ -142,7 +139,7 @@ const HeroSection = () => {
           ))}
         </div>
       </div>
-
+ 
       {/* --- DESKTOP IMAGE CLUSTER --- */}
       <div className="relative hidden mx-auto mt-20 lg:flex justify-center md:px-10 lg:pb-12 pb-4 items-center">
         <motion.img
@@ -153,7 +150,7 @@ const HeroSection = () => {
           whileHover={{ rotate: -3, scale: 1.05 }}
           transition={{ type: "spring", stiffness: 100 }}
         />
-
+ 
         <motion.img
           src={Image1}
           alt="Center"
@@ -162,7 +159,7 @@ const HeroSection = () => {
           whileHover={{ rotate: 0, scale: 1.08 }}
           transition={{ type: "spring", stiffness: 80 }}
         />
-
+ 
         <motion.img
           src={Image1}
           alt="Right"
@@ -172,8 +169,9 @@ const HeroSection = () => {
           transition={{ type: "spring", stiffness: 100 }}
         />
       </div>
-    </motion.div>
+    </div>
+    
   );
 };
-
+ 
 export default HeroSection;

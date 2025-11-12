@@ -3,8 +3,8 @@ import { H3 } from '../../styles/Typography';
  
 const InsightThought = () => {
     return (
-        <div className="bg-[#D6E4F5] py-12 sm:py-16" id='blogs'>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#E7E7E7] py-12 sm:py-16" id='blogs'>
+            <div className="max-w-8xl mx-10 px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <div className="flex justify-between items-center mb-8 sm:mb-12">
                     <H3 className="text-[#2B68C3]">Consecte adipiscing</H3>
@@ -15,7 +15,6 @@ const InsightThought = () => {
                         </svg>
                     </button>
                 </div>
- 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* First Card */}
@@ -71,7 +70,7 @@ const InsightThought = () => {
                             </div>
                         </div>
                     </motion.div>
- 
+
                     {/* Second Card */}
                     <motion.div
                         className="bg-white rounded-lg overflow-hidden shadow-md border-16 border-white cursor-pointer"
@@ -125,7 +124,7 @@ const InsightThought = () => {
                             </div>
                         </div>
                     </motion.div>
- 
+
                     {/* Third Card */}
                     <motion.div
                         className="bg-white rounded-lg overflow-hidden shadow-md border-16 border-white cursor-pointer"
@@ -184,5 +183,5 @@ const InsightThought = () => {
         </div>
     );
 };
- 
+
 export default InsightThought;

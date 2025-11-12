@@ -88,6 +88,21 @@ export const P = ({ children, className = "" }: TypographyProps) => {
   );
 };
 
+export const Li = ({ children, className = "" }: TypographyProps) => {
+  return (
+    <li
+      className={`
+        text-[14px] md:text-[16px] lg:text-[16px]
+        font-quicksand
+        leading-[120%]
+        
+        ${className}`}
+    >
+      {children}
+    </li>
+  );
+};
+
 // Supporting text
 export const S = ({ children, className = "" }: TypographyProps) => {
   return (
