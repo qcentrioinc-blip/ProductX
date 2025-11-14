@@ -133,18 +133,27 @@ const LandingPageEHS = () => {
     return (
         <div className="relative w-full overflow-hidden">
             {/* Top Bar - Full Width */}
-            <div className="bg-gradient-to-r from-green-100 to-yellow-100 border-t-4 border-blue-400 py-2 px-4 sm:px-8 md:px-16 flex justify-between items-center w-full">
-                <span className="text-gray-700 font-medium text-sm sm:text-base">LOGO</span>
-                <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm md:text-base">
-                    <a href="#" className="text-gray-700 hover:text-gray-900">Platform</a>
-                    <a href="#" className="text-gray-700 hover:text-gray-900">Marketplace</a>
+            <div className="bg-gradient-to-r from-green-100 to-yellow-100 py-2 w-full">
+                <div className="flex justify-between items-center mx-auto"
+                    style={{
+                        maxWidth: '1364px',
+                        // paddingLeft: '40px',
+                        // paddingRight: '40px',
+                        height: '41.42px'
+                    }}>
+                    <span className="text-gray-700 font-medium text-sm sm:text-base">LOGO</span>
+                    <div className="flex gap-6 text-sm md:text-base">
+                        <a href="#" className="text-gray-700 hover:text-gray-900">Platform</a>
+                        <a href="#" className="text-gray-700 hover:text-gray-900">Marketplace</a>
+                    </div>
                 </div>
             </div>
+
 
             {/* Wrapper for entire section with single circles image */}
             <div className="relative">
                 {/* Single Circles Image - Spans from Navbar to Bottom Cards - Hidden on mobile */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[55%] z-50 pointer-events-none hidden md:block">
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-1/2 z-50 pointer-events-none hidden md:block">
                     <img
                         src="/EHRandPMS/circles.png"
                         alt="Green Spiral"
@@ -169,13 +178,22 @@ const LandingPageEHS = () => {
                 </div>
 
                 {/* Main Navigation Bar */}
-                <div className="w-full bg-gradient-to-br from-green-100 via-yellow-100 to-orange-100 px-4 sm:px-6 md:px-16 pt-4 sm:pt-6 md:pt-8 relative">
+                <div className="w-full bg-gradient-to-br from-green-100 via-yellow-100 to-orange-100 relative">
                     {/* Navbar Container */}
-                    <div className="max-w-6xl mx-auto bg-white/90 backdrop-blur-sm py-3 sm:py-4 px-4 sm:px-6 md:px-8 rounded-full flex justify-between items-center shadow-lg relative z-20">
+                    <div
+                        className="mx-auto bg-white/90 backdrop-blur-sm flex justify-between items-center shadow-md relative z-20"
+                        style={{
+                            maxWidth: '1280px',
+                            height: '80px',
+                            borderRadius: '60px',
+                            paddingLeft: '12px',
+                            paddingRight: '12px'
+                        }}
+                    >
                         {/* Logo - Left Side */}
                         <div className="flex items-center">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gray-800 rounded-full flex items-center justify-center">
-                                <span className="text-white text-[10px] sm:text-xs font-semibold">LOGO</span>
+                            <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-800 rounded-full flex items-center justify-center">
+                                <span className="text-white text-xs md:text-sm font-semibold">LOGO</span>
                             </div>
                         </div>
 
@@ -191,15 +209,15 @@ const LandingPageEHS = () => {
                         </button>
 
                         {/* Navigation Links - Desktop (Center) */}
-                        <nav className="hidden md:flex items-center justify-center gap-6 lg:gap-10 absolute left-1/2 transform -translate-x-1/2">
-                            <a href="#" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Products</a>
-                            <a href="#" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">About Us</a>
-                            <a href="#" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Resources</a>
-                            <a href="#" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Careers</a>
+                        <nav className="hidden md:flex items-center justify-center gap-8 lg:gap-10 absolute left-1/2 transform -translate-x-1/2">
+                            <a href="/industries/ehr-and-pms/about-us" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Products</a>
+                            <a href="/industries/ehr-and-pms/about-us" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">About Us</a>
+                            <a href="/industries/ehr-and-pms/about-us" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Resources</a>
+                            <a href="/industries/ehr-and-pms/career" className="text-gray-900 font-bold hover:text-gray-600 text-sm lg:text-base">Careers</a>
                         </nav>
 
                         {/* Contact Button - Desktop Only */}
-                        <button className="hidden md:flex bg-black text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full font-bold items-center gap-2 hover:bg-gray-800 transition-all text-xs lg:text-sm">
+                        <button className="hidden md:flex bg-black text-white px-6 lg:px-8 py-2.5 lg:py-3 rounded-full font-bold items-center gap-2 hover:bg-gray-800 transition-all text-xs lg:text-sm">
                             CONTACT US
                             <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
@@ -207,7 +225,7 @@ const LandingPageEHS = () => {
                         </button>
                     </div>
 
-                    {/* Mobile Menu Overlay */}
+                    {/* Mobile Menu Overlay - Keep this as is */}
                     <div className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                         <div className="flex flex-col items-center justify-center h-full gap-8">
                             <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-gray-900 hover:text-gray-600">Products</a>
@@ -224,10 +242,11 @@ const LandingPageEHS = () => {
                     </div>
                 </div>
 
+
                 {/* Hero Section with Gradient Background */}
                 <div className="relative bg-gradient-to-b from-yellow-100 to-green-100">
                     {/* Left Content */}
-                    <div className="relative z-20 px-4 sm:px-6 md:px-12 py-8 sm:py-12 md:py-16 max-w-3xl">
+                    <div className="relative z-20 px-4 sm:px-16 md:px-48 py-8 sm:py-12 md:py-16 max-w-5xl">
                         {/* Main Heading */}
                         <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#2D7A5C] leading-tight mb-4 sm:mb-6 break-words">
                             Shaping the Future<br className="hidden sm:block" />
@@ -256,7 +275,7 @@ const LandingPageEHS = () => {
                     <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 max-w-7xl mx-auto relative z-20">
                         {/* Left Heading */}
                         <H2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D7A5C] leading-tight text-center md:text-left">
-                            Duis<br />aute<br />irure
+                            Duis aute
                         </H2>
 
                         {/* Logo Cards - Responsive Grid */}
