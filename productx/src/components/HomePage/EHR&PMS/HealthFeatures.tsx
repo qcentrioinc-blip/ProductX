@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { H1, H3, P } from "../../../styles/Typography";
+// import { H1, H3, P } from "../../../styles/Typography";
 
 const healthFeatures = [
   {
@@ -33,72 +33,81 @@ const healthFeatures = [
 ];
 
 const HealthFeatures = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   // Dynamic cards per view based on screen size
   const getCardsPerView = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 640) return 1; // Mobile
-      if (window.innerWidth < 1024) return 1; // Tablet
-      return 2; // Desktop
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 640) return 1 // Mobile
+      if (window.innerWidth < 1024) return 1 // Tablet
+      return 2 // Desktop
     }
-    return 2;
-  };
+    return 2
+  }
 
-  const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
-  const maxIndex = Math.max(0, healthFeatures.length - cardsPerView);
+  const [cardsPerView, setCardsPerView] = useState(getCardsPerView())
+  const maxIndex = Math.max(0, healthFeatures.length - cardsPerView)
 
   // Update cards per view on window resize
   useEffect(() => {
-    const handleResize = () => setCardsPerView(getCardsPerView());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    const handleResize = () => setCardsPerView(getCardsPerView())
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
+    setCurrentIndex((prev) => Math.max(0, prev - 1))
+  }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  };
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1))
+  }
 
   return (
-    <section className="relative min-h-screen bg-[#E8F5F1] overflow-hidden">
-      {/* Wave decoration - bottom left */}
-      <img
-        src="/Products/wave-decoration.png"
-        alt="wave-decoration"
-        className="absolute top-80 left-0 w-1/2 max-w-md opacity-80 pointer-events-none z-0 hidden md:block"
-      />
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Left background - White */}
+      <div className="absolute inset-0 w-full lg:w-5/11 bg-white z-0"></div>
+      {/* Right background - Beige */}
+      <div className="absolute inset-0 left-auto w-full lg:w-7/10 bg-[#E8DCC8] z-0"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
+      {/* Wave decoration - top right */}
+      <div className="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none z-0 hidden lg:block">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <path d="M100,20 Q150,40 150,100 T100,180 T50,100 T100,20 Z" fill="#0F5A47" />
+        </svg>
+      </div>
+
+      <div className="container p-6 lg:p-12  relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
           {/* Left side - Title and navigation */}
           <div className="lg:col-span-4 relative z-10">
-            <H1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F5A47] leading-tight mb-4 sm:mb-6">
-              Sed ut persp<br />iciatis Unde Se
-            </H1>
-            <P className="text-sm sm:text-base text-[#4A7565] mb-6 sm:mb-8 max-w-md">
-              Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </P>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F5A47] leading-tight mb-6 sm:mb-8">
+              Sed ut persp
+              <br />
+              iciatis Unde Se
+            </h1>
+            <p className="text-sm sm:text-base text-[#6B8A7A] mb-8 sm:mb-10 max-w-md leading-relaxed">
+              Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occa
+            </p>
 
-            {/* Navigation buttons */}
-            <div className="flex gap-3 sm:gap-4 mb-8 lg:mb-0">
+            {/* Navigation buttons - ORANGE/GOLDEN */}
+            <div className="flex gap-4 sm:gap-5 mb-8 lg:mb-0">
               <button
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
-                className="h-12 w-12 sm:h-14 sm:w-14 flex items-center justify-center bg-[#C8E6DE] text-[#0F5A47] rounded-full hover:bg-[#A5D9CC] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center bg-[#FF9A3D] hover:bg-[#FF8C1F] text-white rounded-full transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                aria-label="Previous"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  className="sm:w-6 sm:h-6"
+                  width="24"
+                  height="24"
+                  className="sm:w-7 sm:h-7"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
@@ -108,17 +117,18 @@ const HealthFeatures = () => {
               <button
                 onClick={handleNext}
                 disabled={currentIndex >= maxIndex}
-                className="h-12 w-12 sm:h-14 sm:w-14 flex items-center justify-center bg-[#C8E6DE] text-[#0F5A47] rounded-full hover:bg-[#A5D9CC] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center bg-[#FF9A3D] hover:bg-[#FF8C1F] text-white rounded-full transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                aria-label="Next"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  className="sm:w-6 sm:h-6"
+                  width="24"
+                  height="24"
+                  className="sm:w-7 sm:h-7"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
@@ -128,30 +138,29 @@ const HealthFeatures = () => {
             </div>
           </div>
 
-          {/* Right side - Content */}
+          {/* Right side - Carousel */}
           <div className="lg:col-span-8">
             <div className="relative overflow-hidden">
               <div
-                className="flex gap-4 sm:gap-6 lg:gap-10 transition-transform duration-500 ease-out"
+                className="flex gap-8 lg:gap-16 transition-transform duration-500 ease-out"
                 style={{
-                  transform: `translateX(-${currentIndex * (100 / cardsPerView + (cardsPerView === 1 ? 4 : 4))}%)`,
+                  transform: `translateX(-${currentIndex * (100 / cardsPerView + 4)}%)`,
                 }}
               >
                 {healthFeatures.map((feature) => (
-                  <div
-                    key={feature.id}
-                    className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-0px)]"
-                  >
-                    <P className="text-xs sm:text-sm text-[#4A7565] mb-3 sm:mb-4">{feature.date}</P>
-                    <H3 className="text-lg sm:text-xl font-semibold text-[#0F5A47] mb-3 sm:mb-4 leading-snug">
+                  <div key={feature.id} className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-0.75rem)]">
+                    <p className="text-xs sm:text-sm font-medium text-[#6B8A7A] mb-3 sm:mb-4 tracking-wide">
+                      {feature.date}
+                    </p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#0F5A47] mb-3 sm:mb-4 leading-snug">
                       {feature.title}
-                    </H3>
-                    <P className="text-xs sm:text-sm text-[#4A7565] mb-4 sm:mb-6 leading-relaxed">
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#6B8A7A] mb-5 sm:mb-6 leading-relaxed line-clamp-3">
                       {feature.description}
-                    </P>
-                    <div className="aspect-[4/3] overflow-hidden rounded-lg">
+                    </p>
+                    <div className="aspect-square overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow">
                       <img
-                        src={feature.image}
+                        src={feature.image || "/placeholder.svg"}
                         alt={feature.title}
                         className="w-full h-full object-cover"
                       />
@@ -164,7 +173,7 @@ const HealthFeatures = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HealthFeatures;
+export default HealthFeatures

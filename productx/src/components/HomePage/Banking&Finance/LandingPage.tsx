@@ -55,7 +55,7 @@ const LandingPage = () => {
       buttonText: "VIEW EHS AND PMS SOLUTIONS",
       title: "Environmental Excellence",
       subtitle: "Through Smart EHS & PMS Solutions",
-       url: "/industries/life-sciences" 
+       url: "/industries/ehr-and-pms" 
     },
     {
       id: 3,
