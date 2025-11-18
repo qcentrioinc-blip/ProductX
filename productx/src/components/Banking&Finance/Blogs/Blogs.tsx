@@ -1,7 +1,7 @@
-import { H1, H2, P } from "../../styles/Typography";
+import { H1, H2, P } from "../../../styles/Typography";
 //import { motion } from 'framer-motion';
 import Image2 from "/Image2.jpg"
-import Footer from "../Footer/Footer";
+import Footer from "../../Footer/Footer";
 
 export default function Blogs() {
 
@@ -299,5 +299,5 @@ export default function Blogs() {
 }
 
 import { useState } from "react";
-import CallToAction from "../HomePage/Banking&Finance/CallToAction";
+import CallToAction from "../../HomePage/Banking&Finance/CallToAction";
 

@@ -111,14 +111,14 @@ const HeroSec = () => {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center lg:items-start gap-4">
+      <div className="max-w-8xl mx-10 px-6 lg:px-12 flex flex-col items-center lg:items-start gap-4">
 
         {/* === TOP ROW: Heading + Avatars + Paragraph === */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
           {/* Left: Heading + Avatars */}
           <div className="flex flex-col flex-1 w-full max-w-[700px]">
             <H1 className="mb-6 leading-tight text-white text-center z-20 lg:text-left">
-              Lorem ipsum dolor adipis
+              Lorem ipsum dolor, consectetur adipis
             </H1>
 
             {/* Avatar Group */}
@@ -127,7 +127,7 @@ const HeroSec = () => {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-10 h-10 rounded-full bg-pink-300 border-2 border-white"
+                    className="w-14 h-14 rounded-full bg-[#FFFFFF] border-2 border-white"
                   />
                 ))}
               </div>
@@ -145,7 +145,7 @@ const HeroSec = () => {
 
           {/* Right Paragraph (Visible for 1024px and above) */}
           <div className="hidden lg:flex flex-1 lg:max-w-md">
-            <div className="bg-white/90 z-20 rounded-xl p-6 shadow-md mt-20 xl:mt-22 2xl:mt-25">
+            <div className="bg-white/90 z-20 rounded-xl p-4 shadow-md mt-20 xl:mt-26 2xl:mt-25">
               <P className="leading-relaxed text-[#2B68C3]">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. 
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.

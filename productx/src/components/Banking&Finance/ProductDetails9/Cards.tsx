@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { H3, P } from "../../../styles/Typography";
-import { motion, type Variants, useInView, useAnimation } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { H4, P } from "../../../styles/Typography";
+import { motion, useInView, useAnimation, type Variants } from "framer-motion";
 
 interface FeatureItem {
   title: string;
@@ -14,132 +14,117 @@ const features: FeatureItem[] = [
   { title: "Duis aute irure dolor in", description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore" },
 ];
 
-const borderZoomVariant: Variants = {
-  hidden: (custom: number) => {
-    const positions = [
-      { x: -600, y: 0, scale: 0.2, opacity: 0 },    // Left with scale
-      { x: 600, y: 0, scale: 0.2, opacity: 0 },     // Right with scale
-      { x: 0, y: -400, scale: 0.2, opacity: 0 },    // Top with scale
-      { x: 0, y: 400, scale: 0.2, opacity: 0 }      // Bottom with scale
+// Card entry/exit from 4 screen corners
+const cornerVariants: Variants = {
+  hidden: (index: number) => {
+    const cornerOffsets = [
+      { x: "-140vw", y: "-140vh" }, // top-left
+      { x: "140vw",  y: "-140vh" }, // top-right
+      { x: "-140vw", y: "140vh"  }, // bottom-left
+      { x: "140vw",  y: "140vh"  }, // bottom-right
     ];
-    return positions[custom];
+
+    return {
+      ...cornerOffsets[index],
+      opacity: 0,
+      scale: 0.85
+    };
   },
+
   visible: {
     x: 0,
     y: 0,
-    scale: 1,
     opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1.1,
-      ease: [0.34, 1.56, 0.64, 1],
       type: "spring",
-      stiffness: 90,
-      damping: 13
+      stiffness: 55,     // ↓ lower = smoother
+      damping: 18,       // ↑ higher = less bounce
+      mass: 1.4,         // ↑ heavier = slower movement
+      duration: 1.9,     // ↑ slower
+      ease: [0.22, 1, 0.36, 1] // premium iOS-like curve
     }
   },
-  exit: (custom: number) => {
-    const positions = [
-      { x: -600, y: 0, scale: 0.2, opacity: 0 },
-      { x: 600, y: 0, scale: 0.2, opacity: 0 },
-      { x: 0, y: -400, scale: 0.2, opacity: 0 },
-      { x: 0, y: 400, scale: 0.2, opacity: 0 }
+
+  exit: (index: number) => {
+    const cornerOffsets = [
+      { x: "-140vw", y: "-140vh" },
+      { x: "140vw",  y: "-140vh" },
+      { x: "-140vw", y: "140vh" },
+      { x: "140vw",  y: "140vh" },
     ];
+
     return {
-      ...positions[custom],
+      ...cornerOffsets[index],
+      opacity: 0,
+      scale: 0.85,
       transition: {
-        duration: 0.7,
-        ease: "easeIn"
+        type: "tween",
+        duration: 1.2, // slow exit also
+        ease: [0.4, 0, 0.2, 1] // smooth ease-out
       }
     };
   }
 };
 
-const containerVariant: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.25
-    }
-  },
-  exit: {
-    transition: {
-      staggerChildren: 0.15,
-      staggerDirection: -1
-    }
-  }
-};
-
 const BorderZoomCards: React.FC = () => {
   const containerRef = useRef(null);
-  const inView = useInView(containerRef, { 
-    margin: "-100px 0px -100px 0px",
-    once: false
+
+  const inView = useInView(containerRef, {
+    margin: "-40% 0px -40% 0px",
+    once: false,
   });
+
   const controls = useAnimation();
 
-  React.useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("exit");
-    }
+  useEffect(() => {
+    if (inView) controls.start("visible");
+    else controls.start("exit");
   }, [inView, controls]);
 
   return (
-    <section className="relative w-full bg-[#F5DDA9] py-16 px-6 md:px-12 lg:px-20 overflow-hidden" ref={containerRef}>
+    <section
+      ref={containerRef}
+      className="relative w-full bg-[#F5DDA9] py-16 px-6 md:px-12 lg:px-20 overflow-hidden"
+    >
 
-      {/* Shape Image (Hidden on mobile) */}
+      {/* Shape behind (same as before) */}
       <div className="hidden md:flex absolute inset-0 justify-center items-center mt-20 z-10">
         <img
           src="/ProductPage9/img2.png"
           alt="decorative shape"
-          className="w-[90%] h-full object-cover top-1/2 left-1/2 pointer-events-none select-none"
-          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-            const target = e.target as HTMLImageElement;
-            if (target) {
-              target.onerror = null;
-              target.src = "https://placehold.co/1000x800/F5DDA9/999999?text=Shape+Fallback";
-            }
-          }}
+          className="w-[90%] h-full object-cover pointer-events-none select-none"
         />
       </div>
 
-      {/* Cards Container */}
-      <motion.div
-        className="relative z-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center"
-        variants={containerVariant}
-        initial="hidden"
-        animate={controls}
-      >
+      {/* Cards */}
+      <div className="relative z-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
         {features.map((item, index) => (
           <motion.div
             key={index}
             custom={index}
-            variants={borderZoomVariant}
-            whileHover={{ 
-              boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.2)",
-              transition: { duration: 0.3 }
-            }}
+            variants={cornerVariants}
+            initial="hidden"
+            animate={controls}
             className="
-              bg-white p-6 sm:p-7 md:p-8 rounded-xl shadow-lg hover:shadow-2xl
-              w-full max-w-[550px] sm:max-w-[500px] md:max-w-[530px] lg:max-w-[560px] xl:max-w-[580px]
+              bg-white p-6 sm:p-7 md:p-8 rounded-xl shadow-lg
+              w-full max-w-[560px]
               h-[360px] sm:h-[380px] md:h-[400px] lg:h-[420px] xl:h-[440px]
               flex flex-col justify-between
-              cursor-pointer
-              border border-gray-100
+              border border-gray-200
             "
           >
-            {/* Text Section */}
             <div>
-              <H3 className="text-gray-900 mb-3 text-base sm:text-lg md:text-xl">{item.title}</H3>
-              <P className="text-gray-700 mb-5 leading-relaxed text-sm sm:text-base">{item.description}</P>
+              <H4 className="text-gray-900 mb-3">{item.title}</H4>
+              <P className="text-gray-700 leading-relaxed xl:max-w-[350px]">
+                {item.description}
+              </P>
             </div>
 
-            {/* Placeholder Rectangle */}
             <div className="w-full h-[55%] bg-gradient-to-br from-[#E9E9E9] to-[#F0F0F0] rounded-lg mt-5 shadow-inner"></div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

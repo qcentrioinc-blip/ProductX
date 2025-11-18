@@ -1,16 +1,16 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
-import { useLocation } from "react-router-dom";
-import { H3, P } from '../../styles/Typography';
+// import { useLocation } from "react-router-dom";
+import { H4, P } from '../../styles/Typography';
  
 const HWD = () => {
-  const location = useLocation();
-  const isBankingPage = location.pathname === "/industries/banking-and-finance";
+  // const location = useLocation();
+  // const isBankingPage = location.pathname === "/industries/banking-and-finance";
   
-  const cardBg = isBankingPage ? "#ACCAEF" : "#141414";
-  const cardBg2 = isBankingPage ? "#C1D7F3" : "#E7D6FF";
-  const textColor = isBankingPage ? "#000" : "#CCCCCC";
+  // const cardBg = isBankingPage ? "#ACCAEF" : "#141414";
+  // const cardBg2 = isBankingPage ? "#C1D7F3" : "#E7D6FF";
+  // const textColor = isBankingPage ? "#000" : "#CCCCCC";
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -32,39 +32,40 @@ const HWD = () => {
   };
 
   const CardContent = () => (
-    <>
+    <section id='use-cases'>
       {/* Top Section */}
-      <div className="p-6 pb-12 md:p-8 " 
-      style={{backgroundColor:cardBg}} id='use-cases'>
+      <div className="p-6 pb-12 md:p-8 bg-[#F5F5F5]" 
+      // style={{backgroundColor:cardBg}} 
+      >
         {/* Icon */}
-        <div className="w-10 h-10 bg-gray-300 rounded-full mb-4"></div>
+        <div className="w-15 h-15 bg-gray-300 rounded-full mb-4"></div>
         <div className="text-justify">
-          <H3 className='text-[#2B68C3] mb-1'>Sed ut reprehenderit in </H3>
-          <P className=''
-          style={{color: textColor}}>
+          <H4 className='text-[#2B68C3] mb-4'>Sed ut reprehenderit in </H4>
+          <P className='text-black'>
+          {/* style={{color: textColor}} */}
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </P>
         </div>
       </div>
 
       {/* Bottom List Section */}
-      <div className="p-6 md:p-8 text-justify">
+      <div className="pl-6 pr-10 py-18 text-justify">
         <ul className="space-y-4">
           {[
             "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla",
             "Duis aute irure dolor in reprehenderit in",
             "Duis aute irure dolor in reprehenderit in voluptate velit esse",
             "Duis aute irure dolor in reprehenderit in voluptate",
-            "Duis aute irure dolor in reprehenderit in voluptate wertg",
+            // "Duis aute irure dolor in reprehenderit in voluptate wertg",
           ].map((item, index) => (
-            <li key={index} className="flex items-center gap-2">
-              <Check size={20} className="text-[#A80040] flex-shrink-0" />
-              <P className="text-sm sm:text-base md:text-base">{item}</P>
+            <li key={index} className="flex items-center gap-4">
+              <Check size={25} className="text-[#A80040] flex-shrink-0" />
+              <P className="">{item}</P>
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </section>
   );
 
   return (
@@ -103,7 +104,7 @@ const HWD = () => {
             viewport={{ once: true }}
           >
             {/* Render without any spaces */}
-            {"Sed ut perspecious"
+            {"Sed ut perspecious Unde"
               .split("")
               .map((char, i) => (
                 <motion.span key={i} variants={itemVariants}>
@@ -119,7 +120,7 @@ const HWD = () => {
             <motion.div
               key={i}
               className="relative bg-[#C1D7F3] rounded-lg text-black overflow-hidden shadow-lg"
-              style={{backgroundColor:cardBg2}}
+              // style={{backgroundColor:cardBg2}}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
