@@ -1,187 +1,558 @@
 "use client"
 
 import { useState } from "react"
-import { Typography, Chip } from "@mui/material"
-import { motion } from "motion/react";
+import { Check } from "lucide-react"
 
-type FilterKey = "All" | "Lorem" | "Consectetur" | "Accusamus" | "Sed ut" | "Aspernatur";
-
-type ContentData = {
-  [key in FilterKey]: {
-    paragraphs: string[];
-    stats: string[];
-    image: string;
-    title: string;
-  };
-};
+type FilterKey = "Duis aute" | "Duis jhgfgb aute" | "Duis aute sdfgh" | "kihg Duis aute"
 
 const Building = () => {
-  const contentData: ContentData = {
-    All: {
-      paragraphs: [
-        "This is the overview for 'All' projects. It shows a summary of everything happening across all sectors, providing a comprehensive look at our entire portfolio.",
-        "From coastal resorts to urban developments, our work spans various domains. This section highlights the breadth and diversity of our architectural and engineering achievements.",
-      ],
-      stats: ["45%", "0.5x", "2x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-    Lorem: {
-      paragraphs: [
-        "Content for 'Lorem'. This focuses on our residential projects. We blend modern aesthetics with functional design to create comfortable and inspiring living spaces.",
-        "Our team pays meticulous attention to detail, ensuring every aspect of the project, from materials to layout, meets the highest standards of quality.",
-      ],
-      stats: ["80%", "1.2x", "3x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-    Consectetur: {
-      paragraphs: [
-        "Here is the specific content for 'Consectetur'. This details our commercial ventures, including office buildings and retail spaces designed for productivity and engagement.",
-        "We prioritize sustainable building practices and innovative technology to create environmentally friendly and efficient commercial hubs.",
-      ],
-      stats: ["65%", "0.9x", "2.5x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-    Accusamus: {
-      paragraphs: [
-        "This section is all about 'Accusamus', which covers our hospitality projects. We design hotels and resorts that offer unforgettable experiences.",
-      ],
-      stats: ["95%", "1.8x", "5x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-    "Sed ut": {
-      paragraphs: [
-        "The 'Sed ut' filter shows our public and institutional projects, such as museums, libraries, and government buildings that serve the community.",
-        "Functionality, accessibility, and civic pride are the core principles that guide our design process for these important public spaces.",
-      ],
-      stats: ["30%", "0.4x", "1.5x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-    Aspernatur: {
-      paragraphs: [
-        "Finally, 'Aspernatur' highlights our experimental and futuristic designs. This is where we push the boundaries of conventional architecture.",
-      ],
-      stats: ["50%", "2.5x", "10x"],
-      image: "/Building.jpg",
-      title: "SERENITY SUITES - COASTAL RESORT",
-    },
-  }
-  const [activeFilter, setActiveFilter] = useState<FilterKey>("All")
-  const filters: FilterKey[] = ["All", "Lorem", "Consectetur", "Accusamus", "Sed ut", "Aspernatur"];
-
-  const currentContent = contentData[activeFilter]
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("Duis aute")
+  const filters: FilterKey[] = ["Duis aute", "Duis jhgfgb aute", "Duis aute sdfgh", "kihg Duis aute"]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <div className="text-center py-8 px-4">
-        <h1 className="sm:text-5xl lg:text-[40px] md:text-5xl font-bold text-[#2A2A2A] mb-6" style={{ fontFamily: 'Bricolage Grotesque' }}>Itaque earum rerum hic</h1>
-        <p className="sm:text-2xl lg:text-[20px] text-[#141414] max-w-2xl mx-auto mb-12" style={{ fontFamily: 'Quicksand' }}>
-          From fast-moving startups to structured enterprises, Taskos adapts to your team's real-world workflows — not
-          the other way around.
-        </p>
+    <div 
+      className="building-section relative flex items-center justify-center"
+      style={{
+        width: '100%',
+        maxWidth: '1440px',
+        height: '928px',
+        margin: '0 auto',
+        background: '#FFFFFF'
+      }}
+    >
+      {/* DESKTOP VERSION - Content Box */}
+      <div
+        className="desktop-content absolute flex flex-col"
+        style={{
+          width: '1360px',
+          height: '878px',
+          top: '50px',
+          background: 'transparent'
+        }}
+      >
+        {/* Header Section */}
+        <div className="text-center mb-8">
+          <h1
+            className="main-title"
+            style={{
+              width: '1058.76px',
+              height: '58px',
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: '48px',
+              lineHeight: '100%',
+              textAlign: 'center',
+              margin: '0 auto 24px'
+            }}
+          >
+            <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
+            <span style={{ color: '#666666' }}>reprehenderit in Duis</span>
+          </h1>
 
-        {/* Filter Buttons - Desktop: Flex Wrap (Unchanged) */}
-        <div className="hidden lg:flex flex-wrap justify-center gap-3 mb-4">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 rounded-full text-[16px] font-medium transition-all duration-200 ${activeFilter === filter
-                ? "bg-gray-900 text-white shadow-md"
-                : "bg-white text-gray-600 hover:bg-gray-100 hover:shadow-sm border border-gray-200"
-                }`}
-            >
-              {filter}
-            </button>
-          ))}
+          <p
+            className="main-description"
+            style={{
+              width: '921.58px',
+              height: '40px',
+              fontFamily: "'Quicksand', sans-serif",
+              fontWeight: 400,
+              fontSize: '16px',
+              lineHeight: '100%',
+              textAlign: 'center',
+              color: '#141414',
+              margin: '0 auto 32px',
+              overflow: 'hidden'
+            }}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+          </p>
         </div>
 
-        {/* Filter Buttons - Mobile/Tablet: Horizontal Scroll */}
-        <div className="lg:hidden overflow-x-auto scrollbar-hide mb-4 px-2">
-          <div className="flex gap-3 min-w-max">
+        {/* Tab Section */}
+        <div
+          className="tab-section"
+          style={{
+            width: '1360px',
+            height: '632px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px'
+          }}
+        >
+          {/* All Tabs */}
+          <div
+            className="tabs-container"
+            style={{
+              width: '658px',
+              height: '40px',
+              display: 'flex',
+              gap: '19px',
+              margin: '0 auto'
+            }}
+          >
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 rounded-full text-[16px] font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${activeFilter === filter
-                  ? "bg-gray-900 text-white shadow-md"
-                  : "bg-white text-gray-600 hover:bg-gray-100 hover:shadow-sm border border-gray-200"
-                  }`}
+                className="transition-all duration-200"
+                style={{
+                  padding: '8px 20px',
+                  borderRadius: '24px',
+                  fontSize: '14px',
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontWeight: 500,
+                  background: activeFilter === filter ? '#FFE5E5' : '#FFFFFF',
+                  color: activeFilter === filter ? '#2A2A2A' : '#666666',
+                  border: '1px solid #E0E0E0',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div
+            className="tab-content"
+            style={{
+              width: '1360px',
+              height: '560px',
+              borderRadius: '8px',
+              background: '#F5F5F5',
+              position: 'relative'
+            }}
+          >
+            {/* Left Image */}
+            <div
+              className="left-image"
+              style={{
+                position: 'absolute',
+                width: '530px',
+                height: '512px',
+                top: '24px',
+                left: '24px',
+                borderRadius: '4px',
+                overflow: 'hidden',
+                background: '#D9D9D9'
+              }}
+            >
+              <img
+                src="/Building.jpg"
+                alt="Building"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
+
+            {/* Right Content */}
+            <div
+              className="right-content"
+              style={{
+                position: 'absolute',
+                top: '40px',
+                left: '578px',
+                width: '750px'
+              }}
+            >
+              <h2
+                className="content-title"
+                style={{
+                  width: '750px',
+                  height: '38px',
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '32px',
+                  lineHeight: '100%',
+                  color: '#666666',
+                  marginBottom: '16px'
+                }}
+              >
+                Consecte adipiscing werdasec ku quorti wer
+              </h2>
+
+              <p
+                className="content-description"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  color: '#333333',
+                  lineHeight: '140%',
+                  marginBottom: '24px',
+                  maxWidth: '700px'
+                }}
+              >
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              </p>
+
+              {/* Check Items */}
+              <div className="check-items" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[1, 2, 3].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <Check size={20} style={{ color: '#000000', flexShrink: 0, marginTop: '2px' }} />
+                    <p
+                      style={{
+                        fontFamily: "'Quicksand', sans-serif",
+                        fontSize: '14px',
+                        color: '#2A2A2A',
+                        lineHeight: '140%'
+                      }}
+                    >
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Stats */}
+            <div
+              className="bottom-stats"
+              style={{
+                position: 'absolute',
+                width: '691px',
+                height: '210px',
+                bottom: '24px',
+                left: '583.26px',
+                display: 'flex',
+                gap: '24px'
+              }}
+            >
+              {/* Left Half - 80% */}
+              <div
+                style={{
+                  width: '305px',
+                  height: '210px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '24px'
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "'Quicksand', sans-serif",
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    color: '#141414',
+                    lineHeight: '140%'
+                  }}
+                >
+                  Sed ac faucibus lectus. Ut sed eros vel sapien tristique
+                </p>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg
+                    width="60"
+                    height="39"
+                    viewBox="0 0 60 39"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
+                      stroke="#A80040"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+
+                  <h3
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontSize: '96px',
+                      fontWeight: 500,
+                      color: '#666666',
+                      lineHeight: '1'
+                    }}
+                  >
+                    80%
+                  </h3>
+                </div>
+              </div>
+
+              {/* Right Half - 10X */}
+              <div
+                style={{
+                  width: '284px',
+                  height: '210px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '16px'
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "'Quicksand', sans-serif",
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    color: '#141414',
+                    lineHeight: '140%'
+                  }}
+                >
+                  Sed ac faucibus lectus. Ut sed eros vel sapien tristique
+                </p>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg
+                    width="60"
+                    height="39"
+                    viewBox="0 0 60 39"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
+                      stroke="#A80040"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+
+                  <h3
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontSize: '96px',
+                      fontWeight: 500,
+                      color: '#666666',
+                      lineHeight: '1'
+                    }}
+                  >
+                    10X
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE/TABLET VERSION */}
+      <div className="mobile-content absolute inset-0 bg-white p-6 overflow-y-auto">
+        <div className="text-center mb-6">
+          <h1
+            className="font-bold mb-4"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontSize: '28px',
+              lineHeight: '110%'
+            }}
+          >
+            <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
+            <span style={{ color: '#666666' }}>reprehenderit</span>
+          </h1>
+          <p
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '14px',
+              color: '#141414',
+              lineHeight: '150%'
+            }}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+
+        {/* Mobile Tabs */}
+        <div className="overflow-x-auto scrollbar-hide mb-6">
+          <div className="flex gap-3 min-w-max pb-2">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className="px-5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  background: activeFilter === filter ? '#FFE5E5' : '#FFFFFF',
+                  color: activeFilter === filter ? '#2A2A2A' : '#666666',
+                  border: '1px solid #E0E0E0'
+                }}
               >
                 {filter}
               </button>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Main Content - 50/50 Split */}
-      <div className="flex flex-col lg:flex-row min-h-[600px]">
-        {/* Left Side - Building Image (50%) */}
-        <div className="lg:w-1/2 relative">
-          <motion.div className="h-full relative overflow-hidden"
-            initial={{ scale: 1.2, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            viewport={{ once: true }}
+        {/* Mobile Content Card */}
+        <div className="bg-[#F5F5F5] rounded-lg p-4 space-y-4">
+          <img
+            src="/Building.jpg"
+            alt="Building"
+            className="w-full h-48 object-cover rounded-lg"
+          />
+          
+          <h2
+            className="font-bold"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontSize: '22px',
+              color: '#666666',
+              lineHeight: '120%'
+            }}
           >
-            <img
-              src={currentContent.image}
-              alt={currentContent.title}
-              className="w-full h-full object-cover"
-            />
-            {/* Overlay Text */}
-            <div className="absolute bottom-6 left-6">
-              <Typography
-                variant="h6"
-                className="text-white font-bold tracking-wide"
-                sx={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
-              >
-                SERENITY SUITES - COASTAL RESORT
-              </Typography>
-            </div>
-          </motion.div>
-        </div>
+            Consecte adipiscing werdasec ku quorti wer
+          </h2>
+          
+          <p
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '14px',
+              color: '#333',
+              lineHeight: '150%'
+            }}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
 
-        {/* Right Side - Content (50%) */}
-        <div className="lg:w-1/2 bg-white p-8 lg:p-12 flex flex-col">
-          <div>
-            <div className="flex gap-2 mb-8">
-              <Chip label={activeFilter} size="small" className="bg-gray-100 text-gray-700" />
-            </div>
-
-            <div className="space-y-6">
-              {currentContent.paragraphs.map((paragraph, index) => (
-                <Typography key={index} variant="body1" className="text-gray-700 leading-relaxed">
-                  {paragraph}
-                </Typography>
-              ))}
-            </div>
+          {/* Check Items */}
+          <div className="space-y-3 mt-4">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="flex items-start gap-2">
+                <Check size={18} className="text-black flex-shrink-0 mt-0.5" />
+                <p
+                  style={{
+                    fontFamily: "'Quicksand', sans-serif",
+                    fontSize: '13px',
+                    color: '#2A2A2A',
+                    lineHeight: '140%'
+                  }}
+                >
+                  Duis aute irure dolor in reprehenderit in voluptate
+                </p>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-auto pt-12 lg:pt-0">
-            <hr className="lg:mb-12 border-b border-gray-400" />
+          {/* Stats - Mobile Version */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <div className="space-y-2">
+              <p
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '12px',
+                  color: '#141414',
+                  lineHeight: '140%'
+                }}
+              >
+                Sed ac faucibus lectus
+              </p>
+              <div className="flex items-center gap-2">
+                <svg width="30" height="20" viewBox="0 0 60 39" fill="none">
+                  <path
+                    d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
+                    stroke="#A80040"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <h3
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontSize: '48px',
+                    fontWeight: 500,
+                    color: '#666666',
+                    lineHeight: '1'
+                  }}
+                >
+                  80%
+                </h3>
+              </div>
+            </div>
 
-            <div className="flex gap-8 lg:gap-12 mt-4 lg:mt-0">
-              {currentContent.stats.map((stat, index) => (
-                <div key={index}>
-                  <Typography variant="h2" className="text-5xl font-medium text-gray-900">
-                    {stat}
-                  </Typography>
-                </div>
-              ))}
+            <div className="space-y-2">
+              <p
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '12px',
+                  color: '#141414',
+                  lineHeight: '140%'
+                }}
+              >
+                Sed ac faucibus lectus
+              </p>
+              <div className="flex items-center gap-2">
+                <svg width="30" height="20" viewBox="0 0 60 39" fill="none">
+                  <path
+                    d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
+                    stroke="#A80040"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <h3
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontSize: '48px',
+                    fontWeight: 500,
+                    color: '#666666',
+                    lineHeight: '1'
+                  }}
+                >
+                  10X
+                </h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Hide scrollbar CSS */}
+      {/* Responsive Styles */}
       <style>{`
+        /* Desktop Only - lg and above (1024px+) */
+        @media (min-width: 1024px) {
+          .mobile-content {
+            display: none !important;
+          }
+          .desktop-content {
+            display: flex !important;
+          }
+        }
+
+        /* Mobile/Tablet - below lg (below 1024px) */
+        @media (max-width: 1023px) {
+          .building-section {
+            height: auto !important;
+            min-height: 100vh !important;
+            padding: 20px 0 !important;
+          }
+          
+          .desktop-content {
+            display: none !important;
+          }
+          
+          .mobile-content {
+            display: block !important;
+            position: relative !important;
+          }
+        }
+
+        /* Tablet - Medium screens */
+        @media (min-width: 640px) and (max-width: 1023px) {
+          .mobile-content h1 {
+            font-size: 36px !important;
+          }
+          
+          .mobile-content h2 {
+            font-size: 26px !important;
+          }
+          
+          .mobile-content p {
+            font-size: 15px !important;
+          }
+        }
+
+        /* Hide scrollbar */
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
