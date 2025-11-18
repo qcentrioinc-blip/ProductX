@@ -4,7 +4,7 @@ import {  H1, P } from "../../../styles/Typography";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full py-16 overflow-visible  bg-black  space-y-2 text-white">
+    <section className="relative w-full py-16 overflow-visible  pt-32 bg-black  space-y-2 text-white">
       {/* Background abstract image */}
       <img
         src="/Resources/ResourceClip.png"  
@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="lg:absolute hidden right-0 top-[20%] w-52 h-[700px] bg-gradient-to-l from-orange-500 via-amber-400 to-yellow-500 opacity-70 blur-[120px] rounded-full"></div>
 
       {/* Content wrapper */}
-      <div className="relative  max-w-8xl lg:mx-10 px-4 pt-16 md:pt-24 flex flex-col md:flex-col items-start gap-10">
+      <div className="relative  max-w-8xl lg:mx-10 px-4   md:pt-24 flex flex-col md:flex-col items-start gap-10">
         
         {/* Left Text Section */}
         <div className="w-full   text-left z-10">

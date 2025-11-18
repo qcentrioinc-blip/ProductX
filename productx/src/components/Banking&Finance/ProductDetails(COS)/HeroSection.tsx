@@ -198,7 +198,7 @@ export default function HeroSection() {
           <H1 className="mb-6  text-[#202020]">
             Lorem ipsum dolor, consectetur adipis
           </H1>
-          <P className="mb-8 max-w-md mx-auto md:mx-0 text-[#202020]">
+          <P className="mb-8 max-w-xl mx-auto md:mx-0 text-[#202020]">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia.

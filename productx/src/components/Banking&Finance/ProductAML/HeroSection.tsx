@@ -67,7 +67,7 @@ const HeroSection = () => {
     <div  className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
 -
 
-      <div className=" px-8 sm:px-12 md:px-16  lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between lg:pt-12 pt-4 items-center gap-8">
+      <div className=" px-8 sm:px-12 md:px-16 pt-4 lg:pt-44 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between    items-center gap-8">
 
         {/* Left Text */}
         <motion.div
@@ -141,7 +141,7 @@ const HeroSection = () => {
       </div>
  
       {/* --- DESKTOP IMAGE CLUSTER --- */}
-      <div className="relative hidden mx-auto mt-20 lg:flex justify-center md:px-10 lg:pb-12 pb-4 items-center">
+      <div className="relative   hidden mx-auto mt-20 lg:flex justify-center md:px-10 lg:pb-12 pb-4 items-center">
         <motion.img
           src={Image1}
           alt="Left"

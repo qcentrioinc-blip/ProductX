@@ -8,16 +8,19 @@ import Process from "../../components/Banking&Finance/Process"
 import Products from "../../components/Banking&Finance/Products"
 import  NewFooter from "../../components/Banking&Finance/Products2/NewFooter"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
-import Testimonial from "../../components/HomePage/LandingPages/Testimonial"
+import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
 import ContactUS from "../../components/Banking&Finance/Products2/ContactUS"
+import BNFNav from "../../components/Banking&Finance/BNFnav"
   
 const BankingAndFinance = () => {
   return (
-    <div>
+    <>
       
+     <BNFNav/>
       <HeroSection/>
+      
       <Intro/>
-      <Products/>
+      <Products />
       <WhatWeDoIn/>
       <Counter/>
       <Audit/>
@@ -27,7 +30,7 @@ const BankingAndFinance = () => {
       <ContactUS/>
       <NewFooter/>
       
-    </div>
+    </>
   )
 }
 

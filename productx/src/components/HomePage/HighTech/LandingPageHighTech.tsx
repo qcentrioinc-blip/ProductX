@@ -1,8 +1,15 @@
+// import { useState } from 'react';
 import HighTechNavbar from '../../HighTech/Navbar/HighTechNavbar';
 
-const LandingPageHighTech = () => {
-  
 
+ 
+const LandingPageHighTech = () => {
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ 
+  // const toggleMobileMenu = () => {
+  //   setIsMobileMenuOpen(!isMobileMenuOpen);
+  // };
+ 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-black to-orange-900">
       {/* Background Wave Image */}
@@ -45,7 +52,7 @@ const LandingPageHighTech = () => {
             >
               Shaping the Future Across
             </h1>
-
+ 
             {/* Italic Purple Text - Playfair Display */}
             <h2
               style={{
@@ -66,7 +73,7 @@ const LandingPageHighTech = () => {
               all the industries
             </h2>
           </div>
-
+ 
           {/* Contact Button */}
           <button className="bg-white text-black px-6 sm:px-8 md:px-8 lg:px-8 py-3 sm:py-4 md:py-4 lg:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2 shadow-xl text-sm sm:text-base md:text-base lg:text-base">
             CONTACT US
@@ -86,7 +93,7 @@ const LandingPageHighTech = () => {
           </button>
         </div>
       </div>
-
+ 
       {/* Bottom Image Boxes - Exact Specifications */}
       <div
         className="relative z-20 mx-auto pb-8 sm:pb-12 md:pb-16 lg:pb-16 mt-12 sm:mt-16 md:mt-24 lg:mt-24"
@@ -122,5 +129,5 @@ const LandingPageHighTech = () => {
     </div>
   );
 };
-
+ 
 export default LandingPageHighTech;

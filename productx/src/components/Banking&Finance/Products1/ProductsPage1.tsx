@@ -1,6 +1,7 @@
-import Footer from "../../Footer/Footer"
-import CallToAction from "../../HomePage/LandingPages/CallToAction"
-import Counter from "../../HomePage/LandingPages/Counter"
+import Footer from "../../Global/Footer/Footer"
+import CallToAction from "../../HomePage/GlobalLandingPage/CallToAction"
+import Counter from "../../HomePage/GlobalLandingPage/Counter"
+import BNFNav from "../BNFnav"
 
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
@@ -13,6 +14,7 @@ import FirstProduct from "./FirstProduct"
 const ProductsPage1 = () => {
     return (
         <div>
+            <BNFNav/>
             <FirstProduct />
             <Capabilities />
             <Enterprises />

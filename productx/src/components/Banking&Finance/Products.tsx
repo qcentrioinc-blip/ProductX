@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { H2, P } from "../../styles/Typography";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const Products = () => {
   const navigate = useNavigate();
   const products = [
@@ -87,9 +89,26 @@ const Products = () => {
     }
   ];
 
+    const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("scroll") === "products") {
+      const target = document.getElementById("productsSection");
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        },100);  
+      }
+    }
+  }, [location]);
+
   return (
     <section className="w-full bg-[#E7E7E7] py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="max-w-8xl md:px-0  md:mx-10 px-4 sm:px-8 lg:px-8">
+      <div className="max-w-8xl  md:px-0  md:mx-10 px-4 sm:px-8 lg:px-8">
         {/* Header */}
         <div className="mb-8 md:mb-12">
           <H2 className="  font-bold leading-tight">
@@ -100,11 +119,11 @@ const Products = () => {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 md:gap-10">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3  gap-4 md:gap-10" id="productsSection">
           {products.map((product) => (
             <div
   key={product.id}
-  className="relative aspect-[4/4] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
+  className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
   onClick={() => navigate(product.route)}
 >
   {/* Product Image */}
@@ -128,7 +147,7 @@ const Products = () => {
       <div
         className="absolute left-4 sm:left-6 bottom-6  md:w-[200px] rounded-md  py-4  sm:py-3 
                    transition-all duration-700 ease-in-out transform
-                   group-hover:-translate-y-75"
+                   group-hover:-translate-y-50"
       >
         <img
           src={product.logo}

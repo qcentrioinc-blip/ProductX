@@ -4,18 +4,29 @@ import Testimonial from "./Testimonial"
 import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
-import NewFooter from "../Products2/NewFooter"
+ 
+import FaqSection from "../ProductDetails4/FAQ"
+import NewOneFooter from "../Products2/NewOneFooter"
+import ContactUS from "../Products2/ContactUS"
+import BNFNav from "../BNFnav"
+ 
+ 
 
 const AML = () => {
   return (
     <div>
+      <BNFNav/>
       <HeroSection />
       <Testimonial />
       <Description />
       <Banks />
       <HWD />
+      
+      <FaqSection/>
       <InsightThought/>
-      <NewFooter/>
+     <ContactUS/>
+      <NewOneFooter/>
+    
     </div>
   )
 }

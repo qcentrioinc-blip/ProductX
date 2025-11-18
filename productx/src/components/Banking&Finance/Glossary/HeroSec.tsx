@@ -1,3 +1,5 @@
+import { H1 } from "../../../styles/Typography";
+
 const HeroSec = () => {
   return (
     <section className="relative w-full h-screen">
@@ -11,9 +13,9 @@ const HeroSec = () => {
 
       {/* Text content */}
       <div className="relative z-10 flex items-center h-full px-8 sm:px-16 md:px-24">
-        <h1 className="text-white text-4xl md:text-5xl font-bold max-w-2xl">
-          Sed ut perspiciatis unde omnis iste natus
-        </h1>
+        <H1 className="text-white max-w-3xl">
+          Sed ut perspiciatis <br/>unde omnis iste natus
+        </H1>
       </div>
     </section>
   );
