@@ -1,4 +1,5 @@
 
+import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import Advantage from "./Advantage"
 import Benefits from "./Benefits"
 import HeroSection from "./HeroSection"
@@ -16,6 +17,7 @@ const Clinic = () => {
       <div className="relative overflow-x-hidden">
       <Advantage/>
         <HWD/>
+        <EHRFooter/>
       </div>
            
        

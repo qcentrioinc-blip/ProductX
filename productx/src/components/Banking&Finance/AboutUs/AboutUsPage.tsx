@@ -5,7 +5,8 @@ import Capabilities from "../Products1/Capabilities";
 import Process from "../Process";
 import ContactUS from "../Products2/ContactUS";
 import NewFooter from "../Products2/NewFooter";
-import Counter from "../../HomePage/LandingPages/Counter";
+// import Counter from "../../HomePage/LandingPages/Counter";
+import Counter from "../../HomePage/GlobalLandingPage/Counter";
 
 const AboutUsPage = () => {
   return (

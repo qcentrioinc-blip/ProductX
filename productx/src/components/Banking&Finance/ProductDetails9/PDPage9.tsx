@@ -7,11 +7,18 @@ import HWD from "../HWD";
 import FaqSection from "../ProductDetails4/FAQ";
 import InsightThought from "../InsightThought";
 import ContactUS from "../Products2/ContactUS";
-import NewFooter from "../Products2/NewFooter";
+// import NewFooter from "../Products2/NewFooter";
+import NewOneFooter from "../Products2/NewOneFooter";
+// import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
+
+// import NewFooter from "../Products2/NewFooter";
+import BNFNav from "../BNFnav";
 
 const PDPage9 = () => {
   return (
     <>
+    {/* <ScrollProvider> */}
+    <BNFNav/>
       <HeroSection />
       <FeatureGridSection />
       <StatsSection />
@@ -21,7 +28,17 @@ const PDPage9 = () => {
       <FaqSection />
       <InsightThought />
       <ContactUS />
-      <NewFooter />
+      {/* <NewFooter /> */}
+       {/* <div 
+        className='lg:relative lg:h-[700px]'
+        style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
+      >
+        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
+          {/* <NewFooter /> */}
+          <NewOneFooter/>
+        {/* </div> */}
+      {/* </div> */}
+    {/* </ScrollProvider> */}
     </>
   );
 };

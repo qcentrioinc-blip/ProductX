@@ -5,7 +5,7 @@ import { H1, P } from "../../../styles/Typography";
 
 export default function ContactHero() {
   return (
-    <section className="relative w-full bg-[#0A0A0A] text-white pt-[60px] overflow-hidden">
+    <section className="relative w-full pt-40 bg-[#0A0A0A] text-white  overflow-hidden">
       {/* decorative glows */}
       <div className="
               absolute 

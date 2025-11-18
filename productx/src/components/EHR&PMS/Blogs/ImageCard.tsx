@@ -82,7 +82,7 @@ const ImageCard: React.FC = () => {
   return (
     <section className="py-10">
       {/* INCREASED MAX WIDTH: max-w-7xl -> max-w-8xl */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-10 px-4 sm:px-6 lg:px-8">
         <div 
           // Grid setup remains responsive: 1 col (mobile), 2 col (md), 3 col (lg)
           // INCREASED GAP: gap-8 -> gap-10

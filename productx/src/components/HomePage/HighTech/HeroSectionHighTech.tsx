@@ -6,9 +6,9 @@ import RockTech from "./RockTech"
 import OnePoint from "./OnePoint"
 import TextAnimation from "./TextAnimation"
 import SmallArticle from "./SmallArticle"
-import FeatureCards from "./FeatureCards"
-import ProductSec from "./ProductSec"
-import WorkProfile from "./WorkProfile"
+// import FeatureCards from "./FeatureCards"
+// import ProductSec from "./ProductSec"
+// import WorkProfile from "./WorkProfile"
 
 const HeroSectionHighTech = () => {
   return (
@@ -20,10 +20,10 @@ const HeroSectionHighTech = () => {
       <OnePoint />
       <SmallArticle />
       <ThreeStep/>
-      <ProductSec />
-      <FeatureCards />
-      <WorkProfile />
-      <RockTech />
+      {/* <ProductSec /> */}
+      {/* <FeatureCards />
+      <WorkProfile />*/}
+      // <RockTech /> 
     </div>
   )
 }

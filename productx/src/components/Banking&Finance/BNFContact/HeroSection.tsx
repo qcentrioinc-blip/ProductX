@@ -12,7 +12,7 @@ const HeroSection = ({ bgColor = "#E5F0FF" }: HeroSectionProps) => {
       className="w-full py-16 px-6 md:px-12 lg:px-20"
       style={{ backgroundColor: bgColor }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 mt-16 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto pt-28 grid grid-cols-1 mt-16 md:grid-cols-2 gap-12 items-center">
         {/* Left Side – Form */}
         <div>
           <H1 className="text-[#141414] mb-6">Quam finibus</H1>
