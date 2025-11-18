@@ -1,19 +1,16 @@
-// import { useState } from 'react';
-import { H1 } from '../../../styles/Typography';
-
+import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+ 
 const LandingPageHighTech = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // const navLinks = [
-  //   { name: 'Products', href: '#products' },
-  //   { name: 'About Us', href: '#about' },
-  //   { name: 'Resources', href: '#resources' },
-  //   { name: 'Careers', href: '#careers' }
-  // ];
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+ 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-black to-orange-900">
-      {/* Background Wave Image - Positioned in hero area */}
+      {/* Background Wave Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
           src="/HighTech/HomePage/WaveHighTech.png"
@@ -21,131 +18,188 @@ const LandingPageHighTech = () => {
           className="w-full h-full object-cover"
         />
       </div>
-
-      {/* Top Navigation Bar - Small, dark */}
-      {/* <div className="relative z-50 bg-gray-800 bg-opacity-90 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
-          <div className="flex items-center gap-1">
-            <div className="bg-gray-600 text-white text-xs px-3 py-1 rounded">
-              LOGO
+ 
+      {/* Top Simple Bar - Platform & Marketplace */}
+      <div
+        className="w-full py-2 px-4"
+        style={{
+          borderBottom: '2px solid rgba(255, 255, 255, 0.3)'
+        }}
+      >
+        <div className="max-w-[1600px] mx-auto h-[40px] flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="bg-white px-4 py-1 rounded-md">
+              <span className="text-black text-[12px] font-bold">LOGO</span>
             </div>
           </div>
-          <div className="hidden md:flex gap-6 text-sm text-gray-300">
-            <a href="#" className="hover:text-white transition-colors">Platform</a>
-            <a href="#" className="hover:text-white transition-colors">Marketplace</a>
+ 
+          <div className="flex items-center gap-10">
+            <a href="#platform" className="text-white text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
+              Platform
+            </a>
+            <a href="#marketplace" className="text-white text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
+              Marketplace
+            </a>
           </div>
         </div>
-      </div> */}
-
-      {/* Main Navigation - White pill-shaped with rounded edges */}
-      {/* <div className="relative z-40 px-4 sm:px-6 lg:px-6 py-4">
-        <div className="max-w-7xl mx-auto">
-          <nav className="bg-white rounded-full shadow-2xl px-4 sm:px-6 md:px-8 lg:px-8 py-3 sm:py-4 md:py-4 lg:py-4 flex items-center justify-between"> */}
-            {/* Logo Circle */}
-            {/* <div className="flex items-center flex-shrink-0">
-              <div className="w-10 sm:w-12 md:w-12 lg:w-12 h-10 sm:h-12 md:h-12 lg:h-12 bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xs font-semibold">LOGO</span>
+      </div>
+ 
+      {/* Main White Navbar */}
+      <header className="w-full bg-transparent pt-4 pb-4">
+        <div className="max-w-[1540px] mx-auto">
+          <nav className="relative w-full max-w-[1480px] h-[80px] mx-auto bg-white rounded-[60px] px-4 flex items-center justify-between shadow-lg z-50">
+            {/* Logo */}
+            <div className="flex items-center">
+              <div className="bg-[#2A2A2A] w-[60px] h-[60px] rounded-full flex items-center justify-center text-white font-bold text-[10px]">
+                LOGO
               </div>
-            </div> */}
-
-            {/* Navigation Links - Desktop Only */}
-            {/* <div className="hidden lg:flex items-center gap-8 text-gray-900 font-medium">
-              <a href="#products" className="hover:text-gray-600 transition-colors">Products</a>
-              <a href="#about" className="hover:text-gray-600 transition-colors">About Us</a>
-              <a href="#resources" className="hover:text-gray-600 transition-colors">Resources</a>
-              <a href="#careers" className="hover:text-gray-600 transition-colors">Careers</a>
-            </div> */}
-
-            {/* Desktop Contact Button */}
-            {/* <button className="hidden lg:flex bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors items-center gap-2 flex-shrink-0">
-              CONTACT US
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </button> */}
-
-            {/* Mobile Hamburger Menu Button */}
-            {/* <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0"
-            >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="text-gray-900"
-              >
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
-          </nav> */}
-
-          {/* Mobile Menu - Dropdown */}
-          {/* {isMenuOpen && (
-            <div className="lg:hidden bg-white rounded-lg shadow-2xl mt-2 p-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name}
-                  href={link.href} 
-                  className="text-gray-900 font-medium py-2 px-4 hover:bg-gray-100 rounded transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-              <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors w-full mt-2">
+            </div>
+ 
+            {/* Desktop Navigation - CENTERED */}
+            <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2">
+              <ul className="flex gap-[36px] list-none items-center">
+                <li>
+                  <a href="#products" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                    Products
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#resources" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                    Resources
+                  </a>
+                </li>
+                <li>
+                  <a href="#careers" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                    Careers
+                  </a>
+                </li>
+              </ul>
+            </div>
+ 
+            {/* Contact Button */}
+            <div className="hidden lg:flex items-center ml-auto">
+              <button className="bg-black text-white px-7 py-3 rounded-[8px] text-[13px] font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors duration-300">
                 CONTACT US
+                <span className="text-[16px]"><ArrowUpRight /></span>
               </button>
             </div>
-          )}
+ 
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden flex flex-col gap-1.5 focus:outline-none"
+            >
+              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
+              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
+              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
+            </button>
+          </nav>
         </div>
-      </div> */}
-
-      {/* Hero Section */}
-      <div className="relative z-30 max-w-7xl  mx-auto px-4 sm:px-6 lg:px-6 py-12 sm:py-16 md:py-20 lg:py-20 mt-6 sm:mt-8 md:mt-12 lg:mt-12">
-        <div className="text-center">
-          {/* Main Heading */}
-          <H1 className="text-4xl sm:text-5xl pt-32 md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-3 sm:mb-4 lg:mb-4">
-            Shaping the Future Across
-          </H1>
-          
-          {/* Italic Purple Text */}
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold italic mb-8 sm:mb-10 md:mb-12 lg:mb-12"
-              style={{ 
-                color: '#a855f7',
-                fontStyle: 'italic'
-              }}>
-            all the industries
-          </h2>
-
+ 
+        {/* Mobile Menu Dropdown */}
+        <div
+          className={`lg:hidden bg-white mx-4 rounded-2xl mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <ul className="flex flex-col px-5 py-4 space-y-4">
+            <li className="border-b border-gray-300 pb-3">
+              <a href="#products" className="text-gray-800 text-base font-medium hover:text-black">
+                Products
+              </a>
+            </li>
+            <li className="border-b border-gray-300 pb-3">
+              <a href="#about" className="text-gray-800 text-base font-medium hover:text-black">
+                About Us
+              </a>
+            </li>
+            <li className="border-b border-gray-300 pb-3">
+              <a href="#resources" className="text-gray-800 text-base font-medium hover:text-black">
+                Resources
+              </a>
+            </li>
+            <li className="border-b border-gray-300 pb-3">
+              <a href="#careers" className="text-gray-800 text-base font-medium hover:text-black">
+                Careers
+              </a>
+            </li>
+            <li className="pt-2">
+              <button className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 hover:bg-gray-800">
+                CONTACT US
+                <span className="text-lg">↗</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </header>
+ 
+      {/* Hero Section with Exact Typography */}
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12 sm:py-16 md:py-20 lg:py-20 mt-6 sm:mt-8 md:mt-12 lg:mt-12">
+        <div className="text-center flex flex-col items-center">
+          {/* Title Container - Exact Width */}
+          <div
+            style={{
+              width: '1091px',
+              maxWidth: '100%',
+              opacity: 1
+            }}
+          >
+            {/* Main Heading - Bricolage Grotesque */}
+            <h1
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 700,
+                fontSize: '64px',
+                lineHeight: '117%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#F5F5F5',
+                opacity: 1,
+                margin: 0,
+                marginBottom: '8px'
+              }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px]"
+            >
+              Shaping the Future Across
+            </h1>
+ 
+            {/* Italic Purple Text - Playfair Display */}
+            <h2
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 600,
+                fontStyle: 'italic',
+                fontSize: '64px',
+                lineHeight: '130%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#8338EC',
+                opacity: 1,
+                margin: 0,
+                marginBottom: '48px'
+              }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
+            >
+              all the industries
+            </h2>
+          </div>
+ 
           {/* Contact Button */}
-          <button className="bg-white text-black px-6 sm:px-8 md:px-8 lg:px-8 py-3 sm:py-4 md:py-4 lg:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2 mx-auto shadow-xl text-sm sm:text-base md:text-base lg:text-base">
+          <button className="bg-white text-black px-6 sm:px-8 md:px-8 lg:px-8 py-3 sm:py-4 md:py-4 lg:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2 shadow-xl text-sm sm:text-base md:text-base lg:text-base">
             CONTACT US
-            <svg 
-              width="18" 
-              height="18" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             >
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -154,17 +208,33 @@ const LandingPageHighTech = () => {
           </button>
         </div>
       </div>
-
-      {/* Bottom Image Placeholder Boxes */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-16 mt-12 sm:mt-16 md:mt-24 lg:mt-24">
-        <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-6 lg:gap-6 justify-center items-center">
+ 
+      {/* Bottom Image Boxes - Exact Specifications */}
+      <div
+        className="relative z-20 mx-auto pb-8 sm:pb-12 md:pb-16 lg:pb-16 mt-12 sm:mt-16 md:mt-24 lg:mt-24"
+        style={{
+          width: '1248.39px',
+          maxWidth: 'calc(100% - 40px)',
+          paddingLeft: '20px',
+          paddingRight: '20px',
+          margin: '0 auto'
+        }}
+      >
+        <div
+          className="flex flex-wrap justify-center items-center"
+          style={{
+            gap: '55px',
+            opacity: 1
+          }}
+        >
           {[1, 2, 3, 4, 5].map((item) => (
             <div
               key={item}
-              className="bg-gray-700/30 backdrop-blur-sm rounded-lg"
+              className="rounded-lg"
               style={{
-                width: '197.677px',
-                height: '77.094px',
+                width: '197.68px',
+                height: '77.09px',
+                background: '#D9D9D936',
                 opacity: 1
               }}
             />
@@ -174,5 +244,5 @@ const LandingPageHighTech = () => {
     </div>
   );
 };
-
+ 
 export default LandingPageHighTech;

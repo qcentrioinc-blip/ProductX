@@ -1,43 +1,140 @@
-import { ArrowUpRight, Play } from 'lucide-react';
-import { H1, P } from '../../../styles/Typography';
+ 
 
 const Overview = () => {
+   
+
+   
     return (
-        <div className="min-h-screen bg-black flex flex-col lg:flex-row">
-            {/* Left Section */}
-            <div className="flex-1 px-6 lg:pt-44 sm:px-8 md:px-12 lg:px-16 py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col justify-center">
-                <H1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8 text-center lg:text-left">
-                    Smarter Banking,<br />
-                    Simplified with AI
-                </H1>
+        <div className="w-full min-h-screen bg-[#FFD700] relative overflow-hidden">
+            
 
-                <P className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit.
-                </P>
+          
 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center lg:items-start">
-                    <button className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors">
-                        CONTACT SALES
-                        <ArrowUpRight size={20} />
-                    </button>
+            {/* Hero Section */}
+            <section className="relative max-w-[1480px] lg:pt-44 mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    {/* Left Content */}
+                    <div className="relative z-10 text-center lg:text-left">
+                        {/* Main Heading */}
+                        <h1
+                            className="text-[36px] sm:text-[48px] lg:text-[64px] font-bold text-blue-600 mb-4 sm:mb-6"
+                            style={{
+                                fontFamily: "'Space Grotesk', sans-serif",
+                                lineHeight: '110%',
+                                letterSpacing: '-0.5px',
+                                fontWeight: 700,
+                                color: '#2B68C3'
+                            }}
+                        >
+                            Smarter Banking, Simplified with AI
+                        </h1>
 
-                    <button className="w-full sm:w-auto text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold flex items-center justify-center gap-3 border border-gray-600 hover:border-gray-400 transition-colors">
-                        <Play size={16} fill="white" />
-                        WATCH OVERVIEW
-                    </button>
+                        {/* Description */}
+                        <p
+                            className="text-[14px] sm:text-[16px] text-[#2A2A2A] max-w-full lg:max-w-[520px] mb-6 sm:mb-8 lg:mb-10 mx-auto lg:mx-0"
+                            style={{
+                                fontFamily: "'Quicksand', sans-serif",
+                                lineHeight: '160%',
+                                fontWeight: 400
+                            }}
+                        >
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+                        </p>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-[20px] justify-center lg:justify-start">
+                            {/* Contact Sales Button */}
+                            <button className="bg-white text-black h-[48px] px-6 sm:px-8 rounded-[8px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors duration-300 w-full sm:w-auto">
+                                CONTACT SALES
+                                <span>↗</span>
+                            </button>
+
+                            {/* Watch Overview Button */}
+                            <button className="bg-transparent text-blue-600 h-[48px] px-6 sm:px-8 rounded-[8px] font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors duration-300 w-full sm:w-auto">
+                                WATCH OVERVIEW
+                                <span className="text-[16px]">▶</span>
+                            </button>
+                        </div>
+
+                        {/* Decorative Circle - Bottom Left - Desktop Only */}
+                        <img
+                            src="/Products/Products2/CircleLeft.png"
+                            alt="Decorative Circle"
+                            className="absolute lg:block hidden pointer-events-none z-0"
+                            style={{
+                                width: '300px',
+                                height: '220px',
+                                bottom: '-250px',
+                                left: '-140px',
+                                opacity: 0.9
+                            }}
+                        />
+                    </div>
+
+                    {/* Right Content - Stats Dashboard */}
+                    <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
+                        {/* Decorative Circle - Top Right - Desktop Only */}
+                        <img
+                            src="/Products/Products2/CircleRight.png"
+                            alt="Decorative Circle"
+                            className="absolute lg:block hidden pointer-events-none"
+                            style={{
+                                width: '180px',
+                                height: '250px',
+                                top: '-90px',
+                                right: '-140px',
+                                opacity: 0.9,
+                                zIndex: 20
+                            }}
+                        />
+
+                        {/* Stats Image - Responsive */}
+                        <div className="stats-container relative rounded-[16px] overflow-hidden shadow-2xl lg:mt-12"
+                            style={{
+                                width: '900px',
+                                height: '500px',
+                                marginRight: '-210px',
+                                zIndex: 0
+                            }}
+                        >
+                            <img
+                                src="/Products/Products2/Stats.png"
+                                alt="Dashboard Stats"
+                                className="w-full h-auto block"
+                            />
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Right Section - Orange Gradient */}
-            <div className="flex-1 bg-black flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12">
-                <img 
-                    src="/Products/Products2/Overview.png" 
-                    alt="Banking AI Overview" 
-                    className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full h-auto object-contain" 
-                />
-            </div>
+            {/* Responsive Styles */}
+            <style>{`
+                /* Mobile & Tablet - Stats Image */
+                @media (max-width: 1023px) {
+                    .stats-container {
+                        width: 100% !important;
+                        max-width: 600px !important;
+                        height: auto !important;
+                        margin: 0 auto !important;
+                        margin-right: 0 !important;
+                    }
+                }
+
+                /* Tablet - Medium screens */
+                @media (min-width: 640px) and (max-width: 1023px) {
+                    .stats-container {
+                        max-width: 700px !important;
+                    }
+                }
+
+                /* Mobile - Extra small screens */
+                @media (max-width: 639px) {
+                    .stats-container {
+                        max-width: 100% !important;
+                        border-radius: 12px !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };
