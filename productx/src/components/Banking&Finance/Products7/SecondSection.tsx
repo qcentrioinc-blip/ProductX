@@ -1,61 +1,86 @@
 "use client"
 
-import { H2, P } from "../../../styles/Typography"
-
-/**
- * new SecondSection component that matches the black two-column reference
- */
 export default function SecondSection() {
   return (
-    <section className="w-full bg-black text-white border-b border-white/10">
-      <div
-        className="
-          mx-auto max-w-[1400px]
-          px-4 sm:px-6 md:px-8 lg:px-16
-          py-12 sm:py-16 md:py-20 lg:py-24
-        "
-      >
+    <section className="w-full flex items-center justify-center bg-[#010101]">
+      {/* Desktop/Laptop */}
+      <div className="hidden lg:flex w-full items-center justify-center">
         <div
-          className="
-            flex flex-col lg:flex-row lg:items-center lg:justify-between
-            gap-8 sm:gap-10 md:gap-16 lg:gap-24
-            min-h-0 lg:min-h-[380px]
-          "
+          style={{
+            width: '1440px',
+            height: '310px',
+            padding: '80px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
-          {/* Left: Tight multi-line headline */}
-          <div className="w-full lg:basis-[50%] lg:max-w-[720px]">
-            <H2
-              className="
-                font-bold font-sans
-                text-2xl sm:text-3xl md:text-4xl lg:text-[44px]
-                leading-[1.1] sm:leading-[1.08] lg:leading-[1.05]
-                text-white
-              "
+          <div
+            style={{
+              width: '1280px',
+              height: '150px',
+              display: 'flex',
+              gap: '208px',
+              alignItems: 'flex-start'
+            }}
+          >
+            <h2
+              style={{
+                width: '440.40625px',
+                height: '148.5px',
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 700,
+                fontSize: '40px',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#F5F5F5',
+                margin: 0
+              }}
             >
-              <span>Sed ut perspiciatisSed ut</span>
-              <br className="hidden lg:block" />
-              <span>perspiciatisSed ut</span>
-              <br className="hidden lg:block" />
-              <span>perspiciatis</span>
-            </H2>
-          </div>
-
-          {/* Right: Long paragraph, light gray and vertically centered */}
-          <div className="w-full lg:basis-[50%] lg:max-w-[620px]">
-            <P
-              className="
-                text-sm sm:text-base md:text-lg lg:text-[20px]
-                leading-[1.6] sm:leading-[1.55] lg:leading-[1.5]
-                text-neutral-300
-              "
+              Sed ut perspiciatisSed ut perspiciatisSed ut perspiciatis
+            </h2>
+            <p
+              style={{
+                width: '613.076171875px',
+                height: '150px',
+                fontFamily: "'Quicksand', sans-serif",
+                fontWeight: 400,
+                fontSize: '20px',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#CCCCCC',
+                margin: 0,
+                overflow: 'hidden'
+              }}
             >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-            </P>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+            </p>
           </div>
         </div>
+      </div>
+
+      {/* Mobile/Tablet */}
+      <div className="lg:hidden w-full px-6 py-12 flex flex-col items-start justify-center">
+        <h2
+          className="mb-6 text-[32px] font-bold leading-[110%]"
+          style={{
+            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontWeight: 700,
+            color: '#F5F5F5'
+          }}
+        >
+          Sed ut perspiciatisSed ut perspiciatisSed ut perspiciatis
+        </h2>
+        <p
+          className="text-[16px] leading-[150%]"
+          style={{
+            fontFamily: "'Quicksand', sans-serif",
+            fontWeight: 400,
+            color: '#CCCCCC'
+          }}
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+        </p>
       </div>
     </section>
   )
