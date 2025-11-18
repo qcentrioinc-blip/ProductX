@@ -10,6 +10,7 @@ import ThreeTab from "./ThreeTab";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import NewOneFooter from "./NewOneFooter";
 import BNFNav from "../BNFnav";
+import TwoPart from "./TwoPart";
 
 const ProductsPage2 = () => {
   return (
@@ -20,6 +21,7 @@ const ProductsPage2 = () => {
       <SecondHeading />
       <ThirdCards />
       <ThreeTab />
+      <TwoPart />
       <FiveCards />
       <ArrowBuilding />
       <NewsLetter />
