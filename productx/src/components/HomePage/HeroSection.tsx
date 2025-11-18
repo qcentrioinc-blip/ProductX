@@ -1,4 +1,4 @@
-import HeroSectionBanking from "./Banking&Finance/HeroSectionBanking"
+import HeroSectionBanking from "./LandingPages/HeroSectionBanking"
 
 const HeroSection = () => {
   return (

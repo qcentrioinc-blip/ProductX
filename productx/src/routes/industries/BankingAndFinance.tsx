@@ -8,7 +8,7 @@ import Process from "../../components/Banking&Finance/Process"
 import Products from "../../components/Banking&Finance/Products"
 import  NewFooter from "../../components/Banking&Finance/Products2/NewFooter"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
-import Testimonial from "../../components/HomePage/Banking&Finance/Testimonial"
+import Testimonial from "../../components/HomePage/LandingPages/Testimonial"
 import ContactUS from "../../components/Banking&Finance/Products2/ContactUS"
   
 const BankingAndFinance = () => {

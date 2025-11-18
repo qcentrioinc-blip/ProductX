@@ -1,6 +1,6 @@
 import Footer from "../../Footer/Footer"
-import CallToAction from "../../HomePage/Banking&Finance/CallToAction"
-import Counter from "../../HomePage/Banking&Finance/Counter"
+import CallToAction from "../../HomePage/LandingPages/CallToAction"
+import Counter from "../../HomePage/LandingPages/Counter"
 
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
