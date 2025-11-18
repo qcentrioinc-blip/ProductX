@@ -2,6 +2,7 @@ import { H1, H2, P } from "../../../styles/Typography";
 //import { motion } from 'framer-motion';
 import Image2 from "/Image2.jpg"
 import Footer from "../../Global/Footer/Footer";
+import CallToAction from "../../HomePage/GlobalLandingPage/CallToAction";
 
 export default function Blogs() {
 
@@ -299,5 +300,5 @@ export default function Blogs() {
 }
 
 import { useState } from "react";
-import CallToAction from "../../HomePage/GlobalLandingPage/CallToAction";
+
 
