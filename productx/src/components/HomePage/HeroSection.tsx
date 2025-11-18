@@ -1,3 +1,4 @@
+// import HeroSectionBanking from "./LandingPages/HeroSectionBanking"
 import HeroSectionBanking from "./GlobalLandingPage/HeroSectionBanking"
 
 const HeroSection = () => {
