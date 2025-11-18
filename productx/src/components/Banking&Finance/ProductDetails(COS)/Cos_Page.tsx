@@ -13,11 +13,13 @@ import NewOneFooter from "../Products2/NewOneFooter";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import FeatureGrid2 from "./FeatureGrid2";
 
+import BNFNav from "../BNFnav";
 
 const Cos_Page = () => {
   return (
    <ScrollProvider>
     <div>
+      <BNFNav/>
         <HeroSection />
         <StatsSection />
         <Cards />

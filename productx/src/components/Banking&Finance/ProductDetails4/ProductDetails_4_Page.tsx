@@ -10,6 +10,7 @@ import ContactUS from "../Products2/ContactUS";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import NewOneFooter from "../Products2/NewOneFooter";
 
+import BNFNav from "../BNFnav";
 
 
 const ProductDetails_4_page = () => {
@@ -17,6 +18,7 @@ const ProductDetails_4_page = () => {
     <ScrollProvider> {/* Wrap the entire content with ScrollProvider */}
 
     <div>
+      <BNFNav/>
         <TitleSec /> 
         <CardsSection />
         <Features />

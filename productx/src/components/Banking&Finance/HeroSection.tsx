@@ -20,7 +20,7 @@ const HeroSection = () => {
       <div className="relative h-full flex items-center md:mx-10 px-4 sm:px-6 md:px-0 lg:px-8">
         <div className="w-full max-w-4xl text-left">
           {/* Animated heading */}
-          <H1 className="  font-bold text-white mb-4 md:mb-6 leading-tight animate-[slideInLeft_0.8s_ease-out]">
+          <H1 className="  font-bold lg:mt-12 text-white mb-4 md:mb-6 leading-tight animate-[slideInLeft_0.8s_ease-out]">
             Shaping the Future
             <br />  
             Across B and F

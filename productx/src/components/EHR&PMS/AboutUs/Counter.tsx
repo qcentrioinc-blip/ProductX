@@ -95,7 +95,7 @@ const Counter = () => {
     </div>
 
     {/* Counter Section */}
-    <div className="flex flex-col md:flex-row items-center justify-center mt-12 gap-14 text-center">
+    <div className="flex flex-col  md:flex-row items-center justify-center mt-12 gap-14 text-center">
       {/* Counter 1 */}
       <div>
         <h2 className="lg:text-6xl text-4xl font-bricolage  lg:-mt-40   font-bold text-black">

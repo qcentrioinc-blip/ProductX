@@ -97,7 +97,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full text-center">
+    <section className="relative mt-44 w-full text-center">
       {/* Top Section Container - Relative for background overlay */}
       <div className="relative w-full">
         {/* Background Overlay for the Expanding Animation */}
@@ -211,7 +211,7 @@ const HeroSection = () => {
           animate="visible"
           variants={containerVariants} // Use container to stagger image animations
         >
-          <div className="relative flex justify-center items-center">
+          <div className="relative flex  pt-6 justify-center items-center">
             
             {/* Left Image */}
             <motion.img

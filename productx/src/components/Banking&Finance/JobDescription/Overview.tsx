@@ -4,6 +4,7 @@ import linkedinLogo from "/LinkedIn.png";
 import xLogo from "/Twitter.png";
 import { useEffect,useRef,useState } from "react";
 import { ArrowUpRight,ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 const OverviewSection = () => {
    const [showBar, setShowBar] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -99,6 +100,7 @@ const OverviewSection = () => {
         </div>
 
         <div className="hidden md:flex flex-col items-start mt-10 sticky top-24 self-start w-[280px]">
+          <Link to="/industries/banking-and-finance/jobapplication">
           <button
             className="group flex items-center justify-center gap-2 w-[250px] h-[48px]
                        px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px]
@@ -111,6 +113,7 @@ const OverviewSection = () => {
               <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </span>
           </button>
+          </Link>
 
           <div className="mt-8 space-y-4 items-start">
             <P className="text-gray-600 font-semibold">Share Job</P>

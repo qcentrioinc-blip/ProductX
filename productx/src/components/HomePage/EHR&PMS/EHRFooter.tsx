@@ -3,23 +3,88 @@ import { Link } from 'react-router-dom';
 const EHRFooter = () => {
   return (
     <footer className="bg-gradient-to-b from-[#A8D5C3] via-[#7CB89D] to-[#5A9B80] text-white">
-      {/* Top Section - Logo and Tagline */}
+      {/* Top Section - Logo and Newsletter */}
       <div className="bg-[#A8D5C3] py-16 px-8 md:px-16 lg:px-24">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Logo */}
-          <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-wider">
-            <span className="text-black">Q</span>
-            <span className="text-[#3D7A63]">N</span>
-            <span className="text-black">E</span>
-            <span className="text-[#3D7A63]">S</span>
-            <span className="text-black">T</span>
-          </h1>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+          {/* Left Side - Logo and Tagline */}
+          <div className="flex-shrink-0">
+            {/* Logo - QNEST with Bricolage Grotesque */}
+            <h1 
+              className="mb-4"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(80px, 10vw, 124.56px)',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
+              <span className="text-black">Q</span>
+              <span className="text-[#166D48]">N</span>
+              <span className="text-black">E</span>
+              <span className="text-[#166D48]">S</span>
+              <span className="text-black">T</span>
+            </h1>
 
-          {/* Tagline */}
-          <p className="text-gray-800 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat cillum dolore eu fugiat
-          </p>
+            {/* Tagline with Quicksand */}
+            <p 
+              className="max-w-md"
+              style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontWeight: 400,
+                fontSize: '18px',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#F5F5F5'
+              }}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat
+            </p>
+          </div>
+
+          {/* Right Side - Newsletter Section */}
+          <div className="flex-1 max-w-2xl w-full">
+            {/* Newsletter Title with Bricolage Grotesque */}
+            <h2 
+              className="mb-6 text-right"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#000000'
+              }}
+            >
+              Subscribe to our newsletter.
+            </h2>
+
+            {/* Email Input and Submit Button */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-end">
+              <input
+                type="email"
+                placeholder="Enter your mail"
+                className="flex-1 sm:max-w-md px-6 py-4 rounded-full border-2 border-[#166D48] bg-transparent outline-none text-black placeholder:text-gray-600"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '16px'
+                }}
+              />
+              <button
+                className="px-6 py-4 bg-[#141414] hover:bg-[#2A2A2A] text-white rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-colors"
+                style={{
+                  fontFamily: "'Arial', sans-serif",
+                  fontWeight: 600
+                }}
+              >
+                SUBMIT
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -30,7 +95,18 @@ const EHRFooter = () => {
           to="/industries/ehr-and-pms" 
           className="bg-[#7CB89D] border-b border-[#6BA88A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#6FA88F] transition-colors cursor-pointer"
         >
-          <span className="text-white text-2xl md:text-3xl font-bold">Home</span>
+          <span 
+            className="text-white"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: 'clamp(24px, 3vw, 32px)',
+              lineHeight: '100%',
+              letterSpacing: '0%'
+            }}
+          >
+            Home
+          </span>
         </Link>
 
         {/* About Us with LinkedIn */}
@@ -55,7 +131,14 @@ const EHRFooter = () => {
             </div>
             <Link 
               to="/industries/ehr-and-pms/about-us" 
-              className="text-white text-2xl md:text-3xl font-bold hover:text-gray-200 transition-colors"
+              className="text-white hover:text-gray-200 transition-colors"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(24px, 3vw, 32px)',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
             >
               About Us
             </Link>
@@ -67,7 +150,18 @@ const EHRFooter = () => {
           to="/industries/ehr-and-pms/clinic-app" 
           className="bg-[#62A082] border-b border-[#528E71] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#569775] transition-colors cursor-pointer"
         >
-          <span className="text-white text-2xl md:text-3xl font-bold">Clinic App</span>
+          <span 
+            className="text-white"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: 'clamp(24px, 3vw, 32px)',
+              lineHeight: '100%',
+              letterSpacing: '0%'
+            }}
+          >
+            Clinic App
+          </span>
         </Link>
 
         {/* Blogs with X (Twitter) */}
@@ -92,7 +186,14 @@ const EHRFooter = () => {
             </div>
             <Link 
               to="/industries/ehr-and-pms/blogs" 
-              className="text-white text-2xl md:text-3xl font-bold hover:text-gray-200 transition-colors"
+              className="text-white hover:text-gray-200 transition-colors"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(24px, 3vw, 32px)',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
             >
               Blogs
             </Link>
@@ -104,7 +205,18 @@ const EHRFooter = () => {
           to="/industries/ehr-and-pms/case-studies" 
           className="bg-[#4A8D68] border-b border-[#3D7A5A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#3D835B] transition-colors cursor-pointer"
         >
-          <span className="text-white text-2xl md:text-3xl font-bold">Case Studies</span>
+          <span 
+            className="text-white"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: 'clamp(24px, 3vw, 32px)',
+              lineHeight: '100%',
+              letterSpacing: '0%'
+            }}
+          >
+            Case Studies
+          </span>
         </Link>
 
         {/* Careers with Instagram */}
@@ -129,7 +241,14 @@ const EHRFooter = () => {
             </div>
             <Link 
               to="/industries/ehr-and-pms/career" 
-              className="text-white text-2xl md:text-3xl font-bold hover:text-gray-200 transition-colors"
+              className="text-white hover:text-gray-200 transition-colors"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(24px, 3vw, 32px)',
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
             >
               Careers
             </Link>
@@ -139,23 +258,43 @@ const EHRFooter = () => {
 
       {/* Bottom Section - Copyright and Links */}
       <div className="bg-[#2D7250] py-6 px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white text-sm">© 2025 Qnest. All rights reserved.</p>
-        <div className="flex gap-8">
+        <p 
+          className="text-white"
+          style={{
+            fontFamily: "'Quicksand', sans-serif",
+            fontSize: '14px'
+          }}
+        >
+          © 2025 Qnest. All rights reserved.
+        </p>
+        <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
           <Link 
             to="/industries/ehr-and-pms/privacy-policy" 
-            className="text-white text-sm hover:underline"
+            className="text-white hover:underline"
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '14px'
+            }}
           >
             Privacy Policy
           </Link>
           <Link 
             to="/industries/ehr-and-pms/cookie-policy" 
-            className="text-white text-sm hover:underline"
+            className="text-white hover:underline"
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '14px'
+            }}
           >
             Cookie Policy
           </Link>
           <Link 
             to="/industries/ehr-and-pms/terms-and-conditions" 
-            className="text-white text-sm hover:underline"
+            className="text-white hover:underline"
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '14px'
+            }}
           >
             Terms and Conditions
           </Link>

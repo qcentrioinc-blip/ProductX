@@ -1,15 +1,28 @@
+import { useState } from "react";
+import { H3,H4 ,P} from "../../../styles/Typography";
 import Image1 from "/AML/image73.png"
-import { P, H3, H4, H2 } from "../../../styles/Typography"
+const Description = () => { 
 
-const Description = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const textData = [
+    "Button 1: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 2: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 3: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 4: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 5: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non "
+  ];
+
   
   return (
-    <div className="w-full  bg-gray-200 h-full  py-12 px-6 sm:px-12 md:px-16 lg:py-20 lg:px-20 xl:px-28">
+ <div className="w-full bg-gray-200 h-full py-12">
+  <div className="max-w-8xl lg:mx-10 px-4  ">
+
       {/* Top Heading */}
-      <div className="md:py-16 md:w-3/5 w-full py-8">
-        <H2 className="text-left ">
-          Lorem ipsum dolor , consectetur adipis 
-        </H2>
+      <div className="md:py-16  md:3xl lg:w-5xl w-full py-8">
+        <H3 className="text-left ">
+          Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor , consectetur adipis,Lorem ipsum
+        </H3>
       </div>
  <div className="md:hidden mb-8">
         <div 
@@ -43,29 +56,33 @@ const Description = () => {
         <img 
           src={Image1} 
           alt="Description" 
-          className="w-full h-[200px] md:h-[480px] lg:h-[650px] object-cover"
+          className="w-full h-[200px] md:h-[450px] lg:h-[550px] object-cover"
         />
 
         {/* Right Overlay Box - Desktop only */}
-        <div className="hidden lg:block absolute top-16 right-16 lg:h-[200px] bg-neutral-500 text-white rounded-sm p-4 sm:p-6 lg:p-6 backdrop-blur-md">
-          <H4 className="mb-3">
-            Lorem ipsum dolor <br /> consectetur
-          </H4>
-          <div className="flex gap-6 mt-8 ">
-            <div className="flex flex-col  items-center">
-              <span className="text-xl sm:text-2xl font-bold">32%</span>
-              <span className="text-xs sm:text-sm text-gray-300 ">Lorem Ipsum</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xl sm:text-2xl font-bold">4x%</span>
-              <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xl sm:text-2xl font-bold">80%</span>
-              <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
-            </div>
-          </div>
-        </div>
+       <div className="hidden lg:block absolute top-16 right-16  lg:h-[200px] bg-neutral-500 text-white rounded-sm p-4 sm:p-6 lg:p-6 backdrop-blur-md">
+  <H4 className="mb-3">
+    Lorem ipsum dolor <br /> consectetur
+  </H4>
+
+  <div className="flex gap-6 mt-12 font-bricolage items-start">
+    <div className="flex flex-col items-start">
+      <span className="text-xl sm:text-2xl font-bold">32%</span>
+      <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+    </div>
+
+    <div className="flex flex-col items-start">
+      <span className="text-xl sm:text-2xl font-bold">4x%</span>
+      <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+    </div>
+
+    <div className="flex flex-col items-start">
+      <span className="text-xl sm:text-2xl font-bold">80%</span>
+      <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+    </div>
+  </div>
+</div>
+
 
         {/* Bottom Overlay - Desktop only */}
         <div className="hidden lg:block absolute bottom-0 w-full px-6 py-6 sm:px-10 sm:py-8 backdrop-blur-md text-white">
@@ -79,15 +96,10 @@ const Description = () => {
             </div>
 
             {/* Right Text */}
-            <div className="w-full lg:w-2/5">
-              <P>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia. Duis aute irure dolor in reprehenderit
-                in voluptate velit esse cillum dolore eu Excepteur sint occaecat
-                cupidatat non proident.
-              </P>
-            </div>
+          <div className="w-full lg:w-2/5">
+  <P>{textData[activeIndex]}</P>
+</div>
+
           </div>
 
           {/* Dots */}
@@ -139,23 +151,26 @@ const Description = () => {
       </div>
 
       {/* Bottom Buttons */}
-      <div className="md:flex md:flex-wrap md:justify-between  hidden mt-8">
-        <button className="px-4 py-4  w-[14vw] rounded-full bg-(--primary-color) text-white  ">
-          Duis aute irure
-        </button>
-        <button className="px-4 py-4  w-[14vw] rounded-full border border-gray-300 text-black hover:bg-gray-100">
-          Duis aute irure
-        </button>
-        <button className="px-4 py-4  w-[14vw] rounded-full border border-gray-300 text-black hover:bg-gray-100">
-          Duis aute irure
-        </button>
-        <button className="px-4 py-4 w-[14vw] rounded-full border border-gray-300 text-black hover:bg-gray-100">
-          Duis aute irure
-        </button>
-        <button className="px-4 py-4 w-[14vw] rounded-full border border-gray-300 text-black hover:bg-gray-100">
-          Duis aute irure
-        </button>
-      </div>
+      <div className="hidden md:flex md:flex-wrap md:justify-between mt-8">
+
+  {[0,1,2,3,4].map((index) => (
+    <button
+      key={index}
+      onClick={() => setActiveIndex(index)}
+      className={`px-4 py-4 w-[14vw]  text-[20px] font-schibsted rounded-full transition duration-300
+        ${activeIndex === index 
+          ? "bg-(--primary-color) text-white" 
+          : "border border-[#2B68C3] text-black"
+        }`
+      }
+    >
+      Duis aute irure
+    </button>
+  ))}
+
+</div>
+
+    </div>
     </div>
   )
 }

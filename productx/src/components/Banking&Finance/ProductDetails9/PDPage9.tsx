@@ -11,11 +11,14 @@ import ContactUS from "../Products2/ContactUS";
 import NewOneFooter from "../Products2/NewOneFooter";
 // import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 
+// import NewFooter from "../Products2/NewFooter";
+import BNFNav from "../BNFnav";
 
 const PDPage9 = () => {
   return (
     <>
     {/* <ScrollProvider> */}
+    <BNFNav/>
       <HeroSection />
       <FeatureGridSection />
       <StatsSection />
