@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-
+ 
 const LandingPageHighTech = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+ 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
+ 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-black to-orange-900">
       {/* Background Wave Image */}
@@ -18,7 +18,7 @@ const LandingPageHighTech = () => {
           className="w-full h-full object-cover"
         />
       </div>
-
+ 
       {/* Top Simple Bar - Platform & Marketplace */}
       <div
         className="w-full py-2 px-4"
@@ -32,7 +32,7 @@ const LandingPageHighTech = () => {
               <span className="text-black text-[12px] font-bold">LOGO</span>
             </div>
           </div>
-
+ 
           <div className="flex items-center gap-10">
             <a href="#platform" className="text-white text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
               Platform
@@ -43,7 +43,7 @@ const LandingPageHighTech = () => {
           </div>
         </div>
       </div>
-
+ 
       {/* Main White Navbar */}
       <header className="w-full bg-transparent pt-4 pb-4">
         <div className="max-w-[1540px] mx-auto">
@@ -54,7 +54,7 @@ const LandingPageHighTech = () => {
                 LOGO
               </div>
             </div>
-
+ 
             {/* Desktop Navigation - CENTERED */}
             <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2">
               <ul className="flex gap-[36px] list-none items-center">
@@ -80,7 +80,7 @@ const LandingPageHighTech = () => {
                 </li>
               </ul>
             </div>
-
+ 
             {/* Contact Button */}
             <div className="hidden lg:flex items-center ml-auto">
               <button className="bg-black text-white px-7 py-3 rounded-[8px] text-[13px] font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors duration-300">
@@ -88,7 +88,7 @@ const LandingPageHighTech = () => {
                 <span className="text-[16px]"><ArrowUpRight /></span>
               </button>
             </div>
-
+ 
             {/* Mobile Menu Toggle */}
             <button
               onClick={toggleMobileMenu}
@@ -100,7 +100,7 @@ const LandingPageHighTech = () => {
             </button>
           </nav>
         </div>
-
+ 
         {/* Mobile Menu Dropdown */}
         <div
           className={`lg:hidden bg-white mx-4 rounded-2xl mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
@@ -137,7 +137,7 @@ const LandingPageHighTech = () => {
           </ul>
         </div>
       </header>
-
+ 
       {/* Hero Section with Exact Typography */}
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-12 sm:py-16 md:py-20 lg:py-20 mt-6 sm:mt-8 md:mt-12 lg:mt-12">
         <div className="text-center flex flex-col items-center">
@@ -167,7 +167,7 @@ const LandingPageHighTech = () => {
             >
               Shaping the Future Across
             </h1>
-
+ 
             {/* Italic Purple Text - Playfair Display */}
             <h2
               style={{
@@ -188,7 +188,7 @@ const LandingPageHighTech = () => {
               all the industries
             </h2>
           </div>
-
+ 
           {/* Contact Button */}
           <button className="bg-white text-black px-6 sm:px-8 md:px-8 lg:px-8 py-3 sm:py-4 md:py-4 lg:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2 shadow-xl text-sm sm:text-base md:text-base lg:text-base">
             CONTACT US
@@ -208,7 +208,7 @@ const LandingPageHighTech = () => {
           </button>
         </div>
       </div>
-
+ 
       {/* Bottom Image Boxes - Exact Specifications */}
       <div
         className="relative z-20 mx-auto pb-8 sm:pb-12 md:pb-16 lg:pb-16 mt-12 sm:mt-16 md:mt-24 lg:mt-24"
@@ -244,5 +244,5 @@ const LandingPageHighTech = () => {
     </div>
   );
 };
-
+ 
 export default LandingPageHighTech;

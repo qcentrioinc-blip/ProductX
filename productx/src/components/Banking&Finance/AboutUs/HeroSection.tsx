@@ -1,8 +1,11 @@
 import { H1 } from '../../../styles/Typography';
+import BNFNav from '../BNFnav';
 import Title_img from '/AboutUs/Title_img.jpg';
 
 const HeroSection = () => {
     return (
+        <>
+        <BNFNav/>
         <div className="relative w-full h-screen">
             {/* Background Image */}
             <img 
@@ -26,6 +29,7 @@ const HeroSection = () => {
                 </H1>
             </div>
         </div>
+        </>
     );
 };
 

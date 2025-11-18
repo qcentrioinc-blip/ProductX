@@ -1,135 +1,17 @@
-import { ArrowUpRight } from 'lucide-react';
-import { useState } from 'react';
+ 
 
 const Overview = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+   
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
-
+   
     return (
         <div className="w-full min-h-screen bg-[#FFD700] relative overflow-hidden">
-            {/* Top Simple Bar */}
-            <div
-                className="w-full bg-[#FFD700] px-4"
-                style={{
-                    borderBottom: '2px solid rgba(255, 255, 255, 0.3)'
-                }}
-            >
-                <div className="max-w-[1600px] mx-auto h-[40px] flex items-center justify-between">
-                    <div className="flex items-center">
-                        <div className="bg-white px-4 py-1 rounded-md">
-                            <span className="text-[#FFD700] text-[12px] font-bold">LOGO</span>
-                        </div>
-                    </div>
+            
 
-                    <div className="hidden sm:flex items-center gap-6 sm:gap-10">
-                        <a href="#platform" className="text-white text-[12px] sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
-                            Platform
-                        </a>
-                        <a href="#marketplace" className="text-white text-[12px] sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
-                            Marketplace
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Main Navbar */}
-            <header className="w-full bg-transparent pt-4 pb-4">
-                <div className="max-w-[1540px] mx-auto px-4 sm:px-8">
-                    <nav className="relative w-full max-w-[1480px] h-[80px] mx-auto bg-white rounded-[60px] px-4 flex items-center justify-between shadow-lg z-50">
-                        <div className="flex items-center">
-                            <div className="bg-[#2A2A2A] w-[60px] h-[60px] rounded-full flex items-center justify-center text-white font-bold text-[10px]">
-                                LOGO
-                            </div>
-                        </div>
-
-                        {/* Desktop Navigation - CENTERED */}
-                        <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2">
-                            <ul className="flex gap-[36px] list-none items-center">
-                                <li>
-                                    <a href="#products" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
-                                        Products
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#about" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#resources" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#careers" className="text-[#2A2A2A] text-[15px] font-semibold hover:text-black transition-colors duration-300">
-                                        Careers
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Contact Button */}
-                        <div className="hidden lg:flex items-center ml-auto">
-                            <button className="bg-black text-white px-7 py-3 rounded-[8px] text-[13px] font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors duration-300">
-                                CONTACT US
-                                <span className="text-[16px]"><ArrowUpRight /></span>
-                            </button>
-                        </div>
-
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            onClick={toggleMobileMenu}
-                            className="lg:hidden flex flex-col gap-1.5 focus:outline-none"
-                        >
-                            <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-                            <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-                            <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-                        </button>
-                    </nav>
-                </div>
-
-                {/* Mobile Menu Dropdown */}
-                <div
-                    className={`lg:hidden bg-white mx-4 rounded-2xl mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
-                        isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                >
-                    <ul className="flex flex-col px-5 py-4 space-y-4">
-                        <li className="border-b border-gray-300 pb-3">
-                            <a href="#products" className="text-gray-800 text-base font-medium hover:text-black">
-                                Products
-                            </a>
-                        </li>
-                        <li className="border-b border-gray-300 pb-3">
-                            <a href="#about" className="text-gray-800 text-base font-medium hover:text-black">
-                                About Us
-                            </a>
-                        </li>
-                        <li className="border-b border-gray-300 pb-3">
-                            <a href="#resources" className="text-gray-800 text-base font-medium hover:text-black">
-                                Resources
-                            </a>
-                        </li>
-                        <li className="border-b border-gray-300 pb-3">
-                            <a href="#careers" className="text-gray-800 text-base font-medium hover:text-black">
-                                Careers
-                            </a>
-                        </li>
-                        <li className="pt-2">
-                            <button className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 hover:bg-gray-800">
-                                CONTACT US
-                                <span className="text-lg">↗</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </header>
+          
 
             {/* Hero Section */}
-            <section className="relative max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="relative max-w-[1480px] lg:pt-44 mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     {/* Left Content */}
                     <div className="relative z-10 text-center lg:text-left">

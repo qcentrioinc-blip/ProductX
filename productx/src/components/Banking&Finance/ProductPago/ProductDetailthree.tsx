@@ -12,9 +12,11 @@ import FAQ from "../ProductDetails4/FAQ"
 import InsightThought from "../InsightThought"
 import ContactUS from "../Products2/ContactUS"
 import NewFooter from "../Products2/NewFooter"
+import BNFNav from "../BNFnav"
 const ProductDetailthree = () => {
   return (
     <div >
+      <BNFNav/>
     <HeroSection/>
     <PagoNavbar/>
     <CTA/>

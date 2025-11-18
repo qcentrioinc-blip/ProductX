@@ -1,4 +1,5 @@
-import { H2 } from "../../styles/Typography";
+import { Link } from "react-router-dom";
+import { H2 } from "../../../styles/Typography";
 import { Calendar, MapPin, Clock, ArrowUpRight } from "lucide-react";
 
 const Openings = () => {
@@ -72,9 +73,11 @@ const Openings = () => {
                 </div>
 
                 <div className="flex justify-center">
+                  <Link to="/industries/banking-and-finance/jobdescription">
                   <button className="border border-white text-white px-6 py-2 rounded-md hover:bg-white hover:text-black transition-colors duration-300">
                     Apply
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

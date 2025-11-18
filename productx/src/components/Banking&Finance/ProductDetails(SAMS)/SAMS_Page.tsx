@@ -7,10 +7,12 @@ import ThreeTab from "../Products2/ThreeTab";
 import Feature from "./Feature";
 import HeroSection from "./HeroSection";
 import NewFooter from "../Products2/NewFooter";
+import BNFNav from "../BNFnav";
 
 const Sams_Page = () => {
   return (
     <div>
+      <BNFNav/>
         <HeroSection/>
         <Feature />
         <Cards />

@@ -2,7 +2,7 @@ import { H2} from "../../../styles/Typography";
 
 const HeroSection = () => {
   return (
-    <section className="w-full   flex justify-between items-center mt-18 bg-[#FFD600]">
+    <section className="w-full   flex justify-between items-center   bg-[#FFD600]">
      
       {/* Blue Job Info Section */}
       <div className="bg-[#2B68C3]   md:h-[400px] lg:h-[300px]  w-screen text-white md:py-10 md:mr-16   mt-28 md:px-8 rounded-lg">

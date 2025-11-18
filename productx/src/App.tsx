@@ -1,11 +1,12 @@
 import './App.css'
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Global/Navbar/Navbar'
+
 import './index.css'
 import { Route, Routes, useLocation, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/EHRandPMS'
-import Blogs from './components/Blogs/Blogs'
+import Blogs from './components/Banking&Finance/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
@@ -14,19 +15,19 @@ import ProductDetailthree from './components/Banking&Finance/ProductPago/Product
 import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
 import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
 import AboutUs from './components/Banking&Finance/AboutUs/AboutUsPage'
-import Marketing from './components/Banking&Finance/Marketing/MarketPage'
+import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
  
-import Platform from './components/Platform/Platform'
-import Career from './components/Career/Career'
+import Platform from './components/Global/Platform/Platform'
+import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
 import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
  
-import Connect from './components/Contact/Connect'
+import Connect from './components/Global/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
-import CareersPage from './components/HighTech/Careers/CareersPage'
+import CareersPageHigh from './components/HighTech/Careers/CareersPage'
 import ContactPage from './components/HighTech/ContactForm/ContactPage'
 import JDPage from './components/HighTech/JobDescription/JDPage'
 import PolicyPage from './components/HighTech/Policy/PolicyPage'
@@ -51,6 +52,7 @@ import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
 import Resources from './components/HighTech/Resources/Resources'
 import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+import CareersPage from './components/EHR&PMS/Careers/CareersPage'
  
 const App = () => {
   const location = useLocation();
@@ -93,13 +95,48 @@ const App = () => {
     return <div>Page not found</div>;
   };
 
+
+   const IndustryAboutUsPage = () => {
+  const { industry } = useParams();
+  
+  if (industry === "banking-and-finance") return <AboutUs />;
+  if (industry === "high-tech") return <AboutHighTech />;
+  if (industry === "ehr-and-pms") return <About />;
+  
+  return <div>About Us page not found for this industry</div>;
+};
+
+const IndustryResourcesPage = () => {
+  const { industry } = useParams();
+  
+  if (industry === "banking-and-finance") return <div>Coming Soon</div>;
+  if (industry === "high-tech") return <Resources />;
+  if (industry === "ehr-and-pms") return <div>Coming Soon</div>;
+  
+  return <div>Resources page not found for this industry</div>;
+};
+
+const IndustryCareersPage = () => {
+  const { industry } = useParams();
+  
+  if (industry === "banking-and-finance") return <Career/>;
+  if (industry === "high-tech") return <div>Careers Coming Soon</div>;
+  if (industry === "ehr-and-pms") return <div>Careers Coming Soon</div>;
+  
+  return <div>Careers page not found for this industry</div>;
+};
   return (
     <>
       <ScrollProvider>
         <div data-scroll-container>
           {showNavbar && <Navbar />}
           <Routes>
-            
+             <Route path="/industries/:industry" element={<IndustryPage />} />
+  {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
+  <Route path="/industries/:industry/aboutus" element={<IndustryAboutUsPage />} />
+  <Route path="/industries/:industry/resources" element={<IndustryResourcesPage />} />
+  <Route path="/industries/:industry/careers" element={<IndustryCareersPage />} />
+  {/* <Route path="/industries/:industry/contactform" element={<IndustryContactPage />}/> */}
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
@@ -107,17 +144,18 @@ const App = () => {
             <Route path='/contact' element={<Connect />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path='/glossary' element={<GlossaryPage/>}/>
-            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path='/industries/banking-and-finance/about-us' element={<AboutUs/>}/>
             <Route path= 'marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform/>}/>
             <Route path ="/career" element={<Career/>}/>
-           <Route path='/industries/high-tech/careers' element={<CareersPage/>}/>
+            <Route path="/industries/ehr-and-pms/careers" element={<CareersPage/>}/>
+           <Route path='/industries/high-tech/careers' element={<CareersPageHigh/>}/>
            <Route path='/industries/high-tech/contactform' element={<ContactPage/>}/>
            <Route path='/industries/high-tech/jobdescription' element={<JDPage/>}/>
            <Route path='/industries/high-tech/policy' element={<PolicyPage/>}/>
            <Route path='/industries/high-tech/product-details' element={<PDPage/>}/>
-           <Route path="/industries/ehr/aboutus" element={<About/>}/>
-           <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/>
+           {/* <Route path="/industries/ehr/aboutus" element={<About/>}/> 
+           <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/> */}
            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
            <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>

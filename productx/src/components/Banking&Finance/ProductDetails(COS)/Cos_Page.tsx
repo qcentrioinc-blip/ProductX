@@ -9,10 +9,12 @@ import FAQ from "../ProductDetails4/FAQ";
 import InsightThought from "../InsightThought";
 import NewFooter from "../Products2/NewFooter";
 import ContactUS from "../Products2/ContactUS";
+import BNFNav from "../BNFnav";
 
 const Cos_Page = () => {
   return (
     <div>
+      <BNFNav/>
         <HeroSection />
         <StatsSection />
         <Cards />
