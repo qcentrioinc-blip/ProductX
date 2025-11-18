@@ -1,6 +1,7 @@
 // "use client"
 
-// import { useState } from "react"
+// import { useState, useEffect } from "react"
+// import { motion } from "framer-motion"
 // import { ChevronLeft, ChevronRight } from "lucide-react"
 
 // interface Testimonial {
@@ -108,212 +109,355 @@
 
 // export default function UserProfile() {
 //   const [currentIndex, setCurrentIndex] = useState(0)
+//   const [isTransitioning, setIsTransitioning] = useState(false)
+
+//   const totalSlides = testimonials.length
+
+//   // Auto-scroll every 6 seconds
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       if (!isTransitioning && currentIndex < totalSlides - 1) {
+//         goToNext()
+//       }
+//     }, 6000)
+
+//     return () => clearInterval(interval)
+//   }, [currentIndex, isTransitioning])
 
 //   const goToPrevious = () => {
-//     setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+//     if (isTransitioning || currentIndex === 0) return
+//     setIsTransitioning(true)
+//     setCurrentIndex((prev) => prev - 1)
 //   }
 
 //   const goToNext = () => {
-//     setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+//     if (isTransitioning || currentIndex === totalSlides - 1) return
+//     setIsTransitioning(true)
+//     setCurrentIndex((prev) => prev + 1)
 //   }
 
 //   const goToSlide = (index: number) => {
+//     if (isTransitioning || index === currentIndex) return
+//     setIsTransitioning(true)
 //     setCurrentIndex(index)
 //   }
 
-//   const prevIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1
-//   const nextIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
+//   // Reset transition state
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setIsTransitioning(false)
+//     }, 800)
 
-//   const currentTestimonial = testimonials[currentIndex]
-//   const prevTestimonial = testimonials[prevIndex]
-//   const nextTestimonial = testimonials[nextIndex]
+//     return () => clearTimeout(timer)
+//   }, [currentIndex])
+
+//   const hasLeftPreview = currentIndex > 0
+//   const hasRightPreview = currentIndex < totalSlides - 1
 
 //   return (
 //     <div className="min-h-screen flex flex-col justify-between px-4 py-8">
-//       <div className="flex-1 flex items-center justify-center overflow-hidden">
-//         <div className="flex w-full gap-4 items-center justify-center">
-//           {/* Left Preview (10%) */}
-//           <div className="w-1/10 flex-shrink-0 opacity-50">
-//             <div className={`${prevTestimonial.bgColor} rounded-3xl p-8 h-96 flex items-center justify-center`}>
-//               <div className={`text-center ${prevTestimonial.textColor}`}>
-//                 <p className="text-lg font-semibold">{prevTestimonial.company}</p>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Center Main Card (80%) */}
-//           <div className="w-4/5 flex-shrink-0">
-//             <div
-//               className={`${currentTestimonial.bgColor} rounded-3xl p-12 flex gap-12 items-stretch min-h-96 transition-all duration-300`}
+//       <div className="flex-1 flex items-center justify-center overflow-hidden relative">
+//         {/* Full-width Carousel Container with centered active card */}
+//         <div className="relative w-full h-full flex items-center justify-center">
+//           <div className="relative w-full h-[500px] flex items-center justify-center">
+//             {/* Carousel wrapper - positioned to show previews */}
+//             <motion.div
+//               className="flex items-center justify-center gap-4"
+//               style={{
+//                 width: "100%",
+//                 position: "relative",
+//               }}
 //             >
-//               {/* Left Content */}
-//               <div className="flex-1 flex flex-col justify-between">
-//                 {/* Badge */}
-//                 <div className="w-fit">
-//                   <span className="inline-block px-3 py-1 bg-black bg-opacity-30 text-white rounded-full text-sm font-medium">
-//                     {currentTestimonial.badge}
-//                   </span>
-//                 </div>
+//               {/* All cards rendered */}
+//               {testimonials.map((testimonial, index) => {
+//                 // Calculate position offset from current
+//                 const offset = index - currentIndex
+                
+//                 // Calculate visibility and styling
+//                 const isActive = index === currentIndex
+//                 const isPrevious = index === currentIndex - 1
+//                 const isNext = index === currentIndex + 1
+//                 const isVisible = isActive || isPrevious || isNext
+                
+//                 // Calculate translateX to position cards
+//                 // Active card at center (0%), previous at -85%, next at +85%
+//                 let translateX = 0
+//                 if (isPrevious) translateX = -85
+//                 else if (isNext) translateX = 85
+//                 else if (offset < -1) translateX = -200
+//                 else if (offset > 1) translateX = 200
+                
+//                 const scale = isActive ? 1 : 0.88
+//                 const opacity = isActive ? 1 : (isPrevious || isNext) ? 0.6 : 0
+//                 const zIndex = isActive ? 20 : isVisible ? 10 : 0
 
-//                 {/* Company Name */}
-//                 <h2 className={`text-5xl font-bold ${currentTestimonial.textColor} mb-8`}>
-//                   {currentTestimonial.company}
-//                 </h2>
-
-//                 {/* Quote */}
-//                 <p className={`text-lg leading-relaxed mb-8 ${currentTestimonial.accentColor} font-light`}>
-//                   "{currentTestimonial.quote}"
-//                 </p>
-
-//                 {/* Person Name & CTA */}
-//                 <div>
-//                   <p className={`text-base font-semibold ${currentTestimonial.textColor} mb-2`}>
-//                     {currentTestimonial.personName}
-//                   </p>
-//                   <a
-//                     href="#"
-//                     className={`text-sm font-semibold underline ${currentTestimonial.accentColor} hover:opacity-80 transition-opacity`}
+//                 return (
+//                   <motion.div
+//                     key={testimonial.id}
+//                     className="absolute"
+//                     style={{
+//                       zIndex,
+//                       width: "80vw",
+//                       left: "50%",
+//                       top: "50%",
+//                       marginLeft: "-40vw", // Center the card
+//                       marginTop: "-225px", // Half of min-height to center vertically
+//                     }}
+//                     animate={{
+//                       x: `${translateX}%`,
+//                       scale,
+//                       opacity,
+//                     }}
+//                     transition={{
+//                       type: "spring",
+//                       stiffness: 80,
+//                       damping: 22,
+//                       mass: 0.9,
+//                     }}
 //                   >
-//                     Read the Q+A
-//                   </a>
-//                 </div>
+//                     <div
+//                       className={`${testimonial.bgColor} rounded-3xl shadow-2xl`}
+//                       style={{
+//                         minHeight: "450px",
+//                         padding: "3rem",
+//                         display: "flex",
+//                         gap: "3rem",
+//                         alignItems: "stretch",
+//                       }}
+//                     >
+//                       {/* Left Content */}
+//                       <div className="flex-1 flex flex-col justify-between">
+//                         {/* Badge */}
+//                         <motion.div
+//                           initial={{ opacity: 0, y: -20 }}
+//                           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : -20 }}
+//                           transition={{ delay: 0.2, duration: 0.4 }}
+//                           className="w-fit"
+//                         >
+//                           <span className="inline-block px-3 py-1 bg-black bg-opacity-30 text-white rounded-full text-sm font-medium">
+//                             {testimonial.badge}
+//                           </span>
+//                         </motion.div>
 
-//                 {/* Logo at Bottom */}
-//                 <div
-//                   className={`text-2xl font-light tracking-wide ${currentTestimonial.textColor} pt-6 border-t border-current border-opacity-20`}
-//                 >
-//                   {currentTestimonial.logo}
-//                 </div>
-//               </div>
+//                         {/* Company Name */}
+//                         <motion.h2
+//                           initial={{ opacity: 0, x: -30 }}
+//                           animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -30 }}
+//                           transition={{ delay: 0.25, duration: 0.5 }}
+//                           className={`text-5xl font-bold ${testimonial.textColor} mb-8`}
+//                         >
+//                           {testimonial.company}
+//                         </motion.h2>
 
-//               {/* Right Panel */}
-//               <div className="w-80 flex flex-col items-center justify-center gap-8">
-//                 {/* Profile Image */}
-//                 <div className="flex-shrink-0">
-//                   <img
-//                     src={currentTestimonial.image || "/placeholder.svg"}
-//                     alt={currentTestimonial.personName}
-//                     className="w-48 h-48 rounded-full object-cover border-4 border-white border-opacity-30 shadow-lg"
-//                   />
-//                 </div>
+//                         {/* Quote */}
+//                         <motion.p
+//                           initial={{ opacity: 0, y: 20 }}
+//                           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
+//                           transition={{ delay: 0.3, duration: 0.5 }}
+//                           className={`text-lg leading-relaxed mb-8 ${testimonial.accentColor} font-light`}
+//                         >
+//                           "{testimonial.quote}"
+//                         </motion.p>
 
-//                 {/* Details */}
-//                 <div className="w-full space-y-6 text-center">
-//                   {currentTestimonial.details.partner && (
-//                     <div>
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         {currentTestimonial.role}
-//                       </p>
-//                       <p className={`text-xl font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.partner}
-//                       </p>
+//                         {/* Person Name & CTA */}
+//                         <motion.div
+//                           initial={{ opacity: 0, y: 15 }}
+//                           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 15 }}
+//                           transition={{ delay: 0.35, duration: 0.4 }}
+//                         >
+//                           <p className={`text-base font-semibold ${testimonial.textColor} mb-2`}>
+//                             {testimonial.personName}
+//                           </p>
+//                           <a
+//                             href="#"
+//                             className={`text-sm font-semibold underline ${testimonial.accentColor} hover:opacity-80 transition-opacity`}
+//                           >
+//                             Read the Q+A
+//                           </a>
+//                         </motion.div>
+
+//                         {/* Logo at Bottom */}
+//                         <motion.div
+//                           initial={{ opacity: 0, scale: 0.95 }}
+//                           animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.95 }}
+//                           transition={{ delay: 0.4, duration: 0.4 }}
+//                           className={`text-2xl font-light tracking-wide ${testimonial.textColor} pt-6 border-t border-current border-opacity-20`}
+//                         >
+//                           {testimonial.logo}
+//                         </motion.div>
+//                       </div>
+
+//                       {/* Right Panel */}
+//                       <div style={{ width: "320px" }} className="flex flex-col items-center justify-center gap-8">
+//                         {/* Profile Image */}
+//                         <motion.div
+//                           initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+//                           animate={{
+//                             opacity: isActive ? 1 : 0,
+//                             scale: isActive ? 1 : 0.8,
+//                             rotate: isActive ? 0 : -8,
+//                           }}
+//                           transition={{ delay: 0.25, duration: 0.6, type: "spring", bounce: 0.3 }}
+//                           className="flex-shrink-0"
+//                         >
+//                           <img
+//                             src={testimonial.image || "/placeholder.svg"}
+//                             alt={testimonial.personName}
+//                             className="w-48 h-48 rounded-full object-cover border-4 border-white border-opacity-30 shadow-lg"
+//                           />
+//                         </motion.div>
+
+//                         {/* Details */}
+//                         <div className="w-full space-y-6 text-center">
+//                           {testimonial.details.partner && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.3, duration: 0.4 }}
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 {testimonial.role}
+//                               </p>
+//                               <p className={`text-xl font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.partner}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.latestFund && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.35, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 LATEST FUND
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.latestFund}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.latestFundAlt && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.35, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 LATEST FUND
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.latestFundAlt}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.lpBase && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.4, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 LP BASE
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.lpBase}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.headquarters && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.4, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 HEADQUARTERS
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.headquarters}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.investments && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.45, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 INVESTMENTS
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.investments}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.podcast && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.45, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 PODCAST
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.podcast}
+//                               </p>
+//                             </motion.div>
+//                           )}
+
+//                           {testimonial.details.institutionalLps && (
+//                             <motion.div
+//                               initial={{ opacity: 0, y: 10 }}
+//                               animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+//                               transition={{ delay: 0.5, duration: 0.4 }}
+//                               className="pt-4 border-t border-current border-opacity-20"
+//                             >
+//                               <p
+//                                 className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+//                               >
+//                                 INSTITUTIONAL LPS
+//                               </p>
+//                               <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+//                                 {testimonial.details.institutionalLps}
+//                               </p>
+//                             </motion.div>
+//                           )}
+//                         </div>
+//                       </div>
 //                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.latestFund && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         LATEST FUND
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.latestFund}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.latestFundAlt && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         LATEST FUND
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.latestFundAlt}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.lpBase && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         LP BASE
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.lpBase}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.headquarters && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         HEADQUARTERS
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.headquarters}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.investments && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         INVESTMENTS
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.investments}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.podcast && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         PODCAST
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.podcast}
-//                       </p>
-//                     </div>
-//                   )}
-
-//                   {currentTestimonial.details.institutionalLps && (
-//                     <div className="pt-4 border-t border-current border-opacity-20">
-//                       <p
-//                         className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-//                       >
-//                         INSTITUTIONAL LPS
-//                       </p>
-//                       <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-//                         {currentTestimonial.details.institutionalLps}
-//                       </p>
-//                     </div>
-//                   )}
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Right Preview (10%) */}
-//           <div className="w-1/10 flex-shrink-0 opacity-50">
-//             <div className={`${nextTestimonial.bgColor} rounded-3xl p-8 h-96 flex items-center justify-center`}>
-//               <div className={`text-center ${nextTestimonial.textColor}`}>
-//                 <p className="text-lg font-semibold">{nextTestimonial.company}</p>
-//               </div>
-//             </div>
+//                   </motion.div>
+//                 )
+//               })}
+//             </motion.div>
 //           </div>
 //         </div>
 //       </div>
@@ -324,38 +468,48 @@
 //         {/* Navigation Dots */}
 //         <div className="flex gap-2">
 //           {testimonials.map((_, index) => (
-//             <button
+//             <motion.button
 //               key={index}
 //               onClick={() => goToSlide(index)}
+//               disabled={isTransitioning}
 //               className={`h-2.5 rounded-full transition-all duration-300 ${
 //                 index === currentIndex ? "bg-slate-400 w-8" : "bg-slate-300 w-2.5 hover:bg-slate-350"
-//               }`}
+//               } ${isTransitioning ? "opacity-50 cursor-not-allowed" : ""}`}
+//               whileHover={{ scale: 1.2 }}
+//               whileTap={{ scale: 0.9 }}
 //               aria-label={`Go to slide ${index + 1}`}
 //             />
 //           ))}
 //         </div>
 
-//         {/* Arrow Buttons - Bottom Right */}
+//         {/* Arrow Buttons */}
 //         <div className="flex gap-3">
-//           <button
+//           <motion.button
 //             onClick={goToPrevious}
-//             className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors shadow-md border border-slate-300"
+//             disabled={isTransitioning || currentIndex === 0}
+//             className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors shadow-md border border-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+//             whileHover={{ scale: 1.1, x: -3 }}
+//             whileTap={{ scale: 0.95 }}
 //             aria-label="Previous slide"
 //           >
 //             <ChevronLeft className="w-5 h-5 text-slate-600" />
-//           </button>
-//           <button
+//           </motion.button>
+//           <motion.button
 //             onClick={goToNext}
-//             className="p-2 rounded-full bg-violet-500 hover:bg-violet-600 transition-colors shadow-md text-white"
+//             disabled={isTransitioning || currentIndex === totalSlides - 1}
+//             className="p-2 rounded-full bg-violet-500 hover:bg-violet-600 transition-colors shadow-md text-white disabled:opacity-50 disabled:cursor-not-allowed"
+//             whileHover={{ scale: 1.1, x: 3 }}
+//             whileTap={{ scale: 0.95 }}
 //             aria-label="Next slide"
 //           >
 //             <ChevronRight className="w-5 h-5" />
-//           </button>
+//           </motion.button>
 //         </div>
 //       </div>
 //     </div>
 //   )
 // }
+
 
 "use client"
 
@@ -450,7 +604,7 @@ const testimonials: Testimonial[] = [
     badge: "Current founder",
     company: "Browser Capital",
     quote:
-      "When we launched Fund 4 with backing from top institutions, like Sequoia + Cendana Capital, we knew we needed a partner who could support all our ILP needs — AngelList was that partner. Their timely reporting, white-glove LP service, and intuitive, software-first platform enabled us to be institutional ready.",
+      "When we launched Fund 4 with backing from top institutions, like Sequoia + Cendana Capital, we knew we needed a partner who could support all our ILP needs — AngelList was that partner. Their timely reporting, white-glove LP service, and their intuitive, software-first platform enabled us to be institutional ready.",
     personName: "Joshua Browder",
     role: "PARTNER",
     image: "/man-with-glasses-professional-headshot.jpg",
@@ -469,7 +623,6 @@ const testimonials: Testimonial[] = [
 export default function UserProfile() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [direction, setDirection] = useState(0)
 
   const totalSlides = testimonials.length
 
@@ -477,8 +630,7 @@ export default function UserProfile() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isTransitioning && currentIndex < totalSlides - 1) {
-        setDirection(1)
-        nextSlide()
+        goToNext()
       }
     }, 6000)
 
@@ -487,19 +639,11 @@ export default function UserProfile() {
 
   const goToPrevious = () => {
     if (isTransitioning || currentIndex === 0) return
-    setDirection(-1)
     setIsTransitioning(true)
     setCurrentIndex((prev) => prev - 1)
   }
 
   const goToNext = () => {
-    if (isTransitioning || currentIndex === totalSlides - 1) return
-    setDirection(1)
-    setIsTransitioning(true)
-    setCurrentIndex((prev) => prev + 1)
-  }
-
-  const nextSlide = () => {
     if (isTransitioning || currentIndex === totalSlides - 1) return
     setIsTransitioning(true)
     setCurrentIndex((prev) => prev + 1)
@@ -507,7 +651,6 @@ export default function UserProfile() {
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return
-    setDirection(index > currentIndex ? 1 : -1)
     setIsTransitioning(true)
     setCurrentIndex(index)
   }
@@ -516,336 +659,505 @@ export default function UserProfile() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsTransitioning(false)
-    }, 1200)
+    }, 800)
 
     return () => clearTimeout(timer)
   }, [currentIndex])
 
-  const currentTestimonial = testimonials[currentIndex]
-  const hasLeftPreview = currentIndex > 0
-  const hasRightPreview = currentIndex < totalSlides - 1
-  const leftTestimonial = hasLeftPreview ? testimonials[currentIndex - 1] : null
-  const rightTestimonial = hasRightPreview ? testimonials[currentIndex + 1] : null
-
   return (
-    <div className="min-h-screen flex flex-col justify-between px-4 py-8">
+    <div className="min-h-screen flex flex-col justify-between px-2 sm:px-4 py-4 sm:py-8">
       <div className="flex-1 flex items-center justify-center overflow-hidden relative">
-        {/* Animated Container with all 3 cards visible */}
-        <motion.div
-          className="flex w-full gap-4 items-center justify-center"
-          animate={{
-            x: 0,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 60,
-            damping: 20,
-            duration: 1.2,
-          }}
-        >
-          {/* Left Preview (10%) */}
-          <motion.div
-            className="w-1/10 flex-shrink-0"
-            initial={false}
-            animate={{
-              opacity: hasLeftPreview ? 0.5 : 0,
-              x: hasLeftPreview ? 0 : -100,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-          >
-            {hasLeftPreview && leftTestimonial && (
-              <div className={`${leftTestimonial.bgColor} rounded-3xl p-8 h-96 flex items-center justify-center`}>
-                <div className={`text-center ${leftTestimonial.textColor}`}>
-                  <p className="text-lg font-semibold">{leftTestimonial.company}</p>
-                </div>
-              </div>
-            )}
-          </motion.div>
+        {/* Full-width Carousel Container with visible gaps */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-[650px] sm:h-[550px] lg:h-[500px] flex items-center justify-center">
+            {/* All cards rendered with clear gaps */}
+            {testimonials.map((testimonial, index) => {
+              // Calculate position offset from current
+              const offset = index - currentIndex
+              
+              // Calculate visibility and styling
+              const isActive = index === currentIndex
+              const isPrevious = index === currentIndex - 1
+              const isNext = index === currentIndex + 1
+              const isVisible = isActive || isPrevious || isNext
+              
+              // Calculate translateX with clear visible gaps
+              let translateX = 0
+              if (isPrevious) translateX = -100
+              else if (isNext) translateX = 100
+              else if (offset < -1) translateX = -200
+              else if (offset > 1) translateX = 200
+              
+              const scale = isActive ? 1 : 0.88
+              const opacity = isActive ? 1 : (isPrevious || isNext) ? 0.65 : 0
+              const zIndex = isActive ? 20 : isVisible ? 10 : 0
 
-          {/* Center Main Card (80%) */}
-          <motion.div
-            key={currentIndex}
-            className="w-4/5 flex-shrink-0"
-            initial={{
-              x: direction > 0 ? 1200 : -1200,
-              opacity: 0,
-              scale: 0.85,
-            }}
-            animate={{
-              x: 0,
-              opacity: 1,
-              scale: 1,
-            }}
-            exit={{
-              x: direction > 0 ? -1200 : 1200,
-              opacity: 0,
-              scale: 0.85,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 25,
-              duration: 1,
-            }}
-          >
-            <div
-              className={`${currentTestimonial.bgColor} rounded-3xl p-12 flex gap-12 items-stretch min-h-96 shadow-2xl`}
-            >
-              {/* Left Content */}
-              <div className="flex-1 flex flex-col justify-between">
-                {/* Badge */}
+              return (
                 <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="w-fit"
+                  key={testimonial.id}
+                  className="absolute"
+                  style={{
+                    zIndex,
+                    width: window.innerWidth < 640 ? "95vw" : window.innerWidth < 1024 ? "85vw" : "75vw",
+                    left: "50%",
+                    top: "50%",
+                    marginLeft: window.innerWidth < 640 ? "-47.5vw" : window.innerWidth < 1024 ? "-42.5vw" : "-37.5vw",
+                    marginTop: window.innerWidth < 640 ? "-325px" : window.innerWidth < 1024 ? "-275px" : "-225px",
+                  }}
+                  animate={{
+                    x: `${translateX}%`,
+                    scale,
+                    opacity,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 80,
+                    damping: 22,
+                    mass: 0.9,
+                  }}
                 >
-                  <span className="inline-block px-3 py-1 bg-black bg-opacity-30 text-white rounded-full text-sm font-medium">
-                    {currentTestimonial.badge}
-                  </span>
-                </motion.div>
-
-                {/* Company Name */}
-                <motion.h2
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.7 }}
-                  className={`text-5xl font-bold ${currentTestimonial.textColor} mb-8`}
-                >
-                  {currentTestimonial.company}
-                </motion.h2>
-
-                {/* Quote */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.7 }}
-                  className={`text-lg leading-relaxed mb-8 ${currentTestimonial.accentColor} font-light`}
-                >
-                  "{currentTestimonial.quote}"
-                </motion.p>
-
-                {/* Person Name & CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                >
-                  <p className={`text-base font-semibold ${currentTestimonial.textColor} mb-2`}>
-                    {currentTestimonial.personName}
-                  </p>
-                  <a
-                    href="#"
-                    className={`text-sm font-semibold underline ${currentTestimonial.accentColor} hover:opacity-80 transition-opacity`}
+                  <div
+                    className={`${testimonial.bgColor} rounded-2xl sm:rounded-3xl shadow-2xl`}
+                    style={{
+                      minHeight: window.innerWidth < 640 ? "auto" : window.innerWidth < 1024 ? "auto" : "450px",
+                      padding: window.innerWidth < 640 ? "1.5rem" : window.innerWidth < 1024 ? "2rem" : "3rem",
+                      display: "flex",
+                      flexDirection: window.innerWidth < 1024 ? "column" : "row",
+                      gap: window.innerWidth < 640 ? "1.5rem" : window.innerWidth < 1024 ? "2rem" : "3rem",
+                      alignItems: "stretch",
+                    }}
                   >
-                    Read the Q+A
-                  </a>
+                    {/* DESKTOP LAYOUT (unchanged) - lg and above */}
+                    <>
+                      {/* Left Content - Desktop */}
+                      <div className="hidden lg:flex flex-1 flex-col justify-between">
+                        {/* Badge */}
+                        <motion.div
+                          initial={{ opacity: 0, y: -20 }}
+                          animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : -20 }}
+                          transition={{ delay: 0.2, duration: 0.4 }}
+                          className="w-fit"
+                        >
+                          <span className="inline-block px-3 py-1 bg-black bg-opacity-30 text-white rounded-full text-sm font-medium">
+                            {testimonial.badge}
+                          </span>
+                        </motion.div>
+
+                        {/* Company Name */}
+                        <motion.h2
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -30 }}
+                          transition={{ delay: 0.25, duration: 0.5 }}
+                          className={`text-5xl font-bold ${testimonial.textColor} mb-8`}
+                        >
+                          {testimonial.company}
+                        </motion.h2>
+
+                        {/* Quote */}
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
+                          transition={{ delay: 0.3, duration: 0.5 }}
+                          className={`text-lg leading-relaxed mb-8 ${testimonial.accentColor} font-light`}
+                        >
+                          "{testimonial.quote}"
+                        </motion.p>
+
+                        {/* Person Name & CTA */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 15 }}
+                          transition={{ delay: 0.35, duration: 0.4 }}
+                        >
+                          <p className={`text-base font-semibold ${testimonial.textColor} mb-2`}>
+                            {testimonial.personName}
+                          </p>
+                          <a
+                            href="#"
+                            className={`text-sm font-semibold underline ${testimonial.accentColor} hover:opacity-80 transition-opacity`}
+                          >
+                            Read the Q+A
+                          </a>
+                        </motion.div>
+
+                        {/* Logo at Bottom */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.95 }}
+                          transition={{ delay: 0.4, duration: 0.4 }}
+                          className={`text-2xl font-light tracking-wide ${testimonial.textColor} pt-6 border-t border-current border-opacity-20`}
+                        >
+                          {testimonial.logo}
+                        </motion.div>
+                      </div>
+
+                      {/* Right Panel - Desktop */}
+                      <div className="hidden lg:flex flex-col items-center justify-center gap-8" style={{ width: "320px" }}>
+                        {/* Profile Image */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            scale: isActive ? 1 : 0.8,
+                            rotate: isActive ? 0 : -8,
+                          }}
+                          transition={{ delay: 0.25, duration: 0.6, type: "spring", bounce: 0.3 }}
+                          className="flex-shrink-0"
+                        >
+                          <img
+                            src={testimonial.image || "/placeholder.svg"}
+                            alt={testimonial.personName}
+                            className="w-48 h-48 rounded-full object-cover border-4 border-white border-opacity-30 shadow-lg"
+                          />
+                        </motion.div>
+
+                        {/* Details */}
+                        <div className="w-full space-y-6 text-center">
+                          {testimonial.details.partner && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.3, duration: 0.4 }}
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                {testimonial.role}
+                              </p>
+                              <p className={`text-xl font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.partner}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.latestFund && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.35, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                LATEST FUND
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.latestFund}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.latestFundAlt && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.35, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                LATEST FUND
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.latestFundAlt}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.lpBase && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.4, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                LP BASE
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.lpBase}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.headquarters && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.4, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                HEADQUARTERS
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.headquarters}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.investments && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.45, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                INVESTMENTS
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.investments}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.podcast && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.45, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                PODCAST
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.podcast}
+                              </p>
+                            </motion.div>
+                          )}
+
+                          {testimonial.details.institutionalLps && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                              transition={{ delay: 0.5, duration: 0.4 }}
+                              className="pt-4 border-t border-current border-opacity-20"
+                            >
+                              <p
+                                className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${testimonial.accentColor}`}
+                              >
+                                INSTITUTIONAL LPS
+                              </p>
+                              <p className={`text-lg font-semibold ${testimonial.textColor}`}>
+                                {testimonial.details.institutionalLps}
+                              </p>
+                            </motion.div>
+                          )}
+                        </div>
+                      </div>
+                    </>
+
+                    {/* MOBILE & TABLET LAYOUT - lg and below */}
+                    <div className="flex lg:hidden flex-col gap-4 sm:gap-6 text-center">
+                      {/* Badge */}
+                      <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : -20 }}
+                        transition={{ delay: 0.2, duration: 0.4 }}
+                        className="flex justify-center"
+                      >
+                        <span className="inline-block px-3 py-1 bg-black bg-opacity-30 text-white rounded-full text-xs sm:text-sm font-medium">
+                          {testimonial.badge}
+                        </span>
+                      </motion.div>
+
+                      {/* Profile Image */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{
+                          opacity: isActive ? 1 : 0,
+                          scale: isActive ? 1 : 0.8,
+                        }}
+                        transition={{ delay: 0.25, duration: 0.6, type: "spring", bounce: 0.3 }}
+                        className="flex justify-center"
+                      >
+                        <img
+                          src={testimonial.image || "/placeholder.svg"}
+                          alt={testimonial.personName}
+                          className="w-28 h-28 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white border-opacity-30 shadow-lg"
+                        />
+                      </motion.div>
+
+                      {/* Company Name */}
+                      <motion.h2
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -30 }}
+                        transition={{ delay: 0.25, duration: 0.5 }}
+                        className={`text-3xl sm:text-4xl font-bold ${testimonial.textColor}`}
+                      >
+                        {testimonial.company}
+                      </motion.h2>
+
+                      {/* Quote */}
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className={`text-sm sm:text-base leading-relaxed ${testimonial.accentColor} font-light`}
+                      >
+                        "{testimonial.quote}"
+                      </motion.p>
+
+                      {/* Details Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                        {testimonial.details.partner && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.3, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              {testimonial.role}
+                            </p>
+                            <p className={`text-base sm:text-lg font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.partner}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {(testimonial.details.latestFund || testimonial.details.latestFundAlt) && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.35, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              LATEST FUND
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.latestFund || testimonial.details.latestFundAlt}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {testimonial.details.lpBase && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.4, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              LP BASE
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.lpBase}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {testimonial.details.headquarters && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.4, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              HEADQUARTERS
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.headquarters}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {testimonial.details.investments && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.45, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              INVESTMENTS
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.investments}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {testimonial.details.podcast && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.45, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              PODCAST
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.podcast}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {testimonial.details.institutionalLps && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                            transition={{ delay: 0.5, duration: 0.4 }}
+                            className="pt-3 border-t border-current border-opacity-20 sm:col-span-2"
+                          >
+                            <p className={`text-xs tracking-widest font-semibold mb-1 opacity-75 ${testimonial.accentColor}`}>
+                              INSTITUTIONAL LPS
+                            </p>
+                            <p className={`text-sm font-semibold ${testimonial.textColor}`}>
+                              {testimonial.details.institutionalLps}
+                            </p>
+                          </motion.div>
+                        )}
+                      </div>
+
+                      {/* Person Name & CTA */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 15 }}
+                        transition={{ delay: 0.35, duration: 0.4 }}
+                      >
+                        <a
+                          href="#"
+                          className={`text-sm font-semibold underline ${testimonial.accentColor} hover:opacity-80 transition-opacity`}
+                        >
+                          Read the Q+A
+                        </a>
+                      </motion.div>
+
+                      {/* Logo */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.95 }}
+                        transition={{ delay: 0.4, duration: 0.4 }}
+                        className={`text-xl sm:text-2xl font-light tracking-wide ${testimonial.textColor} pt-4 border-t border-current border-opacity-20`}
+                      >
+                        {testimonial.logo}
+                      </motion.div>
+                    </div>
+                  </div>
                 </motion.div>
-
-                {/* Logo at Bottom */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7, duration: 0.6 }}
-                  className={`text-2xl font-light tracking-wide ${currentTestimonial.textColor} pt-6 border-t border-current border-opacity-20`}
-                >
-                  {currentTestimonial.logo}
-                </motion.div>
-              </div>
-
-              {/* Right Panel */}
-              <div className="w-80 flex flex-col items-center justify-center gap-8">
-                {/* Profile Image */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.4, duration: 0.8, type: "spring", bounce: 0.4 }}
-                  className="flex-shrink-0"
-                >
-                  <img
-                    src={currentTestimonial.image || "/placeholder.svg"}
-                    alt={currentTestimonial.personName}
-                    className="w-48 h-48 rounded-full object-cover border-4 border-white border-opacity-30 shadow-lg"
-                  />
-                </motion.div>
-
-                {/* Details */}
-                <div className="w-full space-y-6 text-center">
-                  {currentTestimonial.details.partner && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        {currentTestimonial.role}
-                      </p>
-                      <p className={`text-xl font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.partner}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.latestFund && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        LATEST FUND
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.latestFund}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.latestFundAlt && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        LATEST FUND
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.latestFundAlt}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.lpBase && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        LP BASE
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.lpBase}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.headquarters && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        HEADQUARTERS
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.headquarters}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.investments && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        INVESTMENTS
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.investments}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.podcast && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        PODCAST
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.podcast}
-                      </p>
-                    </motion.div>
-                  )}
-
-                  {currentTestimonial.details.institutionalLps && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.9, duration: 0.6 }}
-                      className="pt-4 border-t border-current border-opacity-20"
-                    >
-                      <p
-                        className={`text-xs tracking-widest font-semibold mb-2 opacity-75 ${currentTestimonial.accentColor}`}
-                      >
-                        INSTITUTIONAL LPS
-                      </p>
-                      <p className={`text-lg font-semibold ${currentTestimonial.textColor}`}>
-                        {currentTestimonial.details.institutionalLps}
-                      </p>
-                    </motion.div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Preview (10%) */}
-          <motion.div
-            className="w-1/10 flex-shrink-0"
-            initial={false}
-            animate={{
-              opacity: hasRightPreview ? 0.5 : 0,
-              x: hasRightPreview ? 0 : 100,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-          >
-            {hasRightPreview && rightTestimonial && (
-              <div className={`${rightTestimonial.bgColor} rounded-3xl p-8 h-96 flex items-center justify-center`}>
-                <div className={`text-center ${rightTestimonial.textColor}`}>
-                  <p className="text-lg font-semibold">{rightTestimonial.company}</p>
-                </div>
-              </div>
-            )}
-          </motion.div>
-        </motion.div>
+              )
+            })}
+          </div>
+        </div>
       </div>
 
-      <div className="flex items-center justify-between px-8">
+      <div className="flex items-center justify-between px-2 sm:px-8 mt-4">
         <div></div>
 
         {/* Navigation Dots */}
@@ -857,7 +1169,7 @@ export default function UserProfile() {
               disabled={isTransitioning}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 index === currentIndex ? "bg-slate-400 w-8" : "bg-slate-300 w-2.5 hover:bg-slate-350"
-              } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
+              } ${isTransitioning ? "opacity-50 cursor-not-allowed" : ""}`}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               aria-label={`Go to slide ${index + 1}`}
@@ -866,30 +1178,31 @@ export default function UserProfile() {
         </div>
 
         {/* Arrow Buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-2 sm:gap-3">
           <motion.button
             onClick={goToPrevious}
             disabled={isTransitioning || currentIndex === 0}
-            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors shadow-md border border-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-1.5 sm:p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors shadow-md border border-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
             whileHover={{ scale: 1.1, x: -3 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-5 h-5 text-slate-600" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
           </motion.button>
           <motion.button
             onClick={goToNext}
             disabled={isTransitioning || currentIndex === totalSlides - 1}
-            className="p-2 rounded-full bg-violet-500 hover:bg-violet-600 transition-colors shadow-md text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-1.5 sm:p-2 rounded-full bg-violet-500 hover:bg-violet-600 transition-colors shadow-md text-white disabled:opacity-50 disabled:cursor-not-allowed"
             whileHover={{ scale: 1.1, x: 3 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Next slide"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.button>
         </div>
       </div>
     </div>
   )
 }
+
 

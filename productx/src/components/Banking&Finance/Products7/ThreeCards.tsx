@@ -1,50 +1,171 @@
-import { H1, H2, P } from "../../../styles/Typography";
-
-const ThreeCards = () => {
+export default function ThreeCards() {
   return (
-    <div className="min-h-screen bg-gray-100 px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-12 md:py-16">
-      {/* Heading */}
-      <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-        Lorem ipsum dolor , consectetur adipis
-      </H1>
+    <div className="w-full flex items-center justify-center bg-[#F3F3F3]">
+      {/* Desktop Layout */}
+      <div className="hidden lg:block relative" style={{ width: '1440px', height: '868px' }}>
+        <div
+          className="absolute flex flex-col"
+          style={{
+            width: '1283px',
+            height: '548px',
+            top: '160px',
+            left: '80px',
+            gap: '32px'
+          }}
+        >
+          <h1
+            style={{
+              width: '1283px',
+              height: '58px',
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontWeight: 700,
+              fontSize: '48px',
+              lineHeight: '120%',
+              color: '#2A2A2A',
+              margin: 0,
+            }}
+          >
+            Lorem ipsum dolor , consectetur adipis
+          </h1>
 
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-6 md:gap-8">
-        {/* Card 1 - Large Left Card */}
-        <div className="bg-[#e4efff] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 md:row-span-2">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full mb-6 sm:mb-7 md:mb-8"></div>
-          <H2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-3.5 md:mb-4">
-            Duis aute irure dolor in
-          </H2>
-          <P className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-          </P>
-        </div>
+          <div className="flex" style={{ gap: '32px', height: '458px' }}>
+            {/* Left Card */}
+            <div
+              style={{
+                width: '685px',
+                height: '458px',
+                borderRadius: '8px',
+                background: '#E4F0FF',
+                padding: '32px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px',
+                position: 'relative'
+              }}
+            >
+              <div
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: '#FFF',
+                  borderRadius: '50%'
+                }}
+              />
+              <h2
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '24px',
+                  lineHeight: '140%',
+                  color: '#2A2A2A',
+                  margin: 0
+                }}
+              >
+                Duis aute irure dolor in
+              </h2>
+              <p
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontWeight: 400,
+                  fontSize: '16px',
+                  lineHeight: '150%',
+                  color: '#333333',
+                  margin: 0
+                }}
+              >
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+              </p>
 
-        {/* Card 2 - Top Right Card */}
-        <div className="bg-[#e4efff] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full mb-6 sm:mb-7 md:mb-8"></div>
-          <H2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-3.5 md:mb-4">
-            Duis aute irure dolor in
-          </H2>
-          <P className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-          </P>
-        </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  width: '612.66px',
+                  height: '227.04px',
+                  top: '234.28px',
+                  left: '32px',
+                  borderTopLeftRadius: '8px',
+                  borderTopRightRadius: '8px',
+                  background: '#FFF'
+                }}
+              />
+            </div>
 
-        {/* Card 3 - Bottom Right Card */}
-        <div className="bg-[#e4efff] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full mb-6 sm:mb-7 md:mb-8"></div>
-          <H2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-3.5 md:mb-4">
-            Duis aute irure dolor in
-          </H2>
-          <P className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-          </P>
+            {/* Right Cards */}
+            <div className="flex flex-col" style={{ gap: '24px' }}>
+              {[1, 2].map((_, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    width: '566px',
+                    height: '217px',
+                    borderRadius: '8px',
+                    background: '#E4F0FF',
+                    padding: '32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      background: '#FFF',
+                      borderRadius: '50%'
+                    }}
+                  />
+                  <h2
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontWeight: 700,
+                      fontSize: '24px',
+                      lineHeight: '140%',
+                      color: '#2A2A2A',
+                      margin: 0
+                    }}
+                  >
+                    Duis aute irure dolor in
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: "'Quicksand', sans-serif",
+                      fontWeight: 400,
+                      fontSize: '16px',
+                      lineHeight: '150%',
+                      color: '#333333',
+                      margin: 0
+                    }}
+                  >
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Mobile / Tablet Responsive */}
+      <div className="lg:hidden w-full px-6 py-12 flex flex-col items-center gap-8 bg-[#F3F3F3]">
+        <h1 className="font-bold text-[32px] text-[#2A2A2A] leading-[120%] text-center max-w-full" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          Lorem ipsum dolor , consectetur adipis
+        </h1>
+
+        {[1, 2, 3].map((_, idx) => (
+          <div
+            key={idx}
+            className="w-full max-w-md rounded-lg bg-[#E4F0FF] p-6 flex flex-col gap-4"
+          >
+            <div className="w-12 h-12 bg-white rounded-full" />
+            <h2 className="font-bold text-xl text-[#2A2A2A]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+              Duis aute irure dolor in
+            </h2>
+            <p className="text-base text-[#333333]" style={{ fontFamily: "'Quicksand', sans-serif", lineHeight: '150%' }}>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default ThreeCards;
+}

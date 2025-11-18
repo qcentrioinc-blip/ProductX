@@ -1,97 +1,119 @@
 import { useState, useEffect } from "react";
-// import { H1, H3, P } from "../../../styles/Typography";
 
 const healthFeatures = [
   {
     id: 1,
     date: "8 Sep 2025",
-    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis",
-    description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occa",
+    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
     image: "/Products/healthcare-1.jpg",
   },
   {
     id: 2,
     date: "8 Sep 2025",
-    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis",
-    description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaec",
+    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
     image: "/Products/healthcare-1.jpg",
   },
   {
     id: 3,
     date: "8 Sep 2025",
-    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis",
-    description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occa",
+    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
     image: "/Products/healthcare-1.jpg",
   },
   {
     id: 4,
     date: "8 Sep 2025",
-    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis",
-    description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaec",
+    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
     image: "/Products/healthcare-1.jpg",
   },
 ];
 
 const HealthFeatures = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Dynamic cards per view based on screen size
   const getCardsPerView = () => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) return 1 // Mobile
-      if (window.innerWidth < 1024) return 1 // Tablet
-      return 2 // Desktop
+      if (window.innerWidth < 640) return 1;
+      if (window.innerWidth < 1024) return 1;
+      return 2;
     }
-    return 2
-  }
+    return 2;
+  };
 
-  const [cardsPerView, setCardsPerView] = useState(getCardsPerView())
-  const maxIndex = Math.max(0, healthFeatures.length - cardsPerView)
+  const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
+  const maxIndex = Math.max(0, healthFeatures.length - cardsPerView);
 
-  // Update cards per view on window resize
   useEffect(() => {
-    const handleResize = () => setCardsPerView(getCardsPerView())
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    const handleResize = () => setCardsPerView(getCardsPerView());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1))
-  }
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1))
-  }
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section 
+      className="relative overflow-hidden"
+      style={{
+        background: '#EDE4CA',
+        minHeight: '770px',
+        display: 'flex',
+        alignItems: 'center'
+      }}
+    >
       {/* Left background - White */}
       <div className="absolute inset-0 w-full lg:w-5/11 bg-white z-0"></div>
       {/* Right background - Beige */}
-      <div className="absolute inset-0 left-auto w-full lg:w-7/10 bg-[#E8DCC8] z-0"></div>
+      <div className="absolute inset-0 left-auto w-full lg:w-7/10 bg-[#EDE4CA] z-0"></div>
 
-      {/* Wave decoration - top right */}
-      <div className="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none z-0 hidden lg:block">
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <path d="M100,20 Q150,40 150,100 T100,180 T50,100 T100,20 Z" fill="#0F5A47" />
-        </svg>
-      </div>
-
-      <div className="container p-6 lg:p-12  relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
+      <div className="container p-6 lg:p-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-top relative z-10">
           {/* Left side - Title and navigation */}
           <div className="lg:col-span-4 relative z-10">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F5A47] leading-tight mb-6 sm:mb-8">
+            {/* Title - Updated Typography */}
+            <h1 
+              className="leading-tight mb-6 sm:mb-8"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: '48px',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#166D48',
+                maxWidth: '381.61px'
+              }}
+            >
               Sed ut persp
               <br />
               iciatis Unde Se
             </h1>
-            <p className="text-sm sm:text-base text-[#6B8A7A] mb-8 sm:mb-10 max-w-md leading-relaxed">
-              Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occa
+
+            {/* Description - Updated Typography */}
+            <p 
+              className="mb-8 sm:mb-10 leading-relaxed"
+              style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontWeight: 400,
+                fontSize: '18px',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#141414',
+                maxWidth: '381.61px'
+              }}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
             </p>
 
-            {/* Navigation buttons - ORANGE/GOLDEN */}
+            {/* Navigation buttons */}
             <div className="flex gap-4 sm:gap-5 mb-8 lg:mb-0">
               <button
                 onClick={handlePrevious}
@@ -138,27 +160,67 @@ const HealthFeatures = () => {
             </div>
           </div>
 
-          {/* Right side - Carousel */}
+          {/* Right side - Carousel - CENTERED VERTICALLY */}
           <div className="lg:col-span-8">
             <div className="relative overflow-hidden">
               <div
-                className="flex gap-8 lg:gap-16 transition-transform duration-500 ease-out"
+                className="flex gap-14 lg:gap-28 transition-transform duration-500 ease-out"
                 style={{
                   transform: `translateX(-${currentIndex * (100 / cardsPerView + 4)}%)`,
                 }}
               >
                 {healthFeatures.map((feature) => (
-                  <div key={feature.id} className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-0.75rem)]">
+                  <div 
+                    key={feature.id} 
+                    className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-2rem)]"
+                    style={{
+                      maxWidth: '405px'
+                    }}
+                  >
+                    {/* Date */}
                     <p className="text-xs sm:text-sm font-medium text-[#6B8A7A] mb-3 sm:mb-4 tracking-wide">
                       {feature.date}
                     </p>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#0F5A47] mb-3 sm:mb-4 leading-snug">
+
+                    {/* Title - Updated Typography */}
+                    <h3 
+                      className="mb-3 sm:mb-4 leading-snug"
+                      style={{
+                        fontFamily: "'Bricolage Grotesque', sans-serif",
+                        fontWeight: 700,
+                        fontSize: '24px',
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#2A2A2A'
+                      }}
+                    >
                       {feature.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#6B8A7A] mb-5 sm:mb-6 leading-relaxed line-clamp-3">
+
+                    {/* Description - Updated Typography */}
+                    <p 
+                      className="mb-5 sm:mb-6 leading-relaxed line-clamp-2"
+                      style={{
+                        fontFamily: "'Quicksand', sans-serif",
+                        fontWeight: 400,
+                        fontSize: '18px',
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#141414'
+                      }}
+                    >
                       {feature.description}
                     </p>
-                    <div className="aspect-square overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow">
+
+                    {/* Image - Fixed Dimensions */}
+                    <div 
+                      className="overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                      style={{
+                        width: '405px',
+                        height: '317.56px',
+                        borderRadius: '8px'
+                      }}
+                    >
                       <img
                         src={feature.image || "/placeholder.svg"}
                         alt={feature.title}
@@ -173,7 +235,7 @@ const HealthFeatures = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HealthFeatures
+export default HealthFeatures;

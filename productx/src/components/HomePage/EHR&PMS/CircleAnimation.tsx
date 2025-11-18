@@ -503,7 +503,6 @@ import { useState, useEffect, useRef, useCallback, useContext } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { ScrollContext } from '../../../context/ScrollContext';
 
-
 // --- Types ---
 type Shape = {
   width: string;
@@ -513,13 +512,11 @@ type Shape = {
   borderRadius: string;
 };
 
-
 type Slide = {
   id: number;
   topLeft: Shape;
   bottomRight: Shape | Shape[];
 };
-
 
 // --- DESKTOP SLIDES - Adjusted for optimized oval height ---
 const desktopSlides: Slide[] = [
@@ -573,7 +570,6 @@ const desktopSlides: Slide[] = [
   }
 ];
 
-
 // --- TABLET SLIDES - Adjusted for optimized oval height ---
 const tabletSlides: Slide[] = [
   {
@@ -625,7 +621,6 @@ const tabletSlides: Slide[] = [
     ]
   }
 ];
-
 
 // --- MOBILE SLIDES - Adjusted for optimized oval height ---
 const mobileSlides: Slide[] = [
@@ -679,17 +674,14 @@ const mobileSlides: Slide[] = [
   }
 ];
 
-
 const CircleAnimation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useMotionValue(0);
-  const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
-
+  const [, setCanHorizontalScroll] = useState(false);
 
   const scrollContext = useContext(ScrollContext);
-
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -703,155 +695,117 @@ const CircleAnimation = () => {
       }
     };
 
-
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-
   const slides = screenSize === 'mobile' ? mobileSlides :
     screenSize === 'tablet' ? tabletSlides : desktopSlides;
-
-
-  // OPTIMIZED OVAL config - reduced height to fit single screen better
-  const circleConfig = {
-    mobile: {
-      width: '330px',
-      height: '420px',
-      leftCircle: 'calc(50vw - 189px)',
-      middleCircle: 'calc(50vw - 165px)',
-      rightCircle: 'calc(50vw - 141px)',
-      top: 'calc(50vh - 210px)',
-      centerX: '50%',
-      centerY: '50%'
-    },
-    tablet: {
-      width: '450px',
-      height: '570px',
-      leftCircle: 'calc(50vw - 258px)',
-      middleCircle: 'calc(50vw - 225px)',
-      rightCircle: 'calc(50vw - 192px)',
-      top: 'calc(50vh - 285px)',
-      centerX: '50%',
-      centerY: '50%'
-    },
-    desktop: {
-      width: '600px',
-      height: '750px',
-      leftCircle: 'calc(50vw - 344px)',
-      middleCircle: 'calc(50vw - 300px)',
-      rightCircle: 'calc(50vw - 256px)',
-      top: 'calc(50vh - 375px)',
-      centerX: '70%',
-      centerY: '50%'
-    }
-  };
-
-
-  const config = circleConfig[screenSize];
-
 
   const checkScrollPosition = useCallback(() => {
     const scrollContainer = scrollContext?.current;
     if (!containerRef.current || !scrollContainer) return;
 
-
     const rect = containerRef.current.getBoundingClientRect();
+    const containerHeight = rect.height;
+    const viewportHeight = scrollContainer.clientHeight;
+    
+    const scrolled = -rect.top;
+    const scrollableHeight = containerHeight - viewportHeight;
+    
+    const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
+    
     const shouldEnableHorizontalScroll = (
-      rect.top <= 100 &&
-      rect.top >= -100 &&
-      rect.bottom > scrollContainer.clientHeight * 0.6
+      rect.top <= 0 &&
+      rect.bottom > viewportHeight
     );
 
-
     setCanHorizontalScroll(shouldEnableHorizontalScroll);
-  }, [scrollContext]);
-
+    
+    if (shouldEnableHorizontalScroll) {
+      scrollProgress.set(progress);
+    }
+  }, [scrollContext, scrollProgress]);
 
   useEffect(() => {
     const unsubscribe = scrollProgress.on('change', (latest) => {
-      const slideIndex = Math.floor(latest * slides.length);
+      const slideIndex = Math.floor(latest * 3);
       const clampedIndex = Math.max(0, Math.min(slides.length - 1, slideIndex));
       setCurrentSlide(clampedIndex);
     });
 
-
     return () => unsubscribe();
   }, [scrollProgress, slides.length]);
 
-
-  const handleWheel = useCallback((e: WheelEvent) => {
-    const scrollContainer = scrollContext?.current;
-    if (!containerRef.current || !scrollContainer) return;
-
-
-    const rect = containerRef.current.getBoundingClientRect();
-    const isInView = rect.top <= 100 && rect.bottom >= scrollContainer.clientHeight * 0.5;
-
-
-    if (!isInView || !canHorizontalScroll) return;
-
-
-    const currentProgress = scrollProgress.get();
-    const scrollSensitivity = 0.0015;
-    const newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
-
-
-    scrollProgress.set(newProgress);
-
-
-    if (newProgress > 0 && newProgress < 0.99) {
-      e.preventDefault();
-      e.stopPropagation();
-      scrollContainer.style.overflow = 'hidden';
-    } else {
-      scrollContainer.style.overflow = 'auto';
-    }
-  }, [scrollProgress, canHorizontalScroll, scrollContext]);
-
-
   useEffect(() => {
     const scrollContainer = scrollContext?.current;
     if (!scrollContainer) return;
-
-
-    scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
-
-
-    return () => {
-      scrollContainer.removeEventListener('wheel', handleWheel);
-      scrollContainer.style.overflow = 'auto';
-    };
-  }, [handleWheel, scrollContext]);
-
-
-  useEffect(() => {
-    const scrollContainer = scrollContext?.current;
-    if (!scrollContainer) return;
-
 
     const handleScroll = () => {
       checkScrollPosition();
     };
 
-
     scrollContainer.addEventListener('scroll', handleScroll);
     checkScrollPosition();
-
 
     return () => {
       scrollContainer.removeEventListener('scroll', handleScroll);
     };
   }, [checkScrollPosition, scrollContext]);
 
+  // Image mapping for third slide (6 circles total)
+  const thirdSlideImages = [
+    '/EHRandPMS/1.png',
+    '/EHRandPMS/2.png',
+    '/EHRandPMS/3.png',
+    '/EHRandPMS/4.png',
+    '/EHRandPMS/5.png',
+    '/EHRandPMS/6.png'
+  ];
+
+  // Third slide TWO-STAGE animation with uniform drift
+  // Stage 1: Right to left + fade in (0-50%)
+  // Stage 2: ALL images drift slightly RIGHT and DOWN (50-100%)
+  const getThirdSlideAnimation = (index: number, isTopLeft: boolean) => {
+    const baseDelay = 0.08 * (isTopLeft ? 0 : index); // 0.08s stagger delay
+    const rightOffset = screenSize === 'mobile' ? 150 : screenSize === 'tablet' ? 250 : 350;
+    const driftRight = screenSize === 'mobile' ? 15 : 20; // Slight right movement
+    const driftDown = screenSize === 'mobile' ? 12 : 15;  // Slight down movement
+
+    return {
+      initial: { x: rightOffset, y: 0, opacity: 0 },
+      animate: { 
+        x: [rightOffset, 0, driftRight],  // Right → Center → Drift Right
+        y: [0, 0, driftDown],              // Stay → Stay → Drift Down
+        opacity: [0, 1, 1]                 // Fade in → Stay visible
+      },
+      transition: { 
+        duration: 0.9,
+        times: [0, 0.5, 1],      // 50% horizontal, 50% drift
+        ease: "easeOut",
+        delay: baseDelay,
+        type: "tween" 
+      }
+    };
+  };
+
+  // Info card data for third slide
+  const infoCards = [
+    null, // Image 1 - no card
+    null, // Image 2 - no card
+    { text: '98%', subtext: 'Collection Rate', color: '#7DB394' }, // Image 3
+    { text: '98%', subtext: 'Collection Rate', color: '#7DB394' }, // Image 4
+    { text: '36 Days', subtext: 'Insurance Response Time', color: '#7DB394' }, // Image 5
+    null  // Image 6 - no card
+  ];
 
   return (
     <div 
       ref={containerRef} 
       className="relative w-full"
       style={{ 
-        height: screenSize === 'mobile' ? '250vh' : screenSize === 'tablet' ? '220vh' : '200vh'
+        height: screenSize === 'mobile' ? '300vh' : screenSize === 'tablet' ? '300vh' : '300vh'
       }}
     >
       <div 
@@ -860,107 +814,216 @@ const CircleAnimation = () => {
           backgroundColor: '#EFF8F5'
         }}
       >
-        {/* LEFT OVAL - Light mint */}
+        {/* BACKGROUND IMAGE - Centered */}
         <div
           className="absolute"
           style={{
-            width: config.width,
-            height: config.height,
-            top: config.top,
-            left: config.leftCircle,
-            backgroundColor: '#DCEEE6',
-            borderRadius: '50%',
-            zIndex: 1,
+            width: '90%',
+            height: '90%',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundImage: 'url("/EHRandPMS/EhrCircle.png")',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 0,
             pointerEvents: 'none'
           }}
         ></div>
 
-
-        {/* MIDDLE/CENTER OVAL - Darker mint */}
-        <div
-          className="absolute"
-          style={{
-            width: config.width,
-            height: config.height,
-            top: config.top,
-            left: config.middleCircle,
-            backgroundColor: '#C8E4D9',
-            borderRadius: '50%',
-            zIndex: 2,
-            pointerEvents: 'none'
-          }}
-        ></div>
-
-
-        {/* RIGHT OVAL - Light mint */}
-        <div
-          className="absolute"
-          style={{
-            width: config.width,
-            height: config.height,
-            top: config.top,
-            left: config.rightCircle,
-            backgroundColor: '#DCEEE6',
-            borderRadius: '50%',
-            zIndex: 1,
-            pointerEvents: 'none'
-          }}
-        ></div>
-
-
-        {/* DYNAMIC TOP-LEFT SHAPE - Higher z-index */}
+        {/* DYNAMIC TOP-LEFT SHAPE */}
         <motion.div
           key={`topLeft-${currentSlide}-${screenSize}`}
-          initial={{ 
-            x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-            opacity: 0 
-          }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={
+            currentSlide === 2 
+              ? getThirdSlideAnimation(0, true).initial
+              : { 
+                  x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
+                  opacity: 0 
+                }
+          }
+          animate={
+            currentSlide === 2
+              ? getThirdSlideAnimation(0, true).animate
+              : { x: 0, opacity: 1 }
+          }
           exit={{ 
             x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
             opacity: 0 
           }}
-          transition={{ duration: 0.5, ease: "easeOut", type: "tween" }}
-          className="absolute will-change-transform"
+          transition={
+            currentSlide === 2
+              ? (getThirdSlideAnimation(0, true).transition as any)
+              : ({ duration: 0.5, ease: "easeOut", type: "tween" } as any)
+          }
+          className="absolute will-change-transform flex items-center justify-center overflow-hidden"
           style={{
             width: slides[currentSlide].topLeft.width,
             height: slides[currentSlide].topLeft.height,
             top: slides[currentSlide].topLeft.top,
             left: slides[currentSlide].topLeft.left,
             borderRadius: slides[currentSlide].topLeft.borderRadius,
-            backgroundColor: '#B4E7CE',
+            backgroundColor: (currentSlide === 1 || currentSlide === 2) ? 'transparent' : '#B4E7CE',
             zIndex: 10
           }}
-        ></motion.div>
-
-
-        {/* DYNAMIC BOTTOM-RIGHT SHAPE(S) - Higher z-index */}
-        {Array.isArray(slides[currentSlide].bottomRight) ? (
-          slides[currentSlide].bottomRight.map((shape, index) => (
-            <motion.div
-              key={`bottomRight-${currentSlide}-${index}-${screenSize}`}
-              initial={{ 
-                x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-                opacity: 0 
-              }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ 
-                x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-                opacity: 0 
-              }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 * (index + 1), type: "tween" }}
-              className="absolute will-change-transform"
+        >
+          {/* TEXT for first slide */}
+          {currentSlide === 0 && (
+            <span 
               style={{
-                width: shape.width,
-                height: shape.height,
-                top: shape.top,
-                left: shape.left,
-                borderRadius: shape.borderRadius,
-                backgroundColor: '#B4E7CE',
-                zIndex: 10
+                fontSize: screenSize === 'mobile' ? '10px' : screenSize === 'tablet' ? '12px' : '25px',
+                fontWeight: 600,
+                color: '#166D48',
+                textAlign: 'center',
+                padding: '0 8px'
               }}
-            ></motion.div>
-          ))
+            >
+              undesed ut persp
+            </span>
+          )}
+          
+          {/* IMAGE for second slide - DoctorGirl */}
+          {currentSlide === 1 && (
+            <img 
+              src="/EHRandPMS/DoctorGirl.png" 
+              alt="Doctor"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: slides[currentSlide].topLeft.borderRadius
+              }}
+            />
+          )}
+
+          {/* IMAGE for third slide - Image 1 */}
+          {currentSlide === 2 && (
+            <img 
+              src={thirdSlideImages[0]}
+              alt="Image 1"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: slides[currentSlide].topLeft.borderRadius
+              }}
+            />
+          )}
+        </motion.div>
+
+        {/* DYNAMIC BOTTOM-RIGHT SHAPE(S) */}
+        {Array.isArray(slides[currentSlide].bottomRight) ? (
+          slides[currentSlide].bottomRight.map((shape, index) => {
+            return (
+              <motion.div
+                key={`bottomRight-${currentSlide}-${index}-${screenSize}`}
+                initial={
+                  currentSlide === 2
+                    ? getThirdSlideAnimation(index, false).initial
+                    : { 
+                        x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
+                        opacity: 0 
+                      }
+                }
+                animate={
+                  currentSlide === 2
+                    ? getThirdSlideAnimation(index, false).animate
+                    : { x: 0, opacity: 1 }
+                }
+                exit={{ 
+                  x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
+                  opacity: 0 
+                }}
+                transition={
+                  currentSlide === 2
+                    ? (getThirdSlideAnimation(index, false).transition as any)
+                    : ({ duration: 0.5, ease: "easeOut", delay: 0.08 * (index + 1), type: "tween" } as any)
+                }
+                className="absolute will-change-transform overflow-hidden"
+                style={{
+                  width: shape.width,
+                  height: shape.height,
+                  top: shape.top,
+                  left: shape.left,
+                  borderRadius: shape.borderRadius,
+                  backgroundColor: (currentSlide === 1 || currentSlide === 2) ? 'transparent' : '#B4E7CE',
+                  zIndex: 10
+                }}
+              >
+                {/* IMAGES for second slide */}
+                {currentSlide === 1 && (
+                  <img 
+                    src={index === 0 ? "/EHRandPMS/Keyboard.png" : "/EHRandPMS/Wheel.png"}
+                    alt={index === 0 ? "Keyboard" : "Wheel"}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: shape.borderRadius
+                    }}
+                  />
+                )}
+
+                {/* IMAGES for third slide */}
+                {currentSlide === 2 && (
+                  <>
+                    <img 
+                      src={thirdSlideImages[index + 1]}
+                      alt={`Image ${index + 2}`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: shape.borderRadius
+                      }}
+                    />
+
+                    {/* INFO CARDS */}
+                    {infoCards[index + 1] && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                          opacity: [0, 0, 1],
+                          scale: [0.8, 0.8, 1]
+                        }}
+                        transition={
+                          { 
+                            duration: 0.9,
+                            times: [0, 0.5, 1],
+                            ease: "easeOut",
+                            delay: (getThirdSlideAnimation(index, false).transition as any).delay
+                          } as any
+                        }
+                        style={{
+                          position: 'absolute',
+                          top: '8px',
+                          left: index === 1 ? '-100%' : '24px',
+                          backgroundColor: '#ededed',
+                          borderRadius: '8px',
+                          padding: '4px 8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: screenSize === 'mobile' ? '8px' : '10px',
+                          fontWeight: 600,
+                          whiteSpace: 'nowrap',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                        }}
+                      >
+                        <span style={{ color: infoCards[index + 1]!.color }}>
+                          {infoCards[index + 1]!.text}
+                        </span>
+                        <span style={{ fontSize: '9px', color: '#666' }}>
+                          {infoCards[index + 1]!.subtext}
+                        </span>
+                      </motion.div>
+                    )}
+                  </>
+                )}
+              </motion.div>
+            );
+          })
         ) : (
           <motion.div
             key={`bottomRight-${currentSlide}-${screenSize}`}
@@ -973,20 +1036,82 @@ const CircleAnimation = () => {
               x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
               opacity: 0 
             }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.12, type: "tween" }}
-            className="absolute will-change-transform"
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.12, type: "tween" } as any}
+            className="absolute will-change-transform overflow-hidden"
             style={{
               width: (slides[currentSlide].bottomRight as Shape).width,
               height: (slides[currentSlide].bottomRight as Shape).height,
               top: (slides[currentSlide].bottomRight as Shape).top,
               left: (slides[currentSlide].bottomRight as Shape).left,
               borderRadius: (slides[currentSlide].bottomRight as Shape).borderRadius,
-              backgroundColor: '#B4E7CE',
+              backgroundColor: currentSlide === 0 ? 'transparent' : '#B4E7CE',
               zIndex: 10
             }}
-          ></motion.div>
+          >
+            {/* IMAGE for first slide */}
+            {currentSlide === 0 && (
+              <div 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative'
+                }}
+              >
+                <img 
+                  src="/EHRandPMS/Girl.png" 
+                  alt="Profile"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: (slides[currentSlide].bottomRight as Shape).borderRadius
+                  }}
+                />
+                <div 
+                  style={{
+                    position: 'absolute',
+                    top: '8px',
+                    left: '8px',
+                    backgroundColor: 'white',
+                    borderRadius: '12px',
+                    padding: '4px 10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontSize: '10px',
+                    fontWeight: 600,
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                >
+                  <div 
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: '#10B981'
+                    }}
+                  />
+                  PAID
+                </div>
+                <div 
+                  style={{
+                    position: 'absolute',
+                    bottom: '8px',
+                    left: '8px',
+                    right: '8px',
+                    color: 'white',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    textShadow: '0 1px 3px rgba(0,0,0,0.5)'
+                  }}
+                >
+                  <div>From Texas Blue</div>
+                  <div style={{ fontSize: '10px', fontWeight: 400 }}>Cross $1,240</div>
+                </div>
+              </div>
+            )}
+          </motion.div>
         )}
-
 
         {/* CONTENT - Centered on screen */}
         <div 
@@ -999,34 +1124,37 @@ const CircleAnimation = () => {
             zIndex: 20
           }}
         >
-          <p className={`font-medium mb-2 tracking-wide ${
-            screenSize === 'mobile' ? 'text-[11px]' :
-            screenSize === 'tablet' ? 'text-[13px]' :
-            'text-[15px]'
-          }`}
-          style={{ color: '#6B9A88' }}
+          <p 
+            className="font-medium mb-2 tracking-wide"
+            style={{
+              fontSize: screenSize === 'mobile' ? '11px' : screenSize === 'tablet' ? '13px' : '30px',
+              color: '#6B9A88'
+            }}
           >
             perspiciatis
           </p>
-          <h1 className={`font-bold leading-[1.2] tracking-tight ${
-            screenSize === 'mobile' ? 'text-[24px]' :
-            screenSize === 'tablet' ? 'text-[32px]' :
-            'text-[40px]'
-          }`}
-          style={{ color: '#2D6F56' }}
+          <h1 
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 700,
+              fontSize: screenSize === 'mobile' ? '32px' : screenSize === 'tablet' ? '48px' : '64px',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              color: '#166D48'
+            }}
           >
             Sed ut perspiciatis<br />
             undesed ut persp
           </h1>
         </div>
 
-
         {/* PAGINATION DOTS - Centered below */}
         <div 
           className="absolute flex gap-3"
           style={{
             left: '50%',
-            top: 'calc(50% + 120px)',
+            top: 'calc(50% + 200px)',
             transform: 'translateX(-50%)',
             zIndex: 20
           }}
@@ -1050,7 +1178,5 @@ const CircleAnimation = () => {
   );
 };
 
-
 export default CircleAnimation;
-
 
