@@ -1,5 +1,6 @@
 import React from 'react';
 import { H1, P } from '../../../styles/Typography';
+import { Link } from 'react-router-dom';
 
 const JobHeaderBanner: React.FC = () => {
   const jobData = {
@@ -8,10 +9,7 @@ const JobHeaderBanner: React.FC = () => {
     experience: "1 - 4 Years",
   };
 
-  const handleSubmitApplication = () => {
-    console.log("Submit application clicked for:", jobData.title);
-    alert(`Redirecting to application form for: ${jobData.title}`);
-  };
+ 
 
   return (
     <section
@@ -56,10 +54,10 @@ const JobHeaderBanner: React.FC = () => {
             {jobData.experience}
           </span>
         </P>
-
+<Link to="/industries/ehr-and-pms/application-form">
         {/* Button */}
         <button
-          onClick={handleSubmitApplication}
+         
           className="
             inline-flex 
             items-center 
@@ -93,6 +91,7 @@ const JobHeaderBanner: React.FC = () => {
             ></path>
           </svg>
         </button>
+        </Link>
       </div>
     </section>
   );

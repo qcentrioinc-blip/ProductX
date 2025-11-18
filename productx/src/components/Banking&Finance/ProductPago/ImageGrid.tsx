@@ -1,10 +1,10 @@
- import { H1, H2, H3, P } from "../../../styles/Typography";
+ import {  H2, H3, P } from "../../../styles/Typography";
 import Image1 from "/ProductDetailsThree/Rectangle283.png";
 import Image2 from "/ProductDetailsThree/Rectangle284.png";
  
 const ImageGrid = () => {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full  min-h-screen">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
          
@@ -13,7 +13,7 @@ const ImageGrid = () => {
             <span className="px-3 py-1 text-xs sm:text-sm rounded-full border border-gray-300 w-fit">
               Duis aute
             </span>
-            <H1>Lorem ipsum dolor gamis consecte ipsum</H1>
+            <H2>Lorem ipsum dolor gamis consecte ipsum</H2>
             <P>
               Duis aute irure dolor in voluptate velit esse voluptate velit esse
               reprehenderit in voluptate velit esse voluptate velit esse

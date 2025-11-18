@@ -9,10 +9,13 @@ import ThirdCards from "./ThirdCards";
 import ThreeTab from "./ThreeTab";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import NewOneFooter from "./NewOneFooter";
+import BNFNav from "../BNFnav";
 
 const ProductsPage2 = () => {
   return (
+    
     <ScrollProvider> {/* Wrap the entire content with ScrollProvider */}
+    <BNFNav/>
       <Overview />
       <SecondHeading />
       <ThirdCards />

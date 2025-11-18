@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { H1, H2, P } from '../../styles/Typography';
+import { H1, H2, P } from '../../../styles/Typography';
 
 const Cards = () => {
   const [scrollProgress, setScrollProgress] = useState(0);

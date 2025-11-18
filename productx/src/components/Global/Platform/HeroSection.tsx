@@ -1,16 +1,16 @@
-import { ContactUs } from "../../styles/Button";
-import { H1, P } from "../../styles/Typography";
+import { ContactUs } from "../../../styles/Button";
+import { H1, P } from "../../../styles/Typography";
 import Image1 from "/AML/image64.png";
 import Circle from "/Platform/circles.png";
 const HeroSection = () => {
   return (
-    <div className="w-full bg-[#83B0E6] py-20 mt-20 relative overflow-hidden">
+    <div className="w-full bg-[#83B0E6] py-20   relative overflow-hidden">
      
    
       {/* Text Section */}
-      <div className="px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between items-center relative z-10">
+      <div className="px-8 sm:px-12 md:px-16 pt-24 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between items-center relative z-10">
         {/* Left Text */}
-        <div className="w-full lg:pb-10 p-4 text-center lg:text-left">
+        <div className="w-full lg:pb-10 pt-20 p-4 text-center lg:text-left">
           <H1>Lorem ipsum dolor , consectetur adipis</H1>
         </div>
 

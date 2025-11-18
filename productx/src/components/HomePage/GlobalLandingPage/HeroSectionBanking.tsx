@@ -1,5 +1,5 @@
 import WhatWeDo from "./WhatWeDo"
-import Footer from "../../Footer/Footer"
+import Footer from "../../Global/Footer/Footer"
 import CallToAction from "./CallToAction"
 import Counter from "./Counter"
 import HowWeDo from "./HowWeDo"
@@ -8,11 +8,13 @@ import Partnership from "./Partnership"
 import TargetAudience from "./TargetAudience"
 import Testimonial from "./Testimonial"
 import VisionImpact from "./VisionImpact"
+ 
 
 
 const HeroSectionBanking = () => {
     return (
         <div >
+            
             <div id="landingpage">
                 <LandingPage />
             </div>

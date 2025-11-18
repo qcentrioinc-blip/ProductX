@@ -1,15 +1,15 @@
 import { H2, P } from "../../../styles/Typography";
-
+ 
 interface Testimonial {
   quote: string;
   author: string;
   role: string;
 }
-
+ 
 interface TestimonialsProps {
   testimonials?: Testimonial[];
 }
-
+ 
 const Testimonials = ({ testimonials }: TestimonialsProps) => {
   // todo: remove mock functionality
   const defaultTestimonials: Testimonial[] = [
@@ -39,22 +39,22 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
       role: "Duis aut"
     }
   ];
-
+ 
   const displayTestimonials = testimonials || defaultTestimonials;
-
+ 
   return (
     <div className="w-full bg-[#f5f5f5] py-16" data-testid="testimonials-section">
       <div className="max-w-7xl mx-auto">
-        <H2 
+        <H2
           className="text-4xl font-semibold text-center mb-12"
           style={{ color: 'hsl(142, 76%, 36%)' }}
           data-testid="text-heading"
         >
           Sed ut persp iciatis Unde Se
         </H2>
-        
+       
         <div className="relative">
-          <div 
+          <div
             className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide"
             style={{
               scrollbarWidth: 'none',
@@ -68,26 +68,26 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
                 className="flex-none w-[300px] bg-card rounded-xl p-12 shadow-2xl"
                 data-testid={`card-testimonial-${index}`}
               >
-                <P 
+                <P
                   className="text-foreground text-sm leading-relaxed mb-8"
                   data-testid={`text-quote-${index}`}
                 >
                   {testimonial.quote}
                 </P>
-                
+               
                 <div className="flex items-center gap-4">
-                  <div 
+                  <div
                     className="w-12 h-12 rounded-full bg-[#d9d9d9] flex-shrink-0"
                     data-testid={`img-avatar-${index}`}
                   />
                   <div>
-                    <div 
+                    <div
                       className="font-semibold text-foreground text-base"
                       data-testid={`text-author-${index}`}
                     >
                       {testimonial.author}
                     </div>
-                    <div 
+                    <div
                       className="text-muted-foreground text-sm"
                       data-testid={`text-role-${index}`}
                     >
@@ -100,7 +100,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
           </div>
         </div>
       </div>
-      
+     
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -109,5 +109,5 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
     </div>
   );
 };
-
+ 
 export default Testimonials;

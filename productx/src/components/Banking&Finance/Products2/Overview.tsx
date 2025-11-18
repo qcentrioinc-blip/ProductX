@@ -5,7 +5,7 @@ const Overview = () => {
     return (
         <div className="min-h-screen bg-black flex flex-col lg:flex-row">
             {/* Left Section */}
-            <div className="flex-1 px-6 sm:px-8 md:px-12 lg:px-16 py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col justify-center">
+            <div className="flex-1 px-6 lg:pt-44 sm:px-8 md:px-12 lg:px-16 py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col justify-center">
                 <H1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8 text-center lg:text-left">
                     Smarter Banking,<br />
                     Simplified with AI

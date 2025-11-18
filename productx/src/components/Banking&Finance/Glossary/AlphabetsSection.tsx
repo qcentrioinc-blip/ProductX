@@ -103,7 +103,7 @@ const AlphabetSec = () => {
     sections.forEach((section) => section && observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  },);
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col relative">

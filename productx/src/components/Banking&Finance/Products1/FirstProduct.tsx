@@ -42,7 +42,7 @@ const FirstProduct = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen  bg-gray-900 relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16">
       {/* Background geometric pattern */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 border border-gray-700/30 rotate-12 rounded-lg"></div>
@@ -52,7 +52,7 @@ const FirstProduct = () => {
         <div className="absolute top-1/3 left-1/3 w-72 h-72 border border-gray-700/20 rotate-6 rounded-lg"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+      <div className="relative z-10 flex flex-col items-center lg:pt-44 justify-center min-h-screen px-4">
         {/* Testimonial avatars */}
         <div className="mb-16 flex items-center gap-3">
           <div className="flex -space-x-3">
