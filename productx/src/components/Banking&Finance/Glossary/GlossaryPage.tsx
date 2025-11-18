@@ -1,6 +1,6 @@
 
 import Footer from '../../Footer/Footer';
-import CallToAction from '../../HomePage/Banking&Finance/CallToAction';
+import CallToAction from '../../HomePage/LandingPages/CallToAction';
 import AlphabetsSection from './AlphabetsSection';
 import HeroSec from './HeroSec';
 const GlossaryPage = () => {

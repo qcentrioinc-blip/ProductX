@@ -299,5 +299,5 @@ export default function Blogs() {
 }
 
 import { useState } from "react";
-import CallToAction from "../HomePage/Banking&Finance/CallToAction";
+import CallToAction from "../HomePage/LandingPages/CallToAction";
 

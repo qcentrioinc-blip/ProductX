@@ -1,7 +1,7 @@
 
 import ContactUS from "../Banking&Finance/Products2/ContactUS"
 import NewFooter from "../Banking&Finance/Products2/NewFooter"
-import Counter from "../HomePage/Banking&Finance/Counter"
+import Counter from "../HomePage/LandingPages/Counter"
  
 
 import Banner from "./Banner"

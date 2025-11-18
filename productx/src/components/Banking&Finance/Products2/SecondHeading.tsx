@@ -22,7 +22,7 @@ const SecondHeading = () => {
             width: '655px',
             height: '133px',
             top: '150px',
-            gap: '16px'
+            gap: '16px',
           }}
         >
           {/* Title */}
@@ -33,7 +33,7 @@ const SecondHeading = () => {
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 700,
               fontSize: '48px',
-              lineHeight: '120%',
+              lineHeight: '70%',
               letterSpacing: '0%',
               textAlign: 'center',
               color: '#2B68C3',

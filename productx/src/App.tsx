@@ -4,7 +4,6 @@ import './index.css'
 import { Route, Routes, useLocation, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
-import LifeSciences from './routes/industries/EHRandPMS'
 import Blogs from './components/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
@@ -51,6 +50,7 @@ import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
 import Resources from './components/HighTech/Resources/Resources'
 import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
+import EHRAndPMS from './routes/industries/EHRandPMS'
  
 const App = () => {
   const location = useLocation();
@@ -59,7 +59,7 @@ const App = () => {
     const { industry } = useParams();
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
-    if (industry === "ehr-and-pms") return <LifeSciences />;
+    if (industry === "ehr-and-pms") return <EHRAndPMS />;
     return <div>Industry not found</div>;
   }
 
