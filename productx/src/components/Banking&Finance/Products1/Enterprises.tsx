@@ -1,60 +1,59 @@
 import { motion } from "framer-motion";
-import Image2 from "/Image2.jpg";
-import Image3 from "/Image3.jpg";
-import { H2, P, H3 } from "../../../styles/Typography";
+
+import { H2, H4, P } from "../../../styles/Typography";
+import Image1 from "/Enterprise/Enterprise1.png";
+import Image2 from "/Enterprise/Enterprise2.png";
+
+import Image3 from "/Enterprise/Enterprise3.png";
+
+import Image4 from "/Enterprise/Enterprise4.png";
+
 const Enterprises = () => {
   return (
-    <section className="bg-black  h-full w-full text-white py-10  px-4 md:px-8">
+    <section className="bg-black h-full w-full text-white py-10 px-4 md:px-8">
+
       {/* Heading */}
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <H2>Itaque earum rerum hic tenetur a sapiente delectus</H2>
-
-
-        <P>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit.
-        </P>
+      <div className="max-w-3xl mx-4 lg:mx-10 text-left mb-16">
+        <H2>Itaque earum rerum hic 
+          <br />
+          <span className="text-[#2B68C3]">tenetur a sapiente </span> 
+           delectus</H2>
+        
       </div>
-      {/* Grid */}
-      <div className="grid grid-cols-1  w-8xl md:grid-cols-2 lg:grid-cols-3 gap-6  mx-10">
-        {/* First tall card */}
-        <div className="bg-white  text-black rounded-lg p-4 flex flex-col  md:row-span-2">
-          <div>
-            <H3 >
-              Banks werf erdcd sedrtg werft
-            </H3>
-            <P >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+
+      {/* ------------------------- */}
+      {/* DESKTOP GRID */}
+      {/* ------------------------- */}
+      <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
+
+        {/* Tall Left Card */}
+        <div className="bg-white text-black gap-4 rounded-lg p-6 flex flex-col md:row-span-2">
+          <div >
+            <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
             </P>
           </div>
 
           <motion.img
-            src={Image2}
+            src={Image1}
             alt="Enterprise 1"
-            className="mt-2 rounded-md object-cover w-full h-96 md:h-[500px] "
+            className=" mt-2 rounded-md object-cover w-full h-[600px]"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           />
         </div>
 
-        {/* Middle normal cards */}
+        {/* Middle Cards */}
         {[2, 3].map((i, index) => (
-          <div
-            key={i}
-            className="bg-white text-black rounded-lg p-6 flex flex-col justify-between"
-          >
+          <div key={i} className="bg-white text-black rounded-lg p-6 flex flex-col justify-between">
             <div>
-              <H3>
-                Banks werf erdcd sedrtg werft
-              </H3>
-              <P >
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.
-              </P>
+               <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+            </P>
             </div>
 
             <motion.img
@@ -63,44 +62,86 @@ const Enterprises = () => {
               className="mt-6 rounded-md object-cover w-full h-40 md:h-48"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: index * 0.2, // stagger effect
-              }}
-              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
             />
           </div>
         ))}
 
-        {/* Wide bottom card */}
+        {/* Bottom Wide Card */}
         <div className="bg-white text-black rounded-lg p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2">
           <div>
-            <H3>
-              Banks werf erdcd sedrtg werft
-            </H3>
-            <P>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+            <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
             </P>
           </div>
 
           <motion.img
-            src={Image3}
+            src={Image2}
             alt="Enterprise 4"
             className="mt-6 rounded-md object-cover w-full h-40 md:h-64"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.1, 0.25, 1],
-              delay: 0.4,
-            }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
           />
         </div>
       </div>
 
+      {/* ------------------------- */}
+      {/* MOBILE + TABLET SLIDER */}
+      {/* ------------------------- */}
+      <div className="lg:hidden flex gap-6 overflow-x-auto snap-x  h-[500px] snap-mandatory px-4 pb-4">
+        
+        {/* Slider Card 1 */}
+        <div className="min-w-[80%] bg-white  text-black rounded-lg p-4 snap-center">
+           <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+            </P>
+          <img
+            src={Image1}
+            className="mt-4 rounded-md object-cover w-full h-[350px]"
+          />
+        </div>
+
+        {/* Slider Card 2 */}
+        <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
+          <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+            </P>
+          <img
+            src={Image2}
+            className="mt-4 rounded-md object-cover w-full h-[350px]"
+          />
+        </div>
+
+        {/* Slider Card 3 */}
+        <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
+           <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+            </P>
+          <img
+            src={Image3}
+            className="mt-4 rounded-md object-cover w-full h-[350px]"
+          />
+        </div>
+
+        {/* Slider Card 4 */}
+        <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
+         <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+            <P className="pt-2 ">
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+            </P>
+          <img
+            src={Image4}
+            className="mt-4 rounded-md object-cover w-full h-[350px]"
+          />
+        </div>
+      </div>
 
     </section>
   );

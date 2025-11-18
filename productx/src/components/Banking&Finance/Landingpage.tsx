@@ -3,16 +3,18 @@ import Intro from "./Intro"
 import Products from "./Products"
 import Audit from "./Audit"
 import Process from "./Process"
-import Testimonial from "../HomePage/Banking&Finance/Testimonial"
+import Testimonial from "../HomePage/GlobalLandingPage/Testimonial"
 import Counter from "./Counter"
 import WhatWeDoIn from "./WhatWeDoIn"
 import NewFooter from "./Products2/NewFooter"
 import InsightThought from "./InsightThought"
+import BNFnav from "./BNFnav"
  
  
 const Landingpage = () => {
   return (
     <div>
+      <BNFnav/>
       <HeroSection/>
       <Intro/>
       <Products/>

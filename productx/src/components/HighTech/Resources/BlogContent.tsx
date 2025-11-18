@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import {  H4 } from "../../../styles/Typography";
+import { Link } from "react-router-dom";
 
  
 
@@ -104,8 +105,8 @@ const BlogContent = () => {
                 </H4>
               </div>
              <div className="flex justify-end items-start pr-4 pb-4">
-  <a
-    href="#"
+  <Link
+    to="/industries/high-tech/resources-detail"
     className="text-blue-800 font-bricolage font-medium relative group flex items-center gap-1"
   >
     <span>Read More</span>
@@ -114,7 +115,7 @@ const BlogContent = () => {
     </span>
     {/* Underline animation */}
     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-800 transition-all duration-300 group-hover:w-full"></span>
-  </a>
+  </Link>
 </div>
 
             </div>

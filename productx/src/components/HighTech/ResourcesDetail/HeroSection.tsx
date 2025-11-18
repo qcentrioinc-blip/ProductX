@@ -4,7 +4,7 @@ import ResourceHero from "/AboutUs/ResourceHero.png"; // your hero image
 
 const HeroSection = () => {
   return (
-    <section className="relative  overflow-visible pt-10 bg-[#0c0c0c] text-white">
+    <section className="relative  overflow-visible pt-32 bg-[#0c0c0c] text-white">
       {/* Background ClipPath */}
       <div className=" overflow-hidden    absolute top-0 left-0 w-full h-full">
         <img

@@ -5,8 +5,8 @@ import "@fontsource/quicksand/400.css";
 import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, ChevronUp, Menu } from "lucide-react"
 import { useState, useEffect, useContext, useRef, useCallback } from "react"
 import { useNavigate, Link } from 'react-router-dom';
-import { ScrollContext } from "../../context/ScrollContext";
-import { H2 } from "../../styles/Typography"
+import { ScrollContext } from "../../../context/ScrollContext";
+import { H2 } from "../../../styles/Typography"
 // import { ContactUs } from "../../styles/Button"
 
 

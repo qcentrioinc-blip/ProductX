@@ -60,7 +60,7 @@ ease: [0.43, 0.13, 0.23, 0.96] // Custom easing for non-uniform motion
 return (
 <div
 ref={ref}
-className="pt-32 md:pb-2 max-w-8xl pb-10 w-full bg-[var(--primary-color)] overflow-hidden"
+className="pt-52 md:pb-2 max-w-8xl pb-10 w-full bg-[var(--primary-color)] overflow-hidden"
 >
 {/* Text Content Area */}
 <motion.div
@@ -81,7 +81,7 @@ Sed ut perspiciatis <br/> unde omnis iste natus
       <div className="relative">
         
         {/* Mobile/Tablet Controls (Chevron and Text labels are ONLY visible here) */}
-        <div className="md:hidden flex justify-between items-start text-white mx-6 mb-4">
+        <div className="md:hidden  flex justify-between items-start text-white mx-6 mb-4">
             {/* These chevrons are kept for visual representation but are NOT functional arrows for a carousel,
                 they just mimic the design from the image. */}
             <div className="flex gap-2 text-white/50">
