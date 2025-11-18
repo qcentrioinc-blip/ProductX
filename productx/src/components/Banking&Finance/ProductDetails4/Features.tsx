@@ -1,68 +1,76 @@
-import { useState } from 'react';
-import { H2, H3, P } from '../../../styles/Typography';
+"use client";
+import { useState } from "react";
+import { H2, P } from "../../../styles/Typography";
 
 type FeatureSwitcherProps = {};
 
 const FEATURES = [
   {
-    id: 'feature_a',
-    buttonLabel: 'Duis aute irure A',
-    title: 'Lorem ipsum dolor gamis consecte A',
-    p1: "This is the primary text for Feature A. It focuses on the core benefit and initial explanation of the service described by 'Duis aute irure A'.",
-    p2: "This secondary text elaborates on the feature, detailing how the user can apply it to their daily workflow or use case.",
-    imageSrc: '/ProductDetails4/PD4_img1.png',
+    id: "feature_a",
+    buttonLabel: "Duis aute irure",
+    title: "Lorem ipsum dolor gamis consecte",
+    p1: "This is the primary text for Feature A. It focuses on the core benefit and initial explanation of'Duis aute irure'.",
+    p2: "This secondary text elaborates on the feature, a the detailing how the user can apply it to their daily ",
+    imageSrc: "/ProductDetails4/PD4_img4.jpg",
   },
   {
-    id: 'feature_b',
-    buttonLabel: 'Duis aute irure B',
-    title: 'Vero eos et accusamus et iusto B',
-    p1: "Feature B description. This section highlights the unique selling points and key functionality related to the second button.",
-    p2: "Further information on Feature B, including technical details or user-friendly guidance on activation.",
-    imageSrc: '/ProductDetails4/PD4_img2.jpg',
+    id: "feature_b",
+    buttonLabel: "Duis aute irure",
+    title: "Vero eos et accusamus et iusto ",
+    p1: "Feature B description. This section highlights the unique selling points and key  relat button.",
+    p2: "Further information on Feature B, including technical details or user-friendly guidance on .",
+    imageSrc: "/ProductDetails4/PD4_img2.jpg",
   },
   {
-    id: 'feature_c',
-    buttonLabel: 'Duis aute irure C',
-    title: 'Omnis voluptas assumenda est C',
-    p1: "Feature C details. This covers the third area of functionality, ensuring comprehensive coverage of the product offering.",
-    p2: "A call-to-action or next step related to exploring 'Duis aute irure C' further within the application.",
-    imageSrc: '/ProductDetails4/PD4_img3.jpg',
+    id: "feature_c",
+    buttonLabel: "Duis aute irure",
+    title: "Omnis voluptas assumenda est ",
+    p1: "Feature C details. This covers the third area of functionality,e of the product offering.",
+    p2: "A call-to-action or next step related to exploring 'Duis aute irure' fuin the application.",
+    imageSrc: "/ProductDetails4/PD4_img3.jpg",
   },
   {
-    id: 'feature_d',
-    buttonLabel: 'Duis aute irure D',
-    title: 'Temporibus autem quibusdam D',
+    id: "feature_d",
+    buttonLabel: "Duis aute irure",
+    title: "Temporibus autem quibusdam D",
     p1: "Feature D explanation. The fourth feature provides an essential utility for advanced users.",
     p2: "Specific examples showing the practical application and value of this feature in a real-world scenario.",
-    imageSrc: '/ProductDetails4/PD4_img4.jpg',
+    imageSrc: "/ProductDetails4/PD4_img4.jpg",
   },
   {
-    id: 'feature_e',
-    buttonLabel: 'Duis aute irure E',
-    title: 'Repudiandae sint et molestiae E',
+    id: "feature_e",
+    buttonLabel: "Duis aute irure",
+    title: "Repudiandae sint et molestiae E",
     p1: "Feature E overview. The final feature rounds out the core set of tools available to the user.",
     p2: "Summary of benefits and a final reason to engage with this particular component of the service.",
-    imageSrc: '/ProductDetails4/PD4_img5.jpg',
+    imageSrc: "/ProductDetails4/PD4_img2.jpg",
   },
 ];
 
-const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
+const Feature: React.FC<FeatureSwitcherProps> = () => {
   const [activeFeatureId, setActiveFeatureId] = useState(FEATURES[0].id);
-  const activeContent = FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
+  const activeContent =
+    FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#C1D7F3]">
+    <section className="py-14 px-5 sm:px-10 lg:px-32 bg-[#fafafa] xl:h-screen overflow-hidden">
       <div className="max-w-[1280px] mx-auto">
         {/* Section Title */}
-        <H2 className="text-gray-900 mb-5 text-center tracking-tight leading-snug">
-          Lorem ipsum dolor, consectetur adipis
+        <H2 className="mb-20 mt-10 text-center text-blue-600 tracking-tight leading-snug">
+          Lorem ipsum dolor, consectetur adipis consectetur
         </H2>
 
         {/* Main Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-10 gap-y-12 items-center">
-          
+        <div
+          className="
+            flex flex-col gap-y-12 gap-x-10 items-center
+            [@media(min-width:1100px)]:grid 
+            [@media(min-width:1100px)]:grid-cols-12 
+            [@media(min-width:1100px)]:items-start
+          "
+        >
           {/* Left Buttons (Desktop) */}
-          <div className="hidden lg:flex lg:col-span-3 space-y-4 flex-col justify-center order-1">
+          <div className="hidden [@media(min-width:1100px)]:flex [@media(min-width:1100px)]:col-span-3 space-y-4 flex-col justify-start order-1">
             <nav aria-label="Feature Selection">
               {FEATURES.map((item) => {
                 const isActive = item.id === activeFeatureId;
@@ -70,12 +78,12 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
                   <button
                     key={item.id}
                     onClick={() => setActiveFeatureId(item.id)}
-                    className={`w-full py-3 px-6 mb-5 text-left rounded-full transition-all duration-300
-                      text-base font-semibold focus:outline-none focus:ring-indigo-500 focus:ring-offset-2
+                    className={`py-4 px-12 mb-6 text-center rounded-full transition-all duration-300
+                      text-base font-semibold focus:outline-none
                       ${
                         isActive
-                          ? 'bg-blue-600 text-white '
-                          : 'bg-transparent text-black border border-gray-400 hover:bg-gray-100'
+                          ? "bg-blue-600 text-white"
+                          : "bg-transparent text-black border border-gray-400 hover:bg-gray-100"
                       }`}
                   >
                     {item.buttonLabel}
@@ -85,29 +93,31 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
             </nav>
           </div>
 
-          {/* Horizontal Scroll Buttons (Mobile & Tablet) */}
-          <div className="flex lg:hidden overflow-x-auto space-x-3 pb-4 order-1">
-            {FEATURES.map((item) => {
-              const isActive = item.id === activeFeatureId;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveFeatureId(item.id)}
-                  className={`flex-shrink-0 whitespace-nowrap py-2 px-5 rounded-full text-sm font-semibold transition-all duration-300
-                    ${
-                      isActive
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white text-black border border-gray-400 hover:bg-gray-100'
-                    }`}
-                >
-                  {item.buttonLabel}
-                </button>
-              );
-            })}
+          {/* Horizontal Scroll Buttons (Below 1100px) */}
+          <div className="[@media(min-width:1100px)]:hidden w-full overflow-x-auto">
+            <div className="flex space-x-3 pb-4 px-4 snap-x snap-mandatory overflow-y-hidden justify-center scrollbar-hide">
+              {FEATURES.map((item) => {
+                const isActive = item.id === activeFeatureId;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveFeatureId(item.id)}
+                    className={`flex-shrink-0 snap-start whitespace-nowrap py-4 px-6 rounded-full text-sm font-semibold transition-all duration-300
+                      ${
+                        isActive
+                          ? "bg-blue-600 text-white"
+                          : "bg-white text-black border border-gray-400 hover:bg-gray-100"
+                      }`}
+                  >
+                    {item.buttonLabel}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Center Image */}
-          <div className="lg:col-span-5 flex justify-center order-2">
+          <div className="order-2 [@media(min-width:1100px)]:col-span-5 flex justify-center [@media(min-width:1100px)]:justify-start w-full">
             <div className="relative max-w-xl w-full">
               <img
                 src={activeContent.imageSrc}
@@ -118,10 +128,10 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* Right Content */}
-          <div className="lg:col-span-4 space-y-6 text-gray-700 flex flex-col justify-center text-center order-3">
-            <H3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
+          <div className="order-3 [@media(min-width:1100px)]:col-span-4 space-y-6 text-gray-700 flex flex-col justify-center text-left w-full px-2 xl:px-0 md:px-24">
+            <H2 className="text-gray-900 tracking-tight leading-tight">
               {activeContent.title}
-            </H3>
+            </H2>
             <P className="text-base">{activeContent.p1}</P>
             <P className="text-base">{activeContent.p2}</P>
           </div>
@@ -131,4 +141,4 @@ const FeatureSwitcher: React.FC<FeatureSwitcherProps> = () => {
   );
 };
 
-export default FeatureSwitcher;
+export default Feature;

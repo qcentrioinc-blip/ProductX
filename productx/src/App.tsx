@@ -34,11 +34,7 @@ import PolicyPage from './components/HighTech/Policy/PolicyPage'
 import PDPage from './components/HighTech/ProductDetails/PDPage'
 import JobDescription from './components/Banking&Finance/JobDescription/JobDescription'
 import Contact from './components/Banking&Finance/BNFContact/Contact'
-import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform'
- 
- 
-
- 
+import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform' 
 import CookiePolicyPage from './components/EHR&PMS/CookiePolicy/CookiePolicyPage'
 import PrivacyPolicyPage from './components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage'
 import TermsAndConditionsPage from './components/EHR&PMS/TermsAndConditions/TermsAndConditionsPage'

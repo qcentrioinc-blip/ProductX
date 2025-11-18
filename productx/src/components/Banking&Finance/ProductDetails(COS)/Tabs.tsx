@@ -9,34 +9,34 @@ interface TabContent {
 
 const tabContents: TabContent[] = [
   {
-    headline: 'Lorem ipsum dolor ,\nconsect adipis ipsum',
+    headline: 'Lorem ipsum dolor ,consect adipis ipsum',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: '/ProductDetails(COS)/img4.png',
   },
   {
-    headline: 'Praesent commodo ,\ncursus magn consectetur',
+    headline: 'Praesent commodo ,cursus magn consectetur',
     paragraph:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: '/ProductDetails(COS)/img5.jpg',
   },
   {
-    headline: 'Curabitur blandit ,\ntempus porttitor',
+    headline: 'Curabitur blandit ,tempus porttitor',
     paragraph:
-      'Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: '/ProductDetails(COS)/img6.jpg',
   },
   {
-    headline: 'Integer posuere ,\nerat a ante venenatis',
+    headline: 'Integer posuere ,erat a ante venenatis',
     paragraph:
-      'Praesent commodo cursus magna, vel scelerisque nisl consectetur. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
-    image: '/ProductDetails(COS)/img7.jpg',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    image: '/ProductDetails(COS)/img4.png',
   },
   {
-    headline: 'Etiam porta sem ,\nmalesuada magna',
+    headline: 'Etiam porta sem ,malesuada magna',
     paragraph:
-      'Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.',
-    image: '/ProductDetails(COS)/img8.jpg',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    image: '/ProductDetails(COS)/img5.jpg',
   },
 ];
 
@@ -54,13 +54,13 @@ const ResponsiveTabs: React.FC = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto p-6">
+    <section className="w-full px-6 md:px-16 py-16 bg-[#F5DDA9] overflow-hidden">
       {/* Tabs Navigation */}
       <div className="md:w-1/2 mt-10">
         <nav aria-label="Product features" className="mb-10">
           <ul
             role="tablist"
-            className="flex justify-start gap-10 border-b border-gray-300 pb-2"
+            className="flex justify-between gap-10 border-b border-gray-700 pb-2"
             tabIndex={0}
             onKeyDown={handleKeyDown}
           >
@@ -79,7 +79,7 @@ const ResponsiveTabs: React.FC = () => {
                     setActiveIndex(index);
                   }
                 }}
-                className={`cursor-pointer text-3xl transition-colors duration-200
+                className={`cursor-pointer text-3xl md:text-3xl xl:text-5xl transition-colors duration-200
                   ${activeIndex === index
                     ? 'text-[#C8072C] font-semibold'
                     : 'text-gray-400 hover:text-gray-600 font-normal'}`}
@@ -92,10 +92,11 @@ const ResponsiveTabs: React.FC = () => {
       </div>
 
       {/* Content Area */}
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-10">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-10 relative">
+
         {/* Text Content */}
-        <div className="md:w-1/2">
-          <H2 className="text-3xl font-bold whitespace-pre-line mb-6 leading-tight">
+        <div className="md:w-1/2 z-10 mb-20">
+          <H2 className="text-3xl text-[#A80040] font-bold whitespace-pre-line mb-6 leading-tight">
             {tabContents[activeIndex].headline}
           </H2>
           <P className="text-gray-700 leading-relaxed">
@@ -103,12 +104,38 @@ const ResponsiveTabs: React.FC = () => {
           </P>
         </div>
 
-        {/* Image */}
-        <div className="md:w-1/2 flex justify-center">
+        {/* Image + Shape */}
+        <div className="md:w-1/2 flex justify-center relative">
+
+          {/* Decorative shape behind image */}
+          <img
+            src="/ProductDetails(COS)/shape.png"
+            alt=""
+            aria-hidden="true"
+            className="
+              absolute 
+              top-1/2 left-1/2 
+              -translate-x-1/2 -translate-y-1/2 
+              w-[100%]   /* bigger than image */
+              max-w-none
+              opacity-100
+            "
+          />
+
+          {/* Main image (15% smaller) */}
           <img
             src={tabContents[activeIndex].image}
             alt={`Product feature ${activeIndex + 1}`}
-            className="max-w-full h-auto rounded-md shadow-sm"
+            className="
+              relative z-10 
+              w-[85%] 
+              sm:w-[80%] 
+              md:w-[85%] 
+              lg:w-[85%]
+              h-auto 
+              rounded-md 
+              shadow-sm
+            "
           />
         </div>
       </div>

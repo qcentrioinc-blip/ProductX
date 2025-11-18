@@ -5,22 +5,22 @@ const cards = [
   {
     title: "Sed ut perspiciatis",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. cillum dolore eu cillum dolore rwdqdbg swbd duwjn",
   },
   {
     title: "Sed ut perspiciatis",
     description:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.cillum dolore eu cillum dolore ",
   },
   {
     title: "Sed ut perspiciatis",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cillum dolore eu cillum dolore ",
   },
   {
     title: "Sed ut perspiciatis",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum cillum dolore eu cillum dolore r.cillum dolore eu cillum dolore ",
   },
 ];
 
@@ -38,7 +38,7 @@ const FeatureGridSection: React.FC = () => {
       >
         {/* Left: Heading */}
         <div className="w-full xl:w-1/2 flex flex-col justify-start">
-          <H2 className="text-[#8A0032] leading-snug mb-6 text-2xl lg:text-3xl xl:text-4xl">
+          <H2 className="text-[#2B68C3] leading-snug mb-6 text-2xl lg:text-3xl xl:text-4xl">
             Sed ut perspiciatis Sed ut perspiciatis Sed ut perspiciatis Sed ut perspiciatis
           </H2>
         </div>
@@ -59,7 +59,7 @@ const FeatureGridSection: React.FC = () => {
               key={index}
               className="
                 bg-[#F3F3F3] 
-                rounded-xl 
+                rounded-md 
                 shadow-sm 
                 hover:shadow-md 
                 transition-shadow 
@@ -72,7 +72,7 @@ const FeatureGridSection: React.FC = () => {
               "
             >
               {/* Icon Placeholder */}
-              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-gray-400 mb-4 flex items-center justify-center text-white font-bold" />
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#2B68C3] mb-4 flex items-center justify-center text-white font-bold" />
 
               <H4 className="mb-2">{card.title}</H4>
 
@@ -81,6 +81,7 @@ const FeatureGridSection: React.FC = () => {
           ))}
         </div>
       </div>
+      
     </section>
   );
 };

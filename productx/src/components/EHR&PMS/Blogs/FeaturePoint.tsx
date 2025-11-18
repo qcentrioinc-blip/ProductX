@@ -37,8 +37,8 @@ const FeaturePointProps: React.FC<FeatureItem> = ({ title, description }) => (
 
     {/* Text Content */}
     <div className="flex flex-col">
-      <H3 className="text-green-700 mb-0 leading-tight">{title}</H3>
-      <P className="text-sm text-gray-700 leading-snug mt-1">{description}</P>
+      <H3 className="text-[#166D48] mb-0 leading-tight">{title}</H3>
+      <P className=" leading-snug mt-1">{description}</P>
     </div>
   </div>
 );
@@ -53,7 +53,7 @@ const FeaturePoint: React.FC = () => {
         className="
           absolute
           -top-[9%]      
-          right-[-20%]      
+          right-[-15%]      
           opacity-100 
           pointer-events-none
           select-none
@@ -63,7 +63,7 @@ const FeaturePoint: React.FC = () => {
           md:rotate-[-88deg]
           lg:rotate-[-90.86deg]
           z-5
-          w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]
+          w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[550px] lg:h-[550px]
           max-w-none
         "
         style={{
@@ -76,8 +76,8 @@ const FeaturePoint: React.FC = () => {
       <div className="relative max-w-7xl mx-auto z-10">
         {/* Title Section */}
         <div className="mb-10 lg:mb-16">
-          <H1 className="text-green-700 leading-snug">Sed ut perspiciatis Unde</H1>
-          <H2 className="text-green-600 mt-2">spiciatis spiciatis</H2>
+          <H1 className="text-[#166D48] leading-snug">Sed ut perspiciatis Unde</H1>
+          <H2 className="text-[#166D48] mt-2">spiciatis spiciatis</H2>
         </div>
 
         {/* Main Content Layout */}

@@ -1,4 +1,4 @@
-import {H2, H3, P } from "../../../styles/Typography";
+import {H2,  H4, P } from "../../../styles/Typography";
 
 const features = [
   {
@@ -27,7 +27,7 @@ const AboutFeaturesSection = () => {
   return (
     <section className="w-full bg-gray-50 py-16 px-6 md:px-12 lg:px-20">
       {/* Section Title */}
-      <div className="max-w-6xl mx-auto text-left mb-12">
+      <div className="max-w-7xl mx-auto text-left mb-12">
         <H2 className="text-gray-900 ">
           Lorem ipsum dolor, consectetur adipis
         </H2>
@@ -44,15 +44,15 @@ const AboutFeaturesSection = () => {
             <div className="w-10 h-10 bg-white rounded-full mb-4"></div>
 
             {/* Title + Description */}
-            <H3 className="text-gray-900 mb-2">
+            <H4 className="text-gray-900 mb-4">
               {item.title}
-            </H3>
-            <P className="text-gray-700 mb-5 leading-relaxed">
+            </H4>
+            <P className="text-gray-700 mb-12 leading-relaxed max-w-[360px]">
               {item.description}
             </P>
 
             {/* White Rectangle (Image/Content Placeholder) */}
-            <div className="w-full bg-white h-50 rounded-t-xl rounded-b-none mb-[-24px]"></div>
+            <div className="w-full bg-white h-50 rounded-t-md rounded-b-none mb-[-24px]"></div>
           </div>
         ))}
       </div>
