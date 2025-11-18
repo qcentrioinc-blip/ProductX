@@ -17,29 +17,29 @@ const MOCK_ARTICLES: Article[] = [
     id: 1,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img1.png',
-    title: 'Sed ut perspiciatis Unde Sedvo ut',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    title: 'Sed ut perspiciat Unde Sedvo ut',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
   },
   {
     id: 2,
-    date: '8 Sep 2025',
+    date: '8 Sep 2025', 
     imageSrc: '/EHR-PMS/Blogs/img2.png',
-    title: 'Sed ut perspiciatis Unde Sedvo ut',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    title: 'Sed ut perspiciat Unde Sedvo ut',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
   },
   {
     id: 3,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img3.png',
-    title: 'Sed ut perspiciatis Unde Sedvo ut',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    title: 'Sed ut perspiciat Unde Sedvo ut',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
   },
   {
     id: 4,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img4.png',
-    title: 'Sed ut perspiciatis Unde Sedvo ut',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    title: 'Sed ut perspiciat Unde Sedvo ut',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
   },
 ];
 
@@ -81,7 +81,7 @@ const ArticleCard: React.FC<Article> = ({ date, imageSrc, title, description }) 
         </div>
 
         {/* Text Content */}
-        <div className="flex-grow">
+        <div className="flex-grow ml-0 xl:ml-10">
           <P className=" mb-2">
             {date}
           </P>
@@ -102,16 +102,16 @@ const ArticleCard: React.FC<Article> = ({ date, imageSrc, title, description }) 
 
 const BlogArticleGrid: React.FC = () => {
   return (
-    <section className="w-full py-10 sm:py-16 lg:py-20 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-10 sm:py-16 lg:py-20 bg-[#F6F6F6]">
+      <div className="max-w-8xl mx-10 px-4 sm:px-6 lg:px-8">
         
         {/* Section Title with Gradient */}
-        <div className="mb-10 sm:mb-12 lg:mb-16">
+        <div className="mb-10 sm:mb-12 lg:mb-16 flex flex-col items-start">
           <H2 className="text-center">
             <span 
               className="bg-clip-text text-transparent"
               style={{ 
-                backgroundImage: 'linear-gradient(90deg, #14532d 0%, #ff8c00 100%)' // Green to Orange gradient
+                backgroundImage: 'linear-gradient(90deg, #28B87B 0%, #F99526 100%)' // Green to Orange gradient
               }}
             >
               Sed ut perspiciatis Unde
@@ -121,7 +121,7 @@ const BlogArticleGrid: React.FC = () => {
             <span
                className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: 'linear-gradient(90deg, #14532d 0%, #ff8c00 100%)' 
+                backgroundImage: 'linear-gradient(90deg, #28B87B 0%, #F99526 100%)' 
               }}
             >
               Sedvo ut perspiciatis

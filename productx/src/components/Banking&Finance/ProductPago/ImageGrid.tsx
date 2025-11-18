@@ -1,12 +1,12 @@
- import {  H2, H3, P } from "../../../styles/Typography";
+ import { H2, H4, P } from "../../../styles/Typography";
 import Image1 from "/ProductDetailsThree/Rectangle283.png";
 import Image2 from "/ProductDetailsThree/Rectangle284.png";
- 
+
 const ImageGrid = () => {
   return (
-    <div className="w-full  min-h-screen">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+    <div className="w-full min-h-screen bg-[#EAF2FB]">
+      <div className="max-w-8xl mx-10 px-4 sm:px-6 md:px-8 lg:px-14 xl:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16" >
          
           {/* Left Column - Content */}
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
@@ -14,7 +14,7 @@ const ImageGrid = () => {
               Duis aute
             </span>
             <H2>Lorem ipsum dolor gamis consecte ipsum</H2>
-            <P>
+            <P className="mb-10">
               Duis aute irure dolor in voluptate velit esse voluptate velit esse
               reprehenderit in voluptate velit esse voluptate velit esse
             </P>
@@ -47,8 +47,8 @@ const ImageGrid = () => {
               </div>
  
               {/* Card 1 */}
-              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center">
-                <H3>Lorem ipsum dolor</H3>
+              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
+                <H4>Lorem ipsum dolor</H4>
                 <P className="mt-1.5 sm:mt-2">
                   Duis aute irure dolor in reprehenderit in voluptate velit
                 </P>
@@ -58,8 +58,8 @@ const ImageGrid = () => {
             {/* Right Sub-column */}
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Card 2 */}
-              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-center">
-                <H3>Lorem ipsum dolor</H3>
+              <div className="flex-[0.65] bg-gray-100 rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
+                <H4>Lorem ipsum dolor</H4>
                 <P className="mt-1.5 sm:mt-2">
                   Duis aute irure dolor in reprehenderit in voluptate velit
                 </P>
