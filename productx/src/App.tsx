@@ -5,7 +5,7 @@ import { Route, Routes, useLocation, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import LifeSciences from './routes/industries/EHRandPMS'
-import Blogs from './components/Blogs/Blogs'
+import Blogs from './components/Banking&Finance/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
@@ -33,11 +33,7 @@ import PolicyPage from './components/HighTech/Policy/PolicyPage'
 import PDPage from './components/HighTech/ProductDetails/PDPage'
 import JobDescription from './components/Banking&Finance/JobDescription/JobDescription'
 import Contact from './components/Banking&Finance/BNFContact/Contact'
-import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform'
- 
- 
-
- 
+import Applicationform from './components/Banking&Finance/ApplicationForm/Applicationform' 
 import CookiePolicyPage from './components/EHR&PMS/CookiePolicy/CookiePolicyPage'
 import PrivacyPolicyPage from './components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage'
 import TermsAndConditionsPage from './components/EHR&PMS/TermsAndConditions/TermsAndConditionsPage'

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { H1 } from '../../../styles/Typography';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -12,7 +13,7 @@ export default function HeroSection() {
   };
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1220);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -70,11 +71,34 @@ export default function HeroSection() {
   }, [hasEntered, isMobile]);
 
   return (
-    <section 
+    <section
       ref={sectionRef} 
-      className="w-full h-screen relative overflow-hidden flex md:items-center " 
+      className="w-full lg:h-screen relative overflow-hidden flex lg:items-center " 
       style={{ minHeight: '800px', ...yellowGradientStyle }}
     >
+      
+      {/* Shape - Desktop Only */}
+      {!isMobile && (
+        <div 
+          className="absolute hidden md:block z-0"
+          style={{
+            width: '1100.75px',
+            height: '1111.99px',
+            top: '220.5px',
+            left: '-131.53px',
+            transform: 'rotate(-168.69deg)',
+            opacity: 1,
+            borderRadius: '600px',
+            overflow: 'hidden'
+          }}
+        >
+          <img
+            src="/ProductPage9/shape.png"
+            alt="Decorative shape"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
       
       {/* Blue/Orange Animated Background Container */}
       <div 
@@ -83,10 +107,11 @@ export default function HeroSection() {
         style={{
           background: '#2B68C3',
           ...(isMobile ? {
-            bottom: '120px',
+            bottom: '60px',
             left: '0',
-            height: '35%',
+            height: '45%',
             width: '85%',
+            
             borderRadius: '0 9999px 9999px 0',
             borderBottom: '24px solid #F99526',
           } : {
@@ -132,7 +157,7 @@ export default function HeroSection() {
           src="/ProductDetails4/Title_img.png"
           alt="Sales Report Overview"
           className={`w-full h-auto object-contain absolute top-1/2 left-1/2 z-10 
-            ${hasEntered ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-md'}`}
+            ${hasEntered ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-95 blur-md'}`}
           style={{
             maxWidth: isMobile ? '70%' : '90%',
             transform: 'translate(-50%, -50%)',
@@ -193,7 +218,7 @@ export default function HeroSection() {
       
       {/* Main Content Container (Text + Button) */}
       <div 
-        className="relative z-10 w-full flex flex-col px-4  sm:px-8 md:pt-0 pt-10 md:py-10 md:mb-10"
+        className="relative z-10 w-full flex flex-col px-4  sm:px-8 md:pt-10 pt-10 md:py-10 md:mb-10"
         style={{
           ...(isMobile ? {} : {
             alignItems: 'flex-start',
@@ -204,7 +229,7 @@ export default function HeroSection() {
       >
         
         <div 
-          className="w-full flex flex-col justify-center max-w-[600px] text-gray-900"
+          className="w-full flex flex-col justify-between text-gray-900  md:pt-10"
           style={{
             ...(isMobile ? {
               alignItems: 'center',
@@ -219,13 +244,15 @@ export default function HeroSection() {
           <H1 className="mb-4  pt-10 md:pt-0">
             Lorem ipsum dolor,<br /> consectetur adipis
           </H1>
-          <p className="mb-8 text-gray-700 max-w-[450px]">
+          <p className="mb-8 text-gray-700 max-w-[550px]">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
           </p>
-          <button className="inline-flex items-center mb-10 text-sm font-semibold rounded-lg py-3 px-6 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-md text-white">
+          <Link to="/industries/banking-and-finance/contactform">
+          <button className="inline-flex items-center mb-20 text-sm font-semibold rounded-lg py-3 px-6 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-md text-white">
             CONTACT US →
           </button>
+         </Link> 
         </div>
       </div>
     </section>
