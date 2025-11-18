@@ -1,3 +1,4 @@
+// import HighTechNav from "../HighTechNav/HighTechNav"
 import Banner from "./Banner"
 import BorderCTA from "./BorderCTA"
 import CTA from "./CTA"
@@ -12,6 +13,7 @@ import WorkProfile from "./WorkProfile"
 const AboutUs = () => {
   return (
     <div>
+      {/* <HighTechNav/> */}
       <div className="relative  ">
   <HeroSection />
   <CTA />

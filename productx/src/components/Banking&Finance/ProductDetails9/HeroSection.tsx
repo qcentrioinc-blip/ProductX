@@ -114,7 +114,7 @@ const HeroSec = () => {
       <div className="max-w-8xl mx-10 px-6 lg:px-12 flex flex-col items-center lg:items-start gap-4">
 
         {/* === TOP ROW: Heading + Avatars + Paragraph === */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
+        <div className="w-full flex flex-col lg:pt-24 lg:flex-row justify-between items-center lg:items-start gap-8">
           {/* Left: Heading + Avatars */}
           <div className="flex flex-col flex-1 w-full max-w-[700px]">
             <H1 className="mb-6 leading-tight text-white text-center z-20 lg:text-left">
@@ -162,7 +162,7 @@ const HeroSec = () => {
         <div className="w-full flex justify-center mt-16 relative">
           <div className="relative w-full max-w-7xl sm:pt-30 lg:pt-20 flex justify-center items-center">
 
-            {/* Static Shape behind dashboard */}  
+            {/* Static Shape behind dashboard */} 
             <img
               src="/ProductPage9/shape.png"
               alt="shape preview"

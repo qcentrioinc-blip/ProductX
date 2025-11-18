@@ -1,4 +1,4 @@
-import type { ReactNode, CSSProperties } from "react";
+import { type ReactNode, type CSSProperties } from "react";
 
 type TypographyProps = {
   children: ReactNode;
@@ -62,7 +62,7 @@ export const H4 = ({ children, className = "" }: TypographyProps) => {
       className={`
         text-[16px] md:text-[20px] lg:text-[24px]
         font-bricolage
-        font-semibold
+        font-bold
         leading-[120%]
        
         ${className}`}
@@ -87,6 +87,16 @@ export const P = ({ children, className = "" }: TypographyProps) => {
     </p>
   );
 };
+
+export const P2=({children,className=""}:TypographyProps)=>{
+  return(
+    <p 
+    className={`  text-[14px] md:text-[16px] lg:text-[18px]
+        font-schibsted
+        leading-[100%]
+        ${className}`}>{children}</p>
+  )
+}
 
 export const Li = ({ children, className = "" }: TypographyProps) => {
   return (

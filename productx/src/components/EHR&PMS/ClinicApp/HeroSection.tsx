@@ -91,7 +91,7 @@ const HeroSection = () => {
 
  
       <div
-        className="w-full mt-16 overflow-hidden relative"
+        className="w-full   overflow-hidden relative"
         ref={heroRef}
         style={{ cursor: isHovering ? 'none' : 'default' }}
       >

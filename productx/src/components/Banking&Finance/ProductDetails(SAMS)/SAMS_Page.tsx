@@ -10,11 +10,14 @@ import HeroSection from "./HeroSection";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import NewOneFooter from "../Products2/NewOneFooter";
 
+// import NewFooter from "../Products2/NewFooter";
+import BNFNav from "../BNFnav";
 
 const Sams_Page = () => {
   return (
     <div>
       <ScrollProvider>
+      <BNFNav/>
         <HeroSection/>
         <Feature />
         <Cards />
