@@ -1,6 +1,6 @@
  
 import { CheckCircle } from 'lucide-react';
-import {  H2,P } from '../../styles/Typography';
+import {  H2,P } from '../../../styles/Typography';
 
 const Benefits = () => {
   const benefits = [

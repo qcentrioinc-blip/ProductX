@@ -1,4 +1,4 @@
-import { H2, H4 ,P } from "../../styles/Typography";
+import { H2, H4 ,P } from "../../../styles/Typography";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";

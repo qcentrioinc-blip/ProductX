@@ -8,11 +8,13 @@ import FAQ from "./FAQ";
 import InsightThought from "../InsightThought";
 import NewFooter from "../Products2/NewFooter";
 import ContactUS from "../Products2/ContactUS";
+import BNFNav from "../BNFnav";
 
 
 const ProductDetails_4_page = () => {
   return (
     <div>
+      <BNFNav/>
         <TitleSec /> 
         <CardsSection />
         <Features />

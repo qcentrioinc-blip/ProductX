@@ -316,7 +316,7 @@ const HeroSection: React.FC = () => {
       <div className="relative w-full flex flex-col">
         {/* Pink Background with animated elements */}
         <motion.div
-          className="relative w-full flex flex-col items-start md:items-start pb-[20vh] md:pb-[30vh] lg:pb-[35vh] xl:pb-[40vh]"
+          className="relative w-full lg:pt-16 flex flex-col items-start md:items-start pb-[20vh] md:pb-[30vh] lg:pb-[35vh] xl:pb-[40vh]"
           style={{
             background: `
               linear-gradient(to bottom, #d7e6ff, #7aa8ff, #1f4fff),

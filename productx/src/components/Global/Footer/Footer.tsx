@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback, useRef, useContext } from 'react';
 import { motion, useMotionValue, useSpring, useInView } from 'framer-motion';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
-import { Submit } from '../../styles/Button';
-import { H3, P } from '../../styles/Typography';
-import { ScrollContext } from '../../context/ScrollContext';
+import { Submit } from '../../../styles/Button';
+import { H3, P } from '../../../styles/Typography';
+import { ScrollContext } from '../../../context/ScrollContext';
 
 const Footer = () => {
     // State for tracking scroll behavior and bottom reach
@@ -123,7 +123,7 @@ const Footer = () => {
                 style={{
                     scale,          // Using spring-animated values
                     opacity,        // Using spring-animated values
-                    x: '-50%',
+                    x: '-50%',  
                     y: '50%',
                     transformOrigin: 'center bottom',
                 }}

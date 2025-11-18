@@ -100,7 +100,7 @@ const FirstPage = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="py-12 md:py-20 px-8 md:px-12 lg:px-16">
+      <div className="py-12 md:py-20 px-8 md:px-12 lg:pt-44 lg:px-16">
         {/* Header Section */}
         <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-center">

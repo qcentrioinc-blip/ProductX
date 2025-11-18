@@ -1,7 +1,8 @@
 
-import ContactUS from "../Banking&Finance/Products2/ContactUS"
-import NewFooter from "../Banking&Finance/Products2/NewFooter"
-import Counter from "../HomePage/Banking&Finance/Counter"
+import BNFNav from "../BNFnav"
+import ContactUS from "../Products2/ContactUS"
+import NewFooter from "../Products2/NewFooter"
+import Counter from "../../HomePage/GlobalLandingPage/Counter"
  
 
 import Banner from "./Banner"
@@ -12,6 +13,7 @@ import Testimonial from "./Testimonial"
 const Career = () => {
   return (
     <div className="overflow-x-hidden">
+      <BNFNav/>
       <HeroSection/>
       <Testimonial/>
       <Banner/>
