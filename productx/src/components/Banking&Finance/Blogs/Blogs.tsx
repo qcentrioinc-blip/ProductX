@@ -12,11 +12,12 @@ const Blogs = () => {
     <div>
         <BNFNav/>
       <HeroSection/>
-<FeaturedCards/>
-<AllPosts/>
+      <FeaturedCards/>
+      <AllPosts/>
       <ContactUS/>
-      <NewOneFooter/>
       
+      
+      <NewOneFooter/>
     </div>
   )
 }
