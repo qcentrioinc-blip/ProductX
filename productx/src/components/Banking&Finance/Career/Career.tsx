@@ -1,4 +1,7 @@
 
+// import ContactUS from "../Banking&Finance/Products2/ContactUS"
+// import NewFooter from "../Banking&Finance/Products2/NewFooter"
+// import Counter from "../HomePage/LandingPages/Counter"
 import BNFNav from "../BNFnav"
 import ContactUS from "../Products2/ContactUS"
 import NewFooter from "../Products2/NewFooter"
