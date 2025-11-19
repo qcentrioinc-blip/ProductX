@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
 
 const BNFNav = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  
   const [isScrolled, setIsScrolled] = useState(true); // <-- Re-added isScrolled
 
   // For demo purposes - replace with useParams in your actual code
@@ -93,7 +93,7 @@ const BNFNav = () => {
                     behavior: "smooth",
                     block: "start",
                   });
-                  setOpenMenu(false);
+                   
                 }}
                 className="text-gray-800 font-quickstand text-[20px] font-bold hover:text-gray-600 transition"
               >
@@ -116,62 +116,8 @@ const BNFNav = () => {
            <ContactUsDark>Contact Us</ContactUsDark>
         </Link>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 z-50"
-          onClick={() => setOpenMenu(!openMenu)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ${openMenu ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-col items-center justify-center h-full gap-8">
-            {/* Mobile Top Links */}
-            <Link
-              to="/platform"
-              onClick={() => setOpenMenu(false)}
-              className="text-xl font-bold text-gray-900 hover:text-gray-600 transition"
-            >
-              Platform
-            </Link>
-            <Link
-              to="/marketplace"
-              onClick={() => setOpenMenu(false)}
-              className="text-xl font-bold text-gray-900 hover:text-gray-600 transition"
-            >
-              Marketplace
-            </Link>
-
-            <div className="w-16 h-0.5 bg-gray-300 my-2"></div>
-
-            {/* Mobile Nav Items */}
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={() => setOpenMenu(false)}
-                className="text-2xl font-bold text-gray-900 hover:text-gray-600 transition"
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <Link
-              to={`${base}/contactform`}
-              onClick={() => setOpenMenu(false)}
-              className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-gray-800 transition mt-4"
-            >
-              CONTACT US
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-            </Link>
-          </div>
-        </div>
+      
+       
       </nav>
 
        
