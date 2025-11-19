@@ -1,4 +1,6 @@
 
+// import Footer from '../../Footer/Footer';
+// import CallToAction from '../../HomePage/LandingPages/CallToAction';
 import Footer from '../../Global/Footer/Footer';
 import CallToAction from '../../HomePage/GlobalLandingPage/CallToAction';
 import AlphabetsSection from './AlphabetsSection';
