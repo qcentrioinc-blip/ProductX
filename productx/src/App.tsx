@@ -51,7 +51,8 @@ import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDeta
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import CareersPage from './components/EHR&PMS/Careers/CareersPage'
-
+import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePapersPage'
+ 
 const App = () => {
   const location = useLocation();
   const showNavbar = location.pathname === '/';
@@ -154,12 +155,13 @@ const App = () => {
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
             {/* <Route path="/industries/ehr/aboutus" element={<About/>}/> 
            <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/> */}
-            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
-            <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
-            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
-            <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
-            <Route path="/industries/high-tech/resources" element={<Resources />} />
-            <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
+           <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
+           <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
+           <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
+           <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
+           <Route path="/industries/high-tech/aboutus" element={<AboutHighTech/>}/>
+           <Route path="/industries/high-tech/resources" element={<Resources/>}/>
+           <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail/>}/>
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
