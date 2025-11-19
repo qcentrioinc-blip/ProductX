@@ -49,6 +49,7 @@ import Resources from './components/HighTech/Resources/Resources'
 import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 import CareersPage from './components/EHR&PMS/Careers/CareersPage'
+import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePapersPage'
  
 const App = () => {
   const location = useLocation();
@@ -154,6 +155,7 @@ const IndustryCareersPage = () => {
            <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/> */}
            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
            <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
+           <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
            <Route path="/industries/high-tech/aboutus" element={<AboutHighTech/>}/>
            <Route path="/industries/high-tech/resources" element={<Resources/>}/>
