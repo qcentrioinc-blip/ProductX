@@ -25,7 +25,7 @@ const FiveCards = () => {
     ];
 
     return (
-        <div className="bg-black text-white min-h-screen py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+        <div className="bg-black text-white min-h-screen py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center">
                     Sed ut perspiciatis unde

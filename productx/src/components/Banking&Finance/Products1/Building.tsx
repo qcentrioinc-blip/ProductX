@@ -10,7 +10,7 @@ const Building = () => {
   const filters: FilterKey[] = ["Duis aute", "Duis jhgfgb aute", "Duis aute sdfgh", "kihg Duis aute"]
 
   return (
-    <div 
+    <div
       className="building-section relative flex items-center justify-center"
       style={{
         width: '100%',
@@ -120,8 +120,8 @@ const Building = () => {
               width: '1360px',
               height: '560px',
               borderRadius: '8px',
-              background: '#F5F5F5',
-              position: 'relative'
+              // background: '#F5F5F5',
+              position: 'relative',
             }}
           >
             {/* Left Image */}
@@ -139,8 +139,8 @@ const Building = () => {
               }}
             >
               <img
-                src="/Building.jpg"
-                alt="Building"
+                src="/Products/Table.png"
+                alt="Table"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -220,7 +220,7 @@ const Building = () => {
                 bottom: '24px',
                 left: '583.26px',
                 display: 'flex',
-                gap: '24px'
+                gap: '0px' // set to 0 so the line is flush
               }}
             >
               {/* Left Half - 80% */}
@@ -239,35 +239,20 @@ const Building = () => {
                     fontSize: '14px',
                     fontWeight: 400,
                     color: '#141414',
-                    lineHeight: '140%'
+                    lineHeight: '140%',
+                    marginBottom: 20
                   }}
                 >
                   Sed ac faucibus lectus. Ut sed eros vel sapien tristique
                 </p>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <svg
-                    width="60"
-                    height="39"
-                    viewBox="0 0 60 39"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
-                      stroke="#A80040"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  <img src="/Products/Arrow.png" alt="Arrow" className="w-20 h-10 object-fill" />
                   <h3
                     style={{
                       fontFamily: "'Bricolage Grotesque', sans-serif",
-                      fontSize: '96px',
-                      fontWeight: 500,
+                      fontSize: '86px',
+                      fontWeight: 200,
                       color: '#666666',
                       lineHeight: '1'
                     }}
@@ -277,6 +262,16 @@ const Building = () => {
                 </div>
               </div>
 
+              {/* Divider */}
+              <div
+                style={{
+                  width: '2px',
+                  height: '100%',
+                  background: '#C6C6C6',
+                  margin: '0 35px'
+                }}
+              />
+
               {/* Right Half - 10X */}
               <div
                 style={{
@@ -284,7 +279,7 @@ const Building = () => {
                   height: '210px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '16px'
+                  gap: '28px'
                 }}
               >
                 <p
@@ -293,35 +288,20 @@ const Building = () => {
                     fontSize: '14px',
                     fontWeight: 400,
                     color: '#141414',
-                    lineHeight: '140%'
+                    lineHeight: '140%',
+                    marginBottom: 20
                   }}
                 >
                   Sed ac faucibus lectus. Ut sed eros vel sapien tristique
                 </p>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <svg
-                    width="60"
-                    height="39"
-                    viewBox="0 0 60 39"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
-                      stroke="#A80040"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-
+                  <img src="/Products/Arrow.png" alt="Arrow" className="w-20 h-10 object-fill" />
                   <h3
                     style={{
                       fontFamily: "'Bricolage Grotesque', sans-serif",
-                      fontSize: '96px',
-                      fontWeight: 500,
+                      fontSize: '86px',
+                      fontWeight: 200,
                       color: '#666666',
                       lineHeight: '1'
                     }}
@@ -331,6 +311,7 @@ const Building = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -389,7 +370,7 @@ const Building = () => {
             alt="Building"
             className="w-full h-48 object-cover rounded-lg"
           />
-          
+
           <h2
             className="font-bold"
             style={{
@@ -401,7 +382,7 @@ const Building = () => {
           >
             Consecte adipiscing werdasec ku quorti wer
           </h2>
-          
+
           <p
             style={{
               fontFamily: "'Quicksand', sans-serif",

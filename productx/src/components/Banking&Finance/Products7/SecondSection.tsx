@@ -31,8 +31,8 @@ export default function SecondSection() {
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 700,
                 fontSize: '40px',
-                lineHeight: '100%',
-                letterSpacing: '0%',
+                lineHeight: '120%',
+                letterSpacing: '120%',
                 color: '#F5F5F5',
                 margin: 0
               }}
@@ -46,8 +46,8 @@ export default function SecondSection() {
                 fontFamily: "'Quicksand', sans-serif",
                 fontWeight: 400,
                 fontSize: '20px',
-                lineHeight: '100%',
-                letterSpacing: '0%',
+                lineHeight: '120%',
+                letterSpacing: '50%',
                 color: '#CCCCCC',
                 margin: 0,
                 overflow: 'hidden'
