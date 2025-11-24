@@ -61,7 +61,7 @@ const ShortDesc = () => {
             margin: 0
           }}
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat <br /> non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
         </p>
 
         {/* Description Paragraph 2 - RESPONSIVE */}
@@ -79,7 +79,7 @@ const ShortDesc = () => {
             margin: 0
           }}
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat <br /> non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
         </p>
 
         {/* Contact Us Button - RESPONSIVE */}
@@ -108,7 +108,7 @@ const ShortDesc = () => {
           onMouseEnter={(e) => e.currentTarget.style.background = '#2A2A2A'}
           onMouseLeave={(e) => e.currentTarget.style.background = '#141414'}
         >
-          CONTACT US
+          <a href="/industries/ehr-and-pms/contactus">CONTACT US</a>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>

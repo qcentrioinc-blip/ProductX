@@ -13,11 +13,11 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ number, text }) => {
       <div className="flex items-start gap-4">
         
         {/* FULL HEIGHT RED LINE */}
-        <div className="h-full border-l-1 border-[#000000]"></div>
+        <div className="h-full border-l-4 border-[#2B68C3]"></div>
 
         {/* Number + Text */}
         <div>
-          <span className="text-xl sm:text-2xl md:text-3xl font-semibold text-rose-700">
+          <span className="text-xl sm:text-2xl md:text-4xl font-semibold text-black">
             {number}
           </span>
 

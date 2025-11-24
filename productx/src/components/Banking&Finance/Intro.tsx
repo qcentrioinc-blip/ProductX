@@ -1,4 +1,5 @@
 import { ContactUs } from "../../styles/Button";
+import { H2 } from "../../styles/Typography";
  
  
 const Intro = () => {
@@ -28,10 +29,10 @@ const Intro = () => {
       <div className="relative max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
         <div className="max-w-4xl">
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">
+          <H2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">
             <span className="text-[#2B68C3]">Sed ut perspiciatis</span>{' '}
             <span className="text-[#666666]">Unde Seduo ut perspiciatis</span>
-          </h2>
+          </H2>
  
           {/* First Paragraph */}
           <p className="text-sm sm:text-base md:text-lg text-[#666666] mb-4 md:mb-6 leading-relaxed">

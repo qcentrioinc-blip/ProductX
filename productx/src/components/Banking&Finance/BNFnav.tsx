@@ -1,180 +1,309 @@
-import { useState, useEffect } from "react"; // <-- Re-added useEffect
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
-
+import { ChevronDown } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 const BNFNav = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(true); // <-- Re-added isScrolled
+  const [isScrolled, setIsScrolled] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // For demo purposes - replace with useParams in your actual code
+  const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const industry = "banking-and-finance";
-  const base = industry ? `/industries/${industry}` : "";
+  const currentIndustry = "Banking & Finance";
+  const industries = [
+    { name: "Banking & Finance", path: "/industries/banking-and-finance" },
+    { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
+    { name: "HighTech", path: "/industries/high-tech" },
+    { name: "AI Automation", path: "/industries/ai-automation" },
+  ];
+  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+  const base = `/industries/${industry}`;
 
-  type NavItem = {
-    name: string;
-    path: string;
-    scroll?: boolean;  
-  };
-
-  const navItems: NavItem[] = [
-    { name: "Products", path: `${base}?scroll=products`, scroll: true }, // <-- Fixed scroll: true
+  const navItems = [
+    { name: "Products", path: `${base}?scroll=products`, scroll: true },
     { name: "About Us", path: `${base}/about-us` },
     { name: "Resources", path: `${base}/resources` },
-    { name: "Careers", path: `${base}/careers` }
+    { name: "Careers", path: `${base}/careers` },
   ];
 
-  // Re-added scroll effect for the Top Bar to disappear and Main Nav to adjust
+  const handleProductsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // Check if we're already on the homepage
+    if (location.pathname === base) {
+      // Already on homepage, just scroll
+      document.getElementById("productsSection")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      // Navigate to homepage first, then scroll
+      navigate(base);
+      // Use setTimeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        document.getElementById("productsSection")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  };
+
+  // Scroll effect for desktop main nav
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30); // Adjust threshold as needed
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+
+
+
+
   return (
     <>
-     
-    <div
-  className={`absolute top-0 left-0 w-full 
-  bg-white/10 backdrop-blur-lg
-  border-b border-white/20
-  z-50 px-4 sm:px-6 md:px-8 pt-3 pb-1 
-  flex justify-between transition-all duration-300`}
->
-
-        {/* Logo - Left */}
+      {/* TOP TRANSPARENT BAR (KEPT SAME) */}
+      <div
+        className=" fixed top-0 z-50 left-0 w-full 
+        bg-white/10 backdrop-blur-lg font-bricolage
+        border-b border-white/20
+         px-4 sm:px-6 md:px-8 pt-3 pb-1 
+        flex justify-between transition-all duration-300"
+      >
         <Link to="/" className="flex items-center">
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-3 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">LOGO</span>
+          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
+            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
+              LOGO
+            </span>
           </div>
         </Link>
 
-        {/* Platform & Marketplace - Right */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <Link 
-            to="/platform" 
-            className="text-white font-medium text-sm sm:text-base hover:text-white/80 transition"
-          >
+        {/* DESKTOP RIGHT LINKS */}
+        <div className="hidden lg:flex items-center gap-6">
+          <Link to="/platform" className="text-white font-medium">
             Platform
           </Link>
-          <Link 
-            to="/marketplace" 
-            className="text-white font-medium text-sm sm:text-base hover:text-white/80 transition"
-          >
+          <Link to="/marketplace" className="text-white font-medium">
             Marketplace
           </Link>
         </div>
+
+        {/* MOBILE HAMBURGER (NO LOGO, NO CONTACT BUTTON) */}
+        <button
+          className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}
+            `}
+          ></span>
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "opacity-0" : ""}
+            `}
+          ></span>
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}
+            `}
+          ></span>
+        </button>
       </div>
 
-      {/* Main Navigation - This will float over hero and then fix to top-0 */}
+      {/* MAIN NAV (DESKTOP ONLY ) */}
       <nav
-        className={` absolute left-1/2 transform  top-20 -translate-x-1/2 w-[95%] max-w-6xl 
+        className={`hidden lg:flex absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl 
         z-[60] bg-white/90 backdrop-blur-md rounded-full shadow-lg px-6 py-3 
-        flex items-center justify-between transition-all duration-300
-        ${isScrolled ? "top-10" : "top-10"} `}  >
-        {/* Logo */}
-        <Link to="/industries/banking-and-finance" className="flex items-center gap-2">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+        items-center justify-between transition-all duration-300
+        ${isScrolled ? "top-10" : "top-10"}
+      `}
+      >
+        <Link
+          to="/industries/banking-and-finance"
+          className="flex items-center gap-2"
+        >
+          <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
             LOGO
           </div>
         </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden font-quickstand md:flex items-center gap-6 lg:gap-10 absolute left-1/2 transform -translate-x-1/2">
-         {navItems.map((item) => (
-          <li key={item.name}>
-            {item.scroll ? (
-              <a
-                href={item.path}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("productsSection")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                  setOpenMenu(false);
-                }}
-                className="text-gray-800 font-quickstand text-[20px] font-bold hover:text-gray-600 transition"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <Link
-                to={item.path}
-                className="text-gray-800 font-quickstand text-[20px] font-bold hover:text-gray-600 transition"
-              >
-                {item.name}
-              </Link>
-            )}
-          </li>
-        ))}
+        <ul className="flex items-center font-medium  gap-10 font-quickstand">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              {item.scroll ? (
+                <a
+                  href={item.path}
+                  onClick={handleProductsClick}
+                  // onClick={(e) => {
+                  //   e.preventDefault();
+                  //   document.getElementById("productsSection")?.scrollIntoView({
+                  //     behavior: "smooth",
+                  //     block: "start",
+                  //   });
+                  // }}
+                  className="text-gray-800 text-[20px] "
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  to={item.path}
+                  className="text-gray-800 text-[20px]  "
+                >
+                  {item.name}
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
 
-        {/* Contact Button - Desktop */}
         <Link to={`${base}/contactform`}>
-           <ContactUsDark>Contact Us</ContactUsDark>
+          <ContactUsDark>Contact Us</ContactUsDark>
         </Link>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 z-50"
-          onClick={() => setOpenMenu(!openMenu)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-gray-900 transition-all ${openMenu ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ${openMenu ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-col items-center justify-center h-full gap-8">
-            {/* Mobile Top Links */}
-            <Link
-              to="/platform"
-              onClick={() => setOpenMenu(false)}
-              className="text-xl font-bold text-gray-900 hover:text-gray-600 transition"
-            >
-              Platform
-            </Link>
-            <Link
-              to="/marketplace"
-              onClick={() => setOpenMenu(false)}
-              className="text-xl font-bold text-gray-900 hover:text-gray-600 transition"
-            >
-              Marketplace
-            </Link>
-
-            <div className="w-16 h-0.5 bg-gray-300 my-2"></div>
-
-            {/* Mobile Nav Items */}
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={() => setOpenMenu(false)}
-                className="text-2xl font-bold text-gray-900 hover:text-gray-600 transition"
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <Link
-              to={`${base}/contactform`}
-              onClick={() => setOpenMenu(false)}
-              className="bg-black text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-gray-800 transition mt-4"
-            >
-              CONTACT US
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-            </Link>
-          </div>
-        </div>
       </nav>
 
-       
+      {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px] 
+  bg-white shadow-2xl z-[200] p-6 flex flex-col  pb-20
+  transition-all duration-500 ease-out
+  ${menuOpen ? "translate-x-0" : "translate-x-full"}
+`}
+      >
+        {/* LOGO (Top) */}
+        {/* <Link
+    to="/industries/banking-and-finance"
+    onClick={() => setMenuOpen(false)}
+    className="flex items-center gap-3 mb-6"
+  >
+    <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+      LOGO
+    </div>
+    <span className="text-xl font-semibold text-gray-900">Banking & Finance</span>
+  </Link> */}
+
+        {/* LOGO with Dropdown (Top) */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/industries/banking-and-finance"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 flex-1"
+            >
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                LOGO
+              </div>
+              <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
+            </Link>
+
+            {/* Dropdown Button */}
+            <button
+              onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <ChevronDown
+                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </button>
+          </div>
+
+          {/* Dropdown Menu */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
+              }`}
+          >
+            <div className="bg-gray-50 rounded-lg p-2 space-y-1">
+              {industryOptions.map((ind) => (
+                <Link
+                  key={ind.name}
+                  to={ind.path}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setIndustryDropdownOpen(false);
+                  }}
+                  className="block px-4 py-3 rounded-md text-gray-800 font-medium
+              hover:bg-blue-200 hover:text-white transition-all duration-200"
+                >
+                  {ind.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* NAV ITEMS (Middle) */}
+        <div className="flex flex-col gap-10 mt-4">
+          {navItems.map((item) => (
+            <div
+              key={item.name}
+              className="border-b border-gray-200 pb-3"
+            >
+              {item.scroll ? (
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    document.getElementById("productsSection")?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                  className="text-gray-800 text-lg font-semibold"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-800 text-lg font-semibold block"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between mt-10 gap-6 pt-4">
+          <Link to="/platform" className="text-blue-500 text-lg font-semibold">
+            Platform
+          </Link>
+          <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
+            Marketplace
+          </Link>
+        </div>
+
+
+        {/* CONTACT BUTTON (BOTTOM) */}
+        <div className="mt-6 flex justify-center items-center">
+          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
+      </div>
+
     </>
   );
 };

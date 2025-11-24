@@ -2,7 +2,7 @@ import { H1 } from "../../../styles/Typography";
 
 const HeroSec = () => {
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-[50vh] lg:h-screen">
       {/* Background image with dark overlay */}
       <img
         src="/Sec-1-img.jpg"

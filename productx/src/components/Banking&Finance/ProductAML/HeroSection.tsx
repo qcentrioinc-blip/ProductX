@@ -1,8 +1,9 @@
 import { ContactUs } from "../../../styles/Button";
 import { H1, P } from "../../../styles/Typography";
 import Image1 from "/AML/image64.png";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { ScrollContext } from "../../../context/ScrollContext";
  
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +16,42 @@ const HeroSection = () => {
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png",
   ];
- 
+
+  const scrollableContainerRefe = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRefe?.current) {
+            scrollableContainerRefe.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRefe]);
+ const [isTypingDone, setIsTypingDone] = useState(false);
+ useEffect(() => {
+  let index = 0;
+  const interval = setInterval(() => {
+    setTypedText(fullText.slice(0, index));
+    index++;
+    if (index > fullText.length) {
+      clearInterval(interval);
+      setIsTypingDone(true); // ➜ cursor disappears
+    }
+  }, 40);
+
+  return () => clearInterval(interval);
+}, []);
+
+
   // --- Typed effect for heading ---
   useEffect(() => {
     let index = 0;
@@ -67,21 +103,28 @@ const HeroSection = () => {
     <div  className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
 -
 
-      <div className=" px-8 sm:px-12 md:px-16 pt-4 lg:pt-44 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between    items-center gap-8">
+      <div className=" px-8 sm:px-12 md:px-16 pt-12 md:pt-36 lg:pt-44 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between    items-center gap-8">
 
         {/* Left Text */}
         <motion.div
-          className="w-full text-(--primary-color) text-center lg:text-left"
+          className="w-full text-(--primary-color)   text-center lg:text-left"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <H1 className="font-semibold tracking-tight">{typedText}</H1>
+       <H1 className="font-semibold tracking-tight min-h-[5rem] relative">
+  {typedText}
+  {!isTypingDone && (
+    <span className="animate-pulse ml-1">|</span>
+  )}
+</H1>
+
+
         </motion.div>
  
         {/* Right Text Block */}
         <motion.div
-          className="w-full bg-(--secondary-color) rounded-lg lg:w-3/5 flex flex-col lg:pt-4 text-center lg:text-left"
+          className="w-full bg-(--secondary-color) rounded-lg md:w-[500px] lg:w-3/5 flex flex-col lg:pt-4 text-center lg:text-left"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}

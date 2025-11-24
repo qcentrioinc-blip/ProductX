@@ -1,4 +1,4 @@
-import { P } from "../../../styles/Typography";
+import {  P } from "../../../styles/Typography";
 
 const Brief = () => {
   return (
@@ -8,7 +8,7 @@ const Brief = () => {
           
           <div className="space-y-4">
                 <h2 
-                className="text-3xl md:text-4xl lg:text-5xl  leading-tight"
+                className="text-3xl font-bricolage md:text-4xl lg:text-5xl  leading-tight"
                 style={{
                     background: 'linear-gradient(90deg, #28B87B 0%, #F99526 100%)',
                     WebkitBackgroundClip: 'text',
@@ -20,9 +20,9 @@ const Brief = () => {
                 </h2>
           </div>
  
-          <div className="space-y-4">
-            <P className="  text-black lg:px-14  leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          <div className="space-y-4 lg:pr-10">
+            <P className="  text-black lg:px-14  leading-normal">
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
             </P>
           </div>
         </div>
