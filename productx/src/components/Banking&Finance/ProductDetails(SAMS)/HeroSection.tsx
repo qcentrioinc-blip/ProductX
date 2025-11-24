@@ -219,9 +219,9 @@ const HeroSection: React.FC = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const carouselImages = [
-    { id: 1, src: "/SAMS/img1.png", alt: "Dashboard 1" },
+    { id: 1, src: "/SAMS/img2.png", alt: "Dashboard 1" },
     { id: 2, src: "/SAMS/img1.png", alt: "Dashboard 2" },
-    { id: 3, src: "/SAMS/img1.png", alt: "Dashboard 3" },
+    { id: 3, src: "/SAMS/img2.png", alt: "Dashboard 3" },
   ];
 
   const carouselSettings = {
@@ -314,19 +314,24 @@ const HeroSection: React.FC = () => {
             </div>
 
             <motion.div
-              variants={containerVariants}
-              className="hidden xl:flex gap-8 justify-center px-20 scroll-smooth"
-            >
-              {[1, 2, 3].map((i, index) => (
-                <AnimatedImage
-                  key={i}
-                  src="/SAMS/img1.png"
-                  alt={`Dashboard ${i}`}
-                  index={index}
-                  className="flex-shrink-0 rounded-lg w-[400px] h-[480px]"
-                />
-              ))}
-            </motion.div>
+  variants={containerVariants}
+  className="hidden xl:flex gap-8 justify-center px-20 scroll-smooth"
+>
+  {[
+    "/SAMS/img3.png",
+    "/SAMS/img2.png",
+    "/SAMS/img3.png"
+  ].map((src, index) => (
+    <AnimatedImage
+      key={index}
+      src={src}
+      alt={`Dashboard ${index + 1}`}
+      index={index}
+      className="flex-shrink-0 rounded-lg w-[400px] h-[480px]"
+    />
+  ))}
+</motion.div>
+
           </motion.div>
 
         </div>

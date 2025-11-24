@@ -7,11 +7,9 @@ const OurWork: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
-const [sectionInView, setSectionInView] = useState(true);
+  const [sectionInView, setSectionInView] = useState(true);
 
-
-
-  const [visibleImages, setVisibleImages] = useState<number[]>([0]);  
+  const [visibleImages, setVisibleImages] = useState<number[]>([0]);
 
   const cards = [
     {
@@ -38,14 +36,11 @@ const [sectionInView, setSectionInView] = useState(true);
   ];
 
   useEffect(() => {
-    // create observer once
     if (observerRef.current) observerRef.current.disconnect();
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        // We'll build a new set each time from previous (ensures first stays)
         setVisibleImages((prev) => {
-          // start with first always visible
           const next = new Set(prev.includes(0) ? prev : [0]);
 
           entries.forEach((entry) => {
@@ -53,17 +48,15 @@ const [sectionInView, setSectionInView] = useState(true);
             const idx = imageRefs.current.findIndex((el) => el === target);
             if (idx === -1) return;
 
-            const ratio = entry.intersectionRatio; // 0..1
+            const ratio = entry.intersectionRatio;
 
             if (ratio >= 0.3) {
               next.add(idx);
             } else {
-              // remove if present (but keep index 0)
               if (idx !== 0 && next.has(idx)) next.delete(idx);
             }
           });
 
-          // convert to sorted array
           return Array.from(next).sort((a, b) => a - b);
         });
       },
@@ -73,17 +66,16 @@ const [sectionInView, setSectionInView] = useState(true);
         threshold: [0, 0.1, 0.3, 0.5, 1],
       }
     );
- 
+
     imageRefs.current.forEach((el) => {
       if (el && observerRef.current) observerRef.current.observe(el);
     });
- 
+
     return () => {
       if (observerRef.current) observerRef.current.disconnect();
     };
-     
-  }, []);  
- 
+  }, []);
+
   useEffect(() => {
     const obs = observerRef.current;
     if (!obs) return;
@@ -95,26 +87,23 @@ const [sectionInView, setSectionInView] = useState(true);
     };
   }, [imageRefs.current.length]);
 
-
   useEffect(() => {
-  if (!sectionRef.current) return;
+    if (!sectionRef.current) return;
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      setSectionInView(entry.isIntersecting); // true when in view, false when scrolled out
-    },
-    {
-      threshold: 0.3, // adjust sensitivity
-    }
-  );
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setSectionInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.3,
+      }
+    );
 
-  sectionObserver.observe(sectionRef.current);
+    sectionObserver.observe(sectionRef.current);
 
-  return () => sectionObserver.disconnect();
-}, []);
-
-
+    return () => sectionObserver.disconnect();
+  }, []);
 
   return (
     <div
@@ -135,35 +124,45 @@ const [sectionInView, setSectionInView] = useState(true);
         <div className="flex flex-col lg:flex-row gap-8 relative">
           {/* Text Column */}
           <div className="w-full lg:w-[45%] relative">
-            <div className="sticky top-32">
-              {cards.map((card, index) => {
-              const isVisible = visibleImages.includes(index) && sectionInView;
+            {/* NEW WRAPPER ADDED HERE */}
+            <div
+              className="relative"
+              style={{ height: cards.length * 800 + "px" }}
+            >
+              <div className="sticky top-32">
+                {cards.map((card, index) => {
+                  const isVisible =
+                    visibleImages.includes(index) && sectionInView;
 
-                return (
-                  <div
-                    key={`text-${card.id}`}
-                    className="mb-8 transition-all duration-700 ease-out"
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                      transition: "opacity 0.6s ease, transform 0.6s ease",
-                      maxHeight: isVisible ? "500px" : "0px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <H3 className="text-2xl font-semibold text-gray-800 mb-4 leading-snug">
-                      {card.title}
-                    </H3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      {card.text}
-                    </p>
-                  </div>
-                );
-              })}
+                  return (
+                    <div
+                      key={`text-${card.id}`}
+                      className="mb-8 transition-all duration-700 ease-out"
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible
+                          ? "translateY(0)"
+                          : "translateY(30px)",
+                        transition:
+                          "opacity 0.6s ease, transform 0.6s ease",
+                        maxHeight: isVisible ? "500px" : "0px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <H3 className="text-2xl font-semibold text-gray-800 mb-4 leading-snug">
+                        {card.title}
+                      </H3>
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        {card.text}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Image Column - stacked */}
+          {/* Image Column */}
           <div className="w-full lg:w-[50%] relative">
             {cards.map((card, index) => (
               <div
@@ -188,7 +187,6 @@ const [sectionInView, setSectionInView] = useState(true);
               </div>
             ))}
 
-            {/* spacer to allow scroll */}
             <div className="h-[1000px]" />
           </div>
         </div>

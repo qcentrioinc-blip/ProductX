@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ContactUs } from "../../../styles/Button";
 
 const ContactSection: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,94 +36,71 @@ const ContactSection: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="relative w-full h-auto bg-green-50 flex flex-col justify-center px-[clamp(1rem,6vw,8rem)] py-[clamp(2rem,6vw,5rem)] overflow-hidden"
+      className="relative w-full h-[50vh] bg-[#F1FBF5] overflow-hidden
+      px-10 py-30"
     >
-      {/* ====== TEXT CONTENT ====== */}
-      <div className="max-w-4xl z-10">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className=" text-[24px] md:text-[32px] lg:text-[40px]
-        font-bricolage
-        font-semibold
-        leading-[120%]"
-        >
-          <span className="bg-gradient-to-r from-green-700 via-green-600 to-amber-500 bg-clip-text text-transparent">
-            Sed ut perspiciatis Unde Seduo ut perspiciatis
-          </span>{" "}
-        </motion.h2>
+      {/* ------------- GRID WRAPPER (2 Columns Desktop) ------------- */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10 max-w-7xl mx-auto">
 
-        {/* Paragraphs */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mt-6 text-[14px] md:text-[16px] lg:text-[16px]
-        font-quicksand
-        leading-[120%] max-w-3xl"
-        >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum. occaecat cupidatat non.
-        </motion.p>
+        {/* ================= LEFT SIDE TEXT ================= */}
+        <div>
+          <motion.h2
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="font-bricolage font-semibold leading-[120%]
+  text-[28px] sm:text-[32px] md:text-[40px]"
+>
+  <span
+    className="bg-gradient-to-r from-[#28B87B] to-[#F99526] text-transparent bg-clip-text"
+  >
+    Sed ut perspiciatis
+  </span>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-4 text-[14px] md:text-[16px] lg:text-[16px]
-        font-quicksand
-        leading-[120%] max-w-3xl"
-        >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum. occaecat cupidatat non.
-        </motion.p>
+  <br />
 
-        {/* Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="mt-8 group
-        flex items-center justify-center
-        w-[185px] h-[48px]
-        px-[24px] py-[12px]
-        rounded-[8px]
-        font-quicksand font-bold
-        text-[16px] 
-        border-2 border-[#141414]
-        bg-white text-[#141414]
-        shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-        transition-all duration-300 ease-in-out
-        hover:bg-[#141414] hover:text-white"
-        >
-          CONTACT US
-          <ArrowUpRight className="w-4 h-4" />
-        </motion.button>
+  <span
+    className="bg-gradient-to-r from-[#28B87B] to-[#F99526] text-transparent bg-clip-text"
+  >
+    Unde Seduo ut perspiciatis
+  </span>
+</motion.h2>
+
+        </div>
+
+        {/* ================= RIGHT SIDE PARAGRAPH + BTN ================= */}
+        <div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-[14px] md:text-[16px] font-quicksand leading-[150%] text-gray-700 mb-4"
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum. occaecat cupidatat non.
+          </motion.p>
+
+          <ContactUs>CONTACT US</ContactUs>
+        </div>
       </div>
 
-      {/* ====== BACKGROUND SHAPE ====== */}
+      {/* ================= BACKGROUND SHAPE ================= */}
       <motion.img
         src="/EHR-PMS/Careers/shape1.png"
-        alt="decorative shape"
+        alt="shape"
         className="absolute object-contain pointer-events-none select-none"
         style={{
-          width: "clamp(280px, 53vw, 1030px)",
-          height: "auto",
-          bottom: "clamp(-320px, -20vw, -200px)",
-          right: "clamp(-100px, 4vw, -10px)",
-          opacity: 1,
+          width: "clamp(100px, 50vw, 900px)",
+          bottom: "clamp(-450px, -20vw, -250px)",
+          right: "clamp(-120px, 4vw, -10px)",
+          opacity: 0.9,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 1 }}
       />
-
     </section>
   );
 };

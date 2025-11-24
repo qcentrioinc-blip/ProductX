@@ -8,11 +8,11 @@ import Workflow from "./Workflow"
 import Cards from "./Cards"
 import PagoNavbar from "./PagoNavbar"
  
-import FAQ from "../ProductDetails4/FAQ"
+import FAQ from "../ProductDetails(Sherlock)/FAQ"
 import InsightThought from "../InsightThought"
-import ContactUS from "../Products2/ContactUS"
 import NewFooter from "../Products2/NewFooter"
 import BNFNav from "../BNFnav"
+import ContactSection from "../Products1/ContactSection"
 const ProductDetailthree = () => {
   return (
     <div >
@@ -27,7 +27,7 @@ const ProductDetailthree = () => {
     <HWD/>
     <FAQ />
     <InsightThought />
-    <ContactUS />
+    <ContactSection/>
     <NewFooter />
 
     </div>
