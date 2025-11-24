@@ -1,9 +1,18 @@
 
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
+ 
 
 const NewOneFooter = () => {
   return (
-    <footer className="w-full bg-white py-20 px-6 md:px-12 lg:px-20">
+ 
+     <>
+      <div 
+        className='lg:relative lg:h-[700px]'
+        style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
+      >
+        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
+    
+          <footer className="w-full bg-white py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
           
@@ -165,6 +174,12 @@ const NewOneFooter = () => {
         </div>
       </div>
     </footer>
+        </div>
+      </div>
+    
+    </>
+    
+  
   );
 };
 

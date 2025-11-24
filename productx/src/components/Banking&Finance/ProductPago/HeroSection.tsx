@@ -97,7 +97,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative mt-44 w-full text-center">
+    <section className="relative mt-44 w-full text-center overflow-hidden">
       {/* Top Section Container - Relative for background overlay */}
       <div className="relative w-full">
         {/* Background Overlay for the Expanding Animation */}

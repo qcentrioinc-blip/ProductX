@@ -1,4 +1,4 @@
-import ContactUS from "../Products2/ContactUS"
+import ContactSection from "../Products1/ContactSection"
 import NewFooter from "../Products2/NewFooter"
 import HeroSection from "./HeroSection"
 import Overview from "./Overview"
@@ -9,7 +9,7 @@ const JobDescription = () => {
     <div>
       <HeroSection/>
       <Overview/>
-      <ContactUS/>
+      <ContactSection/>
       <NewFooter/>
     </div>
   )

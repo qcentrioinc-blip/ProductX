@@ -19,7 +19,7 @@ const HeroSectionBanking = () => {
                 <LandingPage />
             </div>
             <div id="whatwedo">
-                 <WhatWeDo/>
+                <WhatWeDo />
             </div>
             <div id="partnership">
                 <Partnership />

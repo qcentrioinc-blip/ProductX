@@ -7,6 +7,7 @@ import HWD from "../HWD"
 import InsightThought from "../InsightThought"
 import Building from "./Building"
 import Capabilities from "./Capabilities"
+import ContactSection from "./ContactSection"
 import Enterprises from "./Enterprises"
 import FirstProduct from "./FirstProduct"
 // import Pricing from "./Pricing"
@@ -24,6 +25,7 @@ const ProductsPage1 = () => {
             <InsightThought />
             <Counter />
             <CallToAction />
+            <ContactSection/>
             <Footer />
         </div>
     )

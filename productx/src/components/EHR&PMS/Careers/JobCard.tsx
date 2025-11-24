@@ -1,5 +1,5 @@
 import React from 'react';
-import { H2, H3, P } from '../../../styles/Typography';
+import { H2, H4, P } from '../../../styles/Typography';
 
 // Define the structure for a job data object
 interface Job {
@@ -38,15 +38,15 @@ const JobCard: React.FC<JobCardProps> = ({ job, onViewDetails }) => {
 
   return (
     <div className="
-      p-6 bg-white rounded-xl shadow-lg
+      p-6 bg-white rounded-md shadow-lg
       border border-green-100 hover:shadow-xl transition duration-300 ease-in-out
       flex flex-col justify-between
     ">
       <div>
         {/* Title */}
-        <H3 className="text-lg font-semibold text-green-700 mb-2 leading-snug">
+        <H4 className="text-lg font-semibold text-green-700 mb-2 leading-snug">
           {job.title}
-        </H3>
+        </H4>
         
         {/* Location/Description */}
         <P className="text-sm text-gray-600 mb-1">
@@ -60,7 +60,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onViewDetails }) => {
       </div>
 
       {/* Separator Line */}
-      <div className="w-full h-px bg-green-200 mb-4" />
+      <div className="w-full h-px  bg-green-300 my-4" />
 
       {/* Action Button (Right Arrow) */}
       <button 
@@ -114,9 +114,9 @@ const JobCardGrid: React.FC = () => {
           - lg (desktop): 3 columns, matching the image
         */}
         <div className="
-          grid grid-cols-1 gap-6 
-          sm:grid-cols-2 sm:gap-8 
-          lg:grid-cols-3 lg:gap-10
+          grid grid-cols-1 gap-4
+          sm:grid-cols-2 sm:gap-6 
+          lg:grid-cols-3 lg:gap-8
         ">
           {MOCK_JOBS.map(job => (
             <JobCard 

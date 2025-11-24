@@ -1,24 +1,24 @@
 import { H1 } from "../../../styles/Typography";
 
-export default function HeroSection({ Image2 }: { Image2: string }) {
+const HeroSection = () => {
   return (
-    <section className="bg-black">
-      <div className="relative w-full h-[85vh] flex items-center justify-start overflow-hidden">
-        <img
-          src={Image2}
-          alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+    <section className="relative w-full h-screen">
+      {/* Background image with dark overlay */}
+      <img
+        src="/WhitePapers/bg_img.png"
+        alt="Section Background"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div> 
 
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="relative z-10 max-w-3xl pl-10">
-          <H1 className="text-white">
-            Sed ut perspiciatis <br />
-            <span>unde omnis iste natus</span>
-          </H1>
-        </div>
+      {/* Text content */}
+      <div className="relative z-10 flex items-center h-full px-8 sm:px-16 md:px-24">
+        <H1 className="text-white max-w-3xl">
+          Sed ut perspiciatis <br/>unde omnis iste natus
+        </H1>
       </div>
     </section>
   );
-}
+};
+
+export default HeroSection;
