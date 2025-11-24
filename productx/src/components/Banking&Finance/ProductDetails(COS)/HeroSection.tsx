@@ -42,8 +42,8 @@ export default function HeroSection() {
  
   const images = [
     "/ProductDetails(COS)/img1.png",
-    "/ProductDetails(COS)/img2.png",
-    "/ProductDetails(COS)/img3.png",
+    "/ProductDetails(COS)/img9.png",
+    "/ProductDetails(COS)/img10.png",
   ];
  
   return (

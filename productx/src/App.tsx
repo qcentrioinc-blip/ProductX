@@ -5,8 +5,6 @@ import './index.css'
 import { Link, Route, Routes,  useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
-// import Blogs from './components/Blogs/Blogs'
-// import LifeSciences from './routes/industries/EHRandPMS'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
@@ -25,7 +23,6 @@ import Platform from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
 import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
-
 import Connect from './components/Global/Contact/Connect'
 import HeroSection from './components/HomePage/HeroSection'
 import CareersPageHigh from './components/HighTech/Careers/CareersPage'
@@ -44,17 +41,17 @@ import BlogsPage from './components/EHR&PMS/Blogs/BlogsPage'
 import JobDescriptionPage from './components/EHR&PMS/JobDescription/JobDescriptionPage'
 import ApplicationFormPage from './components/EHR&PMS/ApplicationForm/ApplicationFormPage'
 import ContactFormPage from './components/EHR&PMS/ContactForm.tsx/ContactFormPage'
-
 import AboutHighTech from './components/HighTech/AboutHightTech/AboutUs'
 import Resources from './components/HighTech/Resources/Resources'
 import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDetail'
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import CareersPage from './components/EHR&PMS/Careers/CareersPage'
+import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePapersPage'
+import NewsPage from './components/Banking&Finance/News/NewsPage'
+import EventssPage from './components/Banking&Finance/Events/EventsPage'
+import HeroSlider from './components/LandingPage/HeroSlider'
  
- 
-
-
 const App = () => {
   // const location = useLocation();
   // const showNavbar = location.pathname === '/';
@@ -135,6 +132,7 @@ const App = () => {
         <div data-scroll-container>
           {/* {showNavbar && <Navbar />} */}
           <Routes>
+            <Route path="/landingpage" element={<HeroSlider/>} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
             <Route path="/industries/:industry/aboutus" element={<IndustryAboutUsPage />} />
@@ -153,6 +151,7 @@ const App = () => {
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
+            <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage/>} />
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
             <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
@@ -169,6 +168,12 @@ const App = () => {
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
+              <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
+           <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
+           <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
+           <Route path="/industries/banking-and-finance/news" element={<NewsPage/>}/>
+           <Route path="/industries/banking-and-finance/events" element={<EventssPage/>}/>
+           <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
           </Routes>
         </div>
       </ScrollProvider>

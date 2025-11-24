@@ -1,4 +1,4 @@
-import { P } from "../../../styles/Typography";
+import {  P } from "../../../styles/Typography";
 
 const Brief = () => {
   return (

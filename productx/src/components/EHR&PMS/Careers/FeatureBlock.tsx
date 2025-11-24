@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H3, P } from '../../../styles/Typography';
+import { H2, H3, P } from '../../../styles/Typography';
 import { ContactUs } from '../../../styles/Button';
 
 // --- Utility Components ---
@@ -13,7 +13,7 @@ interface FeatureBlockProps {
 const FeatureBlock: React.FC<FeatureBlockProps> = ({ title, content }) => (
   <div className="flex flex-col items-start w-full">
     {/* Orange Plus Icon */}
-    <span className="text-3xl font-bold text-orange-500 mb-4">+</span>
+    <span className="text-5xl font-bold text-[#F99526] mb-8">+</span>
     
     {/* Title */}
     <H3 className=" mb-3">
@@ -47,13 +47,13 @@ const FeatureBlockSec: React.FC = () => {
             - Use bg-clip-text and text-transparent for the gradient effect.
             - Font size adjusts for responsiveness (text-3xl up to text-6xl).
           */}
-          <H1 className=" mb-10 ">
+          <H2 className=" mb-10 ">
             <span 
               className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500"
             >
               Sed ut perspiciatis Unde
             </span>
-          </H1>
+          </H2>
           
           {/* Contact Button */}
           <ContactUs>CONTACT US</ContactUs>
@@ -70,12 +70,12 @@ const FeatureBlockSec: React.FC = () => {
             
             <FeatureBlock 
               title="Duis aute irure"
-              content="reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              content="reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, "
             />
             
             <FeatureBlock 
               title="Duis aute irure"
-              content="reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              content="reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, "
             />
             
           </div>

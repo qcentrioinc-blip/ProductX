@@ -18,54 +18,54 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img5.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
   {
     id: 2,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img6.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
   {
     id: 3,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img7.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
   {
     id: 4,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img5.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
   {
     id: 5,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img6.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
   {
     id: 6,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img7.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut, quis ',
   },
 ];
 
@@ -110,7 +110,7 @@ const ImageCard: React.FC = () => {
   return (
     <section className="py-10 ">
       {/* ✅ Gradient Heading at the Top of the Entire Section */}
-      <div className="mb-10 sm:mb-12 lg:mb-16 text-left px-4 sm:px-6 lg:px-35">
+      <div className="mb-10 sm:mb-12 lg:mb-16 text-left px-10 sm:px-4 md:px-18 lg:px-12 xl:px-18 z-20">
         <H2>
           <span
             className="bg-clip-text text-transparent"
@@ -119,10 +119,10 @@ const ImageCard: React.FC = () => {
                 'linear-gradient(90deg, #14532d 0%, #ff8c00 100%)',
             }}
           >
-            Sed ut perspiciatis Unde
+            Sed ut perspiciatis
           </span>
         </H2>
-        <H3 className="mt-1">
+        <H2 className="mt-1">
           <span
             className="bg-clip-text text-transparent"
             style={{
@@ -132,11 +132,11 @@ const ImageCard: React.FC = () => {
           >
             Sedvo ut perspiciatis
           </span>
-        </H3>
+        </H2>
       </div>
 
       {/* Inner Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-10">
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {NEW_MOCK_ARTICLES.map((article) => (

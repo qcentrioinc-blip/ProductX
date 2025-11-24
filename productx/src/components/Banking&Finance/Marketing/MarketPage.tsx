@@ -1,9 +1,12 @@
 // import TitlePage from "./TitlePage";
 // import ProductCards from "./ProductCards";
 import FeatureGrid from "../ProductDetails(COS)/FeatureGrid";
-import ContactUS from "../ProductRemitree/ContactUS";
+// import ContactUS from "../ProductRemitree/ContactUS";
 import NewFooter from "../ProductRemitree/NewFooter";
 import Counter from "../../HomePage/LandingPages/Counter";
+import ContactUS from "../ProductRemitree/ContactUS";
+ 
+// import ContactSection from "../Products1/ContactSection";
 
 const MarketPage = () => {
     return(
@@ -12,7 +15,7 @@ const MarketPage = () => {
             {/* <ProductCards /> */}
             <FeatureGrid />
             <Counter />
-            <ContactUS />
+            <ContactUS/>
             <NewFooter />
         </div>
     );

@@ -22,9 +22,7 @@ const JobHeaderBanner: React.FC = () => {
       <div
         className="
           w-full 
-          max-w-6xl 
-          mx-auto 
-          px-6 
+          max-w-8xl 
           flex 
           flex-col 
           justify-center

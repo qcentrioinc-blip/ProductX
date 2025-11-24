@@ -1,7 +1,13 @@
 import BNFNav from "../BNFnav"
 import ContactUS from "../ProductRemitree/ContactUS"
+ 
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
-import AllPosts from "./AllPosts"
+// import AllPosts from "./AllPosts"
+import BlogGridSection from "./BlogsGridSection"
+// import ContactSection from "../Products1/ContactSection"
+// import NewOneFooter from "../Products2/NewOneFooter"
+
+// import AllPosts from "./AllPosts"
 import FeaturedCards from "./FeaturedCards"
 import HeroSection from "./HeroSection"
 
@@ -13,10 +19,10 @@ const Blogs = () => {
         <BNFNav/>
       <HeroSection/>
       <FeaturedCards/>
-      <AllPosts/>
+      {/* <AllPosts/> */}
+      <BlogGridSection/>
+      {/* <ContactSection/> */}
       <ContactUS/>
-       
-      
       <NewOneFooter/>
     </div>
   )

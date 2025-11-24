@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H2, H3, P } from '../../../styles/Typography';
+import { H2, H3, P } from '../../../styles/Typography';
 
 // Define the structure for a single feature item
 interface FeatureItem {
@@ -31,7 +31,7 @@ const MOCK_FEATURES: FeatureItem[] = [
 
 const FeaturePointProps: React.FC<FeatureItem> = ({ title, description }) => (
   // Changed to a vertical flex container (flex-col) to stack elements
-  <div className="flex flex-col py-4 border-b border-gray-100 last:border-b-0">
+  <div className="flex flex-col py-4 last:border-b-0">
     
     {/* Circle Placeholder - Now at the top */}
     <div className="mb-2">
@@ -42,10 +42,10 @@ const FeaturePointProps: React.FC<FeatureItem> = ({ title, description }) => (
 
     {/* Text Content Section - Stacked Layout (below the icon) */}
     <div className="flex flex-col"> 
-      <H3 className="text-base font-bold text-green-700 mb-0 leading-tight">
+      <H3 className=" text-[#166D48] mt-4 mb-2 leading-tight">
         {title}
       </H3>
-      <P className=" text-gray-700 leading-snug mt-1">
+      <P className="  leading-snug mt-1 xl:max-w-xl" >
         {description}
       </P>
     </div>
@@ -58,17 +58,17 @@ const FeaturePoint: React.FC = () => {
   // Placeholder image URL
 
   return (
-    <div className="h-auto p-6 sm:p-10 lg:p-20 bg-amber-50">
+    <div className="h-auto  bg-[#EDE4CA] py-20">
       
       {/* Content Wrapper */}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-20">
         
         {/* Title Section */}
-        <div className="mb-10 lg:mb-16">
-          <H1 className=" text-green-700 leading-snug">
+        <div className="mb-10 lg:mb-16 ">
+          <H2 className=" text-[#166D48] leading-snug">
             Sed ut perspiciatis Unde
-          </H1>
-          <H2 className=" text-green-600 mt-2">
+          </H2>
+          <H2 className=" text-[#166D48] mt-2">
             spiciatis spiciatis
           </H2>
         </div>
