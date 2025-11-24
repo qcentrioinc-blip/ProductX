@@ -1,6 +1,7 @@
 import BlogGridSection from "../Blogs/BlogsGridSection";
-import ContactUS from "../Products2/ContactUS";
-import NewOneFooter from "../Products2/NewOneFooter";
+import ContactUS from "../ProductRemitree/ContactUS";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
+
 import TitleSec from "./TitleSec";
 
 const WhitePapersPAge = () => {

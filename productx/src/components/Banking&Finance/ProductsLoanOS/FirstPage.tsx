@@ -1,15 +1,14 @@
 "use client"
 
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+// import { ArrowRight  } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { ContactUs } from "../../../styles/Button";
 
 const FirstPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const autoScrollInterval = useRef<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [isMobile, setIsMobile] = useState(false); 
   const carouselImages = [
     { id: 1, src: "/Products/Products7/MainImage.png", alt: "Dashboard 1" },
     { id: 2, src: "/Products/Products7/MainImage.png", alt: "Dashboard 2" },
@@ -83,80 +82,18 @@ const FirstPage = () => {
     }
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  
 
   return (
     <main className="min-h-screen w-full bg-[#2B68C3]">
       {/* Top Simple Bar */}
-      <div className="w-full border-b border-white/30">
-        <div className="max-w-[1600px] mx-auto h-[40px] flex items-center justify-between px-4 sm:px-8">
-          <div className="flex items-center">
-            <div className="bg-white px-4 py-1 rounded-md">
-              <span className="text-black text-[12px] font-bold">LOGO</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-5 sm:gap-10">
-            <a href="#platform" className="text-white text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
-              Platform
-            </a>
-            <a href="#marketplace" className="text-white text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
-              Marketplace
-            </a>
-          </div>
-        </div>
-      </div>
-
+       
       {/* Main White Navbar */}
-      <header className="w-full bg-transparent pt-4 pb-4">
-        <div className="max-w-[1540px] mx-auto px-4 sm:px-8">
-          <nav className="relative w-full max-w-[1480px] h-[64px] sm:h-[80px] mx-auto bg-white rounded-[32px] sm:rounded-[60px] px-2 sm:px-4 flex items-center justify-between shadow-lg z-50">
-            <div className="flex items-center">
-              <div className="bg-[#2A2A2A] w-[44px] sm:w-[60px] h-[44px] sm:h-[60px] rounded-full flex items-center justify-center text-white font-bold text-[10px]">
-                LOGO
-              </div>
-            </div>
-            <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2">
-              <ul className="flex gap-[18px] sm:gap-[36px] list-none items-center">
-                <li><a href="#products" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">Products</a></li>
-                <li><a href="#about" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">About Us</a></li>
-                <li><a href="#resources" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">Resources</a></li>
-                <li><a href="#careers" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">Careers</a></li>
-              </ul>
-            </div>
-            <div className="hidden lg:flex items-center ml-auto">
-              <button className="bg-black text-white px-5 sm:px-7 py-2.5 sm:py-3 rounded-[8px] text-xs sm:text-[13px] font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors duration-300">
-                CONTACT US <ArrowUpRight size={16} />
-              </button>
-            </div>
-            <button onClick={toggleMobileMenu} className="lg:hidden flex flex-col gap-1.5 focus:outline-none">
-              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-              <span className="w-6 h-0.5 bg-gray-800 rounded"></span>
-            </button>
-          </nav>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`lg:hidden bg-white mx-4 rounded-2xl mt-2 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-          <ul className="flex flex-col px-5 py-4 space-y-4">
-            <li className="border-b border-gray-300 pb-3"><a href="#products" className="text-gray-800 text-base font-medium hover:text-black">Products</a></li>
-            <li className="border-b border-gray-300 pb-3"><a href="#about" className="text-gray-800 text-base font-medium hover:text-black">About Us</a></li>
-            <li className="border-b border-gray-300 pb-3"><a href="#resources" className="text-gray-800 text-base font-medium hover:text-black">Resources</a></li>
-            <li className="border-b border-gray-300 pb-3"><a href="#careers" className="text-gray-800 text-base font-medium hover:text-black">Careers</a></li>
-            <li className="pt-2">
-              <button className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 hover:bg-gray-800">
-                CONTACT US <span className="text-lg">↗</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </header>
+ 
 
       {/* Yellow Title Band with Responsive Layout */}
       <div className="w-full bg-[#FED600] relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-12 flex flex-col sm:flex-row gap-6 sm:gap-0 items-start sm:items-center justify-between relative z-2">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-12 lg:pt-48 flex flex-col sm:flex-row gap-6 sm:gap-0 items-start sm:items-center justify-between relative z-2">
           {/* Left: Title */}
           <h1 className="max-w-full sm:max-w-[520px] font-bold text-[32px] sm:text-[56px] leading-[120%] text-[#2A2A2A] m-0" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-1px' }}>
             Lorem ipsum dolor , consectetur adipis
@@ -166,13 +103,14 @@ const FirstPage = () => {
             <p className="text-sm sm:text-base" style={{ fontFamily: "'Schibsted Grotesk', sans-serif", color: "#141414", lineHeight: "140%" }}>
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             </p>
-            <button
+            {/* <button
               className="bg-black text-white px-5 sm:px-7 py-3 rounded-[8px] font-bold text-xs sm:text-[14px] flex items-center gap-2 hover:brightness-90"
               style={{ fontFamily: "'Space Grotesk', sans-serif", alignSelf: 'flex-start' }}
             >
               CONTACT US
               <ArrowRight size={18} />
-            </button>
+            </button> */}
+            <ContactUs>Contact Us</ContactUs>
           </div>
         </div>
       </div>

@@ -1,22 +1,24 @@
 
 // import Footer from '../../Footer/Footer';
 // import CallToAction from '../../HomePage/LandingPages/CallToAction';
-import CallToAction from '../../HomePage/GlobalLandingPage/CallToAction';
+// import Footer from '../../Global/Footer/Footer';
+// import CallToAction from '../../HomePage/GlobalLandingPage/CallToAction';
+// import AlphabetsSection from './AlphabetsSection';
 import HeroSec from './HeroSec';
 import AsSec from './AsSec';
-import ContactSection from '../Products1/ContactSection';
-import NewOneFooter from '../Products2/NewOneFooter';
+import NewOneFooter from '../ProductRemitree/NewOneFooter';
+ 
+import Contact from '../BNFContact/Contact';
 
 const GlossaryPage = () => {
   return (
     <>
       <HeroSec/>
-            <AsSec/>
-
-      <CallToAction />
-      <ContactSection/>
-      <NewOneFooter/>
+      <AsSec/>
+   
+      <Contact/>
        
+      <NewOneFooter/>
        
       
     </>

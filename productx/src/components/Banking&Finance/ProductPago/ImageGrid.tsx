@@ -2,7 +2,7 @@ import { ContactUs } from "../../../styles/Button";
 import { H2, H3, H4, P } from "../../../styles/Typography";
 import Image1 from "/ProductDetailsThree/Rectangle283.png";
 import Image2 from "/ProductDetailsThree/Rectangle284.png";
-
+ 
 const ImageGrid = () => {
   return (
     <div className="w-full min-h-screen bg-[#EAF2FB]">
@@ -12,20 +12,20 @@ const ImageGrid = () => {
           {/* Left Column - Content */}
 {/* Left Column */}
 <div className="flex flex-col self-start">
-
+ 
   <div className="flex flex-col gap-3">  {/* <-- increase gap here, safely */}
     <span className="px-3 py-1 text-xs sm:text-sm rounded-full border border-black w-fit">
       Duis aute
     </span>
-
+ 
     <H2>Lorem ipsum dolor <br/> gamis consecte ipsum</H2>
-
+ 
     <P className="xl:max-w-md">
       Duis aute irure dolor in voluptate velit esse voluptate velit esse
       reprehenderit in voluptate velit esse voluptate velit esse
     </P>
   </div>
-
+ 
   {/* Big Card */}
   <div className="mt-20 bg-[#FAFAFA] rounded-md p-4 sm:p-5 md:p-6 lg:p-8 lg:py-29 flex flex-col justify-center">
     <H3>Lorem ipsum dolor gamis consecte ipsum ipsum lorem</H3>
@@ -33,11 +33,11 @@ const ImageGrid = () => {
       Duis aute irure dolor in reprehenderit in voluptate velit esse,
       Duis aute irure dolor in reprehenderit in voluptate velit esse
     </P>
-
+ 
     <ContactUs>CONTACT US</ContactUs>
   </div>
-
-</div> 
+ 
+</div>
           {/* Right Column - Image Grid */}
           <div className="self-start">
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full" >
@@ -89,5 +89,5 @@ const ImageGrid = () => {
     </div>
   );
 };
-
+ 
 export default ImageGrid;

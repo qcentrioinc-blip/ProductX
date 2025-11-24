@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { H3 } from '../../styles/Typography';
+import { Link } from 'react-router-dom';
  
 const InsightThought = () => {
     return (
@@ -8,12 +9,14 @@ const InsightThought = () => {
                 {/* Header Section */}
                 <div className="flex justify-between items-center mb-8 sm:mb-12">
                     <H3 className="text-[#2B68C3]">Consecte adipiscing</H3>
+                    <Link to="/industries/banking-and-finance/blogs">
                     <button className="bg-white px-6 py-2 rounded-md text-sm font-medium hover:shadow-md transition-shadow flex items-center gap-2">
                         VIEW ALL
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
+                    </Link>
                 </div>
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
