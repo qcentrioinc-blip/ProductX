@@ -18,24 +18,24 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img5.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
   },
   {
     id: 6,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img6.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
   },
   {
     id: 7,
     date: '8 Sep 2025',
     imageSrc: '/EHR-PMS/Blogs/img7.png',
     title: 'Sed ut perspiciatis Unde',
-    subtitle: 'Seduo ut perspiciatis',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    subtitle: 'Seduo ut perspiciatis Sed ut perspiciatis Unde',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
   },
   
 ];
@@ -54,8 +54,8 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
       {/* Text Content */}
       <P className="text-gray-600 mb-2 text-sm">{date}</P>
 {/*       <H2 className="text-2xl font-bold leading-tight mb-1">{title}</H2> */}
-      <H3 className="text-xl font-semibold leading-tight mb-4">{subtitle}</H3>
-      <P className="text-gray-700 mb-4">{description}</P>
+      <H3 className=" mb-4">{subtitle}</H3>
+      <P className="text-gray-700 mb-10">{description}</P>
 
       {/* Image Container: Responsive scaling */}
       <div 

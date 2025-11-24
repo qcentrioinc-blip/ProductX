@@ -56,7 +56,7 @@ const HWD = () => {
             "Duis aute irure dolor in reprehenderit in",
             "Duis aute irure dolor in reprehenderit in voluptate velit esse",
             "Duis aute irure dolor in reprehenderit in voluptate",
-            // "Duis aute irure dolor in reprehenderit in voluptate wertg",
+            "Duis aute irure dolor in reprehenderit in voluptate wertg",
           ].map((item, index) => (
             <li key={index} className="flex items-center gap-4">
               <Check size={25} className="text-[#A80040] flex-shrink-0" />

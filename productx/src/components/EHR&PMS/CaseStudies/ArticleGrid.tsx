@@ -103,7 +103,7 @@ const ArticleCard: React.FC<Article> = ({ date, imageSrc, title, description }) 
 const ArticleGrid: React.FC = () => {
   return (
     <section className="w-full py-10 sm:py-16 lg:py-20 bg-[#E5FFEC]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-10 ">
         
         {/* Section Title with Gradient
         <div className="mb-10 sm:mb-12 lg:mb-16">
@@ -132,7 +132,7 @@ const ArticleGrid: React.FC = () => {
         {/* Article Grid Layout */}
         <div 
           // Responsive Grid: 1 column on mobile, 2 columns on tablet/desktop
-          className="grid gap-12 sm:grid-cols-1 lg:grid-cols-2"
+          className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2"
         >
           {MOCK_ARTICLES.map(article => (
             <ArticleCard key={article.id} {...article} />

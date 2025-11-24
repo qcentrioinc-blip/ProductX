@@ -1,15 +1,23 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
+ 
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
 }
-
-/* -------------------- CONTACT US BUTTON -------------------- */
+ 
 export const ContactUs = ({ children, className = "" }: ButtonProps) => {
+  const location =useLocation();
+  const pathParts =location.pathname.split("/");
+  const industrySlug=pathParts.includes("industries")
+  ? pathParts[pathParts.indexOf("industries")+1]  
+  :null;
+ 
+  const contactUrl =industrySlug
+  ?`/industries/${industrySlug}/contactform`
+  :"/contact";
   return (
-    <Link to="/industries/banking-and-finance/contactform">
+     <Link to={contactUrl}>
     <button
       className={`
         group
@@ -48,7 +56,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         </span>
       </span>
     </button>
-    </Link>
+   </Link>
   );
 };
 export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
@@ -61,7 +69,7 @@ export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
         px-[24px] py-[12px]
         rounded-[8px]
         font-quicksand font-bold
-        text-[16px] 
+        text-[16px]
         border-2 border-[#141414]
         bg-black text-white
         shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
@@ -82,7 +90,7 @@ export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
     </button>
   );
 };
-
+ 
 /* -------------------- SUBMIT BUTTON -------------------- */
 export const Submit = ({ children, className = "" }: ButtonProps) => {
   return (

@@ -1,19 +1,22 @@
 
-import Footer from '../../Global/Footer/Footer';
+// import Footer from '../../Footer/Footer';
+// import CallToAction from '../../HomePage/LandingPages/CallToAction';
 import CallToAction from '../../HomePage/GlobalLandingPage/CallToAction';
-import AlphabetsSection from './AlphabetsSection';
 import HeroSec from './HeroSec';
 import AsSec from './AsSec';
+import ContactSection from '../Products1/ContactSection';
+import NewOneFooter from '../Products2/NewOneFooter';
 
 const GlossaryPage = () => {
   return (
     <>
       <HeroSec/>
-      <AlphabetsSection />
+            <AsSec/>
+
       <CallToAction />
-      <AsSec/>
+      <ContactSection/>
+      <NewOneFooter/>
        
-      <Footer />
        
       
     </>

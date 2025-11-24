@@ -1,5 +1,5 @@
 import BNFNav from "../BNFnav"
-import ContactUS from "../Products2/ContactUS"
+import ContactSection from "../Products1/ContactSection"
 import NewFooter from "../Products2/NewFooter"
 import HeroSection from "./HeroSection"
 
@@ -9,7 +9,7 @@ const Contact = () => {
     <div>
       <BNFNav/>
       <HeroSection/>
-      <ContactUS/>
+      <ContactSection/>
       <NewFooter/>
     </div>
   )

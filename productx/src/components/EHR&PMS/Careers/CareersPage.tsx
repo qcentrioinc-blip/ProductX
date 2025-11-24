@@ -5,6 +5,7 @@ import JobCard from "./JobCard"
 import FeatureBlock from "./FeatureBlock"
 import CareerCallToAction from "./CareerCTA"
 import HandSection from "./HandSection"
+import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 
 
 const CareersPage = () => (
@@ -16,6 +17,7 @@ const CareersPage = () => (
     <JobCard/>
     <CareerCallToAction/>
     <FeaturePoint/>
+    <EHRFooter/>
 
     
   </div>
