@@ -4,7 +4,7 @@ const SecondHeading = () => {
   return (
     <>
       <ShortNav />
-      
+
       <div
         className="second-heading-section w-full relative flex items-center justify-center"
         style={{
@@ -21,7 +21,7 @@ const SecondHeading = () => {
           style={{
             width: '655px',
             height: '133px',
-            top: '150px',
+            top: '120px',
             gap: '16px',
           }}
         >
@@ -51,7 +51,7 @@ const SecondHeading = () => {
               fontFamily: "'Quicksand', sans-serif",
               fontWeight: 400,
               fontSize: '16px',
-              lineHeight: '100%',
+              lineHeight: '130%',
               letterSpacing: '0%',
               textAlign: 'center',
               color: '#141414',

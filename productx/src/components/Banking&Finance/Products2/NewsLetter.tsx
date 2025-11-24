@@ -37,12 +37,15 @@ const NewsLetter = () => {
             fontWeight: 700,
             fontSize: '48px',
             lineHeight: '120%',
-            textAlign: 'center',
-            color: '#2B68C3'
+            textAlign: 'center'
           }}
         >
-          Subscribe to our newsletter <br /> to stay in touch with the latest.
+          <span style={{ color: '#2B68C3' }}>Subscribe to our newsletter</span>
+          <br />
+          <span style={{ color: '#2B68C3' }}>to </span>
+          <span style={{ color: '#141414' }}>stay in touch with the latest.</span>
         </h1>
+
         <div className="flex justify-between items-end" style={{ width: '1046px' }}>
           {items.map((item, index) => (
             <div
@@ -62,8 +65,8 @@ const NewsLetter = () => {
               />
               <div
                 style={{
-                  width: '16px',
-                  height: '16px',
+                  width: '12px',
+                  height: '12px',
                   background: '#2B68C3',
                   borderRadius: '50%'
                 }}
@@ -75,7 +78,7 @@ const NewsLetter = () => {
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: 700,
                   fontSize: '24px',
-                  color: '#2B68C3',
+                  color: 'black',
                   textAlign: 'center'
                 }}
               >
@@ -87,9 +90,9 @@ const NewsLetter = () => {
         <div
           style={{
             position: 'absolute',
-            bottom: '10px',
-            left: '62px',
-            right: '62px',
+            bottom: '16px',
+            left: '60px',
+            right: '60px',
             height: '2px',
             background: '#2B68C3',
             zIndex: 0

@@ -23,7 +23,7 @@ const ThreeTab = () => {
 
     return (
         <div
-            className="three-tab-section w-full relative flex items-center justify-center"
+            className="three-tab-section w-full relative flex items-center justify-center overflow-hidden"
             style={{
                 width: '100%',
                 height: '938px',
@@ -35,6 +35,46 @@ const ThreeTab = () => {
                 backgroundRepeat: 'no-repeat'
             }}
         >
+            {/* Title & Description - Centered Top */}
+            <div
+                className="absolute left-1/2 flex flex-col items-center"
+                style={{
+                    top: '70px',
+                    transform: 'translateX(-50%)',
+                    zIndex: 5,
+                    width: '900px',
+                    pointerEvents: 'none'
+                }}
+            >
+                <h1
+                    style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        fontWeight: 700,
+                        fontSize: '44px',
+                        color: '#232323',
+                        margin: 0,
+                        textAlign: 'center',
+                        lineHeight: '110%'
+                    }}
+                >
+                    Sed ut perspiciatis unde
+                </h1>
+                <p
+                    style={{
+                        fontFamily: "'Quicksand', sans-serif",
+                        fontWeight: 400,
+                        fontSize: '15px',
+                        color: '#252525',
+                        margin: 0,
+                        marginTop: '18px',
+                        textAlign: 'center',
+                        maxWidth: '650px'
+                    }}
+                >
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                </p>
+            </div>
+
             {/* DESKTOP VERSION - Content Box */}
             <div
                 className="desktop-content"
@@ -44,7 +84,8 @@ const ThreeTab = () => {
                     borderRadius: '8px',
                     background: '#ECECEC',
                     overflow: 'visible',
-                    position: 'relative'
+                    position: 'relative',
+                    top: '120px'
                 }}
             >
                 {/* Tab Navigation */}
@@ -67,7 +108,7 @@ const ThreeTab = () => {
                                 paddingRight: '136px',
                                 background: activeTab === index ? '#ABCDFF' : 'transparent',
                                 color: activeTab === index ? '#2B68C3' : '#666',
-                                fontSize: '20px',
+                                fontSize: '35px',
                                 textAlign: 'left'
                             }}
                         >
