@@ -5,10 +5,10 @@ import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
  
-import FaqSection from "../ProductDetails4/FAQ"
+import FaqSection from "../ProductDetails(Sherlock)/FAQ"
 import NewOneFooter from "../Products2/NewOneFooter"
-import ContactUS from "../Products2/ContactUS"
 import BNFNav from "../BNFnav"
+import ContactSection from "../Products1/ContactSection"
  
  
 
@@ -24,7 +24,7 @@ const AML = () => {
       
       <FaqSection/>
       <InsightThought/>
-     <ContactUS/>
+     <ContactSection/>
       <NewOneFooter/>
     
     </div>

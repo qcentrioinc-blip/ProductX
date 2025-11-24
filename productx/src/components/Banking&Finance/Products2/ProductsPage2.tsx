@@ -1,5 +1,4 @@
 import ArrowBuilding from "./ArrowBuilding";
-import ContactUS from "./ContactUS";
 import FiveCards from "./FiveCards";
 // import NewFooter from "./NewFooter";
 import NewsLetter from "./NewsLetter";
@@ -11,6 +10,7 @@ import { ScrollProvider } from "../../../context/ScrollContext"; // Import Scrol
 import NewOneFooter from "./NewOneFooter";
 import BNFNav from "../BNFnav";
 import TwoPart from "./TwoPart";
+import ContactSection from "../Products1/ContactSection";
 
 const ProductsPage2 = () => {
   return (
@@ -25,7 +25,7 @@ const ProductsPage2 = () => {
       <FiveCards />
       <ArrowBuilding />
       <NewsLetter />
-      <ContactUS />
+      <ContactSection/>
       
       <div 
         className='lg:relative lg:h-[700px]'

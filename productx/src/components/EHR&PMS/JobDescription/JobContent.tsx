@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { H1, H2, P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 // import { ArrowUpRight } from "lucide-react";
 
 // --- Custom Intersection Observer Hook ---
@@ -201,12 +201,12 @@ const App: React.FC = () => {
 
                     {/* Job Title Header (Now at the top) */}
                     <header className="mb-10 lg:mb-12">
-                        <H1 className="text-4xl sm:text-5xl font-extrabold text-green-800 mb-2">
+                        {/* <H1 className="text-4xl sm:text-5xl font-extrabold text-green-800 mb-2">
                             Front Desk Office Executive
-                        </H1>
-                        <P className="text-lg text-gray-500">
+                        </H1> */}
+                        {/* <P className="text-lg text-gray-500">
                             Full-Time, Remote-Friendly | Pune, India
-                        </P>
+                        </P> */}
                     </header>
 
                     {/* Grid Container */}

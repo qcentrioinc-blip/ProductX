@@ -3,7 +3,6 @@
 // import NewFooter from "../Banking&Finance/Products2/NewFooter"
 // import Counter from "../HomePage/LandingPages/Counter"
 import BNFNav from "../BNFnav"
-import ContactUS from "../Products2/ContactUS"
 import NewFooter from "../Products2/NewFooter"
 import Counter from "../../HomePage/GlobalLandingPage/Counter"
  
@@ -12,6 +11,7 @@ import Banner from "./Banner"
 import HeroSection from "./HeroSection"
 import Openings from "./Openings"
 import Testimonial from "./Testimonial"
+import ContactSection from "../Products1/ContactSection"
 
 const Career = () => {
   return (
@@ -22,7 +22,7 @@ const Career = () => {
       <Banner/>
       <Openings/>
         <Counter/>
-       <ContactUS/>
+       <ContactSection/>
        <NewFooter/>
        
     </div>

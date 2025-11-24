@@ -1,74 +1,131 @@
-import {   H2, P } from "../../../styles/Typography";
- 
- 
+"use client";
 
-export default function FeaturedCards() {
+import { H2, P } from "../../../styles/Typography";
 
- 
+export default function BlogFeaturedSection() {
   return (
-    <>
+    <section className="w-full bg-black text-white px-6 md:px-12 py-16">
+      {/* Heading */}
+      <H2 className="mb-10">Consecte adipiscing</H2>
 
-      <section className="bg-black" >
-      
+      {/* GRID */}
+      <div className="grid grid-cols-1 xl:grid-cols-[3fr_2fr] gap-4">
+        
+        {/* LEFT BIG CARD */}
+        <div className="bg-white rounded-xl overflow-hidden text-black">
+          <img
+            src="/Blogs/FeaturedCards/img1.jpg"
+            alt="Featured Image"
+            
+            className="w-full h-[280px] md:h-[450px] object-cover"
+          />
 
-        {/* grid layout for blogs */}
+          <div className="p-6 space-y-3">
+            <P className="text-black font-bold">Lorem ipsum</P>
 
-        <div className="px-4 sm:px-6 lg:px-8 py-12 min-h-screen">
-          <H2 className="font-bold text-white">Consecte adipiscing</H2>
+            <P className="max-w-2xl">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium accusantium doloremque laudantium
+            </P>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-            {/* Left Big Card */}
-            <div className="col-span-1 lg:col-span-2 bg-white text-black rounded-md overflow-hidden shadow-md flex flex-col h-[80vh]">
-              {/* Image Section */}
-              <div className="flex-1 bg-gray-300"></div>
-              {/* Content Section */}
-              <div className="p-4 sm:p-6 relative">
-                <P className="text-gray-500">Lorem ipsum</P>
-                <P className="mt-2">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium Sed ut perspiciatis unde omnis iste
-                  natus error sit voluptatem accusantium doloremque laudantium
-                </P>
-                <div className="flex justify-between items-center text-sm text-gray-500">
-                  <span>Author</span>
-                  <span>AUGUST 19, 2025</span>
-                </div>
+            <div className="flex items-center justify-between text-gray-500 pt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-sm">✒ Author</span>
               </div>
-            </div>
 
-            {/* Right Column Smaller Cards */}
-            <div className="flex flex-col gap-2">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="bg-white text-black rounded-xl overflow-hidden  flex h-[180px]"
-                >
-                  <div className="w-1/3 bg-gray-300"></div>
-                  <div className="p-4 flex flex-col">
-                    <P className=" text-gray-600">Lorem ipsum</P>
-                    <P className="text-black">
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                      accusantium doloremque laudantium
-                    </P>
-                    <div className="flex  justify-between items-center text-sm text-gray-500">
-                      <span>Author</span>
-                      <span>AUGUST 19, 2025</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <div className="flex items-center gap-1 text-sm">
+                📅 <span>AUGUST 19,2025</span>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* RIGHT COLUMN OF SMALL CARDS */}
+        <div className="space-y-4">
 
-      </section>
+          {/* CARD 1 */}
+          <div className="bg-white rounded-xl overflow-hidden text-black flex flex-col md:flex-row">
+            <img
+              src="/Blogs/FeaturedCards/img4.jpg"
+              alt="Card Image"
+              width={300}
+              height={250}
+              className="w-full md:w-[40%] h-[150px] md:h-[200px] object-cover"
+            />
 
-     
-      
-    </>
+            <div className="p-5 flex flex-col justify-between">
+              <div>
+                <P className="text-black font-bold">Lorem ipsum</P>
+
+                <P className=" leading-snug mt-4 max-w-2xl sm:max-w-sm lg:max-w-xl xl:max-w-sm">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium
+                </P>
+              </div>
+
+              <div className="flex items-center justify-between text-gray-500 text-sm mt-3">
+                <span>✒ Author</span>
+                <span>📅 AUGUST 19,2025</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 2 */}
+          <div className="bg-white rounded-xl overflow-hidden text-black flex flex-col md:flex-row">
+            <img
+              src="/Blogs/FeaturedCards/img4.jpg"
+              alt="Card Image"
+              width={300}
+              height={200}
+              className="w-full md:w-[40%] h-[150px] md:h-[200px] object-cover"
+            />
+
+            <div className="p-5 flex flex-col justify-between">
+              <div>
+                <P className="text-black font-bold">Lorem ipsum</P>
+
+                <P className=" leading-snug mt-4 max-w-2xl sm:max-w-sm lg:max-w-xl xl:max-w-sm">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium
+                </P>
+              </div>
+
+              <div className="flex items-center justify-between text-gray-500 text-sm mt-3">
+                <span>✒ Author</span>
+                <span>📅 AUGUST 19,2025</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 3 */}
+          <div className="bg-white rounded-xl overflow-hidden text-black flex flex-col md:flex-row">
+            <img
+              src="/Blogs/FeaturedCards/img4.jpg"
+              alt="Card Image"
+              width={300}
+              height={200}
+              className="w-full md:w-[40%] h-[150px] md:h-[200px] object-cover"
+            />
+
+            <div className="p-5 flex flex-col justify-between">
+              <div>
+                <P className="text-black font-bold">Lorem ipsum</P>
+
+                <P className=" leading-snug mt-4  max-w-2xl sm:max-w-sm lg:max-w-xl xl:max-w-sm">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium
+                </P>
+              </div>
+
+              <div className="flex items-center justify-between text-gray-500 text-sm mt-3">
+                <span>✒ Author</span>
+                <span>📅 AUGUST 19,2025</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 }
-
- 
-

@@ -1,6 +1,6 @@
 import HeroSection from "../BNFContact/HeroSection"
 import BNFNav from "../BNFnav"
-import ContactUS from "../Products2/ContactUS"
+import ContactSection from "../Products1/ContactSection"
 import NewFooter from "../Products2/NewFooter"
 
  
@@ -11,7 +11,7 @@ const Applicationform = () => {
       <HeroSection
       bgColor="#E5F0FF"
       />
-      <ContactUS/>
+      <ContactSection/>
       <NewFooter/>
     </div>
   )

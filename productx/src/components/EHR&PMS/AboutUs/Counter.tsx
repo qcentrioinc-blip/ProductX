@@ -15,7 +15,7 @@ const Counter = () => {
   className="relative flex flex-col items-center  justify-center   py-28 overflow-hidden"
 >
  
-  <div className="absolute inset-0 bg-gradient-to-b from-[#EAFFF0] to-white"></div>
+  <div className="absolute inset-0 bg-gradient-to-b from-[#EAFFF0] to-[#EDE4CA]"></div>
 
   {/* Content Wrapper */}
   <div className="relative z-10 flex flex-col   items-center justify-center">
