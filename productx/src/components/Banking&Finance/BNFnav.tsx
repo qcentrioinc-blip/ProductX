@@ -1,26 +1,26 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
-import { ChevronDown } from "lucide-react"; 
-import {   useNavigate, useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 const BNFNav = () => {
   const [isScrolled, setIsScrolled] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);  
-const menuRef = useRef<HTMLDivElement | null>(null);
- 
-const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
- 
+
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
-const industries = [
-  { name: "Banking & Finance", path: "/industries/banking-and-finance" },
-  { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
-  { name: "HighTech", path: "/industries/high-tech" },
-  { name: "AI Automation", path: "/industries/ai-automation" },
-];
-const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+  const industries = [
+    { name: "Banking & Finance", path: "/industries/banking-and-finance" },
+    { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
+    { name: "HighTech", path: "/industries/high-tech" },
+    { name: "AI Automation", path: "/industries/ai-automation" },
+  ];
+  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
 
   const navItems = [
@@ -30,9 +30,9 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     { name: "Careers", path: `${base}/careers` },
   ];
 
-   const handleProductsClick = (e: React.MouseEvent) => {
+  const handleProductsClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    
+
     // Check if we're already on the homepage
     if (location.pathname === base) {
       // Already on homepage, just scroll
@@ -63,18 +63,18 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
   }, []);
 
   useEffect(() => {
-  const handleClickOutside = (e: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-      setMenuOpen(false);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
-  };
 
-  if (menuOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  }
-
-  return () => document.removeEventListener("mousedown", handleClickOutside);
-}, [menuOpen]);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
 
 
@@ -183,17 +183,17 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
         </Link>
       </nav>
 
-     {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
-<div
-   ref={menuRef}
-  className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px] 
+      {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px] 
   bg-white shadow-2xl z-[200] p-6 flex flex-col  pb-20
   transition-all duration-500 ease-out
   ${menuOpen ? "translate-x-0" : "translate-x-full"}
 `}
->
-  {/* LOGO (Top) */}
-  {/* <Link
+      >
+        {/* LOGO (Top) */}
+        {/* <Link
     to="/industries/banking-and-finance"
     onClick={() => setMenuOpen(false)}
     className="flex items-center gap-3 mb-6"
@@ -204,107 +204,105 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     <span className="text-xl font-semibold text-gray-900">Banking & Finance</span>
   </Link> */}
 
-{/* LOGO with Dropdown (Top) */}
-  <div className="mb-6">
-    <div className="flex items-center gap-3">
-      <Link
-        to="/industries/banking-and-finance"
-        onClick={() => setMenuOpen(false)}
-        className="flex items-center gap-3 flex-1"
-      >
-        <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-          LOGO
-        </div>
-        <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
-      </Link>
+        {/* LOGO with Dropdown (Top) */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/industries/banking-and-finance"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 flex-1"
+            >
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                LOGO
+              </div>
+              <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
+            </Link>
 
-      {/* Dropdown Button */}
-      <button
-        onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
-        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-      >
-        <ChevronDown
-          className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${
-            industryDropdownOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-    </div>
+            {/* Dropdown Button */}
+            <button
+              onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <ChevronDown
+                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </button>
+          </div>
 
-    {/* Dropdown Menu */}
-    <div
-      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
-      }`}
-    >
-      <div className="bg-gray-50 rounded-lg p-2 space-y-1">
-        {industryOptions.map((ind) => (
-          <Link
-            key={ind.name}
-            to={ind.path}
-            onClick={() => {
-              setMenuOpen(false);
-              setIndustryDropdownOpen(false);
-            }}
-            className="block px-4 py-3 rounded-md text-gray-800 font-medium
+          {/* Dropdown Menu */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
+              }`}
+          >
+            <div className="bg-gray-50 rounded-lg p-2 space-y-1">
+              {industryOptions.map((ind) => (
+                <Link
+                  key={ind.name}
+                  to={ind.path}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setIndustryDropdownOpen(false);
+                  }}
+                  className="block px-4 py-3 rounded-md text-gray-800 font-medium
               hover:bg-blue-200 hover:text-white transition-all duration-200"
-          >
-            {ind.name}
+                >
+                  {ind.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* NAV ITEMS (Middle) */}
+        <div className="flex flex-col gap-10 mt-4">
+          {navItems.map((item) => (
+            <div
+              key={item.name}
+              className="border-b border-gray-200 pb-3"
+            >
+              {item.scroll ? (
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    document.getElementById("productsSection")?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                  className="text-gray-800 text-lg font-semibold"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-800 text-lg font-semibold block"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between mt-10 gap-6 pt-4">
+          <Link to="/platform" className="text-blue-500 text-lg font-semibold">
+            Platform
           </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  {/* NAV ITEMS (Middle) */}
-  <div className="flex flex-col gap-10 mt-4">
-    {navItems.map((item) => (
-      <div
-        key={item.name}
-        className="border-b border-gray-200 pb-3"
-      >
-        {item.scroll ? (
-          <button
-            onClick={() => {
-              setMenuOpen(false);
-              document.getElementById("productsSection")?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-            className="text-gray-800 text-lg font-semibold"
-          >
-            {item.name}
-          </button>
-        ) : (
-          <Link
-            to={item.path}
-            onClick={() => setMenuOpen(false)}
-            className="text-gray-800 text-lg font-semibold block"
-          >
-            {item.name}
+          <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
+            Marketplace
           </Link>
-        )}
+        </div>
+
+
+        {/* CONTACT BUTTON (BOTTOM) */}
+        <div className="mt-6 flex justify-center items-center">
+          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
       </div>
-    ))}
-  </div>
-
- <div className="flex justify-between mt-10 gap-6 pt-4">
-  <Link to="/platform" className="text-blue-500 text-lg font-semibold">
-    Platform
-  </Link>
-  <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
-    Marketplace
-  </Link>
-</div>
-
-
-  {/* CONTACT BUTTON (BOTTOM) */}
-  <div className="mt-6 flex justify-center items-center">
-    <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
-      <ContactUsDark>Contact Us</ContactUsDark>
-    </Link>
-  </div>
-</div>
 
     </>
   );

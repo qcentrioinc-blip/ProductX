@@ -67,13 +67,13 @@ export default function ThreeCards() {
                 style={{
                   fontFamily: "'Quicksand', sans-serif",
                   fontWeight: 400,
-                  fontSize: '16px',
+                  fontSize: '18px',
                   lineHeight: '150%',
                   color: '#333333',
                   margin: 0
                 }}
               >
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                Duis aute irure dolor in reprehenderit in <br /> voluptate velit esse cillum dolore
               </p>
 
               <div
@@ -130,13 +130,13 @@ export default function ThreeCards() {
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
                       fontWeight: 400,
-                      fontSize: '16px',
+                      fontSize: '18px',
                       lineHeight: '150%',
                       color: '#333333',
                       margin: 0
                     }}
                   >
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    Duis aute irure dolor in reprehenderit in <br /> voluptate velit esse cillum dolore
                   </p>
                 </div>
               ))}

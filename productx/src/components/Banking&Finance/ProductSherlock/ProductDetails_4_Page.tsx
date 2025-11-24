@@ -7,16 +7,36 @@ import Grid from "./Grid";
 // import FAQ from "./FAQ";
 import InsightThought from "../InsightThought";
 import ContactUS from "../ProductRemitree/ContactUS";
-import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
+import { ScrollContext, ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 import BNFNav from "../BNFnav";
 // import PagoNavbar from "../ProductPago/PagoNavbar";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import FaqSection from "./FAQ";
+import { useContext, useEffect } from "react";
 
 
 const ProductDetails_4_page = () => {
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
   return (
     <ScrollProvider> {/* Wrap the entire content with ScrollProvider */}
  

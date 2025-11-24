@@ -1,6 +1,6 @@
 "use client"
 
-// import { ArrowRight  } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { ContactUs } from "../../../styles/Button";
 
@@ -8,7 +8,9 @@ const FirstPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const autoScrollInterval = useRef<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false); 
+  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const carouselImages = [
     { id: 1, src: "/Products/Products7/MainImage.png", alt: "Dashboard 1" },
     { id: 2, src: "/Products/Products7/MainImage.png", alt: "Dashboard 2" },
@@ -82,25 +84,80 @@ const FirstPage = () => {
     }
   };
 
-  
+  // const toggleMobileMenu = () => {
+  //   setIsMobileMenuOpen(!isMobileMenuOpen);
+  // };
 
   return (
-    <main className="min-h-screen w-full bg-[#2B68C3]">
-      {/* Top Simple Bar */}
-       
-      {/* Main White Navbar */}
- 
+    <main className="bg-[#2B68C3] lg:pt-44 relative overflow-hidden w-full"
+      style={{
+        minHeight: '1216px',
+        // width: '1440px',
+        margin: '0 auto',
+      }}
+    >
+
+      {/* RIGHT Decorative Sphere */}
+      <div
+        className="hidden lg:block"
+        style={{
+          position: 'absolute',
+          width: '250px',
+          height: '410px',
+          top: '210px',
+          right: '-40px',
+          zIndex: 6,
+          pointerEvents: 'none'
+        }}>
+        <img
+          src="/Products/Products7/Circle7.png"
+          alt="Decorative Sphere"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            borderRadius: '50%'
+          }}
+        />
+      </div>
+      {/* LEFT Decorative Circles */}
+      <div
+        className="hidden lg:block"
+        style={{
+          position: 'absolute',
+          width: '226.68px',
+          height: '205.60px',
+          top: '970px',
+          left: '15.5px',
+          border: '5px solid #0C4BA8',
+          borderRadius: '50%',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }} />
+      <div
+        className="hidden lg:block"
+        style={{
+          position: 'absolute',
+          width: '154.30px',
+          height: '145.81px',
+          top: '1005px',
+          left: '46.69px',
+          border: '2px solid #FBFBFB',
+          borderRadius: '50%',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }} />
 
       {/* Yellow Title Band with Responsive Layout */}
-      <div className="w-full bg-[#FED600] relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-12 lg:pt-48 flex flex-col sm:flex-row gap-6 sm:gap-0 items-start sm:items-center justify-between relative z-2">
+      <div className="w-full bg-[#FED600] relative z-5" style={{ height: '220px' }}>
+        <div className="max-w-[1530px] mx-auto px-4 sm:px-10 py-8 flex flex-col sm:flex-row gap-6 sm:gap-0 items-start sm:items-center justify-between relative z-2">
           {/* Left: Title */}
-          <h1 className="max-w-full sm:max-w-[520px] font-bold text-[32px] sm:text-[56px] leading-[120%] text-[#2A2A2A] m-0" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-1px' }}>
+          <h1 className="max-w-full sm:max-w-[620px] font-bold text-[32px] sm:text-[66px] leading-[120%] text-[#2A2A2A] m-0" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-1px' }}>
             Lorem ipsum dolor , consectetur adipis
           </h1>
           {/* Right: Description + Button */}
-          <div className="max-w-full sm:max-w-[450px] flex flex-col gap-6 sm:gap-8">
-            <p className="text-sm sm:text-base" style={{ fontFamily: "'Schibsted Grotesk', sans-serif", color: "#141414", lineHeight: "140%" }}>
+          <div className="max-w-full sm:max-w-[600px] flex flex-col gap-6 sm:gap-8">
+            <p className="text-sm sm:text-xl" style={{ fontFamily: "'Schibsted Grotesk', sans-serif", color: "#141414", lineHeight: "140%" }}>
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             </p>
             {/* <button
@@ -116,7 +173,7 @@ const FirstPage = () => {
       </div>
 
       {/* Dashboard Images Grid/Carousel */}
-      <div className="px-2 sm:px-8 py-10 sm:py-20">
+      <div className="px-2 sm:px-10 py-10 sm:py-20">
         {/* Mobile/Tablet Carousel */}
         <div className="lg:hidden">
           <div
@@ -150,7 +207,7 @@ const FirstPage = () => {
         </div>
 
         {/* Desktop Dashboard Grid */}
-        <div className="hidden lg:grid relative gap-6 lg:grid-cols-[1fr_2fr_1fr] lg:gap-8 max-w-[1280px] mx-auto">
+        <div className="hidden lg:grid relative gap-6 lg:grid-cols-[1fr_2fr_1fr] lg:gap-10 max-w-[1450px] mx-auto z-6">
           {/* Left Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
             <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
