@@ -45,10 +45,11 @@ const Openings = () => {
                     <span>{job.exp}</span>
                   </div>
                 </div>
-
+<Link to="/industries/banking-and-finance/jobdescription">
                 <button className="flex items-center gap-2 border border-white bg-white text-black px-5 py-2 rounded-md hover:bg-gray-200 transition-colors duration-300 text-sm font-medium">
                   Apply Now <ArrowUpRight size={16} />
                 </button>
+                </Link>
               </div>
 
               {/* Desktop layout */}

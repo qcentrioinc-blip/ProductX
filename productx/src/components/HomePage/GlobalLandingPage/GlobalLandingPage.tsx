@@ -8,6 +8,8 @@ import Partnership from "./Partnership"
 import TargetAudience from "./TargetAudience"
 import Testimonial from "./Testimonial"
 import VisionImpact from "./VisionImpact"
+import IndustrySlider from "./IndustrySlider"
+// import IndustrySlider from "./IndustrySlider"
  
 
 
@@ -17,6 +19,9 @@ const HeroSectionBanking = () => {
             
             <div id="landingpage">
                 <LandingPage />
+            </div>
+            <div>
+                <IndustrySlider/>
             </div>
             <div id="whatwedo">
                 <WhatWeDo />

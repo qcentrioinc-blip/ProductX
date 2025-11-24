@@ -21,7 +21,7 @@ export default function Testimonial() {
 
   return (
     <div className="bg-white py-20">
- <div className="max-w-7xl mx-auto px-6 md:px-10">
+ <div className="max-w-7xl mx-auto  px-6 lg:px-10">
   
 
         {/* Header */}
@@ -32,11 +32,11 @@ export default function Testimonial() {
         </div>
 
         {/* Simple 3 Cards */}
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className=" grid grid-cols-1 md:grid-cols-3  gap-8">
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id} 
-              className="bg-gray-200    rounded-lg p-6 h-[200px]"
+              className="bg-gray-200   rounded-lg md:p-4 p-6 lg:p-6   md:h-[210px] lg:h-[200px]"
             >
               <div className="flex justify-start mb-4">
                 <div className="w-10 h-10 rounded-full bg-white"></div>

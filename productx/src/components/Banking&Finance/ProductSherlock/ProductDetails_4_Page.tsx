@@ -1,32 +1,48 @@
 import HWD from "../HWD";
 import TitleSec from "./TitleSec";
-import CardsSection from "./CardsSection";
+// import CardsSection from "./CardsSection";
 import Features from "./Features";
 import ContentInfo from "./ContentInfo";
 import Grid from "./Grid";
-import FAQ from "./FAQ";
+// import FAQ from "./FAQ";
 import InsightThought from "../InsightThought";
-import ContactUS from "../Products2/ContactUS";
+import ContactUS from "../ProductRemitree/ContactUS";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
-import NewOneFooter from "../Products2/NewOneFooter";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 import BNFNav from "../BNFnav";
+// import PagoNavbar from "../ProductPago/PagoNavbar";
+import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
+import FaqSection from "./FAQ";
 
 
 const ProductDetails_4_page = () => {
   return (
     <ScrollProvider> {/* Wrap the entire content with ScrollProvider */}
-
-    <div>
+ 
       <BNFNav/>
         <TitleSec /> 
-        <CardsSection />
+        <HeroBottomNavbar/>
+        {/* <CardsSection /> */}
+       
+        <div id="overview">
         <Features />
-        <ContentInfo />
-        <Grid />
+        </div>
+        <div id="benefits"> <ContentInfo /></div>
+       
+        <div id="process">
+          <Grid />
+          </div>
+        
+        <div id="usecases">
         <HWD />
-        <FAQ />
+      </div>
+   <div id="faq">
+     <FaqSection />
+     </div>
+      <div id="blogs">
         <InsightThought />
+        
         <ContactUS />
         <div 
         className='lg:relative lg:h-[700px]'

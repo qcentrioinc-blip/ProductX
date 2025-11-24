@@ -91,8 +91,8 @@ export const P = ({ children, className = "" }: TypographyProps) => {
 export const P2=({children,className=""}:TypographyProps)=>{
   return(
     <p 
-    className={`  text-[14px] md:text-[16px] lg:text-[18px]
-        font-schibsted
+    className={`  text-[14px] md:text-[14px] lg:text-[18px]
+        font-quickstand
         leading-[100%]
         ${className}`}>{children}</p>
   )

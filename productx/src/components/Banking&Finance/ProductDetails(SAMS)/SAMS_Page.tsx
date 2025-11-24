@@ -1,14 +1,14 @@
 import HWD from "../HWD";
 import InsightThought from "../InsightThought";
-import FaqSection from "../ProductDetails4/FAQ";
+import FaqSection from "../ProductSherlock/FAQ";
 import Cards from "./Cards";
-import ContactUS from "../Products2/ContactUS";
-import ThreeTab from "../Products2/ThreeTab";
+import ContactUS from "../ProductRemitree/ContactUS";
+import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";
 import HeroSection from "./HeroSection";
 // import NewFooter from "../Products2/NewFooter";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
-import NewOneFooter from "../Products2/NewOneFooter";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 // import NewFooter from "../Products2/NewFooter";
 import BNFNav from "../BNFnav";

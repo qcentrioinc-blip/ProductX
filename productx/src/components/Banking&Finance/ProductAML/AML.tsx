@@ -5,9 +5,9 @@ import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
  
-import FaqSection from "../ProductDetails4/FAQ"
-import NewOneFooter from "../Products2/NewOneFooter"
-import ContactUS from "../Products2/ContactUS"
+import FaqSection from "../ProductSherlock/FAQ"
+import NewOneFooter from "../ProductRemitree/NewOneFooter"
+import ContactUS from "../ProductRemitree/ContactUS"
 import BNFNav from "../BNFnav"
  
  
@@ -15,6 +15,7 @@ import BNFNav from "../BNFnav"
 const AML = () => {
   return (
     <div>
+      
       <BNFNav/>
       <HeroSection />
       <Testimonial />

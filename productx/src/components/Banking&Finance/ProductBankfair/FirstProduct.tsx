@@ -274,6 +274,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useInView as useFramerInView } from 'framer-motion';
 import { useRef, } from 'react';
+import { Link } from 'react-router-dom';
 
 const FirstProduct = () => {
  
@@ -378,6 +379,7 @@ const FirstProduct = () => {
             </p>
 
             {/* CTA Button */}
+            <Link to="/industries/banking-and-finance/contactform">
             <button
               className="cta-button hover:brightness-110"
               style={{
@@ -405,6 +407,7 @@ const FirstProduct = () => {
               EXPLORE OUR SOLUTIONS
               <ArrowUpRight size={20} strokeWidth={2.5} />
             </button>
+            </Link>
           </div>
 
           {/* Dashboard Preview with CircleLight Behind */}
