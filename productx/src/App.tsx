@@ -154,6 +154,8 @@ const App = () => {
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
             {/* <Route path="/industries/ehr/aboutus" element={<About/>}/>  */}
            <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/>
+            {/* <Route path="/industries/ehr/aboutus" element={<About/>}/> 
+           <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/> */}
            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
            <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
            <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
