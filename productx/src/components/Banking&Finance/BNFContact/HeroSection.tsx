@@ -1,4 +1,5 @@
-import { ContactUs } from "../../../styles/Button";
+import { Link } from "react-router-dom";
+import {   ContactUsDark } from "../../../styles/Button";
 import { H1 } from "../../../styles/Typography";
 
 interface HeroSectionProps {
@@ -6,7 +7,7 @@ interface HeroSectionProps {
   
 }
 
-const HeroSection = ({ bgColor = "#E5F0FF" }: HeroSectionProps) => {
+const HeroSection = ({ bgColor = "#FFF5BF" }: HeroSectionProps) => {
   return (
     <section
       className="w-full py-16 px-6 md:px-12 lg:px-20"
@@ -39,7 +40,7 @@ const HeroSection = ({ bgColor = "#E5F0FF" }: HeroSectionProps) => {
               className="w-full border border-gray-300 rounded-md px-6 py-4 text-[16px] placeholder:text-black focus:outline-none focus:ring-2 focus:ring-[#FFD600]"
             />
 
-            <ContactUs>Submit</ContactUs>
+           <Link to="/industries/banking-and-finance"><ContactUsDark>Submit</ContactUsDark></Link> 
           </form>
         </div>
 

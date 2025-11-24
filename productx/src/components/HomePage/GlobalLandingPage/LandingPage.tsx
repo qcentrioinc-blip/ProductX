@@ -1,365 +1,208 @@
-"use client"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
-import { H1, P } from '../../../styles/Typography'
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { H1, P } from '../../../styles/Typography';
+import { Link } from 'react-router-dom';
+// import LiquidEther from './LiquidEther';
  
-const LandingPage = () => {
-   
-  const [isMobile, setIsMobile] = useState(false)
  
-  // ✅ Detect screen size and update on resize
+
+interface IndustryCardProps {
+  title: string;
+  image: string;
+  isActive: boolean;
+  url: string;
+}
+
+
+const IndustryCard: React.FC<IndustryCardProps> = ({ title, image, isActive, url }) => (
+  <a 
+    href={url}
+    className={`block relative overflow-hidden rounded-lg transition-all duration-500 ${
+      isActive ? 'scale-110 shadow-2xl opacity-100' : 'scale-100 opacity-50'
+    }`}
+    style={{ height: '150px' }}
+  >
+    <img 
+      src={image} 
+      alt={title}
+      className="w-full h-full object-cover"
+    />
+    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+    <h3 className="absolute bottom-3 left-4 text-white text-lg font-semibold">
+      {title}
+    </h3> */}
+  </a>
+);
+
+export default function InteractiveHeroSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const industries = [
+    {
+      title: 'Banking and Finance',
+      image: '/LandingPageNew/BNFImage.png',
+      url: '/industries/banking-and-finance',
+      // bgColor: '#000000'
+    },
+    {
+      title: 'EHR and PMS',
+      image: '/LandingPageNew/EHRImage.png',
+      url: '/industries/ehr-and-pms',
+      // bgColor: '#1a1a2e'
+    },
+    {
+      title: 'High Tech',
+      image: '/LandingPageNew/HighTechImage.png',
+      url: '/industries/high-tech',
+      // bgColor: '#16213e'
+    },
+    {
+      title: 'AI Automation',
+      image: '/LandingPageNew/AI.png',
+      url: '/industries/ai-automation',
+      // bgColor: '#0f3460'
+    }
+  ];
+
   useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth < 768)
-    checkScreen()
-    window.addEventListener("resize", checkScreen)
-    return () => window.removeEventListener("resize", checkScreen)
-  }, [])
- 
-  const BackgroundSlider = ({ currentImage }: { currentImage: string }) => {
-    return (
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentImage}
-          initial={{ opacity: 1, scale: 1.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 1, scale: 1.5 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${currentImage})` }}
-        />
-      </AnimatePresence>
-    )
-  }
- 
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const totalSlides = 4
- 
-  const sectorsData = [
-    {
-      id: 1,
-      name: "Banking",
-      image: "/LandingPage/Landing1.png",
-      backgroundImage: "/LandingPage/Landing1.png",
-      buttonText: "VIEW BANKING SOLUTIONS",
-      title: "Transforming Financial Services",
-      subtitle: "With Innovative Banking Solutions",
-      url: "/industries/banking-and-finance"
-    },
-    {
-      id: 2,
-      name: "EHS and PMS",
-      image: "/LandingPage/Landing2.png",
-      backgroundImage: "/LandingPage/Landing2.png",
-      buttonText: "VIEW EHS AND PMS SOLUTIONS",
-      title: "Environmental Excellence",
-      subtitle: "Through Smart EHS & PMS Solutions",
-       url: "/industries/ehr-and-pms" 
-    },
-    {
-      id: 3,
-      name: "High Tech",
-      image: "/LandingPage/Landing3.png",
-      backgroundImage: "/LandingPage/Landing3.png",
-      buttonText: "VIEW HIGH TECH SOLUTIONS",
-      title: "Driving Technology Forward",
-      subtitle: "With Cutting-Edge High-Tech Solutions",
-      url: "/industries/high-tech"
-    }
-  ]
- 
-  const getCurrentBackgroundImage = () =>
-    currentSlide === 0
-      ? "/LandingPage/Landing0.png"
-      : sectorsData[currentSlide - 1].backgroundImage
- 
-  const getCurrentButtonText = () =>
-    currentSlide === 0
-      ? "EXPLORE OUR SOLUTIONS"
-      : sectorsData[currentSlide - 1].buttonText
- 
-  const getCurrentTitle = () =>
-    currentSlide === 0
-      ? { title: "Shaping the Future", subtitle: "Across Every Sector." }
-      : {
-        title: sectorsData[currentSlide - 1].title,
-        subtitle: sectorsData[currentSlide - 1].subtitle
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const section = sectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      const scrollProgress = -rect.top / (sectionHeight - window.innerHeight);
+      
+      if (scrollProgress >= 0 && scrollProgress <= 1) {
+        const newIndex = Math.min(
+          Math.floor(scrollProgress * industries.length),
+          industries.length - 1
+        );
+        setActiveIndex(newIndex);
       }
- 
-  const handleNextSlide = () => {
-    if (currentSlide < totalSlides - 1 && !isTransitioning) {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentSlide(currentSlide + 1)
-        setIsTransitioning(false)
-      }, 100)
-    }
-  }
- 
-  const handlePrevSlide = () => {
-    if (currentSlide > 0 && !isTransitioning) {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentSlide(currentSlide - 1)
-        setIsTransitioning(false)
-      }, 100)
-    }
-  }
- 
-  const handleSectorClick = (sectorIndex: number) => {
-    if (!isTransitioning) {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentSlide(sectorIndex + 1)
-        setIsTransitioning(false)
-      }, 100)
-    }
-  }
- 
-  const handleDotClick = (slideIndex: number) => {
-    if (!isTransitioning && slideIndex !== currentSlide) {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setCurrentSlide(slideIndex)
-        setIsTransitioning(false)
-      }, 100)
-    }
-  }
- 
-  const currentTitleData = getCurrentTitle()
- 
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [industries.length]);
+
   return (
-    <div className="md:min-h-screen w-full  lg:px-10 relative overflow-hidden">
-      <BackgroundSlider currentImage={getCurrentBackgroundImage()} />
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
+    <div className="min-h-screen bg-black">
+      {/* Header */}
+      import LiquidEther from './LiquidEther';
+
+{/* <div style={{ width: '100%', height: 600, position: 'relative' }}>
+  <LiquidEther
+    colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
+    mouseForce={20}
+    cursorSize={100}
+    isViscous={false}
+    viscous={30}
+    iterationsViscous={32}
+    iterationsPoisson={32}
+    resolution={0.5}
+    isBounce={false}
+    autoDemo={true}
+    autoSpeed={0.5}
+    autoIntensity={2.2}
+    takeoverDuration={0.25}
+    autoResumeDelay={3000}
+    autoRampDuration={0.6}
+  />
+</div> */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/95 backdrop-blur-sm">
+        <div className="max-w-8xl mx-4 px-6 py-1 flex items-center justify-between">
+          <Link to="/">
+          <div className="text-white  font-bricolage font-bold text-xl bg-neutral-700 px-4 py-2 rounded">
+          
+            LOGO
+          </div>
+          </Link>
+          <nav className="flex items-center gap-8">
+            <a href="/platform" className="text-white hover:text-gray-300 transition">Platform</a>
+            <a href="/marketplace" className="text-white hover:text-gray-300 transition">Marketplace</a>
+            <Link to="/contact">
+            <button className="bg-white text-black px-4 py-2 rounded-md font-medium  transition flex items-center gap-2">
+              CONTACT US <ArrowUpRight size={18} />
+            </button>
+           </Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <div 
+        ref={sectionRef}
+        className="relative transition-colors duration-700"
+        // style={{ 
+        //   minHeight: '400vh',
+        //   backgroundColor: industries[activeIndex].bgColor
+        // }}
+      >
+        <div className="sticky lg:top-10 h-full py-20 flex justify-between items-center pt-20">
+          <div className="max-w-8xl mx-10 px-4  ">
+            <div className="grid grid-cols-2 gap-24 justify-between items-start">
+              {/* Left Content */}
+              <div className="space-y-4 pt-12 ">
+                <H1 className="font-bold text-white leading-tight">
+                  Shaping the Future<br />
+                  Across Every Sector.
+                </H1>
+                <P className="text-gray-300 leading-relaxed  w-full  ">
+                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
+                </P>
+                <button className="bg-white text-black px-8 py-3 rounded-2xl font-semibold text-sm hover:bg-gray-100 transition flex items-center gap-2 mt-6">
+                 REQUEST PROPOSAL <ArrowUpRight size={18} />
+                </button>
  
-      <div className={`relative z-10 flex flex-col ${isMobile ? "" : "justify-between min-h-screen"}`}>
- 
-        {/* Shared Top Section (Title + Button + Arrows on desktop) */}
-        <div className="md:flex-1 hidden md:flex items-center ">
-          <div className="container mx-auto px-4 sm:px-6  hidden md:block lg:px-8">
-            <div className="max-w-4xl lg:pt-32">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={currentTitleData.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bricolage font-bold text-white leading-tight mb-6 md:mb-8"
-                >
-                  {currentTitleData.title}
-                  <br />
-                  <motion.span
-                    key={currentTitleData.subtitle}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="block"
-                  >
-                    {currentTitleData.subtitle}
-                  </motion.span>
-                </motion.h1>
-              </AnimatePresence>
-              <button className="inline-flex items-center gap-2 bg-white font-bricolage  text-gray-900 px-4 py-2.5 sm:px-6 sm:py-3  rounded-lg font-semibold text-xs sm:text-sm hover:bg-gray-100 transition-colors duration-300 group mb-6 md:mb-8">
-                <span className="hidden sm:inline">{getCurrentButtonText()}</span>
-                <span className="sm:hidden">EXPLORE SOLUTIONS</span>
-                <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-              </button>
+                                {/* Stats */}
+                <div className="flex font-bricolage gap-20 lg:pt-44">
+                  <div className="flex gap-4">
+                    <div className="w-1 bg-white"></div>
+                    <div>
+                      <div className="text-5xl font-bold text-white">25k+</div>
+                      <div className="text-white text-sm mt-2">Success Stories</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-1 bg-white"></div>
+                    <div>
+                      <div className="text-5xl font-bold text-white">25k+</div>
+                      <div className="text-white text-sm mt-2">Success Stories</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-1 bg-white"></div>
+                    <div>
+                      <div className="text-5xl font-bold text-white">25k+</div>
+                      <div className="text-white text-sm mt-2">Success Stories</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              {/* Right Content - Industry Cards */}
+              <div className="space-y-3 flex flex-col items-end w-full">
+                {industries.map((industry, index) => (
+                  <IndustryCard
+                    key={index}
+                    title={industry.title}
+                    image={industry.image}
+                    url={industry.url}
+                    isActive={activeIndex === index}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
- 
-        {!isMobile && (
-          <div className="flex px-4 sm:px-2  lg:px-8 gap-4">
-            <button
-              onClick={handlePrevSlide}
-              disabled={currentSlide === 0 || isTransitioning}
-              className={`w-12 h-12 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === 0 || isTransitioning
-                  ? "opacity-40 cursor-not-allowed"
-                  : "hover:bg-white/10 hover:border-white/60"
-                }`}
-            >
-              <ChevronLeft className="w-5 h-5 text-white" />
-            </button>
- 
-            <button
-              onClick={handleNextSlide}
-              disabled={currentSlide === totalSlides - 1 || isTransitioning}
-              className={`w-12 h-12 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === totalSlides - 1 || isTransitioning
-                  ? "opacity-40 cursor-not-allowed"
-                  : "hover:bg-white/10 hover:border-white/60"
-                }`}
-            >
-              <ChevronRight className="w-5 h-5 text-white" />
-            </button>
-          </div>
-        )}
-        
-        <div className=" border-white/20 bg-transparent">
-          <div className="container mx-auto   sm:px-6 lg:px-8 pb-4 pt-16 sm:py-6 md:py-8">
-            {isMobile ? (
-              // --------- Mobile Layout ---------
-              <div className="flex flex-col min-h-full pt-20 lg:pt-32">
-                {/* Title + Subtitle + Button */}
-                <div className="text-left px-4 mb-10">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentTitleData.title}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -30 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                      <H1 className="text-white leading-tight mb-6">
-                        {currentTitleData.title}
-                        <br />
-                        <span className="block text-white/90">
-                          {currentTitleData.subtitle}
-                        </span>
-                      </H1>
-                      <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-md font-bricolage font-semibold text-sm hover:bg-gray-100 transition-colors duration-300 group">
-                        CONTACT US
-                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-                      </button>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-                {/* Bottom Section: Chevrons + Sector Cards + Dots */}
-                <div className="px-3 pb-8">
-                  {/* Navigation Chevrons */}
-                  <div className="flex gap-3 mt-8 mb-3">
-                    <button
-                      onClick={handlePrevSlide}
-                      disabled={currentSlide === 0 || isTransitioning}
-                      className={`w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === 0 || isTransitioning
-                          ? "opacity-40 cursor-not-allowed"
-                          : "hover:bg-white/10 hover:border-white/60"
-                        }`}
-                    >
-                      <ChevronLeft className="w-5 h-5 text-white" />
-                    </button>
-                    <button
-                      onClick={handleNextSlide}
-                      disabled={currentSlide === totalSlides - 1 || isTransitioning}
-                      className={`w-8 h-8  rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${currentSlide === totalSlides - 1 || isTransitioning
-                          ? "opacity-40 cursor-not-allowed"
-                          : "hover:bg-white/10 hover:border-white/60"
-                        }`}
-                    >
-                      <ChevronRight className="w-5 h-5 text-white" />
-                    </button>
- 
-                  </div>
-                  {/* Swipeable Sector Cards */}
-                  <div className="relative mb-6 overflow-hidden">
-                    <motion.div
-                      className="flex gap-4 cursor-grab active:cursor-grabbing"
-                      drag="x"
-                      dragConstraints={{ left: -((sectorsData.length - 1) * 164), right: 0 }}
-                      dragElastic={0.1}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    >
- 
-                      {sectorsData.map((sector, index) => (
-                        <motion.div
-                          key={sector.id}
-                          className="flex-shrink-0"
-                          onClick={() => !isTransitioning && handleSectorClick(index)}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <P className="text-white mb-2">{sector.name}</P>
-                          <div className="w-[140px] h-[90px] rounded-lg overflow-hidden mb-2">
-                            <img
-                              src={sector.image}
-                              alt={sector.name}
-                              className="w-full h-full object-cover"
-                              onClick={() => window.open(sector.url, "_blank")}
-                               
-                            />
-                          </div>
-                          {/* <P className="text-white">{sector.name}</P> */}
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </div>
-                  {/* Dots */}
-                  <div className="flex gap-2">
-                    {Array.from({ length: totalSlides }).map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleDotClick(index)}
-                        disabled={isTransitioning}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-blue-500" : "bg-white/30 hover:bg-white/50"
-                          } ${isTransitioning ? "cursor-not-allowed" : ""}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
- 
- 
-            ) : (
-              // --------- Desktop Layout ----------
-              <div className="flex items-start gap-8 lg:gap-12">
-                <div className="flex flex-col items-start">
-                  <div className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                    {String(currentSlide).padStart(2, "0")}
-                  </div>
- 
-                  <div className="flex gap-2">
-                    {Array.from({ length: totalSlides }).map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleDotClick(index)}
-                        disabled={isTransitioning}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                            ? "bg-blue-500"
-                            : "bg-white/30 hover:bg-white/50"
-                          } ${isTransitioning ? "cursor-not-allowed" : ""}`}
-                      />
-                    ))}
-                  </div>
-                </div>
- 
-                <div className="flex-1">
-                  <div className="flex gap-6 lg:gap-8 justify-start">
-                    {sectorsData.map((sector, index) => (
-                      <div
-                        key={sector.id}
-                        className={`group ${isTransitioning ? "cursor-not-allowed" : "cursor-pointer"
-                          }`}
-                        onClick={() => !isTransitioning && handleSectorClick(index)}
-                      >
-                        <div className="mb-3">
-                          <p className="text-white/80 text-sm font-medium mb-2">
-                            {sector.name}
-                          </p>
-                          <div
-                            className={`w-24 h-16 lg:w-32 lg:h-20 rounded-lg overflow-hidden transition-all duration-300 ${currentSlide === index + 1 ? "ring-2 ring-blue-500" : ""
-                              }`}
-                          >
-                            <img
-                              src={sector.image || "/placeholder.svg"}
-                              alt={sector.name}
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                              onClick={() => window.open(sector.url, "_blank")}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
       </div>
+
+     
     </div>
-  )
+  );
 }
- 
-export default LandingPage

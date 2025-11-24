@@ -12,11 +12,12 @@ const CTA = () => {
               <span className="inline-block px-4 mb-1 py-1.5 border border-gray-300 rounded-full text-sm">
                 Duis aute
               </span>
-              <H2>
-                Lorem ipsum
-               <br/>
-                dolor ,consecte
-              </H2>
+             <H2>
+  Lorem ipsum
+  <br className="hidden lg:block" />
+  dolor ,consecte
+</H2>
+
             </div>
             
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 items-center justify-center gap-6 lg:gap-x-10 lg:gap-y-4">

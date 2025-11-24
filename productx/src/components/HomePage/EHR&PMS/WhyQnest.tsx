@@ -253,23 +253,23 @@ const WhyQnest = () => {
         </motion.div>
 
         {/* Cards Section - Scrolls up from bottom, overrides title */}
-        <motion.div
-          style={{
-            y: smoothCardsY
-          }}
-          className="absolute inset-0 z-20 flex items-center justify-center py-12"
-        >
-          <div className="w-full px-6">
-            <div className="max-w-[1400px] mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <motion.div
+            style={{
+              y: smoothCardsY
+            }}
+            className="absolute inset-0 z-20 flex items-center justify-center py-12"
+          >
+            <div className="w-full px-6">
+              <div className="max-w-[1400px] mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-                {/* Card 1 - Left - Starts lower, aligns to same height at top */}
-                <motion.div
-                  className="lg:col-span-4"
-                  style={{
-                    marginTop: smoothCard1Offset
-                  }}
-                >
+                  {/* Card 1 - Left - Starts lower, aligns to same height at top */}
+                  <motion.div
+                    className="lg:col-span-4"
+                    style={{
+                      marginTop: smoothCard1Offset
+                    }}
+                  >
                   <div className="bg-white rounded-[2rem] p-14 shadow-xl h-[550px] flex flex-col justify-between">
                     {/* Number and Title - Top */}
                     <div
@@ -283,7 +283,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -296,7 +296,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -314,7 +314,7 @@ const WhyQnest = () => {
                         height: '145px',
                         fontFamily: "'Bricolage Grotesque', sans-serif",
                         fontWeight: 700,
-                        fontSize: '24px',
+                        fontSize: '22px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         color: '#2A2A2A',
@@ -342,7 +342,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -355,7 +355,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -373,7 +373,7 @@ const WhyQnest = () => {
                         height: '145px',
                         fontFamily: "'Bricolage Grotesque', sans-serif",
                         fontWeight: 700,
-                        fontSize: '24px',
+                        fontSize: '22px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         color: '#2A2A2A',
@@ -406,7 +406,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -419,7 +419,7 @@ const WhyQnest = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '56px',
+                          fontSize: '46px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
                           color: '#166D48',
@@ -437,7 +437,7 @@ const WhyQnest = () => {
                         height: '145px',
                         fontFamily: "'Bricolage Grotesque', sans-serif",
                         fontWeight: 700,
-                        fontSize: '24px',
+                        fontSize: '22px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         color: '#2A2A2A',

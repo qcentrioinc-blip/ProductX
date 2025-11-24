@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { H3,H4 ,P} from "../../../styles/Typography";
-import Image1 from "/AML/image73.png"
+// import Image1 from "/AML/image73.png"
+
+
+const images = [
+  "/AML/image73.png",
+  "/AML/image64.png",
+  "/AML/image74.png",
+  "/Career/image57.png",
+  "/Career/image59.png"
+];
+
 const Description = () => { 
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,40 +34,37 @@ const Description = () => {
           Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor , consectetur adipis,Lorem ipsum
         </H3>
       </div>
- <div className="md:hidden mb-8">
-        <div 
-           
-          className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
-        >
-          <button className="snap-center shrink-0 w-[70vw] py-4  bg-white  rounded-full border-gray-400 text-black font-semibold text-lg">
-            Duis aute irure
-          </button>
-          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
-            Duis aute irure
-          </button>
-          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
-            Duis aute irure
-          </button>
-          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
-            Duis aute irure
-          </button>
-          <button className="snap-center shrink-0 w-[70vw] py-4   rounded-full border-neutral-700 border-2 text-black font-semibold text-lg">
-            Duis aute irure
-          </button>
-          
-        </div>
-      </div>
+ <div className="lg:hidden mb-8">
+  <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+    {[0,1,2,3,4].map((index) => (
+      <button
+        key={index}
+        onClick={() => setActiveIndex(index)}
+        className={`snap-center shrink-0 md:w-[24vw] w-[40vw] py-4 rounded-full text-lg font-semibold
+          ${activeIndex === index 
+            ? "bg-(--primary-color) text-white" 
+            : "border-2 border-neutral-700 text-black bg-white"
+          }
+        `}
+      >
+        Duis aute irure
+      </button>
+    ))}
+  </div>
+</div>
+
 
       
 
    {/* Image + Overlay Content */}
       <div className="relative w-full rounded-xl overflow-hidden shadow-lg">
         {/* Background Image */}
-        <img 
-          src={Image1} 
-          alt="Description" 
-          className="w-full h-[200px] md:h-[450px] lg:h-[550px] object-cover"
-        />
+       <img 
+  src={images[activeIndex]}
+  alt="Description"
+  className="w-full h-[200px] md:h-[450px] lg:h-[550px] object-cover"
+/>
+
 
         {/* Right Overlay Box - Desktop only */}
        <div className="hidden lg:block absolute top-16 right-16  lg:h-[200px] bg-neutral-500 text-white rounded-sm p-4 sm:p-6 lg:p-6 backdrop-blur-md">
@@ -151,7 +158,7 @@ const Description = () => {
       </div>
 
       {/* Bottom Buttons */}
-      <div className="hidden md:flex md:flex-wrap md:justify-between mt-8">
+      <div className="hidden lg:flex md:flex-wrap md:justify-between mt-8">
 
   {[0,1,2,3,4].map((index) => (
     <button

@@ -1,3 +1,4 @@
+import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import FeaturePoint from "../Careers/FeaturePoint"
 import ArticleGrid from "./ArticleGrid"
 import ImageCard from "./ImageCard"
@@ -11,7 +12,8 @@ const CaseStudiesPage = () => (
     <ImageCard/>
     </div>
     <ArticleGrid/>
-    <FeaturePoint/>    
+    <FeaturePoint/>
+    <EHRFooter/>
   </div>
 )
 export default CaseStudiesPage
