@@ -5,7 +5,7 @@ import CardsSec from './CardSec.tsx'
 import Highlights from './Highlights.tsx'
 import FeatureCards from './FeatureCards.tsx'
 import HWD from '../../Banking&Finance/HWD.tsx'
-import FaqSection from '../../Banking&Finance/ProductDetails4/FAQ.tsx'
+import FaqSection from '../../Banking&Finance/ProductSherlock/FAQ.tsx'
 import SubFooter from '../Careers/SubFooter.tsx'
 
 

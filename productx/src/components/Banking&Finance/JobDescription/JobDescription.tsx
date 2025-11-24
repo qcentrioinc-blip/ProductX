@@ -1,5 +1,6 @@
-import ContactUS from "../Products2/ContactUS"
-import NewFooter from "../Products2/NewFooter"
+import ContactUS from "../ProductRemitree/ContactUS"
+ 
+import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import HeroSection from "./HeroSection"
 import Overview from "./Overview"
 
@@ -10,7 +11,7 @@ const JobDescription = () => {
       <HeroSection/>
       <Overview/>
       <ContactUS/>
-      <NewFooter/>
+      <NewOneFooter/>
     </div>
   )
 }

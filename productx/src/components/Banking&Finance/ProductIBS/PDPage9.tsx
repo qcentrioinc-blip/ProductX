@@ -4,11 +4,11 @@ import HeroSection from "./HeroSection";
 import Cards from "./Cards";
 import ImgTextSec from "./ImgTextSec";
 import HWD from "../HWD";
-import FaqSection from "../ProductDetails4/FAQ";
+import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
-import ContactUS from "../Products2/ContactUS";
+import ContactUS from "../ProductRemitree/ContactUS";
 // import NewFooter from "../Products2/NewFooter";
-import NewOneFooter from "../Products2/NewOneFooter";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 // import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 
 // import NewFooter from "../Products2/NewFooter";

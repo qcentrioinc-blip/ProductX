@@ -110,7 +110,7 @@ const AlphabetSec = () => {
       {/* Sticky Alphabet Navigation */}
       <div
         ref={alphabetBarRef}
-        className="sticky top-[65px] z-20 shadow-sm w-full bg-black text-white py-3 px-2 overflow-x-auto"
+        className="sticky top-0 z-20 shadow-sm w-full bg-black text-white py-3 px-2 overflow-x-auto"
       >
         <div className="flex justify-between min-w-[100%]">
           {alphabet.map((letter) => (

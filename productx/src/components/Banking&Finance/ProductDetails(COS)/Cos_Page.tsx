@@ -5,11 +5,11 @@ import Cards from "./Cards";
 import GridLayout from "./GridLayout";
 import FeatureGrid from "./FeatureGrid";
 import HWD from "../HWD";
-import FAQ from "../ProductDetails4/FAQ";
+import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 // import NewFooter from "../Products2/NewFooter";
-import ContactUS from "../Products2/ContactUS";
-import NewOneFooter from "../Products2/NewOneFooter";
+import ContactUS from "../ProductRemitree/ContactUS";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 import FeatureGrid2 from "./FeatureGrid2";
 

@@ -1,20 +1,28 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
+ 
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
 }
-
-/* -------------------- CONTACT US BUTTON -------------------- */
+ 
 export const ContactUs = ({ children, className = "" }: ButtonProps) => {
+  const location =useLocation();
+  const pathParts =location.pathname.split("/");
+  const industrySlug=pathParts.includes("industries")
+  ? pathParts[pathParts.indexOf("industries")+1]  
+  :null;
+
+  const contactUrl =industrySlug
+  ?`/industries/${industrySlug}/contactform`
+  :"/contact";
   return (
-    <Link to="/industries/banking-and-finance/contactform">
+     <Link to={contactUrl}>
     <button
       className={`
         group
         flex items-center justify-center
-        w-[160px] sm:w-[185px] h-[44px] sm:h-[48px]
+        w-auto h-[44px] sm:h-[48px]
         px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
         rounded-[8px]
         font-quicksand font-bold text-[14px] sm:text-[16px]
@@ -48,7 +56,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         </span>
       </span>
     </button>
-    </Link>
+   </Link>
   );
 };
 export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {

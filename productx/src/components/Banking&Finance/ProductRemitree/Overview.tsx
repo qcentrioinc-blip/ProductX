@@ -1,3 +1,5 @@
+import { ContactUs } from "../../../styles/Button";
+
  
 
 const Overview = () => {
@@ -44,10 +46,7 @@ const Overview = () => {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[20px] justify-center lg:justify-start">
                             {/* Contact Sales Button */}
-                            <button className="bg-white text-black h-[48px] px-6 sm:px-8 rounded-[8px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors duration-300 w-full sm:w-auto">
-                                CONTACT SALES
-                                <span>↗</span>
-                            </button>
+                            <ContactUs>Contact Sales</ContactUs>
 
                             {/* Watch Overview Button */}
                             <button className="bg-transparent text-blue-600 h-[48px] px-6 sm:px-8 rounded-[8px] font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors duration-300 w-full sm:w-auto">

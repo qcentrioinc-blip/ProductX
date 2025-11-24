@@ -1,25 +1,25 @@
 import './App.css'
-import Navbar from './components/Global/Navbar/Navbar'
+// import Navbar from './components/Global/Navbar/Navbar'
 
 import './index.css'
-import { Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { Link, Route, Routes,  useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 // import Blogs from './components/Blogs/Blogs'
 // import LifeSciences from './routes/industries/EHRandPMS'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
-import ProductsPage1 from './components/Banking&Finance/Products1/ProductsPage1'
-import ProductsPage2 from './components/Banking&Finance/Products2/ProductsPage2'
+import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
+import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
-import ProductDetails_4_page from './components/Banking&Finance/ProductDetails4/ProductDetails_4_Page'
+import ProductDetails_4_page from './components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'
 import Cos_Page from './components/Banking&Finance/ProductDetails(COS)/Cos_Page'
 import AboutUs from './components/Banking&Finance/AboutUs/AboutUsPage'
 import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
-import PDPage9 from './components/Banking&Finance/ProductDetails9/PDPage9'
-import ProductsPage7 from './components/Banking&Finance/Products7/ProductsPage7'
+import PDPage9 from './components/Banking&Finance/ProductIBS/PDPage9'
+import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7'
 
 import Platform from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
@@ -51,30 +51,34 @@ import ResourcesDetail from './components/HighTech/ResourcesDetail/ResourcesDeta
 import GlossaryPage from './components/Banking&Finance/Glossary/GlossaryPage'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import CareersPage from './components/EHR&PMS/Careers/CareersPage'
+ 
+ 
+
 
 const App = () => {
-  const location = useLocation();
-  const showNavbar = location.pathname === '/';
+  // const location = useLocation();
+  // const showNavbar = location.pathname === '/';
   const IndustryPage = () => {
     const { industry } = useParams();
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
     if (industry === "ehr-and-pms") return <EHRAndPMS />;
-    return <div>Industry not found</div>;
+    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br/> SOON AVAILABLE<br/> Till Then Check Other Industries 
+    <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
 
   const ProductsPage = () => {
     const { productId } = useParams();
-    if (productId === "1") return <ProductsPage1 />;
-    if (productId === "2") return <ProductsPage2 />;
-    if (productId === "3") return <AML />;
-    if (productId === "4") return <ProductDetailthree />
-    if (productId === "5") return <ProductDetails_4_page />
-    if (productId === "6") return <Cos_Page />
-    if (productId === "8") return <Sams_Page />
-    if (productId === "9") return <PDPage9 />
-    if (productId === "7") return <ProductsPage7 />
-    return <div>Product not found</div>;
+    if (productId === "bankfair") return <ProductsPage1 />;
+    if (productId === "remitree") return <ProductsPage2 />;
+    if (productId === "almanac") return <AML />;
+    if (productId === "pago") return <ProductDetailthree />
+    if (productId === "sherlock") return <ProductDetails_4_page />
+    if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    if (productId === "sams") return <Sams_Page />
+    if (productId === "internet-banking-system") return <PDPage9 />
+    if (productId === "loan-origination-system") return <ProductsPage7 />
+    return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br/> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
 
   const EhrPmsPageRouter = () => {
@@ -125,9 +129,11 @@ const App = () => {
   };
   return (
     <>
+
+   
       <ScrollProvider>
         <div data-scroll-container>
-          {showNavbar && <Navbar />}
+          {/* {showNavbar && <Navbar />} */}
           <Routes>
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
@@ -140,7 +146,7 @@ const App = () => {
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
-            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
             <Route path='/glossary' element={<GlossaryPage />} />
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
             <Route path='/marketplace' element={<Marketing />} />
@@ -152,8 +158,7 @@ const App = () => {
             <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
             <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
-            {/* <Route path="/industries/ehr/aboutus" element={<About/>}/> 
-           <Route path="/industries/ehr/clinicapp" element={<Clinic/>}/> */}
+       
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
             <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
@@ -167,6 +172,7 @@ const App = () => {
           </Routes>
         </div>
       </ScrollProvider>
+       
     </>
   )
 }
