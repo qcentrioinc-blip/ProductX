@@ -1,17 +1,21 @@
 import HWD from "../HWD";
 import InsightThought from "../InsightThought";
-import FaqSection from "../ProductDetails(Sherlock)/FAQ";
+import FaqSection from "../ProductSherlock/FAQ";
 import Cards from "./Cards";
-import ThreeTab from "../Products2/ThreeTab";
+ 
+import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";
 import HeroSection from "./HeroSection";
 // import NewFooter from "../Products2/NewFooter";
+  // Import ScrollProvider
+ 
 
 // import NewFooter from "../Products2/NewFooter";
 import BNFNav from "../BNFnav";
-import NewOneFooter from "../Products2/NewOneFooter";
-import ContactSection from "../Products1/ContactSection";
-
+import ContactUS from "../ProductRemitree/ContactUS";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
+ 
+ 
 const Sams_Page = () => {
   return (
     <div>
@@ -23,7 +27,7 @@ const Sams_Page = () => {
         <HWD />
         <FaqSection />
         <InsightThought />
-        <ContactSection/>
+        <ContactUS/>
         <NewOneFooter/>
         
     </div>

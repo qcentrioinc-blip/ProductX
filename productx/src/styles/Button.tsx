@@ -12,7 +12,6 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
   const industrySlug=pathParts.includes("industries")
   ? pathParts[pathParts.indexOf("industries")+1]  
   :null;
- 
   const contactUrl =industrySlug
   ?`/industries/${industrySlug}/contactform`
   :"/contact";
@@ -22,7 +21,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
       className={`
         group
         flex items-center justify-center
-        w-[160px] sm:w-[185px] h-[44px] sm:h-[48px]
+        w-auto h-[44px] sm:h-[48px]
         px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
         rounded-[8px]
         font-quicksand font-bold text-[14px] sm:text-[16px]

@@ -281,7 +281,7 @@ const HeroSection: React.FC = () => {
           <motion.div
             style={{ y: contentY }}
             variants={containerVariants}
-            className="relative z-10 w-full lg:mx-20 xl:mx-30 mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
+            className="relative pt-24 z-10 w-full lg:mx-20 xl:mx-30 mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
           >
             <motion.div variants={itemVariants}>
               <H1>Lorem ipsum dolor , <br /> consectetur adipis</H1>

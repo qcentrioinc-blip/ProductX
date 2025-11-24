@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { H1 } from "../../../styles/Typography";
  
 import { ArrowUpRight,ArrowRight } from "lucide-react";
@@ -62,7 +63,7 @@ const Contact: React.FC = () => {
 
       "
     >
-      <span className="mr-2">SUBMIT</span>
+      <Link to="/"><span className="mr-2">SUBMIT</span></Link>
       <span className="relative flex items-center h-[20px] w-[20px]">
         {/* Default icon */}
         <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />

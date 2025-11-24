@@ -5,14 +5,18 @@ import Cards from "./Cards";
 import GridLayout from "./GridLayout";
 import FeatureGrid from "./FeatureGrid";
 import HWD from "../HWD";
-import FAQ from "../ProductDetails(Sherlock)/FAQ";
+import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 // import NewFooter from "../Products2/NewFooter";
+ 
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
+// import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 // import FeatureGrid2 from "./FeatureGrid2";
 
 import BNFNav from "../BNFnav";
-import NewOneFooter from "../Products2/NewOneFooter";
-import ContactSection from "../Products1/ContactSection";
+import ContactUS from "../ProductRemitree/ContactUS";
+ 
+ 
 
 const Cos_Page = () => {
   return (
@@ -28,7 +32,7 @@ const Cos_Page = () => {
         <HWD />
         <FAQ />
         <InsightThought />
-        <ContactSection />
+        <ContactUS />
         <NewOneFooter/>
         
     </div>   
