@@ -8,16 +8,18 @@ import HWD from "../HWD";
 import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 // import NewFooter from "../Products2/NewFooter";
-import ContactUS from "../ProductRemitree/ContactUS";
+ 
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
-import FeatureGrid2 from "./FeatureGrid2";
+// import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
+// import FeatureGrid2 from "./FeatureGrid2";
 
 import BNFNav from "../BNFnav";
+import ContactUS from "../ProductRemitree/ContactUS";
+ 
+ 
 
 const Cos_Page = () => {
   return (
-   <ScrollProvider>
     <div>
       <BNFNav/>
         <HeroSection />
@@ -26,22 +28,14 @@ const Cos_Page = () => {
         <Tabs />
         <GridLayout />
         <FeatureGrid />
-        <FeatureGrid2/>
+        {/* <FeatureGrid2/> */}
         <HWD />
         <FAQ />
         <InsightThought />
         <ContactUS />
-        <div 
-        className='lg:relative lg:h-[700px]'
-        style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
-      >
-        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
-          {/* <NewFooter /> */}
-          <NewOneFooter/>
-        </div>
-      </div>
+        <NewOneFooter/>
+        
     </div>   
-  </ScrollProvider>  
   );
 }
 

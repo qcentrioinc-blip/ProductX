@@ -7,8 +7,11 @@ import InsightThought from "../InsightThought"
  
 import FaqSection from "../ProductSherlock/FAQ"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
-import ContactUS from "../ProductRemitree/ContactUS"
+ 
 import BNFNav from "../BNFnav"
+
+import ContactUS from "../ProductRemitree/ContactUS"
+// import ContactSection from "../Products1/ContactSection"
  
  
 

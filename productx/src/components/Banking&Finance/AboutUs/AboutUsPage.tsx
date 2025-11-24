@@ -20,6 +20,8 @@ const AboutUsPage = () => {
     <Counter />
     <ContactUS />
     <NewOneFooter/>
+    {/* <ContactSection />
+    <NewFooter /> */}
     </>
   )
 }

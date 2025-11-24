@@ -118,7 +118,7 @@ export default function HeroSection() {
             bottom: '8px',
             top: '0',
             right: '20px',
-            height: '85%',
+            height: '95%',
             width: '40%',
             borderRadius: '0 0 9999px 9999px',
             borderLeft: '24px solid #F99526',
@@ -218,7 +218,7 @@ export default function HeroSection() {
       
       {/* Main Content Container (Text + Button) */}
       <div 
-        className="relative z-10 w-full flex flex-col px-4  sm:px-8 md:pt-10 pt-10 md:py-10 md:mb-10"
+        className="relative z-10 w-full flex flex-col px-4  sm:px-8 md:pt-10 pt-10 md:py-10 md:mb-10 "
         style={{
           ...(isMobile ? {} : {
             alignItems: 'flex-start',
