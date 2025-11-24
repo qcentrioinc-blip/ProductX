@@ -196,7 +196,7 @@ const Harper = () => {
     const content = [
         { 
             id: 1, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-1",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -204,7 +204,7 @@ const Harper = () => {
         },
         { 
             id: 2, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-2",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -212,7 +212,7 @@ const Harper = () => {
         },
         { 
             id: 3, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-3",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -220,7 +220,7 @@ const Harper = () => {
         },
         { 
             id: 4, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-4",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",

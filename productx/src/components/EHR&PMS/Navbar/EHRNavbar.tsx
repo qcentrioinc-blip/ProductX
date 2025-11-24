@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 const EHRNavbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
-    
+
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     const handleContactClick = () => {
-        navigate('/contact');
+        navigate('/industries/ehr-and-pms/contactus');
         // OR navigate('/contact'); // For React Router
     };
 
@@ -32,10 +32,10 @@ const EHRNavbar = () => {
                     </div>
 
                     <div className="flex items-center gap-5 sm:gap-10">
-                        <a href="/platform" className="text-white text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
+                        <a href="/platform" className="text-black text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
                             Platform
                         </a>
-                        <a href="/marketplace" className="text-white text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
+                        <a href="/marketplace" className="text-black text-xs sm:text-[14px] font-medium hover:opacity-80 transition-opacity duration-300">
                             Marketplace
                         </a>
                     </div>
@@ -55,22 +55,22 @@ const EHRNavbar = () => {
                         <div className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2">
                             <ul className="flex gap-[18px] sm:gap-[36px] list-none items-center">
                                 <li>
-                                    <a href="#products" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                                    <a href="#products" className="text-[#2A2A2A] text-[13px] sm:text-[20px] font-semibold hover:text-black transition-colors duration-300">
                                         Products
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/industries/ehr-and-pms/about-us" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                                    <a href="/industries/ehr-and-pms/about-us" className="text-[#2A2A2A] text-[13px] sm:text-[20px] font-semibold hover:text-black transition-colors duration-300">
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#resources" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                                    <a href="#resources" className="text-[#2A2A2A] text-[13px] sm:text-[20px] font-semibold hover:text-black transition-colors duration-300">
                                         Resources
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/industries/ehr-and-pms/careers" className="text-[#2A2A2A] text-[13px] sm:text-[15px] font-semibold hover:text-black transition-colors duration-300">
+                                    <a href="/industries/ehr-and-pms/careers" className="text-[#2A2A2A] text-[13px] sm:text-[20px] font-semibold hover:text-black transition-colors duration-300">
                                         Careers
                                     </a>
                                 </li>
@@ -78,7 +78,7 @@ const EHRNavbar = () => {
                         </div>
 
                         <div className="hidden lg:flex items-center ml-auto">
-                            <button 
+                            <button
                                 onClick={handleContactClick}
                                 className="bg-black text-white px-5 sm:px-7 py-2.5 sm:py-3 rounded-[8px] text-xs sm:text-[13px] font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors duration-300"
                             >
@@ -119,7 +119,7 @@ const EHRNavbar = () => {
                             </a>
                         </li>
                         <li className="pt-2">
-                            <button 
+                            <button
                                 onClick={handleContactClick}
                                 className="w-full bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 hover:bg-gray-800"
                             >

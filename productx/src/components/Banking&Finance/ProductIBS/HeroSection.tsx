@@ -1,6 +1,7 @@
 import { H1, P } from "../../../styles/Typography";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import React from 'react'; // Ensure React is imported for event types
+import { ScrollContext } from "../../../context/ScrollContext";
 
 // Define the type for the style state
 type TransformStyle = React.CSSProperties;
@@ -9,6 +10,26 @@ const HeroSec = () => {
   const [transformStyle, setTransformStyle] = useState<TransformStyle>({});
   const [isHovering, setIsHovering] = useState(false);
   // FIX: Type the ref to an HTMLImageElement or null
+
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   // FIX: Type the event 'e' as a React Mouse Event on an HTMLImageElement

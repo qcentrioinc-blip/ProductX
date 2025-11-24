@@ -1,16 +1,14 @@
+
 import { ContactUs } from "../../../styles/Button";
 
- 
+
 
 const Overview = () => {
-   
 
-   
+
+
     return (
         <div className="w-full min-h-screen bg-[#FFD700] relative overflow-hidden">
-            
-
-          
 
             {/* Hero Section */}
             <section className="relative max-w-[1480px] lg:pt-44 mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,12 +44,49 @@ const Overview = () => {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-[20px] justify-center lg:justify-start">
                             {/* Contact Sales Button */}
+                            <button
+                                className="bg-white text-[#141414] h-[48px] px-6 sm:px-8 rounded-[8px] font-semibold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors duration-300 w-full sm:w-auto"
+                                style={{
+                                    fontFamily: "'Quicksand', sans-serif",
+                                    fontSize: '14px',
+                                    letterSpacing: '0.5px'
+                                }}
+                            >
+                                CONTACT SALES
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </button>
                             <ContactUs>Contact Sales</ContactUs>
 
                             {/* Watch Overview Button */}
-                            <button className="bg-transparent text-blue-600 h-[48px] px-6 sm:px-8 rounded-[8px] font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors duration-300 w-full sm:w-auto">
+                            <button
+                                className="bg-transparent text-[#2B68C3] h-[48px] px-6 sm:px-8 rounded-[8px] font-semibold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors duration-300 w-full sm:w-auto"
+                                style={{
+                                    fontFamily: "'Quicksand', sans-serif",
+                                    fontSize: '14px',
+                                    letterSpacing: '0.5px',
+                                    border: 'none'
+                                }}
+                            >
                                 WATCH OVERVIEW
-                                <span className="text-[16px]">▶</span>
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
                             </button>
                         </div>
 

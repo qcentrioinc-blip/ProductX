@@ -4,30 +4,30 @@ const healthFeatures = [
   {
     id: 1,
     date: "8 Sep 2025",
-    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
+    title: "Sed ut perspiciatis Unde Seduo ut perspiciatis ut perspiciatis",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-    image: "/Products/healthcare-1.jpg",
+    image: "/EHRandPMS/Docter1.png",
   },
   {
     id: 2,
     date: "8 Sep 2025",
     title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-    image: "/Products/healthcare-1.jpg",
+    image: "/EHRandPMS/Docter2.png",
   },
   {
     id: 3,
     date: "8 Sep 2025",
     title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-    image: "/Products/healthcare-1.jpg",
+    image: "/EHRandPMS/Docter1.png",
   },
   {
     id: 4,
     date: "8 Sep 2025",
     title: "Sed ut perspiciatis Unde Seduo ut perspiciatis  ut perspiciatis",
     description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-    image: "/Products/healthcare-1.jpg",
+    image: "/EHRandPMS/Docter2.png",
   },
 ];
 
@@ -75,7 +75,7 @@ const HealthFeatures = () => {
       {/* Right background - Beige */}
       <div className="absolute inset-0 left-auto w-full lg:w-7/10 bg-[#EDE4CA] z-0"></div>
 
-      <div className="container p-6 lg:p-12 relative z-10">
+      <div className="container p-6 lg:p-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-top relative z-10">
           {/* Left side - Title and navigation */}
           <div className="lg:col-span-4 relative z-10">
@@ -161,10 +161,10 @@ const HealthFeatures = () => {
           </div>
 
           {/* Right side - Carousel - CENTERED VERTICALLY */}
-          <div className="lg:col-span-8">
-            <div className="relative overflow-hidden">
+          <div className="lg:col-span-8 overflow-hidden">
+            <div className="relative">
               <div
-                className="flex gap-14 lg:gap-28 transition-transform duration-500 ease-out"
+                className="flex gap-14 lg:gap-18 transition-transform duration-500 ease-out"
                 style={{
                   transform: `translateX(-${currentIndex * (100 / cardsPerView + 4)}%)`,
                 }}
@@ -174,7 +174,7 @@ const HealthFeatures = () => {
                     key={feature.id} 
                     className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-2rem)]"
                     style={{
-                      maxWidth: '405px'
+                      maxWidth: '555px'
                     }}
                   >
                     {/* Date */}
