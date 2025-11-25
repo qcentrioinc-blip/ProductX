@@ -3,7 +3,7 @@ const ShortDesc = () => {
     <div 
       className="w-full relative flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-0 py-8 sm:py-10 lg:py-0"
       style={{
-        width: '100%',
+        // width: '100%',
         minHeight: '600px',
         height: 'auto',
         background: '#EDE4CA',
@@ -15,7 +15,7 @@ const ShortDesc = () => {
       <div
         className="relative z-10 w-full"
         style={{
-          maxWidth: '1280px',
+          maxWidth: '1550px',
           width: '100%',
           paddingTop: '0',
           paddingLeft: '0',
@@ -117,9 +117,9 @@ const ShortDesc = () => {
 
       {/* Wave Bottom Image - Positioned at bottom right - RESPONSIVE */}
       <div
-        className="absolute top-4 sm:top-6 md:top-8 lg:top-10 right-0 pointer-events-none"
+        className="absolute top-100 sm:top-60 md:top-8 lg:top-10 right-0 pointer-events-none"
         style={{
-          width: window.innerWidth < 640 ? '70%' : window.innerWidth < 1024 ? '60%' : '50%',
+          width: window.innerWidth < 640 ? '40%' : window.innerWidth < 1024 ? '60%' : '50%',
           height: 'auto',
           opacity: 0.6
         }}
