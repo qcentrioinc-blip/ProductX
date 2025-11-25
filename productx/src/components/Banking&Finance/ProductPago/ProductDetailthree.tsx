@@ -8,11 +8,11 @@ import Workflow from "./Workflow"
 import Cards from "./Cards"
 import PagoNavbar from "./PagoNavbar"
  
-import FAQ from "../ProductDetails(Sherlock)/FAQ"
+import FAQ from "../ProductSherlock/FAQ"
 import InsightThought from "../InsightThought"
-import NewFooter from "../Products2/NewFooter"
+import NewFooter from "../ProductRemitree/NewFooter"
 import BNFNav from "../BNFnav"
-import ContactSection from "../Products1/ContactSection"
+import ContactSection from "../ProductBankfair/ContactSection"
 const ProductDetailthree = () => {
   return (
     <div >

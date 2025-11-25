@@ -4,12 +4,12 @@ import HeroSection from "./HeroSection";
 import Cards from "./Cards";
 import ImgTextSec from "./ImgTextSec";
 import HWD from "../HWD";
-import FaqSection from "../ProductDetails(Sherlock)/FAQ";
+import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
-import NewOneFooter from "../Products2/NewOneFooter";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../BNFnav";
 import KeytomStickyScroll from "./KeytomStickyScroll";
-import ContactSection from "../Products1/ContactSection";
+import ContactSection from "../ProductBankfair/ContactSection";
 // import StickyCardStack from "./StickyCardStack";
 
 const PDPage9 = () => {

@@ -6,10 +6,10 @@ import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
 
 import Products from "../../components/Banking&Finance/Products"
-import  NewFooter from "../../components/Banking&Finance/Products2/NewFooter"
+import  NewFooter from "../../components/Banking&Finance/ProductRemitree/NewFooter"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
 import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
-import ContactUS from "../../components/Banking&Finance/Products2/ContactUS"
+import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactUS"
 import BNFNav from "../../components/Banking&Finance/BNFnav"
   
 const BankingAndFinance = () => {

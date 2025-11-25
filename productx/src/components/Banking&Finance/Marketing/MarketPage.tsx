@@ -1,9 +1,9 @@
 // import TitlePage from "./TitlePage";
 // import ProductCards from "./ProductCards";
 import FeatureGrid from "../ProductDetails(COS)/FeatureGrid";
-import NewFooter from "../Products2/NewFooter";
+import NewFooter from "../ProductRemitree/NewFooter";
 import Counter from "../../HomePage/LandingPages/Counter";
-import ContactSection from "../Products1/ContactSection";
+import ContactSection from "../ProductBankfair/ContactSection";
 
 const MarketPage = () => {
     return(

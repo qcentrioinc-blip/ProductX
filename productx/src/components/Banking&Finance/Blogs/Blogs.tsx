@@ -1,6 +1,6 @@
 import BNFNav from "../BNFnav"
-import ContactSection from "../Products1/ContactSection"
-import NewOneFooter from "../Products2/NewOneFooter"
+import ContactSection from "../ProductBankfair/ContactSection"
+import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import BlogGridSection from "./BlogsGridSection"
 // import AllPosts from "./AllPosts"
 import FeaturedCards from "./FeaturedCards"
