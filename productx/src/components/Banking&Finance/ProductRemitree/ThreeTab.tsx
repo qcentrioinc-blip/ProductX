@@ -108,7 +108,7 @@ const ThreeTab = () => {
                                 paddingRight: '136px',
                                 background: activeTab === index ? '#ABCDFF' : 'transparent',
                                 color: activeTab === index ? '#2B68C3' : '#666',
-                                fontSize: '35px',
+                                fontSize: '34px',
                                 textAlign: 'left'
                             }}
                         >
