@@ -1,12 +1,12 @@
 import HeroSection from "./HeroSection";
 import Overview from "./Overview";
 import HighLights from "./HighLights";
-import Capabilities from "../Products1/Capabilities";
+import Capabilities from "../ProductBankfair/Capabilities";
 import Process from "../Process";
-import NewFooter from "../Products2/NewFooter";
+import NewFooter from "../ProductRemitree/NewFooter";
 // import Counter from "../../HomePage/LandingPages/Counter";
 import Counter from "../../HomePage/GlobalLandingPage/Counter";
-import ContactSection from "../Products1/ContactSection";
+import ContactSection from "../ProductBankfair/ContactSection";
 
 const AboutUsPage = () => {
   return (

@@ -1,7 +1,7 @@
 import BlogGridSection from "../Blogs/BlogsGridSection";
 import Banner from "../Career/Banner";
-import ContactSection from "../Products1/ContactSection";
-import NewOneFooter from "../Products2/NewOneFooter";
+import ContactSection from "../ProductBankfair/ContactSection";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import TitleSec from "./TitleSec";
 
 export default function NewsPage() {

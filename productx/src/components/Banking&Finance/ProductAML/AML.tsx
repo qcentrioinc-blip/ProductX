@@ -5,10 +5,10 @@ import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
  
-import FaqSection from "../ProductDetails(Sherlock)/FAQ"
-import NewOneFooter from "../Products2/NewOneFooter"
+import FaqSection from "../ProductSherlock/FAQ"
+import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import BNFNav from "../BNFnav"
-import ContactSection from "../Products1/ContactSection"
+import ContactSection from "../ProductBankfair/ContactSection"
  
  
 

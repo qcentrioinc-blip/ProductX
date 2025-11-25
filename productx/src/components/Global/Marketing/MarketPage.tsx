@@ -1,8 +1,8 @@
 import TitlePage from "./TitlePage";
 import ProductCards from "./ProductCards";
 import FeatureGrid from "../../Banking&Finance/ProductDetails(COS)/FeatureGrid";
-import ContactUS from "../../Banking&Finance/Products2/ContactUS";
-import NewFooter from "../../Banking&Finance/Products2/NewFooter";
+import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
+import NewFooter from "../../Banking&Finance/ProductRemitree/NewFooter";
 import Counter from "../../HomePage/GlobalLandingPage/Counter";
 import BNFNav from "../../Banking&Finance/BNFnav";
 

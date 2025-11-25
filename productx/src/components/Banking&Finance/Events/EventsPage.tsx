@@ -1,6 +1,6 @@
 import BlogGridSection from "../Blogs/BlogsGridSection";
-import ContactSection from "../Products1/ContactSection";
-import NewOneFooter from "../Products2/NewOneFooter";
+import ContactSection from "../ProductBankfair/ContactSection";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import TextSec from "./TextSec";
 import TitleSec from "./TitleSec";
 

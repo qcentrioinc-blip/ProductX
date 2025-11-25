@@ -6,10 +6,10 @@ import ContentInfo from "./ContentInfo";
 import Grid from "./Grid";
 import FAQ from "./FAQ";
 import InsightThought from "../InsightThought";
-import NewOneFooter from "../Products2/NewOneFooter";
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 import BNFNav from "../BNFnav";
-import ContactSection from "../Products1/ContactSection";
+import ContactSection from "../ProductBankfair/ContactSection";
 
 
 const ProductDetails_4_page = () => {

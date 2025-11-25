@@ -3,7 +3,7 @@
 // import NewFooter from "../Banking&Finance/Products2/NewFooter"
 // import Counter from "../HomePage/LandingPages/Counter"
 import BNFNav from "../BNFnav"
-import NewFooter from "../Products2/NewFooter"
+import NewFooter from "../ProductRemitree/NewFooter"
 import Counter from "../../HomePage/GlobalLandingPage/Counter"
  
 
@@ -11,7 +11,7 @@ import Banner from "./Banner"
 import HeroSection from "./HeroSection"
 import Openings from "./Openings"
 import Testimonial from "./Testimonial"
-import ContactSection from "../Products1/ContactSection"
+import ContactSection from "../ProductBankfair/ContactSection"
 
 const Career = () => {
   return (

@@ -10,7 +10,7 @@ import { ScrollProvider } from "../../../context/ScrollContext"; // Import Scrol
 import NewOneFooter from "./NewOneFooter";
 import BNFNav from "../BNFnav";
 import TwoPart from "./TwoPart";
-import ContactSection from "../Products1/ContactSection";
+import ContactSection from "../ProductBankfair/ContactSection";
 
 const ProductsPage2 = () => {
   return (

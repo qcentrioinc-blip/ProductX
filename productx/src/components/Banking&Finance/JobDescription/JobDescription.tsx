@@ -1,5 +1,5 @@
-import ContactSection from "../Products1/ContactSection"
-import NewFooter from "../Products2/NewFooter"
+import ContactSection from "../ProductBankfair/ContactSection"
+import NewFooter from "../ProductRemitree/NewFooter"
 import HeroSection from "./HeroSection"
 import Overview from "./Overview"
 
