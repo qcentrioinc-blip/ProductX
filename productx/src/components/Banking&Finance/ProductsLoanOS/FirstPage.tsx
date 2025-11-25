@@ -1,6 +1,5 @@
 "use client"
 
-// import { ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { ContactUs } from "../../../styles/Button";
 
@@ -9,7 +8,6 @@ const FirstPage = () => {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const autoScrollInterval = useRef<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const carouselImages = [
     { id: 1, src: "/Products/Products7/MainImage.png", alt: "Dashboard 1" },
@@ -33,7 +31,7 @@ const FirstPage = () => {
 
     const startAutoScroll = () => {
       if (autoScrollInterval.current) clearInterval(autoScrollInterval.current);
-      autoScrollInterval.current = setInterval(() => {
+      autoScrollInterval.current = window.setInterval(() => {
         setCurrentSlide(prev => {
           const nextSlide = (prev + 1) % carouselImages.length;
           if (scrollContainerRef.current) {
@@ -84,20 +82,16 @@ const FirstPage = () => {
     }
   };
 
-  // const toggleMobileMenu = () => {
-  //   setIsMobileMenuOpen(!isMobileMenuOpen);
-  // };
-
   return (
-    <main className="bg-[#2B68C3] lg:pt-44 relative overflow-hidden w-full"
+    <main 
+      className="bg-[#2B68C3] pt-16 sm:pt-24 md:pt-32 lg:pt-44 relative overflow-hidden w-full"
       style={{
-        minHeight: '1216px',
-        // width: '1440px',
+        minHeight: 'auto',
         margin: '0 auto',
       }}
     >
 
-      {/* RIGHT Decorative Sphere */}
+      {/* RIGHT Decorative Sphere - Desktop Only */}
       <div
         className="hidden lg:block"
         style={{
@@ -120,7 +114,8 @@ const FirstPage = () => {
           }}
         />
       </div>
-      {/* LEFT Decorative Circles */}
+
+      {/* LEFT Decorative Circles - Desktop Only */}
       <div
         className="hidden lg:block"
         style={{
@@ -148,58 +143,97 @@ const FirstPage = () => {
           pointerEvents: 'none'
         }} />
 
-      {/* Yellow Title Band with Responsive Layout */}
-      <div className="w-full bg-[#FED600] relative z-5" style={{ height: '220px' }}>
-        <div className="max-w-[1530px] mx-auto px-4 sm:px-10 py-8 flex flex-col sm:flex-row gap-6 sm:gap-0 items-start sm:items-center justify-between relative z-2">
+      {/* Yellow Title Band - Fully Responsive */}
+      <div 
+        className="w-full bg-[#FED600] relative z-5" 
+        style={{ 
+          minHeight: 'auto',
+          height: 'auto'
+        }}
+      >
+        <div className="max-w-[1530px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center justify-between relative z-2">
+          
           {/* Left: Title */}
-          <h1 className="max-w-full sm:max-w-[620px] font-bold text-[32px] sm:text-[66px] leading-[120%] text-[#2A2A2A] m-0" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-1px' }}>
-            Lorem ipsum dolor , consectetur adipis
+          <h1 
+            className="max-w-full lg:max-w-[620px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[66px] leading-[110%] sm:leading-[120%] text-[#2A2A2A] m-0" 
+            style={{ 
+              fontFamily: "'Space Grotesk', sans-serif", 
+              letterSpacing: '-0.5px',
+            }}
+          >
+            Lorem ipsum dolor, consectetur adipis
           </h1>
+
           {/* Right: Description + Button */}
-          <div className="max-w-full sm:max-w-[600px] flex flex-col gap-6 sm:gap-8">
-            <p className="text-sm sm:text-xl" style={{ fontFamily: "'Schibsted Grotesk', sans-serif", color: "#141414", lineHeight: "140%" }}>
+          <div className="max-w-full lg:max-w-[600px] w-full lg:w-auto flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <p 
+              className="text-[14px] xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-xl leading-[140%] sm:leading-[150%]" 
+              style={{ 
+                fontFamily: "'Schibsted Grotesk', sans-serif", 
+                color: "#141414"
+              }}
+            >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             </p>
-            {/* <button
-              className="bg-black text-white px-5 sm:px-7 py-3 rounded-[8px] font-bold text-xs sm:text-[14px] flex items-center gap-2 hover:brightness-90"
-              style={{ fontFamily: "'Space Grotesk', sans-serif", alignSelf: 'flex-start' }}
-            >
-              CONTACT US
-              <ArrowRight size={18} />
-            </button> */}
-            <ContactUs>Contact Us</ContactUs>
+            
+            {/* Contact Button */}
+            <div className="w-full sm:w-auto">
+              <ContactUs>Contact Us</ContactUs>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Dashboard Images Grid/Carousel */}
-      <div className="px-2 sm:px-10 py-10 sm:py-20">
+      <div className="px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16 lg:py-20">
+        
         {/* Mobile/Tablet Carousel */}
         <div className="lg:hidden">
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
             className="flex overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none', 
+              WebkitOverflowScrolling: 'touch' 
+            }}
           >
             {carouselImages.map((image) => (
-              <div key={image.id} className="flex-shrink-0 w-full snap-center px-2">
-                <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div 
+                key={image.id} 
+                className="flex-shrink-0 w-full snap-center px-2"
+              >
+                <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="h-[220px] xs:h-[300px] sm:h-[380px] w-full object-cover"
+                    className="h-[200px] xs:h-[250px] sm:h-[320px] md:h-[400px] w-full object-cover"
                   />
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center gap-2 mt-6">
+
+          {/* Carousel Dots */}
+          <div className="flex justify-center items-center gap-2 mt-6 sm:mt-8">
             {carouselImages.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`transition-all duration-300 rounded-full ${currentSlide === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/40 hover:bg-white/60"}`}
+                onClick={() => {
+                  setCurrentSlide(index);
+                  if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollTo({
+                      left: scrollContainerRef.current.clientWidth * index,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className={`transition-all duration-300 rounded-full ${
+                  currentSlide === index 
+                    ? "w-8 h-3 bg-white" 
+                    : "w-3 h-3 bg-white/40 hover:bg-white/60"
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -207,27 +241,50 @@ const FirstPage = () => {
         </div>
 
         {/* Desktop Dashboard Grid */}
-        <div className="hidden lg:grid relative gap-6 lg:grid-cols-[1fr_2fr_1fr] lg:gap-10 max-w-[1450px] mx-auto z-6">
+        <div className="hidden lg:grid relative gap-6 lg:gap-8 xl:gap-10 grid-cols-[1fr_2fr_1fr] max-w-[1450px] mx-auto z-6">
+          
           {/* Left Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-              <img src="/Products/Products7/MainImage.png" alt="Dashboard analytics view" className="h-full w-full object-cover" />
+            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
+              <img 
+                src="/Products/Products7/MainImage.png" 
+                alt="Dashboard analytics view" 
+                className="h-full w-full object-cover" 
+              />
             </div>
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-              <img src="/Products/Products7/MainImage.png" alt="Dashboard analytics view" className="h-full w-full object-cover" />
+            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
+              <img 
+                src="/Products/Products7/MainImage.png" 
+                alt="Dashboard analytics view" 
+                className="h-full w-full object-cover" 
+              />
             </div>
           </div>
+
           {/* Center Column */}
-          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-            <img src="/Products/Products7/MainImage.png" alt="Main dashboard" className="h-full w-full object-cover" />
+          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
+            <img 
+              src="/Products/Products7/MainImage.png" 
+              alt="Main dashboard" 
+              className="h-full w-full object-cover" 
+            />
           </div>
+
           {/* Right Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-              <img src="/Products/Products7/MainImage.png" alt="Dashboard analytics view" className="h-full w-full object-cover" />
+            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
+              <img 
+                src="/Products/Products7/MainImage.png" 
+                alt="Dashboard analytics view" 
+                className="h-full w-full object-cover" 
+              />
             </div>
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-              <img src="/Products/Products7/MainImage.png" alt="Dashboard analytics view" className="h-full w-full object-cover" />
+            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
+              <img 
+                src="/Products/Products7/MainImage.png" 
+                alt="Dashboard analytics view" 
+                className="h-full w-full object-cover" 
+              />
             </div>
           </div>
         </div>
