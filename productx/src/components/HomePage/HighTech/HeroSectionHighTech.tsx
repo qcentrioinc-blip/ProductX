@@ -6,6 +6,8 @@ import RockTech from "./RockTech"
 import OnePoint from "./OnePoint"
 import TextAnimation from "./TextAnimation"
 import SmallArticle from "./SmallArticle"
+import SubFooter from "../../HighTech/AboutHightTech/SubFooter"
+// import WorkProfile from "../../HighTech/AboutHightTech/WorkProfile"
 // import FeatureCards from "./FeatureCards"
 // import ProductSec from "./ProductSec"
 // import WorkProfile from "./WorkProfile"
@@ -16,14 +18,15 @@ const HeroSectionHighTech = () => {
       <LandingPageHighTech/>
       <TextAnimation />
       <ThreeCards />
+      <RockTech />
       <CircleSteps />
       <OnePoint />
       <SmallArticle />
       <ThreeStep/>
+      <SubFooter />
+      {/* <WorkProfile /> */}
       {/* <ProductSec /> */}
-      {/* <FeatureCards />
-      <WorkProfile />*/}
-      // <RockTech /> 
+      {/* <FeatureCards /> */}
     </div>
   )
 }
