@@ -3,8 +3,8 @@
 import FeatureGrid from "../ProductDetails(COS)/FeatureGrid";
 // import ContactUS from "../ProductRemitree/ContactUS";
 import NewFooter from "../ProductRemitree/NewFooter";
-import Counter from "../../HomePage/LandingPages/Counter";
 import ContactUS from "../ProductRemitree/ContactUS";
+import Counter from "../Counter";
  
 // import ContactSection from "../Products1/ContactSection";
 

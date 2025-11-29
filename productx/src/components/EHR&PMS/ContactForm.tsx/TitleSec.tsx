@@ -20,7 +20,7 @@ const TitleSec: React.FC = () => {
                     <div className="bg-white shadow-md rounded-2xl p-8 sm:p-10 lg:p-12 w-full max-w-3xl">
                         {/* Using the stubbed H2 component */}
                         <H2 className="text-green-900 mb-6 text-center lg:text-left">
-                            Front Desk Office Executive
+                            Qertyu oiuyt rfvu poiy bal
                         </H2>
 
                         <form className="space-y-5">

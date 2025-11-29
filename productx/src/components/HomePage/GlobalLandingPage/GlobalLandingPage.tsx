@@ -13,7 +13,7 @@ import IndustrySlider from "./IndustrySlider"
  
 
 
-const HeroSectionBanking = () => {
+const GlobalLandingPage = () => {
     return (
         <div >
             
@@ -50,4 +50,4 @@ const HeroSectionBanking = () => {
     )
 }
 
-export default HeroSectionBanking;
+export default GlobalLandingPage;
