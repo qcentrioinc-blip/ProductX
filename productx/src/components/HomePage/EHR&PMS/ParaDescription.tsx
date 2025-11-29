@@ -17,7 +17,7 @@ const ParaDescription = () => {
 
                 {/* Content Container - Inside Hand */}
                 <div
-                    className="relative z-10 w-full max-w-[1559px] mx-auto lg:h-[614px]"
+                    className="relative z-10 w-full max-w-8xl mx-10 px-2 lg:px-4 lg:h-[614px]"
                 >
                     {/* Text Overlay - Top Left */}
                     <div className="relative lg:absolute lg:top-0 lg:left-0 mb-8 lg:mb-0">
@@ -166,13 +166,8 @@ const ParaDescription = () => {
                 </div>
 
                 {/* DESKTOP LAYOUT - 1024px and above - PIXEL PERFECT UNCHANGED */}
-                <div className="hidden lg:block relative"
-                    style={{
-                        width: '1619.71px',
-                        height: '726.21px',
-                        maxWidth: '100%',
-                        opacity: 1
-                    }}>
+                <div className="hidden lg:block relative w-full h-[730px] max-w-8xl mx-8 opacity-100"
+                    >
                     {/* Left Side Content */}
                     <div className="relative">
                         {/* Title with Gradient */}
@@ -451,13 +446,8 @@ const ParaDescription = () => {
             </div>
 
             {/* ==== BOTTOM SECTION - Stone Image ==== */}
-            <div className="hidden lg:block w-full relative flex items-center justify-center"
-                style={{
-                    width: '100%',
-                    height: '734px',
-                    margin: '0 auto',
-                    opacity: 1
-                }}>
+            <div className="hidden lg:flex w-full relative items-center justify-center h-[735px] m-0 opacity-100"
+                >
                 {/* Stone Background with Gradient */}
                 <div className="absolute inset-0 w-full h-full"
                     style={{
@@ -504,7 +494,7 @@ const ParaDescription = () => {
                             width: '528px',
                             height: '455px',
                             top: '163px',
-                            left: '980px',
+                            left: '970px',
                             display: 'flex',
                             flexDirection: 'column',
                             gap: '40px'

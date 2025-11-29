@@ -4,7 +4,7 @@ import { ContactUsDark } from "../../../styles/Button";
 import { ChevronDown } from "lucide-react";
 import { H2, P } from "../../../styles/Typography";
 
-const HighTechNavbar = () => {
+const AINavbar = () => {
   const [isScrolled, setIsScrolled] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -13,10 +13,10 @@ const HighTechNavbar = () => {
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
 
-  // ---------- HIGHTECH-SPECIFIC DATA ----------
+  // ---------- AI-SPECIFIC DATA ----------
 
-  const industry = "high-tech";
-  const currentIndustry = "HighTech";
+  const industry = "ai-automation";
+  const currentIndustry = "AI Automation";
   const base = `/industries/${industry}`;
 
   const industries = [
@@ -28,71 +28,73 @@ const HighTechNavbar = () => {
   const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
 
   const navItems = [
-    { name: "Products", path: `${base}/product-details`, scroll: false },
-    { name: "About Us", path: `${base}/aboutus`, scroll: false },
-    { name: "Resources", path: `${base}/resources`, scroll: false },
-    { name: "Careers", path: `${base}/careers`, scroll: false },
+    // Desktop: "Products" uses mega menu, mobile: this path is used as simple link
+    { name: "Products", path: `${base}/ai-agents`, scroll: false },
+    { name: "About Us", path: `${base}/about-us` },
+    // Desktop: "Resources" uses mega menu, mobile: this path is used as simple link
+    { name: "Resources", path: `${base}/case-studies` },
+    { name: "Careers", path: `${base}/careers` },
   ];
 
-  const megaMenuItemsHighTech = [
+  const megaMenuItemsAI = [
     {
-      title: "Cloud Infrastructure",
-      desc: "Scalable and secure cloud solutions for modern enterprises.",
-      img: "/HighTech/Careers/bg_img2.png",
-      path: `${base}/product-details`,
+      title: "AI Agents",
+      desc: "Intelligent agents that automate complex workflows.",
+      img: "/AIAutomation/1.png",
+      path: `${base}/ai-agents`,
     },
-    // {
-    //   title: "AI/ML Platform",
-    //   desc: "Build, train, and deploy machine learning models at scale.",
-    //   img: "/HighTech/PBG2.png",
-    //   path: `${base}/ai-ml-platform`,
-    // },
-    // {
-    //   title: "DevOps Suite",
-    //   desc: "End-to-end CI/CD and automation tools for agile teams.",
-    //   img: "/HighTech/PBG3.png",
-    //   path: `${base}/devops-suite`,
-    // },
-    // {
-    //   title: "Data Analytics",
-    //   desc: "Real-time insights and business intelligence dashboards.",
-    //   img: "/HighTech/PBG4.png",
-    //   path: `${base}/data-analytics`,
-    // },
-    // {
-    //   title: "Cybersecurity",
-    //   desc: "Advanced threat detection and compliance solutions.",
-    //   img: "/HighTech/PBG5.png",
-    //   path: `${base}/cybersecurity`,
-    // },
-    // {
-    //   title: "IoT Solutions",
-    //   desc: "Connect, manage, and analyze IoT devices at scale.",
-    //   img: "/HighTech/PBG6.png",
-    //   path: `${base}/iot-solutions`,
-    // },
+    {
+      title: "Process Automation",
+      desc: "End-to-end automation for repetitive business tasks.",
+      img: "/AIAutomation/2.png",
+      path: `${base}/process-automation`,
+    },
+    {
+      title: "ML Operations",
+      desc: "Deploy, monitor, and scale machine learning models.",
+      img: "/AIAutomation/3.png",
+      path: `${base}/ml-operations`,
+    },
+    {
+      title: "Data Pipeline",
+      desc: "Automated data ingestion, transformation, and analysis.",
+      img: "/AIAutomation/4.png",
+      path: `${base}/data-pipeline`,
+    },
+    {
+      title: "Chatbot Builder",
+      desc: "No-code conversational AI for customer engagement.",
+      img: "/AIAutomation/5.png",
+      path: `${base}/chatbot-builder`,
+    },
+    {
+      title: "Analytics Suite",
+      desc: "Real-time insights and predictive analytics powered by AI.",
+      img: "/AIAutomation/6.png",
+      path: `${base}/analytics`,
+    },
   ];
 
-  const resourceItemsHighTech = [
+  const resourceItemsAI = [
     {
-      title: "Technical Docs",
-      desc: "API references, SDKs, and integration guides.",
-      path: `${base}/resources`,
+      title: "Case Studies",
+      desc: "Real-world AI automation success stories and ROI metrics.",
+      path: `${base}/case-studies`,
     },
-    // {
-    //   title: "Case Studies",
-    //   desc: "Success stories from leading tech companies.",
-    //   path: `${base}/case-studies`,
-    // },
-    // {
-    //   title: "Whitepapers",
-    //   desc: "In-depth research on emerging technologies.",
-    //   path: `${base}/whitepapers`,
-    // },
     {
-      title: "Developer Blog",
-      desc: "Technical insights, tutorials, and best practices.",
-      path: `${base}/resources-detail`,
+      title: "Newsletters",
+      desc: "Latest trends in AI, automation, and machine learning.",
+      path: `${base}/newsletters`,
+    },
+    {
+      title: "Blogs",
+      desc: "Expert insights and best practices from our AI team.",
+      path: `${base}/blogs`,
+    },
+    {
+      title: "Events & Webinars",
+      desc: "Live demos, workshops, and AI automation masterclasses.",
+      path: `${base}/events`,
     },
   ];
 
@@ -126,8 +128,8 @@ const HighTechNavbar = () => {
       {/* TOP TRANSPARENT BAR */}
       <div
         className="
-          fixed top-0 left-0 w-full z-50
-          bg-gradient-to-r from-blue-100/80 to-purple-100/80 backdrop-blur-lg
+          absolute top-0 left-0 w-full z-50
+          bg-gradient-to-r from-purple-100/80 to-blue-100/80 backdrop-blur-lg
           border-b border-white/20
           px-4 sm:px-6 md:px-8 pt-3 pb-1
           flex justify-between transition-all duration-300
@@ -221,13 +223,13 @@ const HighTechNavbar = () => {
                     <div className="absolute left-0 top-full w-screen z-[200] px-24 py-10">
                       <H2>OUR PRODUCTS</H2>
                       <P className="text-gray-700 text-lg mt-2 mb-4">
-                        Cutting-edge technology solutions for digital transformation.
+                        Intelligent automation solutions to transform your business operations.
                       </P>
 
                       <hr className="border-gray-300 h-1 mb-10" />
 
                       <div className="grid grid-cols-2 gap-y-6 gap-x-1">
-                        {megaMenuItemsHighTech.map((prod, index) => (
+                        {megaMenuItemsAI.map((prod, index) => (
                           <Link
                             key={index}
                             to={prod.path}
@@ -272,13 +274,13 @@ const HighTechNavbar = () => {
                     <div className="absolute left-0 top-full w-screen z-[200] px-24 py-10">
                       <H2>RESOURCES</H2>
                       <P className="text-gray-700 text-lg mt-2 mb-4">
-                        Tools and insights to accelerate your tech journey.
+                        Knowledge hub for AI automation implementation and best practices.
                       </P>
 
                       <hr className="border-gray-300 h-1 mb-10" />
 
                       <div className="grid grid-cols-2 gap-y-10 gap-x-20">
-                        {resourceItemsHighTech.map((res, index) => (
+                        {resourceItemsAI.map((res, index) => (
                           <Link key={index} to={res.path}>
                             <h3 className="text-xl font-semibold text-gray-900">
                               {res.title}
@@ -305,8 +307,8 @@ const HighTechNavbar = () => {
           ))}
         </ul>
 
-        {/* Contact button (HighTech route: contactform) */}
-        <Link to={`${base}/contactform`}>
+        {/* Contact button */}
+        <Link to={`${base}/contactus`}>
           <ContactUsDark>Contact Us</ContactUsDark>
         </Link>
       </nav>
@@ -324,13 +326,13 @@ const HighTechNavbar = () => {
         >
           <H2>OUR PRODUCTS</H2>
           <P className="text-gray-700 text-lg mt-2 mb-4">
-            Cutting-edge technology solutions powering the future of innovation.
+            Comprehensive AI automation tools to streamline workflows and boost productivity.
           </P>
 
           <hr className="border-gray-300 h-1 mb-10" />
 
           <div className="grid grid-cols-2 gap-y-6 gap-x-1">
-            {megaMenuItemsHighTech.map((prod, index) => (
+            {megaMenuItemsAI.map((prod, index) => (
               <div key={index} className="flex items-start gap-4">
                 <Link to={prod.path} className="flex items-start gap-4">
                   <img
@@ -366,13 +368,13 @@ const HighTechNavbar = () => {
         >
           <H2>RESOURCES</H2>
           <P className="text-gray-700 text-lg mt-2 mb-4">
-            Comprehensive guides, research, and technical documentation.
+            Expert guides, case studies, and insights on AI automation success.
           </P>
 
           <hr className="border-gray-300 h-1 mb-10" />
 
           <div className="grid grid-cols-2 gap-y-10 gap-x-20">
-            {resourceItemsHighTech.map((res, index) => (
+            {resourceItemsAI.map((res, index) => (
               <Link key={index} to={res.path} className="block">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {res.title}
@@ -441,7 +443,7 @@ const HighTechNavbar = () => {
                   }}
                   className="
                     block px-4 py-3 rounded-md text-gray-800 font-medium
-                    hover:bg-blue-200 hover:text-gray-900
+                    hover:bg-purple-200 hover:text-gray-900
                     transition-all duration-200
                   "
                 >
@@ -472,22 +474,22 @@ const HighTechNavbar = () => {
           <Link
             to="/platform"
             onClick={() => setMenuOpen(false)}
-            className="text-blue-600 text-lg font-semibold"
+            className="text-purple-600 text-lg font-semibold"
           >
             Platform
           </Link>
           <Link
             to="/marketplace"
             onClick={() => setMenuOpen(false)}
-            className="text-blue-600 text-lg font-semibold"
+            className="text-purple-600 text-lg font-semibold"
           >
             Marketplace
           </Link>
         </div>
 
-        {/* Contact button (HighTech: contactform) */}
+        {/* Contact button */}
         <div className="mt-6 flex justify-center items-center">
-          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+          <Link to={`${base}/contactus`} onClick={() => setMenuOpen(false)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>
@@ -496,4 +498,5 @@ const HighTechNavbar = () => {
   );
 };
 
-export default HighTechNavbar;
+export default AINavbar;
+
