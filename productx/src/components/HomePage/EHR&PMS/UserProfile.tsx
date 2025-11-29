@@ -599,7 +599,7 @@ const UserProfile = () => {
                 </div>
 
                 {/* DESKTOP CARDS CONTAINER */}
-                <div className="hidden lg:block relative mx-auto" style={{ maxWidth: '1500px', height: '279px' }}>
+                <div className="hidden lg:block relative max-w-8xl h-[279px] mx-auto">
                     
                     {/* MAIN CARD - 90% */}
                     <motion.div

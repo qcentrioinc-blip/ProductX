@@ -38,8 +38,8 @@ const ProductsPage7 = () => {
         <FirstPage />
         <SecondSection />
         <ThreeCards />
-        <Harper />
         <AboutFeaturesSection />
+        <Harper />
         <HWD />
         <FaqSection />
         <InsightThought />
