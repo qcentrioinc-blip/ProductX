@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
 import { ChevronDown } from "lucide-react"; 
@@ -102,13 +102,13 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
   
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
-const industries = [
-  { name: "Banking & Finance", path: "/industries/banking-and-finance" },
-  { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
-  { name: "HighTech", path: "/industries/high-tech" },
-  { name: "AI Automation", path: "/industries/ai-automation" },
-];
-const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+  const industries = [
+    { name: "Banking & Finance", path: "/industries/banking-and-finance" },
+    { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
+    { name: "HighTech", path: "/industries/high-tech" },
+    { name: "AI Automation", path: "/industries/ai-automation" },
+  ];
+  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
 
   const navItems = [
@@ -152,18 +152,18 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
   }, []);
 
   useEffect(() => {
-  const handleClickOutside = (e: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-      setMenuOpen(false);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
-  };
 
-  if (menuOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  }
-
-  return () => document.removeEventListener("mousedown", handleClickOutside);
-}, [menuOpen]);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
 
 
@@ -434,107 +434,105 @@ top-36
 >
    
 
-{/* LOGO with Dropdown (Top) */}
-  <div className="mb-6">
-    <div className="flex items-center gap-3">
-      <Link
-        to="/industries/banking-and-finance"
-        onClick={() => setMenuOpen(false)}
-        className="flex items-center gap-3 flex-1"
-      >
-        <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-          LOGO
-        </div>
-        <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
-      </Link>
+        {/* LOGO with Dropdown (Top) */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/industries/banking-and-finance"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 flex-1"
+            >
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                LOGO
+              </div>
+              <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
+            </Link>
 
-      {/* Dropdown Button */}
-      <button
-        onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
-        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-      >
-        <ChevronDown
-          className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${
-            industryDropdownOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-    </div>
+            {/* Dropdown Button */}
+            <button
+              onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <ChevronDown
+                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </button>
+          </div>
 
-    {/* Dropdown Menu */}
-    <div
-      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
-      }`}
-    >
-      <div className="bg-gray-50 rounded-lg p-2 space-y-1">
-        {industryOptions.map((ind) => (
-          <Link
-            key={ind.name}
-            to={ind.path}
-            onClick={() => {
-              setMenuOpen(false);
-              setIndustryDropdownOpen(false);
-            }}
-            className="block px-4 py-3 rounded-md text-gray-800 font-medium
+          {/* Dropdown Menu */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
+              }`}
+          >
+            <div className="bg-gray-50 rounded-lg p-2 space-y-1">
+              {industryOptions.map((ind) => (
+                <Link
+                  key={ind.name}
+                  to={ind.path}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setIndustryDropdownOpen(false);
+                  }}
+                  className="block px-4 py-3 rounded-md text-gray-800 font-medium
               hover:bg-blue-200 hover:text-white transition-all duration-200"
-          >
-            {ind.name}
+                >
+                  {ind.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* NAV ITEMS (Middle) */}
+        <div className="flex flex-col gap-10 mt-4">
+          {navItems.map((item) => (
+            <div
+              key={item.name}
+              className="border-b border-gray-200 pb-3"
+            >
+              {item.scroll ? (
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    document.getElementById("productsSection")?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                  className="text-gray-800 text-lg font-semibold"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-800 text-lg font-semibold block"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between mt-10 gap-6 pt-4">
+          <Link to="/platform" className="text-blue-500 text-lg font-semibold">
+            Platform
           </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  {/* NAV ITEMS (Middle) */}
-  <div className="flex flex-col gap-10 mt-4">
-    {navItems.map((item) => (
-      <div
-        key={item.name}
-        className="border-b border-gray-200 pb-3"
-      >
-        {item.scroll ? (
-          <button
-            onClick={() => {
-              setMenuOpen(false);
-              document.getElementById("productsSection")?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-            className="text-gray-800 text-lg font-semibold"
-          >
-            {item.name}
-          </button>
-        ) : (
-          <Link
-            to={item.path}
-            onClick={() => setMenuOpen(false)}
-            className="text-gray-800 text-lg font-semibold block"
-          >
-            {item.name}
+          <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
+            Marketplace
           </Link>
-        )}
+        </div>
+
+
+        {/* CONTACT BUTTON (BOTTOM) */}
+        <div className="mt-6 flex justify-center items-center">
+          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
       </div>
-    ))}
-  </div>
-
- <div className="flex justify-between mt-10 gap-6 pt-4">
-  <Link to="/platform" className="text-blue-500 text-lg font-semibold">
-    Platform
-  </Link>
-  <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
-    Marketplace
-  </Link>
-</div>
-
-
-  {/* CONTACT BUTTON (BOTTOM) */}
-  <div className="mt-6 flex justify-center items-center">
-    <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
-      <ContactUsDark>Contact Us</ContactUsDark>
-    </Link>
-  </div>
-</div>
 
     </>
   );

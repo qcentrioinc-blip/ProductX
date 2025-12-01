@@ -9,15 +9,16 @@ import UserProfile from "./UserProfile"
 import WhyQnest from "./WhyQnest"
 
 const HeroSectionEHR = () => {
+  
   return (
     <div>
       <LandingPageEHS />
-      <CircleAnimation />
       <WhyQnest />
+      <CircleAnimation />
       <ShortDesc />
       {/* <Testimonials /> */}
-      <HealthFeatures />
       <ParaDescription />
+      <HealthFeatures />
       <UserProfile />
       <EHRFooter />
     </div>

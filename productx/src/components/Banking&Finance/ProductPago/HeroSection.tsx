@@ -1,13 +1,34 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 // import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { H1, P } from '../../../styles/Typography';
 import type { Variants } from 'framer-motion';
 import {motion} from 'framer-motion'
  
 import { ContactUs } from '../../../styles/Button';
+import { ScrollContext } from '../../../context/ScrollContext';
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
  
   // Mock images - replace with your actual images
   const images = [

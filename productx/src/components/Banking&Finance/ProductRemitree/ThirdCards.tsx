@@ -12,16 +12,16 @@ const ThirdCards = () => {
       <div
         className="flex flex-col items-center w-full max-w-[872px] gap-8 mt-20 hidden lg:flex"
         style={{
-          marginTop: '80px'
+          marginTop: '0px'
         }}
       >
         <h1
           className="text-center font-bold"
           style={{
-            fontSize: '40px',
-            color: '#1E5BA8',
-            fontWeight: 700,
-            lineHeight: '1.2'
+            fontSize: '48px',
+            color: ' #2B68C3',
+            fontWeight: 600,
+            lineHeight: '100%'
           }}
         >
           Sed ut perspiciatis unde

@@ -1,10 +1,10 @@
 // import HeroSectionBanking from "./LandingPages/HeroSectionBanking"
-import HeroSectionBanking from "./GlobalLandingPage/GlobalLandingPage"
+import GlobalLandingPage from "./GlobalLandingPage/GlobalLandingPage"
 
 const HeroSection = () => {
   return (
     <div>
-      <HeroSectionBanking />
+      <GlobalLandingPage />
     </div>
   )
 }

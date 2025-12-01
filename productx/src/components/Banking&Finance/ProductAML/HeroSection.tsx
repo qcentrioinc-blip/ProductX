@@ -1,8 +1,9 @@
 import { ContactUs } from "../../../styles/Button";
 import { H1, P } from "../../../styles/Typography";
 import Image1 from "/AML/image64.png";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { ScrollContext } from "../../../context/ScrollContext";
  
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,6 +16,26 @@ const HeroSection = () => {
     "/ProductDetailsThree/image67.png",
     "/ProductDetailsThree/image67.png",
   ];
+
+  const scrollableContainerRefe = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRefe?.current) {
+            scrollableContainerRefe.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRefe]);
  const [isTypingDone, setIsTypingDone] = useState(false);
  useEffect(() => {
   let index = 0;
