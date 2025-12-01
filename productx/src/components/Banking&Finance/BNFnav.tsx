@@ -1,7 +1,7 @@
 import { useState, useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react"; 
 // import {   useNavigate, useLocation } from "react-router-dom";
 import {   H3, P } from "../../styles/Typography";
 const BNFNav = () => {
@@ -10,8 +10,8 @@ const BNFNav = () => {
 const menuRef = useRef<HTMLDivElement | null>(null);
  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
- 
- 
+
+
 const megaMenuItems = [
   {
     title: "Almanac",
@@ -68,7 +68,6 @@ const megaMenuItems = [
     path: "/industries/banking-and-finance/products/sherlock",
   },
 ];
- 
 const resourceItems = [
   {
     title: "Newsletter",
@@ -93,13 +92,13 @@ const resourceItems = [
    {
     title: "Glossary",
     desc: "Expert commentary, tips, and industry knowledge.",
-    path: "/glossary"
+    path: "/industries/banking-and-finance/glossary"
   },
 ];
- 
- 
+
+
 const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);  
- 
+  
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
 const industries = [
@@ -116,12 +115,12 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     { name: "About Us", path: `${base}/about-us` },
     { name: "Resources", path: `${base}/resources` },
     { name: "Careers", path: `${base}/careers` },
- 
+
   ];
- 
+
   //  const handleProductsClick = (e: React.MouseEvent) => {
   //   e.preventDefault();
-   
+    
   //   // Check if we're already on the homepage
   //   if (location.pathname === base) {
   //     // Already on homepage, just scroll
@@ -141,7 +140,6 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
   //     }, 100);
   //   }
   // };
- 
   // Scroll effect for desktop main nav
   useEffect(() => {
     const handleScroll = () => {
@@ -222,8 +220,8 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
  
       {/* MAIN NAV (DESKTOP ONLY ) */}
       <nav
-        className={`hidden lg:flex  absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl
-        z-[60] bg-gray-200 backdrop-blur-md rounded-full shadow-lg px-6 py-3
+        className={`hidden lg:flex  absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl 
+        z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-3 
         items-center justify-between transition-all duration-300
         ${isScrolled ? "top-10" : "top-10"}
       `}
@@ -236,13 +234,13 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
             LOGO
           </div>
         </Link>
- 
+
        <ul className="flex items-center   gap-10 font-bold font-quicksand">
   {navItems.map((item) => (
     <li key={item.name}>
-     
+      
       {/* PRODUCTS MEGA MENU */}
-     
+      
 {item.name === "Products" && (
  <div
     className="relative"
@@ -255,19 +253,19 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     <button className="text-gray-800 text-[20px]">
       Products
     </button>
- 
+
     {megaMenuOpen && (
       <div
-        className="absolute left-0 top-full w-[900px]  shadow-xl
+        className="absolute left-0 top-full w-[900px]  shadow-xl 
                    px-10 py-8 rounded-xl z-[999]"
       >
         <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
         <P className="text-gray-700 text-lg mt-2 mb-4">
           Seamless, scalable, and intelligent platforms…
         </P>
- 
+
         <hr className="border-gray-300 my-6" />
- 
+
         <div className="grid grid-cols-2 gap-y-6 gap-x-10">
           {megaMenuItems.map((item, index) => (
             <Link key={index} to={item.path} className="flex items-start gap-4">
@@ -283,84 +281,84 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     )}
   </div>
 )}
+
  
- 
-   
+    
 {/* RESOURCES MEGA MENU */}
 {item.name === "Resources" && (
   <div
     className="relative"
     onMouseEnter={() => setResourcesMenuOpen(true)}
     onMouseLeave={() => setMegaMenuOpen(false)}
-   
+    
   >
     <button className="text-gray-800 text-[20px]">
       Resources
     </button>
   </div>
 )}
- 
+
       {/* NORMAL LINKS */}
-     
+      
       {item.name !== "Products" && item.name !== "Resources" && (
        
         <Link to={item.path}  
          onMouseEnter={() => {
       setMegaMenuOpen(false);      
       setResourcesMenuOpen(false);  
-    }}
-   
+    }} 
+    
     className="text-gray-800 text-[20px]">
           {item.name}
         </Link>
-       
+        
       )}
- 
+
     </li>
   ))}
 </ul>
- 
- 
+
+
         <Link to={`${base}/contactform`}>
           <ContactUsDark>Contact Us</ContactUsDark>
         </Link>
       </nav>
- 
-     
+
+      
       {/* FULL-WIDTH MEGA MENU */}  
- 
+  
 {megaMenuOpen && (
   <div
     onMouseEnter={() => setMegaMenuOpen(true)}
     onMouseLeave={() => setMegaMenuOpen(false)}
     className="
-  absolute
-  left-1/2
+  absolute 
+  left-1/2 
 top-36
-  -translate-x-1/2
+  -translate-x-1/2 
   w-[90%]  
-  max-w-8xl
-  bg-gray-200
-  px-24
-  py-10
-  shadow-xl
-  rounded-lg
+  max-w-8xl 
+  bg-gray-50 
+  px-24 
+  py-10 
+  shadow-xl 
+  rounded-lg 
   z-[200]
 "
- 
+
   >
     {/* Header */}
     <H3  className=" ">
     Quisque a sagittis ligula. Nulla facilisi
     </H3>
- 
+
     <P className="text-gray-700 text-lg mt-2 mb-4">
-       Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+       Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
     </P>
- 
+
     <hr className="border-gray-300 h-1 mb-8" />
- 
- 
+
+  
     <div className="grid grid-cols-2 gap-y-4 gap-x-1">
       {megaMenuItems.map((item, index) => (
         item ? (
@@ -372,7 +370,6 @@ top-36
     <P className="text-gray-600 text-sm leading-snug">{item.desc}</P>
   </div>
 </Link>
- 
           </div>
         ) : (
           <div key={index}></div>  
@@ -381,35 +378,35 @@ top-36
     </div>
   </div>
 )}
- 
- 
- 
+
+
+
 {/* Resources */}
 {resourcesMenuOpen && (
   <div
      onMouseEnter={() => setResourcesMenuOpen(true)}
     onMouseLeave={() => setResourcesMenuOpen(false)}
-    className=" absolute
-  left-1/2
+    className=" absolute 
+  left-1/2 
 top-36
-  -translate-x-1/2
-  w-[90%]
-  max-w-8xl
-  bg-gray-200
-  px-24
-  py-10
-  shadow-xl
-  rounded-lg
+  -translate-x-1/2 
+  w-[90%] 
+  max-w-8xl 
+  bg-gray-50
+  px-24 
+  py-10 
+  shadow-xl 
+  rounded-lg 
   z-[200]"
   >
     <H3>Quisque a sagittis ligula. Nulla facilisi</H3 >
- 
+
     <P className="text-gray-700 text-lg mt-2 mb-4">
       Comprehensive tools and insights for success.
     </P>
- 
+
     <hr className="border-gray-300 h-1 mb-10" />
- 
+
     <div className="grid grid-cols-2 gap-y-10 gap-x-20">
       {resourceItems.map((res, index) => (
         <Link key={index} to={res.path} className="block">
@@ -420,63 +417,61 @@ top-36
     </div>
   </div>
 )}
- 
- 
- 
+
+
+
      {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
 <div
    ref={menuRef}
-  className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px]
+  className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px] 
   bg-white shadow-2xl z-[200] p-6 flex flex-col  pb-20
   transition-all duration-500 ease-out
   ${menuOpen ? "translate-x-0" : "translate-x-full"}
 `}
 >
    
- 
-{/* LOGO with Dropdown (Top) */}
-  <div className="mb-6">
-    <div className="flex items-center gap-3">
-      <Link
-        to="/industries/banking-and-finance"
-        onClick={() => setMenuOpen(false)}
-        className="flex items-center gap-3 flex-1"
-      >
-        <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-          LOGO
-        </div>
-        <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
-      </Link>
- 
-      {/* Dropdown Button */}
-      <button
-        onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
-        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-      >
-        <ChevronDown
-          className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${
-            industryDropdownOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-    </div>
- 
-    {/* Dropdown Menu */}
-    <div
-      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
-      }`}
-    >
-      <div className="bg-gray-50 rounded-lg p-2 space-y-1">
-        {industryOptions.map((ind) => (
-          <Link
-            key={ind.name}
-            to={ind.path}
-            onClick={() => {
-              setMenuOpen(false);
-              setIndustryDropdownOpen(false);
-            }}
-            className="block px-4 py-3 rounded-md text-gray-800 font-medium
+
+        {/* LOGO with Dropdown (Top) */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/industries/banking-and-finance"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 flex-1"
+            >
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                LOGO
+              </div>
+              <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
+            </Link>
+
+            {/* Dropdown Button */}
+            <button
+              onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <ChevronDown
+                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </button>
+          </div>
+
+          {/* Dropdown Menu */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
+              }`}
+          >
+            <div className="bg-gray-50 rounded-lg p-2 space-y-1">
+              {industryOptions.map((ind) => (
+                <Link
+                  key={ind.name}
+                  to={ind.path}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setIndustryDropdownOpen(false);
+                  }}
+                  className="block px-4 py-3 rounded-md text-gray-800 font-medium
               hover:bg-blue-200 hover:text-white transition-all duration-200"
           >
             {ind.name}

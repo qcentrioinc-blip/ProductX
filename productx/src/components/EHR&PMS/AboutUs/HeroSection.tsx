@@ -7,10 +7,17 @@ const HeroSection = () => {
       <div 
         className="  h-[40vh] lg:h-[60vh]  w-full flex items-center justify-center" 
         style={{
-          background: 'radial-gradient(circle, #FFF9F3 0%, #C8FFD7 100%)'
+            backgroundImage: 'url("/ClinicApp/ClinicBackground.png")',
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+           
         }}
       >
-        <H1 className=" font-thin   lg:px-40 text-[#166D48] text-center ">
+
+             
+
+        <H1 className=" font-thin  px-2 lg:px-40 text-[#166D48] text-center ">
           A new era of healthcare, a new world of practice well-being
         </H1>
       </div>

@@ -49,9 +49,9 @@ const Counter = () => {
       />
  
       {/* Content Container */}
-      <div className="max-w-8xl md:mx-10 mx-8 sm:mx-16">
+      <div className="max-w-8xl md:mx-10 mx-4 lg:mx-10 sm:mx-16">
         {/* Heading */}
-        <H2 className="  font-bold mb-12 mx-6 md:mb-28">
+        <H2 className="  font-bold mb-12  lg:mx-6 md:mb-28">
           <span className="text-[#2B68C3]">Lorem ipsum dolor sit amet,</span>
           <br />
           <span className="text-[#333333]">consectetur adipiscing elit</span>
@@ -66,7 +66,7 @@ const Counter = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0 sm:px-6 lg:px-8"
+              className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0   lg:px-8"
             >
               {/* Text above */}
               <P className="text-[#141414] mb-[30px]  lg:mb-[84px] max-w-[240px]">

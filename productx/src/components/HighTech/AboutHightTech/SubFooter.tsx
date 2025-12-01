@@ -54,7 +54,8 @@ if (currentPath === "/industries/high-tech/resources") {
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.
             </P>
             <div className="flex justify-center md:justify-start">
-              <button
+              <a
+                href="/industries/high-tech/contactform"
                 className="
                   group
                   flex items-start justify-center gap-2
@@ -75,7 +76,7 @@ if (currentPath === "/industries/high-tech/resources") {
                   <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                   <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
-              </button>
+              </a>
             </div>
           </div>
 

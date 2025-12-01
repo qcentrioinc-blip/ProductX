@@ -20,8 +20,8 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      image: '/PBG1.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P1.png',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -29,8 +29,8 @@ const Products = () => {
     },
     {
       id: 2,
-      image: '/PBG2.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P2.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -38,8 +38,8 @@ const Products = () => {
     },
     {
       id: 3,
-      image: '/PBG3.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P3.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -47,8 +47,8 @@ const Products = () => {
     },
     {
       id: 4,
-      image: '/PBG4.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P4.png',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -57,8 +57,8 @@ const Products = () => {
     },
     {
       id: 5,
-      image: '/PBG5.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P5.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -66,8 +66,8 @@ const Products = () => {
     },
     {
       id: 6,
-      image: '/PBG6.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P6.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -75,8 +75,8 @@ const Products = () => {
     },
     {
       id: 7,
-      image: '/PBG7.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P7.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -84,8 +84,8 @@ const Products = () => {
     },
     {
       id: 8,
-      image: '/PBG8.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P8.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -93,8 +93,8 @@ const Products = () => {
     },
     {
       id: 9,
-      image: '/PBG9.png',
-      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      image: '/BNFHOME/P9.jpg',
+      title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
@@ -130,7 +130,7 @@ const Products = () => {
   };
 
   return (
-    <section className="w-full bg-[#E7E7E7] py-12 sm:py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-[#FFFAAF] py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-8xl md:px-10   px-4 sm:px-8 ">
 
         {/* Header */}
@@ -181,11 +181,20 @@ const Products = () => {
               >
                 {/* Product Image */}
                 <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover"
-                />
+  src={product.image}
+  alt={product.title}
+  className="w-full h-full object-cover"
+/>
+
  
+<div
+  className="absolute inset-0 pointer-events-none opacity-70"
+  style={{
+    background: "radial-gradient(circle at top, rgba(43,200,255,0.55) 90%, rgba(249,149,38,0.45) 100%)",
+    mixBlendMode: "overlay"
+  }}
+></div>
+
                 {product.hasContent && (
                   <>
                     {/* Gradient overlay */}

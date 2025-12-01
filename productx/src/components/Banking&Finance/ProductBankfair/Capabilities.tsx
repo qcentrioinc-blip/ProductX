@@ -1,38 +1,30 @@
-
 const Capabilities = () => {
     return (
         <>
-            
             <div
                 className="relative min-h-screen"
                 style={{
-                    backgroundImage: "url('/Products/CapabilityBackground.png')",
+                    // backgroundImage: "url('/Products/CapabilityBackground.png')",
                     backgroundPosition: "bottom",
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat"
                 }}
             >
-                <div className="max-w-8xl lg:mx-10 py-20 px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-[516px_1fr] gap-10">
-                        {/* Left Column - Sticky */}
+                <div className="max-w-8xl lg:mx-10 mx-4 py-20 px-4">
+                    {/* Desktop: Side by Side | Mobile: Stacked */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,516px)_1fr] gap-10 lg:gap-16">
+                        
+                        {/* Left Column - Sticky on Desktop Only */}
                         <div className="lg:sticky lg:top-20 lg:h-fit">
-                            <div
-                                className="space-y-8"
-                                style={{
-                                    width: '516px',
-                                    maxWidth: '100%'
-                                }}
-                            >
-                                {/* Title */}
+                            <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
+                                
+                                {/* Title - Responsive Font Size */}
                                 <h1
+                                    className="font-bold leading-[120%]"
                                     style={{
                                         fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                        fontWeight: 700,
-                                        fontSize: '40px',
-                                        lineHeight: '120%',
+                                        fontSize: 'clamp(28px, 5vw, 40px)', // Scales from 28px to 40px
                                         letterSpacing: '0%',
-                                        color: '#2B68C3',
-                                        maxWidth: '402.7060546875px'
                                     }}
                                 >
                                     <div style={{ color: '#2B68C3' }}>
@@ -43,330 +35,119 @@ const Capabilities = () => {
                                     </div>
                                 </h1>
 
-                                {/* Description */}
+                                {/* Description - Responsive Font */}
                                 <p
+                                    className="leading-[140%]"
                                     style={{
                                         fontFamily: "'Quicksand', sans-serif",
                                         fontWeight: 400,
-                                        fontSize: '16px',
-                                        lineHeight: '140%',
+                                        fontSize: 'clamp(14px, 2vw, 16px)', // Scales 14px to 16px
                                         letterSpacing: '0%',
                                         color: '#141414',
-                                        maxWidth: '518px'
                                     }}
                                 >
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
 
-                                {/* List Items */}
-                                <div className="flex flex-col gap-4">
-                                    <div className="flex items-center gap-3">
-                                        <div
-                                            className="w-6 h-6 rounded-full bg-gray-300 flex-shrink-0"
-                                            style={{
-                                                width: '34px',
-                                                height: '34px'
-                                            }}
-                                        />
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '16px',
-                                                lineHeight: '100%',
-                                                color: '#141414'
-                                            }}
-                                        >
-                                            Duis aute irure
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-center gap-3">
-                                        <div
-                                            className="w-6 h-6 rounded-full bg-gray-300 flex-shrink-0"
-                                            style={{
-                                                width: '34px',
-                                                height: '34px'
-                                            }}
-                                        />
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '16px',
-                                                lineHeight: '100%',
-                                                color: '#141414'
-                                            }}
-                                        >
-                                            Duis aute irure
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-center gap-3">
-                                        <div
-                                            className="w-6 h-6 rounded-full bg-gray-300 flex-shrink-0"
-                                            style={{
-                                                width: '34px',
-                                                height: '34px'
-                                            }}
-                                        />
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '16px',
-                                                lineHeight: '100%',
-                                                color: '#141414'
-                                            }}
-                                        >
-                                            Duis aute irure
-                                        </p>
-                                    </div>
+                                {/* List Items - Responsive Icons & Text */}
+                                <div className="flex flex-col gap-3 lg:gap-4">
+                                    {[1, 2, 3].map((item) => (
+                                        <div key={item} className="flex items-center gap-3">
+                                            <div
+                                                className="rounded-full bg-gray-300 flex-shrink-0"
+                                                style={{
+                                                    width: 'clamp(28px, 4vw, 34px)',
+                                                    height: 'clamp(28px, 4vw, 34px)'
+                                                }}
+                                            />
+                                            <p
+                                                className="leading-[100%]"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontWeight: 400,
+                                                    fontSize: 'clamp(14px, 2vw, 16px)',
+                                                    color: '#141414'
+                                                }}
+                                            >
+                                                Duis aute irure
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Column - Scrollable Cards */}
-                        <div
-                            className="flex flex-col items-end gap-6"
-                            style={{
-                                width: '1050px',
-                                maxWidth: '100%'
-                            }}
-                        >
-                            {/* Card 01 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '971px',
-                                    minHeight: '290px',
-                                    borderRadius: '16px',
-                                    padding: '24px 22px',
-                                    backgroundColor: '#F5F5F5',
-                                    border: '1px solid #E0E0E0'
-                                }}
-                            >
-                                <div className="flex gap-6">
-                                    <div
-                                        style={{
-                                            fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                            fontWeight: 700,
-                                            fontSize: '70px',
-                                            lineHeight: '80px',
-                                            color: 'gray',
-                                            flexShrink: 0
-                                        }}
-                                    >
-                                        01
-                                    </div>
-
-                                    <div className="flex-1">
-                                        <h3
-                                            style={{
-                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontWeight: 600,
-                                                fontSize: '32px',
-                                                lineHeight: '38px',
-                                                color: '#2B68C3',
-                                                marginBottom: '32px',
-                                                marginTop: '20px'
-                                            }}
-                                        >
-                                            Banks
-                                        </h3>
-
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '16px',
-                                                lineHeight: '150%',
-                                                color: '#3A3A3A',
-                                                marginLeft: '190px',
-
-                                            }}
-                                        >
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat<br /><br />
-                                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Card 02 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '971px',
-                                    minHeight: '290px',
-                                    borderRadius: '16px',
-                                    padding: '24px 22px',
-                                    backgroundColor: '#F5F5F5',
-                                    border: '1px solid #E0E0E0'
-                                }}
-                            >
-                                <div className="flex gap-6">
-                                    <div
-                                        style={{
-                                            fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                            fontWeight: 700,
-                                            fontSize: '70px',
-                                            lineHeight: '80px',
-                                            color: 'gray',
-                                            flexShrink: 0
-                                        }}
-                                    >
-                                        02
-                                    </div>
-
-                                    <div className="flex-1">
-                                        <h3
-                                            style={{
-                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontWeight: 600,
-                                                fontSize: '32px',
-                                                lineHeight: '38px',
-                                                color: '#2B68C3',
-                                                marginBottom: '32px',
-                                                marginTop: '20px'
-                                            }}
-                                        >
-                                            Banks
-                                        </h3>
-
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '15px',
-                                                lineHeight: '150%',
-                                                color: '#3A3A3A',
-                                                marginLeft: '160px'
-                                            }}
-                                        >
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat<br /><br />
-                                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Card 03 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '971px',
-                                    minHeight: '290px',
-                                    borderRadius: '16px',
-                                    padding: '24px 22px',
-                                    backgroundColor: '#F5F5F5',
-                                    border: '1px solid #E0E0E0'
-                                }}
-                            >
-                                <div className="flex gap-6">
-                                    <div
-                                        style={{
-                                            fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                            fontWeight: 700,
-                                            fontSize: '70px',
-                                            lineHeight: '80px',
-                                            color: 'gray',
-                                            flexShrink: 0
-                                        }}
-                                    >
-                                        03
-                                    </div>
-
-                                    <div className="flex-1">
-                                        <h3
-                                            style={{
-                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontWeight: 600,
-                                                fontSize: '32px',
-                                                lineHeight: '38px',
-                                                color: '#2B68C3',
-                                                marginBottom: '32px',
-                                                marginTop: '20px',
-                                            }}
-                                        >
-                                            Banks
-                                        </h3>
-
-                                        <p
-                                            style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '15px',
-                                                lineHeight: '150%',
-                                                color: '#3A3A3A',
-                                                marginLeft: '160px'
-                                            }}
-                                        >
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat<br /><br />
-                                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Card 04 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '971px',
-                                    minHeight: '290px',
-                                    borderRadius: '16px',
-                                    padding: '24px 22px',
-                                    backgroundColor: '#F5F5F5',
-                                    border: '1px solid #E0E0E0'
-                                }}
-                            >
-                                <div className="flex gap-6">
-                                    <div
-                                        style={{
-                                            fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                            fontWeight: 700,
-                                            fontSize: '70px',
-                                            lineHeight: '80px',
-                                            color: 'gray',
-                                            flexShrink: 0
-                                        }}
-                                    >
-                                        04
-                                    </div>
-
-                                    <div className="flex-1">
-                                        <h3
-                                            style={{
-                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontWeight: 600,
-                                                fontSize: '32px',
-                                                lineHeight: '38px',
-                                                color: '#2B68C3',
-                                                marginTop: '20px',
-                                                marginBottom: '32px',
+                        <div className="flex flex-col items-end gap-6 w-full">
+                            
+                            {/* Card Component (Repeated 4 times) */}
+                            {[
+                                { number: '01', title: 'Banks' },
+                                { number: '02', title: 'Banks' },
+                                { number: '03', title: 'Banks' },
+                                { number: '04', title: 'Banks' }
+                            ].map((card) => (
+                                <div
+                                    key={card.number}
+                                    className="w-full rounded-2xl p-2 sm:p-4 lg:p-4"
+                                    style={{
+                                        maxWidth: '971px',
+                                        minHeight: '290px',
+                                        backgroundColor: '#F5F5F5',
+                                        border: '1px solid #E0E0E0'
+                                    }}
+                                >
+                                    {/* Desktop Layout: Number + Content Side by Side */}
+                                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                                         
-                                            }}
-                                        >
-                                            Banks
-                                        </h3>
-
-                                        <p
+                                        {/* Card Number - Responsive Size */}
+                                        <div
+                                            className="font-bold flex-shrink-0"
                                             style={{
-                                                fontFamily: "'Quicksand', sans-serif",
-                                                fontWeight: 400,
-                                                fontSize: '15px',
-                                                lineHeight: '150%',
-                                                color: '#3A3A3A',
-                                                marginLeft: '160px'
+                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
+                                                fontSize: 'clamp(48px, 8vw, 70px)', // Scales 48px to 70px
+                                                lineHeight: '1.1',
+                                                color: 'gray',
                                             }}
                                         >
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat<br /><br />
-                                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
+                                            {card.number}
+                                        </div>
+
+                                        {/* Card Content */}
+                                        <div className="flex-1">
+                                            <h3
+                                                className="font-semibold mb-4 lg:mb-8"
+                                                style={{
+                                                    fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
+                                                    fontSize: 'clamp(24px, 4vw, 32px)', // Scales 24px to 32px
+                                                    lineHeight: '1.2',
+                                                    color: '#2B68C3',
+                                                    marginTop: 'clamp(8px, 2vw, 20px)'
+                                                }}
+                                            >
+                                                {card.title}
+                                            </h3>
+
+                                            {/* Description - NO LEFT MARGIN on Mobile */}
+                                            <p
+                                                className="leading-[150%]"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontWeight: 400,
+                                                    fontSize: 'clamp(14px, 2vw, 16px)',
+                                                    color: '#3A3A3A',
+                                                    // Only add left margin on large screens
+                                                    marginLeft: window.innerWidth >= 1024 ? '160px' : '0'
+                                                }}
+                                            >
+                                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat
+                                                <br /><br />
+                                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

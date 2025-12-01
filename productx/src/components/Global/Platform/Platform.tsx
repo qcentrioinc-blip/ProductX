@@ -7,6 +7,11 @@ import Cards from "./Cards"
 import HeroSection from "./HeroSection"
 // import PlatformNavbar from "./PlatformNavbar"
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter"
+import HeroBottomNavbar from "../../Banking&Finance/ProductPago/HeroBottomNav"
+import InsightThought from "../../Banking&Finance/InsightThought"
+import HWD from "../../Banking&Finance/HWD"
+import ImageGrid from "./ImageGrid"
+import GradientText from "./GradientText"
  
 const Platform = () => {
   return (
@@ -14,10 +19,36 @@ const Platform = () => {
       <BNFNav/>
       <HeroSection/>
       {/* <PlatformNavbar/> */}
-     
+     <HeroBottomNavbar/>
+
+
+     <div id="overview">
       <Testimonial/>
-      <Benefits/>
+      </div>
+
+
+<section className="bg-[#F6DFA4]  ">
+
+  <div id="benefits">
+         <Benefits/>
+         </div>
+     <div id="process"> 
       <Cards/>
+      </div>
+</section>
+
+<ImageGrid/>
+
+<GradientText/>
+      
+      <div id="usecases">
+        <HWD/>
+      </div>
+      <div id="blog">
+         <InsightThought/>
+
+      </div>
+     
       <ContactUS/>
     <NewOneFooter/>
     </div>

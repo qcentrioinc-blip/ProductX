@@ -1,28 +1,32 @@
-// import HighTechNav from "../HighTechNav/HighTechNav"
+ 
+import WorkProfile from "../../HomePage/HighTech/WorkProfile"
 import Banner from "./Banner"
 import BorderCTA from "./BorderCTA"
 import CTA from "./CTA"
 import Feature from "./Feature"
-// import FeatureCards from "./FeatureCards"
+ 
 import Gallery from "./Gallery"
 import HeroSection from "./HeroSection"
 import SubFooter from "./SubFooter"
-import WorkProfile from "./WorkProfile"
+// import WorkProfile from "./WorkProfile"
 
  
 const AboutUs = () => {
   return (
     <div>
-      {/* <HighTechNav/> */}
+      
       <div className="relative  ">
   <HeroSection />
   <CTA />
 </div>
 
       <Banner/>
-      <WorkProfile/>
+      {/* <WorkProfile/>
+       */}
+
+<WorkProfile/>
       <BorderCTA/>
-      {/* <FeatureCards/> */}
+       
       <Gallery/>
       
       <Feature/>

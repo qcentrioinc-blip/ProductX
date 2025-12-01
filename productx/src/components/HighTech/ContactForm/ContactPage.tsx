@@ -1,6 +1,5 @@
 
-import SubFooter from '../Careers/SubFooter';
-// import HighTechNav from '../HighTechNav/HighTechNav';
+import SubFooter from '../Careers/SubFooter'; 
 import ContactForm from './ContactForm';
 
 export const ContactPage = () => {
