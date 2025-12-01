@@ -429,7 +429,7 @@ const EHRNavbar = () => {
       {/* TOP TRANSPARENT BAR (same structure as BNFNav, EHR colors kept) */}
       <div
         className="
-          fixed top-0 left-0 w-full z-50
+          absolute top-0 left-0 w-full z-50
           bg-gradient-to-r from-green-100/80 to-yellow-100/80 backdrop-blur-lg
           border-b border-white/20
           px-4 sm:px-6 md:px-8 pt-3 pb-1

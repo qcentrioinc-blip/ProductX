@@ -4,11 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRightLeft, Wallet, CreditCard, Banknote, CheckCircle2 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
 // --- 1. Utility Helper (Included inline for single-file usage) ---
 function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 // --- 2. Configuration Data & Mockups ---
