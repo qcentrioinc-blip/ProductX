@@ -1,17 +1,15 @@
-import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
+// import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 
 const LandingPageEHS = () => {
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full bg-gradient-to-b from-yellow-100 to-green-100 pt-20 lg:pt-24">
+            {/* <EHRNavbar /> */}
             {/* MERGED BACKGROUND - Gradient wrapper starts here */}
             <div className="relative bg-gradient-to-b from-yellow-100 to-green-100">
-                {/* Import Navbar Component */}
-                <EHRNavbar />
-
                 {/* Wrapper for hero section - Same gradient background continues */}
-                <div className="relative">
+                <div className="relative min-h-[400px] lg:min-h-[520px]">
                     {/* Circle Image - POSITION UNCHANGED: top-[-150px] */}
-                    <div className="absolute right-0 top-[-150px] bottom-0 w-1/2 lg:w-1/2 z-10 pointer-events-none hidden md:block" style={{ height: 'calc(100% + 350px)' }}>
+                    <div className="absolute right-0 top-[-80px] bottom-0 w-1/2 lg:w-1/2 z-10 pointer-events-none hidden md:block" style={{ height: 'calc(100% + 280px)' }}>
                         <img
                             src="/EHRandPMS/circles.png"
                             alt="Green Spiral"
@@ -36,9 +34,9 @@ const LandingPageEHS = () => {
                     </div>
 
                     {/* Hero Section - No background needed (inherits from parent) */}
-                    <div className="relative">
+                    <div className="relative lg:pt-20">
                         {/* Desktop Content with Exact CSS */}
-                        <div className="hidden md:block relative z-20 px-4 sm:px-16 md:px-28 py-8 sm:py-12 md:py-16">
+                        <div className="hidden md:block relative z-20 px-4 sm:px-16 md:px-22 py-8 sm:py-12 md:py-16">
                             <h1
                                 style={{
                                     width: '649px',
@@ -59,11 +57,11 @@ const LandingPageEHS = () => {
                             <p
                                 style={{
                                     width: '649px',
-                                    height: '59px',
+                                    height: '60px',
                                     fontFamily: "'Quicksand', sans-serif",
                                     fontWeight: 400,
                                     fontSize: '18px',
-                                    lineHeight: '100%',
+                                    lineHeight: '140%',
                                     letterSpacing: '0%',
                                     opacity: 1,
                                     marginBottom: '32px'
@@ -73,8 +71,8 @@ const LandingPageEHS = () => {
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
                             </p>
 
-                            <button className="bg-[#F4A261] text-gray-900 px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#E89551] transition-all">
-                                CONTACT US
+                            <button className="bg-[#F4A261] text-[#04531A] px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#E89551] transition-all">
+                                <a href="/industries/ehr-and-pms/contactus">CONTACT US</a>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                                 </svg>
@@ -94,7 +92,7 @@ const LandingPageEHS = () => {
                                 culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
                             </p>
 
-                            <button className="bg-[#F4A261] text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold flex items-center gap-2 sm:gap-3 hover:bg-[#E89551] transition-all text-sm sm:text-base">
+                            <button className="bg-[#F4A261] text-[#04531A]px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold flex items-center gap-2 sm:gap-3 hover:bg-[#E89551] transition-all text-sm sm:text-base">
                                 CONTACT US
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
@@ -106,7 +104,7 @@ const LandingPageEHS = () => {
             </div>
 
             {/* Bottom Section - Logo Cards with Light Green Background */}
-            <div className="bg-gradient-to-b from-green-50 to-white py-12 px-8 sm:px-12 md:px-28 border-t border-gray-200 relative">
+            <div className="bg-gradient-to-b from-green-50 to-white py-12 px-8 sm:px-12 md:px-22 border-t border-gray-200 relative">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <h2
                         className="text-4xl md:text-5xl font-semibold leading-tight text-center md:text-left"

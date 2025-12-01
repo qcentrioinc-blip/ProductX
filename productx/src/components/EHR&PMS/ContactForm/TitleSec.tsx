@@ -85,14 +85,14 @@ const TitleSec: React.FC = () => {
                             src="/EHR-PMS/ContactForm/shape1.png"
                             alt="Application form illustration"
                             className="
-                w-[90%]
-                sm:w-[85%]
-                md:w-[80%]
-                lg:w-[100%] /* Uses full width of its 50% column */
-                max-w-[1000px]
-                h-auto
-                object-contain
-              "
+        w-[90%]
+        sm:w-[85%]
+        md:w-[80%]
+        lg:w-[100%] /* Uses full width of its 50% column */
+        max-w-[1000px]
+        h-auto
+        object-contain
+       "
                         />
                     </div>
                 </div>

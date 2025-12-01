@@ -184,7 +184,9 @@ const InsightThought = () => {
                 </div>
             </div>
         </div>
-    );
+        
+      
+  );
 };
 
 export default InsightThought;

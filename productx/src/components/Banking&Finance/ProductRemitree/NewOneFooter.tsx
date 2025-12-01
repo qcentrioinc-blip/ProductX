@@ -24,7 +24,15 @@ const NewOneFooter = () => {
   ];
 
   return (
-    <div className='relative'>
+  <div
+        className='lg:relative  '
+        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+      >
+  
+  <div className='lg:w-full'>
+
+
+     <div className='relative'>
       <footer className="relative w-full bg-white ">
         <div className="max-w-8xl lg:mx-10 px-4 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 relative">
@@ -151,12 +159,12 @@ const NewOneFooter = () => {
                 </div>
 
                 <div className="flex lg:-ml-6 items-center gap-8">
-                  <a href="#" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                  <Link to="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
                     Privacy Policy
-                  </a>
-                  <a href="#" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                  </Link>
+                  <Link to="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
                     Cookies Policy
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -171,6 +179,10 @@ const NewOneFooter = () => {
         />
       </footer>
     </div>
+       
+</div>
+</div>
+    
   );
 };
 

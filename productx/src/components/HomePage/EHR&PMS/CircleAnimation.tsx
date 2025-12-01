@@ -1,504 +1,3 @@
-// import { useState, useEffect, useRef, useCallback, useContext } from 'react';
-// import { motion, useMotionValue } from 'framer-motion';
-// import { ScrollContext } from '../../../context/ScrollContext';
-
-// // --- Types ---
-// type Shape = {
-//   width: string;
-//   height: string;
-//   top: string;
-//   left: string;
-//   borderRadius: string;
-// };
-
-// type Slide = {
-//   id: number;
-//   topLeft: Shape;
-//   bottomRight: Shape | Shape[];
-// };
-
-// // --- DESKTOP SLIDES (Original 100%) ---
-// const desktopSlides: Slide[] = [
-//   {
-//     id: 0,
-//     topLeft: {
-//       width: '271.62px',
-//       height: '48.78px',
-//       top: 'calc(185px - 5vh)',
-//       left: '290px',
-//       borderRadius: '8px'
-//     },
-//     bottomRight: {
-//       width: '155.21px',
-//       height: '190.94px',
-//       top: 'calc(521.71px - 5vh)',
-//       left: '1010.82px',
-//       borderRadius: '8px'
-//     }
-//   },
-//   {
-//     id: 1,
-//     topLeft: {
-//       width: '175.95px',
-//       height: '186.66px',
-//       top: 'calc(190px - 5vh)',
-//       left: '275px',
-//       borderRadius: '8px'
-//     },
-//     bottomRight: [
-//       { width: '99.45px', height: '99.45px', top: 'calc(580px - 5vh)', left: '980px', borderRadius: '50%' },
-//       { width: '99.45px', height: '99.45px', top: 'calc(580px - 5vh)', left: '1110px', borderRadius: '50%' }
-//     ]
-//   },
-//   {
-//     id: 2,
-//     topLeft: {
-//       width: '99.45px',
-//       height: '99.45px',
-//       top: 'calc(120px - 5vh)',
-//       left: '680px',
-//       borderRadius: '50%'
-//     },
-//     bottomRight: [
-//       { width: '99.45px', height: '99.45px', top: 'calc(220px - 5vh)', left: '940px', borderRadius: '50%' },
-//       { width: '99.45px', height: '99.45px', top: 'calc(600px - 5vh)', left: '910px', borderRadius: '50%' },
-//       { width: '99.45px', height: '99.45px', top: 'calc(660px - 5vh)', left: '680px', borderRadius: '50%' },
-//       { width: '99.45px', height: '99.45px', top: 'calc(600px - 5vh)', left: '450px', borderRadius: '50%' },
-//       { width: '99.45px', height: '99.45px', top: 'calc(220px - 5vh)', left: '405px', borderRadius: '50%' }
-//     ]
-//   }
-// ];
-
-// // --- TABLET SLIDES (75% scale) ---
-// const tabletSlides: Slide[] = [
-//   {
-//     id: 0,
-//     topLeft: {
-//       width: '203.72px',
-//       height: '36.59px',
-//       top: 'calc(400px - 5vh)',
-//       left: '70px',
-//       borderRadius: '6px'
-//     },
-//     bottomRight: {
-//       width: '116.41px',
-//       height: '143.21px',
-//       top: 'calc(650px - 5vh)',
-//       left: '570.12px',
-//       borderRadius: '6px'
-//     }
-//   },
-//   {
-//     id: 1,
-//     topLeft: {
-//       width: '131.96px',
-//       height: '140px',
-//       top: 'calc(300px - 5vh)',
-//       left: '140px',
-//       borderRadius: '6px'
-//     },
-//     bottomRight: [
-//       { width: '74.59px', height: '74.59px', top: 'calc(700px - 5vh)', left: '535px', borderRadius: '50%' },
-//       { width: '74.59px', height: '74.59px', top: 'calc(700px - 5vh)', left: '632.5px', borderRadius: '50%' }
-//     ]
-//   },
-//   {
-//     id: 2,
-//     topLeft: {
-//       width: '74.59px',
-//       height: '74.59px',
-//       top: 'calc(335px - 5vh)',
-//       left: '350px',
-//       borderRadius: '50%'
-//     },
-//     bottomRight: [
-//       { width: '74.59px', height: '74.59px', top: 'calc(450px - 5vh)', left: '565px', borderRadius: '50%' },
-//       { width: '74.59px', height: '74.59px', top: 'calc(650px - 5vh)', left: '560px', borderRadius: '50%' },
-//       { width: '74.59px', height: '74.59px', top: 'calc(750px - 5vh)', left: '350px', borderRadius: '50%' },
-//       { width: '74.59px', height: '74.59px', top: 'calc(650px - 5vh)', left: '140px', borderRadius: '50%' },
-//       { width: '74.59px', height: '74.59px', top: 'calc(450px - 5vh)', left: '130px', borderRadius: '50%' }
-//     ]
-//   }
-// ];
-
-// // --- MOBILE SLIDES (55% scale, centered) ---
-// const mobileSlides: Slide[] = [
-//   {
-//     id: 0,
-//     topLeft: {
-//       width: '149.39px',
-//       height: '26.83px',
-//       top: 'calc(53% - 180px)',
-//       left: 'calc(40% - 135px)',
-//       borderRadius: '4px'
-//     },
-//     bottomRight: {
-//       width: '85.37px',
-//       height: '105.02px',
-//       top: 'calc(50% + 80px)',
-//       left: 'calc(54% + 90px)',
-//       borderRadius: '4px'
-//     }
-//   },
-//   {
-//     id: 1,
-//     topLeft: {
-//       width: '96.77px',
-//       height: '102.66px',
-//       top: 'calc(45% - 175px)',
-//       left: 'calc(42% - 140px)',
-//       borderRadius: '4px'
-//     },
-//     bottomRight: [
-//       { width: '54.7px', height: '54.7px', top: 'calc(55% + 85px)', left: 'calc(50% + 40px)', borderRadius: '50%' },
-//       { width: '54.7px', height: '54.7px', top: 'calc(55% + 85px)', left: 'calc(50% + 105px)', borderRadius: '50%' }
-//     ]
-//   },
-//   {
-//     id: 2,
-//     topLeft: {
-//       width: '54.7px',
-//       height: '54.7px',
-//       top: 'calc(51% - 190px)',
-//       left: 'calc(50% - 27px)',
-//       borderRadius: '50%'
-//     },
-//     bottomRight: [
-//       { width: '54.7px', height: '54.7px', top: 'calc(50% - 105px)', left: 'calc(63% + 78px)', borderRadius: '50%' },
-//       { width: '54.7px', height: '54.7px', top: 'calc(50% + 65px)', left: 'calc(63% + 65px)', borderRadius: '50%' },
-//       { width: '54.7px', height: '54.7px', top: 'calc(51% + 115px)', left: 'calc(50% - 27px)', borderRadius: '50%' },
-//       { width: '54.7px', height: '54.7px', top: 'calc(50% + 65px)', left: 'calc(37% - 120px)', borderRadius: '50%' },
-//       { width: '54.7px', height: '54.7px', top: 'calc(50% - 105px)', left: 'calc(37% - 132px)', borderRadius: '50%' }
-//     ]
-//   }
-// ];
-
-// const CircleAnimation = () => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
-//   const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
-//   const containerRef = useRef<HTMLDivElement>(null);
-//   const scrollProgress = useMotionValue(0);
-//   const [canHorizontalScroll, setCanHorizontalScroll] = useState(false);
-
-//   const scrollContext = useContext(ScrollContext);
-
-//   // Detect screen size
-//   useEffect(() => {
-//     const checkScreenSize = () => {
-//       const width = window.innerWidth;
-//       if (width < 768) {
-//         setScreenSize('mobile');
-//       } else if (width < 1024) {
-//         setScreenSize('tablet');
-//       } else {
-//         setScreenSize('desktop');
-//       }
-//     };
-
-//     checkScreenSize();
-//     window.addEventListener('resize', checkScreenSize);
-
-//     return () => window.removeEventListener('resize', checkScreenSize);
-//   }, []);
-
-//   const slides = screenSize === 'mobile' ? mobileSlides :
-//     screenSize === 'tablet' ? tabletSlides :
-//       desktopSlides;
-
-//   // Circle dimensions and CENTER positions
-//   const circleConfig = {
-//     mobile: {
-//       size: '267.51px',
-//       leftCircle: 'calc(50% - 153.3px)',
-//       rightCircle: 'calc(50% - 114.21px)',
-//       top: 'calc(50% - 133.76px)',
-//       // CENTER of both circles
-//       centerX: '50%',
-//       centerY: '50%'
-//     },
-//     tablet: {
-//       size: '364.78px',
-//       leftCircle: 'calc(50% - 209.04px)',
-//       rightCircle: 'calc(50% - 155.74px)',
-//       top: 'calc(400px - 5vh)',
-//       // CENTER of both circles
-//       centerX: '50%',
-//       centerY: 'calc(582.39px - 5vh)'
-//     },
-//     desktop: {
-//       size: '486.378px',
-//       leftCircle: '449.279px',
-//       rightCircle: '520.343px',
-//       top: 'calc(196.551px - 5vh)',
-//       // CENTER of both circles
-//       centerX: '728px',
-//       centerY: 'calc(439.74px - 5vh)'
-//     }
-//   };
-
-//   const config = circleConfig[screenSize];
-
-//   const checkScrollPosition = useCallback(() => {
-//     const scrollContainer = scrollContext?.current;
-//     if (!containerRef.current || !scrollContainer) return;
-
-//     const rect = containerRef.current.getBoundingClientRect();
-
-//     const shouldEnableHorizontalScroll = (
-//       rect.top <= 100 &&
-//       rect.top >= -100 &&
-//       rect.bottom > scrollContainer.clientHeight * 0.6
-//     );
-
-//     setCanHorizontalScroll(shouldEnableHorizontalScroll);
-//   }, [scrollContext]);
-
-//   useEffect(() => {
-//     const unsubscribe = scrollProgress.on('change', (latest) => {
-//       const slideIndex = Math.floor(latest * slides.length);
-//       const clampedIndex = Math.max(0, Math.min(slides.length - 1, slideIndex));
-//       setCurrentSlide(clampedIndex);
-//     });
-
-//     return () => unsubscribe();
-//   }, [scrollProgress, slides.length]);
-
-//   const handleWheel = useCallback((e: WheelEvent) => {
-//     const scrollContainer = scrollContext?.current;
-//     if (!containerRef.current || !scrollContainer) return;
-
-//     const rect = containerRef.current.getBoundingClientRect();
-//     const isInView = rect.top <= 100 && rect.bottom >= scrollContainer.clientHeight * 0.5;
-
-//     if (!isInView || !canHorizontalScroll) return;
-
-//     const currentProgress = scrollProgress.get();
-//     const scrollSensitivity = 0.0015;
-
-//     const newProgress = Math.max(0, Math.min(1, currentProgress + e.deltaY * scrollSensitivity));
-
-//     scrollProgress.set(newProgress);
-
-//     if (newProgress > 0 && newProgress < 0.99) {
-//       e.preventDefault();
-//       e.stopPropagation();
-//       scrollContainer.style.overflow = 'hidden';
-//     } else {
-//       scrollContainer.style.overflow = 'auto';
-//     }
-//   }, [scrollProgress, canHorizontalScroll, scrollContext]);
-
-//   useEffect(() => {
-//     const scrollContainer = scrollContext?.current;
-//     if (!scrollContainer) return;
-
-//     scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
-
-//     return () => {
-//       scrollContainer.removeEventListener('wheel', handleWheel);
-//       scrollContainer.style.overflow = 'auto';
-//     };
-//   }, [handleWheel, scrollContext]);
-
-//   useEffect(() => {
-//     const scrollContainer = scrollContext?.current;
-//     if (!scrollContainer) return;
-
-//     const handleScroll = () => {
-//       checkScrollPosition();
-//     };
-
-//     scrollContainer.addEventListener('scroll', handleScroll);
-//     checkScrollPosition();
-
-//     return () => {
-//       scrollContainer.removeEventListener('scroll', handleScroll);
-//     };
-//   }, [checkScrollPosition, scrollContext]);
-
-//   return (
-//     <div 
-//       ref={containerRef} 
-//       className="relative w-full"
-//       style={{ 
-//         height: screenSize === 'mobile' ? '250vh' : screenSize === 'tablet' ? '220vh' : '200vh'
-//       }}
-//     >
-//       <div className="sticky top-0 w-full h-screen overflow-hidden bg-white">
-
-//         {/* --- LEFT CIRCLE --- */}
-//         <div
-//           className="absolute rounded-full"
-//           style={{
-//             width: config.size,
-//             height: config.size,
-//             top: config.top,
-//             left: config.leftCircle,
-//             backgroundColor: 'transparent',
-//             boxShadow: 'inset 0px 0px 2px 0px rgba(0, 0, 0, 0.45)',
-//             opacity: 1,
-//             zIndex: 2,
-//             pointerEvents: 'none'
-//           }}
-//         ></div>
-
-//         {/* --- RIGHT CIRCLE --- */}
-//         <div
-//           className="absolute rounded-full"
-//           style={{
-//             width: config.size,
-//             height: config.size,
-//             top: config.top,
-//             left: config.rightCircle,
-//             backgroundColor: 'transparent',
-//             boxShadow: 'inset 0px 0px 2px 0px rgba(0, 0, 0, 0.45)',
-//             opacity: 1,
-//             zIndex: 2,
-//             pointerEvents: 'none'
-//           }}
-//         ></div>
-
-//         {/* --- DYNAMIC TOP-LEFT SHAPE --- */}
-//         <motion.div
-//           key={`topLeft-${currentSlide}-${screenSize}`}
-//           initial={{ 
-//             x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-//             opacity: 0 
-//           }}
-//           animate={{ x: 0, opacity: 1 }}
-//           exit={{ 
-//             x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-//             opacity: 0 
-//           }}
-//           transition={{ duration: 0.5, ease: "easeOut", type: "tween" }}
-//           className="absolute will-change-transform"
-//           style={{
-//             width: slides[currentSlide].topLeft.width,
-//             height: slides[currentSlide].topLeft.height,
-//             top: slides[currentSlide].topLeft.top,
-//             left: slides[currentSlide].topLeft.left,
-//             borderRadius: slides[currentSlide].topLeft.borderRadius,
-//             backgroundColor: '#B4E7CE',
-//             zIndex: 0
-//           }}
-//         ></motion.div>
-
-//         {/* --- DYNAMIC BOTTOM-RIGHT SHAPE(S) --- */}
-//         {Array.isArray(slides[currentSlide].bottomRight) ? (
-//           slides[currentSlide].bottomRight.map((shape, index) => (
-//             <motion.div
-//               key={`bottomRight-${currentSlide}-${index}-${screenSize}`}
-//               initial={{ 
-//                 x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-//                 opacity: 0 
-//               }}
-//               animate={{ x: 0, opacity: 1 }}
-//               exit={{ 
-//                 x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-//                 opacity: 0 
-//               }}
-//               transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 * (index + 1), type: "tween" }}
-//               className="absolute will-change-transform"
-//               style={{
-//                 width: shape.width,
-//                 height: shape.height,
-//                 top: shape.top,
-//                 left: shape.left,
-//                 borderRadius: shape.borderRadius,
-//                 backgroundColor: '#B4E7CE',
-//                 zIndex: 0
-//               }}
-//             ></motion.div>
-//           ))
-//         ) : (
-//           <motion.div
-//             key={`bottomRight-${currentSlide}-${screenSize}`}
-//             initial={{ 
-//               x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-//               opacity: 0 
-//             }}
-//             animate={{ x: 0, opacity: 1 }}
-//             exit={{ 
-//               x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-//               opacity: 0 
-//             }}
-//             transition={{ duration: 0.5, ease: "easeOut", delay: 0.12, type: "tween" }}
-//             className="absolute will-change-transform"
-//             style={{
-//               width: (slides[currentSlide].bottomRight as Shape).width,
-//               height: (slides[currentSlide].bottomRight as Shape).height,
-//               top: (slides[currentSlide].bottomRight as Shape).top,
-//               left: (slides[currentSlide].bottomRight as Shape).left,
-//               borderRadius: (slides[currentSlide].bottomRight as Shape).borderRadius,
-//               backgroundColor: '#B4E7CE',
-//               zIndex: 0
-//             }}
-//           ></motion.div>
-//         )}
-
-//         {/* --- CONTENT - CENTERED IN CIRCLES --- */}
-//         <div 
-//           className="absolute text-center z-10 px-6 pointer-events-none"
-//           style={{
-//             left: config.centerX,
-//             top: config.centerY,
-//             transform: screenSize === 'desktop' ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)',
-//             maxWidth: screenSize === 'mobile' ? '280px' : screenSize === 'tablet' ? '400px' : '500px'
-//           }}
-//         >
-//           <p className={`text-[#6b9a88] font-medium mb-2 tracking-wide ${
-//             screenSize === 'mobile' ? 'text-[11px]' :
-//             screenSize === 'tablet' ? 'text-[13px]' :
-//             'text-[15px]'
-//           }`}>
-//             Gain Intelligence
-//           </p>
-//           <h1 className={`text-[#1e7a52] font-bold leading-[1.2] tracking-tight ${
-//             screenSize === 'mobile' ? 'text-[24px]' :
-//             screenSize === 'tablet' ? 'text-[32px]' :
-//             'text-[40px]'
-//           }`}>
-//             Built on over $2B<br />
-//             of annual therapy<br />
-//             claims data.
-//           </h1>
-//         </div>
-
-//         {/* --- PAGINATION DOTS - CENTERED BELOW TEXT --- */}
-//         <div 
-//           className="absolute flex gap-3 z-10"
-//           style={{
-//             left: config.centerX,
-//             top: screenSize === 'mobile' 
-//               ? 'calc(50% + 84px)'  // Mobile: center + offset
-//               : screenSize === 'tablet'
-//               ? 'calc(582.39px - 5vh + 122px)'  // Tablet: center + offset
-//               : 'calc(439.74px - 5vh + 163px)',  // Desktop: center + offset
-//             transform: 'translateX(-50%)'
-//           }}
-//         >
-//           {slides.map((_, index) => (
-//             <div
-//               key={index}
-//               className={`rounded-full transition-all duration-300 ${
-//                 screenSize === 'mobile' ? 'w-2 h-2' : 'w-3 h-3'
-//               }`}
-//               style={{
-//                 backgroundColor: currentSlide === index ? '#1e7a52' : '#a8d5c3',
-//                 opacity: currentSlide === index ? 1 : 0.6,
-//                 transform: currentSlide === index ? 'scale(1.2)' : 'scale(1)'
-//               }}
-//             ></div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CircleAnimation;
-
-
 import { useState, useEffect, useRef, useCallback, useContext } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { ScrollContext } from '../../../context/ScrollContext';
@@ -523,10 +22,10 @@ const desktopSlides: Slide[] = [
   {
     id: 0,
     topLeft: {
-      width: '271.62px',
-      height: '48.78px',
-      top: 'calc(50vh - 300px)',
-      left: 'calc(50vw - 450px)',
+      width: '345px',
+      height: '63px',
+      top: 'calc(50vh - 320px)',
+      left: 'calc(50vw - 540px)',
       borderRadius: '8px'
     },
     bottomRight: {
@@ -563,7 +62,7 @@ const desktopSlides: Slide[] = [
     bottomRight: [
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw + 210px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw + 180px)', borderRadius: '50%' },
-      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 295px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
+      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 275px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw - 280px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw - 325px)', borderRadius: '50%' }
     ]
@@ -680,6 +179,22 @@ const CircleAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useMotionValue(0);
   const [, setCanHorizontalScroll] = useState(false);
+  const centerTexts = [
+    {
+      subtitle: "perspiciatis",
+      heading: "Sed ut perspiciatis<br />undesed ut persp"
+    },
+    {
+      subtitle: "doloremque",
+      heading: "Ut enim ad minima<br />veniam"
+    },
+    {
+      subtitle: "officiis",
+      heading: "Quis autem vel<br />eum iure"
+    }
+  ];
+  const { subtitle, heading } = centerTexts[currentSlide];
+
 
   const scrollContext = useContext(ScrollContext);
 
@@ -710,19 +225,19 @@ const CircleAnimation = () => {
     const rect = containerRef.current.getBoundingClientRect();
     const containerHeight = rect.height;
     const viewportHeight = scrollContainer.clientHeight;
-    
+
     const scrolled = -rect.top;
     const scrollableHeight = containerHeight - viewportHeight;
-    
+
     const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-    
+
     const shouldEnableHorizontalScroll = (
       rect.top <= 0 &&
       rect.bottom > viewportHeight
     );
 
     setCanHorizontalScroll(shouldEnableHorizontalScroll);
-    
+
     if (shouldEnableHorizontalScroll) {
       scrollProgress.set(progress);
     }
@@ -775,17 +290,17 @@ const CircleAnimation = () => {
 
     return {
       initial: { x: rightOffset, y: 0, opacity: 0 },
-      animate: { 
+      animate: {
         x: [rightOffset, 0, driftRight],  // Right → Center → Drift Right
         y: [0, 0, driftDown],              // Stay → Stay → Drift Down
         opacity: [0, 1, 1]                 // Fade in → Stay visible
       },
-      transition: { 
+      transition: {
         duration: 0.9,
         times: [0, 0.5, 1],      // 50% horizontal, 50% drift
         ease: "easeOut",
         delay: baseDelay,
-        type: "tween" 
+        type: "tween"
       }
     };
   };
@@ -800,20 +315,23 @@ const CircleAnimation = () => {
     null  // Image 6 - no card
   ];
 
+
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="relative w-full"
-      style={{ 
-        height: screenSize === 'mobile' ? '300vh' : screenSize === 'tablet' ? '300vh' : '300vh'
+      style={{
+        height: screenSize === 'mobile' ? '300vh' : screenSize === 'tablet' ? '300vh' : '300vh',
       }}
     >
-      <div 
-        className="sticky top-0 w-full h-screen overflow-hidden"
-        style={{
-          backgroundColor: '#EFF8F5'
-        }}
-      >
+      <div
+        className="sticky top-0 w-full h-screen overflow-hidden">
+        <img
+          src="/EHRandPMS/EHRPMSCIRCLE.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+          style={{ left: 0, top: 0 }}
+        />
         {/* BACKGROUND IMAGE - Centered */}
         <div
           className="absolute"
@@ -836,57 +354,58 @@ const CircleAnimation = () => {
         <motion.div
           key={`topLeft-${currentSlide}-${screenSize}`}
           initial={
-            currentSlide === 2 
+            currentSlide === 2
               ? getThirdSlideAnimation(0, true).initial
-              : { 
-                  x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-                  opacity: 0 
-                }
+              : {
+                x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300,
+                opacity: 0
+              }
           }
           animate={
             currentSlide === 2
               ? getThirdSlideAnimation(0, true).animate
               : { x: 0, opacity: 1 }
           }
-          exit={{ 
-            x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-            opacity: 0 
+          exit={{
+            x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300,
+            opacity: 0
           }}
           transition={
             currentSlide === 2
               ? (getThirdSlideAnimation(0, true).transition as any)
               : ({ duration: 0.5, ease: "easeOut", type: "tween" } as any)
           }
-          className="absolute will-change-transform flex items-center justify-center overflow-hidden"
+          className="absolute will-change-transform flex items-center justify-center overflow-hidden shadow-md"
           style={{
             width: slides[currentSlide].topLeft.width,
             height: slides[currentSlide].topLeft.height,
             top: slides[currentSlide].topLeft.top,
             left: slides[currentSlide].topLeft.left,
             borderRadius: slides[currentSlide].topLeft.borderRadius,
-            backgroundColor: (currentSlide === 1 || currentSlide === 2) ? 'transparent' : '#B4E7CE',
+            backgroundColor: (currentSlide === 1 || currentSlide === 2) ? 'transparent' : 'white',
             zIndex: 10
           }}
         >
           {/* TEXT for first slide */}
           {currentSlide === 0 && (
-            <span 
+            <span
               style={{
-                fontSize: screenSize === 'mobile' ? '10px' : screenSize === 'tablet' ? '12px' : '25px',
+                fontSize: screenSize === 'mobile' ? '10px' : screenSize === 'tablet' ? '12px' : '32px',
                 fontWeight: 600,
                 color: '#166D48',
                 textAlign: 'center',
-                padding: '0 8px'
+                padding: '0 8px',
+                fontFamily: 'Bricolage Grotesque, sans-serif'
               }}
             >
               undesed ut persp
             </span>
           )}
-          
+
           {/* IMAGE for second slide - DoctorGirl */}
           {currentSlide === 1 && (
-            <img 
-              src="/EHRandPMS/DoctorGirl.png" 
+            <img
+              src="/EHRandPMS/DoctorGirl.png"
               alt="Doctor"
               style={{
                 width: '100%',
@@ -899,7 +418,7 @@ const CircleAnimation = () => {
 
           {/* IMAGE for third slide - Image 1 */}
           {currentSlide === 2 && (
-            <img 
+            <img
               src={thirdSlideImages[0]}
               alt="Image 1"
               style={{
@@ -921,19 +440,19 @@ const CircleAnimation = () => {
                 initial={
                   currentSlide === 2
                     ? getThirdSlideAnimation(index, false).initial
-                    : { 
-                        x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-                        opacity: 0 
-                      }
+                    : {
+                      x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300,
+                      opacity: 0
+                    }
                 }
                 animate={
                   currentSlide === 2
                     ? getThirdSlideAnimation(index, false).animate
                     : { x: 0, opacity: 1 }
                 }
-                exit={{ 
-                  x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-                  opacity: 0 
+                exit={{
+                  x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300,
+                  opacity: 0
                 }}
                 transition={
                   currentSlide === 2
@@ -953,7 +472,7 @@ const CircleAnimation = () => {
               >
                 {/* IMAGES for second slide */}
                 {currentSlide === 1 && (
-                  <img 
+                  <img
                     src={index === 0 ? "/EHRandPMS/Keyboard.png" : "/EHRandPMS/Wheel.png"}
                     alt={index === 0 ? "Keyboard" : "Wheel"}
                     style={{
@@ -968,7 +487,7 @@ const CircleAnimation = () => {
                 {/* IMAGES for third slide */}
                 {currentSlide === 2 && (
                   <>
-                    <img 
+                    <img
                       src={thirdSlideImages[index + 1]}
                       alt={`Image ${index + 2}`}
                       style={{
@@ -983,12 +502,12 @@ const CircleAnimation = () => {
                     {infoCards[index + 1] && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ 
+                        animate={{
                           opacity: [0, 0, 1],
                           scale: [0.8, 0.8, 1]
                         }}
                         transition={
-                          { 
+                          {
                             duration: 0.9,
                             times: [0, 0.5, 1],
                             ease: "easeOut",
@@ -1027,14 +546,14 @@ const CircleAnimation = () => {
         ) : (
           <motion.div
             key={`bottomRight-${currentSlide}-${screenSize}`}
-            initial={{ 
-              x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300, 
-              opacity: 0 
+            initial={{
+              x: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 200 : 300,
+              opacity: 0
             }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ 
-              x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300, 
-              opacity: 0 
+            exit={{
+              x: screenSize === 'mobile' ? -100 : screenSize === 'tablet' ? -200 : -300,
+              opacity: 0
             }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.12, type: "tween" } as any}
             className="absolute will-change-transform overflow-hidden"
@@ -1050,15 +569,15 @@ const CircleAnimation = () => {
           >
             {/* IMAGE for first slide */}
             {currentSlide === 0 && (
-              <div 
+              <div
                 style={{
                   width: '100%',
                   height: '100%',
                   position: 'relative'
                 }}
               >
-                <img 
-                  src="/EHRandPMS/Girl.png" 
+                <img
+                  src="/EHRandPMS/Girl.png"
                   alt="Profile"
                   style={{
                     width: '100%',
@@ -1067,7 +586,7 @@ const CircleAnimation = () => {
                     borderRadius: (slides[currentSlide].bottomRight as Shape).borderRadius
                   }}
                 />
-                <div 
+                <div
                   style={{
                     position: 'absolute',
                     top: '8px',
@@ -1083,7 +602,7 @@ const CircleAnimation = () => {
                     boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       width: '6px',
                       height: '6px',
@@ -1093,7 +612,7 @@ const CircleAnimation = () => {
                   />
                   PAID
                 </div>
-                <div 
+                <div
                   style={{
                     position: 'absolute',
                     bottom: '8px',
@@ -1114,47 +633,61 @@ const CircleAnimation = () => {
         )}
 
         {/* CONTENT - Centered on screen */}
-        <div 
+        <div
           className="absolute text-center px-6 pointer-events-none"
           style={{
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
-            maxWidth: screenSize === 'mobile' ? '280px' : screenSize === 'tablet' ? '400px' : '500px',
+            maxWidth: screenSize === 'mobile' ? '280px' : screenSize === 'tablet' ? '480px' : '700px',
             zIndex: 20
           }}
         >
-          <p 
+          <p
             className="font-medium mb-2 tracking-wide"
             style={{
               fontSize: screenSize === 'mobile' ? '11px' : screenSize === 'tablet' ? '13px' : '30px',
-              color: '#6B9A88'
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 700,
+              letterSpacing: '0%',
+              textAlign: 'center',
+              color: "#166D48"
             }}
           >
-            perspiciatis
+            <span
+              style={{
+                display: 'inline-block',
+                width: screenSize === 'mobile' ? '6px' : '10px',
+                height: screenSize === 'mobile' ? '6px' : '10px',
+                background: 'white',
+                borderRadius: '50%',
+                marginRight: '8px',
+                verticalAlign: 'middle'
+              }}
+            />
+            {subtitle}
           </p>
-          <h1 
+          <h1
             style={{
               fontFamily: "'Bricolage Grotesque', sans-serif",
               fontWeight: 700,
-              fontSize: screenSize === 'mobile' ? '32px' : screenSize === 'tablet' ? '48px' : '64px',
-              lineHeight: '100%',
+              fontSize: screenSize === 'mobile' ? '32px' : screenSize === 'tablet' ? '48px' : '60px',
+              lineHeight: 1.1,
               letterSpacing: '0%',
               textAlign: 'center',
               color: '#166D48'
             }}
-          >
-            Sed ut perspiciatis<br />
-            undesed ut persp
-          </h1>
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
         </div>
 
+
         {/* PAGINATION DOTS - Centered below */}
-        <div 
+        <div
           className="absolute flex gap-3"
           style={{
             left: '50%',
-            top: 'calc(50% + 200px)',
+            top: 'calc(50% + 130px)',
             transform: 'translateX(-50%)',
             zIndex: 20
           }}
@@ -1162,9 +695,8 @@ const CircleAnimation = () => {
           {slides.map((_, index) => (
             <div
               key={index}
-              className={`rounded-full transition-all duration-300 ${
-                screenSize === 'mobile' ? 'w-2 h-2' : 'w-3 h-3'
-              }`}
+              className={`rounded-full transition-all duration-300 ${screenSize === 'mobile' ? 'w-2 h-2' : 'w-3 h-3'
+                }`}
               style={{
                 backgroundColor: currentSlide === index ? '#2D6F56' : '#B4D3C4',
                 opacity: currentSlide === index ? 1 : 0.6,

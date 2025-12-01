@@ -24,7 +24,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/almanac"
     },
     {
@@ -33,7 +33,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/bankfair"
     },
     {
@@ -42,7 +42,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/customer-onboarding-solutions"
     },
     {
@@ -51,8 +51,8 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
-     
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+
       route: "/industries/banking-and-finance/products/internet-banking-system"
     },
     {
@@ -61,7 +61,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/loan-origination-system"
     },
     {
@@ -70,7 +70,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/pago"
     },
     {
@@ -79,7 +79,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/remitree"
     },
     {
@@ -88,7 +88,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sams"
     },
     {
@@ -97,7 +97,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sherlock"
     }
   ];
@@ -119,41 +119,51 @@ const Products = () => {
     }
   }, [location]);
 
+
+  const handleProductClick = (route: string) => {
+    // Scroll to top before navigation
+    window.scrollTo(0, 0);
+    // Small delay to ensure scroll completes before navigation
+    setTimeout(() => {
+      navigate(route);
+    }, 100);
+  };
+
   return (
     <section className="w-full bg-[#FFFAAF] py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-8xl md:px-10   px-4 sm:px-8 ">
 
         {/* Header */}
-       <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
+        <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
 
-  <H2 className="font-bold leading-tight">
-    <span className="text-[#2B68C3]">Sed ut perspiciatis</span><br />
-    <span className="text-[#666666]">undeSed ut perspiciatis</span>
-  </H2>
-                 {/* LEFT BUTTON */}
-      <div className=" absolute right-2 lg:right-12  gap-4 lg:gap-8   flex">
-    <button
-      onClick={scrollLeft}
-      className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
+          <H2 className="font-bold leading-tight">
+            <span className="text-[#2B68C3]">Sed ut perspiciatis</span><br />
+            <span className="text-[#666666]">undeSed ut perspiciatis</span>
+          </H2>
+          {/* LEFT BUTTON */}
+          <div className=" absolute right-2 lg:right-12  gap-4 lg:gap-8   flex">
+            <button
+              onClick={scrollLeft}
+              className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
                  text-[#2B68C3]"
-    >
-      <ArrowLeft size={20} />
-    </button>
+            >
+              <ArrowLeft size={20} />
+            </button>
 
-    <button
-      onClick={scrollRight}
-      className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
+            <button
+              onClick={scrollRight}
+              className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
                   text-[#2B68C3]"
-    >
-      <ArrowRight size={20} />
-    </button>
-  </div>
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Slider Wrapper */}
         <div className="relative lg:pl-10">
 
-   
+
 
           {/* Products Slider */}
           <div
@@ -167,7 +177,7 @@ const Products = () => {
                 className="relative aspect-[4/3] w-[280px] sm:w-[330px] md:w-[360px] 
                            flex-shrink-0 rounded-lg overflow-hidden shadow-md
                            hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
-                onClick={() => navigate(product.route)}
+                onClick={() => handleProductClick(product.route)}
               >
                 {/* Product Image */}
                 <img

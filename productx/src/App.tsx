@@ -2,7 +2,7 @@ import './App.css'
 // import Navbar from './components/Global/Navbar/Navbar'
 
 import './index.css'
-import { Link, Route, Routes,  useParams } from 'react-router-dom'
+import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
@@ -51,7 +51,8 @@ import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePaper
 import NewsPage from './components/Banking&Finance/News/NewsPage'
 import EventssPage from './components/Banking&Finance/Events/EventsPage'
 import HeroSlider from './components/LandingPage/HeroSlider'
- 
+import AIOptimization from './routes/industries/AIOptimization'
+
 const App = () => {
   // const location = useLocation();
   // const showNavbar = location.pathname === '/';
@@ -60,8 +61,8 @@ const App = () => {
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
     if (industry === "ehr-and-pms") return <EHRAndPMS />;
-    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br/> SOON AVAILABLE<br/> Till Then Check Other Industries 
-    <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
+    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br /> SOON AVAILABLE<br /> Till Then Check Other Industries
+      <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
 
   const ProductsPage = () => {
@@ -75,7 +76,7 @@ const App = () => {
     if (productId === "sams") return <Sams_Page />
     if (productId === "internet-banking-system") return <PDPage9 />
     if (productId === "loan-origination-system") return <ProductsPage7 />
-    return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br/> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
+    return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
 
   const EhrPmsPageRouter = () => {
@@ -127,12 +128,12 @@ const App = () => {
   return (
     <>
 
-   
+
       <ScrollProvider>
         <div data-scroll-container>
           {/* {showNavbar && <Navbar />} */}
           <Routes>
-            <Route path="/landingpage" element={<HeroSlider/>} />
+            <Route path="/landingpage" element={<HeroSlider />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
             <Route path="/industries/:industry/aboutus" element={<IndustryAboutUsPage />} />
@@ -153,17 +154,16 @@ const App = () => {
             <Route path="/career" element={<Career />} />
              <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage/>}/>
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
-            <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage/>} />
+            <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
+            <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
+            <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage/>}/>
+
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
             <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
             <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
-       <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage/>}/>
-       
-            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
-            <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
-            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
+  
             <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
             <Route path="/industries/high-tech/resources" element={<Resources />} />
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
@@ -171,21 +171,28 @@ const App = () => {
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
-              <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription/>}/>
+         
            <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
            <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
            <Route path="/industries/banking-and-finance/news" element={<NewsPage/>}/>
            <Route path="/industries/banking-and-finance/events" element={<EventssPage/>}/>
            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
-
+            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
+             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
+ 
+          
 
            <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
+
+
   <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
   <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
+            
+            <Route path="/industries/ai-automation" element={<AIOptimization />} />
           </Routes>
         </div>
       </ScrollProvider>
-       
+
     </>
   )
 }

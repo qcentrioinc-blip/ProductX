@@ -15,8 +15,30 @@ import HWD from "../HWD";
 import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
+import { useContext, useEffect } from "react";
+import { ScrollContext } from "../../../context/ScrollContext";
 
 const ProductsPage2 = () => {
+
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
   return (
     <>
     

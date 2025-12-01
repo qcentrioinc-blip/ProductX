@@ -1,156 +1,222 @@
-import { useEffect } from 'react';
-import { H2, H4, P } from '../../../styles/Typography';
-
 const ThreeStep = () => {
   const steps = [
     {
       number: "1",
       title: "Duis aute irure dolor in reprehenderit",
-      description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
-      bgColor: "bg-black"
+      description:
+        "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
+      bgColor: "bg-black",
     },
     {
       number: "2",
       title: "Duis aute irure dolor in reprehenderit",
-      description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
-      bgColor: "bg-gray-900"
+      description:
+        "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
+      bgColor: "bg-black",
     },
     {
       number: "3",
       title: "Duis aute irure dolor in reprehenderit",
-      description: "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
-      bgColor: "bg-black"
-    }
+      description:
+        "Duis qute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.",
+      bgColor: "bg-black",
+    },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-     
-      // Check each section to see if it's 30% visible
-      steps.forEach((_, index) => {
-        const sectionTop = index * windowHeight;
-        const sectionVisibility = scrollPosition - sectionTop;
-        const visibilityPercentage = (sectionVisibility / windowHeight) * 100;
-       
-        // Change animation when section is 30% visible
-        if (visibilityPercentage >= 30 && visibilityPercentage < 70) {
-          // You can add any additional logic here if needed
-        }
-      });
-    };
- 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
-
   return (
-    <div className="relative">
-      {/* Header Section - Responsive */}
-      <div className="w-full bg-black py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <H2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-3">
-              Sed ut perspiciatis
-            </H2>
-            <h3 
-              className="text-xl sm:text-2xl md:text-4xl lg:text-4xl font-bold italic"
-              style={{ 
-                color: '#d97706',
-                fontStyle: 'italic',
-                fontFamily: 'Georgia, serif'
-              }}
-            >
-              Unde Seduo ut perspiciatis
-            </h3>
-          </div>
+    <div className="relative w-full bg-black">
+      {/* ================= MOBILE + TABLET (NEW) ================= */}
+      {/* Header */}
+      <div className="w-full bg-black pt-16 pb-6 px-4 sm:px-6 lg:px-0 block lg:hidden">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: "clamp(26px, 5vw, 32px)",
+              color: "#F5F5F5",
+            }}
+          >
+            Sed ut perspiciatis
+          </h2>
+
+          <h3
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 600,
+              fontStyle: "italic",
+              fontSize: "clamp(22px, 4.5vw, 30px)",
+              lineHeight: "110%",
+              color: "#F99526",
+              whiteSpace: "normal",
+            }}
+          >
+            Unde Seduo ut perspiciatis
+          </h3>
         </div>
       </div>
 
-      {/* Sticky Steps Section */}
-      {steps.map((step, index) => (
-        <div
-          key={index}
-          className={`min-h-screen sm:min-h-screen md:min-h-screen lg:h-screen ${step.bgColor} sticky top-0 flex items-center justify-center px-4 sm:px-6 lg:px-6 py-12 sm:py-16 md:py-20 lg:py-0`}
-          style={{ zIndex: index + 1 }}
-        >
-          <div className="max-w-7xl w-full">
-            {/* Mobile/Tablet Layout - Stacked Vertical */}
-            <div className="lg:hidden relative flex flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12">
-              {/* Title */}
-              <div className="w-full">
-                <H4 className="text-white text-base sm:text-lg md:text-xl font-medium leading-relaxed text-center px-2">
-                  {step.title}
-                </H4>
+      {/* Steps - mobile / tablet, stacked, non-sticky */}
+      <div className="block lg:hidden">
+        {steps.map((step, index) => (
+          <section
+            key={index}
+            className="w-full bg-black py-12 sm:py-16 px-4 sm:px-6 border-b border-white/5 last:border-b-0"
+          >
+            <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
+              {/* Number */}
+              <div
+                style={{
+                  background:
+                    "linear-gradient(180deg, #a855f7 0%, #d97706 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontSize: "clamp(80px, 20vw, 160px)",
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                }}
+              >
+                {step.number}
               </div>
 
-              {/* Number */}
-              <div className="flex items-center justify-center">
-                <div 
-                  className="text-6xl sm:text-8xl md:text-9xl font-bold"
-                  style={{
-                    background: 'linear-gradient(180deg, #a855f7 0%, #d97706 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    lineHeight: '1'
-                  }}
-                >
-                  {step.number}
-                </div>
-              </div>
+              {/* Title */}
+              <h4
+                className="text-white"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(18px, 4.2vw, 22px)",
+                  lineHeight: "120%",
+                }}
+              >
+                {step.title}
+              </h4>
 
               {/* Description */}
-              <div className="w-full">
-                <P className="text-gray-300 text-sm sm:text-base md:text-base leading-relaxed text-center px-4 sm:px-6">
-                  {step.description}
-                </P>
-              </div>
+              <p
+                className="text-white"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: "clamp(15px, 3.8vw, 18px)",
+                  fontWeight: 400,
+                  lineHeight: "150%",
+                }}
+              >
+                {step.description}
+              </p>
             </div>
+          </section>
+        ))}
+      </div>
 
-            {/* Desktop Layout - Three Columns (Hidden on mobile/tablet) */}
-            <div className="hidden lg:flex relative items-center justify-center">
-              {/* Left Column - Title */}
-              <div 
-                className="absolute left-0 top-1/2 transform -translate-y-1/2" 
-                style={{ width: '280px' }}
+      {/* ================= DESKTOP LAYOUT (ORIGINAL, UNCHANGED) ================= */}
+      {/* HEADER */}
+      <div className="w-full bg-black px-4 sm:px-6 lg:px-6 hidden lg:block">
+        <div className="max-w-8xl mx-10 text-center">
+          <h2
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontWeight: 600,
+              fontSize: "42px",
+              color: "#F5F5F5",
+            }}
+          >
+            Sed ut perspiciatis
+          </h2>
+
+          <h3
+            className=""
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 600,
+              fontStyle: "italic",
+              fontSize: "40px",
+              lineHeight: "100%",
+              color: "#F99526",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Unde Seduo ut perspiciatis
+          </h3>
+        </div>
+      </div>
+
+      {/* STICKY SECTIONS - DESKTOP ONLY */}
+      <div className="hidden lg:block">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className={` ${step.bgColor} sticky top-0 flex items-center h-screen`}
+            style={{ zIndex: index + 1 }}
+          >
+            <div className="max-w-8xl mx-10 w-full px-6">
+              {/* ---------- ORIGINAL RESPONSIVE LAYOUT (DESKTOP) ---------- */}
+              <div
+                className="
+                  flex 
+                  flex-col 
+                  md:flex-col 
+                  lg:flex-row 
+                  items-center 
+                  justify-between 
+                  gap-10 
+                  relative
+                "
               >
-                <H4 className="text-white text-lg font-medium leading-relaxed">
-                  {step.title}
-                </H4>
-              </div>
-
-              {/* Middle Column - Gradient Number */}
-              <div className="flex items-center justify-center">
-                <div 
-                  className="text-9xl font-bold"
-                  style={{
-                    background: 'linear-gradient(180deg, #a855f7 0%, #d97706 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    fontSize: '200px',
-                    lineHeight: '1'
-                  }}
-                >
-                  {step.number}
+                {/* LEFT TITLE */}
+                <div className="w-full lg:w-[280px] text-left lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+                  <h4
+                    className="text-white"
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontWeight: 700,
+                      fontSize: "24px",
+                      lineHeight: "110%",
+                    }}
+                  >
+                    {step.title}
+                  </h4>
                 </div>
-              </div>
 
-              {/* Right Column - Description */}
-              <div 
-                className="absolute right-0 top-1/2 transform -translate-y-1/2" 
-                style={{ width: '420px' }}
-              >
-                <P className="text-gray-300 text-base leading-relaxed">
-                  {step.description}
-                </P>
+                {/* CENTER NUMBER */}
+                <div className="flex justify-center w-full">
+                  <div
+                    className="font-bold"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, #a855f7 0%, #d97706 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      fontSize: "260px",
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontWeight: 700,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {step.number}
+                  </div>
+                </div>
+
+                {/* RIGHT DESCRIPTION */}
+                <div className="w-full lg:w-[420px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                  <p
+                    className="text-white"
+                    style={{
+                      fontFamily: "'Quicksand', sans-serif",
+                      fontSize: "22px",
+                      fontWeight: 400,
+                      lineHeight: "150%",
+                    }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
