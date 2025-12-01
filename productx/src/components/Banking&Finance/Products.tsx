@@ -8,15 +8,15 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const Products = () => {
   const navigate = useNavigate();
   const sliderRef = useRef<HTMLDivElement>(null);
-
+ 
   const scrollLeft = () => {
     sliderRef.current?.scrollBy({ left: -350, behavior: "smooth" });
   };
-
+ 
   const scrollRight = () => {
     sliderRef.current?.scrollBy({ left: 350, behavior: "smooth" });
   };
-
+ 
   const products = [
     {
       id: 1,
@@ -101,9 +101,9 @@ const Products = () => {
       route: "/industries/banking-and-finance/products/sherlock"
     }
   ];
-
+ 
   const location = useLocation();
-
+ 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get("scroll") === "products") {
@@ -159,7 +159,7 @@ const Products = () => {
             </button>
           </div>
         </div>
-
+ 
         {/* Slider Wrapper */}
         <div className="relative lg:pl-10">
 
@@ -174,7 +174,7 @@ const Products = () => {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="relative aspect-[4/3] w-[280px] sm:w-[330px] md:w-[360px] 
+                className="relative aspect-[4/3] w-[280px] sm:w-[330px] md:w-[360px]
                            flex-shrink-0 rounded-lg overflow-hidden shadow-md
                            hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
                 onClick={() => handleProductClick(product.route)}
@@ -200,22 +200,22 @@ const Products = () => {
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b  from-transparent to-black/60 
                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+ 
                     {/* Title */}
-                    <div className="absolute top-4 left-4 sm:top-6 md:left-6 md:pr-10 opacity-100 
+                    <div className="absolute top-4 left-4 sm:top-6 md:left-6 md:pr-10 opacity-100
                                     group-hover:opacity-0 transition-opacity duration-300">
                       <P className="text-white">{product.title}</P>
                     </div>
-
+ 
                     {/* Logo sliding */}
-                    <div className="absolute left-4 sm:left-6 bottom-6 w-[200px] rounded-md py-3 
-                                    transition-all duration-700 ease-in-out transform 
+                    <div className="absolute left-4 sm:left-6 bottom-6 w-[200px] rounded-md py-3
+                                    transition-all duration-700 ease-in-out transform
                                     group-hover:-translate-y-50">
                       <img src={product.logo} className=" h-14 w-full" />
                     </div>
-
+ 
                     {/* Hover Description */}
-                    <div className="absolute bottom-[-100%] left-0 w-full px-6 text-white 
+                    <div className="absolute bottom-[-100%] left-0 w-full px-6 text-white
                                     opacity-0 group-hover:bottom-12 group-hover:opacity-100
                                     transition-all duration-700 ease-in-out">
                       <P className="text-white">{product.para}</P>
@@ -226,10 +226,10 @@ const Products = () => {
             ))}
           </div>
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default Products;

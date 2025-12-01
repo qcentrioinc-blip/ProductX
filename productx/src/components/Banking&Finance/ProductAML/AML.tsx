@@ -7,11 +7,8 @@ import InsightThought from "../InsightThought"
  
 import FaqSection from "../ProductSherlock/FAQ"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
- 
 import BNFNav from "../BNFnav"
-
-import ContactUS from "../ProductRemitree/ContactUS"
-// import ContactSection from "../Products1/ContactSection"
+import ContactSection from "../ProductBankfair/ContactSection"
  
  
 
@@ -28,7 +25,7 @@ const AML = () => {
       
       <FaqSection/>
       <InsightThought/>
-     <ContactUS/>
+     <ContactSection/>
       <NewOneFooter/>
     
     </div>

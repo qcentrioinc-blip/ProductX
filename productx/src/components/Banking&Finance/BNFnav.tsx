@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
 import { ChevronDown } from "lucide-react"; 
@@ -68,7 +68,6 @@ const megaMenuItems = [
     path: "/industries/banking-and-finance/products/sherlock",
   },
 ];
-
 const resourceItems = [
   {
     title: "Newsletter",
@@ -102,15 +101,15 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
   
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
-  const industries = [
-    { name: "Banking & Finance", path: "/industries/banking-and-finance" },
-    { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
-    { name: "HighTech", path: "/industries/high-tech" },
-    { name: "AI Automation", path: "/industries/ai-automation" },
-  ];
-  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+const industries = [
+  { name: "Banking & Finance", path: "/industries/banking-and-finance" },
+  { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
+  { name: "HighTech", path: "/industries/high-tech" },
+  { name: "AI Automation", path: "/industries/ai-automation" },
+];
+const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
-
+ 
   const navItems = [
     { name: "Products", path: `${base}?scroll=products`, scroll: true },
     { name: "About Us", path: `${base}/about-us` },
@@ -141,7 +140,6 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
   //     }, 100);
   //   }
   // };
-
   // Scroll effect for desktop main nav
   useEffect(() => {
     const handleScroll = () => {
@@ -150,33 +148,33 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+  const handleClickOutside = (e: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      setMenuOpen(false);
     }
-
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [menuOpen]);
-
-
-
-
-
+  };
+ 
+  if (menuOpen) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+ 
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, [menuOpen]);
+ 
+ 
+ 
+ 
+ 
   return (
     <>
       {/* TOP TRANSPARENT BAR (KEPT SAME) */}
       <div
-        className=" fixed top-0 z-50 left-0 w-full 
+        className=" fixed top-0 z-50 left-0 w-full
         bg-white/10 backdrop-blur-lg font-bricolage
         border-b border-white/20
-         px-4 sm:px-6 md:px-8 pt-3 pb-1 
+         px-4 sm:px-6 md:px-8 pt-3 pb-1
         flex justify-between transition-all duration-300"
       >
         <Link to="/" className="flex items-center">
@@ -186,7 +184,7 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
             </span>
           </div>
         </Link>
-
+ 
         {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
           <Link to="/platform" className="text-white font-medium">
@@ -196,7 +194,7 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
             Marketplace
           </Link>
         </div>
-
+ 
         {/* MOBILE HAMBURGER (NO LOGO, NO CONTACT BUTTON) */}
         <button
           className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
@@ -219,7 +217,7 @@ const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
           ></span>
         </button>
       </div>
-
+ 
       {/* MAIN NAV (DESKTOP ONLY ) */}
       <nav
         className={`hidden lg:flex  absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl 
@@ -372,7 +370,6 @@ top-36
     <P className="text-gray-600 text-sm leading-snug">{item.desc}</P>
   </div>
 </Link>
-
           </div>
         ) : (
           <div key={index}></div>  
@@ -476,66 +473,66 @@ top-36
                   }}
                   className="block px-4 py-3 rounded-md text-gray-800 font-medium
               hover:bg-blue-200 hover:text-white transition-all duration-200"
-                >
-                  {ind.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* NAV ITEMS (Middle) */}
-        <div className="flex flex-col gap-10 mt-4">
-          {navItems.map((item) => (
-            <div
-              key={item.name}
-              className="border-b border-gray-200 pb-3"
-            >
-              {item.scroll ? (
-                <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    document.getElementById("productsSection")?.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                  }}
-                  className="text-gray-800 text-lg font-semibold"
-                >
-                  {item.name}
-                </button>
-              ) : (
-                <Link
-                  to={item.path}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-800 text-lg font-semibold block"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-between mt-10 gap-6 pt-4">
-          <Link to="/platform" className="text-blue-500 text-lg font-semibold">
-            Platform
+          >
+            {ind.name}
           </Link>
-          <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
-            Marketplace
-          </Link>
-        </div>
-
-
-        {/* CONTACT BUTTON (BOTTOM) */}
-        <div className="mt-6 flex justify-center items-center">
-          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
-            <ContactUsDark>Contact Us</ContactUsDark>
-          </Link>
-        </div>
+        ))}
       </div>
-
+    </div>
+  </div>
+ 
+  {/* NAV ITEMS (Middle) */}
+  <div className="flex flex-col gap-10 mt-4">
+    {navItems.map((item) => (
+      <div
+        key={item.name}
+        className="border-b border-gray-200 pb-3"
+      >
+        {item.scroll ? (
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              document.getElementById("productsSection")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+            className="text-gray-800 text-lg font-semibold"
+          >
+            {item.name}
+          </button>
+        ) : (
+          <Link
+            to={item.path}
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-800 text-lg font-semibold block"
+          >
+            {item.name}
+          </Link>
+        )}
+      </div>
+    ))}
+  </div>
+ 
+ <div className="flex justify-between mt-10 gap-6 pt-4">
+  <Link to="/platform" className="text-blue-500 text-lg font-semibold">
+    Platform
+  </Link>
+  <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
+    Marketplace
+  </Link>
+</div>
+ 
+ 
+  {/* CONTACT BUTTON (BOTTOM) */}
+  <div className="mt-6 flex justify-center items-center">
+    <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+      <ContactUsDark>Contact Us</ContactUsDark>
+    </Link>
+  </div>
+</div>
+ 
     </>
   );
 };
-
+ 
 export default BNFNav;

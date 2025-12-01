@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { P } from "../../../styles/Typography";
  
 // using window.location instead of next/navigation to avoid missing type declarations
-
+ 
  
 const categories = [
   "All Posts",
@@ -269,13 +269,13 @@ const posts = [
   },
 ];
  
-
-
+ 
+ 
  
 export default function BlogGridSection() {
   const [activeCategory, setActiveCategory] = useState("All Posts");
   const [currentPage, setCurrentPage] = useState(1);
-
+ 
   const [pathname, setPathname] = useState<string | null>(null);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -285,14 +285,14 @@ export default function BlogGridSection() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
   const currentSection = pathname?.split("/").filter(Boolean).pop();
-
+ 
   const filterOptions = [
     { label: "White Papers", key: "whitepapers" },
     { label: "News", key: "news" },
     { label: "Blogs", key: "blogs" },
     { label: "Events", key: "events" },
   ];
-
+ 
   const filteredFilterOptions = filterOptions.filter(
     (opt) => opt.key !== currentSection
   );
@@ -478,4 +478,3 @@ export default function BlogGridSection() {
     </section>
   );
 }
- 

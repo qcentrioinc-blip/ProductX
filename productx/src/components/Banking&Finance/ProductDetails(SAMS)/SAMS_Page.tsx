@@ -2,7 +2,6 @@ import HWD from "../HWD";
 import InsightThought from "../InsightThought";
 import FaqSection from "../ProductSherlock/FAQ";
 import Cards from "./Cards";
- 
 import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";
 import HeroSection from "./HeroSection";
@@ -12,10 +11,9 @@ import HeroSection from "./HeroSection";
 
 // import NewFooter from "../Products2/NewFooter";
 import BNFNav from "../BNFnav";
-import ContactUS from "../ProductRemitree/ContactUS";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
- 
- 
+import ContactSection from "../ProductBankfair/ContactSection";
+
 const Sams_Page = () => {
   return (
     <div>
@@ -27,7 +25,7 @@ const Sams_Page = () => {
         <HWD />
         <FaqSection />
         <InsightThought />
-        <ContactUS/>
+        <ContactSection/>
         <NewOneFooter/>
         
     </div>
