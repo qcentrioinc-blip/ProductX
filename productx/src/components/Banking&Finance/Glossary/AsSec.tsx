@@ -90,7 +90,7 @@ export default function GlossaryPage() {
   return (
     <div className="w-full">
       {/* Sticky A–Z Bar */}
-      <div className="sticky top-0 z-50 bg-black text-white text-xl lg:text-2xl font-bricolage overflow-x-auto whitespace-nowrap border-b border-gray-700">
+      <div className="sticky top-0 mx-8 z-50 bg-black text-white text-xl lg:text-2xl font-bricolage overflow-x-auto whitespace-nowrap border-b border-gray-700">
         <div className="flex space-x-6 px-10 py-2 lg:py-4 justify-between">
           {alphabet.map((letter) => (
             <button

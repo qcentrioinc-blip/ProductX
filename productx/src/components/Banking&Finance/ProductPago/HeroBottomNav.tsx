@@ -52,7 +52,7 @@ export default function HeroBottomNavbar() {
   return (
     
       <nav className="bg-white shadow-md w-full sticky top-0 z-60 border-b border-gray-200">
-      <div className="max-w-8xl lg:mx-10 px-12 scrollbar-hide::-webkit-scrollbar scrollbar-hide font-bricolage     py-4 flex gap-10 overflow-x-auto">
+      <div className="max-w-8xl lg:mx-10  px-4 lg:px-12 scrollbar-hide::-webkit-scrollbar scrollbar-hide font-bricolage     py-4 flex gap-10 overflow-x-auto">
         {navItems.map((item) => (
           <a
             key={item.id}

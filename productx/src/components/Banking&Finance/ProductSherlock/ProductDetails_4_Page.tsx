@@ -68,12 +68,12 @@ const ProductDetails_4_page = () => {
         className='lg:relative lg:h-[700px]'
         style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
       >
-        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
-          {/* <NewFooter /> */}
+        
+          
           <NewOneFooter/>
         </div>
       </div>
-    </div>
+    
     </ScrollProvider>
 
     )

@@ -6,7 +6,7 @@ import Process from "./Process"
 import Testimonial from "../HomePage/GlobalLandingPage/Testimonial"
 import Counter from "./Counter"
 import WhatWeDoIn from "./WhatWeDoIn"
-import NewFooter from "./ProductRemitree/NewFooter"
+import NewFooter from "../Global/NewFooter/NewFooter"
 import InsightThought from "./InsightThought"
 import BNFnav from "./BNFnav"
  

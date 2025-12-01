@@ -5,7 +5,7 @@ import { ArrowUpRight,ArrowRight } from "lucide-react";
 
 const Contact: React.FC = () => {
   return (
-    <section className="w-full min-h-[666px] flex relative bg-[#FAFAFA] lg:pl-6 overflow-hidden">
+    <section className="w-full min-h-[666px] flex relative bg-[#FAFAFA] pl-4 lg:pl-6 overflow-hidden">
       {/* Dotted pattern background for small screens */}
       <div className="absolute md:hidden inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.1)_2px,_transparent_1px)] [background-size:12px_12px] opacity-50" />
 

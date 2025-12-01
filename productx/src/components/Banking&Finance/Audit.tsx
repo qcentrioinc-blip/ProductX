@@ -21,8 +21,8 @@ const Audit = () => {
   ];
  
   return (
-    <section className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="  mx-10 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-white py-12  sm:py-16 md:py-20 lg:py-24">
+      <div className="  lg:mx-10  px-4 sm:px-10 lg:px-8">
         {/* Header */}
         <div className="mb-8 md:mb-12">
           <H2 className=" font-bold leading-tight">
@@ -33,7 +33,7 @@ const Audit = () => {
         </div>
  
         {/* Main Image with minimal padding */}
-        <div className="mb-8 md:mb-8 -mx-2 sm:-mx-3">
+        <div className="mb-8 md:mb-8   sm:-mx-3">
           <img
             src="/Audit.png"
             alt="Team collaboration"
