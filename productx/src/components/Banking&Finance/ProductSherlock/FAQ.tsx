@@ -45,7 +45,7 @@ const faqData: FaqItem[] = [
       "Absolutely. The layout adjusts to screen size using responsive Tailwind classes. It explains more about the question in detail. It explains more about the question in detail.",
   },
 ];
-
+const hideShape = location.pathname.startsWith("/industries/ehr-and-pms/");
 const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -109,30 +109,31 @@ const FaqSection: React.FC = () => {
       </div>
 
       {/* Decorative Shape - Always visible, anchored at bottom */}
-      <div
-        className="
-          absolute
-          
-          bottom-[-250px]
-          left-[150px]
-          -translate-x-1/2
-          w-[900px]
-          sm:w-[1000px]
-          md:w-[1100px]
-          h-[20px]
-          rotate-[-170deg]
-          pointer-events-none
-          opacity-100
-          z-0
-          
-        "
-      >
-        <img
-          src="/ProductDetails4/faq_img1.png"
-          alt="FAQ Decorative Shape"
-          className="w-full h-auto object-contain"
-        />
-      </div>
+      {!hideShape && (
+  <div
+    className="
+      absolute
+      bottom-[-250px]
+      left-[150px]
+      -translate-x-1/2
+      w-[900px]
+      sm:w-[1000px]
+      md:w-[1100px]
+      h-[20px]
+      rotate-[-170deg]
+      pointer-events-none
+      opacity-100
+      z-0
+    "
+  >
+    <img
+      src="/ProductDetails4/faq_img1.png"
+      alt="FAQ Decorative Shape"
+      className="w-full h-auto object-contain"
+    />
+  </div>
+)}
+
     </section>
   );
 };

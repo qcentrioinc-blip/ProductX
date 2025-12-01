@@ -8,17 +8,38 @@ import HeroSec from './HeroSec';
 import AsSec from './AsSec';
 import NewOneFooter from '../ProductRemitree/NewOneFooter';
  
-import Contact from '../BNFContact/Contact';
+import ContactUS from '../ProductRemitree/ContactUS';
+import BNFNav from '../BNFnav';
+import EHRFooter from '../../HomePage/EHR&PMS/EHRFooter';
+import SubFooter from '../../HighTech/AboutHightTech/SubFooter';
+ 
+ 
+// import AlphabetSec from './AlphabetsSection';
 
-const GlossaryPage = () => {
+interface GlossaryPageProps {
+  industry: string;
+}
+
+const GlossaryPage = ({ industry }: GlossaryPageProps) => {
   return (
     <>
+    <BNFNav/>
       <HeroSec/>
+      
       <AsSec/>
-   
-      <Contact/>
+   {/* <AlphabetSec/> */}
+      {industry === "finance" && (
+        <>
+          <ContactUS />
+          <NewOneFooter />
+        </>
+      )}
+
+      {industry === "ehrpms" && <EHRFooter />}
+      {industry === "hightech" && <SubFooter />}
+  
        
-      <NewOneFooter/>
+      {/* <NewOneFooter/> */}
        
       
     </>

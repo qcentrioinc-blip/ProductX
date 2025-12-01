@@ -28,8 +28,11 @@ const BankingAndFinance = () => {
       <Process/>
        <Testimonial/>
       <InsightThought/>
+      <section className="bg-white  ">
       <ContactUS/>
+      
      <NewOneFooter/>
+     </section>
       
     </>
   )

@@ -32,16 +32,16 @@ const WhatWeDoIn = () => {
     },
   ];
 
-  const images = ["/Image1.jpg", "/Image2.jpg", "/Image3.jpg"];
+  const images = ["/Products/AccordionImage.png","/Image1.jpg", "/Image2.jpg"];
 
   return (
     <div
       ref={targetRef}
-      className="bg-white text-black max-w-8xl overflow-hidden h-full py-20 flex flex-col"
+      className="bg-white text-black max-w-8xl overflow-hidden h-full py-10 lg:py-20 flex flex-col"
       id="benefits"
     >
       {/* Heading Section */}
-      <div className="relative mb-20 mx-4 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
+      <div className="relative mb-20  max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
          
         <H2 className=" font-bold text-[#2B68C3]">
           Consecte <span className="text-[#666666]"> adipiscing </span> Consecte
@@ -61,20 +61,45 @@ const WhatWeDoIn = () => {
         </ContactUs>
       </div>
       {/* Desktop Layout */}
-      <div className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
-        {/* Image Side with Yellow Border */}
-        <div className="relative md:w-[500px] w-full h-[500px] md:h-[550px] flex items-center justify-start">
-          {/* Yellow Border Background */}
-          <div className="absolute top-0 left-0 w-full h-full bg-[#FFD700] rounded-lg z-0"></div>
-          {/* Main Image Container - offset to reveal yellow border */}
-          <div className="absolute top-8 left-8 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
-            <img
-              src={images[openIndex]}
-              alt="Who we serve"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
-        </div>
+      <div className="hidden lg:flex flex-1  flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
+     
+    
+<div className="relative md:w-[500px] w-full h-[500px] md:h-[580px] flex items-center justify-start">
+ 
+ 
+  {/* Main Image Container */}
+  <div className="absolute top-8 left-0 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
+    <img
+      src={images[openIndex]}
+      alt="Who we serve"
+      className="w-full h-full object-cover  rounded-br-[180px] rounded-lg"
+    />
+     <div className="
+      absolute 
+      bottom-0 right-0 
+      w-full h-full
+      border-r-[12px]
+      border-b-[12px]
+      border-t-[12px] border-[#2B68C3]
+      rounded-br-[180px]
+          
+      z-20
+    ">
+  </div>
+  <div className="
+      absolute 
+      -top-18 -left-8
+          
+      flex flex-col gap-2 
+      z-20 
+    ">
+    <img src="/Products/FloatingImage.png" alt=""   />
+    </div>
+  </div>
+   
+  
+</div>
+
         {/* Accordion Side */}
         <div className="w-full md:w-3/5 flex flex-col justify-center gap-4">
           {accordionData.map((item, index) => {
@@ -84,7 +109,7 @@ const WhatWeDoIn = () => {
               <div
                 key={item.id}
                 className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg ${
-                  isOpen ? "bg-[#F6F6F6] min-h-[50px]" : "bg-[#F6F6F6] min-h-[100px]"
+                  isOpen ? "bg-blue-100 min-h-[50px]" : "bg-[#F6F6F6] min-h-[100px]"
                 }`}
                 onClick={() => setOpenIndex(index)}
               >
@@ -111,7 +136,7 @@ const WhatWeDoIn = () => {
  
                 {isOpen && (
                   <motion.div
-                    className="pr-12 pl-32 md:pl-72 text-justify pt-24 pb-2"
+                    className="pr-12 pl-32 md:pl-88 text-left pt-24 pb-2"
                     initial={{ opacity: 0, x: 80 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 80 }}
@@ -134,19 +159,36 @@ const WhatWeDoIn = () => {
         </div>
       </div>
       {/* Mobile/Tablet Layout */}
-      <div className="lg:hidden flex flex-col w-full px-4 sm:px-8">
+      <div className="lg:hidden flex flex-col  w-full px-4 sm:px-8">
         {/* Image with Yellow Border */}
-        <div className="relative w-full h-[400px] mb-8">
-          {/* Yellow Border Background */}
-          <div className="absolute top-0 left-0 w-[calc(100%-2rem)] h-full bg-[#FFD700] rounded-lg z-0"></div>
-          {/* Main Image Container */}
-          <div className="absolute top-6 left-6 w-[calc(100%-2rem)] h-[calc(100%-1.5rem)] z-10">
-            <img
-              src={images[openIndex]}
-              alt="Who we serve"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
+        <div className="relative w-full h-[400px] mt-20 mb-8">
+           <img
+      src={images[openIndex]}
+      alt="Who we serve"
+      className="w-full h-full object-cover  rounded-br-[180px] rounded-lg"
+    />
+     <div className="
+      absolute 
+      bottom-0 right-0 
+      w-full h-full
+      border-r-[12px]
+      border-b-[12px]
+      border-t-[12px] border-[#2B68C3]
+      rounded-br-[180px]
+          
+      z-20
+    ">
+  </div>
+  <div className="
+      absolute 
+      -top-18 -left-6
+          
+      flex flex-col gap-2 
+      z-20 
+    ">
+    <img src="/Products/FloatingImage.png" alt=""   />
+    </div>
+          
         </div>
         {/* Accordion Items */}
         <div className="w-full flex flex-col gap-4">
@@ -160,7 +202,7 @@ const WhatWeDoIn = () => {
                 }`}
                 onClick={() => setOpenIndex(index)}
               >
-                <div className="flex items-center p-6">
+                <div className="flex items-center px-2 py-6 lg:p-6">
                   <span
                     className={`text-5xl font-bold transition-colors duration-500 mr-6 ${
                       isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
@@ -178,7 +220,7 @@ const WhatWeDoIn = () => {
                 </div>
                 {isOpen && (
                   <motion.div
-                    className="px-6 pb-6 text-justify"
+                    className=" px-4 lg:px-6 pb-6 text-justify"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
