@@ -74,7 +74,7 @@ html {
     
 }
 
-.font-schibsted{
+.font-schibsted {
    font-family: "Schibsted Grotesk", sans-serif;
 }
 .text-outline{
@@ -100,7 +100,7 @@ color:transparent;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 500;         /* hero se neeche */
+  z-index: 500;         
   opacity: 0;
   transform: translateY(-20px);
   transition: 0.4s ease;
@@ -125,7 +125,7 @@ color:transparent;
 }
 
 :root {
-  /* Adjust this value to match your fixed header's height */
+  
   scroll-padding-top: 0px; 
 }
 

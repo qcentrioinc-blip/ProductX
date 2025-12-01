@@ -4,7 +4,7 @@ import linkedinLogo from "/LinkedIn.png";
 import xLogo from "/Twitter.png";
 import { useEffect,useRef,useState } from "react";
 import { ArrowUpRight,ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+ 
 const OverviewSection = () => {
    const [showBar, setShowBar] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ const OverviewSection = () => {
     const node = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => setShowBar(entry.isIntersecting),
-      { threshold: 0.3 } // Adjust threshold to control visibility trigger
+      { threshold: 0.3 }  
     );
 
     if (node) observer.observe(node);
@@ -27,7 +27,8 @@ const OverviewSection = () => {
 
 
   return (
-    <section
+    <section 
+    
       ref={sectionRef}
       className="bg-[#E5F0FF] -mt-10 w-full py-20  overflow-visible"
     >
@@ -100,20 +101,26 @@ const OverviewSection = () => {
         </div>
 
         <div className="hidden md:flex flex-col items-start mt-10 sticky top-24 self-start w-[280px]">
-          <Link to="/industries/banking-and-finance/jobapplication">
+         
           <button
-            className="group flex items-center justify-center gap-2 w-[250px] h-[48px]
-                       px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px]
-                       border-2 border-[#141414] bg-black text-white shadow-md
-                       transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
-          >
-            SUBMIT APPLICATION
-            <span className="relative flex items-center h-[20px] w-[20px]">
-              <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-              <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </span>
-          </button>
-          </Link>
+  onClick={() => {
+    const section = document.getElementById("uploadResumeSection");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="group flex items-center justify-center gap-2 w-[250px] h-[48px]
+             px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px]
+             border-2 border-[#141414] bg-black text-white shadow-md
+             transition-all duration-300 ease-in-out hover:bg-white hover:text-black"
+>
+  SUBMIT APPLICATION
+  <span className="relative flex items-center h-[20px] w-[20px]">
+    <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+    <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+  </span>
+</button>
+
 
           <div className="mt-8 space-y-4 items-start">
             <P className="text-gray-600 font-semibold">Share Job</P>

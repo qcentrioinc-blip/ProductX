@@ -61,7 +61,7 @@ const HealthFeatures = () => {
   };
 
   return (
-    <section 
+    <section
       className="relative overflow-hidden"
       style={{
         background: '#EDE4CA',
@@ -80,7 +80,7 @@ const HealthFeatures = () => {
           {/* Left side - Title and navigation */}
           <div className="lg:col-span-4 relative z-10">
             {/* Title - Updated Typography */}
-            <h1 
+            <h1
               className="leading-tight mb-6 sm:mb-8"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -98,7 +98,7 @@ const HealthFeatures = () => {
             </h1>
 
             {/* Description - Updated Typography */}
-            <p 
+            <p
               className="mb-8 sm:mb-10 leading-relaxed"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
@@ -161,77 +161,94 @@ const HealthFeatures = () => {
           </div>
 
           {/* Right side - Carousel - CENTERED VERTICALLY */}
-          <div className="lg:col-span-8 overflow-hidden">
-            <div className="relative">
+          <div
+            className="lg:col-span-8"
+            style={{ overflow: 'visible' }}
+          >
+            <div
+              className="relative"
+              style={{
+                overflow: 'visible',
+                width: '120%',
+                maxWidth: 'none',
+              }}
+            >
+              {/* Apply mask that's wider than container */}
               <div
-                className="flex gap-14 lg:gap-18 transition-transform duration-500 ease-out"
                 style={{
-                  transform: `translateX(-${currentIndex * (100 / cardsPerView + 4)}%)`,
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 0%, black 100%)',
+                  maskImage: 'linear-gradient(to right, transparent 0%, black 0%, black 100%)',
+                  WebkitMaskSize: '100% 100%',
+                  maskSize: '100% 100%',
                 }}
               >
-                {healthFeatures.map((feature) => (
-                  <div 
-                    key={feature.id} 
-                    className="flex-shrink-0 w-full sm:w-full lg:w-[calc(50%-2rem)]"
-                    style={{
-                      maxWidth: '555px'
-                    }}
-                  >
-                    {/* Date */}
-                    <p className="text-xs sm:text-sm font-medium text-[#6B8A7A] mb-3 sm:mb-4 tracking-wide">
-                      {feature.date}
-                    </p>
-
-                    {/* Title - Updated Typography */}
-                    <h3 
-                      className="mb-3 sm:mb-4 leading-snug"
+                <div
+                  className="flex gap-8 transition-transform duration-500 ease-out"
+                  style={{
+                    transform: `translateX(-${currentIndex *25}%)`,
+                    width: 'max-content',
+                  }}
+                >
+                  {healthFeatures.map((feature) => (
+                    <div
+                      key={feature.id}
+                      className="flex-shrink-0"
                       style={{
-                        fontFamily: "'Bricolage Grotesque', sans-serif",
-                        fontWeight: 700,
-                        fontSize: '24px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#2A2A2A'
+                        width: '450px',
+                        maxWidth: '450px'
                       }}
                     >
-                      {feature.title}
-                    </h3>
+                      {/* Your card content here */}
+                      <p className="text-xs sm:text-sm font-medium text-[#6B8A7A] mb-3 sm:mb-4 tracking-wide">
+                        {feature.date}
+                      </p>
 
-                    {/* Description - Updated Typography */}
-                    <p 
-                      className="mb-5 sm:mb-6 leading-relaxed line-clamp-2"
-                      style={{
-                        fontFamily: "'Quicksand', sans-serif",
-                        fontWeight: 400,
-                        fontSize: '18px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#141414'
-                      }}
-                    >
-                      {feature.description}
-                    </p>
+                      <h3
+                        className="mb-3 sm:mb-4 leading-snug"
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 700,
+                          fontSize: '24px',
+                          lineHeight: '100%',
+                          color: '#2A2A2A'
+                        }}
+                      >
+                        {feature.title}
+                      </h3>
 
-                    {/* Image - Fixed Dimensions */}
-                    <div 
-                      className="overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-                      style={{
-                        width: '405px',
-                        height: '317.56px',
-                        borderRadius: '8px'
-                      }}
-                    >
-                      <img
-                        src={feature.image || "/placeholder.svg"}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
+                      <p
+                        className="mb-5 sm:mb-6 leading-relaxed line-clamp-2"
+                        style={{
+                          fontFamily: "'Quicksand', sans-serif",
+                          fontWeight: 400,
+                          fontSize: '18px',
+                          color: '#141414'
+                        }}
+                      >
+                        {feature.description}
+                      </p>
+
+                      <div
+                        className="overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                        style={{
+                          width: '405px',
+                          height: '317.56px',
+                          borderRadius: '8px'
+                        }}
+                      >
+                        <img
+                          src={feature.image || "/placeholder.svg"}
+                          alt={feature.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

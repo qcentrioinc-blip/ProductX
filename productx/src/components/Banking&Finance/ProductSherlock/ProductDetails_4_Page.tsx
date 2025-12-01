@@ -9,7 +9,7 @@ import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 import BNFNav from "../BNFnav";
-import ContactSection from "../ProductBankfair/ContactSection";
+import ContactUS from "../ProductRemitree/ContactUS";
 
 
 const ProductDetails_4_page = () => {
@@ -25,7 +25,7 @@ const ProductDetails_4_page = () => {
         <HWD />
         <FAQ />
         <InsightThought />
-        <ContactSection/>
+        <ContactUS/>
         <NewOneFooter/>
         
     </div>

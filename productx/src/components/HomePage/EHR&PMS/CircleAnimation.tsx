@@ -62,7 +62,7 @@ const desktopSlides: Slide[] = [
     bottomRight: [
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw + 210px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw + 180px)', borderRadius: '50%' },
-      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 295px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
+      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 275px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw - 280px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw - 325px)', borderRadius: '50%' }
     ]
