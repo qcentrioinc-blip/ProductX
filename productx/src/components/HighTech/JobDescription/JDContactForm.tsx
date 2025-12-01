@@ -1,10 +1,11 @@
 "use client";
 import { ArrowUpRight } from "lucide-react";
 import { H1, P } from "../../../styles/Typography";
+import { Link } from "react-router-dom";
 
 const ContactFormSection = () => {
   return (
-    <section className="w-full h-screen bg-white py-24 px-4 mt-10 flex items-center">
+    <section className="w-full h-screen bg-white py-24 px-4 mt-10 flex items-center" id="contactForm">
       <div className="max-w-8xl mx-10 flex flex-col md:flex-row items-start justify-between gap-20 w-full">
         {/* Left side - Form */}
         <div className="flex-1 w-full md:w-1/2">
@@ -45,7 +46,7 @@ const ContactFormSection = () => {
                 <span className="text-base text-gray-600">No file chosen</span>
                 <label
                   htmlFor="resume"
-                  className="absolute right-0 top-0 text-[#F99526] font-semibold cursor-pointer text-base"
+                  className="absolute bg-orange-100 hover:bg-orange-200 px-4 py-1  rounded-full right-0 top-0 text-[#F99526] font-semibold cursor-pointer text-base"
                 >
                   Upload
                 </label>
@@ -86,13 +87,15 @@ const ContactFormSection = () => {
             </div>
 
             {/* Contact Us Button */}
+            <Link to="/industries/high-tech">
             <button
               type="button"
-              className="flex items-center gap-3 bg-[#F99526] text-black font-semibold text-lg px-6 py-4 rounded-md hover:bg-[#e98413] transition"
+              className="flex items-center gap-3 bg-[#F99526] text-black font-semibold text-lg px-6 py-2 rounded-md hover:bg-[#e98413] transition"
             >
-              Contact Us
+              Submit
               <ArrowUpRight className="w-5 h-5" />
             </button>
+            </Link>
           </form>
         </div>
 

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+// import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 const ThreeTab = () => {
@@ -23,7 +23,7 @@ const ThreeTab = () => {
 
     return (
         <div
-            className="three-tab-section w-full relative flex items-center justify-center"
+            className="three-tab-section w-full relative flex items-center justify-center overflow-hidden"
             style={{
                 width: '100%',
                 height: '938px',
@@ -35,6 +35,46 @@ const ThreeTab = () => {
                 backgroundRepeat: 'no-repeat'
             }}
         >
+            {/* Title & Description - Centered Top */}
+            <div
+                className="absolute left-1/2 flex flex-col items-center w-full max-w-[900px] px-2 sm:px-6 lg:px-0"
+                style={{
+                    top: '70px',
+                    transform: 'translateX(-50%)',
+                    zIndex: 5,
+                    pointerEvents: 'none'
+                }}
+            >
+                <h1
+                    className="
+      text-center
+      font-bold
+      font-['Space_Grotesk']
+      text-2xl sm:text-3xl md:text-4xl lg:text-[44px]
+      leading-[1.1]
+      text-[#232323]
+      mt-4 mb-2
+      w-full max-w-screen-sm lg:max-w-[850px]
+    "
+                >
+                    Sed ut perspiciatis unde
+                </h1>
+                <p
+                    className="
+      text-center
+      font-['Quicksand']
+      font-normal
+      text-[13px] sm:text-[15px] md:text-base
+      text-[#252525]
+      mt-2
+      w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[650px]
+    "
+                >
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                </p>
+            </div>
+
+
             {/* DESKTOP VERSION - Content Box */}
             <div
                 className="desktop-content"
@@ -44,7 +84,8 @@ const ThreeTab = () => {
                     borderRadius: '8px',
                     background: '#ECECEC',
                     overflow: 'visible',
-                    position: 'relative'
+                    position: 'relative',
+                    top: '120px'
                 }}
             >
                 {/* Tab Navigation */}
@@ -67,7 +108,7 @@ const ThreeTab = () => {
                                 paddingRight: '136px',
                                 background: activeTab === index ? '#ABCDFF' : 'transparent',
                                 color: activeTab === index ? '#2B68C3' : '#666',
-                                fontSize: '20px',
+                                fontSize: '35px',
                                 textAlign: 'left'
                             }}
                         >
@@ -138,19 +179,19 @@ const ThreeTab = () => {
             </div>
 
             {/* MOBILE/TABLET VERSION */}
-            <div className="mobile-content w-full h-full flex flex-col p-6 bg-white/95">
-                {/* Mobile Tabs - Horizontal Scroll */}
-                <div className="overflow-x-auto scrollbar-hide mb-6">
-                    <div className="flex gap-3 min-w-max">
+            <div className="mobile-content w-full h-full flex flex-col p-4 pt-12 bg-white/95">
+                {/* Tabs */}
+                <div className="overflow-x-auto scrollbar-hide mb-4">
+                    <div className="flex gap-2 min-w-max w-full">
                         {tabs.map((tab, index) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(index)}
-                                className={`px-6 py-3 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${
-                                    activeTab === index
-                                        ? 'bg-[#ABCDFF] text-[#2B68C3]'
-                                        : 'bg-gray-200 text-gray-600'
-                                }`}
+                                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${activeTab === index
+                                    ? 'bg-[#ABCDFF] text-[#2B68C3]'
+                                    : 'bg-gray-200 text-gray-600'
+                                    }`}
+                                style={{ minWidth: "114px" }}
                             >
                                 {tab}
                             </button>
@@ -159,42 +200,46 @@ const ThreeTab = () => {
                 </div>
 
                 {/* Mobile Content */}
-                <div className="space-y-5 overflow-y-auto flex-1">
+                <div className="space-y-4 w-full">
                     <h2
-                        className="font-bold"
                         style={{
                             fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontSize: '28px',
+                            fontWeight: 700,
+                            fontSize: '20px',
                             color: '#2B68C3',
+                            marginBottom: '8px',
                             lineHeight: '120%'
                         }}
                     >
                         {tabContents[activeTab].title}
                     </h2>
-                    
                     <p
                         style={{
                             fontFamily: "'Quicksand', sans-serif",
-                            fontSize: '14px',
+                            fontSize: '13px',
                             color: '#333',
-                            lineHeight: '150%'
+                            lineHeight: '160%',
+                            marginBottom: '12px'
                         }}
                     >
                         {tabContents[activeTab].text}
                     </p>
-                    
                     <img
                         src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
                         alt="Business meeting"
-                        className="w-full h-auto rounded-lg"
+                        className="w-full h-auto rounded-md mb-3"
                     />
-                    
-                    <button className="bg-white text-black px-6 py-3 rounded-lg flex items-center gap-2 font-semibold border-2 border-gray-300 hover:bg-gray-50 transition-colors">
-                        CONTACT US
-                        <ArrowUpRight size={18} />
-                    </button>
+                    {/* <button className="bg-white text-black px-4 py-3 mt-2 rounded-lg flex items-center gap-2 font-semibold border border-gray-300 hover:bg-gray-50 transition-colors w-full"
+            style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontSize: "14px"
+            }}>
+            CONTACT US
+            <ArrowUpRight size={17} />
+        </button> */}
                 </div>
             </div>
+
 
             {/* Responsive Styles */}
             <style>{`

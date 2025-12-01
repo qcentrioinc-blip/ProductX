@@ -196,7 +196,7 @@ const Harper = () => {
     const content = [
         { 
             id: 1, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-1",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -204,7 +204,7 @@ const Harper = () => {
         },
         { 
             id: 2, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-2",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -212,7 +212,7 @@ const Harper = () => {
         },
         { 
             id: 3, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-3",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -220,7 +220,7 @@ const Harper = () => {
         },
         { 
             id: 4, 
-            desktopImage: "/Products/Products7/Harper1.png",
+            desktopImage: "/Products/Products7/Harper0.png",
             mobileImage: "/Products/Products7/Harper0.png",
             alt: "Harper-4",
             title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
@@ -326,10 +326,10 @@ const Harper = () => {
     }, [handleWheel, scrollContext]);
 
     return (
-        <div className="font-sans">
+        <div className="font-sans  ">
             
             {/* MOBILE & TABLET: VERTICAL LAYOUT */}
-            <div className="block lg:hidden bg-[#F5DDA9] py-8 px-4">
+            <div className="block lg:hidden bg-[#F5DDA9]  py-8 px-4">
                 <div className="mb-8">
                     <H1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-left ml-2 sm:ml-4">
                         Sed ut perspiciatis Sed ut

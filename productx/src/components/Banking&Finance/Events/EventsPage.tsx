@@ -10,8 +10,9 @@ export default function EventssPage() {
     <TitleSec/>
     <TextSec/>
     <BlogGridSection/>
-    <ContactSection />
+    <ContactSection/>
     <NewOneFooter/>
+  
     </div>
   );
 }

@@ -8,16 +8,18 @@ const JobDetailsSection = () => {
       <div className="max-w-8xl mx-10">
         {/* --- Sticky Full-Width Title Bar --- */}
         <div
-          className="sticky top-[58px] z-30 bg-[#0A0A0A] py-4  flex flex-col lg:flex-row 
+          className="sticky top-[0px] z-30 bg-[#0A0A0A] py-4  flex flex-col lg:flex-row 
           items-start lg:items-center justify-between gap-4"
         >
           <H2 className="text-[#F99526] whitespace-nowrap">Frontend Developer</H2>
 
           {/* Right side button & logos (hidden on mobile) */}
           <div className="hidden lg:flex items-center gap-6">
+            <a href="#contactForm">
             <button className="bg-[#F99526] text-white px-10 py-2 rounded-md hover:bg-orange-600 transition">
               Apply Now
             </button>
+            </a>
             <div className="flex items-center gap-3">
               <a
                 href="#"
@@ -84,7 +86,7 @@ const JobDetailsSection = () => {
           {/* Right side - Sticky Job Info */}
           <div className="lg:w-[340px] flex-shrink-0 relative">
               {/* Vertical gray line + Job Info */}
-              <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-500" />
+              <div className="absolute left-0 top-0 h-full w-[1px] bg-gray-500" />
 
             <div className="lg:sticky lg:top-[150px] space-y-6">
               

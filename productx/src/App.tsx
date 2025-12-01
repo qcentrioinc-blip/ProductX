@@ -1,13 +1,10 @@
 import './App.css'
 // import Navbar from './components/Global/Navbar/Navbar'
- 
 import './index.css'
 import { Link, Route, Routes,  useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
-import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
-import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
@@ -18,7 +15,6 @@ import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductIBS/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7'
- 
 import Platform from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
@@ -51,6 +47,11 @@ import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePaper
 import NewsPage from './components/Banking&Finance/News/NewsPage'
 import EventssPage from './components/Banking&Finance/Events/EventsPage'
 import HeroSlider from './components/LandingPage/HeroSlider'
+import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
+import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
+import { CareersPageAI } from './components/AI/Careers/CareersPage'
+import JobDetails from './components/AI/JobDetails'
+
  
 const App = () => {
   // const location = useLocation();
@@ -60,7 +61,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
     if (industry === "ehr-and-pms") return <EHRAndPMS />;
-    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br/> SOON AVAILABLE<br/> Till Then Check Other Industries
+    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br/> SOON AVAILABLE<br/> Till Then Check Other Industries 
     <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
  
@@ -126,7 +127,6 @@ const App = () => {
   };
   return (
     <>
- 
    
       <ScrollProvider>
         <div data-scroll-container>
@@ -142,6 +142,7 @@ const App = () => {
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
             <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
@@ -152,12 +153,16 @@ const App = () => {
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
             <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage/>} />
+            <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage/>} />
+            <Route path="/industries/ehr-and-pms/applicationform" element={<ApplicationFormPage/>} />
+            <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage/>} />
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
             <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
             <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
-       
+             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage/>}/>
+ 
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
             <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
@@ -174,7 +179,11 @@ const App = () => {
            <Route path="/industries/banking-and-finance/news" element={<NewsPage/>}/>
            <Route path="/industries/banking-and-finance/events" element={<EventssPage/>}/>
            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
-          </Routes>
+           
+
+          <Route path='/industries/ai-optimization/careers' element={<CareersPageAI />} />
+          <Route path='/industries/ai-optimization/job' element={<JobDetails />} />
+           </Routes>
         </div>
       </ScrollProvider>
        

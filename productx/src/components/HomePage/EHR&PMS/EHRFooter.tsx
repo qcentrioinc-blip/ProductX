@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-
 const EHRFooter = () => {
+  
   return (
     <footer className="bg-gradient-to-b from-[#A8D5C3] via-[#7CB89D] to-[#5A9B80] text-white">
       {/* Top Section - Logo and Newsletter */}
@@ -91,8 +90,8 @@ const EHRFooter = () => {
       {/* Navigation Sections */}
       <div className="flex flex-col">
         {/* Home */}
-        <Link 
-          to="/industries/ehr-and-pms" 
+        <a 
+          href="/industries/ehr-and-pms" 
           className="bg-[#7CB89D] border-b border-[#6BA88A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#6FA88F] transition-colors cursor-pointer"
         >
           <span 
@@ -107,7 +106,7 @@ const EHRFooter = () => {
           >
             Home
           </span>
-        </Link>
+        </a>
 
         {/* About Us with LinkedIn */}
         <div className="bg-[#6FAA8F] border-b border-[#5E9880] py-6 px-8 md:px-16 lg:px-24">
@@ -129,8 +128,8 @@ const EHRFooter = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
               </svg>
             </div>
-            <Link 
-              to="/industries/ehr-and-pms/about-us" 
+            <a 
+              href="/industries/ehr-and-pms/about-us" 
               className="text-white hover:text-gray-200 transition-colors"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -141,13 +140,13 @@ const EHRFooter = () => {
               }}
             >
               About Us
-            </Link>
+            </a>
           </div>
         </div>
 
         {/* Clinic App */}
-        <Link 
-          to="/industries/ehr-and-pms/clinic-app" 
+        <a 
+          href="/industries/ehr-and-pms/clinic-app" 
           className="bg-[#62A082] border-b border-[#528E71] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#569775] transition-colors cursor-pointer"
         >
           <span 
@@ -162,7 +161,7 @@ const EHRFooter = () => {
           >
             Clinic App
           </span>
-        </Link>
+        </a>
 
         {/* Blogs with X (Twitter) */}
         <div className="bg-[#569775] border-b border-[#478566] py-6 px-8 md:px-16 lg:px-24">
@@ -184,8 +183,8 @@ const EHRFooter = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
               </svg>
             </div>
-            <Link 
-              to="/industries/ehr-and-pms/blogs" 
+            <a 
+              href="/industries/ehr-and-pms/blogs" 
               className="text-white hover:text-gray-200 transition-colors"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -196,13 +195,13 @@ const EHRFooter = () => {
               }}
             >
               Blogs
-            </Link>
+            </a>
           </div>
         </div>
 
         {/* Case Studies */}
-        <Link 
-          to="/industries/ehr-and-pms/case-studies" 
+        <a 
+          href="/industries/ehr-and-pms/case-studies" 
           className="bg-[#4A8D68] border-b border-[#3D7A5A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#3D835B] transition-colors cursor-pointer"
         >
           <span 
@@ -217,7 +216,7 @@ const EHRFooter = () => {
           >
             Case Studies
           </span>
-        </Link>
+        </a>
 
         {/* Careers with Instagram */}
         <div className="bg-[#3D835B] py-6 px-8 md:px-16 lg:px-24">
@@ -239,8 +238,8 @@ const EHRFooter = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" transform="rotate(-45 12 12)" />
               </svg>
             </div>
-            <Link 
-              to="/industries/ehr-and-pms/career" 
+            <a 
+              href="/industries/ehr-and-pms/career" 
               className="text-white hover:text-gray-200 transition-colors"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -251,7 +250,7 @@ const EHRFooter = () => {
               }}
             >
               Careers
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -268,8 +267,8 @@ const EHRFooter = () => {
           © 2025 Qnest. All rights reserved.
         </p>
         <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
-          <Link 
-            to="/industries/ehr-and-pms/privacy-policy" 
+          <a 
+            href="/industries/ehr-and-pms/privacy-policy" 
             className="text-white hover:underline"
             style={{
               fontFamily: "'Quicksand', sans-serif",
@@ -277,9 +276,9 @@ const EHRFooter = () => {
             }}
           >
             Privacy Policy
-          </Link>
-          <Link 
-            to="/industries/ehr-and-pms/cookie-policy" 
+          </a>
+          <a 
+            href="/industries/ehr-and-pms/cookie-policy" 
             className="text-white hover:underline"
             style={{
               fontFamily: "'Quicksand', sans-serif",
@@ -287,9 +286,9 @@ const EHRFooter = () => {
             }}
           >
             Cookie Policy
-          </Link>
-          <Link 
-            to="/industries/ehr-and-pms/terms-and-conditions" 
+          </a>
+          <a 
+            href="/industries/ehr-and-pms/terms-and-conditions" 
             className="text-white hover:underline"
             style={{
               fontFamily: "'Quicksand', sans-serif",
@@ -297,7 +296,7 @@ const EHRFooter = () => {
             }}
           >
             Terms and Conditions
-          </Link>
+          </a>
         </div>
       </div>
     </footer>

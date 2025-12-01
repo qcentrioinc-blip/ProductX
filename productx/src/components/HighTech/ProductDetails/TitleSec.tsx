@@ -129,7 +129,7 @@ const TitleSec = () => {
           <img
             src="/HighTech/ProductDetails/shape1.png"
             alt="Decorative Shape"
-            className="absolute right-[-20%] top-[650px] -translate-y-1/2 w-[60%] lg:w-[30%] h-auto object-contain z-0"
+            className="absolute right-[-20%] top-[150px] -translate-y-1/2 w-[60%] lg:w-[30%] h-auto object-contain z-0"
           />
 
           {/* Holographic Main Image */}

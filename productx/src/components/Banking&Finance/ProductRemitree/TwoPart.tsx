@@ -136,8 +136,24 @@ const TwoPart = () => {
             zIndex: 5
           }}
         />
+        {/* Pink Square (absolute) */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '102.1px',
+            height: '100.6px',
+            top: '130.31px',
+            left: '820.36px',
+            background: '#FFEAF2',
+            borderRadius: '6px',    // (Add if you want slightly rounded corners - optional)
+            opacity: 1,
+            zIndex: 0,
+            pointerEvents: 'none'
+          }}
+        />
+
       </div>
-      
+
       {/* Mobile/Tablet Layout (below lg) */}
       <div className="lg:hidden flex flex-col bg-[#F5DDA9] min-h-screen relative">
         <div className="p-6 flex flex-col gap-6 z-10">
@@ -163,7 +179,7 @@ const TwoPart = () => {
           >
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
           </p>
-          
+
           <img
             src="/Products/Products2/ImageRadius.png"
             alt="Contractor Information"

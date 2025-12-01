@@ -109,7 +109,7 @@ export default function GlossaryPage() {
       </div>
 
       {/* Glossary Content */}
-      <div className="py-10 bg-gray-50  max-w-8xl mx-10">
+      <div className="py-10 bg-gray-50 mx-4 max-w-8xl lg:mx-10">
         {alphabet.map((letter) => (
           <div
             key={letter}

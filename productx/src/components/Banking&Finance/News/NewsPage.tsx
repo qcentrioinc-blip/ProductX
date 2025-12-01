@@ -10,7 +10,7 @@ export default function NewsPage() {
     <TitleSec/>
     <Banner/>
     <BlogGridSection/>
-    <ContactSection />
+    <ContactSection/>
     <NewOneFooter/>
     </div>
   );
