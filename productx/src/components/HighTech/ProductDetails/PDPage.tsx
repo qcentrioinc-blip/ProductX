@@ -5,15 +5,19 @@ import CardsSec from './CardSec.tsx'
 import Highlights from './Highlights.tsx'
 import FeatureCards from './FeatureCards.tsx'
 import HWD from '../../Banking&Finance/HWD.tsx'
-import FaqSection from '../../Banking&Finance/ProductSherlock/FAQ.tsx'
 import SubFooter from '../Careers/SubFooter.tsx'
+import FaqSection from '../../Banking&Finance/ProductSherlock/FAQ.tsx'
+import CTA from '../AboutHightTech/CTA.tsx'
+
+ 
 
 
-export default function 
-() {
+const PDPage = () => {
   return (
-    <div>
+    <>
+    
         <TitleSec/>
+        <CTA/>
         <StepsSec/>
         <ProductSec/>
         <CardsSec/>
@@ -22,6 +26,9 @@ export default function
         <HWD/>
         <FaqSection/>
         <SubFooter/>
-    </div>
+
+        </>
+  
   )
 }
+export default PDPage;

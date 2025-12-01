@@ -100,7 +100,7 @@ const StickyJobActions: React.FC = () => (
         {/* Submit Application Button */}
         {/* Note: Since the form section is removed, this link now points to the top of the page */}
         <a
-            href="#job-top"
+            href="/industries/ehr-and-pms/applicationform"
             className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-green-800 hover:bg-green-700 transition duration-150 ease-in-out uppercase tracking-wider whitespace-nowrap"
         >
             Apply Now

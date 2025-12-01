@@ -2,12 +2,10 @@ import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 
 const LandingPageEHS = () => {
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full bg-gradient-to-b from-yellow-100 to-green-100">
             {/* MERGED BACKGROUND - Gradient wrapper starts here */}
+            <EHRNavbar />
             <div className="relative bg-gradient-to-b from-yellow-100 to-green-100">
-                {/* Import Navbar Component */}
-                <EHRNavbar />
-
                 {/* Wrapper for hero section - Same gradient background continues */}
                 <div className="relative">
                     {/* Circle Image - POSITION UNCHANGED: top-[-150px] */}
@@ -73,8 +71,8 @@ const LandingPageEHS = () => {
                                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
                             </p>
 
-                            <button className="bg-[#F4A261] text-gray-900 px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#E89551] transition-all">
-                                CONTACT US
+                            <button className="bg-[#F4A261] text-[#04531A] px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#E89551] transition-all">
+                                <a href="/industries/ehr-and-pms/contactus">CONTACT US</a>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                                 </svg>
@@ -94,7 +92,7 @@ const LandingPageEHS = () => {
                                 culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
                             </p>
 
-                            <button className="bg-[#F4A261] text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold flex items-center gap-2 sm:gap-3 hover:bg-[#E89551] transition-all text-sm sm:text-base">
+                            <button className="bg-[#F4A261] text-[#04531A]px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold flex items-center gap-2 sm:gap-3 hover:bg-[#E89551] transition-all text-sm sm:text-base">
                                 CONTACT US
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />

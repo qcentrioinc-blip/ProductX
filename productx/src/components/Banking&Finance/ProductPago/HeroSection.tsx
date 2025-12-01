@@ -1,11 +1,34 @@
-import React, { useState, useRef } from 'react';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
+// import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { H1, P } from '../../../styles/Typography';
 import type { Variants } from 'framer-motion';
 import {motion} from 'framer-motion'
+ 
+import { ContactUs } from '../../../styles/Button';
+import { ScrollContext } from '../../../context/ScrollContext';
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
  
   // Mock images - replace with your actual images
   const images = [
@@ -97,7 +120,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative mt-44 w-full text-center overflow-hidden">
+    <section className="relative  mt-10 md:mt-0 lg:mt-36 w-full z-30 text-center">
       {/* Top Section Container - Relative for background overlay */}
       <div className="relative w-full">
         {/* Background Overlay for the Expanding Animation */}
@@ -110,7 +133,7 @@ const HeroSection = () => {
 
         {/* Top Section Content - Use motion.div for text staggering */}
         <motion.div 
-          className="relative pt-32 pb-10   px-4 text-white z-10"
+          className="relative pt-10 md:pt-30 lg:pt-20 pb-10   px-4 text-white z-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -130,7 +153,7 @@ const HeroSection = () => {
             </motion.div>
             {/* Centered Button */}
             <motion.div variants={itemVariants} className="mt-8 flex justify-center">
-              <button
+              {/* <button
                 className="
                   group 
                   flex items-center justify-center
@@ -152,17 +175,18 @@ const HeroSection = () => {
                     <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </span>
                 </span>
-              </button>
+              </button> */}
+              <ContactUs>BOOK A DEMO</ContactUs>
             </motion.div>
           </div>
         </motion.div>
       </div>
       
       {/* --- Bottom Image Section (Animations focused here) --- */}
-      <div className="w-full bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20">
+      <div className="w-full  bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20 lg:pb-24">
         
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
-        <div className="md:hidden mt-6 px-4">
+        <div className="lg:hidden mt-6 px-4">
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
@@ -181,10 +205,12 @@ const HeroSection = () => {
                 <img
                   src={img}
                   alt={`Slide ${index + 1}`}
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                  className="w-full h-80 object-cover rounded-lg shadow-lg"
                 />
               </div>
             ))}
+          
+          
           </div>
          
           {/* Dots Indicator */}
@@ -204,9 +230,10 @@ const HeroSection = () => {
           </div>
         </div>
 
+
         {/* Desktop Layout - Framer Motion Integration */}
         <motion.div 
-          className="hidden md:block relative max-w-8xl mx-auto mt-6"
+          className="hidden lg:block relative max-w-8xl mx-auto mt-6"
           initial="hidden"
           animate="visible"
           variants={containerVariants} // Use container to stagger image animations
@@ -244,14 +271,21 @@ const HeroSection = () => {
         className="w-60 h-52 lg:w-lg lg:h-80 rounded-lg shadow-md absolute right-1/2 translate-x-[120%] top-1/2 -translate-y-1/2 z-0"
     />
           </div>
+
+          
         </motion.div>
+
+
+       
       </div>
- 
+   
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
       `}</style>
+
+   
     </section>
   );
 };

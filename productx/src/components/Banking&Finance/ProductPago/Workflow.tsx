@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useContext, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
-import {  ContactUsDark } from "../../../styles/Button";
+import {  ContactUs } from "../../../styles/Button";
 
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
@@ -125,7 +125,7 @@ export default function Workflow() {
       className="w-full relative pb-20 min-h-[400vh]"
     >
       {/* Header Section */}
-      <div className="w-full flex flex-col items-center justify-center  pt-16 pb-16 px-6 md:px-20">
+      <div className="w-full flex flex-col items-center justify-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
            
           className="  text-[#2B68C3]  mb-6 leading-snug"
@@ -143,8 +143,8 @@ export default function Workflow() {
       </div>
 
       {/* Sticky Content Container */}
-      <div className="sticky top-10 h-screen flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-16">
+      <div className="sticky top-10 lg:h-screen flex items-center justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-10">
           
           {/* LEFT SIDE - Sticky Image */}
           <div className="h-[400px] md:h-[600px] order-1 md:order-0">
@@ -164,11 +164,11 @@ export default function Workflow() {
             </div>
           </div>
           {/* RIGHT SIDE - All 5 Steps in View */}
-          <div className="flex flex-col relative space-y-4 md:space-y-8 mt-6">
+          <div className="flex flex-col relative space-y-4 lg:space-y-8 mt-6">
             {/* Connecting line */}
             <div
               style={{ backgroundColor: "black" }}
-              className="absolute left-8 top-2 bottom-30 w-[2px] rounded-full   hidden md:block"
+              className="absolute left-8 md:top-8 lg:top-2 bottom-30 w-[2px] rounded-full   hidden md:block"
             />
  
             {steps.map((step, index) => { 
@@ -198,7 +198,7 @@ export default function Workflow() {
                         ? "0 4px 20px rgba(66, 133, 244, 0.4)"
                         : "0 2px 8px rgba(0, 0, 0, 0.1)",
                     }}
-                    className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg shrink-0"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg shrink-0"
                   >
                     {step.id}
                   </motion.div>
@@ -210,13 +210,15 @@ export default function Workflow() {
                       scale: isActive ? 1.02 : 1,
                     }}
                     transition={{ duration: 0.3 }}
-                    className="flex-1 rounded-lg flex   items-center min-h-[40px]"
-                    style={{
-                      padding: isActive ? "22px 35px" : "6px 12px",
-                      boxShadow: isActive
-                        ? "0 4px 20px rgba(0, 0, 0, 0.08)"
-                        : "none",
-                    }}
+                    className={`
+    flex-1 rounded-lg flex items-center
+    ${isActive ? "shadow-md" : ""}
+    
+    /* Responsive padding */
+    ${isActive 
+      ? "px-3 py-2 sm:px-4 sm:py-3 md:px-2 md:py-2 lg:px-8 lg:py-5" 
+      : "px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-3"
+    }`}
                   >
                     <motion.h3
                       style={{
@@ -239,7 +241,7 @@ export default function Workflow() {
             <div className=" md:pl-4  pt-4">
                
 
-              <ContactUsDark>Book A Demo</ContactUsDark>
+              <ContactUs>Book A Demo</ContactUs>
             </div>
           </div>
         </div>

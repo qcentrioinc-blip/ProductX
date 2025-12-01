@@ -1,186 +1,195 @@
-
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
  
-
-const NewOneFooter = () => {
-  return (
+import { H2,   H4 } from '../../../styles/Typography';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
  
-     <>
-      <div 
-        className='lg:relative lg:h-[700px]'
-        style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
-      >
-        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
-    
-          <footer className="w-full bg-white py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
-          
-          {/* Left Section - Newsletter (7 columns) */}
-          <div className="lg:col-span-7 flex flex-col space-y-10">
-            {/* Orange 8-pointed Star/Asterisk Icon */}
-            <div className="w-[80px] h-[80px]">
-              <svg viewBox="0 0 200 200" className="w-full h-full">
-                {/* 8-pointed asterisk star */}
-                <g transform="translate(100, 100)">
-                  {/* Vertical */}
-                  <rect x="-15" y="-85" width="30" height="170" fill="#FF8C00" rx="8"/>
-                  {/* Horizontal */}
-                  <rect x="-85" y="-15" width="170" height="30" fill="#FF8C00" rx="8"/>
-                  {/* Diagonal 1 */}
-                  <rect x="-15" y="-85" width="30" height="170" fill="#FF8C00" rx="8" transform="rotate(45)"/>
-                  {/* Diagonal 2 */}
-                  <rect x="-15" y="-85" width="30" height="170" fill="#FF8C00" rx="8" transform="rotate(-45)"/>
-                </g>
-              </svg>
-            </div>
-
-            {/* Newsletter Heading - Exact matching */}
-            <div className="space-y-0">
-              <h2 className="text-[#2563EB] text-[48px] md:text-[54px] font-bold leading-[1.2] tracking-tight">
-                Subscribe to our newsletter
-              </h2>
-              <h3 className="text-[#2563EB] text-[48px] md:text-[54px] font-bold leading-[1.2] tracking-tight">
-                to stay in touch with the latest.
-              </h3>
-            </div>
-
-            {/* Newsletter Form */}
-            <div className="space-y-5 mt-2">
-              <input
-                type="email"
-                placeholder="Enter your mail"
-                className="w-full max-w-[500px] px-7 py-[18px] rounded-full border-[1.5px] border-gray-400 focus:outline-none focus:border-gray-500 text-[16px] placeholder:text-gray-500"
-              />
-              <button className="bg-black text-white px-10 py-4 rounded-xl font-bold text-[15px] tracking-wide flex items-center gap-3 hover:bg-gray-900 transition-colors">
-                SUBMIT
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+const NewOneFooter = () => {
+ 
+  const products = [
+  { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
+  { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
+  { label: "Sherlock", url: "/industries/banking-and-finance/products/sherlock" },
+  { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
+  { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
+  { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
+  { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
+  { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
+  // { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
+  { label: "Internet Banking Solution", url: "/industries/banking-and-finance/products/internet-banking-system" },
+];
+ 
+const quickLinks = [
+  { label: "Careers", url: "/industries/banking-and-finance/careers" },
+  { label: "Resources", url: "/industries/banking-and-finance/news" },
+  { label: "Contact", url: "/contact" },
+];
+ 
+ 
+  return (
+    <>
+      <div>
+ 
+        <footer className="relative w-full bg-white py-10  ">
+          <div className=" max-w-8xl lg:mx-10 px-4 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 relative">
+             
+              {/* Left Section - Newsletter (7 columns) */}
+              <div className="lg:col-span-7 flex flex-col space-y-10">
+ 
+                {/* Replace orange star with uploaded PNG */}
+                <div className="w-[80px] h-[80px]">
+                  <img
+                    src="/BNFFooter/FooterStar.png"
+                    alt="Footer Star"
+                    className="w-full h-full object-contain"
                   />
-                </svg>
-              </button>
+                </div>
+ 
+                {/* Newsletter Heading */}
+                <div className="space-y-0">
+                  <H2 className='text-[#2B68C3]'>
+                    Subscribe to our newsletter
+                    <br/>to stay in touch with the latest.
+                  </H2>
+                 
+                </div>
+ 
+                {/* Newsletter Form */}
+                <div className="space-y-5 mt-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your mail"
+                    className="w-full max-w-[500px] font-quicksand px-7 py-4 rounded-full border-1 border-black focus:outline-none focus:border-black text-[16px] placeholder:text-black"
+                  />
+                  <Link to="/industries/banking-and-finance">
+                   <button
+      className="
+        group
+        flex items-center justify-center
+        w-auto h-[44px] sm:h-[48px]
+        px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
+        rounded-[8px]
+        font-quicksand font-bold text-[14px] sm:text-[14px]
+        bg-[#141414] text-white
+        transition-all duration-300 ease-in-out
+        border border-transparent
+        hover:bg-white hover:text-[#141414]
+        hover:border-[#010101]
+        hover:border-t-[1px] hover:border-r-[1px] hover:border-b-[4px] hover:border-l-[1px]
+        hover:-translate-y-[2px]
+        shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+       
+      "
+    >
+      SUBMIT
+      <span className="flex items-center gap-[8px]">
+         
+        <span
+          className="
+            relative flex items-center justify-center
+            w-[20px] sm:w-[23.5px] h-[20px] sm:h-[23.5px] p-[4px] sm:p-[5px]
+          "
+        >
+          {/* Default icon (ArrowUpRight) */}
+          <ArrowUpRight
+            className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+          />
+          {/* Hover icon (ArrowRight) */}
+          <ArrowRight
+            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </span>
+      </span>
+    </button>
+    </Link>
+                 
+                </div>
+              </div>
+ 
+              {/* Vertical Divider */}
+              <div className="hidden lg:block absolute top-0 bottom-10 left-[58.33%] w-[1px] bg-black"></div>
+ 
+              {/* Right Section - Products + Quick Links */}
+              <div className="lg:col-span-5  grid grid-cols-1 sm:grid-cols-2 gap-x-16 pl-2 lg:pl-8 gap-y-8 lg:py-10 ">
+               
+                {/* Products */}
+                <div className='m'>
+                  <H4 className=" ">Products</H4>
+                 <ul className="space-y-0 font-quicksand">
+  {products.map((item) => (
+    <li key={item.label}>
+      <a
+        href={item.url}
+        className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+      >
+        • {item.label}
+      </a>
+    </li>
+  ))}
+</ul>
+ 
+                </div>
+ 
+                {/* Quick Links */}
+                <div>
+                 <H4>Quick Links</H4>
+                  <ul className="space-y-0 font-quicksand">
+  {quickLinks.map((item) => (
+    <li key={item.label}>
+      <a
+        href={item.url}
+        className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+      >
+        • {item.label}
+      </a>
+    </li>
+  ))}
+</ul>
+ 
+                </div>
+                <div className="flex flex-col font-quicksand  items-start  space-y-10 gap-8">
+ 
+                {/* Socials */}
+                <div className="flex lg:-ml-4 items-start gap-7">
+                  <a href="#" className="hover:opacity-60 transition-opacity">
+                    <FaXTwitter className="w-[24px] h-[24px] text-black" />
+                  </a>
+                  <a href="#" className="hover:opacity-60 transition-opacity">
+                    <FaInstagram className="w-[24px] h-[24px] text-black" />
+                  </a>
+                  <a href="#" className="hover:opacity-60 transition-opacity">
+                    <FaLinkedinIn className="w-[24px] h-[24px] text-black" />
+                  </a>
+                </div>
+ 
+               <div className="flex lg:-ml-6 items-center gap-8">
+                  <a href="#" className="text-black text-[18px] font-quicksand  whitespace-nowrap">
+                    Privacy Policy
+                  </a>
+                  <a href="#" className="text-black text-[18px] font-quicksand  whitespace-nowrap">
+                    Cookies Policy
+                  </a>
+                </div>
+               
+              </div>
+             
+              </div>
+           
             </div>
+ 
           </div>
-
-          {/* Vertical Divider - Exact positioning */}
-          <div className="hidden lg:block absolute top-0 bottom-0 left-[58.33%] w-[1px] bg-gray-300"></div>
-
-          {/* Right Section - Links (5 columns) */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-8 lg:pl-8">
-            
-            {/* Products Column */}
-            <div>
-              <h3 className="text-black text-[20px] font-bold mb-5">Products</h3>
-              <ul className="space-y-[10px]">
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Bankfair
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Pago
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Sherlock
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Remitree
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Customer Onboarding Solution
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Loan Origination System
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Almanac
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Sams
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Conciliare
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Internet Banking Solution
-                </li>
-              </ul>
-            </div>
-
-            {/* Quick Links Column */}
-            <div>
-              <h3 className="text-black text-[20px] font-bold mb-5">Quick Links</h3>
-              <ul className="space-y-[10px]">
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Careers
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Resources
-                </li>
-                <li className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors">
-                  • Contact
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Section - Social Media & Policies */}
-        <div className="mt-20 pt-8 border-t border-gray-300">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
-            
-            {/* Social Media Icons - Exact sizing */}
-            <div className="flex items-center gap-7">
-              <a
-                href="#"
-                className="hover:opacity-60 transition-opacity"
-                aria-label="Twitter"
-              >
-                <FaXTwitter className="w-[24px] h-[24px] text-black" />
-              </a>
-              <a
-                href="#"
-                className="hover:opacity-60 transition-opacity"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="w-[24px] h-[24px] text-black" />
-              </a>
-              <a
-                href="#"
-                className="hover:opacity-60 transition-opacity"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="w-[24px] h-[24px] text-black" />
-              </a>
-            </div>
-
-            {/* Policy Links - Exact spacing */}
-            <div className="flex items-center gap-8">
-              <a href="#" className="text-black text-[15px] hover:text-gray-600 transition-colors whitespace-nowrap">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-black text-[15px] hover:text-gray-600 transition-colors whitespace-nowrap">
-                Cookies Policy
-              </a>
-            </div>
-          </div>
-        </div>
+           <img
+    src="/BNFFooter/BottomPattern.png"
+    className="absolute left-0 bottom-0 w-full h-16 pointer-events-none"
+    alt=""
+  />
+        </footer>
+         
+       
       </div>
-    </footer>
-        </div>
-      </div>
-    
     </>
-    
-  
   );
 };
-
+ 
 export default NewOneFooter;

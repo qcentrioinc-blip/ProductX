@@ -90,13 +90,13 @@ const ContactSection: React.FC = () => {
       <motion.img
         src="/EHR-PMS/Careers/shape1.png"
         alt="shape"
-        className="absolute object-contain pointer-events-none select-none"
-        style={{
-          width: "clamp(100px, 50vw, 900px)",
-          bottom: "clamp(-450px, -20vw, -250px)",
-          right: "clamp(-120px, 4vw, -10px)",
-          opacity: 0.9,
-        }}
+        className="absolute object-contain pointer-events-none select-none bottom-[-150px] xl:bottom-[-300px] right-0 w-[300px] md:w-[400px] lg:w-[500px]"
+        // style={{
+        //   width: "clamp(100px, 50vw, 900px)",
+        //   bottom: "clamp(-450px, -20vw, -250px)",
+        //   right: "clamp(-120px, 4vw, -10px)",
+        //   opacity: 0.9,
+        // }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 1 }}

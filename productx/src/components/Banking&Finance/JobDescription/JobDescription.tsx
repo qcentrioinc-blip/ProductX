@@ -1,5 +1,5 @@
 import ContactSection from "../ProductBankfair/ContactSection"
-import NewFooter from "../ProductRemitree/NewFooter"
+import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import HeroSection from "./HeroSection"
 import Overview from "./Overview"
 
@@ -10,7 +10,7 @@ const JobDescription = () => {
       <HeroSection/>
       <Overview/>
       <ContactSection/>
-      <NewFooter/>
+      <NewOneFooter/>
     </div>
   )
 }

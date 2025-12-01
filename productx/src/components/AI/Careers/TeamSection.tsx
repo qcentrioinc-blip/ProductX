@@ -1,0 +1,60 @@
+"use client";
+
+import { H2, H4, P } from "../../../styles/Typography";
+
+export default function TeamSection() {
+  return (
+    <section className="w-full bg-white py-20 px-10">
+      <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+        {/* LEFT CONTENT */}
+        <div>
+          <H2 className="text-[#020059] leading-tight mb-10">
+            We are the brightest
+            minds, biggest talents
+            and bravest thinkers in
+            the industry.
+          </H2>
+
+          {/* Reusable Item */}
+          <div className="mb-10">
+            <H4 className=" text-[#6c6aff] mb-2">Our Mission</H4>
+            <P className="  leading-relaxed">
+              Years of combined digital travel technology experience<br />
+              Years of combined digital travel
+            </P>
+            <div className="border-b border-[#d0f5e6] mt-4"></div>
+          </div>
+
+          <div className="mb-10">
+            <H4 className=" text-[#6c6aff] mb-2">Training and Progression</H4>
+            <P className="  leading-relaxed">
+              Years of combined digital travel technology experience<br />
+              Years of combined digital travel
+            </P>
+            <div className="border-b border-[#d0f5e6] mt-4"></div>
+          </div>
+
+          <div className="mb-10">
+            <H4 className=" text-[#6c6aff] mb-2">Our Culture</H4>
+            <P className="  leading-relaxed">
+              Years of combined digital travel technology experience<br />
+              Years of combined digital travel
+            </P>
+            {/* <div className="border-b border-[#d0f5e6] mt-4"></div> */}
+          </div>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="w-full flex justify-center">
+          <img
+            src="/AI/Careers/img4.png"
+            alt="Team celebration"
+            className="w-full max-w-lg h-full object-cover shadow-md"
+          />
+        </div>
+
+      </div>
+    </section>
+  );
+}

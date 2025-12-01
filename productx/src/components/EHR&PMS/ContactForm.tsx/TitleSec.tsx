@@ -47,7 +47,7 @@ const TitleSec: React.FC = () => {
                                 <span className="text-gray-500">Resume</span>
                                 <label
                                     htmlFor="resumeUpload"
-                                    className="text-green-700 font-semibold cursor-pointer hover:underline"
+                                    className="bg-green-100 text-green-700 font-semibold cursor-pointer px-4 py-1 rounded-full hover:bg-green-200 transition duration-150"
                                 >
                                     Upload
                                 </label>

@@ -63,6 +63,8 @@ const JobCard: React.FC<JobCardProps> = ({ job, onViewDetails }) => {
       <div className="w-full h-px  bg-green-300 my-4" />
 
       {/* Action Button (Right Arrow) */}
+      <div className="flex justify-end">
+      <a href='/industries/ehr-and-pms/jobdescription'>
       <button 
         onClick={handleClick}
         aria-label={`View details for ${job.title}`}
@@ -83,6 +85,8 @@ const JobCard: React.FC<JobCardProps> = ({ job, onViewDetails }) => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
       </button>
+      </a>
+    </div>
     </div>
   );
 };

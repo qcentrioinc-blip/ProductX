@@ -3,8 +3,8 @@ import { H2, P } from "../../styles/Typography";
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
- 
- 
+
+
 const Products = () => {
   const navigate = useNavigate();
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/almanac"
     },
     {
@@ -33,7 +33,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/bankfair"
     },
     {
@@ -42,7 +42,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/customer-onboarding-solutions"
     },
     {
@@ -51,8 +51,8 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
-     
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+
       route: "/industries/banking-and-finance/products/internet-banking-system"
     },
     {
@@ -61,7 +61,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/loan-origination-system"
     },
     {
@@ -70,7 +70,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/pago"
     },
     {
@@ -79,7 +79,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/remitree"
     },
     {
@@ -88,7 +88,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sams"
     },
     {
@@ -97,7 +97,7 @@ const Products = () => {
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       logo: '/Logo1.png',
       hasContent: true,
-      para:'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
+      para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sherlock"
     }
   ];
@@ -118,43 +118,53 @@ const Products = () => {
       }
     }
   }, [location]);
- 
+
+
+  const handleProductClick = (route: string) => {
+    // Scroll to top before navigation
+    window.scrollTo(0, 0);
+    // Small delay to ensure scroll completes before navigation
+    setTimeout(() => {
+      navigate(route);
+    }, 100);
+  };
+
   return (
     <section className="w-full bg-[#E7E7E7] py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-8xl md:px-10   px-4 sm:px-8 ">
- 
+
         {/* Header */}
-       <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
- 
-  <H2 className="font-bold leading-tight">
-    <span className="text-[#2B68C3]">Sed ut perspiciatis</span><br />
-    <span className="text-[#666666]">undeSed ut perspiciatis</span>
-  </H2>
-                 {/* LEFT BUTTON */}
-      <div className=" absolute right-2 lg:right-12  gap-4 lg:gap-8   flex">
-    <button
-      onClick={scrollLeft}
-      className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full
+        <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
+
+          <H2 className="font-bold leading-tight">
+            <span className="text-[#2B68C3]">Sed ut perspiciatis</span><br />
+            <span className="text-[#666666]">undeSed ut perspiciatis</span>
+          </H2>
+          {/* LEFT BUTTON */}
+          <div className=" absolute right-2 lg:right-12  gap-4 lg:gap-8   flex">
+            <button
+              onClick={scrollLeft}
+              className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
                  text-[#2B68C3]"
-    >
-      <ArrowLeft size={20} />
-    </button>
- 
-    <button
-      onClick={scrollRight}
-      className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <button
+              onClick={scrollRight}
+              className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
                   text-[#2B68C3]"
-    >
-      <ArrowRight size={20} />
-    </button>
-  </div>
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
  
         {/* Slider Wrapper */}
         <div className="relative lg:pl-10">
- 
-   
- 
+
+
+
           {/* Products Slider */}
           <div
             id="productsSection"
@@ -167,7 +177,7 @@ const Products = () => {
                 className="relative aspect-[4/3] w-[280px] sm:w-[330px] md:w-[360px]
                            flex-shrink-0 rounded-lg overflow-hidden shadow-md
                            hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
-                onClick={() => navigate(product.route)}
+                onClick={() => handleProductClick(product.route)}
               >
                 {/* Product Image */}
                 <img
@@ -179,7 +189,7 @@ const Products = () => {
                 {product.hasContent && (
                   <>
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b  from-transparent to-black/60
+                    <div className="absolute inset-0 bg-gradient-to-b  from-transparent to-black/60 
                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
  
                     {/* Title */}

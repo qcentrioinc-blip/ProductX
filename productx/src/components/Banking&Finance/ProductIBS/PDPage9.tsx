@@ -8,7 +8,7 @@ import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../BNFnav";
-import KeytomStickyScroll from "./KeytomStickyScroll";
+// import KeytomStickyScroll from "./KeytomStickyScroll";
 import ContactSection from "../ProductBankfair/ContactSection";
 // import StickyCardStack from "./StickyCardStack";
 
@@ -23,7 +23,7 @@ const PDPage9 = () => {
             
 
       <Cards />
-      <KeytomStickyScroll/>
+      {/* <KeytomStickyScroll/> */}
       <ImgTextSec />
       <HWD />
       <FaqSection />

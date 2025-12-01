@@ -8,6 +8,8 @@ import HWD from "../HWD";
 import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 // import NewFooter from "../Products2/NewFooter";
+ 
+// import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 // import FeatureGrid2 from "./FeatureGrid2";
 
 import BNFNav from "../BNFnav";

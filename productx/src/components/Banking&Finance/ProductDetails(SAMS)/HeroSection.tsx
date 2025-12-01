@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { ContactUs } from '../../../styles/Button';
 import { H1, P } from '../../../styles/Typography';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { ScrollContext } from '../../../context/ScrollContext';
 
 /* -----------------------------------------------------------
     Animation + Component Utilities (Corrected)
@@ -103,6 +104,26 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, inde
     x.set(0);
     y.set(0);
   };
+
+  const scrollableContainerRef = useContext(ScrollContext);
+
+    useEffect(() => {
+        // Scroll the ScrollContext container to top
+        if (scrollableContainerRef?.current) {
+            scrollableContainerRef.current.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback to window scroll if ScrollContext not available
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    }, [scrollableContainerRef]);
 
   return (
     <motion.div
@@ -281,7 +302,7 @@ const HeroSection: React.FC = () => {
           <motion.div
             style={{ y: contentY }}
             variants={containerVariants}
-            className="relative z-10 w-full lg:mx-20 xl:mx-30 mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
+            className="relative pt-24 z-10 w-full lg:mx-20 xl:mx-30 mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
           >
             <motion.div variants={itemVariants}>
               <H1>Lorem ipsum dolor , <br /> consectetur adipis</H1>

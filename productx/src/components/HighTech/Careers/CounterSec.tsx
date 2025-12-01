@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { H1, H4} from "../../../styles/Typography";
+import { H4} from "../../../styles/Typography";
 
 const counters = [
   { value: 50, suffix: "+", label: "Duis aute iru dolor" },
@@ -101,10 +101,10 @@ const CounterSection = () => {
               className="text-center sm:text-left"
             >
               <div className="flex items-baseline justify-center sm:justify-start">
-                <H1 className="font-extrabold text-[#666666] tabular-nums">
+                <h1 className="text-4xl sm:text-5xl lg:text-8xl font-extrabold  text-[#666666] tabular-nums">
                   {counts[i]}
-                </H1>
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#666666] ml-1">
+                </h1>
+                <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#666666] ml-1">
                   {c.suffix}
                 </span>
               </div>
