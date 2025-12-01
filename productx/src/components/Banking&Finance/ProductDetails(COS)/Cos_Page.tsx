@@ -9,14 +9,12 @@ import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 // import NewFooter from "../Products2/NewFooter";
  
-import NewOneFooter from "../ProductRemitree/NewOneFooter";
 // import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
 // import FeatureGrid2 from "./FeatureGrid2";
 
 import BNFNav from "../BNFnav";
-import ContactUS from "../ProductRemitree/ContactUS";
- 
- 
+import NewOneFooter from "../ProductRemitree/NewOneFooter";
+import ContactSection from "../ProductBankfair/ContactSection";
 
 const Cos_Page = () => {
   return (
@@ -32,7 +30,7 @@ const Cos_Page = () => {
         <HWD />
         <FAQ />
         <InsightThought />
-        <ContactUS />
+        <ContactSection />
         <NewOneFooter/>
         
     </div>   

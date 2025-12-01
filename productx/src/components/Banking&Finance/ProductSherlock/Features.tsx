@@ -53,7 +53,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
     FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
 
   return (
-    <section className="py-14 px-5 sm:px-10 lg:px-32 bg-[#fafafa] xl:h-screen overflow-hidden">
+    <section className="py-14 px-5 sm:px-10 lg:px-32 bg-[#fafafa] xl:h-full overflow-hidden">
       <div className="max-w-[1280px] mx-auto">
         {/* Section Title */}
         <H2 className="mb-20 mt-10 text-center text-blue-600 tracking-tight leading-snug">

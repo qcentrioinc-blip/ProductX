@@ -13,7 +13,7 @@ const CTA = () => {
       />
 
       {/* Text Content */}
-      <div className="relative   max-w-3xl   mx-auto ">
+      <div className="relative   max-w-5xl   mx-auto ">
         <H2 className="  font-extrabold leading-snug">
           Sed ut perspiciatis unde omnis
           <br />

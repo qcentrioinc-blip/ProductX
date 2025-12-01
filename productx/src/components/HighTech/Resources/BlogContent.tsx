@@ -4,82 +4,129 @@ import { Link } from "react-router-dom";
 
  
 
-const BlogContent = () => {
+interface BlogContentProps {
+  activeCategory: string;
+}
+
+const BlogContent: React.FC<BlogContentProps> = ({ activeCategory }) => {
   const blogPosts = [
     {
       id: 1,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Blogs',
       image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 2,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Case studies',
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 3,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'News/press Release',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 4,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Blogs',
       image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 5,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Blogs',
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 6,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Blogs',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 7,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Case studies',
       image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 8,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Whitepapers',
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     },
     {
       id: 9,
       date: '12 Oct 2025',
-      category: 'Tech',
+      category: 'Case studies',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 10,
+      date: '12 Oct 2025',
+      category: 'Blogs',
+      image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 11,
+      date: '12 Oct 2025',
+      category: 'Blogs',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 12,
+      date: '12 Oct 2025',
+      category: 'Blogs',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 13,
+      date: '12 Oct 2025',
+      category: 'Case studies',
+      image: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 14,
+      date: '12 Oct 2025',
+      category: 'Whitepapers',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop',
+      title: 'We onboard users from 126+ countries — whether you hold a passport or a'
+    },
+    {
+      id: 15,
+      date: '12 Oct 2025',
+      category: 'Case studies',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop',
       title: 'We onboard users from 126+ countries — whether you hold a passport or a'
     }
   ];
-
+const filteredPosts = blogPosts.filter(
+    (post) => post.category === activeCategory
+  );
   return (
-    <div className="min-h-screen bg-black pt-6 lg:pt-10 pb-20 px-4 ">
-      <div className="max-w-8xl  lg:mx-10">
-       <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
-            >
+  <div className="min-h-screen bg-black pt-6 lg:pt-10 pb-20 px-4">
+      <div className="max-w-8xl lg:mx-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPosts.map((post) => (
+            <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+             
+            
               {/* Content Container */}
               <div className="p-6 ">
                 {/* Date and Category */}

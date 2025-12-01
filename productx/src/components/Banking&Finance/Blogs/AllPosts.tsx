@@ -1,220 +1,466 @@
- import { useState } from "react";
-import { H2 } from "../../../styles/Typography";
-const AllPosts = () => {
+"use client";
 
-     const mockBlogs = [
-    {
-      id: 1,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 2,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 3,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 4,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 5,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 6,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 7,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 8,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "7 mins",
-      category: "AUGUST 14,2024"
-    },
-    {
-      id: 9,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "5 mins",
-      category: "AUGUST 14,2024"
-    },
-    // Add more mock data for additional pages
-    ...Array.from({ length: 21 }, (_, i) => ({
-      id: i + 10,
-      title: "Lorem Ipsum",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-      author: "Author",
-      readTime: "10 mins",
-      category: "AUGUST 14,2024"
-    }))
-  ];
+import { useState, useMemo, useRef, useEffect } from "react";
+import { P, H2 } from "../../../styles/Typography"; // ⭐ Make sure H2 is available
 
+const categories = [
+  "All Posts",
+  "Banking",
+  "Lorem ipsum",
+  "High Tech",
+  "Lorem ipsum 2",
+  "Finance",
+];
+
+// ⭐ FULL MOCK POSTS (UNCHANGED)
+const posts = [
+  {
+    id: 1,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks and maximize growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Finance",
+    image: "/Blogs/img1.jpg",
+  },
+  {
+    id: 2,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs and increase efficiency.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum 2",
+    image: "/Blogs/img2.jpg",
+  },
+  {
+    id: 3,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Banking",
+    image: "/Blogs/img3.jpg",
+  },
+  {
+    id: 4,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks and maximize growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "High Tech",
+    image: "/Blogs/img4.jpg",
+  },
+  {
+    id: 5,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs and increase efficiency.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum",
+    image: "/Blogs/img5.jpg",
+  },
+  {
+    id: 6,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Banking",
+    image: "/Blogs/img6.jpg",
+  },
+  {
+    id: 7,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks and maximize growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Finance",
+    image: "/Blogs/img7.jpg",
+  },
+  {
+    id: 8,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs and increase efficiency.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum 2",
+    image: "/Blogs/img8.png",
+  },
+  {
+    id: 9,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "High Tech",
+    image: "/Blogs/img9.jpg",
+  },
+
+  // ⭐ DUPLICATE SET (UNCHANGED)
+  {
+    id: 10,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Banking",
+    image: "/Blogs/img6.jpg",
+  },
+  {
+    id: 11,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks and maximize growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Finance",
+    image: "/Blogs/img7.jpg",
+  },
+  {
+    id: 12,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs and increase efficiency.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum 2",
+    image: "/Blogs/img8.png",
+  },
+  {
+    id: 13,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "High Tech",
+    image: "/Blogs/img9.jpg",
+  },
+  {
+    id: 14,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Banking",
+    image: "/Blogs/img6.jpg",
+  },
+  {
+    id: 15,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks and maximize growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Finance",
+    image: "/Blogs/img7.jpg",
+  },
+  {
+    id: 16,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs and increase efficiency.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum 2",
+    image: "/Blogs/img8.png",
+  },
+  {
+    id: 17,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "High Tech",
+    image: "/Blogs/img9.jpg",
+  },
+  {
+    id: 18,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "From NFC to biometric authentication — digital payments are evolving faster than ever.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Banking",
+    image: "/Blogs/img6.jpg",
+  },
+  {
+    id: 19,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "How financial institutions use predictive analytics to minimize risks.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Finance",
+    image: "/Blogs/img7.jpg",
+  },
+  {
+    id: 20,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Automation tools that are helping enterprises reduce operational costs.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum 2",
+    image: "/Blogs/img8.png",
+  },
+  {
+    id: 21,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "NFC, biometric authentication, and modern banking trends.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "High Tech",
+    image: "/Blogs/img9.jpg",
+  },
+  {
+    id: 22,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "Evolution of digital transactions.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Lorem ipsum",
+    image: "/Blogs/img6.jpg",
+  },
+  {
+    id: 23,
+    title: "Data Analytics for Smarter Finance",
+    description:
+      "Predictive analytics for financial growth.",
+    author: "Sophia Lee",
+    date: "SEPTEMBER 14, 2025",
+    category: "Lorem ipsum",
+    image: "/Blogs/img7.jpg",
+  },
+  {
+    id: 24,
+    title: "Enterprise Automation Strategies",
+    description:
+      "Impact of automation in organizations.",
+    author: "John Carter",
+    date: "SEPTEMBER 17, 2025",
+    category: "Lorem ipsum",
+    image: "/Blogs/img8.png",
+  },
+  {
+    id: 25,
+    title: "Digital Payments: The Future of Banking",
+    description:
+      "Next-gen payment systems.",
+    author: "Rachel Green",
+    date: "SEPTEMBER 20, 2025",
+    category: "Lorem ipsum",
+    image: "/Blogs/img9.jpg",
+  },
+];
+
+export default function BlogGridSection() {
+  const [activeCategory, setActiveCategory] = useState("All Posts");
   const [currentPage, setCurrentPage] = useState(1);
-  const blogsPerPage = 9;
 
-  const totalPages = Math.ceil(mockBlogs.length / blogsPerPage);
+  // ⭐ ADDED: search state
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Calculate the blogs to show on current page
-  const indexOfLastBlog = currentPage * blogsPerPage;
-  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = mockBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  // ⭐ SORT DROPDOWN
+  const [sortOpen, setSortOpen] = useState(false);
+  const [sortType, setSortType] = useState("Most Relevant");
+  const sortRef = useRef<HTMLDivElement | null>(null);
 
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
-  // Generate page numbers for pagination
-  const getPageNumbers = () => {
-    const pageNumbers = [];
-    const maxVisiblePages = 5;
-
-    if (totalPages <= maxVisiblePages) {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
+        setSortOpen(false);
       }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const POSTS_PER_PAGE = 9;
+
+  // ⭐ FILTER by category
+  const categoryFiltered = useMemo(() => {
+    if (activeCategory === "All Posts") return posts;
+    return posts.filter((p) => p.category === activeCategory);
+  }, [activeCategory]);
+
+  // ⭐ ADDED: search filtering (title + desc + author)
+  const searchedFiltered = useMemo(() => {
+    return categoryFiltered.filter((post) => {
+      const text = (post.title + post.description + post.author).toLowerCase();
+      return text.includes(searchTerm.toLowerCase());
+    });
+  }, [categoryFiltered, searchTerm]);
+
+  // ⭐ SORTING
+  const sortedPosts = useMemo(() => {
+    let arr = [...searchedFiltered];
+
+    if (sortType === "Recently Viewed") {
+      arr.sort((a, b) => (a.id < b.id ? 1 : -1));
+    } else if (sortType === "Top") {
+      arr.sort((a, b) => (a.title.length < b.title.length ? 1 : -1));
     } else {
-      // Always show first page
-      pageNumbers.push(1);
-
-      if (currentPage > 3) {
-        pageNumbers.push('...');
-      }
-
-      // Show pages around current page
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = start; i <= end; i++) {
-        pageNumbers.push(i);
-      }
-
-      if (currentPage < totalPages - 2) {
-        pageNumbers.push('...');
-      }
-
-      // Always show last page
-      if (totalPages > 1) {
-        pageNumbers.push(totalPages);
-      }
+      arr.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-    return pageNumbers;
-  };
+    return arr;
+  }, [searchedFiltered, sortType]);
+
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  const paginatedPosts = useMemo(() => {
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    return sortedPosts.slice(start, start + POSTS_PER_PAGE);
+  }, [currentPage, sortedPosts]);
+
   return (
-     <section className="bg-white h-full w-full">
-        <div className="mx-10 py-8">
-          <H2 className="text-black ">All Posts</H2>
+    <section className="w-full px-6 md:px-12 py-10 bg-white">
+      
+      {/* ⭐ SEARCH AND HEADING - Kept the previous correct implementation */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-6">
+        <H2 className="text-[#1A4ABE] font-bold">Sed ut perspiciatis</H2>
 
-          {/* Blog Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {currentBlogs.map((blog) => (
-              <div key={blog.id} className="bg-white rounded-lg overflow-hidden">
-                {/* Blog Image Placeholder */}
-                <div className="w-full h-48 bg-gray-300"></div>
-
-                {/* Blog Content */}
-                <div className="p-4">
-                  <h3 className="text-sm font-medium text-gray-600 mb-2">
-                    {blog.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-600 line-clamp-2 mb-4">
-                    {blog.description}
-                  </p>
-
-                  {/* Blog Meta */}
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <div className="flex items-center space-x-4">
-                      <span className="flex items-center">
-                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                        </svg>
-                        {blog.author}
-                      </span>
-
-                      <span className="flex items-center">
-                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                        </svg>
-                        {blog.readTime}
-                      </span>
-                    </div>
-
-                    <span className="flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                      </svg>
-                      {blog.category}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-center items-center space-x-2">
-            {getPageNumbers().map((pageNumber, index) => (
-              pageNumber === '...' ? (
-                <span key={`ellipsis-${index}`} className="px-3 py-2 text-gray-500">
-                  ...
-                </span>
-              ) : (
-                <button
-                  key={pageNumber}
-                  onClick={() => handlePageChange(pageNumber as number)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${currentPage === pageNumber
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                >
-                  {pageNumber}
-                </button>
-              )
-            ))}
-          </div>
-
-
+        <div className="relative w-full md:w-[300px] xl:w-[500px] flex-none">
+          <input
+            type="text"
+            placeholder="Search posts"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="w-full border border-gray-300  rounded-md shadow-2xl py-3 px-6 pr-10"
+          />
+          <span className="absolute right-4 py-3 text-gray-500">🔍</span>
         </div>
-      </section>
-  )
-}
+      </div>
 
-export default AllPosts
+      {/* ✅ MODIFIED: FILTER BAR 
+        - Used flex-wrap on the main container so the sort button can wrap.
+        - The category buttons are kept in a separate div with flex-nowrap and overflow-x-scroll.
+      */}
+      <div className="flex flex-wrap gap-3 mb-6">
+        
+        {/* Category Buttons Wrapper - Allows horizontal scrolling, prevents wrapping */}
+        <div className="flex overflow-x-scroll flex-nowrap md:overflow-hidden gap-3 pb-2 md:pb-0">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setCurrentPage(1);
+              }}
+              // flex-none prevents the buttons from shrinking
+              className={`px-4 py-2 rounded-full border transition-all flex-none ${
+                activeCategory === cat
+                  ? "bg-black text-white border-black"
+                  : "bg-white text-black border-gray-300"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* SORT DROPDOWN - This is now directly inside the `flex flex-wrap` parent. 
+          The `ml-auto` pushes it to the right, and because the parent can wrap, 
+          if the category buttons take up the full width, the sort dropdown will 
+          wrap to the next line.
+        */}
+        <div className="relative ml-auto flex-none" ref={sortRef}>
+          <button
+            onClick={() => setSortOpen(!sortOpen)}
+            className="px-4 py-2 rounded-full border border-gray-400 bg-white flex items-center gap-2"
+          >
+            {sortType}
+            <span>▼</span>
+          </button>
+
+          {sortOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-xl border z-20">
+              {["Recently Viewed", "Most Relevant", "Top"].map((opt) => (
+                <button
+                  key={opt}
+                  onClick={() => {
+                    setSortType(opt);
+                    setSortOpen(false);
+                    setCurrentPage(1);
+                  }}
+                  className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
+                    sortType === opt ? "font-semibold" : ""
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* GRID (UNCHANGED) */}
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+        {paginatedPosts.map((post) => (
+          <div
+            key={post.id}
+            className="bg-white rounded-md overflow-hidden shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <div className="overflow-hidden h-[240px] sm:h-[260px] xl:h-[280px]">
+              <img
+                src={post.image}
+                alt="Post"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </div>
+
+            <div className="p-4 space-y-2">
+              <P className="font-semibold text-gray-900">{post.title}</P>
+
+              <P className="text-gray-600 leading-snug">{post.description}</P>
+
+              <div className="flex items-center justify-between text-gray-500 text-sm pt-1">
+                <span>✒ {post.author}</span>
+                <span>📅 {post.date}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* PAGINATION (UNCHANGED) */}
+      <div className="flex justify-center gap-3 mt-10">
+        {[...Array(totalPages)].map((_, i) => {
+          const page = i + 1;
+          return (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`w-10 h-10 flex items-center justify-center rounded-md border ${
+                currentPage === page
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+              }`}
+            >
+              {page}
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
