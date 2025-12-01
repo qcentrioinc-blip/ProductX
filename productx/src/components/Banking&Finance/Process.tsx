@@ -2,7 +2,7 @@
 
 import React, { useRef, useContext } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { H1, H3 } from '../../styles/Typography';
+import {   H2, H3, P } from '../../styles/Typography';
 import { ScrollContext } from '../../context/ScrollContext';
 
 type ProcessStepProps = {
@@ -74,6 +74,7 @@ const Process = () => {
                 className="relative bg-white"
                 style={{ height: "300vh" }}
             >
+                
                 {/* Sticky container */}
                 <div className="sticky top-0 h-screen flex items-center overflow-hidden">
                     
@@ -81,10 +82,10 @@ const Process = () => {
                     <div className="absolute top-0 left-0 right-0 flex-none pt-6 pb-6 z-20">
                         <div className="container mx-auto px-4">
                             <div className="text-center">
-                                <H1>Our Process</H1>
-                                <p>Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment</p>
+                                 <H2>Our Process</H2>
+                                <P>Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment</P>
                             </div>
-                        </div>
+                        </div> 
                     </div>
 
                     {/* Horizontal scroll section */}

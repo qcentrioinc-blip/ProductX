@@ -31,8 +31,8 @@ const cardData: CardItem[] = [
 
 const CardSec: React.FC = () => {
   return (
-    <section className="relative w-full min-h-screen bg-black  flex flex-col justify-center items-center py-16 px-10 md:py-20 lg:py-24 overflow-hidden">
-
+    <section className="relative w-full min-h-screen bg-black  flex flex-col justify-center items-center py-16 md:py-20 lg:py-24 overflow-hidden">
+    
     <img
         src="/HighTech/Careers/shape1.png"
         alt="Background shape"
@@ -40,7 +40,7 @@ const CardSec: React.FC = () => {
       />
 
       {/* Main Content Container */}
-      <div className="w-full max-w-8xl mx-10 flex flex-col gap-10 sm:gap-12 lg:gap-16 ">
+      <div className="max-w-8xl mx-10 px-4 flex flex-col gap-10 sm:gap-12 lg:gap-16 ">
         {/* Headings + Paragraph Container */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-10">
           {/* Left: Headings */}
@@ -75,7 +75,7 @@ const CardSec: React.FC = () => {
               className="
                 bg-white rounded-xl shadow-md p-6 
                 w-full sm:w-[calc(100%-12px)] md:w-full lg:w-full 
-                min-h-[320px] md:min-h-[400px] lg:min-h-[420px] xl:h-[450px] 
+                min-h-[320px] md:min-h-[400px] lg:min-h-[420px] xl:h-[550px] 
                 flex flex-col transition-transform duration-300 
                 hover:scale-105 hover:shadow-lg
               "

@@ -1,24 +1,26 @@
-import SubFooter from "../AboutHightTech/SubFooter"
-// import HighTechNav from "../HighTechNav/HighTechNav"
-import BlogContent from "./BlogContent"
-import BlogHead from "./BlogHead"
-import HeroSection from "./HeroSection"
+import { useState } from "react";
+import SubFooter from "../AboutHightTech/SubFooter";
+import BlogContent from "./BlogContent";
+import BlogHead from "./BlogHead";
+import HeroSection from "./HeroSection";
 
- 
 const Resources = () => {
+  const [activeCategory, setActiveCategory] = useState<
+    'Case studies' | 'Blogs' | 'News/press Release' | 'Whitepapers'
+  >('Case studies');
+
   return (
     <div>
-      {/* <HighTechNav/> */}
       <div className="relative overflow-x-hidden">
-        <HeroSection/>
-      <BlogHead/>
+        <HeroSection />
+        <BlogHead activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
       </div>
-      <BlogContent/>
-      <SubFooter/>
-      
-      
-    </div>
-  )
-}
 
-export default Resources
+      <BlogContent activeCategory={activeCategory} />
+
+      <SubFooter />
+    </div>
+  );
+};
+
+export default Resources;

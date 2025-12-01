@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { H1, P } from '../../../styles/Typography';
+import {   P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 // import LiquidEther from './LiquidEther';
  
@@ -15,8 +15,10 @@ interface IndustryCardProps {
 
 
 const IndustryCard: React.FC<IndustryCardProps> = ({ title, image, isActive, url }) => (
-  <a 
+   <a 
     href={url}
+    target="_blank"                
+    rel="noopener noreferrer"       
     className={`block relative overflow-hidden rounded-lg transition-all duration-500 ${
       isActive ? 'scale-110 shadow-2xl opacity-100' : 'scale-100 opacity-50'
     }`}
@@ -27,10 +29,6 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, image, isActive, url
       alt={title}
       className="w-full h-full object-cover"
     />
-    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-    <h3 className="absolute bottom-3 left-4 text-white text-lg font-semibold">
-      {title}
-    </h3> */}
   </a>
 );
 
@@ -91,28 +89,7 @@ export default function InteractiveHeroSection() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Header */}
-      import LiquidEther from './LiquidEther';
-
-{/* <div style={{ width: '100%', height: 600, position: 'relative' }}>
-  <LiquidEther
-    colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
-    mouseForce={20}
-    cursorSize={100}
-    isViscous={false}
-    viscous={30}
-    iterationsViscous={32}
-    iterationsPoisson={32}
-    resolution={0.5}
-    isBounce={false}
-    autoDemo={true}
-    autoSpeed={0.5}
-    autoIntensity={2.2}
-    takeoverDuration={0.25}
-    autoResumeDelay={3000}
-    autoRampDuration={0.6}
-  />
-</div> */}
+   
       <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/95 backdrop-blur-sm">
         <div className="max-w-8xl mx-4 px-6 py-1 flex items-center justify-between">
           <Link to="/">
@@ -122,8 +99,8 @@ export default function InteractiveHeroSection() {
           </div>
           </Link>
           <nav className="flex items-center gap-8">
-            <a href="/platform" className="text-white hover:text-gray-300 transition">Platform</a>
-            <a href="/marketplace" className="text-white hover:text-gray-300 transition">Marketplace</a>
+            <Link to="/platform" className="text-white hover:text-gray-300 transition">Platform</Link>
+            <Link to="/marketplace" className="text-white hover:text-gray-300 transition">Marketplace</Link>
             <Link to="/contact">
             <button className="bg-white text-black px-4 py-2 rounded-md font-medium  transition flex items-center gap-2">
               CONTACT US <ArrowUpRight size={18} />
@@ -137,26 +114,25 @@ export default function InteractiveHeroSection() {
       <div 
         ref={sectionRef}
         className="relative transition-colors duration-700"
-        // style={{ 
-        //   minHeight: '400vh',
-        //   backgroundColor: industries[activeIndex].bgColor
-        // }}
+        
       >
         <div className="sticky lg:top-10 h-full py-20 flex justify-between items-center pt-20">
           <div className="max-w-8xl mx-10 px-4  ">
-            <div className="grid grid-cols-2 gap-24 justify-between items-start">
+            <div className="grid grid-cols-2  justify-between items-start">
               {/* Left Content */}
-              <div className="space-y-4 pt-12 ">
-                <H1 className="font-bold text-white leading-tight">
+              <div className="space-y-4  ">
+                <h1 className="font-bold font-bricolage text-3xl  md:text-4xl lg:text-6xl text-white leading-tight">
                   Shaping the Future<br />
                   Across Every Sector.
-                </H1>
+                </h1>
                 <P className="text-gray-300 leading-relaxed  w-full  ">
                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
                 </P>
-                <button className="bg-white text-black px-8 py-3 rounded-2xl font-semibold text-sm hover:bg-gray-100 transition flex items-center gap-2 mt-6">
+                <Link to="/contact">
+                <button className="bg-white text-black font-quicksand px-8 py-3 rounded-2xl font-semibold text-sm hover:bg-gray-100 transition flex items-center gap-2 mt-6">
                  REQUEST PROPOSAL <ArrowUpRight size={18} />
                 </button>
+                </Link>
  
                                 {/* Stats */}
                 <div className="flex font-bricolage gap-20 lg:pt-44">

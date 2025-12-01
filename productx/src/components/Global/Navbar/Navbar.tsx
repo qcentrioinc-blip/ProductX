@@ -6,7 +6,7 @@ import { Search, ArrowUpRight, X, ChevronRight, ArrowRight, ChevronDown, Chevron
 import { useState, useEffect, useContext, useRef, useCallback } from "react"
 import { useNavigate, Link } from 'react-router-dom';
 import { ScrollContext } from "../../../context/ScrollContext";
-import { H2 } from "../../../styles/Typography"
+import { H2, P } from "../../../styles/Typography"
 // import { ContactUs } from "../../styles/Button"
 
 
@@ -360,7 +360,7 @@ const Navbar = () => {
                 {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
                 <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
 
-                <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <P className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</P>
               </div>
 
               <div className="border-b border-gray-200 mb-8"></div>
@@ -369,9 +369,9 @@ const Navbar = () => {
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-black">Banking and Finance</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <P className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
-                  </p>
+                  </P>
                   <Link
                     to="/industries/banking-and-finance"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
@@ -389,9 +389,9 @@ const Navbar = () => {
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-black">High Tech</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <P className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
-                  </p>
+                  </P>
                   <Link
                     to="/industries/high-tech"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
@@ -408,9 +408,9 @@ const Navbar = () => {
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium text-black">EHR and PMS</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <P className="text-gray-600 text-sm leading-relaxed">
                     Praesent eget laoreet arcu, nec iaculis massa.
-                  </p>
+                  </P>
                   <Link
                     to="/industries/ehr-and-pms"
                     className="flex items-center space-x-2 text-sm text-black hover:text-gray-600 transition-colors group"
@@ -477,7 +477,7 @@ const Navbar = () => {
                         className="bg-white rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer border border-gray-100"
                       >
                         <h3 className="font-medium text-black mb-2 text-base">{solution.name}</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">{solution.description}</p>
+                        <P className="text-sm text-gray-600 leading-relaxed">{solution.description}</P>
                       </div>
                     ))}
                   </div>
@@ -501,7 +501,7 @@ const Navbar = () => {
                 {/* <h2 className="text-2xl font-normal text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</h2> */}
                 <H2 className="text-black mb-2">Quisque a sagittis ligula. Nulla facilisi</H2>
 
-                <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <P className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit</P>
               </div>
 
               <div className="border-b border-gray-200 mb-8"></div>
@@ -510,23 +510,23 @@ const Navbar = () => {
                 <div className="space-y-8">
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Blogs</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <P className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
-                    </p>
+                    </P>
                   </div>
 
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Glossary</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <P className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
-                    </p>
+                    </P>
                   </div>
 
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Whitepapers</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <P className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
-                    </p>
+                    </P>
                   </div>
                 </div>
 
@@ -535,16 +535,16 @@ const Navbar = () => {
                 <div className="space-y-8">
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">News</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <P className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
-                    </p>
+                    </P>
                   </div>
 
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium text-black">Events</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <P className="text-gray-600 text-sm leading-relaxed">
                       Praesent eget laoreet arcu, nec iaculis massa.
-                    </p>
+                    </P>
                   </div>
                 </div>
               </div>
