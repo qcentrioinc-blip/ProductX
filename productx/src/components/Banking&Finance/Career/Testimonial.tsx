@@ -1,4 +1,4 @@
-import { H2, H4 ,P } from "../../../styles/Typography";
+import { H4 ,P } from "../../../styles/Typography";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -26,7 +26,7 @@ const testimonials: TestimonialItem[] = [
 const Testimonial = () => {
   return (
     <div className="bg-white  text-black py-20 px-6 md:px-10">
-      <H2 className="mb-10 mx-4 lg:mx-10 md:mx-0 lg:mb-20">Sed ut perspiciatis</H2>
+      {/* <H2 className="mb-10 mx-4 lg:mx-10 md:mx-0 lg:mb-20">Sed ut perspiciatis</H2> */}
 
       <div className="grid md:px-0 lg:px-10  sm:px-4    md:gap-x-10 lg:gap-24 md:grid-cols-3">
         {testimonials.map((item, index) => (

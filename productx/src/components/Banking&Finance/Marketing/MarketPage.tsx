@@ -2,7 +2,7 @@
 // import ProductCards from "./ProductCards";
 import FeatureGrid from "../ProductDetails(COS)/FeatureGrid";
 // import ContactUS from "../ProductRemitree/ContactUS";
-import NewFooter from "../ProductRemitree/NewFooter";
+import NewFooter from "../../Global/NewFooter/NewFooter";
 import Counter from "../../HomePage/LandingPages/Counter";
 import ContactUS from "../ProductRemitree/ContactUS";
  

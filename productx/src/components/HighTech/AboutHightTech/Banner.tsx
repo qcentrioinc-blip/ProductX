@@ -19,7 +19,7 @@ const Banner = () => {
           
  
           {/* Heading */}
-          <H2 className="  font-bold  ">
+          <H2 className="  font-bold   ">
             Sed ut perspiciatis
             <br />
             <span className="italic text-[#F99526] playfair font-medium">

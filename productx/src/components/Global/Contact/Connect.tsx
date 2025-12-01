@@ -1,6 +1,6 @@
  
  
-import NewFooter from "../../Banking&Finance/ProductRemitree/NewFooter"
+import NewFooter from "../NewFooter/NewFooter"
 import Contact from "./Contact"
 
  
