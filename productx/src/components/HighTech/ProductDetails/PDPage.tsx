@@ -5,9 +5,9 @@ import CardsSec from './CardSec.tsx'
 import Highlights from './Highlights.tsx'
 import FeatureCards from './FeatureCards.tsx'
 import HWD from '../../Banking&Finance/HWD.tsx'
-
 import SubFooter from '../Careers/SubFooter.tsx'
 import FaqSection from '../../Banking&Finance/ProductSherlock/FAQ.tsx'
+import CTA from '../AboutHightTech/CTA.tsx'
 
  
 
@@ -17,6 +17,7 @@ const PDPage = () => {
     <>
     
         <TitleSec/>
+        <CTA/>
         <StepsSec/>
         <ProductSec/>
         <CardsSec/>

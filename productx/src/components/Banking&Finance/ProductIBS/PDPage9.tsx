@@ -6,39 +6,31 @@ import ImgTextSec from "./ImgTextSec";
 import HWD from "../HWD";
 import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
-import ContactUS from "../ProductRemitree/ContactUS";
-// import NewFooter from "../Products2/NewFooter";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-// import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
-
-// import NewFooter from "../Products2/NewFooter";
 import BNFNav from "../BNFnav";
+// import KeytomStickyScroll from "./KeytomStickyScroll";
+import ContactSection from "../ProductBankfair/ContactSection";
+// import StickyCardStack from "./StickyCardStack";
 
 const PDPage9 = () => {
   return (
     <>
-    {/* <ScrollProvider> */}
     <BNFNav/>
       <HeroSection />
       <FeatureGridSection />
+      {/* <StickyCardStack/> */}
       <StatsSection />
+            
+
       <Cards />
+      {/* <KeytomStickyScroll/> */}
       <ImgTextSec />
       <HWD />
       <FaqSection />
       <InsightThought />
-      <ContactUS />
-      {/* <NewFooter /> */}
-       {/* <div 
-        className='lg:relative lg:h-[700px]'
-        style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
-      >
-        <div className='lg:fixed lg:bottom-0 lg:h-[700px] lg:w-full lg:pointer-events-none'>
-          {/* <NewFooter /> */}
+      <ContactSection/>        
           <NewOneFooter/>
-        {/* </div> */}
-      {/* </div> */}
-    {/* </ScrollProvider> */}
+        
     </>
   );
 };

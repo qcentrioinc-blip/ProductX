@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { H2, H3, H4, P } from "../../../styles/Typography";
+import { Link } from "react-router-dom";
 
 const careers = [
   {
@@ -38,7 +39,7 @@ const JobListing = () => {
       <div className="max-w-7xl mx-auto px-[20px] lg:px-0">
         {/* Section Header */}
         <div className="mb-16">
-          <H2 className="text-[#2A2A2A]">Sed ut perspiciatis</H2>
+          <H2 className="text-[#CCCCCC]">Sed ut perspiciatis</H2>
           <H2 className="text-[#F99526] mt-1">Unde Seduo ut perspiciatis</H2>
         </div>
 
@@ -47,16 +48,21 @@ const JobListing = () => {
           {careers.map((job, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 sm:grid-cols-[1fr_2fr_auto] sm:items-start py-10 gap-6"
+              className="group grid grid-cols-1 sm:grid-cols-[1fr_2fr_auto] sm:items-start py-10 gap-6 transition-all duration-300
+             hover:bg-gradient-to-r hover:from-[#F99526]/20 hover:to-[#4A4A4A]/40"
             >
               {/* Mobile Layout */}
               <div className="flex flex-col sm:hidden">
                 {/* Title + Arrow */}
                 <div className="flex justify-between items-center">
-                  <H3>{job.title}</H3>
+                <H3 className="group-hover:text-[#F99526] transition-all duration-300">
+                  {job.title}
+                </H3>
+                <Link to="/industries/high-tech/jobdescription">
                   <div className="w-9 h-9 rounded-full bg-[#fffdfd] flex items-center justify-center hover:bg-[#F99526] transition-all duration-300 group">
                     <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 group-hover:text-white transition-all duration-300" />
                   </div>
+                </Link>
                 </div>
 
                 {/* Details stacked below title */}
@@ -75,7 +81,9 @@ const JobListing = () => {
 
               {/* Tablet/Desktop Layout (unchanged) */}
               <div className="hidden sm:block">
-                <H3>{job.title}</H3>
+              <H3 className="group-hover:text-[#F99526] transition-all duration-300">
+                {job.title}
+              </H3>
               </div>
 
               <div className="hidden sm:block sm:max-w-lg text-left space-y-2 sm:col-start-2 sm:col-span-1">
@@ -89,12 +97,15 @@ const JobListing = () => {
                   {job.description}
                 </P>
               </div>
-
+              <Link to="/industries/high-tech/jobdescription">
               <div className="hidden sm:flex sm:items-start sm:justify-end">
-                <div className="w-9 h-9 rounded-full bg-[#fffdfd] flex items-center justify-center hover:bg-[#F99526] transition-all duration-300 group">
-                  <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 group-hover:text-white transition-all duration-300" />
+<div className="w-12 h-12 rounded-full bg-white flex items-center justify-center 
+                transition-all duration-300 group-hover:bg-violet-600">
+<ArrowRight className="w-6 h-6 text-black group-hover:translate-x-1 group-hover:text-white transition-all duration-300" />
                 </div>
+              
               </div>
+              </Link>
             </div>
           ))}
         </div>

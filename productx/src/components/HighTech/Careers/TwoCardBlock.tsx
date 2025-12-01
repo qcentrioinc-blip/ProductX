@@ -41,7 +41,7 @@ const TwoCardBlock: React.FC = () => {
         {/* Headings */}
         <div className="mb-10 lg:mb-16">
           <H2 className="text-gray-900">Sed ut perspiciatis</H2>
-          <H2 className="text-[#F99526] mt-1">Unde Seduo ut perspiciatis</H2>
+          <H2 className="text-[#F99526] italic mt-2 md:mt-3 leading-tight">Unde Seduo ut perspiciatis</H2>
         </div>
 
         {/* Two-Card Container */}

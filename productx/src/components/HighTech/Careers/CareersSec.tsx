@@ -13,19 +13,19 @@ const cardData: CardItem[] = [
     id: 1,
     icon: "🚀",
     title: "Future-Proof Your Career",
-    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape. Build the future with us.",
+    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape.",
   },
   {
     id: 2,
     icon: "🌍",
     title: "Global Impact, Local Team",
-    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape. Build the future with us.",
+    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape.",
   },
   {
     id: 3,
     icon: "💡",
     title: "Autonomy and Innovation",
-    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape. Build the future with us.",
+    text: "We offer continuous learning and development programs, ensuring you stay ahead of the curve in a rapidly evolving technological landscape.",
   },
 ];
 
@@ -75,7 +75,7 @@ const CareerSec: React.FC = () => {
               className="
                 bg-white rounded-xl shadow-md p-6 
                 w-full sm:w-[calc(100%-12px)] md:w-full lg:w-full 
-                min-h-[320px] md:min-h-[400px] lg:min-h-[420px] xl:h-[450px] 
+                min-h-[320px] md:min-h-[400px] lg:min-h-[420px] xl:h-[500px] 
                 flex flex-col transition-transform duration-300 
                 hover:scale-105 hover:shadow-lg
               "

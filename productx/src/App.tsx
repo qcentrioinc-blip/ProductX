@@ -1,13 +1,10 @@
 import './App.css'
 // import Navbar from './components/Global/Navbar/Navbar'
-
 import './index.css'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
-import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
-import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
 import { ScrollProvider } from './context/ScrollContext'
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
@@ -18,7 +15,6 @@ import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductIBS/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7'
-
 import Platform from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
@@ -51,6 +47,12 @@ import WhitePapersPAge from './components/Banking&Finance/WhitePapers/WhitePaper
 import NewsPage from './components/Banking&Finance/News/NewsPage'
 import EventssPage from './components/Banking&Finance/Events/EventsPage'
 import HeroSlider from './components/LandingPage/HeroSlider'
+import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
+import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
+import { CareersPageAI } from './components/AI/Careers/CareersPage'
+import JobDetails from './components/AI/JobDetails'
+
+ 
 import AIOptimization from './routes/industries/AIOptimization'
 
 const App = () => {
@@ -64,7 +66,7 @@ const App = () => {
     return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br /> SOON AVAILABLE<br /> Till Then Check Other Industries
       <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
-
+ 
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "bankfair") return <ProductsPage1 />;
@@ -78,7 +80,7 @@ const App = () => {
     if (productId === "loan-origination-system") return <ProductsPage7 />
     return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
-
+ 
   const EhrPmsPageRouter = () => {
     const { page } = useParams();
     if (page === "blogs") return <BlogsPage />;
@@ -94,35 +96,35 @@ const App = () => {
     if (page === "clinic-app") return <Clinic />;
     return <div>Page not found</div>;
   };
-
-
+ 
+ 
   const IndustryAboutUsPage = () => {
     const { industry } = useParams();
-
+ 
     if (industry === "banking-and-finance") return <AboutUs />;
     if (industry === "high-tech") return <AboutHighTech />;
     if (industry === "ehr-and-pms") return <About />;
-
+ 
     return <div>About Us page not found for this industry</div>;
   };
-
+ 
   const IndustryResourcesPage = () => {
     const { industry } = useParams();
-
+ 
     if (industry === "banking-and-finance") return <div>Coming Soon</div>;
     if (industry === "high-tech") return <Resources />;
     if (industry === "ehr-and-pms") return <div>Coming Soon</div>;
-
+ 
     return <div>Resources page not found for this industry</div>;
   };
-
+ 
   const IndustryCareersPage = () => {
     const { industry } = useParams();
-
+ 
     if (industry === "banking-and-finance") return <Career />;
     if (industry === "high-tech") return <div>Careers Coming Soon</div>;
     if (industry === "ehr-and-pms") return <div>Careers Coming Soon</div>;
-
+ 
     return <div>Careers page not found for this industry</div>;
   };
   return (
@@ -143,6 +145,7 @@ const App = () => {
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
             <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
@@ -189,6 +192,9 @@ const App = () => {
   <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
             
             <Route path="/industries/ai-automation" element={<AIOptimization />} />
+            <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
+            <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
+
           </Routes>
         </div>
       </ScrollProvider>
@@ -196,5 +202,6 @@ const App = () => {
     </>
   )
 }
-
+ 
 export default App
+ 

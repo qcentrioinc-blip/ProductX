@@ -12,37 +12,40 @@ const isEHR = path.startsWith("/industries/ehr-and-pms");
 const isBanking = path.startsWith("/industries/banking-and-finance");
 const isHighTech = path.startsWith("/industries/high-tech");
 // const isBanking = location.pathname === "/industries/banking-and-finance";
-
+ 
 // Default (banking) colors
 const COLORS = {
   ehr: {
     topBg: "#F5F5F5",
     bottomBg: "#B4E7CE",
-    headingColor: "#166D48"
+    headingColor: "#166D48",
+    textcolor: "#000000"
   },
   banking: {
     topBg: "#F5F5F5",
     bottomBg: "#C1D7F3",
-    headingColor: "#2B68C3"
+    headingColor: "#2B68C3",
+    textcolor: "#000000"
   },
   hightech: {
-    topBg: "#F2F0FF",
-    bottomBg: "#D9D2FF",
-    headingColor: "#5B3FD1"
+    topBg: "#141414",
+    bottomBg: "#E7D6FF",
+    headingColor: "#5B3FD1",
+    textcolor: "#CCCCCC"
   }
 };
-
+ 
 // Select correct palette
 let palette;
-
+ 
 if (isEHR) palette = COLORS.ehr;
 else if (isBanking) palette = COLORS.banking;
 else if (isHighTech) palette = COLORS.hightech;
 else palette = COLORS.banking; // default
-
+ 
 // Extract
-const { topBg, bottomBg, headingColor } = palette; 
-
+const { topBg, bottomBg, headingColor, textcolor } = palette;
+ 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -61,7 +64,7 @@ const { topBg, bottomBg, headingColor } = palette;
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-
+ 
 const CardContent = () => (
   <section id='use-cases'>
     {/* Top Section */}
@@ -70,7 +73,7 @@ const CardContent = () => (
       style={{ backgroundColor: topBg }}
     >
       <div className="w-15 h-15 bg-gray-300 rounded-full mb-4"></div>
-
+ 
       <div className="text-justify">
         <h4 className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]
         font-bricolage
@@ -78,13 +81,13 @@ const CardContent = () => (
         leading-[120%]" style={{ color: headingColor }}>
           Sed ut reprehenderit in
         </h4>
-
-        <P className="text-black">
+ 
+        < p className="" style={{ color: textcolor }}>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-        </P>
+        </p>
       </div>
     </div>
-
+ 
     {/* Bottom Section */}
     <div
       className="pl-6 pr-10 py-18 text-justify"
@@ -107,7 +110,7 @@ const CardContent = () => (
     </div>
   </section>
 );
-
+ 
   return (
     <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
@@ -153,7 +156,7 @@ const CardContent = () => (
               ))}
           </motion.h2>
         </div>
-
+ 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[0, 1, 2].map((i) => (
@@ -161,7 +164,7 @@ const CardContent = () => (
               key={i}
              className="relative rounded-lg text-black overflow-hidden shadow-lg"
 style={{ backgroundColor: bottomBg }}
-
+ 
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -177,3 +180,5 @@ style={{ backgroundColor: bottomBg }}
 };
  
 export default HWD;
+ 
+ 
