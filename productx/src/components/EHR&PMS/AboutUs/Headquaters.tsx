@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { H2, H4, P } from "../../../styles/Typography";
+import { ContactUs } from "../../../styles/Button";
 
 const Headquarters = () => {
   const locations = [
@@ -40,53 +41,38 @@ const Headquarters = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="min-h-screen bg-[#FFEFDD] px-4 md:py-20">
-      <div className="max-w-8xl mx-auto">
+    <div className="min-h-screen bg-[#EDE4CA] px-4 md:py-10">
+      <div className="max-w-8xl lg:mx-4 py-10">
 
         {/* ---------------- TOP ---------------- */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center px-6 md:px-10 mb-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center px-2 lg:px-6 md:px-10 mb-10">
           <H2 className="font-bold text-[#0F6B4A] leading-tight">
             Sed ut perspiciatis Unde <br />
             spiciatis spiciatis
           </H2>
 
-          <div className="mt-6 lg:mt-0 max-w-md text-right lg:text-left">
+          <div className="mt-6 lg:mt-0 max-w-md  text-left">
             <P className="text-gray-700 mb-4 leading-relaxed">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur. Duis aute irure.
             </P>
 
-            <button
-              className="mt-2 flex items-center gap-2 bg-black text-white 
-              px-5 py-3 rounded-lg text-sm font-semibold shadow
-              hover:bg-gray-900 transition"
-            >
-              SUBMIT APPLICATION
-              {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 7l-10 10m0 0V7m0 10h10" />
-              </svg> */}
-            </button>
+            <ContactUs>SUBMIT APPLICATION</ContactUs>
           </div>
         </div>
 
         {/* ---------------- MAIN RESPONSIVE CARD ---------------- */}
-        <div className="bg-white rounded-2xl mx-4 md:mx-10 shadow-lg py-12 px-6 md:px-10">
+        <div className="bg-white rounded-lg lg:mx-4 md:mx-10 shadow-lg    py-10 px-6 md:px-10">
           <div className="flex flex-col lg:flex-row gap-12">
 
             {/* LEFT – COUNTRIES */}
-            <div className="w-full lg:w-[22%] space-y-6">
+            <div className="w-full lg:w-[22%] space-y-8">
               {locations.map((location, index) => (
                 <div
                   key={index}
                   onClick={() => setActive(index)}
-                  className={`flex items-center gap-4 p-4 rounded-xl cursor-pointer transition 
-                    ${active === index ? "bg-[#F0F0F0] shadow-sm" : "hover:bg-gray-50"}
+                  className={`flex items-center justify-center md:justify-start   lg:justify-center gap-4 px-4 py-8 lg:py-6 rounded-xl cursor-pointer transition 
+                    ${active === index ? "bg-gray-200 shadow-sm" : "hover:bg-gray-100"}
                   `}
                 >
                   <div className="w-16 h-12">
@@ -105,16 +91,16 @@ const Headquarters = () => {
             </div>
 
             {/* CENTER – IMAGE */}
-            <div className="w-full lg:w-[56%] flex justify-center">
+            <div className="w-full lg:w-[55%] flex justify-center">
               <img
                 src={locations[active].image}
                 alt="Modern office building"
-                className="w-full h-[300px] md:h-[380px] lg:h-[480px] object-cover rounded-2xl shadow-md"
+                className="w-full h-[300px] md:h-[380px] lg:h-[490px] object-cover rounded-2xl shadow-md"
               />
             </div>
 
             {/* RIGHT – ADDRESS + CONTACT */}
-            <div className="w-full lg:w-[22%] space-y-6 items-end">
+            <div className="w-full lg:w-[22%] space-y-6 flex flex-col justify-end  ">
 
               <div className="bg-[#F0F0F0] rounded-xl p-5 shadow-sm">
                 <H4 className="font-bold text-gray-900 mb-4 text-lg">Address</H4>

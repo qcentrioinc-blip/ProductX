@@ -93,9 +93,20 @@ const OurWork = () => {
 
   return (
     <div
-      ref={containerRef}
-      className="flex flex-col items-center justify-center bg-gray-50 py-20 px-4"
-    >
+  ref={containerRef}
+  className="flex flex-col items-center justify-center py-20 px-4 relative bg-gray-50"
+>
+  {/* Background ClipPath Image */}
+  <img
+    src="/AboutUs/EHRClipPath.png"
+    alt="background shape"
+    className="
+      absolute top-0 left-0 
+      w-full opacity-20 
+      pointer-events-none select-none 
+      z-1
+    "
+  />
       <div ref={sectionRef} className="w-full max-w-8xl px-2">
         {/* Header */}
         <div className="text-left mb-16 lg:mx-10 ">
@@ -107,7 +118,7 @@ const OurWork = () => {
           </H2>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 relative lg:px-10">
+        <div className="flex flex-col z-20  lg:flex-row gap-20 lg:gap-16 relative lg:px-10">
           {/* Text Column */}
           <div className="w-full lg:w-[45%]  relative">
             <div className="lg:sticky lg:top-24 space-y-12">
@@ -117,7 +128,8 @@ const OurWork = () => {
                 return (
                   <div
                     key={`text-${card.id}`}
-                    className="transition-all duration-700 ease-in-out"
+                    className=" transition-all duration-700 ease-in-out
+    bg-gray-100 rounded-sm p-6 shadow-md"
                     style={{
                       opacity: isVisible ? 1 : 0,
                       transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -138,33 +150,40 @@ const OurWork = () => {
           </div>
 
           {/* Image Column - stacked */}
-          <div className="w-full lg:w-[60%] relative">
-            {cards.map((card, index) => (
-              <div
-                key={`image-${card.id}`}
-                ref={(el) => {
-                  imageRefs.current[index] = el;
-                }}
-                className="sticky rounded-xl overflow-hidden shadow-2xl  bg-white transition-all duration-500 ease-out"
-                style={{
-                  top: `${100 + index * 60}px`,
-                  marginLeft: `${index * 20}px`,
-                  width: `calc(100% - ${index * 20}px)`,
-                  height: "450px",
-                 zIndex: index + 1,
-                }}
-              >
-                <img
-                  src={card.ImageUrl}
-                  alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
-                />
-              </div>
-            ))}
+         <div className="w-full lg:w-[60%] relative">
+  {cards.map((card, index) => (
+    <div
+      key={`image-${card.id}`}
+      ref={(el) => {
+        imageRefs.current[index] = el;
+      }}
+      className="sticky rounded-xl overflow-hidden shadow-2xl bg-white transition-all duration-500 ease-out"
+      style={{
+        top: `${100 + index * 60}px`,
+        marginLeft: `${index * 20}px`,
+        width: `calc(100% - ${index * 20}px)`,
+        zIndex: index + 1,
+      }}
+    >
+      <img
+        src={card.ImageUrl}
+        alt={card.title}
+        className="
+          w-full
+          h-[220px]       
+          sm:h-[280px]    
+          md:h-[350px]   
+          lg:h-[450px]    
+          object-cover
+          transition-transform duration-700 ease-out hover:scale-105
+        "
+      />
+    </div>
+  ))}
 
-            {/* Spacer for smooth scroll */}
-            {/* <div className="h-[600px]" /> */}
-          </div>
+  <div className="h-[200px]" />
+</div>
+
         </div>
       </div>
     </div>

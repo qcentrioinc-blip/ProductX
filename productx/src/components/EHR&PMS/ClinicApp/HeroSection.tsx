@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { H1, P } from '../../../styles/Typography';
+import { H1,   P } from '../../../styles/Typography';
 import Image1 from '/ClinicApp/Phone.png';
+import { ContactUs } from '../../../styles/Button';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [pageOpened, setPageOpened] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  // const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   // ✅ Type the refs properly
@@ -41,24 +42,24 @@ const HeroSection = () => {
     if (!heroElement) return;
 
     // Explicitly type event as MouseEvent (not React.MouseEvent)
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = heroElement.getBoundingClientRect();
-      setCursorPosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    };
+    // const handleMouseMove = (e: MouseEvent) => {
+    //   const rect = heroElement.getBoundingClientRect();
+    //   setCursorPosition({
+    //     x: e.clientX - rect.left,
+    //     y: e.clientY - rect.top,
+    //   });
+    // };
 
     const handleMouseEnter = () => setIsHovering(true);
     const handleMouseLeave = () => setIsHovering(false);
 
-    heroElement.addEventListener('mousemove', handleMouseMove);
+    // heroElement.addEventListener('mousemove', handleMouseMove);
     heroElement.addEventListener('mouseenter', handleMouseEnter);
     heroElement.addEventListener('mouseleave', handleMouseLeave);
 
     // Cleanup
     return () => {
-      heroElement.removeEventListener('mousemove', handleMouseMove);
+      // heroElement.removeEventListener('mousemove', handleMouseMove);
       heroElement.removeEventListener('mouseenter', handleMouseEnter);
       heroElement.removeEventListener('mouseleave', handleMouseLeave);
     };
@@ -96,7 +97,7 @@ const HeroSection = () => {
         style={{ cursor: isHovering ? 'none' : 'default' }}
       >
         {/* ✅ Custom Cursor Zoom Effect */}
-        {isHovering && (
+        {/* {isHovering && (
           <div
             className="fixed pointer-events-none z-40 rounded-full border-2 border-green-800 transition-all duration-150 ease-out"
             style={{
@@ -111,39 +112,77 @@ const HeroSection = () => {
           >
             <div className="absolute inset-0 rounded-full border border-green-400 opacity-50 animate-ping" />
           </div>
-        )}
+        )} */}
 
-        {/* ✅ Radial Background Section */}
+        
         <div
-          className="md:h-[100vh] h-[65vh] w-full flex flex-col md:pt-24 pt-12 justify-start items-center relative"
+          className="md:h-[100vh] h-[65vh] gap-4 flex flex-col md:pt-24 pt-12    relative"
           style={{
-            background: 'radial-gradient(circle, #FFF9F3 0%, #C8FFD7 100%)',
-            opacity: pageOpened ? 1 : 0,
-            transform: pageOpened ? 'scale(1.05)' : 'scale(0.95)',
-            transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
+            backgroundImage: 'url("/ClinicApp/ClinicBackground.png")',
+    backgroundSize: 'cover',       
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    opacity: pageOpened ? 1 : 0,
+    transform: pageOpened ? 'scale(1.05)' : 'scale(0.95)',
+    transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
           }}
         >
-          <H1 className="font-thin text-[#166D48] text-center mx-2 px-2 md:mx-20 md:px-20">
-            Sed ut perspiciatis Unde <br /> Seduo ut perspiciatis
-          </H1>
+       <div className="flex  lg:flex-row  flex-col justify-between  items-center px-6 lg:mx-10 md:px-14  gap-4 md:gap-10 lg:gap-8">
+  
+  {/* LEFT — Heading */}
+  <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
+    Sed ut   tisunde tedt sfhsf <br className='md:block hidden'/> Seduo ut  
+  </H1>
+   
+
+  {/* RIGHT — Paragraph + Button */}
+  <div className="flex   flex-col   items-center lg:items-start max-w-[360px]  md:max-w-[550px] lg:max-w-[410px] space-y-4 md:space-y-6 lg:space-y-4">
+    <P className="text-black text-center lg:text-left leading-relaxed">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
+    </P>
+
+    <ContactUs >GET PRODUCT DEMO</ContactUs>
+  </div>
+
+</div>
+
+{/* TRIANGLE BACKGROUND DECORATIONS */}
+<div className="hidden lg:block absolute inset-0 overflow-x-hidden -z-10">
+
+  {/* LEFT TRIANGLE IMAGE */}
+  <img
+    src="/ClinicApp/FromLeft.png"
+    alt=""
+    className="fixed left-0  w-[350px] top-[60%]    object-cover"
+  />
+
+  {/* RIGHT TRIANGLE IMAGE */}
+  <img 
+    src="/ClinicApp/FromRight.png"
+    alt=""
+    className=" fixed right-0  w-[400px] top-[60%]  "
+  />
+
+</div>
+
 
           {/* ✅ Image */}
-          <div className="absolute top-1/3 md:top-1/2 left-1/2 -translate-x-1/2 w-full max-w-4xl px-4">
+          <div className="absolute  top-[55%] md:top-1/2 left-1/2 -translate-x-1/2 w-full md:max-w-4xl px-6 md:px-10 lg:px-4">
             <img
               src={Image1}
               alt="Laptop application interface"
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto lg:scale-110  object-contain drop-shadow-2xl"
             />
           </div>
         </div>
 
         {/* ✅ White Section with Content */}
         <div
-          className="bg-white py-12 md:px-20 px-10 sm:py-16 md:py-20 lg:pt-80 lg:pb-40"
+          className="bg-white py-12    sm:py-16 md:py-20 lg:pt-80 lg:pb-40"
           ref={contentRef}
         >
-          <div className="w-full lg:mt-28 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start px-4 sm:px-6 lg:px-8">
+          <div className="max-w-8xl lg:mx-10 lg:mt-28 mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start px-4  ">
               {/* Left Heading */}
               <div
                 className="space-y-4 transition-all duration-1000 ease-out"
@@ -153,7 +192,7 @@ const HeroSection = () => {
                 }}
               >
                 <h2
-                  className="text-3xl font-bricolage md:text-4xl lg:text-5xl leading-tight"
+                  className="text-3xl mt-10 md:mt-0 font-bricolage md:text-4xl lg:text-5xl leading-tight"
                   style={{
                     background: 'linear-gradient(90deg, #28B87B 0%, #F99526 100%)',
                     WebkitBackgroundClip: 'text',
@@ -161,7 +200,7 @@ const HeroSection = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Sed ut perspiciatis Unde <br />Seduo ut perspiciatis
+                  Sed ut perspicia tisunde <br />Seduo ut perspiciatis
                 </h2>
               </div>
 

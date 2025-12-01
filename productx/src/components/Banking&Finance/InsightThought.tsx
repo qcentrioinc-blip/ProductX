@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { H3 } from '../../styles/Typography';
+import { H2 } from '../../styles/Typography';
 import { Link } from 'react-router-dom';
  
 const InsightThought = () => {
     return (
         <div className="bg-[#E7E7E7] py-12 sm:py-16" id='blogs'>
-            <div className="max-w-8xl mx-10 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-8xl lg:mx-10 px-4  ">
                 {/* Header Section */}
                 <div className="flex justify-between items-center mb-8 sm:mb-12">
-                    <H3 className="text-[#2B68C3]">Consecte adipiscing</H3>
+                    <H2 className="text-[#2B68C3]">Consecte adipiscing</H2>
                     <Link to="/industries/banking-and-finance/blogs">
                     <button className="bg-white px-6 py-2 rounded-md text-sm font-medium hover:shadow-md transition-shadow flex items-center gap-2">
                         VIEW ALL
