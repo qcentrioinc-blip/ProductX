@@ -6,12 +6,13 @@ import KeyBenefits from "./KeyBenefits"
 import TitleSec from "./TitleSec"
 import TwoCardBlock from "./TwoCardBlock"
 import SubFooter from "./SubFooter"
+import HighTechNavbar from "../Navbar/HighTechNavbar"
  
 
 const CareersPage = () => {
   return (
     <>
-   
+    <HighTechNavbar/>
     <TitleSec/>
     <CareersSec/>
     <TwoCardBlock/>

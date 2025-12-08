@@ -4,7 +4,7 @@ const ParaDescription = () => {
     return (
         <div className="relative w-full">
             {/* ==== TOP SECTION - Hand Image with Overlays ==== */}
-            <div className="relative w-full flex items-center justify-center overflow-hidden min-h-[600px] lg:min-h-0 lg:h-[835.09px] py-8 lg:py-[30px] px-4 lg:px-[3px]">
+            <div className="relative w-full flex items-center justify-center overflow-hidden min-h-[600px] lg:min-h-0 lg:h-[835px] py-8 lg:py-[30px] px-4 lg:px-[3px]">
                 {/* Hand Background Image - Desktop only */}
                 <img
                     src="/EHRandPMS/Hand.png"
@@ -20,7 +20,7 @@ const ParaDescription = () => {
                     className="relative z-10 w-full max-w-8xl mx-10 px-2 lg:px-4 lg:h-[614px]"
                 >
                     {/* Text Overlay - Top Left */}
-                    <div className="relative lg:absolute lg:top-0 lg:left-0 mb-8 lg:mb-0">
+                    <div className="relative lg:absolute lg:top-0 lg:left-6 mb-8 lg:mb-0">
                         <h1
                             className="text-white font-semibold mb-4 lg:mb-5"
                             style={{
@@ -166,7 +166,7 @@ const ParaDescription = () => {
                 </div>
 
                 {/* DESKTOP LAYOUT - 1024px and above - PIXEL PERFECT UNCHANGED */}
-                <div className="hidden lg:block relative w-full h-[730px] max-w-8xl mx-8 opacity-100"
+                <div className="hidden lg:block relative w-full h-[730px] max-w-8xl mx-10 opacity-100"
                     >
                     {/* Left Side Content */}
                     <div className="relative">
@@ -241,7 +241,7 @@ const ParaDescription = () => {
                     {/* Right Side - 4 Cards Grid */}
                     <div className="absolute grid grid-cols-2"
                         style={{
-                            width: '870px',
+                            width: '650px',
                             top: '0',
                             left: '750px',
                             rowGap: '80px',

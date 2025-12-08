@@ -1,6 +1,6 @@
 const OnePoint = () => {
   return (
-    <div className="w-full bg-gradient-to-r from-black via-gray-900 to-purple-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 min-h-screen">
+    <div className="w-full bg-gradient-to-r from-black via-gray-900 to-purple-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 min-h-auto sm:min-h-auto lg:min-h-screen">
       <div className="max-w-8xl mx-auto px-2 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-start">
 
