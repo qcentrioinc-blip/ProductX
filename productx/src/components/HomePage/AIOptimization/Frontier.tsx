@@ -49,7 +49,7 @@ const Frontier = () => {
                                     zIndex: 50,
                                 }}
                             >
-                                Lorem ipsum dolor sit <br className="hidden sm:block" /> amet, consectetur
+                                Lorem ipsum dolor sit amet, consectetur
                             </h1>
 
                             {/* Responsive Decorative Boxes */}
@@ -83,7 +83,7 @@ const Frontier = () => {
                                 style={{
                                     width: "110px",
                                     height: "97.99px",
-                                    top: "220px",
+                                    top: "140px",
                                     left: "260px",
                                     backgroundColor: "#EAE9FF",
                                 }}
@@ -96,7 +96,7 @@ const Frontier = () => {
                                     width: "110px",
                                     height: "97.99px",
                                     top: "545px",
-                                    left: "77px",
+                                    left: "57px",
                                     backgroundColor: "#EAE9FF",
                                 }}
                             />
@@ -108,7 +108,7 @@ const Frontier = () => {
                                     width: "110px",
                                     height: "97.99px",
                                     top: "545px",
-                                    left: "295px",
+                                    left: "275px",
                                     backgroundColor: "#EAE9FF",
                                 }}
                             />
@@ -120,7 +120,7 @@ const Frontier = () => {
                                     width: "328px",
                                     height: "97.99px",
                                     top: "448px",
-                                    left: "77px",
+                                    left: "57px",
                                     backgroundColor: "#EAE9FF",
                                 }}
                             />

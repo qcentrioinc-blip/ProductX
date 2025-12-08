@@ -1,22 +1,16 @@
-import { useRef, useState, useEffect } from "react";
-// import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
+import { useRef, useEffect } from "react";
 
 const LandingPageEHS = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  //   if (!videoRef.current) return;
 
-  // userMuted = what user selected via button
-  const [userMuted, setUserMuted] = useState(true);
-
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-
-    const nextMuted = !userMuted;
-    videoRef.current.muted = nextMuted;
-    if (!nextMuted) {
-      videoRef.current.volume = 1;
-    }
-    setUserMuted(nextMuted);
-  };
+  //   const nextMuted = !userMuted;
+  //   videoRef.current.muted = nextMuted;
+  //   if (!nextMuted) {
+  //     videoRef.current.volume = 1;
+  //   }
+  //   setUserMuted(nextMuted);
+  // };
 
   useEffect(() => {
     const videoEl = videoRef.current;
@@ -37,12 +31,6 @@ const LandingPageEHS = () => {
           } else {
             // section back in view -> play
             videoEl.play().catch(() => {});
-
-            // restore user choice (unmute if userMuted is false)
-            if (!userMuted) {
-              videoEl.muted = false;
-              videoEl.volume = 1;
-            }
           }
         });
       },
@@ -56,7 +44,7 @@ const LandingPageEHS = () => {
     return () => {
       observer.disconnect();
     };
-  }, [userMuted]);
+  }, []);
 
   return (
     <div className="w-full">
@@ -72,15 +60,6 @@ const LandingPageEHS = () => {
       >
         Your browser does not support the video tag.
       </video>
-
-      {/* Sound toggle button */}
-      <button
-        onClick={toggleSound}
-        className="absolute bottom-4 right-4 bg-black/70 text-white text-xs sm:text-sm px-3 py-2 rounded-full flex items-center gap-2"
-      >
-        <span className="inline-block w-2 h-2 rounded-full bg-green-400" />
-        {userMuted ? "Enable Sound" : "Mute Sound"}
-      </button>
     </div>
   );
 };

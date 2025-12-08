@@ -4,13 +4,17 @@ import CloudDiet from "./CloudDiet"
 import Frontier from "./Frontier"
 import LandingPageAI from "./LandingPageAI"
 import Meta from "./Meta"
+import Statistics from "./Statistics"
+import ThreeCardAI from "./ThreeCardAI"
 
 const HeroAIOptimization = () => {
   return (
     <div>
       <LandingPageAI />
       <Frontier />
+      <ThreeCardAI />
       <Meta />
+      <Statistics />
       <CloudDiet />
       <AIBlogs />
       <AIFooter />

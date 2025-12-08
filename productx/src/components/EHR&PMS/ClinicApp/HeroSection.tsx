@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { H1,   P } from '../../../styles/Typography';
+import { H1, P } from '../../../styles/Typography';
 import Image1 from '/ClinicApp/Phone.png';
 import { ContactUs } from '../../../styles/Button';
 
@@ -68,29 +68,29 @@ const HeroSection = () => {
   return (
     <>
       {/* Page Opening Overlay */}
-     <div
-  className="fixed inset-0 z-50 flex justify-center items-center overflow-hidden pointer-events-none"
-  style={{
-    clipPath: pageOpened
-      ? 'polygon(0 0, 0 0, 0 100%, 0 100%)'
-      : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-    transition: 'clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1)',
-    background: 'linear-gradient(135deg, #166D48 0%, #28B87B 100%)',
-  }}
->
-  
-  <h1
-    className="text-8xl font-bricolage text-white flex items-center gap-4 transition-all duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)]"
-    style={{
-      transform: pageOpened ? 'translateX(-100%)' : 'translateX(0)',
-      opacity: pageOpened ? 0 : 1,
-    }}
-  >
-    <span className="text-8xl font-bricolage font-light">|</span> QNEST
-  </h1>
-</div>
+      <div
+        className="fixed inset-0 z-50 flex justify-center items-center overflow-hidden pointer-events-none"
+        style={{
+          clipPath: pageOpened
+            ? 'polygon(0 0, 0 0, 0 100%, 0 100%)'
+            : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          transition: 'clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1)',
+          background: 'linear-gradient(135deg, #166D48 0%, #28B87B 100%)',
+        }}
+      >
 
- 
+        <h1
+          className="text-8xl font-bricolage text-white flex items-center gap-4 transition-all duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)]"
+          style={{
+            transform: pageOpened ? 'translateX(-100%)' : 'translateX(0)',
+            opacity: pageOpened ? 0 : 1,
+          }}
+        >
+          <span className="text-8xl font-bricolage font-light">|</span> QNEST
+        </h1>
+      </div>
+
+
       <div
         className="w-full   overflow-hidden relative"
         ref={heroRef}
@@ -114,56 +114,56 @@ const HeroSection = () => {
           </div>
         )} */}
 
-        
+
         <div
           className="md:h-[100vh] h-[65vh] gap-4 flex flex-col md:pt-24 pt-12    relative"
           style={{
             backgroundImage: 'url("/ClinicApp/ClinicBackground.png")',
-    backgroundSize: 'cover',       
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    opacity: pageOpened ? 1 : 0,
-    transform: pageOpened ? 'scale(1.05)' : 'scale(0.95)',
-    transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            opacity: pageOpened ? 1 : 0,
+            transform: pageOpened ? 'scale(1.05)' : 'scale(0.95)',
+            transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
           }}
         >
-       <div className="flex  lg:flex-row  flex-col justify-between  items-center px-6 lg:mx-10 md:px-14  gap-4 md:gap-10 lg:gap-8">
-  
-  {/* LEFT — Heading */}
-  <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
-    Sed ut   tisunde tedt sfhsf <br className='md:block hidden'/> Seduo ut  
-  </H1>
-   
+          <div className="flex  lg:flex-row  flex-col justify-between  items-center px-6 lg:mx-10 md:px-14  gap-4 md:gap-10 lg:gap-8 mt-10 sm:mt-10 lg:mt-20">
 
-  {/* RIGHT — Paragraph + Button */}
-  <div className="flex   flex-col   items-center lg:items-start max-w-[360px]  md:max-w-[550px] lg:max-w-[410px] space-y-4 md:space-y-6 lg:space-y-4">
-    <P className="text-black text-center lg:text-left leading-relaxed">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
-    </P>
+            {/* LEFT — Heading */}
+            <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
+              Sed ut   tisunde tedt sfhsf <br className='md:block hidden' /> Seduo ut
+            </H1>
 
-    <ContactUs >GET PRODUCT DEMO</ContactUs>
-  </div>
 
-</div>
+            {/* RIGHT — Paragraph + Button */}
+            <div className="flex   flex-col   items-center lg:items-start max-w-[360px]  md:max-w-[550px] lg:max-w-[410px] space-y-4 md:space-y-6 lg:space-y-4">
+              <P className="text-black text-center lg:text-left leading-relaxed">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
+              </P>
 
-{/* TRIANGLE BACKGROUND DECORATIONS */}
-<div className="hidden lg:block absolute inset-0 overflow-x-hidden -z-10">
+              <ContactUs >GET PRODUCT DEMO</ContactUs>
+            </div>
 
-  {/* LEFT TRIANGLE IMAGE */}
-  <img
-    src="/ClinicApp/FromLeft.png"
-    alt=""
-    className="fixed left-0  w-[350px] top-[60%]    object-cover"
-  />
+          </div>
 
-  {/* RIGHT TRIANGLE IMAGE */}
-  <img 
-    src="/ClinicApp/FromRight.png"
-    alt=""
-    className=" fixed right-0  w-[400px] top-[60%]  "
-  />
+          {/* TRIANGLE BACKGROUND DECORATIONS */}
+          <div className="hidden lg:block absolute inset-0 overflow-x-hidden -z-10">
 
-</div>
+            {/* LEFT TRIANGLE IMAGE */}
+            <img
+              src="/ClinicApp/FromLeft.png"
+              alt=""
+              className="fixed left-0  w-[350px] top-[60%]    object-cover"
+            />
+
+            {/* RIGHT TRIANGLE IMAGE */}
+            <img
+              src="/ClinicApp/FromRight.png"
+              alt=""
+              className=" fixed right-0  w-[400px] top-[60%]  "
+            />
+
+          </div>
 
 
           {/* ✅ Image */}

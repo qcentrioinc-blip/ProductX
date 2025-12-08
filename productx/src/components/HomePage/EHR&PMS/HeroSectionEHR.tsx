@@ -3,6 +3,7 @@ import EHRFooter from "./EHRFooter"
 import HealthFeatures from "./HealthFeatures"
 import LandingPageEHS from "./LandingPageEHS"
 import ParaDescription from "./ParaDescription"
+import SecondSection from "./SecondSection"
 import ShortDesc from "./ShortDesc"
 import UserProfile from "./UserProfile"
 // import Testimonials from "./Testimonials"
@@ -13,6 +14,7 @@ const HeroSectionEHR = () => {
   return (
     <div>
       <LandingPageEHS />
+      <SecondSection />
       <WhyQnest />
       <CircleAnimation />
       <ShortDesc />
