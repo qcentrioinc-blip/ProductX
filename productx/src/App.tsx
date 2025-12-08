@@ -195,6 +195,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
 
+
           </Routes>
         </div>
       </ScrollProvider>

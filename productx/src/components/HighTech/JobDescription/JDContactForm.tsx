@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ContactFormSection = () => {
   return (
-    <section className="w-full h-screen bg-white py-24 px-4 mt-10 flex items-center" id="contactForm">
+    <section className="w-full bg-white py-24 px-4 mt-10 flex items-center" id="contactForm">
       <div className="max-w-8xl mx-10 flex flex-col md:flex-row items-start justify-between gap-20 w-full">
         {/* Left side - Form */}
         <div className="flex-1 w-full md:w-1/2">

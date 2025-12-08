@@ -4,7 +4,7 @@ const LandingPageHighTech = () => {
   return (
     <div className="w-full">
       {/* ================= MOBILE + TABLET LAYOUT ================= */}
-      <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-black to-orange-900 flex flex-col block lg:hidden">
+      <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-black to-orange-900 flex flex-col lg:hidden">
         {/* Background Wave Image */}
         <div className="absolute inset-0 w-full h-full z-0">
           <img
@@ -197,7 +197,7 @@ const LandingPageHighTech = () => {
 
           {/* Bottom Image Boxes - Exact Specifications */}
           <div
-            className="relative z-20 mx-10 pb-8 sm:pb-12 md:pb-16 lg:pb-20 absolute bottom-0 left-0 right-0"
+            className="z-20 mx-10 pb-8 sm:pb-12 md:pb-16 lg:pb-20 absolute bottom-0 left-0 right-0"
             style={{
               width: "1548.39px",
               maxWidth: "calc(100% - 40px)",
