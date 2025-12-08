@@ -26,10 +26,10 @@ export default function BlogCarousel() {
       // Check if we're at the end (considering a small buffer)
     const middleSectionStart = slider.scrollWidth / 3;
 const middleSectionEnd = middleSectionStart * 2;
-
+ 
 // When reaching the end of the middle block, jump back to start of middle block
 if (slider.scrollLeft >= middleSectionEnd - slider.clientWidth) {
-  slider.scrollTo({ left: middleSectionStart, behavior: "instant" })
+  slider.scrollTo({ left: middleSectionStart, behavior: "instant" });
 }
 else {
         // Continue auto-scrolling
@@ -137,8 +137,8 @@ else {
   ];
  
   const loopCards = cards.concat(cards, cards);
-
-
+ 
+ 
   return (
     <section className="w-full bg-white py-20 overflow-hidden">
       <div className="max-w-8xl mx-10 xl:px-10 grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10">
@@ -194,7 +194,7 @@ else {
  
           {/* Duplicate for infinite loop */}
          {loopCards.map((card, index) => (
-  
+ 
             <div
               key={index}
               className="carousel-item  bg-[#E7E7E7] rounded-sm shadow-md p-6 flex-shrink-0"

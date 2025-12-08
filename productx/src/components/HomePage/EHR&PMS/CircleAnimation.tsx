@@ -62,7 +62,7 @@ const desktopSlides: Slide[] = [
     bottomRight: [
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw + 210px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw + 180px)', borderRadius: '50%' },
-      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 275px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
+      { width: '99.45px', height: '99.45px', top: 'calc(50vh + 265px)', left: 'calc(50vw - 50px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh + 210px)', left: 'calc(50vw - 280px)', borderRadius: '50%' },
       { width: '99.45px', height: '99.45px', top: 'calc(50vh - 250px)', left: 'calc(50vw - 325px)', borderRadius: '50%' }
     ]
@@ -321,11 +321,11 @@ const CircleAnimation = () => {
       ref={containerRef}
       className="relative w-full"
       style={{
-        height: screenSize === 'mobile' ? '300vh' : screenSize === 'tablet' ? '300vh' : '300vh',
+        height: screenSize === 'mobile' ? '300vh' : screenSize === 'tablet' ? '300vh' : '350vh',
       }}
     >
       <div
-        className="sticky top-0 w-full h-screen overflow-hidden">
+        className="sticky top-0 left-0 w-full h-screen z-0">
         <img
           src="/EHRandPMS/EHRPMSCIRCLE.png"
           alt="Background"

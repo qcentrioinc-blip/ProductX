@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { H2, H4 } from "../../../styles/Typography";
-import { Link } from "react-router-dom";
 
 const jobs = [
   {
@@ -44,7 +43,7 @@ export default function JobListSection() {
         <H2 className="text-[#020059] mb-10">Find your next job</H2>
 
         {/* -------------------- JOB CARDS -------------------- */}
-        <Link to="/industries/ai-optimization/job">
+        <a href="/industries/ai-optimization/jobs">
 
         <div className="space-y-4">
           {jobs.map((job, index) => (
@@ -100,7 +99,7 @@ export default function JobListSection() {
           ))}
         </div>
         
-        </Link>
+        </a>
 
         {/* -------------------- BOTTOM SECTION -------------------- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">

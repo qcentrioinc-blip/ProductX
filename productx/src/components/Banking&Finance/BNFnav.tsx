@@ -1,176 +1,145 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
- 
+import { ChevronDown } from "lucide-react";
 // import {   useNavigate, useLocation } from "react-router-dom";
-import {   H3,  P } from "../../styles/Typography";
-
-
+import { H3, P } from "../../styles/Typography";
 const BNFNav = () => {
   const [isScrolled, setIsScrolled] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);  
-const menuRef = useRef<HTMLDivElement | null>(null);
-//  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-//  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
-//  const[megaMenuBuiltFor, setmegaMenuBuiltFor]=useState(false);
- const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
 
-const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);  
+  const megaMenuItems = [
+    {
+      title: "Almanac",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P1.png",
+      path: "/industries/banking-and-finance/products/almanac",
+    },
+    {
+      title: "Bankfair",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P2.jpg",
+      path: "/industries/banking-and-finance/products/bankfair",
+    },
+    {
+      title: "Customer Onboarding Solutions",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P3.jpg",
+      path: "/industries/banking-and-finance/products/customer-onboarding-solutions"
+    },
+    {
+      title: "Internet Banking System",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P4.png",
+      path: "/industries/banking-and-finance/products/internet-banking-system",
+    },
+    {
+      title: "Loan Origination Sytem",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P5.jpg",
+      path: "/industries/banking-and-finance/products/loan-origination-system",
+    },
+    {
+      title: "Pago",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P6.jpg",
+      path: "/industries/banking-and-finance/products/pago",
+    },
+    {
+      title: "Remitree",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P7.jpg",
+      path: "/industries/banking-and-finance/products/remitree",
+    },
+    {
+      title: "Sams",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P8.jpg",
+      path: "/industries/banking-and-finance/products/sams",
+    },
+    {
+      title: "Sherlock",
+      desc: "Lorem ipsum dolor sit amet consectetur",
+      img: "/BNFHOME/P9.jpg",
+      path: "/industries/banking-and-finance/products/sherlock",
+    },
+  ];
+  const resourceItems = [
+    {
+      title: "Newsletter",
+      desc: "Stay updated with curated insights and announcements.",
+      path: "/industries/banking-and-finance/news"
+    },
+    {
+      title: "Events",
+      desc: "Upcoming webinars, conferences, and live sessions.",
+      path: "/industries/banking-and-finance/events"
+    },
+    {
+      title: "Whitepapers",
+      desc: "Deep technical insights and strategic research.",
+      path: "/industries/banking-and-finance/whitepapers"
+    },
+    {
+      title: "Blogs",
+      desc: "Expert commentary, tips, and industry knowledge.",
+      path: "/industries/banking-and-finance/blogs"
+    },
+    {
+      title: "Glossary",
+      desc: "Expert commentary, tips, and industry knowledge.",
+      path: "/industries/banking-and-finance/glossary"
+    },
+  ];
 
+  const BuiltForItems = [
+    {
+      title: "Banks",
+      desc: "Praesent eget laoreet arcu, nec iaculis ",
+      path: "/industries/banking-and-finance/banks"
+    },
+    {
+      title: "Credit Unions",
+      desc: "Praesent eget laoreet arcu, nec iaculis ",
+      path: "/industries/banking-and-finance/credit-unions"
+    },
+    {
+      title: "Financial Unions",
+      desc: "Praesent eget laoreet arcu, nec iaculis ",
+      path: "/industries/banking-and-finance/financial-unions"
+    },
 
- 
+  ]
 
+  const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
 
- 
-
-const megaMenuItems = [
-  {
-    title: "Almanac",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-    img: "/BNFHOME/P1.png",
-    path: "/industries/banking-and-finance/products/almanac",
-  },
-  {
-    title: "Bankfair",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-     img: "/BNFHOME/P2.jpg",
-    path: "/industries/banking-and-finance/products/bankfair",
-  },
-  {
-    title: "Customer Onboarding Solutions",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-     img: "/BNFHOME/P3.jpg",
-    path: "/industries/banking-and-finance/products/customer-onboarding-solutions"
-  },
-  {
-    title: "Internet Banking System",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-    img: "/BNFHOME/P4.png",
-    path: "/industries/banking-and-finance/products/internet-banking-system",
-  },
-  {
-    title: "Loan Origination Sytem",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-    img: "/BNFHOME/P5.jpg",
-    path: "/industries/banking-and-finance/products/loan-origination-system",
-  },
-  {
-    title: "Pago",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-    img: "/BNFHOME/P6.jpg",
-    path: "/industries/banking-and-finance/products/pago",
-  },
-  {
-    title: "Remitree",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-     img: "/BNFHOME/P7.jpg",
-    path: "/industries/banking-and-finance/products/remitree",
-  },
-  {
-    title: "Sams",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-    img: "/BNFHOME/P8.jpg",
-    path: "/industries/banking-and-finance/products/sams",
-  },
-  {
-    title: "Sherlock",
-    desc: "Lorem ipsum dolor sit amet consectetur",
-     img: "/BNFHOME/P9.jpg",
-    path: "/industries/banking-and-finance/products/sherlock",
-  },
-];
-const resourceItems = [
-  {
-    title: "Newsletter",
-    desc: "Stay updated with curated insights and announcements.",
-    path: "/industries/banking-and-finance/news"
-  },
-  {
-    title: "CaseStudies",
-    desc: "Upcoming webinars, conferences, and live sessions.",
-    path: "/industries/banking-and-finance/events"
-  },
-  {
-    title: "Whitepapers",
-    desc: "Deep technical insights and strategic research.",
-    path: "/industries/banking-and-finance/whitepapers"
-  },
-  {
-    title: "Blogs",
-    desc: "Expert commentary, tips, and industry knowledge.",
-    path: "/industries/banking-and-finance/blogs"
-  },
-   {
-    title: "Glossary",
-    desc: "Expert commentary, tips, and industry knowledge.",
-    path: "/industries/banking-and-finance/glossary"
-  },
-];
-
-const  BuiltForItems=[
-  {
-    title: "Banks",
-    desc: "Praesent eget laoreet arcu, nec iaculis ",
-    path: "/industries/banking-and-finance/banks"
-  },
-  {
-    title: "Credit Unions",
-    desc: "Praesent eget laoreet arcu, nec iaculis ",
-    path: "/industries/banking-and-finance/credit-unions"
-  },
-  {
-    title: "Financial Unions",
-    desc: "Praesent eget laoreet arcu, nec iaculis ",
-    path: "/industries/banking-and-finance/financial-unions"
-  },
-
-]
-
-const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);  
-  
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
-  
-const industries = [
-  { name: "Banking & Finance", 
-    path: "/industries/banking-and-finance",
-    img: "/BNFHOME/P1.png",
-    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit." },
-
-  { name: "EHR and PMS", path: 
-    "/industries/ehr-and-pms",
-    img:  "/BNFHOME/P1.png",
-    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit." },
-
-  { name: "HighTech",
-     path: "/industries/high-tech",
-     img: "/BNFHOME/P1.png" 
-    ,
-    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit."},
-      
-  { name: "AI Automation", 
-    path: "/industries/ai-optimization" ,
-    img: "/BNFHOME/P1.png",
-    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
-  },
-
-];
-const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+  const industries = [
+    { name: "Banking & Finance", path: "/industries/banking-and-finance" },
+    { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
+    { name: "HighTech", path: "/industries/high-tech" },
+    { name: "AI Optimization", path: "/industries/ai-optimization" },
+  ];
+  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
- 
+
   const navItems = [
     { name: "Products", path: `${base}?scroll=products`, scroll: true },
-     { name: "Built for", path: `${base} ` },
+    { name: "Built for", path: `${base} ` },
     { name: "About Us", path: `${base}/about-us` },
     { name: "Resources", path: `${base} ` },
-    
-    
+
+
 
   ];
 
-  
-   
+
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -178,429 +147,394 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
-  useEffect(() => {
-  const handleClickOutside = (e: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-      setMenuOpen(false);
-    }
-  };
- 
-  if (menuOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  }
- 
-  return () => document.removeEventListener("mousedown", handleClickOutside);
-}, [menuOpen]);
- 
-//  useEffect(() => {
-//   if (openMenu === "products") {
-//     setMegaMenuOpen(true);
-//     setResourcesMenuOpen(false);
-//     setmegaMenuBuiltFor(false);
-//   } else if (openMenu === "resources") {
-//     setResourcesMenuOpen(true);
-//     setMegaMenuOpen(false);
-//     setmegaMenuBuiltFor(false);
-//   } else if (openMenu === "built") {
-//     setmegaMenuBuiltFor(true);
-//     setMegaMenuOpen(false);
-//     setResourcesMenuOpen(false);
-//   } else {
-//     // CLOSE ALL
-//     setMegaMenuOpen(false);
-//     setResourcesMenuOpen(false);
-//     setmegaMenuBuiltFor(false);
-//   }
-// }, [openMenu]);
 
- 
- 
- 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+
+
+
+
   return (
     <>
-     
-     <div className="fixed top-0 z-50 left-0 w-full bg-white/10 backdrop-blur-lg font-bricolage border-b border-white/20 px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
-<Link to="/" className="flex items-center">
-<div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-<span className="text-gray-800 font-bricolage text-sm sm:text-base">LOGO</span>
-</div>
-</Link>
-
-
-<div className="hidden lg:flex items-center gap-6">
-<Link to="/platform" className="text-white font-medium">Platform</Link>
-<Link to="/marketplace" className="text-white font-medium">Marketplace</Link>
-</div>
-
-
-{/* MOBILE HAMBURGER */}
-<button
-className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
-onClick={() => setMenuOpen(!menuOpen)}
->
-<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-180 translate-y-[9px]" : ""}`}></span>
-<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-180 -translate-y-[9px]" : ""}`}></span>
-</button>
-</div>
-
-
-{/* SUB NAVBAR */}
-<nav
-className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
->
-<div className="flex items-center gap-10">
-{/* LOGO WITH DROPDOWN */}
-<div
-className="relative flex items-center gap-1 cursor-pointer"
-onMouseEnter={() => setLogoDropdownOpen(true)}
-onMouseLeave={() => setLogoDropdownOpen(false)}
->
-<div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-LOGO
-</div>
-
-
-{/* ROTATING X ICON */}
-<div className={`transition-transform duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
-<img src="/ChevronDown.png"  
-className="w-4 h-4" />
-</div>
-
- 
-{/* DROPDOWN MENU */}
-{logoDropdownOpen && (
-  <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
-
-    {industryOptions.map((ind, index) => (
-      <Link
-        key={index}
-        to={ind.path}
-        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
-      >
-        {/* ICON */}
-         
-        <img 
-          src={ind.img} 
-          alt={ind.name} 
-          className="w-16 h-14 object-cover"
-        />
-
-        {/* TEXT */}
-        <div className="flex flex-col">
-          <h3 className="text-lg font-semibold font-quicksand text-gray-900">
-            {ind.name}
-          </h3>
-          <p className="text-gray-600 font-quicksand text-sm">
-            {ind.desc || "Click to explore"}
-          </p>
-        </div>
-      </Link>
-    ))}
-
-  </div>
-)}
-
-</div>
-
-
-
-       <ul className="flex items-center   gap-10 font-bold font-quicksand">
-  {navItems.map((item) => (
-    <li key={item.name} className="relative">
-{/* DROPDOWN ICONS ADDED */}
-{(item.name === "Products" || item.name === "Built for" || item.name === "Resources") && (
-<div
-  className={`absolute -right-4 top-1/2 -translate-y-1/2 transition-transform   duration-300
-  ${openMenu === "products" && item.name==="Products" ? "rotate-180" : ""}
-  ${openMenu === "resources" && item.name==="Resources" ? "rotate-180" : ""}
-  ${openMenu === "built" && item.name==="Built for" ? "rotate-180" : ""}
-  `}
->
-  <img src="/ChevronDown.png"   className="w-4  h-4" />
-</div>
-
-)}
-      {/* PRODUCTS MEGA MENU */}
-
-
-
-
-{item.name === "Products" && (
- <div
-    className="relative"
-    onMouseEnter={() => setOpenMenu("products")}
-  onMouseLeave={() => setOpenMenu(null)}
-
-  >
-    <button className="text-gray-800 text-[18px]">
-      Products
-    </button>
-
-{openMenu === "products" && (
+      {/* TOP TRANSPARENT BAR (BNF-style) */}
       <div
-        className="absolute left-0 top-full w-[900px]  shadow-xl 
-                   px-10 py-8 rounded-xl z-[200]"
+        className=" absolute top-0 z-50 left-0 w-full
+        bg-white/10 backdrop-blur-lg font-bricolage
+        border-b border-white/20
+         px-4 sm:px-6 md:px-8 pt-3 pb-1
+        flex justify-between transition-all duration-300"
       >
-        <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-        <P className="text-gray-700 text-lg mt-2 mb-4">
-          Seamless, scalable, and intelligent platforms…
-        </P>
+        <Link to="/" className="flex items-center">
+          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
+            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
+              LOGO
+            </span>
+          </div>
+        </Link>
 
-        <hr className="border-gray-300 my-6" />
-
-        <div className="grid grid-cols-2 gap-y-6 gap-x-10">
-          {megaMenuItems.map((item, index) => (
-            <Link key={index} to={item.path} className="flex items-start gap-4">
-              <img src={item.img} className="w-12 h-12 rounded-xl" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </div>
-            </Link>
-          ))}
+        {/* DESKTOP RIGHT LINKS */}
+        <div className="hidden lg:flex items-center gap-6">
+          <Link to="/platform" className="text-white font-medium">
+            Platform
+          </Link>
+          <Link to="/marketplace" className="text-white font-medium">
+            Marketplace
+          </Link>
         </div>
+
+        {/* MOBILE HAMBURGER */}
+        <button
+          className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}
+            `}
+          ></span>
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "opacity-0" : ""}
+            `}
+          ></span>
+          <span
+            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
+              ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}
+            `}
+          ></span>
+        </button>
       </div>
-    )}
-  </div>
-)}
 
-{/* RESOURCES MEGA MENU */}
-{item.name === "Resources" && (
-  <div
-    className="relative"
-   onMouseEnter={() => setOpenMenu("resources")}
-  onMouseLeave={() => setOpenMenu(null)}
-  >
-    <button className="text-gray-800 text-[18px]">
-      Resources
-    </button>
-  </div>
-)}
+      {/* MAIN NAV (DESKTOP ONLY ) */}
+      <nav
+        className={`hidden lg:flex  absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl
+        z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-3
+        items-center justify-between transition-all duration-300
+        ${isScrolled ? "top-10" : "top-10"}
+      `}
+      >
+        {/* LEFT: Logo + main nav */}
+        <div className="flex items-center gap-10">
+          <Link
+            to={base}
+            className="flex items-center gap-2"
+          >
+            <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+              LOGO
+            </div>
+          </Link>
 
+          <ul className="flex items-center   gap-10 font-bold font-quicksand">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                {/* PRODUCTS MEGA MENU (inline trigger + mini panel) */}
+                {item.name === "Products" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setMegaMenuOpen(true);
+                      setResourcesMenuOpen(false);
+                      setmegaMenuBuiltFor(false);
+                    }}
+                    onMouseLeave={() => {
+                      setMegaMenuOpen(false);
+                      setResourcesMenuOpen(false);
+                      setmegaMenuBuiltFor(false);
+                    }}
+                  >
+                    <button className="text-gray-800 text-[20px]">
+                      Products
+                    </button>
 
-{item.name === "Built for" && (
-  <div
-    className="relative"
-  onMouseEnter={() => setOpenMenu("built")}
-  onMouseLeave={() => setOpenMenu(null)} 
-  >
-    <button className="text-gray-800 text-[18px]">
-      Built for
-    </button>
-    
-  </div>
-  
-)}
+                    {megaMenuOpen && (
+                      <div
+                        className="absolute left-0 top-full w-[900px]  shadow-xl
+                       px-10 py-8 rounded-xl z-[999]"
+                      >
+                        <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
+                        <P className="text-gray-700 text-lg mt-2 mb-4">
+                          Seamless, scalable, and intelligent platforms…
+                        </P>
 
+                        <hr className="border-gray-300 my-6" />
 
+                        <div className="grid grid-cols-2 gap-y-6 gap-x-10">
+                          {megaMenuItems.map((item, index) => (
+                            <Link
+                              key={index}
+                              to={item.path}
+                              className="flex items-start gap-4"
+                            >
+                              <img
+                                src={item.img}
+                                className="w-12 h-12 rounded-xl"
+                              />
+                              <div>
+                                <h3 className="text-lg font-semibold text-gray-900">
+                                  {item.title}
+                                </h3>
+                                <p className="text-gray-600 text-sm">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
- 
+                {/* RESOURCES MEGA MENU (trigger only; full-width panel below) */}
+                {item.name === "Resources" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setResourcesMenuOpen(true);
+                      setMegaMenuOpen(false);
+                      setmegaMenuBuiltFor(false);
+                    }}
+                  >
+                    <button className="text-gray-800 text-[20px]">
+                      Resources
+                    </button>
+                  </div>
+                )}
 
-     {/* NORMAL LINKS */}
-{item.name !== "Products" &&
- item.name !== "Resources" &&
- item.name !== "Built for" && (
-  <Link
-    to={item.path}
-    
-    className="text-gray-800 text-[18px]"
-  >
-    {item.name}
-  </Link>
-)}
+                {/* BUILT FOR MEGA MENU (trigger only; full-width panel below) */}
+                {item.name === "Built for" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setmegaMenuBuiltFor(true);
+                      setMegaMenuOpen(false);
+                      setResourcesMenuOpen(false);
+                    }}
+                  >
+                    <button className="text-gray-800 text-[20px]">
+                      Built for
+                    </button>
+                  </div>
+                )}
 
+                {/* NORMAL LINKS (About Us) */}
+                {item.name !== "Products" &&
+                  item.name !== "Resources" &&
+                  item.name !== "Built for" && (
+                    <Link
+                      to={item.path}
+                      onMouseEnter={() => {
+                        setMegaMenuOpen(false);
+                        setResourcesMenuOpen(false);
+                        setmegaMenuBuiltFor(false);
+                      }}
+                      className="text-gray-800 text-[20px]"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-    </li>
-  ))}
-</ul>
-</div>
+        {/* RIGHT SIDE: Careers + Contact Button */}
+        <div className="flex items-center gap-8">
+          <Link
+            to={`${base}/careers`}
+            className="text-gray-800 text-[20px] font-bold font-quicksand"
+          >
+            Careers
+          </Link>
 
-       {/* RIGHT SIDE: Careers + Contact Button */}
-<div className="flex items-center gap-8">
-  <Link
-    to={`${base}/careers`}
-    className="text-gray-800 text-[18px] font-bold font-quicksand"
-  >
-    Careers
-  </Link>
-
-  <Link to={`${base}/contactform`}>
-    <ContactUsDark>Contact Us</ContactUsDark>
-  </Link>
-</div>
-
+          <Link to={`${base}/contactform`}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
       </nav>
 
-      
-      {/* FULL-WIDTH MEGA MENU */}  
-  
-{openMenu === "products" && (
-  <div
-onMouseEnter={() => setOpenMenu("products")}
-onMouseLeave={() => setOpenMenu(null)}
+      {/* FULL-WIDTH PRODUCTS MEGA MENU */}
+      {megaMenuOpen && (
+        <div
+          onMouseEnter={() => {
+            setMegaMenuOpen(true);
+            setmegaMenuBuiltFor(false);
+            setResourcesMenuOpen(false);
+          }}
+          className="
+            absolute
+            left-1/2
+            top-36
+            -translate-x-1/2
+            w-[90%]
+            max-w-8xl
+            bg-gray-50
+            px-24
+            py-10
+            shadow-xl
+            rounded-lg
+            z-[200]
+          "
+        >
+          <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
 
-    
-    className="
-  absolute 
-  left-1/2 
-top-32
-translate-y-1
-  -translate-x-1/2 
-  w-[90%]  
-  max-w-8xl 
-  bg-gray-50 
-  px-24 
-  py-10 
-  shadow-xl 
-  rounded-lg 
-  z-[200]
-"
+          <P className="text-gray-700 text-lg mt-2 mb-4">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          </P>
 
-  >
-    {/* Header */}
-    <H3  className=" ">
-    Quisque a sagittis ligula. Nulla facilisi
-    </H3>
+          <hr className="border-gray-300 h-1 mb-8" />
 
-    <P className="text-gray-700 text-lg mt-2 mb-4">
-       Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-    </P>
-
-    <hr className="border-gray-300 h-1 mb-8" />
-
-  
-    <div className="grid grid-cols-2 gap-y-4 gap-x-1">
-      {megaMenuItems.map((item, index) => (
-        item ? (
-          <div key={index} className="flex items-start gap-4">
-           <Link to={item.path} className="flex items-start gap-4">
-  <img src={item.img} alt={item.title} className="w-12 h-12 rounded-xl object-cover" />
-  <div>
-    <h3 className="text-lg font-quicksand font-semibold text-gray-900">{item.title}</h3>
-    <P className="text-gray-600 text-sm leading-snug">{item.desc}</P>
-  </div>
-</Link>
+          <div className="grid grid-cols-2 gap-y-4 gap-x-1">
+            {megaMenuItems.map((item, index) =>
+              item ? (
+                <div key={index} className="flex items-start gap-4">
+                  <Link to={item.path} className="flex items-start gap-4">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-12 h-12 rounded-xl object-cover"
+                    />
+                    <div>
+                      <h3 className="text-lg font-quicksand font-semibold text-gray-900">
+                        {item.title}
+                      </h3>
+                      <P className="text-gray-600 text-sm leading-snug">
+                        {item.desc}
+                      </P>
+                    </div>
+                  </Link>
+                </div>
+              ) : (
+                <div key={index}></div>
+              )
+            )}
           </div>
-        ) : (
-          <div key={index}></div>  
-        )
-      ))}
-    </div>
-  </div>
-)}
+        </div>
+      )}
 
+      {/* FULL-WIDTH RESOURCES MEGA MENU */}
+      {resourcesMenuOpen && (
+        <div
+          onMouseEnter={() => {
+            setResourcesMenuOpen(true);
+            setMegaMenuOpen(false);
+            setmegaMenuBuiltFor(false);
+          }}
+          className="
+            absolute
+            left-1/2
+            top-36
+            -translate-x-1/2
+            w-[90%]
+            max-w-8xl
+            bg-gray-50
+            px-24
+            py-10
+            shadow-xl
+            rounded-lg
+            z-[200]
+          "
+        >
+          <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
 
+          <P className="text-gray-700 text-lg mt-2 mb-4">
+            Comprehensive tools and insights for success.
+          </P>
 
-{/* Resources */}
-{openMenu === "resources" && (
-  <div
-    
-    className="absolute 
-  left-1/2 
-top-32
-translate-y-1
-  -translate-x-1/2 
-  w-[90%]  
-  max-w-8xl 
-  bg-gray-50 
-  px-24 
-  py-10 
-  shadow-xl 
-  rounded-lg 
-  z-[200]
+          <hr className="border-gray-300 h-1 mb-10" />
 
-"
-  >
-    <H3>Quisque a sagittis ligula. Nulla facilisi</H3 >
+          <div className="grid grid-cols-2 gap-y-10 gap-x-20">
+            {resourceItems.map((res, index) => (
+              <Link key={index} to={res.path} className="block">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {res.title}
+                </h3>
+                <p className="text-gray-600 text-md">{res.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
-    <P className="text-gray-700 text-lg mt-2 mb-4">
-      Comprehensive tools and insights for success.
-    </P>
+      {/* FULL-WIDTH BUILT FOR MEGA MENU */}
+      {megaMenuBuiltFor && (
+        <div
+          onMouseEnter={() => {
+            setmegaMenuBuiltFor(true);
+            setMegaMenuOpen(false);
+            setResourcesMenuOpen(false);
+          }}
+          className="
+            absolute
+            left-1/2
+            -translate-x-1/2
+            top-36
+            w-[90%]
+            max-w-8xl
+            bg-gray-50
+            px-24
+            py-10
+            shadow-xl
+            rounded-lg
+            z-[200]
+          "
+        >
+          <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
 
-    <hr className="border-gray-300 h-1 mb-8" />
+          <P className="text-gray-700 text-lg mt-2 mb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </P>
 
-   
-    <div className="grid grid-cols-2 gap-y-4 gap-x-1">
-      {resourceItems.map((res, index) => (
-        <Link key={index} to={res.path} className="block">
-          <h3 className="text-lg   font-quicksand font-semibold text-gray-900 mb-1">{res.title}</h3>
-          <p className="text-gray-600 text-sm leading-snug">{res.desc}</p>
-        </Link>
-      ))}
-    </div>
+          <hr className="border-gray-300 h-1 mb-8" />
 
+          <div className="grid grid-cols-3 gap-y-10 gap-x-20">
+            {BuiltForItems.map((item, index) => (
+              <Link key={index} to={item.path} className="block">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-md">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
- 
-  </div>
-)}
-
-{openMenu === "built" && (
-  <div
-   
-
-    className="
-     absolute 
-  left-1/2 
-top-32
-translate-y-1
-  -translate-x-1/2 
-  w-[90%]  
-  max-w-8xl 
-  bg-gray-50 
-  px-24 
-  py-10 
-  shadow-xl 
-  rounded-lg 
-  z-[200]
-"
-  >
-    <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-
-    <P className="text-gray-700 text-lg mt-2 mb-4">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    </P>
-
-    <hr className="border-gray-300 h-1 mb-8" />
-
-    {/* GRID SAME AS OTHERS */}
-    <div className="grid grid-cols-3 gap-y-4 gap-x-1">
-      {BuiltForItems.map((item, index) => (
-        <Link key={index} to={item.path} className="block">
-           <h3 className="text-lg   font-quicksand font-semibold text-gray-900 mb-1">{item.title}</h3>
-          <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
-
-
-
-     {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
-<div
-   ref={menuRef}
-  className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px] 
-  bg-white shadow-2xl z-[200] p-6 flex flex-col  pb-20
-  transition-all duration-500 ease-out
-  ${menuOpen ? "translate-x-0" : "translate-x-full"}
-`}
->
-   
-
+      {/* ---------- MOBILE MENU (RIGHT SLIDE-IN) ---------- */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed top-0 font-bricolage right-0 h-full w-[80%] max-w-[320px]
+      bg-white shadow-2xl z-[200] p-6 flex flex-col  pb-20
+      transition-all duration-500 ease-out
+      ${menuOpen ? "translate-x-0" : "translate-x-full"}
+    `}
+      >
         {/* LOGO with Dropdown (Top) */}
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link
-              to="/industries/banking-and-finance"
+              to={base}
               onClick={() => setMenuOpen(false)}
               className="flex items-center gap-3 flex-1"
             >
               <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
                 LOGO
               </div>
-              <span className="text-xl  font-bricolage font-semibold text-gray-900">{currentIndustry}</span>
+              <span className="text-xl  font-bricolage font-semibold text-gray-900">
+                {currentIndustry}
+              </span>
             </Link>
 
             {/* Dropdown Button */}
@@ -608,17 +542,19 @@ translate-y-1
               onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
-              <img src="/ChevronDown.png"
-                className={`w-1 h-1 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
-                  }`}
+              <ChevronDown
+                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${
+                  industryDropdownOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
           </div>
 
           {/* Dropdown Menu */}
           <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
-              }`}
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              industryDropdownOpen ? "max-h-60 mt-3" : "max-h-0"
+            }`}
           >
             <div className="bg-gray-50 rounded-lg p-2 space-y-1">
               {industryOptions.map((ind) => (
@@ -631,71 +567,69 @@ translate-y-1
                   }}
                   className="block px-4 py-3 rounded-md text-gray-800 font-medium
               hover:bg-blue-200 hover:text-white transition-all duration-200"
-          >
-            {ind.name}
+                >
+                  {ind.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* NAV ITEMS (Middle) */}
+        <div className="flex flex-col gap-10 mt-4">
+          {navItems.map((item) => (
+            <div
+              key={item.name}
+              className="border-b border-gray-200 pb-3"
+            >
+              {item.scroll ? (
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    document
+                      .getElementById("productsSection")
+                      ?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                  }}
+                  className="text-gray-800 text-lg font-semibold"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-800 text-lg font-semibold block"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between mt-10 gap-6 pt-4">
+          <Link to="/platform" className="text-blue-500 text-lg font-semibold">
+            Platform
           </Link>
-        ))}
-      </div>
-    </div>
-  </div>
- 
-  {/* NAV ITEMS (Middle) */}
-  <div className="flex flex-col gap-10 mt-4">
-    {navItems.map((item) => (
-      <div
-        key={item.name}
-        className="border-b border-gray-200 pb-3"
-      >
-        {item.scroll ? (
-          <button
-            onClick={() => {
-              setMenuOpen(false);
-              document.getElementById("productsSection")?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-            className="text-gray-800 text-lg font-semibold"
-          >
-            {item.name}
-          </button>
-        ) : (
           <Link
-            to={item.path}
-            onClick={() => setMenuOpen(false)}
-            className="text-gray-800 text-lg font-semibold block"
+            to="/marketplace"
+            className="text-blue-500 text-lg font-semibold"
           >
-            {item.name}
+            Marketplace
           </Link>
-        )}
+        </div>
+
+        {/* CONTACT BUTTON (BOTTOM) */}
+        <div className="mt-6 flex justify-center items-center">
+          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
       </div>
-    ))}
-  </div>
- 
- <div className="flex justify-between mt-10 gap-6 pt-4">
-  <Link to="/platform" className="text-blue-500 text-lg font-semibold">
-    Platform
-  </Link>
-  <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">
-    Marketplace
-  </Link>
-</div>
- 
- 
-  {/* CONTACT BUTTON (BOTTOM) */}
-  <div className="mt-6 flex justify-center items-center">
-    <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
-      <ContactUsDark>Contact Us</ContactUsDark>
-    </Link>
-  </div>
-</div>
- 
     </>
   );
 };
- 
+
 export default BNFNav;
-  
-
-
-
-

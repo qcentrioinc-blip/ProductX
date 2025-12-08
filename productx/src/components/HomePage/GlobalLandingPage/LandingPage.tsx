@@ -56,7 +56,7 @@ export default function InteractiveHeroSection() {
       // bgColor: '#16213e'
     },
     {
-      title: 'AI Automation',
+      title: 'AI Optimization',
       image: '/LandingPageNew/AI.png',
       url: '/industries/ai-optimization',
       // bgColor: '#0f3460'

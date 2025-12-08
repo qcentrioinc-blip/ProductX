@@ -2,7 +2,6 @@ import LandingPageHighTech from "./LandingPageHighTech"
 import ThreeStep from "./ThreeStep"
 import CircleSteps from "./CircleSteps"
 import ThreeCards from "./ThreeCards"
-import RockTech from "./RockTech"
 import OnePoint from "./OnePoint"
 import TextAnimation from "./TextAnimation"
 import SmallArticle from "./SmallArticle"
@@ -12,17 +11,28 @@ import SubFooter from "../../HighTech/AboutHightTech/SubFooter"
 // import ProductSec from "./ProductSec"
 // import WorkProfile from "./WorkProfile"
 
+import FlyingPosters from "./RockTech"
+
+const items = [
+  '/HighTech/HomePage/EngineerGirl.png',
+  '/HighTech/HomePage/Scientist.png',
+  '/HighTech/HomePage/DoctorGirl.png'
+];
+
+
 const HeroSectionHighTech = () => {
   return (
     <div>
-      <LandingPageHighTech/>
+      <LandingPageHighTech />
       <TextAnimation />
       <ThreeCards />
-      <RockTech />
+      {/* <div style={{ height: '900px', position: 'relative' }}> */}
+      <FlyingPosters items={items} />
+      {/* </div> */}
       <CircleSteps />
       <OnePoint />
       <SmallArticle />
-      <ThreeStep/>
+      <ThreeStep />
       <SubFooter />
       {/* <WorkProfile /> */}
       {/* <ProductSec /> */}

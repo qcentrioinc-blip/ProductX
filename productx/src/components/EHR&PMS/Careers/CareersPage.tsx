@@ -6,10 +6,12 @@ import FeatureBlock from "./FeatureBlock"
 import CareerCallToAction from "./CareerCTA"
 import HandSection from "./HandSection"
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
+import EHRNavbar from "../Navbar/EHRNavbar"
 
 
 const CareersPage = () => (
   <div>
+    <EHRNavbar/>
     <TitleSec/>
     <ContactSection/>
     <HandSection/>
