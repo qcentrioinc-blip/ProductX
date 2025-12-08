@@ -50,10 +50,11 @@ import HeroSlider from './components/LandingPage/HeroSlider'
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
 import { CareersPageAI } from './components/AI/Careers/CareersPage'
-import JobDetails from './components/AI/JobDetails'
+import JobDetails from './components/AI/Careers/JobDetails'
 
  
 import AIOptimization from './routes/industries/AIOptimization'
+import AboutAI from './components/AI/AboutUs/AboutAI'
 
 const App = () => {
   // const location = useLocation();
@@ -182,22 +183,23 @@ const App = () => {
            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
              <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
- 
-          
 
            <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
 
 
-  <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
-  <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
-            
-            <Route path="/industries/ai-automation" element={<AIOptimization />} />
+            <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
+            <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
+                      
+            <Route path="/industries/ai-optimization" element={<AIOptimization />} />
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
 
+
+            <Route path="/industries/ai-optimization/about-us" element={<AboutAI/>} />
+ 
           </Routes>
         </div>
-      </ScrollProvider>
+      </ScrollProvider>/
 
     </>
   )

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H1, H4, P } from "../../styles/Typography";
+import { H1, H4, P } from "../../../styles/Typography";
 
 export default function JobDetails() {
   const [activeTab, setActiveTab] = useState<"overview" | "application">(

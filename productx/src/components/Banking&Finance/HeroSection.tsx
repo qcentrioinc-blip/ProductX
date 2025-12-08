@@ -8,7 +8,7 @@ const HeroSection = () => {
       
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover animate-[scaleIn_1.2s_ease-out]"
+        className="absolute inset-0 w-full  h-full object-cover animate-[scaleIn_1.2s_ease-out]"
         src="/Video/BNF.mp4"    
         autoPlay
         muted

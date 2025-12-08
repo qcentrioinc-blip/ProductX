@@ -15,7 +15,7 @@ const AINavbar = () => {
 
   // ---------- AI-SPECIFIC DATA ----------
 
-  const industry = "ai-automation";
+  const industry = "ai-optimization";
   const currentIndustry = "AI Automation";
   const base = `/industries/${industry}`;
 
@@ -23,7 +23,7 @@ const AINavbar = () => {
     { name: "Banking & Finance", path: "/industries/banking-and-finance" },
     { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
     { name: "HighTech", path: "/industries/high-tech" },
-    { name: "AI Automation", path: "/industries/ai-automation" },
+    { name: "AI Automation", path: "/industries/ai-optimization" },
   ];
   const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
 

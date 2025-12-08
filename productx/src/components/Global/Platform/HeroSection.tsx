@@ -8,14 +8,14 @@ const HeroSection = () => {
      
    
       {/* Text Section */}
-      <div className="px-8 sm:px-12 md:px-16  lg:pt-24 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between items-center relative z-10">
+      <div className="px-8   lg:pt-24 lg:px-20 xl:px-24 flex flex-col lg:flex-row justify-between items-center relative z-10">
         {/* Left Text */}
-        <div className="w-full lg:pb-10 pt-20 p-4 text-center lg:text-left">
+        <div className="w-full lg:pb-10 lg:pt-20 p-4 text-center lg:text-left">
           <H1 className="text-white">Lorem ipsum dolor , consectetur adipis</H1>
         </div>
 
         {/* Paragraph + Button */}
-        <div className="w-full lg:w-3/5  text-white flex flex-col lg:pb-10 p-4 lg:pt-20 text-center lg:text-left">
+        <div className="w-full md:w-lg lg:w-3/5  text-white flex flex-col lg:pb-10 p-4 lg:pt-20 text-center lg:text-left">
           <P>
            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
           </P>
@@ -48,7 +48,7 @@ const HeroSection = () => {
   <img
     src="/Platform/LeftImage.png"
     alt="Left Small"
-    className="absolute left-32 top-2 -translate-y-1/2 w-32 md:w-44 lg:w-72 rounded-xl   z-10"
+    className="absolute left-32 top-2 -translate-y-1/2 w-32 md:w-44 lg:w-72 rounded-xl z-50  lg:z-10"
   />
 
   {/* Right Small Image + Insights Tag */}
@@ -66,7 +66,7 @@ const HeroSection = () => {
   <img
     src="/Platform/HeroImage.png"
     alt="Main UI"
-    className="w-[90%] md:w-[75%] lg:w-[70%] rounded-xl   relative z-20"
+    className="w-[90%] md:w-[85%] lg:w-[70%] rounded-xl   relative z-20"
   />
 </div>
 

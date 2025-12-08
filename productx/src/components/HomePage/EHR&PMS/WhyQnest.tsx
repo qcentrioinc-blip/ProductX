@@ -462,7 +462,7 @@ const WhyQnest = () => {
       </div>
 
       {/* TABLET - NEW (768px to 1023px) */}
-      <div className="block md:block lg:hidden hidden sm:block w-full py-16 px-8 min-h-screen" style={{
+      <div className="block md:block lg:hidden  sm:block w-full py-16 px-8 min-h-screen" style={{
         backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'

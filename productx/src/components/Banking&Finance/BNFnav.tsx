@@ -1,16 +1,28 @@
 import { useState, useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../styles/Button";
-import { ChevronDown } from "lucide-react"; 
+ 
 // import {   useNavigate, useLocation } from "react-router-dom";
-import {   H3, P } from "../../styles/Typography";
+import {   H3,  P } from "../../styles/Typography";
+
+
 const BNFNav = () => {
   const [isScrolled, setIsScrolled] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);  
 const menuRef = useRef<HTMLDivElement | null>(null);
- const [megaMenuOpen, setMegaMenuOpen] = useState(false);
- const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+//  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+//  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+//  const[megaMenuBuiltFor, setmegaMenuBuiltFor]=useState(false);
+ const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
+  
 
+const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);  
+
+
+ 
+
+
+ 
 
 const megaMenuItems = [
   {
@@ -75,7 +87,7 @@ const resourceItems = [
     path: "/industries/banking-and-finance/news"
   },
   {
-    title: "Events",
+    title: "CaseStudies",
     desc: "Upcoming webinars, conferences, and live sessions.",
     path: "/industries/banking-and-finance/events"
   },
@@ -96,51 +108,69 @@ const resourceItems = [
   },
 ];
 
+const  BuiltForItems=[
+  {
+    title: "Banks",
+    desc: "Praesent eget laoreet arcu, nec iaculis ",
+    path: "/industries/banking-and-finance/banks"
+  },
+  {
+    title: "Credit Unions",
+    desc: "Praesent eget laoreet arcu, nec iaculis ",
+    path: "/industries/banking-and-finance/credit-unions"
+  },
+  {
+    title: "Financial Unions",
+    desc: "Praesent eget laoreet arcu, nec iaculis ",
+    path: "/industries/banking-and-finance/financial-unions"
+  },
+
+]
 
 const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);  
   
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
+  
 const industries = [
-  { name: "Banking & Finance", path: "/industries/banking-and-finance" },
-  { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
-  { name: "HighTech", path: "/industries/high-tech" },
-  { name: "AI Automation", path: "/industries/ai-automation" },
+  { name: "Banking & Finance", 
+    path: "/industries/banking-and-finance",
+    img: "/BNFHOME/P1.png",
+    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+
+  { name: "EHR and PMS", path: 
+    "/industries/ehr-and-pms",
+    img:  "/BNFHOME/P1.png",
+    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+
+  { name: "HighTech",
+     path: "/industries/high-tech",
+     img: "/BNFHOME/P1.png" 
+    ,
+    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit."},
+      
+  { name: "AI Automation", 
+    path: "/industries/ai-optimization" ,
+    img: "/BNFHOME/P1.png",
+    desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  },
+
 ];
 const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
  
   const navItems = [
     { name: "Products", path: `${base}?scroll=products`, scroll: true },
+     { name: "Built for", path: `${base} ` },
     { name: "About Us", path: `${base}/about-us` },
-    { name: "Resources", path: `${base}/resources` },
-    { name: "Careers", path: `${base}/careers` },
+    { name: "Resources", path: `${base} ` },
+    
+    
 
   ];
 
-  //  const handleProductsClick = (e: React.MouseEvent) => {
-  //   e.preventDefault();
-    
-  //   // Check if we're already on the homepage
-  //   if (location.pathname === base) {
-  //     // Already on homepage, just scroll
-  //     document.getElementById("productsSection")?.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "start",
-  //     });
-  //   } else {
-  //     // Navigate to homepage first, then scroll
-  //     navigate(base);
-  //     // Use setTimeout to ensure navigation completes before scrolling
-  //     setTimeout(() => {
-  //       document.getElementById("productsSection")?.scrollIntoView({
-  //         behavior: "smooth",
-  //         block: "start",
-  //       });
-  //     }, 100);
-  //   }
-  // };
-  // Scroll effect for desktop main nav
+  
+   
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -163,101 +193,155 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
   return () => document.removeEventListener("mousedown", handleClickOutside);
 }, [menuOpen]);
  
- 
+//  useEffect(() => {
+//   if (openMenu === "products") {
+//     setMegaMenuOpen(true);
+//     setResourcesMenuOpen(false);
+//     setmegaMenuBuiltFor(false);
+//   } else if (openMenu === "resources") {
+//     setResourcesMenuOpen(true);
+//     setMegaMenuOpen(false);
+//     setmegaMenuBuiltFor(false);
+//   } else if (openMenu === "built") {
+//     setmegaMenuBuiltFor(true);
+//     setMegaMenuOpen(false);
+//     setResourcesMenuOpen(false);
+//   } else {
+//     // CLOSE ALL
+//     setMegaMenuOpen(false);
+//     setResourcesMenuOpen(false);
+//     setmegaMenuBuiltFor(false);
+//   }
+// }, [openMenu]);
+
  
  
  
   return (
     <>
-      {/* TOP TRANSPARENT BAR (KEPT SAME) */}
-      <div
-        className=" fixed top-0 z-50 left-0 w-full
-        bg-white/10 backdrop-blur-lg font-bricolage
-        border-b border-white/20
-         px-4 sm:px-6 md:px-8 pt-3 pb-1
-        flex justify-between transition-all duration-300"
-      >
-        <Link to="/" className="flex items-center">
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-              LOGO
-            </span>
-          </div>
-        </Link>
+     
+     <div className="fixed top-0 z-50 left-0 w-full bg-white/10 backdrop-blur-lg font-bricolage border-b border-white/20 px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
+<Link to="/" className="flex items-center">
+<div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
+<span className="text-gray-800 font-bricolage text-sm sm:text-base">LOGO</span>
+</div>
+</Link>
+
+
+<div className="hidden lg:flex items-center gap-6">
+<Link to="/platform" className="text-white font-medium">Platform</Link>
+<Link to="/marketplace" className="text-white font-medium">Marketplace</Link>
+</div>
+
+
+{/* MOBILE HAMBURGER */}
+<button
+className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+onClick={() => setMenuOpen(!menuOpen)}
+>
+<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-180 translate-y-[9px]" : ""}`}></span>
+<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+<span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-180 -translate-y-[9px]" : ""}`}></span>
+</button>
+</div>
+
+
+{/* SUB NAVBAR */}
+<nav
+className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
+>
+<div className="flex items-center gap-10">
+{/* LOGO WITH DROPDOWN */}
+<div
+className="relative flex items-center gap-1 cursor-pointer"
+onMouseEnter={() => setLogoDropdownOpen(true)}
+onMouseLeave={() => setLogoDropdownOpen(false)}
+>
+<div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+LOGO
+</div>
+
+
+{/* ROTATING X ICON */}
+<div className={`transition-transform duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
+<img src="/ChevronDown.png"  
+className="w-4 h-4" />
+</div>
+
  
-        {/* DESKTOP RIGHT LINKS */}
-        <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">
-            Platform
-          </Link>
-          <Link to="/marketplace" className="text-white font-medium">
-            Marketplace
-          </Link>
+{/* DROPDOWN MENU */}
+{logoDropdownOpen && (
+  <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
+
+    {industryOptions.map((ind, index) => (
+      <Link
+        key={index}
+        to={ind.path}
+        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+      >
+        {/* ICON */}
+         
+        <img 
+          src={ind.img} 
+          alt={ind.name} 
+          className="w-16 h-14 object-cover"
+        />
+
+        {/* TEXT */}
+        <div className="flex flex-col">
+          <h3 className="text-lg font-semibold font-quicksand text-gray-900">
+            {ind.name}
+          </h3>
+          <p className="text-gray-600 font-quicksand text-sm">
+            {ind.desc || "Click to explore"}
+          </p>
         </div>
- 
-        {/* MOBILE HAMBURGER (NO LOGO, NO CONTACT BUTTON) */}
-        <button
-          className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span
-            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}
-            `}
-          ></span>
-          <span
-            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "opacity-0" : ""}
-            `}
-          ></span>
-          <span
-            className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}
-            `}
-          ></span>
-        </button>
-      </div>
- 
-      {/* MAIN NAV (DESKTOP ONLY ) */}
-      <nav
-        className={`hidden lg:flex  absolute left-1/2 transform  top-16 -translate-x-1/2 w-[90%] max-w-8xl 
-        z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-3 
-        items-center justify-between transition-all duration-300
-        ${isScrolled ? "top-10" : "top-10"}
-      `}
-      >
-        <Link
-          to="/industries/banking-and-finance"
-          className="flex items-center gap-2"
-        >
-          <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-            LOGO
-          </div>
-        </Link>
+      </Link>
+    ))}
+
+  </div>
+)}
+
+</div>
+
+
 
        <ul className="flex items-center   gap-10 font-bold font-quicksand">
   {navItems.map((item) => (
-    <li key={item.name}>
-      
+    <li key={item.name} className="relative">
+{/* DROPDOWN ICONS ADDED */}
+{(item.name === "Products" || item.name === "Built for" || item.name === "Resources") && (
+<div
+  className={`absolute -right-4 top-1/2 -translate-y-1/2 transition-transform   duration-300
+  ${openMenu === "products" && item.name==="Products" ? "rotate-180" : ""}
+  ${openMenu === "resources" && item.name==="Resources" ? "rotate-180" : ""}
+  ${openMenu === "built" && item.name==="Built for" ? "rotate-180" : ""}
+  `}
+>
+  <img src="/ChevronDown.png"   className="w-4  h-4" />
+</div>
+
+)}
       {/* PRODUCTS MEGA MENU */}
-      
+
+
+
+
 {item.name === "Products" && (
  <div
     className="relative"
-    onMouseEnter={() => {
-      setMegaMenuOpen(true);
-      setResourcesMenuOpen(false);    
-    }}
-    onMouseLeave={() => setMegaMenuOpen(false)}
+    onMouseEnter={() => setOpenMenu("products")}
+  onMouseLeave={() => setOpenMenu(null)}
+
   >
-    <button className="text-gray-800 text-[20px]">
+    <button className="text-gray-800 text-[18px]">
       Products
     </button>
 
-    {megaMenuOpen && (
+{openMenu === "products" && (
       <div
         className="absolute left-0 top-full w-[900px]  shadow-xl 
-                   px-10 py-8 rounded-xl z-[999]"
+                   px-10 py-8 rounded-xl z-[200]"
       >
         <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
         <P className="text-gray-700 text-lg mt-2 mb-4">
@@ -282,59 +366,87 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
   </div>
 )}
 
- 
-    
 {/* RESOURCES MEGA MENU */}
 {item.name === "Resources" && (
   <div
     className="relative"
-    onMouseEnter={() => setResourcesMenuOpen(true)}
-    onMouseLeave={() => setMegaMenuOpen(false)}
-    
+   onMouseEnter={() => setOpenMenu("resources")}
+  onMouseLeave={() => setOpenMenu(null)}
   >
-    <button className="text-gray-800 text-[20px]">
+    <button className="text-gray-800 text-[18px]">
       Resources
     </button>
   </div>
 )}
 
-      {/* NORMAL LINKS */}
-      
-      {item.name !== "Products" && item.name !== "Resources" && (
-       
-        <Link to={item.path}  
-         onMouseEnter={() => {
-      setMegaMenuOpen(false);      
-      setResourcesMenuOpen(false);  
-    }} 
+
+{item.name === "Built for" && (
+  <div
+    className="relative"
+  onMouseEnter={() => setOpenMenu("built")}
+  onMouseLeave={() => setOpenMenu(null)} 
+  >
+    <button className="text-gray-800 text-[18px]">
+      Built for
+    </button>
     
-    className="text-gray-800 text-[20px]">
-          {item.name}
-        </Link>
-        
-      )}
+  </div>
+  
+)}
+
+
+
+ 
+
+     {/* NORMAL LINKS */}
+{item.name !== "Products" &&
+ item.name !== "Resources" &&
+ item.name !== "Built for" && (
+  <Link
+    to={item.path}
+    
+    className="text-gray-800 text-[18px]"
+  >
+    {item.name}
+  </Link>
+)}
+
 
     </li>
   ))}
 </ul>
+</div>
 
+       {/* RIGHT SIDE: Careers + Contact Button */}
+<div className="flex items-center gap-8">
+  <Link
+    to={`${base}/careers`}
+    className="text-gray-800 text-[18px] font-bold font-quicksand"
+  >
+    Careers
+  </Link>
 
-        <Link to={`${base}/contactform`}>
-          <ContactUsDark>Contact Us</ContactUsDark>
-        </Link>
+  <Link to={`${base}/contactform`}>
+    <ContactUsDark>Contact Us</ContactUsDark>
+  </Link>
+</div>
+
       </nav>
 
       
       {/* FULL-WIDTH MEGA MENU */}  
   
-{megaMenuOpen && (
+{openMenu === "products" && (
   <div
-    onMouseEnter={() => setMegaMenuOpen(true)}
-    onMouseLeave={() => setMegaMenuOpen(false)}
+onMouseEnter={() => setOpenMenu("products")}
+onMouseLeave={() => setOpenMenu(null)}
+
+    
     className="
   absolute 
   left-1/2 
-top-36
+top-32
+translate-y-1
   -translate-x-1/2 
   w-[90%]  
   max-w-8xl 
@@ -382,22 +494,24 @@ top-36
 
 
 {/* Resources */}
-{resourcesMenuOpen && (
+{openMenu === "resources" && (
   <div
-     onMouseEnter={() => setResourcesMenuOpen(true)}
-    onMouseLeave={() => setResourcesMenuOpen(false)}
-    className=" absolute 
+    
+    className="absolute 
   left-1/2 
-top-36
+top-32
+translate-y-1
   -translate-x-1/2 
-  w-[90%] 
+  w-[90%]  
   max-w-8xl 
-  bg-gray-50
+  bg-gray-50 
   px-24 
   py-10 
   shadow-xl 
   rounded-lg 
-  z-[200]"
+  z-[200]
+
+"
   >
     <H3>Quisque a sagittis ligula. Nulla facilisi</H3 >
 
@@ -405,13 +519,57 @@ top-36
       Comprehensive tools and insights for success.
     </P>
 
-    <hr className="border-gray-300 h-1 mb-10" />
+    <hr className="border-gray-300 h-1 mb-8" />
 
-    <div className="grid grid-cols-2 gap-y-10 gap-x-20">
+   
+    <div className="grid grid-cols-2 gap-y-4 gap-x-1">
       {resourceItems.map((res, index) => (
         <Link key={index} to={res.path} className="block">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">{res.title}</h3>
-          <p className="text-gray-600 text-md">{res.desc}</p>
+          <h3 className="text-lg   font-quicksand font-semibold text-gray-900 mb-1">{res.title}</h3>
+          <p className="text-gray-600 text-sm leading-snug">{res.desc}</p>
+        </Link>
+      ))}
+    </div>
+
+
+ 
+  </div>
+)}
+
+{openMenu === "built" && (
+  <div
+   
+
+    className="
+     absolute 
+  left-1/2 
+top-32
+translate-y-1
+  -translate-x-1/2 
+  w-[90%]  
+  max-w-8xl 
+  bg-gray-50 
+  px-24 
+  py-10 
+  shadow-xl 
+  rounded-lg 
+  z-[200]
+"
+  >
+    <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
+
+    <P className="text-gray-700 text-lg mt-2 mb-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </P>
+
+    <hr className="border-gray-300 h-1 mb-8" />
+
+    {/* GRID SAME AS OTHERS */}
+    <div className="grid grid-cols-3 gap-y-4 gap-x-1">
+      {BuiltForItems.map((item, index) => (
+        <Link key={index} to={item.path} className="block">
+           <h3 className="text-lg   font-quicksand font-semibold text-gray-900 mb-1">{item.title}</h3>
+          <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
         </Link>
       ))}
     </div>
@@ -450,8 +608,8 @@ top-36
               onClick={() => setIndustryDropdownOpen(!industryDropdownOpen)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
-              <ChevronDown
-                className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
+              <img src="/ChevronDown.png"
+                className={`w-1 h-1 text-gray-700 transition-transform duration-300 ${industryDropdownOpen ? "rotate-180" : ""
                   }`}
               />
             </button>
@@ -536,3 +694,8 @@ top-36
 };
  
 export default BNFNav;
+  
+
+
+
+
