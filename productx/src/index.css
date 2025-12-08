@@ -131,7 +131,21 @@ color:transparent;
   scroll-padding-top: 0px; 
 }
 
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
 
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-blue-visible {
+ 
+  transition: color 0.8s ease;
+}
 .wave-overlay {
     opacity: var(--wave-opacity, 0.1);
     transition: opacity 0.2s ease-out;
@@ -234,4 +248,3 @@ button:focus-visible {
 } */
 
 @import "tailwindcss";
-
