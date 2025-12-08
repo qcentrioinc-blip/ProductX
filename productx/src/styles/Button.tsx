@@ -1,12 +1,12 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import {  useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import React, { useRef, useEffect, useCallback } from "react";
-
+ 
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
 }
-
+ 
 /* =========================================================
    CLICK SPARK (Embedded inside the file, not imported)
    ========================================================= */
@@ -28,11 +28,11 @@ const useClickSpark = (options: {
     easing = "ease-out",
     extraScale = 1.0
   } = options;
-
+ 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<any[]>([]);
   // const startTimeRef = useRef<number | null>(null);
-
+ 
   const easeFunc = useCallback(
     (t: number) => {
       switch (easing) {
@@ -48,84 +48,84 @@ const useClickSpark = (options: {
     },
     [easing]
   );
-
+ 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
+ 
     const parent = canvas.parentElement;
     if (!parent) return;
-
+ 
     const resizeCanvas = () => {
       const { width, height } = parent.getBoundingClientRect();
       canvas.width = width;
       canvas.height = height;
     };
-
+ 
     resizeCanvas();
-
+ 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
+ 
     let frame: number;
-
+ 
     const draw = (timestamp: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+ 
       sparksRef.current = sparksRef.current.filter((spark) => {
         const elapsed = timestamp - spark.startTime;
         if (elapsed >= duration) return false;
-
+ 
         const t = easeFunc(elapsed / duration);
         const distance = t * sparkRadius * extraScale;
         const lineLength = sparkSize * (1 - t);
-
+ 
         const x1 = spark.x + distance * Math.cos(spark.angle);
         const y1 = spark.y + distance * Math.sin(spark.angle);
         const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
         const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
-
+ 
         ctx.strokeStyle = sparkColor;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.stroke();
-
+ 
         return true;
       });
-
+ 
       frame = requestAnimationFrame(draw);
     };
-
+ 
     frame = requestAnimationFrame(draw);
-
+ 
     return () => cancelAnimationFrame(frame);
   }, [sparkRadius, sparkSize, sparkColor, duration, extraScale, easeFunc]);
-
+ 
   const triggerSpark = (e: React.MouseEvent) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
+ 
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
+ 
     const now = performance.now();
-
+ 
     const sparks = Array.from({ length: sparkCount }, (_, i) => ({
       x,
       y,
       angle: (2 * Math.PI * i) / sparkCount,
       startTime: now
     }));
-
+ 
     sparksRef.current.push(...sparks);
   };
-
+ 
   return { canvasRef, triggerSpark };
 };
-
+ 
 /* =========================================================
    1) CONTACT US BUTTON
    ========================================================= */
@@ -138,17 +138,17 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
   const contactUrl = industrySlug
     ? `/industries/${industrySlug}/contactform`
     : "/contact";
-
+ 
   const { canvasRef, triggerSpark } = useClickSpark({});
-
+ 
   return (
     <div className="relative inline-block w-fit" onClick={triggerSpark}>
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
       ></canvas>
-
-      <a href={contactUrl}>
+ 
+      <Link to={contactUrl}>
         <button
           className={`
             group
@@ -176,21 +176,21 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
             </span>
           </span>
         </button>
-      </a>
+      </Link>
     </div>
   );
 };
-
+ 
 /* =========================================================
    2) CONTACT US DARK
    ========================================================= */
 export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
   const { canvasRef, triggerSpark } = useClickSpark({});
-
+ 
   return (
     <div className="relative inline-block w-fit" onClick={triggerSpark}>
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none"></canvas>
-
+ 
       <button
         className={`
           group
@@ -218,17 +218,17 @@ export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
     </div>
   );
 };
-
+ 
 /* =========================================================
    3) SUBMIT BUTTON
    ========================================================= */
 export const Submit = ({ children, className = "" }: ButtonProps) => {
   const { canvasRef, triggerSpark } = useClickSpark({});
-
+ 
   return (
     <div className="relative inline-block w-fit" onClick={triggerSpark}>
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none"></canvas>
-
+ 
       <button
         className={`
           group

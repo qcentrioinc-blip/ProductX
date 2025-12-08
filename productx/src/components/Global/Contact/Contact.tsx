@@ -23,7 +23,6 @@ const throttle = (func: (...args: any[]) => void, limit: number) => {
     }
   };
 };
-
 interface Dot {
   cx: number;
   cy: number;
@@ -31,7 +30,6 @@ interface Dot {
   yOffset: number;
   _inertiaApplied: boolean;
 }
-
 function hexToRgb(hex: string) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
   if (!m) return { r: 0, g: 0, b: 0 };
@@ -61,7 +59,6 @@ const Contact: React.FC = () => {
     lastX: 0,
     lastY: 0,
   });
-
   /* SETTINGS */
   const dotSize = 5;
   const gap = 15;
@@ -84,7 +81,6 @@ const Contact: React.FC = () => {
     p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
     return p;
   }, []);
-
   /* ---------------- Build Grid ---------------- */
   const buildGrid = useCallback(() => {
     const wrap = wrapperRef.current;
@@ -164,7 +160,6 @@ const Contact: React.FC = () => {
           const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
           style = `rgb(${r},${g},${b})`;
         }
-
         ctx.save();
         ctx.translate(ox, oy);
         ctx.fillStyle = style;
@@ -186,7 +181,6 @@ const Contact: React.FC = () => {
     wrapperRef.current && ro.observe(wrapperRef.current);
     return () => ro.disconnect();
   }, []);
-
   /* ---------------- Pointer Events ---------------- */
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -206,7 +200,6 @@ const Contact: React.FC = () => {
         vx *= s;
         vy *= s;
       }
-
       pr.lastTime = now;
       pr.lastX = e.clientX;
       pr.lastY = e.clientY;
@@ -261,7 +254,7 @@ const Contact: React.FC = () => {
         {/* LEFT FORM */}
         <div className="flex flex-col xl:my-10 xl:h-[600px] w-full max-w-lg mx-auto lg:mx-20 justify-center p-0 sm:p-4 z-20 bg-white/90 rounded-md ">
           <H1 className="text-black font-bold mb-6">Quam finibus</H1>
-
+ 
           <form className="space-y-4 font-quickstand">
             <input
               type="text"
@@ -286,14 +279,12 @@ const Contact: React.FC = () => {
               placeholder="Message (Optional)"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-black"
             />
-
             <button
               className="group flex items-center justify-center w-[150px] h-[48px] px-[10px] py-[12px] rounded-[12px] font-quicksand font-bold text-[16px] border-2 bg-black text-white transition-all duration-300 hover:bg-white hover:text-black border-b-[4px] border-black border-opacity-50 hover:border-opacity-100"
             >
               <Link to="/">
                 <span className="mr-2">SUBMIT</span>
               </Link>
-
               <span className="relative flex items-center h-[20px] w-[20px]">
                 <ArrowUpRight className="absolute opacity-100 group-hover:opacity-0 transition-opacity" />
                 <ArrowRight className="absolute opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -316,5 +307,6 @@ const Contact: React.FC = () => {
     </section>
   );
 };
-
+ 
 export default Contact;
+ 

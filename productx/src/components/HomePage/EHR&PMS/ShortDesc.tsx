@@ -68,11 +68,10 @@ const ShortDesc = () => {
         </P>
 
         {/* Contact Button */}
-        <a
-          href="/industries/ehr-and-pms/contactus">
+       
           
           <ContactUs>BOOK A FREE DEMO</ContactUs>
-        </a>
+      
       </div>
     </section>
   );
