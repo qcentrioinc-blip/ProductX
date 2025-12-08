@@ -1,3 +1,4 @@
+import BlogCarousel from "./BlogCarousel"
 import CircleAnimation from "./CircleAnimation"
 import EHRFooter from "./EHRFooter"
 import HealthFeatures from "./HealthFeatures"
@@ -20,6 +21,7 @@ const HeroSectionEHR = () => {
       <ParaDescription />
       <HealthFeatures />
       <UserProfile />
+      <BlogCarousel/>
       <EHRFooter />
     </div>
   )
