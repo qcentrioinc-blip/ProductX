@@ -142,8 +142,8 @@ const Meta = () => {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 color: "#FFFFFF",
-                top: "50%",
-                left: "50%",
+                top: "45%",
+                left: "51%",
                 transform: "translate(-50%, -50%)",
               }}
             >

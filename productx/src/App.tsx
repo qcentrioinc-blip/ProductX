@@ -52,9 +52,13 @@ import ProductsPage2 from './components/Banking&Finance/ProductRemitree/Products
 import { CareersPageAI } from './components/AI/Careers/CareersPage'
 import JobDetails from './components/AI/Careers/JobDetails'
 
- 
+
 import AIOptimization from './routes/industries/AIOptimization'
+import Resource from './components/AIOptimization/Resources/Resource'
+import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
 import AboutAI from './components/AI/AboutUs/AboutAI'
+ 
+ 
 
 const App = () => {
   // const location = useLocation();
@@ -67,7 +71,7 @@ const App = () => {
     return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br /> SOON AVAILABLE<br /> Till Then Check Other Industries
       <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
- 
+
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "bankfair") return <ProductsPage1 />;
@@ -81,7 +85,7 @@ const App = () => {
     if (productId === "loan-origination-system") return <ProductsPage7 />
     return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
- 
+
   const EhrPmsPageRouter = () => {
     const { page } = useParams();
     if (page === "blogs") return <BlogsPage />;
@@ -97,35 +101,36 @@ const App = () => {
     if (page === "clinic-app") return <Clinic />;
     return <div>Page not found</div>;
   };
- 
- 
+
+
   const IndustryAboutUsPage = () => {
     const { industry } = useParams();
- 
+
     if (industry === "banking-and-finance") return <AboutUs />;
     if (industry === "high-tech") return <AboutHighTech />;
     if (industry === "ehr-and-pms") return <About />;
- 
+    if (industry === "ai-optimization") return <AboutAI/>;
+
     return <div>About Us page not found for this industry</div>;
   };
- 
+
   const IndustryResourcesPage = () => {
     const { industry } = useParams();
- 
+
     if (industry === "banking-and-finance") return <div>Coming Soon</div>;
     if (industry === "high-tech") return <Resources />;
     if (industry === "ehr-and-pms") return <div>Coming Soon</div>;
- 
+    // if (industry === "ai-optimization") return <div><ResourceDetailAI /></div>
     return <div>Resources page not found for this industry</div>;
   };
- 
+
   const IndustryCareersPage = () => {
     const { industry } = useParams();
- 
+
     if (industry === "banking-and-finance") return <Career />;
     if (industry === "high-tech") return <div>Careers Coming Soon</div>;
     if (industry === "ehr-and-pms") return <div>Careers Coming Soon</div>;
- 
+
     return <div>Careers page not found for this industry</div>;
   };
   return (
@@ -156,18 +161,18 @@ const App = () => {
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
-             <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage/>}/>
+            <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
             <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
-            <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage/>}/>
+            <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
 
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
             <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
             <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
             <Route path='/industries/high-tech/product-details' element={<PDPage />} />
-  
+
             <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
             <Route path="/industries/high-tech/resources" element={<Resources />} />
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
@@ -175,35 +180,39 @@ const App = () => {
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
-         
-           <Route path="/industries/banking-and-finance/contactform" element={<Contact/>}/>
-           <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge/>}/>
-           <Route path="/industries/banking-and-finance/news" element={<NewsPage/>}/>
-           <Route path="/industries/banking-and-finance/events" element={<EventssPage/>}/>
-           <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />}/>
-            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
-             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
 
-           <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
+            <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
+            <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge />} />
+            <Route path="/industries/banking-and-finance/news" element={<NewsPage />} />
+            <Route path="/industries/banking-and-finance/events" element={<EventssPage />} />
+            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
+            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
+            <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
+
+
+
+            <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
 
 
             <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
             <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
-                      
+
+
             <Route path="/industries/ai-optimization" element={<AIOptimization />} />
+            
+            <Route path="/indutries/ai-optimization/about-us" element={<AboutAI/>}/>
+            <Route path="/industries/ai-optimization/resources" element={<Resource />} />
+            <Route path="/industries/ai-optimization/resource-detail" element={<ResourceDetailAI />} />
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
 
 
-            <Route path="/industries/ai-optimization/about-us" element={<AboutAI/>} />
- 
           </Routes>
         </div>
-      </ScrollProvider>/
+      </ScrollProvider>
 
     </>
   )
 }
- 
+
 export default App
- 

@@ -104,13 +104,13 @@ const TextAnimation = () => {
         </div>
 
         {/* Left static text + buttons */}
-        <div className="max-w-4xl mx-auto flex flex-col gap-6 mb-10">
+        <div className="max-w-4xl mx-auto flex flex-col gap-4 mb-10">
           <h2
             style={{
               fontFamily: "'Bricolage Grotesque', sans-serif",
               fontWeight: 600,
               fontSize: 'clamp(26px, 7vw, 32px)',
-              lineHeight: '120%',
+              lineHeight: '100%',
               letterSpacing: '0%',
               color: '#F5F5F5',
               margin: 0,
@@ -125,7 +125,7 @@ const TextAnimation = () => {
               fontWeight: 600,
               fontStyle: 'italic',
               fontSize: 'clamp(24px, 7vw, 30px)',
-              lineHeight: '110%',
+              lineHeight: '100%',
               letterSpacing: '0%',
               color: '#F99526',
               margin: 0,
@@ -137,7 +137,7 @@ const TextAnimation = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <motion.button
-              className="bg-white text-black px-6 py-3 rounded-xl font-bold text-xs sm:text-sm hover:bg-gray-100 transition-colors flex items-center gap-2 sm:gap-3 w-full sm:w-fit justify-center"
+              className="bg-white text-black px-6 py-3 rounded-xl font-bold text-xs sm:text-sm hover:bg-gray-100 transition-colors flex items-center gap-2 sm:gap-3 w-fit sm:w-fit justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -169,7 +169,7 @@ const TextAnimation = () => {
             </motion.button>
 
             <motion.button
-              className="border-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm transition-colors flex items-center gap-2 sm:gap-3 w-full sm:w-fit justify-center"
+              className="border-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm transition-colors flex items-center gap-2 sm:gap-3 w-fit sm:w-fit justify-center"
               style={{
                 borderColor: '#F99526',
                 color: '#F99526',

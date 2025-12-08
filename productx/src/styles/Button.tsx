@@ -10,6 +10,15 @@ interface ButtonProps {
 /* =========================================================
    CLICK SPARK (Embedded inside the file, not imported)
    ========================================================= */
+
+   
+interface Spark {
+  x: number;
+  y: number;
+  angle: number;
+  startTime: number;
+}
+
 const useClickSpark = (options: {
   sparkColor?: string;
   sparkSize?: number;
@@ -29,15 +38,9 @@ const useClickSpark = (options: {
     extraScale = 1.0
   } = options;
  
-  interface Spark {
-    x: number;
-    y: number;
-    angle: number;
-    startTime: number;
-  }
-
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sparksRef = useRef<Spark[]>([]);
+const sparksRef = useRef<Spark[]>([]);
+
   // const startTimeRef = useRef<number | null>(null);
  
   const easeFunc = useCallback(
@@ -299,3 +302,6 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
     </div>
   );
 };
+ 
+ 
+ 
