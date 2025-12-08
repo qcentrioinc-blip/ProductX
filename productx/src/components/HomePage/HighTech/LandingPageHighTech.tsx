@@ -1,23 +1,9 @@
 // import { Link } from "react-router-dom";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const LandingPageHighTech = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  // userMuted = what user selected via button
-  const [userMuted, setUserMuted] = useState(true);
-
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-
-    const nextMuted = !userMuted;
-    videoRef.current.muted = nextMuted;
-    if (!nextMuted) {
-      videoRef.current.volume = 1;
-    }
-    setUserMuted(nextMuted);
-  };
 
   useEffect(() => {
     const videoEl = videoRef.current;
@@ -38,12 +24,6 @@ const LandingPageHighTech = () => {
           } else {
             // section back in view -> play
             videoEl.play().catch(() => { });
-
-            // restore user choice (unmute if userMuted is false)
-            if (!userMuted) {
-              videoEl.muted = false;
-              videoEl.volume = 1;
-            }
           }
         });
       },
@@ -57,10 +37,10 @@ const LandingPageHighTech = () => {
     return () => {
       observer.disconnect();
     };
-  }, [userMuted]);
+  }, []);
 
   return (
-    <div className="w-full bg-black">
+    <div className="w-full bg-black py-8 sm:py-0 lg:py-0">
       <video
         ref={videoRef}
         className="w-full h-auto max-h-screen object-cover"
@@ -73,16 +53,6 @@ const LandingPageHighTech = () => {
       >
         Your browser does not support the video tag.
       </video>
-
-
-      {/* Sound toggle button */}
-      <button
-        onClick={toggleSound}
-        className="absolute bottom-4 right-4 bg-black/70 text-white text-xs sm:text-sm px-3 py-2 rounded-full flex items-center gap-2"
-      >
-        <span className="inline-block w-2 h-2 rounded-full bg-green-400" />
-        {userMuted ? "Enable Sound" : "Mute Sound"}
-      </button>
     </div>
   );
 };

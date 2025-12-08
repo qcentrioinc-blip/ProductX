@@ -8,27 +8,28 @@ import HWD from '../../Banking&Finance/HWD.tsx'
 import SubFooter from '../Careers/SubFooter.tsx'
 import FaqSection from '../../Banking&Finance/ProductSherlock/FAQ.tsx'
 import CTA from '../AboutHightTech/CTA.tsx'
+import HighTechNavbar from '../Navbar/HighTechNavbar.tsx'
 
- 
+
 
 
 const PDPage = () => {
   return (
     <>
-    
-        <TitleSec/>
-        <CTA/>
-        <StepsSec/>
-        <ProductSec/>
-        <CardsSec/>
-        <Highlights/>
-        <FeatureCards/>
-        <HWD/>
-        <FaqSection/>
-        <SubFooter/>
+      <HighTechNavbar />
+      <TitleSec />
+      <CTA />
+      <StepsSec />
+      <ProductSec />
+      <CardsSec />
+      <Highlights />
+      <FeatureCards />
+      <HWD />
+      <FaqSection />
+      <SubFooter />
 
-        </>
-  
+    </>
+
   )
 }
 export default PDPage;
