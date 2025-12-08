@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const TitleSec: React.FC = () => {
     return (
-        <section className="relative w-full min-h-screen bg-gradient-to-r from-[#E6FFEF] to-[#C8FFD7] flex items-center justify-center py-10 px-4">
+        <section className="relative w-full min-h-screen bg-gradient-to-r from-[#E6FFEF] to-[#C8FFD7] flex items-center justify-center py-10 px-4 top-15">
             {/* Changed lg:grid-cols-3 to lg:grid-cols-2 for a 50/50 split on large screens */}
             <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-5 mt-10">
 

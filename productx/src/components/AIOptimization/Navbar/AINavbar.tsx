@@ -11,29 +11,32 @@ const AINavbar = () => {
 
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);
 
   // ---------- AI-SPECIFIC DATA ----------
 
-  const industry = "ai-automation";
-  const currentIndustry = "AI Automation";
+  const industry = "ai-optimization";
+  const currentIndustry = "AI Optimization";
   const base = `/industries/${industry}`;
 
   const industries = [
     { name: "Banking & Finance", path: "/industries/banking-and-finance" },
     { name: "EHR and PMS", path: "/industries/ehr-and-pms" },
     { name: "HighTech", path: "/industries/high-tech" },
-    { name: "AI Automation", path: "/industries/ai-automation" },
+    { name: "AI Optimization", path: "/industries/ai-optimization" },
   ];
-  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
+  const industryOptions = industries.filter(
+    (ind) => ind.name !== currentIndustry
+  );
 
   const navItems = [
-    // Desktop: "Products" uses mega menu, mobile: this path is used as simple link
     { name: "Products", path: `${base}/ai-agents`, scroll: false },
+    { name: "Built for", path: base },
     { name: "About Us", path: `${base}/about-us` },
-    // Desktop: "Resources" uses mega menu, mobile: this path is used as simple link
     { name: "Resources", path: `${base}/case-studies` },
-    { name: "Careers", path: `${base}/careers` },
+    { name: "Resources", path: `${base}/Newsletters` },
+
   ];
 
   const megaMenuItemsAI = [
@@ -78,13 +81,13 @@ const AINavbar = () => {
   const resourceItemsAI = [
     {
       title: "Case Studies",
-      desc: "Real-world AI automation success stories and ROI metrics.",
-      path: `${base}/case-studies`,
+      desc: "Real-world AI Optimization success stories and ROI metrics.",
+      path: `${base}/resources`,
     },
     {
       title: "Newsletters",
       desc: "Latest trends in AI, automation, and machine learning.",
-      path: `${base}/newsletters`,
+      path: `${base}/resource-detail`,
     },
     {
       title: "Blogs",
@@ -93,8 +96,26 @@ const AINavbar = () => {
     },
     {
       title: "Events & Webinars",
-      desc: "Live demos, workshops, and AI automation masterclasses.",
+      desc: "Live demos, workshops, and AI optimization masterclasses.",
       path: `${base}/events`,
+    },
+  ];
+
+  const builtForItemsAI = [
+    {
+      title: "Enterprises",
+      desc: "Praesent eget laoreet arcu, nec iaculis.",
+      path: `${base}/enterprises`,
+    },
+    {
+      title: "Digital Natives",
+      desc: "Praesent eget laoreet arcu, nec iaculis.",
+      path: `${base}/digital-natives`,
+    },
+    {
+      title: "SMBs",
+      desc: "Praesent eget laoreet arcu, nec iaculis.",
+      path: `${base}/smbs`,
     },
   ];
 
@@ -125,7 +146,7 @@ const AINavbar = () => {
 
   return (
     <>
-      {/* TOP TRANSPARENT BAR */}
+      {/* TOP TRANSPARENT BAR (kept AI gradient) */}
       <div
         className="
           absolute top-0 left-0 w-full z-50
@@ -182,7 +203,7 @@ const AINavbar = () => {
         </button>
       </div>
 
-      {/* MAIN NAV (DESKTOP) */}
+      {/* MAIN NAV (DESKTOP) – aligned with HighTechNavbar pattern */}
       <nav
         className={`
           hidden lg:flex
@@ -194,139 +215,131 @@ const AINavbar = () => {
           ${isScrolled ? "top-16" : "top-16"}
         `}
       >
-        {/* Logo in pill */}
-        <Link to={base} className="flex items-center">
-          <div className="w-12 h-12 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-xs font-bold">
-            LOGO
-          </div>
-        </Link>
+        {/* LEFT: Logo + nav items */}
+        <div className="flex items-center gap-10">
+          <Link to={base} className="flex items-center">
+            <div className="w-12 h-12 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-xs font-bold">
+              LOGO
+            </div>
+          </Link>
 
-        {/* Center nav items with mega menus */}
-        <ul className="flex items-center font-medium gap-10">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              {/* PRODUCTS MEGA MENU (desktop hover) */}
-              {item.name === "Products" && (
-                <div
-                  className="relative"
-                  onMouseEnter={() => {
-                    setMegaMenuOpen(true);
-                    setResourcesMenuOpen(false);
-                  }}
-                  onMouseLeave={() => setMegaMenuOpen(false)}
-                >
-                  <button className="text-gray-800 text-[20px]">
-                    Products
-                  </button>
+          <ul className="flex items-center font-medium gap-10">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                {/* PRODUCTS: clickable + opens full-width mega menu */}
+                {item.name === "Products" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setMegaMenuOpen(true);
+                      setResourcesMenuOpen(false);
+                      setMegaMenuBuiltFor(false);
+                    }}
+                  >
+                    <Link
+                      to={item.path}
+                      className="text-gray-800 text-[20px]"
+                      onClick={() => setMegaMenuOpen(false)}
+                    >
+                      Products
+                    </Link>
+                  </div>
+                )}
 
-                  {megaMenuOpen && (
-                    <div className="absolute left-0 top-full w-screen z-[200] px-24 py-10">
-                      <H2>OUR PRODUCTS</H2>
-                      <P className="text-gray-700 text-lg mt-2 mb-4">
-                        Intelligent automation solutions to transform your business operations.
-                      </P>
+                {/* BUILT FOR: opens built-for mega menu */}
+                {item.name === "Built for" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setMegaMenuBuiltFor(true);
+                      setMegaMenuOpen(false);
+                      setResourcesMenuOpen(false);
+                    }}
+                  >
+                    <button className="text-gray-800 text-[20px]">
+                      Built for
+                    </button>
+                  </div>
+                )}
 
-                      <hr className="border-gray-300 h-1 mb-10" />
+                {/* RESOURCES: clickable + opens full-width mega menu */}
+                {item.name === "Resources" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setResourcesMenuOpen(true);
+                      setMegaMenuOpen(false);
+                      setMegaMenuBuiltFor(false);
+                    }}
+                  >
+                    <Link
+                      to={item.path}
+                      className="text-gray-800 text-[20px]"
+                      onClick={() => setResourcesMenuOpen(false)}
+                    >
+                      Resources
+                    </Link>
+                  </div>
+                )}
 
-                      <div className="grid grid-cols-2 gap-y-6 gap-x-1">
-                        {megaMenuItemsAI.map((prod, index) => (
-                          <Link
-                            key={index}
-                            to={prod.path}
-                            className="flex items-start gap-4"
-                          >
-                            <img
-                              src={prod.img}
-                              alt={prod.title}
-                              className="w-12 h-12 rounded-xl object-cover"
-                            />
-                            <div>
-                              <h3 className="text-lg font-semibold text-gray-900">
-                                {prod.title}
-                              </h3>
-                              <P className="text-gray-600 text-sm">
-                                {prod.desc}
-                              </P>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                {/* NORMAL LINKS (About Us) */}
+                {item.name !== "Products" &&
+                  item.name !== "Resources" &&
+                  item.name !== "Built for" && (
+                    <Link
+                      to={item.path}
+                      onMouseEnter={() => {
+                        setMegaMenuOpen(false);
+                        setResourcesMenuOpen(false);
+                        setMegaMenuBuiltFor(false);
+                      }}
+                      className="text-gray-800 text-[20px] hover:text-black transition-colors"
+                    >
+                      {item.name}
+                    </Link>
                   )}
-                </div>
-              )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-              {/* RESOURCES MEGA MENU (desktop hover) */}
-              {item.name === "Resources" && (
-                <div
-                  className="relative"
-                  onMouseEnter={() => {
-                    setResourcesMenuOpen(true);
-                    setMegaMenuOpen(false);
-                  }}
-                  onMouseLeave={() => setResourcesMenuOpen(false)}
-                >
-                  <button className="text-gray-800 text-[20px]">
-                    Resources
-                  </button>
+        {/* RIGHT: Careers + Contact (same as HighTech pattern) */}
+        <div className="flex items-center gap-8">
+          <Link
+            to={`${base}/careers`}
+            className="text-gray-800 text-[20px] font-bold font-quicksand"
+          >
+            Careers
+          </Link>
 
-                  {resourcesMenuOpen && (
-                    <div className="absolute left-0 top-full w-screen z-[200] px-24 py-10">
-                      <H2>RESOURCES</H2>
-                      <P className="text-gray-700 text-lg mt-2 mb-4">
-                        Knowledge hub for AI automation implementation and best practices.
-                      </P>
-
-                      <hr className="border-gray-300 h-1 mb-10" />
-
-                      <div className="grid grid-cols-2 gap-y-10 gap-x-20">
-                        {resourceItemsAI.map((res, index) => (
-                          <Link key={index} to={res.path}>
-                            <h3 className="text-xl font-semibold text-gray-900">
-                              {res.title}
-                            </h3>
-                            <p className="text-gray-600">{res.desc}</p>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* NORMAL LINKS (About Us, Careers) */}
-              {item.name !== "Products" && item.name !== "Resources" && (
-                <Link
-                  to={item.path}
-                  className="text-gray-800 text-[20px] hover:text-black transition-colors"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        {/* Contact button */}
-        <Link to={`${base}/contactus`}>
-          <ContactUsDark>Contact Us</ContactUsDark>
-        </Link>
+          <Link to={`${base}/contactus`}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
+        </div>
       </nav>
 
-      {/* FULL-WIDTH PRODUCTS MEGA MENU (fixed) */}
+      {/* FULL-WIDTH PRODUCTS MEGA MENU */}
       {megaMenuOpen && (
         <div
-          onMouseEnter={() => setMegaMenuOpen(true)}
           onMouseLeave={() => setMegaMenuOpen(false)}
           className="
-            fixed left-0 top-[140px] h-screen w-full
-            bg-gray-200 shadow-2xl z-[200]
-            px-24 py-10 border-t border-gray-300
+            absolute 
+            left-1/2 
+            top-36
+            -translate-x-1/2 
+            w-[90%]
+            max-w-8xl 
+            bg-gray-50 
+            px-24 
+            py-10 
+            shadow-xl 
+            rounded-lg 
+            z-[200]
           "
         >
           <H2>OUR PRODUCTS</H2>
           <P className="text-gray-700 text-lg mt-2 mb-4">
-            Comprehensive AI automation tools to streamline workflows and boost productivity.
+            Intelligent automation solutions to transform your business operations.
           </P>
 
           <hr className="border-gray-300 h-1 mb-10" />
@@ -355,20 +368,28 @@ const AINavbar = () => {
         </div>
       )}
 
-      {/* FULL-WIDTH RESOURCES MEGA MENU (fixed) */}
+      {/* FULL-WIDTH RESOURCES MEGA MENU */}
       {resourcesMenuOpen && (
         <div
-          onMouseEnter={() => setResourcesMenuOpen(true)}
           onMouseLeave={() => setResourcesMenuOpen(false)}
           className="
-            fixed left-0 top-[140px] h-screen w-full
-            bg-gray-200 shadow-2xl z-[200]
-            px-24 py-10 border-t border-gray-300
+            absolute 
+            left-1/2 
+            top-36
+            -translate-x-1/2 
+            w-[90%] 
+            max-w-8xl 
+            bg-gray-50
+            px-24 
+            py-10 
+            shadow-xl 
+            rounded-lg 
+            z-[200]
           "
         >
           <H2>RESOURCES</H2>
           <P className="text-gray-700 text-lg mt-2 mb-4">
-            Expert guides, case studies, and insights on AI automation success.
+            Knowledge hub for AI optimization implementation and best practices.
           </P>
 
           <hr className="border-gray-300 h-1 mb-10" />
@@ -386,7 +407,46 @@ const AINavbar = () => {
         </div>
       )}
 
-      {/* MOBILE MENU (RIGHT SLIDE-IN) */}
+      {/* FULL-WIDTH BUILT FOR MEGA MENU */}
+      {megaMenuBuiltFor && (
+        <div
+          onMouseLeave={() => setMegaMenuBuiltFor(false)}
+          className="
+            absolute
+            left-1/2
+            -translate-x-1/2
+            top-36
+            w-[90%]  
+            max-w-8xl
+            bg-gray-50
+            px-24
+            py-10
+            shadow-xl
+            rounded-lg
+            z-[200]
+          "
+        >
+          <H2>BUILT FOR</H2>
+          <P className="text-gray-700 text-lg mt-2 mb-4">
+            Tailored AI optimization solutions for different types of organizations.
+          </P>
+
+          <hr className="border-gray-300 h-1 mb-8" />
+
+          <div className="grid grid-cols-3 gap-y-10 gap-x-20">
+            {builtForItemsAI.map((item, index) => (
+              <Link key={index} to={item.path} className="block">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-md">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* MOBILE MENU (RIGHT SLIDE-IN) – same as before, routes kept */}
       <div
         ref={menuRef}
         className={`
@@ -499,4 +559,3 @@ const AINavbar = () => {
 };
 
 export default AINavbar;
-
