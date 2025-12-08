@@ -9,13 +9,13 @@ const LandingPageEHS = () => {
                 {/* Wrapper for hero section - Same gradient background continues */}
                 <div className="relative min-h-[400px] lg:min-h-[520px]">
                     {/* Circle Image - POSITION UNCHANGED: top-[-150px] */}
-                    <div className="absolute right-0 top-[-80px] bottom-0 w-1/2 lg:w-1/2 z-10 pointer-events-none hidden md:block" style={{ height: 'calc(100% + 280px)' }}>
+                    {/* <div className="absolute right-0 top-[-80px] bottom-0 w-1/2 lg:w-1/2 z-10 pointer-events-none hidden md:block" style={{ height: 'calc(100% + 280px)' }}>
                         <img
                             src="/EHRandPMS/circles.png"
                             alt="Green Spiral"
                             className="absolute right-0 top-0 h-full w-auto object-cover object-left"
                         />
-                    </div>
+                    </div> */}
 
                     {/* Vertical White Lines Background - Left Side - Hidden on mobile */}
                     <div className="absolute left-0 top-0 bottom-0 w-full z-20 pointer-events-none overflow-hidden hidden lg:block">
@@ -104,7 +104,7 @@ const LandingPageEHS = () => {
             </div>
 
             {/* Bottom Section - Logo Cards with Light Green Background */}
-            <div className="bg-gradient-to-b from-green-50 to-white py-12 px-8 sm:px-12 md:px-22 border-t border-gray-200 relative">
+            {/* <div className="bg-gradient-to-b from-green-50 to-white py-12 px-8 sm:px-12 md:px-22 border-t border-gray-200 relative">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <h2
                         className="text-4xl md:text-5xl font-semibold leading-tight text-center md:text-left"
@@ -135,7 +135,7 @@ const LandingPageEHS = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
