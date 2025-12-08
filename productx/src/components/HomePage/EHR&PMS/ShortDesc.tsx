@@ -9,7 +9,8 @@ const ShortDesc = () => {
         py-8 sm:py-10 lg:py-16 
         relative
         bg-[#EDE4CA]
-        min-h-[600px]
+        min-h-[500px]
+        z-10
       "
     >
       {/* Content Container */}

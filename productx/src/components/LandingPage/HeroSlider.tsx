@@ -28,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    title: "AI Automation",
+    title: "AI Optimization",
     image: "/LandingPage/Landing7.png",
     description:
       "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",

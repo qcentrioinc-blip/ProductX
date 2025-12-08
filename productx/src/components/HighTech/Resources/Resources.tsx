@@ -3,6 +3,7 @@ import SubFooter from "../AboutHightTech/SubFooter";
 import BlogContent from "./BlogContent";
 import BlogHead from "./BlogHead";
 import HeroSection from "./HeroSection";
+import HighTechNavbar from "../Navbar/HighTechNavbar";
 
 const Resources = () => {
   const [activeCategory, setActiveCategory] = useState<
@@ -11,6 +12,7 @@ const Resources = () => {
 
   return (
     <div>
+      <HighTechNavbar />
       <div className="relative overflow-x-hidden">
         <HeroSection />
         <BlogHead activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
