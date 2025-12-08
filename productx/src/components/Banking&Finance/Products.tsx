@@ -22,7 +22,7 @@ const Products = () => {
       id: 1,
       image: '/BNFHOME/P1.png',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/AWACS.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/almanac"
@@ -31,7 +31,7 @@ const Products = () => {
       id: 2,
       image: '/BNFHOME/P2.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/relier.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/bankfair"
@@ -40,7 +40,7 @@ const Products = () => {
       id: 3,
       image: '/BNFHOME/P3.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/sherlock.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/customer-onboarding-solutions"
@@ -49,7 +49,7 @@ const Products = () => {
       id: 4,
       image: '/BNFHOME/P4.png',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/conciliare.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
 
@@ -59,7 +59,7 @@ const Products = () => {
       id: 5,
       image: '/BNFHOME/P5.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/PAGO.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/loan-origination-system"
@@ -68,7 +68,7 @@ const Products = () => {
       id: 6,
       image: '/BNFHOME/P6.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/Simplified.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/pago"
@@ -77,7 +77,7 @@ const Products = () => {
       id: 7,
       image: '/BNFHOME/P7.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/relier.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/remitree"
@@ -86,7 +86,7 @@ const Products = () => {
       id: 8,
       image: '/BNFHOME/P8.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/relier.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sams"
@@ -95,7 +95,7 @@ const Products = () => {
       id: 9,
       image: '/BNFHOME/P9.jpg',
       title: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique  ',
-      logo: '/Logo1.png',
+      logo: '/BNFlogo/relier.png',
       hasContent: true,
       para: 'Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique Sed ac faucibus lectus. Ut sed eros vel sapien tristique ',
       route: "/industries/banking-and-finance/products/sherlock"
@@ -210,8 +210,8 @@ const Products = () => {
                     {/* Logo sliding */}
                     <div className="absolute left-4 sm:left-6 bottom-6 w-[200px] rounded-md py-3
                                     transition-all duration-700 ease-in-out transform
-                                    group-hover:-translate-y-50">
-                      <img src={product.logo} className=" h-14 w-full" />
+                                    group-hover:-translate-y-52">
+                      <img src={product.logo} className=" h-20  rounded-md w-full" />
                     </div>
  
                     {/* Hover Description */}

@@ -33,7 +33,7 @@ const AINavbar = () => {
   const navItems = [
     { name: "Products", path: `${base}/ai-agents`, scroll: false },
     { name: "Built for", path: base },
-    { name: "About Us", path: `${base}/about-us` },
+    { name: "About Us", path: `${base}/aboutus` },
     { name: "Resources", path: `${base}/case-studies` },
     { name: "Resources", path: `${base}/Newsletters` },
 
