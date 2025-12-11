@@ -1,304 +1,359 @@
-const EHRFooter = () => {
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+// WAVE BREATHING EFFECT - Height changes on scroll
+const GradientLayers = () => {
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
+  
+  // Each layer has different height animation ranges
+  const layers = [
+    { opacity: 0.9, minHeight: 30, maxHeight: 70 },
+    { opacity: 0.8, minHeight: 35, maxHeight: 75 },
+    { opacity: 0.6, minHeight: 25, maxHeight: 65 },
+    { opacity: 0.4, minHeight: 40, maxHeight: 80 },
+    { opacity: 0.2, minHeight: 20, maxHeight: 60 },
+    { opacity: 0.05, minHeight: 15, maxHeight: 55 }
+  ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#A8D5C3] via-[#7CB89D] to-[#5A9B80] text-white">
-      {/* Top Section - Logo and Newsletter */}
-      <div className="bg-[#A8D5C3] py-16 px-8 md:px-16 lg:px-24">
-        <div className="max-w-8xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
-          {/* Left Side - Logo and Tagline */}
-          <div className="flex-shrink-0">
-            {/* Logo - QNEST with Bricolage Grotesque */}
-            <h1
-              className="mb-4"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(80px, 10vw, 124.56px)',
-                lineHeight: '100%',
-                letterSpacing: '0%'
-              }}
-            >
-              <span className="text-black">Q</span>
-              <span className="text-[#166D48]">N</span>
-              <span className="text-black">E</span>
-              <span className="text-[#166D48]">S</span>
-              <span className="text-black">T</span>
-            </h1>
+    <div ref={containerRef} className="w-full">
+      {layers.map((layer, index) => {
+        // Animate HEIGHT based on scroll - creating wave effect
+        const height = useTransform(
+          scrollYProgress,
+          [0, 0.5, 1],
+          [layer.minHeight, layer.maxHeight, layer.minHeight]
+        );
 
-            {/* Tagline with Quicksand */}
-            <p
-              className="max-w-md"
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontWeight: 400,
-                fontSize: '18px',
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                color: '#F5F5F5'
-              }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat
-            </p>
-          </div>
+        return (
+          <motion.div
+            key={index}
+            className="relative w-full"
+            style={{
+              background: GRADIENT,
+              height
+            }}
+          >
+            <span 
+              className="absolute inset-0 block" 
+              style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
 
-          {/* Right Side - Newsletter Section */}
-          <div className="flex-1 max-w-2xl w-full">
-            {/* Newsletter Title with Bricolage Grotesque */}
-            <h2
-              className="mb-6 text-right"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(32px, 5vw, 48px)',
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                color: '#000000'
-              }}
-            >
-              Subscribe to our newsletter.
-            </h2>
+const EHRFooter = () => {
+  return (
+    <footer className="bg-[#3B8866]">
+      
+      {/* Green Gradient Layers - 6 Layers */}
+      <GradientLayers />
 
-            {/* Email Input and Submit Button */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-end">
-              <input
-                type="email"
-                placeholder="Enter your mail"
-                className="flex-1 sm:max-w-lg px-6 py-4 rounded-full border-2 border-[#166D48] bg-transparent outline-none text-black placeholder:text-gray-600"
-                style={{
-                  fontFamily: "'Quicksand', sans-serif",
-                  fontSize: '16px'
-                }}
-              />
-              <button
-                className="px-6 py-4 bg-[#141414] hover:bg-[#2A2A2A] text-white rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-colors"
-                style={{
-                  fontFamily: "'Arial', sans-serif",
-                  fontWeight: 600
-                }}
-              >
-                SUBMIT
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </button>
+      {/* Main Container - Centered with max-width */}
+      <div className="bg-[#3B8866] flex flex-col items-left max-w-8xl px-4 sm:px-6 md:px-8 py-8">
+        
+        {/* TOP CARD - Newsletter - 1335px width, 20px radius */}
+        <div 
+          className="bg-white shadow-xl w-full"
+          style={{
+            // maxWidth: '1335px',
+            borderRadius: '20px',
+            marginBottom: '11px',
+            opacity: 1
+          }}
+        >
+          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-16 lg:py-20">
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
+              
+              {/* QNEST LOGO - Left side */}
+              <div className="flex-shrink-0">
+                <h1
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(60px, 8vw, 124.56px)',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#166D48'
+                  }}
+                >
+                  QNEST
+                </h1>
+              </div>
+
+              {/* NEWSLETTER SECTION - Right side */}
+              <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
+                <h2
+                  className="mb-8 text-left lg:text-left"
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(32px, 4vw, 48px)',
+                    lineHeight: '120%',
+                    color: '#166D48'
+                  }}
+                >
+                  Subscribe to our<br />newsletter.
+                </h2>
+
+                <div className="flex flex-col sm:flex-row gap-4 w-full lg:justify-end items-stretch">
+                  <input
+                    type="email"
+                    placeholder="Enter your mail"
+                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#166D48] transition-colors"
+                    style={{
+                      fontFamily: "'Quicksand', sans-serif",
+                      fontSize: '16px',
+                      height: '56px'
+                    }}
+                  />
+                  <button
+                    className="px-8 bg-black hover:bg-gray-900 text-white rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all whitespace-nowrap"
+                    style={{
+                      fontFamily: "'Arial', sans-serif",
+                      fontWeight: 600,
+                      letterSpacing: '0.5px',
+                      height: '56px',
+                      minWidth: '140px'
+                    }}
+                  >
+                    SUBMIT
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Navigation Sections */}
-      <div className="flex flex-col">
-        {/* Home */}
-        <a
-          href="/industries/ehr-and-pms"
-          className="bg-[#7CB89D] border-b border-[#6BA88A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#6FA88F] transition-colors cursor-pointer"
+        {/* BOTTOM CARD - Links - 1335px width, 8px radius */}
+        <div 
+          className="bg-white shadow-xl w-full relative"
+          style={{
+            // maxWidth: '1335px',
+            borderRadius: '8px',
+            opacity: 1
+          }}
         >
-          <span
-            className="text-white"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(24px, 3vw, 32px)',
-              lineHeight: '100%',
-              letterSpacing: '0%'
-            }}
-          >
-            Home
-          </span>
-        </a>
+          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
+            
+            {/* Three Column Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.5fr_0.5fr_1.5fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0">
+              
+              {/* QUICK LINKS */}
+              <div>
+                <h3
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: '32px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#2A2A2A'
+                  }}
+                >
+                  Quick Links
+                </h3>
+                <ul className="space-y-5">
+                  {['Home', 'Built for', 'About Us', 'Careers'].map((link) => (
+                    <li key={link}>
+                      <a
+                        href={`#${link.toLowerCase().replace(' ', '-')}`}
+                        className="hover:opacity-80 transition-opacity"
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 700,
+                          fontSize: '24px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          color: '#166D48'
+                        }}
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-        {/* About Us with LinkedIn */}
-        <div className="bg-[#6FAA8F] border-b border-[#5E9880] py-6 px-8 md:px-16 lg:px-24">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              {/* LinkedIn Icon */}
+              {/* RESOURCES */}
+              <div>
+                <h3
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: '32px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#2A2A2A'
+                  }}
+                >
+                  Resources
+                </h3>
+                <ul className="space-y-5">
+                  {['Blogs', 'Glossary', 'News', 'Case Studies', 'White papers'].map((link) => (
+                    <li key={link}>
+                      <a
+                        href={`#${link.toLowerCase().replace(' ', '-')}`}
+                        className="hover:opacity-80 transition-opacity"
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 700,
+                          fontSize: '24px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          color: '#166D48'
+                        }}
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* PRODUCTS */}
+              <div>
+                <h3
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: '32px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#2A2A2A'
+                  }}
+                >
+                  Products
+                </h3>
+                <ul className="space-y-5">
+                  <li>
+                    <a
+                      href="#clinic-app"
+                      className="hover:opacity-80 transition-opacity"
+                      style={{
+                        fontFamily: "'Bricolage Grotesque', sans-serif",
+                        fontWeight: 700,
+                        fontSize: '24px',
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#166D48'
+                      }}
+                    >
+                      Clinic App
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* SOCIAL ICONS - Bottom Right Corner */}
+            <div className="absolute bottom-12 right-12 md:bottom-14 md:right-16 lg:right-20 flex items-center gap-3">
+              {/* LinkedIn */}
               <a
-                href="https://linkedin.com/company/yourcompany"
+                href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
+                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                aria-label="LinkedIn"
               >
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
-              {/* Arrow */}
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 7l10 10M17 8v9H8" />
-              </svg>
-            </div>
-            <a
-              href="/industries/ehr-and-pms/about-us"
-              className="text-white hover:text-gray-200 transition-colors"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(24px, 3vw, 32px)',
-                lineHeight: '100%',
-                letterSpacing: '0%'
-              }}
-            >
-              About Us
-            </a>
-          </div>
-        </div>
 
-        {/* Clinic App */}
-        <a
-          href="/industries/ehr-and-pms/clinic-app"
-          className="bg-[#62A082] border-b border-[#528E71] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#569775] transition-colors cursor-pointer"
-        >
-          <span
-            className="text-white"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(24px, 3vw, 32px)',
-              lineHeight: '100%',
-              letterSpacing: '0%'
-            }}
-          >
-            Clinic App
-          </span>
-        </a>
-
-        {/* Blogs with X (Twitter) */}
-        <div className="bg-[#569775] border-b border-[#478566] py-6 px-8 md:px-16 lg:px-24">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              {/* X Icon */}
+              {/* X (Twitter) */}
               <a
-                href="https://x.com/yourcompany"
+                href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
+                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                aria-label="X"
               >
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              {/* Arrow */}
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 7l10 10M17 8v9H8" />
-              </svg>
 
-            </div>
-            <a
-              href="/industries/ehr-and-pms/blogs"
-              className="text-white hover:text-gray-200 transition-colors"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(24px, 3vw, 32px)',
-                lineHeight: '100%',
-                letterSpacing: '0%'
-              }}
-            >
-              Blogs
-            </a>
-          </div>
-        </div>
-
-        {/* Case Studies */}
-        <a
-          href="/industries/ehr-and-pms/case-studies"
-          className="bg-[#4A8D68] border-b border-[#3D7A5A] py-6 px-8 md:px-16 lg:px-24 flex justify-end items-center hover:bg-[#3D835B] transition-colors cursor-pointer"
-        >
-          <span
-            className="text-white"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(24px, 3vw, 32px)',
-              lineHeight: '100%',
-              letterSpacing: '0%'
-            }}
-          >
-            Case Studies
-          </span>
-        </a>
-
-        {/* Careers with Instagram */}
-        <div className="bg-[#3D835B] py-6 px-8 md:px-16 lg:px-24">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              {/* Instagram Icon */}
+              {/* Instagram */}
               <a
-                href="https://instagram.com/yourcompany"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-white rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
+                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                aria-label="Instagram"
               >
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
-              {/* Arrow */}
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 7l10 10M17 8v9H8" />
-              </svg>
-
             </div>
-            <a
-              href="/industries/ehr-and-pms/career"
-              className="text-white hover:text-gray-200 transition-colors"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(24px, 3vw, 32px)',
-                lineHeight: '100%',
-                letterSpacing: '0%'
-              }}
-            >
-              Careers
-            </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom Section - Copyright and Links */}
-      <div className="bg-[#2D7250] py-6 px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p
-          className="text-white"
-          style={{
-            fontFamily: "'Quicksand', sans-serif",
-            fontSize: '14px'
-          }}
-        >
-          © 2025 Qnest. All rights reserved.
-        </p>
-        <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
-          <a
-            href="/industries/ehr-and-pms/privacy-policy"
-            className="text-white hover:underline"
+      {/* COPYRIGHT SECTION */}
+      <div className="bg-[#3B8866] px-4 sm:px-6 md:px-8 pb-8 pt-6">
+        <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
+          <p
             style={{
               fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px'
+              fontSize: '14px',
+              fontWeight: 400
             }}
           >
-            Privacy Policy
-          </a>
-          <a
-            href="/industries/ehr-and-pms/cookie-policy"
-            className="text-white hover:underline"
-            style={{
-              fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px'
-            }}
-          >
-            Cookie Policy
-          </a>
-          <a
-            href="/industries/ehr-and-pms/terms-and-conditions"
-            className="text-white hover:underline"
-            style={{
-              fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px'
-            }}
-          >
-            Terms and Conditions
-          </a>
+            © 2025 Qnest. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
+            <a
+              href="#privacy-policy"
+              className="hover:underline"
+              style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontSize: '14px',
+                fontWeight: 400
+              }}
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#cookie-policy"
+              className="hover:underline"
+              style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontSize: '14px',
+                fontWeight: 400
+              }}
+            >
+              Cookie Policy
+            </a>
+            <a
+              href="#terms-and-conditions"
+              className="hover:underline"
+              style={{
+                fontFamily: "'Quicksand', sans-serif",
+                fontSize: '14px',
+                fontWeight: 400
+              }}
+            >
+              Terms and Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>
