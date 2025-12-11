@@ -74,11 +74,11 @@ const Openings = () => {
                 </div>
 
                 <div className="flex justify-center">
-                  <Link to="/industries/banking-and-finance/jobdescription">
+                  <a href="/industries/banking-and-finance/jobdescription">
                   <button className="border border-white text-white px-6 py-2 rounded-md hover:bg-white hover:text-black transition-colors duration-300">
                     Apply
                   </button>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

@@ -562,7 +562,7 @@ const UserProfile = () => {
     const GAP = 24;
 
     return (
-        <div className="w-full bg-gradient-to-b from-gray-50 to-white py-8 sm:py-12 md:py-16 px-3 sm:px-4 overflow-hidden">
+        <div className="w-full bg-[#EEFDD9] py-8 sm:py-12 md:py-16 px-3 sm:px-4 overflow-hidden">
             <div className="max-w-[1440px] mx-auto">
                 
                 {/* Title Section */}

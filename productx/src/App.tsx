@@ -49,13 +49,16 @@ import EventssPage from './components/Banking&Finance/Events/EventsPage'
 import HeroSlider from './components/LandingPage/HeroSlider'
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
-import { CareersPageAI } from './components/AI/Careers/CareersPage'
-import JobDetails from './components/AI/JobDetails'
+import { CareersPageAI } from './components/AIOptimization/Careers/CareersPage'
+import JobDetails from './components/AIOptimization/Careers/JobDetails'
 
 
 import AIOptimization from './routes/industries/AIOptimization'
 import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
+import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
+ 
+ 
 
 const App = () => {
   // const location = useLocation();
@@ -106,6 +109,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <AboutUs />;
     if (industry === "high-tech") return <AboutHighTech />;
     if (industry === "ehr-and-pms") return <About />;
+    if (industry === "ai-optimization") return <AboutAI/>;
 
     return <div>About Us page not found for this industry</div>;
   };
@@ -116,7 +120,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <div>Coming Soon</div>;
     if (industry === "high-tech") return <Resources />;
     if (industry === "ehr-and-pms") return <div>Coming Soon</div>;
-
+    // if (industry === "ai-optimization") return <div><ResourceDetailAI /></div>
     return <div>Resources page not found for this industry</div>;
   };
 
@@ -193,11 +197,15 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
             <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
 
+
             <Route path="/industries/ai-optimization" element={<AIOptimization />} />
+            
+            <Route path="/indutries/ai-optimization/about-us" element={<AboutAI/>}/>
             <Route path="/industries/ai-optimization/resources" element={<Resource />} />
             <Route path="/industries/ai-optimization/resource-detail" element={<ResourceDetailAI />} />
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
+
 
           </Routes>
         </div>

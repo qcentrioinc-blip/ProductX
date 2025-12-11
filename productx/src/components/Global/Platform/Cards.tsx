@@ -26,7 +26,7 @@ const Cards = () => {
       ref={containerRef}
       className="flex flex-col items-center justify-center bg-black py-20 -mt-14 px-6 lg:px-12"
     >
-      <div className="w-full max-w-8xl lg:mx-10 px-10">
+      <div className="w-full max-w-8xl lg:mx-10 lg:px-10">
         {/* Header */}
         <div className="text-left my-16">
           <H1 className="mb-2 ">

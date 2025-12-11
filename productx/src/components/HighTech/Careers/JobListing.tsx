@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { H2, H3, H4, P } from "../../../styles/Typography";
-import { Link } from "react-router-dom";
 
 const careers = [
   {
@@ -44,6 +43,7 @@ const JobListing = () => {
         </div>
 
         {/* Careers List */}
+        <a href="/industries/high-tech/jobdescription">
         <div className="flex flex-col divide-y divide-[#2A2A2A]/60">
           {careers.map((job, index) => (
             <div
@@ -58,11 +58,9 @@ const JobListing = () => {
                 <H3 className="group-hover:text-[#F99526] transition-all duration-300">
                   {job.title}
                 </H3>
-                <Link to="/industries/high-tech/jobdescription">
                   <div className="w-9 h-9 rounded-full bg-[#fffdfd] flex items-center justify-center hover:bg-[#F99526] transition-all duration-300 group">
                     <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 group-hover:text-white transition-all duration-300" />
                   </div>
-                </Link>
                 </div>
 
                 {/* Details stacked below title */}
@@ -97,7 +95,6 @@ const JobListing = () => {
                   {job.description}
                 </P>
               </div>
-              <Link to="/industries/high-tech/jobdescription">
               <div className="hidden sm:flex sm:items-start sm:justify-end">
 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center 
                 transition-all duration-300 group-hover:bg-violet-600">
@@ -105,10 +102,10 @@ const JobListing = () => {
                 </div>
               
               </div>
-              </Link>
             </div>
           ))}
         </div>
+        </a>
       </div>
     </section>
   );

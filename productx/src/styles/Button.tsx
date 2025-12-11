@@ -10,6 +10,15 @@ interface ButtonProps {
 /* =========================================================
    CLICK SPARK (Embedded inside the file, not imported)
    ========================================================= */
+
+   
+interface Spark {
+  x: number;
+  y: number;
+  angle: number;
+  startTime: number;
+}
+
 const useClickSpark = (options: {
   sparkColor?: string;
   sparkSize?: number;
@@ -30,7 +39,8 @@ const useClickSpark = (options: {
   } = options;
  
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sparksRef = useRef<any[]>([]);
+const sparksRef = useRef<Spark[]>([]);
+
   // const startTimeRef = useRef<number | null>(null);
  
   const easeFunc = useCallback(
@@ -218,6 +228,41 @@ export const ContactUsDark = ({ children, className = "" }: ButtonProps) => {
     </div>
   );
 };
+
+export const ContactUsAI = ({ children, className = "" }: ButtonProps) => {
+  const { canvasRef, triggerSpark } = useClickSpark({});
+ 
+  return (
+    <div className="relative inline-block w-fit" onClick={triggerSpark}>
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none"></canvas>
+ 
+      <button
+        className={`
+          group
+          flex items-center justify-center
+          w-auto h-[48px]
+          px-[24px] py-[12px]
+          rounded-[8px]
+          font-quicksand font-bold text-[16px]
+          bg-[#0AC276] text-black
+          border-2 border-[#141414]
+          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+          transition-all duration-300
+          hover:bg-white hover:text-black
+          ${className}
+        `}
+      >
+        <span className="flex items-center gap-2">
+          {children}
+          <span className="relative flex items-center w-[20px] h-[20px]">
+            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+};
  
 /* =========================================================
    3) SUBMIT BUTTON
@@ -257,3 +302,6 @@ export const Submit = ({ children, className = "" }: ButtonProps) => {
     </div>
   );
 };
+ 
+ 
+ 

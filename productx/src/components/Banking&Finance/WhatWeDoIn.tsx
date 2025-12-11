@@ -1,9 +1,44 @@
-import { useState, useRef } from "react";
+import { useState, useRef,useEffect } from "react";
 import { motion } from "framer-motion";
 import { H2, H3, P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
+ const containerRef = useRef<HTMLDivElement | null>(null);
+
+
+const handleScroll = (e: WheelEvent | TouchEvent) => {
+
+  if (!containerRef.current) return;
+
+  const rect = containerRef.current.getBoundingClientRect();
+
+  // When the container is visible/sticky
+  if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Auto open next accordion
+    setOpenIndex((prev) => {
+      if (prev < accordionData.length - 1) return prev + 1;
+      return prev;
+    });
+  }
+};
+
+
+useEffect(() => {
+  const wheelHandler = (e: WheelEvent | TouchEvent) => handleScroll(e);
+
+  window.addEventListener("wheel", wheelHandler as EventListener, { passive: false });
+  window.addEventListener("touchmove", wheelHandler as EventListener, { passive: false });
+
+  return () => {
+    window.removeEventListener("wheel", wheelHandler as EventListener);
+    window.removeEventListener("touchmove", wheelHandler as EventListener);
+  };
+}, []);
+
   const targetRef = useRef(null);
   const accordionData = [
     {
@@ -53,22 +88,29 @@ const WhatWeDoIn = () => {
         </P>
         
         
-         <ContactUs className=" hidden max-w-8xl absolute lg:flex items-center top-12   right-12 text-black">
-          CONTACT US
-        </ContactUs>
+         
+       <ContactUs
+  className="hidden lg:flex items-center absolute top-2 gap-2 whitespace-nowrap"
+>
+  CONTACT US
+</ContactUs>
+
         <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden    text-black">
           CONTACT US
         </ContactUs>
       </div>
       {/* Desktop Layout */}
-      <div className="hidden lg:flex flex-1  flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
-     
+      <div
+  ref={containerRef}
+  className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 sticky top-0"
+>
+   
     
 <div className="relative md:w-[500px] w-full h-[500px] md:h-[580px] flex items-center justify-start">
  
  
   {/* Main Image Container */}
-  <div className="absolute top-8 left-0 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
+  <div className="absolute top-14 left-0 right-0 bottom-0 w-[calc(100%-2rem)] h-[calc(100%-2rem)] z-20">
     <img
       src={images[openIndex]}
       alt="Who we serve"
@@ -159,7 +201,11 @@ const WhatWeDoIn = () => {
         </div>
       </div>
       {/* Mobile/Tablet Layout */}
-      <div className="lg:hidden flex flex-col  w-full px-4 sm:px-8">
+      <div
+  ref={containerRef}
+  className="lg:hidden flex flex-col w-full px-4 sm:px-8 sticky top-0"
+>
+
         {/* Image with Yellow Border */}
         <div className="relative w-full h-[400px] mt-20 mb-8">
            <img

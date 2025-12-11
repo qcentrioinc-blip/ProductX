@@ -5,14 +5,14 @@ import { H2, H4, P } from "../../../styles/Typography";
 export default function TeamSection() {
   return (
     <section className="w-full bg-white py-20 px-10">
-      <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-0">
 
         {/* LEFT CONTENT */}
         <div>
-          <H2 className="text-[#020059] leading-tight mb-10">
-            We are the brightest
-            minds, biggest talents
-            and bravest thinkers in
+          <H2 className="text-[#020059] leading-tight mb-10 max-w-3xl whitespace-nowrap">
+            We are the brightest<br/>
+            minds, biggest talents<br/>
+            and bravest thinkers in<br/>
             the industry.
           </H2>
 

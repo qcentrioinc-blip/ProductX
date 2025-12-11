@@ -1,3 +1,4 @@
+import AINavbar from "../Navbar/AINavbar"
 import BenefitsSection from "./BenefitsSection"
 import Careers from "./Careers"
 import ExperienceSection from "./ExperienceSection"
@@ -8,12 +9,13 @@ import TeamSection from "./TeamSection"
 export const CareersPageAI = () => {
   return (
     <div>
-        <Careers />
-        <GreenSection/>
-        <BenefitsSection/>
-        <ExperienceSection/>
-        <TeamSection/>
-        <JobListSection/>
+      <AINavbar />
+      <Careers />
+      <GreenSection />
+      <BenefitsSection />
+      <ExperienceSection />
+      <TeamSection />
+      <JobListSection />
     </div>
   )
 }
