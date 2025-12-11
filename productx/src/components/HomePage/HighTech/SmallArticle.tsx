@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Testimonial {
@@ -12,6 +12,33 @@ interface Testimonial {
 }
 
 const SmallArticle = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const testimonials: Testimonial[] = [
     {
       id: 1,
@@ -74,13 +101,17 @@ const SmallArticle = () => {
   };
 
   return (
-    <div className="w-full bg-black min-h-auto sm:min-h-auto lg:min-h-screen py-12 sm:py-14 lg:py-16 px-4 sm:px-6">
+    <div 
+      ref={sectionRef}
+      className="w-full bg-black min-h-auto sm:min-h-auto lg:min-h-screen py-12 sm:py-14 lg:py-16 px-4 sm:px-6"
+    >
       <div className="max-w-8xl mx-auto lg:mx-10 px-2 sm:px-4 lg:px-6">
         {/* MOBILE + TABLET LAYOUT */}
         <div className="block lg:hidden">
           {/* Header Section */}
           <div className="mb-10 sm:mb-12">
             <h2
+              className="transition-all duration-700 ease-in-out"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
@@ -88,11 +119,15 @@ const SmallArticle = () => {
                 lineHeight: "110%",
                 color: "#F5F5F5",
                 marginBottom: "10px",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionDelay: '0.1s'
               }}
             >
               Sed ut perspiciatis
             </h2>
             <h3
+              className="transition-all duration-700 ease-in-out"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 600,
@@ -102,6 +137,9 @@ const SmallArticle = () => {
                 letterSpacing: "0%",
                 color: "#F99526",
                 whiteSpace: "normal",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionDelay: '0.3s'
               }}
             >
               Unde Seduo ut perspiciatis
@@ -109,7 +147,14 @@ const SmallArticle = () => {
           </div>
 
           {/* Horizontal Dotted Line with Navigation Arrows */}
-          <div className="relative mb-10 sm:mb-12">
+          <div 
+            className="relative mb-10 sm:mb-12 transition-all duration-700 ease-in-out"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
+              transitionDelay: '0.5s'
+            }}
+          >
             {/* Dotted Line */}
             <div
               className="w-full pr-24 sm:pr-28"
@@ -259,6 +304,7 @@ const SmallArticle = () => {
           {/* Header Section */}
           <div className="mb-16">
             <h2
+              className="transition-all duration-700 ease-in-out"
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
@@ -266,11 +312,15 @@ const SmallArticle = () => {
                 lineHeight: "100%",
                 color: "#F5F5F5",
                 marginBottom: "12px",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionDelay: '0.1s'
               }}
             >
               Sed ut perspiciatis
             </h2>
             <h3
+              className="transition-all duration-700 ease-in-out"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 600,
@@ -280,6 +330,9 @@ const SmallArticle = () => {
                 letterSpacing: "0%",
                 color: "#F99526",
                 whiteSpace: "nowrap",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionDelay: '0.3s'
               }}
             >
               Unde Seduo ut perspiciatis
@@ -287,7 +340,15 @@ const SmallArticle = () => {
           </div>
 
           {/* Horizontal Dotted Line with Navigation Arrows */}
-          <div className="relative mb-16">
+          <div 
+            className="relative mb-16 transition-all duration-700 ease-in-out"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'scaleX(1)' : 'scaleX(0)',
+              transformOrigin: 'left',
+              transitionDelay: '0.5s'
+            }}
+          >
             {/* Dotted Line */}
             <div
               className="w-full"

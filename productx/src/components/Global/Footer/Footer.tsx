@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
     <footer className="bg-black text-white px-6 py-10 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-10">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 border-b border-gray-700 pb-8">
           {/* Logo & Description */}
