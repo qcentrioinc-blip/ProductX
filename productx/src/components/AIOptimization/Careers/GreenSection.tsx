@@ -1,4 +1,4 @@
-import { H2, H3 } from "../../../styles/Typography";
+import {  H2, H3 } from "../../../styles/Typography";
 
 export default function GreenSection() {
   return (
@@ -6,14 +6,16 @@ export default function GreenSection() {
       <div className="max-w-8xl mx-10 grid grid-cols-1 md:grid-cols-2 gap-10">
 
         {/* Left small heading */}
-        <H3 className="text-white text-sm font-medium">
-          Intrested
+        <H3
+         className="text-white text-sm font-medium">
+          *Interested
         </H3>
 
         {/* Right main text */}
-        <H2 className="text-[#020059] ">
-          Want to work with the<br />
-          best and for the best? Of<br />
+        <H2
+         className="text-[#020059] ">
+          Want to work with the
+          best and for the best? Of
           course you do.
         </H2>
 

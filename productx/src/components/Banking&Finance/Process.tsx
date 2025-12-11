@@ -1,28 +1,50 @@
-
-
-import React, { useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import {   H2, H3, P } from '../../styles/Typography';
-import { ScrollContext } from '../../context/ScrollContext';
+import { H2, H3, P } from '../../styles/Typography';
 
 type ProcessStepProps = {
-    step: string;   
+    step: string;
     title: string;
     description: string;
 };
 
 const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) => {
     return (
-        <div className="w-[80vw] md:w-[45vw] flex-shrink-0" style={{ fontFamily: 'Bricolage Grotesque' }}>
-            <div className="relative flex flex-col items-start px-4">
+        <div 
+            className="w-[85vw] sm:w-[75vw] md:w-[55vw] lg:w-[45vw] flex-shrink-0" 
+            style={{ fontFamily: 'Bricolage Grotesque' }}
+        >
+            <div className="relative flex flex-col items-start px-3 sm:px-4 lg:px-4">
+                {/* Step Circle - Responsive sizes */}
                 <div className="relative bg-white z-10 p-1">
-                    <div className="w-24 h-24 bg-black rounded-full flex items-center justify-center text-white font-semibold text-lg">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 lg:w-24 lg:h-24 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-xs sm:text-sm md:text-base lg:text-lg">
                         {step}
                     </div>
                 </div>
-                <div className="mt-8 text-left">
-                    <H3>{title}</H3>
-                    <p className="text-gray-600 text-[16px] leading-relaxed">{description}</p>
+
+                {/* Title and Description - Responsive spacing */}
+                <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-4">
+                    {/* Title - Responsive positioning */}
+                    <H3 
+                        className="font-semibold tracking-wide mb-2 sm:mb-3 md:mb-4 lg:mb-5 lg:ml-8"
+                        style={{
+                            fontSize: 'clamp(16px, 2.5vw, 24px)', // Mobile: 16px, Desktop: 24px
+                            lineHeight: '1.3'
+                        }}
+                    >
+                        {title}
+                    </H3>
+
+                    {/* Description - Responsive positioning */}
+                    <P 
+                        className="text-gray-600 leading-relaxed max-w-full pr-2 sm:pr-4 md:max-w-lg lg:ml-64 lg:max-w-md"
+                        style={{
+                            fontSize: 'clamp(13px, 1.5vw, 15px)', // Mobile: 13px, Desktop: 15px
+                            lineHeight: '1.5'
+                        }}
+                    >
+                        {description}
+                    </P>
                 </div>
             </div>
         </div>
@@ -31,17 +53,15 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
 
 const Process = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollContext = useContext(ScrollContext);
 
-    // Use useScroll hook - same approach as FeatureCards
+    // Use useScroll hook
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
-        container: scrollContext || undefined,
     });
 
-    // Transform scroll progress to horizontal position
-    const x = useTransform(scrollYProgress, [0, 1], ["40%", "-50%"]);
+    // Transform scroll progress - Desktop keeps same
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
 
     const steps = [
         {
@@ -69,33 +89,40 @@ const Process = () => {
     return (
         <div className="bg-white font-sans" id='our-process'>
             {/* Container with section height for scroll tracking */}
-            <div 
-                ref={containerRef} 
+            <div
+                ref={containerRef}
                 className="relative bg-white"
-                style={{ height: "300vh" }}
+                style={{ height: "120vh" }}
             >
-                
+
                 {/* Sticky container */}
                 <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                    
-                    {/* Header section */}
-                    <div className="absolute top-0 left-0 right-0 flex-none pt-6 pb-6 z-20">
-                        <div className="container mx-auto px-4">
+
+                    {/* Header section - Responsive positioning */}
+                    <div className="absolute top-6 sm:top-10 md:top-14 lg:top-20 left-0 right-0 flex-none z-20">
+                        <div className="container mx-auto px-4 sm:px-6">
                             <div className="text-center">
-                                 <H2>Our Process</H2>
-                                <P>Milestones mark our ascent, chapters define our <br /> growth, and an unwavering commitment</P>
+                                <H2 
+                                    className='text-blue-500'
+                                    style={{
+                                        fontSize: 'clamp(20px, 4vw, 40px)', // Mobile: 20px, Desktop: 40px
+                                        lineHeight: '1.2'
+                                    }}
+                                >
+                                    Sed ut perspiciatis unde
+                                </H2>
                             </div>
-                        </div> 
+                        </div>
                     </div>
 
                     {/* Horizontal scroll section */}
-                    <div className="flex-1 flex items-start justify-center overflow-hidden mt-0 lg:mt-16 w-full">
-                        <motion.div 
-                            style={{ x }} 
-                            className="flex gap-x-8 md:gap-x-16"
+                    <div className="flex-1 flex items-center justify-start overflow-hidden w-full mt-12 sm:mt-16 md:mt-20 lg:mt-0">
+                        <motion.div
+                            style={{ x }}
+                            className="flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-16 pl-4 sm:pl-6 md:pl-8"
                         >
-                            {/* Dotted line */}
-                            <div className="absolute top-12 left-10 w-[190vw] h-px z-0">
+                            {/* Dotted line - Responsive positioning */}
+                            <div className="absolute top-8 sm:top-10 md:top-11 lg:top-12 left-6 sm:left-8 md:left-10 lg:left-10 w-[250vw] sm:w-[220vw] md:w-[200vw] h-px z-0">
                                 <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
                             </div>
 
@@ -117,4 +144,3 @@ const Process = () => {
 };
 
 export default Process;
-

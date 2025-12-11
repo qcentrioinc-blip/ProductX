@@ -6,7 +6,7 @@ const WhyQnest = () => {
   const scrollContainer = useContext(ScrollContext);
   const targetRef = useRef(null);
 
-  // Scroll animation setup
+  // Scroll animation setup - only for desktop
   const { scrollYProgress } = useScroll({
     target: targetRef,
     container: scrollContainer ?? undefined,
@@ -31,10 +31,10 @@ const WhyQnest = () => {
 
   return (
     <>
-     {/* DESKTOP - YOUR EXACT CODE - ONLY ADDED: hidden md:hidden lg:block */}
+      {/* DESKTOP VERSION - Scroll Animation (Unchanged) */}
       <div
         ref={targetRef}
-        className='hidden md:hidden lg:block relative h-[200vh]'
+        className='hidden lg:block relative h-[200vh]'
         style={{
           pointerEvents: 'all',
         }}
@@ -46,7 +46,7 @@ const WhyQnest = () => {
           <div
             className="absolute inset-0 w-full h-full"
             style={{
-              backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
+              // backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -271,7 +271,7 @@ const WhyQnest = () => {
                       marginTop: smoothCard1Offset
                     }}
                   >
-                    <div className="bg-white rounded-[2rem] p-14 shadow-xl h-[550px] flex flex-col justify-between">
+                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
                       {/* Number and Title - Top */}
                       <div
                         style={{
@@ -331,7 +331,7 @@ const WhyQnest = () => {
 
                   {/* Card 2 - Middle - Same height as others */}
                   <div className="lg:col-span-4 lg:mt-0">
-                    <div className="bg-white rounded-[2rem] p-14 shadow-xl h-[550px] flex flex-col justify-between">
+                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
                       {/* Number and Title - Top */}
                       <div
                         style={{
@@ -396,7 +396,7 @@ const WhyQnest = () => {
                       marginTop: smoothCard3Offset
                     }}
                   >
-                    <div className="bg-white rounded-[2rem] p-14 shadow-xl h-[550px] flex flex-col justify-between">
+                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
                       {/* Number and Title - Top */}
                       <div
                         style={{
@@ -430,7 +430,7 @@ const WhyQnest = () => {
                             whiteSpace: 'nowrap'
                           }}
                         >
-                          countries sta rsuppor
+                          countries starsupp
                         </p>
                       </div>
 
@@ -461,62 +461,183 @@ const WhyQnest = () => {
         </div>
       </div>
 
-      {/* TABLET - NEW (768px to 1023px) */}
-      <div className="block md:block lg:hidden hidden sm:block w-full py-16 px-8 min-h-screen" style={{
-        backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
+      {/* TABLET & MOBILE VERSION - Smooth Fade-in Animation */}
+      <div className="lg:hidden w-full py-12 px-4 sm:px-8 bg-cover bg-center">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '40px', lineHeight: '110%', color: '#166D48', marginBottom: '16px'}}>Why Qnest</h2>
-            <p style={{fontFamily: "'Schibsted Grotesk', sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '140%', color: '#141414', maxWidth: '600px', margin: '0 auto'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          {/* Title Section */}
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 
+              className="mb-4 sm:mb-5"
+              style={{
+                fontFamily: "'Bricolage Grotesque', sans-serif",
+                fontWeight: 600,
+                fontSize: 'clamp(28px, 5vw, 40px)',
+                lineHeight: '110%',
+                color: '#166D48'
+              }}
+            >
+              Why <span className="relative inline-block">Qnest</span>
+            </h2>
+            <p 
+              className="mx-auto"
+              style={{
+                fontFamily: "'Schibsted Grotesk', sans-serif",
+                fontWeight: 400,
+                fontSize: 'clamp(14px, 2vw, 16px)',
+                lineHeight: '140%',
+                color: '#141414',
+                maxWidth: '670px'
+              }}
+            >
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white rounded-2xl p-8 shadow-lg flex flex-col justify-between min-h-[300px]">
-              <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '32px', color: '#166D48', margin: 0}}>126+</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '22px', color: '#166D48', marginTop: '8px'}}>countries supported</p></div>
-              <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '15px', lineHeight: '120%', color: '#2A2A2A', marginTop: '20px'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
-            </div>
+          {/* Cards stacked vertically with smooth fade-in animation */}
+          <div className="flex flex-col gap-6 sm:gap-8">
+            {/* Card 1 */}
+            <motion.div 
+              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(28px, 5vw, 46px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    margin: 0
+                  }}
+                >
+                  126+
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(18px, 3vw, 28px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    marginTop: '8px'
+                  }}
+                >
+                  countries supported
+                </p>
+              </div>
+              <p
+                className="mt-4 sm:mt-6"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(14px, 2vw, 18px)',
+                  lineHeight: '120%',
+                  color: '#2A2A2A'
+                }}
+              >
+                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
+              </p>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg flex flex-col justify-between min-h-[300px]">
-              <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '32px', color: '#166D48', margin: 0}}>126+</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '22px', color: '#166D48', marginTop: '8px'}}>undesed ut persp</p></div>
-              <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '15px', lineHeight: '120%', color: '#2A2A2A', marginTop: '20px'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
-            </div>
+            {/* Card 2 */}
+            <motion.div 
+              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(28px, 5vw, 46px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    margin: 0
+                  }}
+                >
+                  126+
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(18px, 3vw, 28px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    marginTop: '8px'
+                  }}
+                >
+                  undesed ut persp
+                </p>
+              </div>
+              <p
+                className="mt-4 sm:mt-6"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(14px, 2vw, 18px)',
+                  lineHeight: '120%',
+                  color: '#2A2A2A'
+                }}
+              >
+                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
+              </p>
+            </motion.div>
 
-            <div className="col-span-2 max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg flex flex-col justify-between min-h-[300px]">
-              <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '32px', color: '#166D48', margin: 0}}>56</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '22px', color: '#166D48', marginTop: '8px'}}>countries sta rsuppor</p></div>
-              <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '15px', lineHeight: '120%', color: '#2A2A2A', marginTop: '20px'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* MOBILE - NEW (below 768px) */}
-      <div className="block sm:hidden w-full py-12 px-6 min-h-screen" style={{
-        backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-        <div className="text-center mb-10">
-          <h2 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '28px', lineHeight: '110%', color: '#166D48', marginBottom: '12px'}}>Why Qnest</h2>
-          <p style={{fontFamily: "'Schibsted Grotesk', sans-serif", fontWeight: 400, fontSize: '14px', lineHeight: '140%', color: '#141414'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
-
-        <div className="flex flex-col gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
-            <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '28px', color: '#166D48', margin: 0}}>126+</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '18px', color: '#166D48', marginTop: '6px'}}>countries supported</p></div>
-            <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '130%', color: '#2A2A2A'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
-            <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '28px', color: '#166D48', margin: 0}}>126+</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '18px', color: '#166D48', marginTop: '6px'}}>undesed ut persp</p></div>
-            <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '130%', color: '#2A2A2A'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
-            <div><h3 style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '28px', color: '#166D48', margin: 0}}>56</h3><p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, fontSize: '18px', color: '#166D48', marginTop: '6px'}}>countries sta rsuppor</p></div>
-            <p style={{fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: '14px', lineHeight: '130%', color: '#2A2A2A'}}>We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.</p>
+            {/* Card 3 */}
+            <motion.div 
+              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div>
+                <h3
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(28px, 5vw, 46px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    margin: 0
+                  }}
+                >
+                  56
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                    fontWeight: 600,
+                    fontSize: 'clamp(18px, 3vw, 28px)',
+                    lineHeight: '100%',
+                    color: '#166D48',
+                    marginTop: '8px'
+                  }}
+                >
+                  countries sta rsuppor
+                </p>
+              </div>
+              <p
+                className="mt-4 sm:mt-6"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(14px, 2vw, 18px)',
+                  lineHeight: '120%',
+                  color: '#2A2A2A'
+                }}
+              >
+                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>
