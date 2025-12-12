@@ -11,7 +11,7 @@ export default function NewFooter() {
           {/* Logo & Description */}
           <div className="max-w-sm space-y-8">
             <div className="w-14 h-10 rounded-sm font-quickstand bg-gray-300 mb-6 flex  py-6 items-center justify-center text-black  text-sm">
-              LOGO
+              < a href="/">LOGO</a>
             </div>
             <P className="  text-gray-300">
               We are more than a technology provider; we <br/> are your strategic partner in progress.
@@ -45,10 +45,12 @@ export default function NewFooter() {
           {/* Industries */}
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
-            <ul className="space-y-3 text-gray-300 text-sm">
-              <Li>High Tech</Li>
-              <Li>Banking and Finance</Li>
-              <Li>Health Sciences</Li>
+            <ul className="space-y-3 text-gray-300 text-sm ">
+              <a href="/industries/high-tech" target="_blank" ><Li className="mb-3">High Tech</Li></a>
+              
+              <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3">Banking and Finance</Li></a> 
+              <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3">EHR-PMS</Li></a> 
+              <a href="/industries/ai-optimization" target="_blank"> <Li className="mb-3">AI-Optimization</Li></a>
             </ul>
           </div>
 

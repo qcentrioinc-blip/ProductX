@@ -2,27 +2,33 @@
 import { Link } from "react-router-dom";
 import { H1 } from "../../../styles/Typography";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-
+ 
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
-
+ 
 gsap.registerPlugin(InertiaPlugin);
-
+ 
 /* -------------------------------------- */
 /*  UTILS
 /* -------------------------------------- */
-
-const throttle = (func: (...args: any[]) => void, limit: number) => {
+ 
+const throttle = <T extends (event: MouseEvent) => void>(
+  func: T,
+  limit: number
+) => {
   let lastCall = 0;
-  return function (this: any, ...args: any[]) {
+
+  return (event: MouseEvent) => {
     const now = performance.now();
+
     if (now - lastCall >= limit) {
       lastCall = now;
-      func.apply(this, args);
+      func(event);
     }
   };
 };
+
 interface Dot {
   cx: number;
   cy: number;
@@ -39,11 +45,11 @@ function hexToRgb(hex: string) {
     b: parseInt(m[3], 16),
   };
 }
-
+ 
 /* ===================================================== */
 /* ================ MAIN CONTACT COMPONENT ============== */
 /* ===================================================== */
-
+ 
 const Contact: React.FC = () => {
   /* ---------------- Dot Grid Refs ---------------- */
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -71,10 +77,10 @@ const Contact: React.FC = () => {
   const maxSpeed = 4000;
   const resistance = 750;
   const returnDuration = 1.5;
-
+ 
   const baseRgb = useMemo(() => hexToRgb(baseColor), []);
   const activeRgb = useMemo(() => hexToRgb(activeColor), []);
-
+ 
   const circlePath = useMemo(() => {
     if (typeof window === "undefined" || !window.Path2D) return null;
     const p = new Path2D();
@@ -86,30 +92,30 @@ const Contact: React.FC = () => {
     const wrap = wrapperRef.current;
     const canvas = canvasRef.current;
     if (!wrap || !canvas) return;
-
+ 
     const { width, height } = wrap.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
-
+ 
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-
+ 
     const ctx = canvas.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
-
+ 
     const cols = Math.floor((width + gap) / (dotSize + gap));
     const rows = Math.floor((height + gap) / (dotSize + gap));
     const cell = dotSize + gap;
-
+ 
     const gridW = cols * cell - gap;
     const gridH = rows * cell - gap;
-
+ 
     const startX = (width - gridW) / 2 + dotSize / 2;
     const startY = (height - gridH) / 2 + dotSize / 2;
-
+ 
     const dots: Dot[] = [];
-
+ 
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         dots.push({
@@ -121,37 +127,37 @@ const Contact: React.FC = () => {
         });
       }
     }
-
+ 
     dotsRef.current = dots;
   }, []);
-
+ 
   /* ---------------- DRAW LOOP ---------------- */
   useEffect(() => {
     if (!circlePath) return;
-
+ 
     let rafId: number;
-
+ 
     const proxSq = proximity * proximity;
-
+ 
     const draw = () => {
       const canvas = canvasRef.current;
       const ctx = canvas?.getContext("2d");
       if (!canvas || !ctx) return;
-
+ 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+ 
       const { x: px, y: py } = pointerRef.current;
-
+ 
       for (const dot of dotsRef.current) {
         const ox = dot.cx + dot.xOffset;
         const oy = dot.cy + dot.yOffset;
-
+ 
         const dx = dot.cx - px;
         const dy = dot.cy - py;
         const dsq = dx * dx + dy * dy;
-
+ 
         let style = baseColor;
-
+ 
         if (dsq <= proxSq) {
           const dist = Math.sqrt(dsq);
           const t = 1 - dist / proximity;
@@ -166,35 +172,37 @@ const Contact: React.FC = () => {
         ctx.fill(circlePath);
         ctx.restore();
       }
-
+ 
       rafId = requestAnimationFrame(draw);
     };
-
+ 
     draw();
     return () => cancelAnimationFrame(rafId);
-  }, []);
-
+  }, [circlePath, baseRgb, activeRgb]);
+ 
   /* ---------------- Resize Observer ---------------- */
   useEffect(() => {
     buildGrid();
     const ro = new ResizeObserver(buildGrid);
-    wrapperRef.current && ro.observe(wrapperRef.current);
+    if (wrapperRef.current) {
+      ro.observe(wrapperRef.current);
+    }
     return () => ro.disconnect();
-  }, []);
+  });
   /* ---------------- Pointer Events ---------------- */
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       const now = performance.now();
       const pr = pointerRef.current;
-
+ 
       const dt = pr.lastTime ? now - pr.lastTime : 16;
       const dx = e.clientX - pr.lastX;
       const dy = e.clientY - pr.lastY;
-
+ 
       let vx = (dx / dt) * 1000;
       let vy = (dy / dt) * 1000;
-
-      let speed = Math.hypot(vx, vy);
+ 
+      const speed = Math.hypot(vx, vy);
       if (speed > maxSpeed) {
         const s = maxSpeed / speed;
         vx *= s;
@@ -206,19 +214,19 @@ const Contact: React.FC = () => {
       pr.vx = vx;
       pr.vy = vy;
       pr.speed = speed;
-
+ 
       const rect = canvasRef.current!.getBoundingClientRect();
       pr.x = e.clientX - rect.left;
       pr.y = e.clientY - rect.top;
-
+ 
       for (const dot of dotsRef.current) {
         const dist = Math.hypot(dot.cx - pr.x, dot.cy - pr.y);
         if (speed > speedTrigger && dist < proximity && !dot._inertiaApplied) {
           dot._inertiaApplied = true;
-
+ 
           const pushX = dot.cx - pr.x + vx * 0.004;
           const pushY = dot.cy - pr.y + vy * 0.004;
-
+ 
           gsap.to(dot, {
             inertia: { xOffset: pushX, yOffset: pushY, resistance },
             onComplete: () => {
@@ -234,23 +242,23 @@ const Contact: React.FC = () => {
         }
       }
     };
-
+ 
     const throttled = throttle(onMove, 50);
     window.addEventListener("mousemove", throttled, { passive: true });
-
+ 
     return () => window.removeEventListener("mousemove", throttled);
   }, []);
-
+ 
   /* ===================================================== */
   /* =============== RENDER CONTACT UI ==================== */
   /* ===================================================== */
-
+ 
   return (
     <section className="w-full min-h-[666px] flex relative bg-[#FAFAFA] overflow-hidden">
       {/* Small screen dotted bg */}
       <div className="absolute md:hidden inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.1)_2px,_transparent_1px)] [background-size:12px_12px] opacity-50" />
-
-      
+ 
+     
         {/* LEFT FORM */}
         <div className="flex flex-col xl:my-10 xl:h-[600px] w-full max-w-lg mx-auto lg:mx-20 justify-center p-0 sm:p-4 z-20 bg-white/90 rounded-md ">
           <H1 className="text-black font-bold mb-6">Quam finibus</H1>
@@ -292,7 +300,7 @@ const Contact: React.FC = () => {
             </button>
           </form>
         </div>
-
+ 
         {/* RIGHT SIDE — DOT GRID ANIMATION */}
         <div className="absolute hidden lg:block h-screen w-full opacity-80">
           <div
@@ -303,7 +311,7 @@ const Contact: React.FC = () => {
             <canvas ref={canvasRef} />
           </div>
         </div>
-      
+     
     </section>
   );
 };

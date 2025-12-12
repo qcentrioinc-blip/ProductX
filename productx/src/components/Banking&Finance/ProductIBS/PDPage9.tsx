@@ -9,7 +9,8 @@ import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../BNFnav";
 // import KeytomStickyScroll from "./KeytomStickyScroll";
-import ContactSection from "../ProductBankfair/ContactSection";
+ 
+import ContactUS from "../ProductRemitree/ContactUS";
 // import StickyCardStack from "./StickyCardStack";
 
 const PDPage9 = () => {
@@ -28,8 +29,25 @@ const PDPage9 = () => {
       <HWD />
       <FaqSection />
       <InsightThought />
-      <ContactSection/>        
+      <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
           <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
         
     </>
   );

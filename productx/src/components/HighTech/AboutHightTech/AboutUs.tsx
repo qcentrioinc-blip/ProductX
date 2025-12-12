@@ -1,4 +1,4 @@
-import WorkProfile from "../../HomePage/HighTech/WorkProfile"
+import WorkProfile from "./WorkProfile"
 import HighTechNavbar from "../Navbar/HighTechNavbar"
 import Banner from "./Banner"
 import BorderCTA from "./BorderCTA"
@@ -8,7 +8,7 @@ import Feature from "./Feature"
 import Gallery from "./Gallery"
 import HeroSection from "./HeroSection"
 import SubFooter from "./SubFooter"
-// import WorkProfile from "./WorkProfile"
+ 
 
 
 const AboutUs = () => {
@@ -21,9 +21,7 @@ const AboutUs = () => {
       </div>
 
       <Banner />
-      {/* <WorkProfile/>
-       */}
-
+      
       <WorkProfile />
       <BorderCTA />
 
