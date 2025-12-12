@@ -1,9 +1,9 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
+// import { ScrollContext } from '../../../context/ScrollContext';
 import { H2 } from '../../../styles/Typography';
-
+ 
 const ContactUS = () => {
   const [selectedOption, setSelectedOption] = useState('Product Enquiry');
   const [formData, setFormData] = useState({
@@ -13,69 +13,83 @@ const ContactUS = () => {
     message: ''
   });
 
-  const scrollContainer = useContext(ScrollContext);
+  // const scrollContainer = useContext(ScrollContext);
   const targetRef = useRef<HTMLDivElement>(null);
-
+ 
   // Framer Motion Scroll Setup
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    container: scrollContainer ?? undefined,
-    offset: ["start end", "start start"] // Tracks when the target enters and reaches the top of the viewport
+    offset: ["start end", "start start"]
   });
-
+ 
   // Scale animation: 0.90 (when out of view) -> 1 (when in view)
-  const scale = useTransform(scrollYProgress, [0, 1], [0.90, 1.08]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.90, 1.09]);
   // Border radius animation: 24px -> 0px
   const borderRadius = useTransform(scrollYProgress, [0, 1], ['24px', '0px']);
-
+ 
   const smoothScale = useSpring(scale, { stiffness: 100, damping: 30 });
   const smoothBorderRadius = useSpring(borderRadius, { stiffness: 100, damping: 30 });
+ const clipPath = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [
+      "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      "polygon(0 6%, 100% 0, 100% 100%, 0 100%)"
+    ]
+);
+
+const smoothClip = useSpring(clipPath, { stiffness: 100, damping: 25 });
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', { ...formData, type: selectedOption });
   };
-
+ 
   return (
-    // 1. SCROLL CONTAINER: Defines the height/distance for the animation to play over.
-    <div ref={targetRef} className='relative bg-white h-[120vh]' style={{ pointerEvents: 'all' }}>
-      
-      {/* 2. STICKY WRAPPER: Centers the animated content */}
-      <div className="sticky top-0 flex items-center justify-center h-screen w-full">
+   <div
+  ref={targetRef}
+  className="relative z-30 h-screen pointer-events-auto bg-white overflow-hidden "
+>
 
-        {/* 3. MOTION WRAPPER: The single container that applies the scale/radius animation to everything inside */}
+    
+    
+      <div className="sticky top-0 flex items-center justify-center h-screen w-full">
+ 
+       
         <motion.div
-          style={{
-            scale: smoothScale,
-            borderRadius: smoothBorderRadius
-          }}
+         style={{
+        scale: smoothScale,
+        borderRadius: smoothBorderRadius,
+        clipPath: smoothClip
+    }}
           className="relative h-[95vh] w-full max-w-[1400px] overflow-hidden"
         >
-          
+         
           {/* A) BLUE BACKGROUND CONTAINER (Takes full size of the motion.div) */}
-          <div className="absolute inset-0 bg-[#2B68C3] h-[70vh] mt-20">
+          <div className="absolute inset-0 bg-[#2B68C3] h-[78vh] mt-24">
             {/* Yellow Curve Image Overlay */}
             <img  
               src="/ContactSection/yellowCurve.png"
-              alt="Background curve graphic" 
-              className='w-full absolute left-4 -top-14 h-auto pointer-events-none object-cover'
+              alt="Background curve graphic"
+              className='w-full absolute left-2 top-10 h-[500px] pointer-events-none object-cover'
             />
-            
+           
             {/* Text Content */}
-            <div className="absolute bottom-4 left-8 md:left-16 lg:left-28 z-10 max-w-2xl">
+            <div className="absolute bottom-24 left-8 md:left-16 lg:left-32 z-10 max-w-2xl">
               <H2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Shaping the Future<br />
                 Across B and F.
               </H2>
             </div>
           </div>
-
+ 
           {/* B) WHITE FORM CARD (Positioned absolutely over the blue background) */}
           {/* Centered vertically (top-1/2 -translate-y-1/2) and positioned right */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 lg:right-16 z-30 w-full max-w-[440px] h-auto max-h-[90%]">
-            <div className="bg-white rounded-[32px] p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+          <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 lg:right-16 z-30 w-full max-w-[440px] h-4/5  ">
+            <div className="bg-white rounded-[32px] p-6 md:p-8 ">
               <form onSubmit={handleSubmit} className="space-y-4">
-                
+               
                 {/* Form Fields */}
                 <div>
                   <input
@@ -107,7 +121,7 @@ const ContactUS = () => {
                     required
                   />
                 </div>
-
+ 
                 {/* Option Buttons */}
                 <div className="flex flex-wrap gap-3">
                   {['Product Enquiry', 'Partnerships', 'General Support'].map((option) => (
@@ -125,7 +139,7 @@ const ContactUS = () => {
                     </button>
                   ))}
                 </div>
-
+ 
                 {/* Message Field */}
                 <div>
                   <textarea
@@ -136,7 +150,7 @@ const ContactUS = () => {
                     className="w-full px-5 py-3.5 rounded-[24px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-base resize-none transition-colors"
                   />
                 </div>
-
+ 
                 {/* Submit Button */}
                 <div className="pt-1">
                   <button
@@ -155,5 +169,5 @@ const ContactUS = () => {
     </div>
   );
 };
-
+ 
 export default ContactUS;

@@ -12,7 +12,8 @@ import HeroSection from "./HeroSection";
 // import NewFooter from "../Products2/NewFooter";
 import BNFNav from "../BNFnav";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import ContactSection from "../ProductBankfair/ContactSection";
+// import ContactSection from "../ProductBankfair/ContactSection";
+import ContactUS from "../ProductRemitree/ContactUS";
 
 const Sams_Page = () => {
   return (
@@ -25,8 +26,25 @@ const Sams_Page = () => {
         <HWD />
         <FaqSection />
         <InsightThought />
-        <ContactSection/>
-        <NewOneFooter/>
+       <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
         
     </div>
   );

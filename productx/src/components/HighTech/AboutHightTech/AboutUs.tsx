@@ -1,6 +1,6 @@
-import WorkProfile from "../../HomePage/HighTech/WorkProfile"
 import ContactSecHT from "../ContactSecHT"
 import FooterHT from "../FooterHT"
+import WorkProfile from "./WorkProfile"
 import HighTechNavbar from "../Navbar/HighTechNavbar"
 import Banner from "./Banner"
 import BorderCTA from "./BorderCTA"
@@ -23,9 +23,7 @@ const AboutUs = () => {
       </div>
 
       <Banner />
-      {/* <WorkProfile/>
-       */}
-
+      
       <WorkProfile />
       <BorderCTA />
 

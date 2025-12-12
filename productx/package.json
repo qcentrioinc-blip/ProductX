@@ -20,7 +20,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.13",
     "@types/react-countup": "^4.3.0",
-    "framer-motion": "^12.23.22",
+    "framer-motion": "^12.23.25",
     "gsap": "^3.13.0",
     "lucide-react": "^0.543.0",
     "motion": "^12.23.16",

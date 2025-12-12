@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { ScrollContext } from '../../../context/ScrollContext';
-
+ 
 const WorkProfile = () => {
     const [, setScrollY] = useState(0);
     const [containerHeight, setContainerHeight] = useState(0);
     const [isInView, setIsInView] = useState(false);
-    
+   
     const workProfileRef = useRef<HTMLDivElement>(null);
     const scrollableContainerRef = useContext(ScrollContext);
-
+ 
     const imageOpacity = [useMotionValue(1), useMotionValue(0), useMotionValue(0)];
     const overlayOpacity = [useMotionValue(0), useMotionValue(0), useMotionValue(0)];
     const masterOpacity = useMotionValue(0);
-
+ 
     const sections = [
         {
             id: 1,
@@ -43,46 +43,46 @@ const WorkProfile = () => {
             textColor: "text-[#F99526]"
         }
     ];
-
+ 
      useEffect(() => {
-        if (!scrollableContainerRef?.current) return;
-
+        if (!scrollableContainerRef) return;
+ 
         const calculateHeight = () => {
-            const containerH = scrollableContainerRef?.current?.clientHeight ?? 0;
+            const containerH = window.innerHeight;
             setContainerHeight(containerH);
         };
-
+ 
         setTimeout(calculateHeight, 300);
         window.addEventListener('resize', calculateHeight);
-
+ 
         return () => window.removeEventListener('resize', calculateHeight);
     }, [scrollableContainerRef]);
-
+ 
     useEffect(() => {
-        if (!scrollableContainerRef?.current || containerHeight === 0) return;
-
+        if (!scrollableContainerRef || containerHeight === 0) return;
+ 
         const handleScroll = () => {
     try {
-        const scroll = scrollableContainerRef?.current?.scrollTop ?? 0;
+        const scroll = scrollableContainerRef?.scroll ?? 0;
         const workProfileElement = workProfileRef.current;
-
+ 
         if (!workProfileElement) return;
-
+ 
         setScrollY(scroll);
-
+ 
         const workProfileTop = workProfileElement.offsetTop;
         const sectionHeight = containerHeight;
         const workProfileBottom = workProfileTop + (sectionHeight * 3);
-        
+       
         // Show image only when section 1 is entering viewport
         const section1VisibleStart = workProfileTop - containerHeight * 0.001;
-
+ 
         // CRITICAL FIX: Check if we're PAST section 3 and hide image IMMEDIATELY
         if (scroll >= workProfileBottom) {
             // Instantly hide when scrolling past section 3
             masterOpacity.set(0);
             setIsInView(false);
-            
+           
             imageOpacity[0].set(0);
             imageOpacity[1].set(0);
             imageOpacity[2].set(0);
@@ -91,28 +91,28 @@ const WorkProfile = () => {
             overlayOpacity[2].set(0);
             return;
         }
-
+ 
         // BEFORE section 1 starts
         if (scroll < section1VisibleStart) {
             masterOpacity.set(0);
             setIsInView(false);
             return;
         }
-
+ 
         // WITHIN sections 1-3
         setIsInView(true);
         masterOpacity.set(1);
-
+ 
         const scrollWithinWorkProfile = scroll - workProfileTop;
         const currentSectionIndex = Math.floor(scrollWithinWorkProfile / sectionHeight);
         const sectionProgress = (scrollWithinWorkProfile % sectionHeight) / sectionHeight;
-
+ 
         if (currentSectionIndex === 0) {
             imageOpacity[0].set(1);
             imageOpacity[1].set(0);
             imageOpacity[2].set(0);
             overlayOpacity[0].set(sectionProgress * 0.4);
-            
+           
             if (sectionProgress >= 0.85) {
                 const fadeProgress = (sectionProgress - 0.85) / 0.15;
                 imageOpacity[0].set(1 - fadeProgress);
@@ -127,7 +127,7 @@ const WorkProfile = () => {
             imageOpacity[1].set(1);
             imageOpacity[2].set(0);
             overlayOpacity[1].set(sectionProgress * 0.4);
-            
+           
             if (sectionProgress >= 0.85) {
                 const fadeProgress = (sectionProgress - 0.85) / 0.15;
                 imageOpacity[1].set(1 - fadeProgress);
@@ -145,19 +145,19 @@ const WorkProfile = () => {
             overlayOpacity[0].set(0);
             overlayOpacity[1].set(0);
         }
-
+ 
     } catch (error) {
         console.error('Scroll handler error:', error);
     }
 };
-
-        const container = scrollableContainerRef.current;
-        container.addEventListener('scroll', handleScroll);
+ 
+        const container = scrollableContainerRef;
+        container.on('scroll', handleScroll);
         handleScroll();
-
-        return () => container.removeEventListener('scroll', handleScroll);
+ 
+        return () => container.off('scroll', handleScroll);
     }, [scrollableContainerRef, containerHeight, imageOpacity, overlayOpacity, masterOpacity]);
-
+ 
     return (
         <div ref={workProfileRef} className="beliefs-component relative">
             <div className="beliefs-section">
@@ -193,7 +193,7 @@ const WorkProfile = () => {
                                             {section.number}
                                         </h1>
                                     </motion.div>
-
+ 
                                     {/* RIGHT SIDE - TITLE & DESCRIPTION */}
                                     <div className="flex flex-col items-start justify-center text-left space-y-6 max-w-2xl relative z-5">
                                         <motion.h2
@@ -205,7 +205,7 @@ const WorkProfile = () => {
                                         >
                                             {section.title}
                                         </motion.h2>
-
+ 
                                         <motion.p
                                             className={`text-sm sm:text-base ${section.textColor} leading-relaxed`}
                                             initial={{ opacity: 0, y: 30 }}
@@ -216,11 +216,11 @@ const WorkProfile = () => {
                                             {section.description}
                                         </motion.p>
                                     </div>
-
+ 
                                     {/* FIXED STICKY IMAGE - CENTER */}
-                                    <motion.div 
+                                    <motion.div
                                         className="beliefs-img_wrap fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-6 pointer-events-none"
-                                        style={{ 
+                                        style={{
                                             opacity: masterOpacity,
                                             visibility: isInView ? 'visible' : 'hidden',
                                             willChange: 'opacity'
@@ -242,7 +242,7 @@ const WorkProfile = () => {
                                         </div>
                                     </motion.div>
                                 </motion.div>
-
+ 
                                 <motion.div
                                     softpin-overlay=""
                                     className="belief-overlay absolute inset-0 bg-black pointer-events-none"
@@ -256,5 +256,7 @@ const WorkProfile = () => {
         </div>
     );
 };
-
+ 
 export default WorkProfile;
+ 
+ 

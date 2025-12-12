@@ -1,8 +1,9 @@
 import { useState } from "react";
 import {   H3, P } from "../../../styles/Typography";
-import { ArrowUpRight,ArrowRight } from "lucide-react";
+ 
 import linkedinLogo from "/AboutUs/HighLinkedin.png";
 import xLogo from "/AboutUs/HighXLogo.png";
+import { ContactUsHighYellow } from "../../../styles/Button";
 const Content = () => {
   const [activeSection, setActiveSection] = useState("overview");
 
@@ -150,32 +151,7 @@ const Content = () => {
 
               {/* Share Article Section */}
               <div className="mt-4 pt-6 border-t-2 border-[#CCCCCC] ">
-                 <button
-      className="
-        group
-        flex items-center justify-center
-        w-[200px] h-[48px] 
-        px-[10px] py-[12px]
-        rounded-[8px]
-        font-bricolage font-bold
-        text-[16px] 
-        border-2 border-[#141414]
-        bg-[#F99526] text-[#141414]
-        shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-        transition-all duration-300 ease-in-out
-        hover:bg-white hover:text-black
-       "
-    >BOOK A  FREE DEMO
-      <span className="flex items-center gap-2">
-        
-        <span className="relative flex items-center h-[15px] w-[15px]">
-          {/* Default icon */}
-          <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-          {/* Hover icon */}
-          <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        </span>
-      </span>
-    </button>
+              <ContactUsHighYellow>BOOK A FREE DEMO</ContactUsHighYellow>
               </div>
 
               {/* Social Icons */}

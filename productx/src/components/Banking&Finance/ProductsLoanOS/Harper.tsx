@@ -1,19 +1,18 @@
 "use client";
 
-import { useRef, useContext } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ScrollContext } from "../../../context/ScrollContext";
+// import { ScrollContext } from "../../../context/ScrollContext";
 import { H1, H2, P } from "../../../styles/Typography";
 
 const Harper = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollContext = useContext(ScrollContext);
+    // const scrollContext = useContext(ScrollContext);
 
     // Horizontal Scroll Animation (Same logic as Process)
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
-        container: scrollContext || undefined,
     });
 
     // Move horizontally based on scroll progress

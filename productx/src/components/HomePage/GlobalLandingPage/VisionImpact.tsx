@@ -235,19 +235,16 @@
 
 'use client'
 
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { ScrollContext } from '../../../context/ScrollContext';
 
 const VisionImpact: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollContext = useContext(ScrollContext);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "center center"],
-        container: scrollContext || undefined
     });
 
     // **SMOOTH SPRING CONFIGURATION**
