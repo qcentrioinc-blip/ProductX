@@ -1,10 +1,11 @@
-import BlogGridSection from "../Blogs/BlogsGridSection";
+// import BlogGridSection from "../Blogs/BlogsGridSection";
 import BNFNav from "../BNFnav";
 // import ContactSection from "../ProductBankfair/ContactSection";
 import ContactUS from "../ProductRemitree/ContactUS";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import TextSec from "./TextSec";
 import TitleSec from "./TitleSec";
+import AllPosts from "../Blogs/AllPosts";
 
 export default function EventssPage() {
   return (
@@ -12,7 +13,10 @@ export default function EventssPage() {
       <BNFNav/>
     <TitleSec/>
     <TextSec/>
-    <BlogGridSection/>
+    <AllPosts/>
+    {/* <BlogGridSection/> */}
+    
+    
    <div className="relative">
       
       <div className=" lg:h-[200vh]"></div>

@@ -119,13 +119,13 @@ const HighLights: React.FC = () => {
     <div className="relative w-full">
       <section
         ref={containerRef}
-        className="relative bg-black text-white"
+        className="relative bg-black text-white py-20"
         style={{
           minHeight: scrollWidth ? `${scrollWidth + window.innerHeight}px` : "220vh",
         }}
       >
         <div className="sticky top-0 h-screen flex flex-col justify-center">
-          <H2 className="text-3xl md:text-4xl font-bold px-6 mb-10">Highlights</H2>
+          <H2 className="font-bold px-6 mb-20">Highlights</H2>
 
           <div className="w-full overflow-hidden px-6">
             <div
@@ -154,8 +154,8 @@ const HighLights: React.FC = () => {
                   // If you want 437px wide always on desktop, use the lg:w-[437px] above.
                 >
                   {/* Using standard HTML tags as H3/P are undefined */}
-                  <H3 className="text-xl font-semibold mb-3">{c.title}</H3>
-                  <P className="text-sm text-gray-300 mb-6 flex-grow">{c.description}</P> 
+                  <H3 className="mb-3">{c.title}</H3>
+                  <P className="mb-6 flex-grow">{c.description}</P> 
                   
                   {/* Placeholder uses w-full and aspect-square to fill remaining space */}
                   <div 

@@ -5,13 +5,16 @@ import ThreeCards from "./ThreeCards"
 import OnePoint from "./OnePoint"
 import TextAnimation from "./TextAnimation"
 import SmallArticle from "./SmallArticle"
-import SubFooter from "../../HighTech/AboutHightTech/SubFooter"
+// import SubFooter from "../../HighTech/AboutHightTech/SubFooter"
 // import WorkProfile from "../../HighTech/AboutHightTech/WorkProfile"
+
 // import FeatureCards from "./FeatureCards"
 // import ProductSec from "./ProductSec"
 // import WorkProfile from "./WorkProfile"
 
 import FlyingPosters from "./RockTech"
+import ContactSecHT from "../../HighTech/ContactSecHT"
+import FooterHT from "../../HighTech/FooterHT"
 
 const items = [
   '/HighTech/HomePage/EngineerGirl.png',
@@ -33,7 +36,9 @@ const HeroSectionHighTech = () => {
       <OnePoint />
       <SmallArticle />
       <ThreeStep />
-      <SubFooter />
+      <ContactSecHT/>
+      <FooterHT/>
+      {/* <SubFooter /> */}
       {/* <WorkProfile /> */}
       {/* <ProductSec /> */}
       {/* <FeatureCards /> */}

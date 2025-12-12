@@ -254,13 +254,13 @@ const Contact: React.FC = () => {
   /* ===================================================== */
  
   return (
-    <section className="w-full min-h-[666px] flex relative bg-[#FAFAFA] overflow-hidden">
+    <section className="w-full min-h-[666px]  flex relative bg-[#FAFAFA] overflow-hidden">
       {/* Small screen dotted bg */}
-      <div className="absolute md:hidden inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.1)_2px,_transparent_1px)] [background-size:12px_12px] opacity-50" />
+      <div className="absolute md:hidden  inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.1)_2px,_transparent_1px)] [background-size:12px_12px] opacity-50" />
  
      
         {/* LEFT FORM */}
-        <div className="flex flex-col xl:my-10 xl:h-[600px] w-full max-w-lg mx-auto lg:mx-20 justify-center p-0 sm:p-4 z-20 bg-white/90 rounded-md ">
+        <div className="flex flex-col xl:mt-[68px] xl:my-10 xl:h-[620px] w-full max-w-lg mx-auto lg:mx-20 justify-center p-0 sm:p-4 z-20 bg-white/90 rounded-md ">
           <H1 className="text-black font-bold mb-6">Quam finibus</H1>
  
           <form className="space-y-4 font-quickstand">

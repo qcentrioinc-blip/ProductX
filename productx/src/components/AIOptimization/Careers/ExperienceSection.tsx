@@ -14,21 +14,21 @@ export default function ExperienceSection() {
 
           <div>
             <H1 className="text-[#0AC276]">150+</H1>
-            <P className="opacity-80">
+            <P className="text-[#CCCCCC]">
               Years of combined digital<br />travel technology experience
             </P>
           </div>
 
           <div>
             <H1 className="text-[#0AC276]">150+</H1>
-            <P className="opacity-80">
+            <P className="text-[#CCCCCC]">
               Years of combined digital<br />travel technology experience
             </P>
           </div>
 
           <div>
             <H1 className="text-[#0AC276]">150+</H1>
-            <P className="opacity-80">
+            <P className="text-[#CCCCCC]">
               Years of combined digital<br />travel technology experience
             </P>
           </div>

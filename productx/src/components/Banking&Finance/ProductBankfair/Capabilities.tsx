@@ -1,3 +1,5 @@
+import { H2, H3, P } from "../../../styles/Typography";
+
 const Capabilities = () => {
     return (
         <>
@@ -9,7 +11,7 @@ const Capabilities = () => {
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat"
                 }}
-            >
+            >   
                 <div className="max-w-8xl lg:mx-10 mx-4 py-20 px-4">
                     {/* Desktop: Side by Side | Mobile: Stacked */}
                     <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,516px)_1fr] gap-10 lg:gap-16">
@@ -19,35 +21,23 @@ const Capabilities = () => {
                             <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
                                 
                                 {/* Title - Responsive Font Size */}
-                                <h1
-                                    className="font-bold leading-[120%]"
-                                    style={{
-                                        fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                        fontSize: 'clamp(28px, 5vw, 40px)', // Scales from 28px to 40px
-                                        letterSpacing: '0%',
-                                    }}
+                                <H2
+                                    
                                 >
                                     <div style={{ color: '#2B68C3' }}>
-                                        Consecte adipiscing
+                                        Consecte 
                                     </div>
                                     <div style={{ color: 'gray' }}>
                                         Con secte adipi
                                     </div>
-                                </h1>
+                                </H2>
 
                                 {/* Description - Responsive Font */}
-                                <p
-                                    className="leading-[140%]"
-                                    style={{
-                                        fontFamily: "'Quicksand', sans-serif",
-                                        fontWeight: 400,
-                                        fontSize: 'clamp(14px, 2vw, 16px)', // Scales 14px to 16px
-                                        letterSpacing: '0%',
-                                        color: '#141414',
-                                    }}
+                                <P
+                                    
                                 >
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
+                                </P>
 
                                 {/* List Items - Responsive Icons & Text */}
                                 <div className="flex flex-col gap-3 lg:gap-4">
@@ -60,17 +50,12 @@ const Capabilities = () => {
                                                     height: 'clamp(28px, 4vw, 34px)'
                                                 }}
                                             />
-                                            <p
+                                            <P
                                                 className="leading-[100%]"
-                                                style={{
-                                                    fontFamily: "'Quicksand', sans-serif",
-                                                    fontWeight: 400,
-                                                    fontSize: 'clamp(14px, 2vw, 16px)',
-                                                    color: '#141414'
-                                                }}
+                                                
                                             >
                                                 Duis aute irure
-                                            </p>
+                                            </P>
                                         </div>
                                     ))}
                                 </div>
@@ -105,7 +90,7 @@ const Capabilities = () => {
                                             className="font-bold flex-shrink-0"
                                             style={{
                                                 fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontSize: 'clamp(48px, 8vw, 70px)', // Scales 48px to 70px
+                                                fontSize: 'clamp(32px, 8vw, 58px)', // Scales 48px to 70px
                                                 lineHeight: '1.1',
                                                 color: 'gray',
                                             }}
@@ -115,18 +100,10 @@ const Capabilities = () => {
 
                                         {/* Card Content */}
                                         <div className="flex-1">
-                                            <h3
-                                                className="font-semibold mb-4 lg:mb-8"
-                                                style={{
-                                                    fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                    fontSize: 'clamp(24px, 4vw, 32px)', // Scales 24px to 32px
-                                                    lineHeight: '1.2',
-                                                    color: '#2B68C3',
-                                                    marginTop: 'clamp(8px, 2vw, 20px)'
-                                                }}
-                                            >
+                                            <H3 className="text-[#2B68C3] xl:mt-5">
+                                               
                                                 {card.title}
-                                            </h3>
+                                            </H3>
 
                                             {/* Description - NO LEFT MARGIN on Mobile */}
                                             <p
