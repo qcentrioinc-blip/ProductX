@@ -41,7 +41,7 @@ const JobDetailsSection = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:mt-16 lg:pr-28">
           {/* Left side - Job details */}
             <div className="mt-2">
-              <P className="mb-6">
+              <P className="mb-6 text-[#CCCCCC]">
                 About Qnest:
                 Qnest is a fast-growing software services company dedicated to delivering financial, mobile apps, AI, and other cutting-edge tech solutions. Our team thrives on innovation, creativity, and a commitment to excellence. The majority of our clients are internationally located. Join us in revolutionizing the software industry with your skills and expertise!
                 Position Overview:
@@ -49,7 +49,7 @@ const JobDetailsSection = () => {
               </P>
 
               <H4 className="text-[#F99526] mb-3">Responsibilities</H4>
-              <ul className="list-disc list-inside space-y-2 mb-6">
+              <ul className="list-disc list-inside space-y-2 mb-6 text-[#CCCCCC]">
                 <li>
                   Develop responsive and user-friendly web interfaces using React
                   and modern JavaScript frameworks.
@@ -64,7 +64,7 @@ const JobDetailsSection = () => {
               </ul>
 
               <H4 className="text-[#F99526] mb-3">Requirements</H4>
-              <ul className="list-disc list-inside space-y-2 mb-6">
+              <ul className="list-disc list-inside space-y-2 mb-6 text-[#CCCCCC]">
                 <li>Bachelor’s degree in Computer Science or related field.</li>
                 <li>2+ years of experience in frontend development.</li>
                 <li>Proficiency in React, TypeScript, and TailwindCSS.</li>
@@ -73,7 +73,7 @@ const JobDetailsSection = () => {
               </ul>
 
               <H4 className="text-[#F99526] mb-3">Benefits</H4>
-              <ul className="list-disc list-inside space-y-2 mb-6">
+              <ul className="list-disc list-inside space-y-2 mb-6 text-[#CCCCCC]" >
                 <li>Flexible working hours.</li>
                 <li>Remote-friendly environment.</li>
                 <li>Professional growth opportunities.</li>
@@ -97,23 +97,23 @@ const JobDetailsSection = () => {
                 <div className="space-y-10">
                   <div>
                     <H4>Workplace Type</H4>
-                    <P>Hybrid</P>
+                    <P className="text-[#CCCCCC]">Hybrid</P>
                   </div>
                   <div>
-                    <H4>Employment Type</H4>
-                    <P>Full-time</P>
+                    <H4 >Employment Type</H4>
+                    <P className="text-[#CCCCCC]">Full-time</P>
                   </div>
                   <div>
                     <H4>Experience</H4>
-                    <P>2–4 years</P>
+                    <P className="text-[#CCCCCC]">2–4 years</P>
                   </div>
                   <div>
                     <H4>Location</H4>
-                    <P>Bangalore, India</P>
+                    <P className="text-[#CCCCCC]">Bangalore, India</P>
                   </div>
                   <div>
                     <H4>Posted On</H4>
-                    <P>November 2, 2025</P>
+                    <P className="text-[#CCCCCC]">November 2, 2025</P>
                   </div>
                 </div>
               </div>

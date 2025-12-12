@@ -1,13 +1,18 @@
-import WhatWeDo from "./WhatWeDo"
+// import WhatWeDo from "./WhatWeDo"
 // import Footer from "../../Global/Footer/Footer"
 import CallToAction from "./CallToAction"
-import Counter from "./Counter"
-import HowWeDo from "./HowWeDo"
+// import Counter from "./Counter"
+// import HowWeDo from "./HowWeDo"
 import LandingPage from "./LandingPage"
-import Partnership from "./Partnership"
-import TargetAudience from "./TargetAudience"
-import Testimonial from "./Testimonial"
-import VisionImpact from "./VisionImpact"
+// import Partnership from "./Partnership"
+// import TargetAudience from "./TargetAudience"
+// import Testimonial from "./Testimonial"
+// import VisionImpact from "./VisionImpact"
+import FutureSection from "./FutureSection"
+import InnovationCards from "./InnovationCards"
+import BusinessValuesSection from "./BusinessValuesSection"
+import AnimatedStatement from "./AnimatedStatement"
+// import IndustrySlider from "./IndustrySlider"
 import Milestone from "./Milestone"
 import LifeCycleTech from "./LifeCycleTech"
 import CEO from "./CEO"
@@ -20,8 +25,23 @@ const GlobalLandingPage = () => {
             <div id="landingpage">
                 <LandingPage />
             </div>
-
-            <div id="whatwedo">
+            {/* <div>
+                <IndustrySlider/>
+            </div> */}
+            <div>
+                <AnimatedStatement/>
+            </div>
+            <div id="futuresection">
+            <FutureSection/>
+            </div>
+            <div id="innovationcards">
+                <InnovationCards/>
+            </div>
+            <div id="businessvaluessection">
+                <BusinessValuesSection/>
+            </div>
+            
+            {/* <div id="whatwedo">
                 <WhatWeDo />
             </div>
 
@@ -45,11 +65,14 @@ const GlobalLandingPage = () => {
                 <VisionImpact />
             </div>
 
+            
+
+            {/* CEO Section - Sticky Background */}
+
             <div>
                 <Milestone />
             </div>
 
-            {/* CEO Section - Sticky Background */}
             <div className="sticky top-0 h-screen z-0">
                 <CEO />
             </div>
@@ -59,10 +82,7 @@ const GlobalLandingPage = () => {
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
                 
-                {/* Counter Section */}
-                <div id="counter">
-                    <Counter />
-                </div>
+                
                 
                 {/* CallToAction Section */}
                 <div id="calltoaction">

@@ -10,7 +10,7 @@ export default function Careers() {
       {/* Radial Background */}
       <div className="absolute inset-0 bg-[radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)]">
         <img
-          src="/AI/Careers/bg_img.png"
+          src="/AI/Careers/bg_img.jpg"
           alt="Radial Background"
           className="w-full h-full object-cover"
         />

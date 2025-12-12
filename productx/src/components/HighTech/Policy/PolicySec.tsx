@@ -1,6 +1,6 @@
 import { useState, useRef} from "react";
 import { useLocation } from "react-router-dom";
-import { H1, H4} from "../../../styles/Typography";
+import { H1} from "../../../styles/Typography";
 
 type SectionKey = "terms" | "privacy" | "cookies";
  
@@ -132,12 +132,12 @@ export default function PolicySectionWrapper() {
             </H1>
           </div>
  
-          <H4
+          {/* <H4
             className="text-sm sm:text-base font-semibold mb-8 transition-colors duration-500"
             style={{ color: AccentColor }}
           >
             {EFFECTIVE_DATES[active]}
-          </H4>
+          </H4> */}
  
           <div
             className={`mt-6 space-y-8 whitespace-pre-wrap transition-opacity duration-300 ${

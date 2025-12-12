@@ -26,6 +26,7 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
 export const H2 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h2
+      
       className={`
         text-[24px] md:text-[32px] lg:text-[64px]
         font-bricolage
@@ -80,6 +81,7 @@ export const P = ({ children, className = "" }: TypographyProps) => {
         text-[14px] md:text-[16px] lg:text-[16px]
         font-quicksand
         leading-[120%]
+        text-[#141414]
         
         ${className}`}
     >

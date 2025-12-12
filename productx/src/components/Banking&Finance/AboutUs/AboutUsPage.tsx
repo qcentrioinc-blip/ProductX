@@ -7,7 +7,9 @@ import ContactUS from "../ProductRemitree/ContactUS";
 // import Counter from "../../HomePage/LandingPages/Counter";
 import Counter from "../../HomePage/GlobalLandingPage/Counter";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import Capabilities from "../ProductBankfair/Capabilities";
+import ScrollingCards from "./ScrollingCards";
+import PartnershipsSection from "./PartnershipsSection";
+// import Capabilities from "../ProductBankfair/Capabilities";
 
 const AboutUsPage = () => {
   return (
@@ -15,7 +17,9 @@ const AboutUsPage = () => {
     <HeroSection />
     <Overview />
     <HighLights />
-    <Capabilities />
+    <ScrollingCards />
+    <PartnershipsSection/>
+    {/* <Capabilities /> */}
     <Process />
     <Counter />
      <div className="relative">

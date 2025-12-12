@@ -1,4 +1,4 @@
-import Audit from "../../components/Banking&Finance/Audit"
+// import Audit from "../../components/Banking&Finance/Audit"
 import Counter from "../../components/Banking&Finance/Counter"
 import HeroSection from "../../components/Banking&Finance/HeroSection"
 import InsightThought from "../../components/Banking&Finance/InsightThought"
@@ -12,6 +12,7 @@ import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial
 import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactUS"
 import BNFNav from "../../components/Banking&Finance/BNFnav"
 import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOneFooter"
+import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
   
 const BankingAndFinance = () => {
   return (
@@ -19,12 +20,12 @@ const BankingAndFinance = () => {
       
      <BNFNav/>
       <HeroSection/>
-      
       <Intro/>
       <Products />
       <WhatWeDoIn/>
       <Counter/>
-      <Audit/>
+      <AuditAnimation/>
+      {/* <Audit/> */}
       <Process/>
        <Testimonial/>
       <InsightThought/>

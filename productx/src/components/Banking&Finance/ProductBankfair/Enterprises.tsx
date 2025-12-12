@@ -13,7 +13,7 @@ const Enterprises = () => {
     <section className="bg-black h-full w-full text-white py-10 px-4 md:px-8">
 
       {/* Heading */}
-      <div className="max-w-3xl mx-4 lg:mx-10 text-left mb-16">
+      <div className="max-w-4xl mx-4 lg:mx-10 text-left mb-16">
         <H2>Itaque earum rerum hic 
           <br />
           <span className="text-[#2B68C3]">tenetur a sapiente </span> 
@@ -30,7 +30,7 @@ const Enterprises = () => {
         <div className="bg-white text-black gap-4 rounded-lg p-6 flex flex-col md:row-span-2">
           <div >
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
+            <P className="pt-4 ">
               Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
             </P>
           </div>
@@ -51,7 +51,7 @@ const Enterprises = () => {
           <div key={i} className="bg-white text-black rounded-lg p-6 flex flex-col justify-between">
             <div>
                <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
+            <P className="pt-4 ">
               Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
             </P>
             </div>
@@ -72,7 +72,7 @@ const Enterprises = () => {
         <div className="bg-white text-black rounded-lg p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2">
           <div>
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
+            <P className="pt-4 ">
               Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
             </P>
           </div>

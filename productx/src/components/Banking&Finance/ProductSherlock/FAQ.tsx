@@ -54,8 +54,8 @@ const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full px-8 py-16 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 relative z-10">
+    <section className="relative w-full py-16 bg-white overflow-hidden">
+      <div className="max-w-8xl mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
         {/* Left Section */}
         <div className="lg:w-1/2 relative z-20">
           <div className="mb-4 text-sm text-gray-700 flex items-center">
@@ -63,7 +63,7 @@ const FaqSection: React.FC = () => {
             <H3>Quis autem</H3>
           </div>
           <H2 className="mb-4 text-gray-900">Sed ut perspiciatis unde</H2>
-          <P className="text-gray-600 mb-6">
+          <P className="text-[#141414] mb-6">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu Duis aute irure dolor in reprehenderit in Duis aute
             irure dolor in reprehenderit in.

@@ -158,7 +158,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         className="absolute inset-0 pointer-events-none"
       ></canvas>
  
-      <Link to={contactUrl}>
+      <a href={contactUrl}>
         <button
           className={`
             group
@@ -186,7 +186,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
             </span>
           </span>
         </button>
-      </Link>
+      </a>
     </div>
   );
 };
