@@ -4,40 +4,77 @@ import { H2, H3, P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
- const containerRef = useRef<HTMLDivElement | null>(null);
+//  const containerRef = useRef<HTMLDivElement | null>(null);
+const desktopRef = useRef<HTMLDivElement | null>(null);
+const mobileRef = useRef<HTMLDivElement | null>(null);
+const isScrolling = useRef(false);
 
+const sectionInView = (el: HTMLElement) => {
+  const rect = el.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  return rect.top < vh * 0.4 && rect.bottom > vh * 0.4;  
+};
 
 const handleScroll = (e: WheelEvent | TouchEvent) => {
+  const el = desktopRef.current || mobileRef.current;
+  if (!el) return;
 
-  if (!containerRef.current) return;
+  if (!sectionInView(el)) return;
 
-  const rect = containerRef.current.getBoundingClientRect();
+  // Determine scroll direction
+  let delta = 0;
 
-  // When the container is visible/sticky
-  if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-    e.preventDefault();
-    e.stopPropagation();
+  if (e instanceof WheelEvent) {
+    delta = e.deltaY;
+  } else if (e instanceof TouchEvent) {
+    if (e.touches[0] && e.changedTouches[0]) {
+      delta = e.changedTouches[0].clientY - e.touches[0].clientY;
+    }
+  }
 
-    // Auto open next accordion
-    setOpenIndex((prev) => {
+  // THROTTLE
+  if (isScrolling.current) return;
+  isScrolling.current = true;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  setOpenIndex((prev) => {
+    if (delta > 0) {
+      // Scroll Down → Next
       if (prev < accordionData.length - 1) return prev + 1;
       return prev;
-    });
-  }
+    } else if (delta < 0) {
+      // Scroll Up → Previous
+      if (prev > 0) return prev - 1;
+      return prev;
+    }
+    return prev;
+  });
+
+  setTimeout(() => {
+    isScrolling.current = false;
+  }, 800);
 };
 
 
-useEffect(() => {
-  const wheelHandler = (e: WheelEvent | TouchEvent) => handleScroll(e);
 
-  window.addEventListener("wheel", wheelHandler as EventListener, { passive: false });
-  window.addEventListener("touchmove", wheelHandler as EventListener, { passive: false });
+
+
+useEffect(() => {
+ const wheelHandler = (e: WheelEvent | TouchEvent) => handleScroll(e);
+
+
+  window.addEventListener("wheel", wheelHandler, { passive: false });
+  window.addEventListener("touchmove", wheelHandler, { passive: false });
 
   return () => {
-    window.removeEventListener("wheel", wheelHandler as EventListener);
-    window.removeEventListener("touchmove", wheelHandler as EventListener);
+    window.removeEventListener("wheel", wheelHandler);
+    window.removeEventListener("touchmove", wheelHandler);
   };
-}, []);
+} );
+
 
   const targetRef = useRef(null);
   const accordionData = [
@@ -69,6 +106,9 @@ useEffect(() => {
 
   const images = ["/Products/AccordionImage.png","/Image1.jpg", "/Image2.jpg"];
 
+
+  
+
   return (
     <div
       ref={targetRef}
@@ -77,31 +117,37 @@ useEffect(() => {
     >
       {/* Heading Section */}
       <div className="relative mb-20  max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 pt-10">
-         
-        <H2 className=" font-bold text-[#2B68C3]">
+        <div className=" flex justify-end items-end">
+          <ContactUs
+  className="hidden lg:flex   absolute top-4 right-0 gap-2 whitespace-nowrap"
+>
+  CONTACT US
+</ContactUs>
+        </div>
+           
+    <div>
+      <H2 className=" font-bold text-[#2B68C3]">
           Consecte <span className="text-[#666666]"> adipiscing </span> Consecte
           <br />
            
         </H2>
-        <P className="max-w-3xl pt-4 text-justify leading-tight text-gray-600">
+        <P className="max-w-4xl pt-4 text-justify leading-tight ">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
         </P>
+    </div>
+        
         
         
          
-       <ContactUs
-  className="hidden lg:flex items-center absolute top-2 gap-2 whitespace-nowrap"
->
-  CONTACT US
-</ContactUs>
+     
 
-        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden    text-black">
+        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden  whitespace-nowrap  text-black">
           CONTACT US
         </ContactUs>
       </div>
       {/* Desktop Layout */}
       <div
-  ref={containerRef}
+  ref={desktopRef}
   className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 sticky top-0"
 >
    
@@ -186,12 +232,12 @@ useEffect(() => {
                   >
                     {Array.isArray(item.content) ? (
                       item.content.map((para, i) => (
-                        <P key={i} className="text-gray-700 pb-4 leading-tight text-base">
+                        <P key={i} className="  pb-4 leading-tight text-base">
                           {para}
                         </P>
                       ))
                     ) : (
-                      <P className="text-gray-700 leading-tight text-base">{item.content}</P>
+                      <P className="  leading-tight text-base">{item.content}</P>
                     )}
                   </motion.div>
                 )}
@@ -202,7 +248,7 @@ useEffect(() => {
       </div>
       {/* Mobile/Tablet Layout */}
       <div
-  ref={containerRef}
+  ref={mobileRef}
   className="lg:hidden flex flex-col w-full px-4 sm:px-8 sticky top-0"
 >
 
@@ -240,6 +286,7 @@ useEffect(() => {
         <div className="w-full flex flex-col gap-4">
           {accordionData.map((item, index) => {
             const isOpen = openIndex === index;
+            
             return (
               <div
                 key={item.id}
@@ -248,6 +295,9 @@ useEffect(() => {
                 }`}
                 onClick={() => setOpenIndex(index)}
               >
+
+
+                 
                 <div className="flex items-center px-2 py-6 lg:p-6">
                   <span
                     className={`text-5xl font-bold transition-colors duration-500 mr-6 ${
@@ -265,6 +315,7 @@ useEffect(() => {
                   </H3>
                 </div>
                 {isOpen && (
+                  
                   <motion.div
                     className=" px-4 lg:px-6 pb-6 text-justify"
                     initial={{ opacity: 0, height: 0 }}
@@ -274,12 +325,12 @@ useEffect(() => {
                   >
                     {Array.isArray(item.content) ? (
                       item.content.map((para, i) => (
-                        <P key={i} className="text-gray-700 mb-4 text-sm leading-relaxed">
+                        <P key={i} className="  mb-4 text-sm leading-relaxed">
                           {para}
                         </P>
                       ))
                     ) : (
-                      <P className="text-gray-700 text-sm leading-relaxed">{item.content}</P>
+                      <P className="  text-sm leading-relaxed">{item.content}</P>
                     )}
                   </motion.div>
                 )}

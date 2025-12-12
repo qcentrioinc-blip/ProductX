@@ -131,7 +131,7 @@ const HeroSection = () => {
 
             {/* LEFT — Heading */}
             <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
-              Sed ut   tisunde tedt sfhsf <br className='md:block hidden' /> Seduo ut
+              Sed ut perspicia tisunde  <br className='md:block hidden' />Seduo ut perspiciatis 
             </H1>
 
 
@@ -147,7 +147,7 @@ const HeroSection = () => {
           </div>
 
           {/* TRIANGLE BACKGROUND DECORATIONS */}
-          <div className="hidden lg:block absolute inset-0 overflow-x-hidden -z-10">
+          <div className="hidden lg:block absolute  inset-0 overflow-x-hidden -z-10">
 
             {/* LEFT TRIANGLE IMAGE */}
             <img
@@ -167,7 +167,7 @@ const HeroSection = () => {
 
 
           {/* ✅ Image */}
-          <div className="absolute  top-[55%] md:top-1/2 left-1/2 -translate-x-1/2 w-full md:max-w-4xl px-6 md:px-10 lg:px-4">
+          <div className="absolute   top-[55%] md:top-[58%] left-1/2 -translate-x-1/2 w-full md:max-w-4xl px-6 md:px-10 lg:px-4">
             <img
               src={Image1}
               alt="Laptop application interface"

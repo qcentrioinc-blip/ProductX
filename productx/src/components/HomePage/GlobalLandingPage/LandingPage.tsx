@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import {   P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
+import Navbar from '../../Global/Navbar/Navbar';
 // import LiquidEther from './LiquidEther';
  
  
@@ -90,7 +91,7 @@ export default function InteractiveHeroSection() {
   return (
     <div className="min-h-screen bg-black">
    
-      <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/95 backdrop-blur-sm">
+      {/* <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/95 backdrop-blur-sm">
         <div className="max-w-8xl mx-4 px-6 py-1 flex items-center justify-between">
           <Link to="/">
           <div className="text-white  font-bricolage font-bold text-xl bg-neutral-700 px-4 py-2 rounded">
@@ -108,7 +109,8 @@ export default function InteractiveHeroSection() {
            </Link>
           </nav>
         </div>
-      </header>
+      </header> */}
+      <Navbar/>
 
       {/* Hero Section */}
       <div 

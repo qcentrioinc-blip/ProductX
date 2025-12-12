@@ -2,7 +2,7 @@ import { H1 } from "../../../styles/Typography";
 import Image1 from "/AboutUs/image81.png";
 const HeroSection = () => {
   return (
-    <div className="w-full   ">
+    <div className="w-full   lg:mt-20 ">
        
       <div 
         className="  h-[40vh] lg:h-[60vh]  w-full flex items-center justify-center" 

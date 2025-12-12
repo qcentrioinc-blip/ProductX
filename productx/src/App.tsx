@@ -59,6 +59,7 @@ import ResourceDetailAI from './components/AIOptimization/ResourceDetail/Resourc
 import AboutAI from './components/AI/AboutUs/AboutAI'
  
  
+ 
 
 const App = () => {
   // const location = useLocation();
@@ -141,6 +142,7 @@ const App = () => {
         <div data-scroll-container>
           {/* {showNavbar && <Navbar />} */}
           <Routes>
+            
             <Route path="/landingpage" element={<HeroSlider />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
