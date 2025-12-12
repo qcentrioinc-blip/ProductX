@@ -1,4 +1,4 @@
-import AINavbar from "../../AIOptimization/Navbar/AINavbar"
+import AINavbar from "../Navbar/AINavbar"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import CTA from "./CTA"

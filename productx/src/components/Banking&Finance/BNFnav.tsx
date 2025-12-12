@@ -14,7 +14,6 @@ const menuRef = useRef<HTMLDivElement | null>(null);
   // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
  
 const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
-
  const closeAllMenus = () => {
   setMegaMenuOpen(false);
   setResourcesMenuOpen(false);
@@ -165,7 +164,6 @@ const industries = [
   },
  
 ];
-
 const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
  
@@ -313,7 +311,6 @@ className="w-4 h-4" />
   </div>
 )}
 </div>
-
        <ul className="flex items-center   gap-8 font-bold font-quicksand">
   {navItems.map((item) => (
     <li key={item.name}>
@@ -325,7 +322,6 @@ className="w-4 h-4" />
     className="relative"
    onMouseEnter={() => {
       preloadImages();
-
   setMegaMenuOpen(true);
   setResourcesMenuOpen(false);
   setmegaMenuBuiltFor(false);

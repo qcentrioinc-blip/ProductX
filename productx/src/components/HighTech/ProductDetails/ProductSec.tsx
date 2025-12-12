@@ -39,12 +39,12 @@ const ProductSec: React.FC = () => {
 
   /* -------- Scroll tracking logic -------- */
   useEffect(() => {
-    const scrollableElement = scrollableContainerRef?.current;
+    const scrollableElement = scrollableContainerRef;
 
     const handleScroll = () => {
       if (!scrollableElement) return;
 
-      const containerRect = scrollableElement.getBoundingClientRect();
+      const containerRect = (scrollableElement as unknown as HTMLElement).getBoundingClientRect();
       const viewportCenter = containerRect.height / 2;
 
       let newIndex = 0;
@@ -66,13 +66,13 @@ const ProductSec: React.FC = () => {
     };
 
     if (scrollableElement) {
-      scrollableElement.addEventListener("scroll", handleScroll);
+      (scrollableElement as any).on("scroll", handleScroll);
       handleScroll();
     }
 
     return () => {
       if (scrollableElement) {
-        scrollableElement.removeEventListener("scroll", handleScroll);
+        (scrollableElement as any).off("scroll", handleScroll);
       }
     };
   }, [scrollableContainerRef]);

@@ -1,7 +1,7 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
+// import { ScrollContext } from '../../../context/ScrollContext';
 import { H2 } from '../../../styles/Typography';
  
 const ContactUS = () => {
@@ -12,15 +12,14 @@ const ContactUS = () => {
     query: '',
     message: ''
   });
- 
-  const scrollContainer = useContext(ScrollContext);
+
+  // const scrollContainer = useContext(ScrollContext);
   const targetRef = useRef<HTMLDivElement>(null);
  
   // Framer Motion Scroll Setup
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    container: scrollContainer ?? undefined,
-    offset: ["start end", "start start"] // Tracks when the target enters and reaches the top of the viewport
+    offset: ["start end", "start start"]
   });
  
   // Scale animation: 0.90 (when out of view) -> 1 (when in view)

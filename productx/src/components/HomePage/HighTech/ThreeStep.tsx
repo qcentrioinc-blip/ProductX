@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useContext } from 'react';
+import { useRef } from 'react';
 import {
   motion,
   useScroll,
@@ -8,7 +8,6 @@ import {
   useSpring,
   type MotionValue,
 } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
 
 
 const ThreeStep = () => {
@@ -37,13 +36,11 @@ const ThreeStep = () => {
   ];
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const scrollContext = useContext(ScrollContext);
 
   // same pattern as TextAnimation: one scrollYProgress for whole block
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
-    container: scrollContext || undefined,
   });
 
   // 1) Smooth the raw scroll first (so everything that uses it feels buttery)
