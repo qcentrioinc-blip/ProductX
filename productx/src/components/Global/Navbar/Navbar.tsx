@@ -57,14 +57,14 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const scrollContainer = scrollContext?.current;
+    const scrollContainer = scrollContext;
     if (!scrollContainer) return;
 
     // Initial check
     checkBackgroundColor();
 
-    scrollContainer.addEventListener('scroll', checkBackgroundColor);
-    return () => scrollContainer.removeEventListener('scroll', checkBackgroundColor);
+    scrollContainer.on('scroll', checkBackgroundColor);
+    return () => scrollContainer.off('scroll', checkBackgroundColor);
   }, [scrollContext, checkBackgroundColor]);
 
   useEffect(() => {

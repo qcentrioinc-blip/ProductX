@@ -39,13 +39,12 @@ const ProductSec: React.FC = () => {
 
   /* -------- Exact TargetAudience scroll logic -------- */
   useEffect(() => {
-    const scrollableElement = scrollableContainerRef?.current;
+    const scrollableElement = scrollableContainerRef as any;
     
     const handleScroll = () => {
       if (!scrollableElement) return; // Guard clause
 
-      const containerRect = scrollableElement.getBoundingClientRect();
-      const viewportCenter = containerRect.height / 2;
+      const viewportCenter = window.innerHeight / 2;
 
       let newIndex = 0;
       let minDistance = Infinity;
