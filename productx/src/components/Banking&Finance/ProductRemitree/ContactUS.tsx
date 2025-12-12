@@ -1,7 +1,7 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
+// import { ScrollContext } from '../../../context/ScrollContext';
 import { H2 } from '../../../styles/Typography';
 
 const ContactUS = () => {
@@ -13,12 +13,11 @@ const ContactUS = () => {
     message: ''
   });
 
-  const scrollContainer = useContext(ScrollContext);
+  // const scrollContainer = useContext(ScrollContext);
   const targetRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    container: scrollContainer ?? undefined,
     offset: ["start end", "start start"]
   });
 

@@ -56,20 +56,19 @@ export default function Workflow() {
   const scrollableContainerRef = useContext(ScrollContext);
 
   useEffect(() => {
-    const scrollContainer = scrollableContainerRef?.current;
+    const scrollContainer = scrollableContainerRef;
     if (!scrollContainer) return;
 
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
       const sectionRect = sectionRef.current.getBoundingClientRect();
-      const containerRect = scrollContainer.getBoundingClientRect();
-      const containerScrollTop = scrollContainer.scrollTop;
+      const containerScrollTop = scrollContainer.scroll.y;
 
       // Calculate scroll position relative to the section
-      const sectionTop = sectionRect.top - containerRect.top + containerScrollTop;
+      const sectionTop = sectionRect.top + containerScrollTop;
       const sectionBottom = sectionTop + sectionRect.height;
-      const scrollPosition = containerScrollTop + containerRect.height / 2;
+      const scrollPosition = containerScrollTop + window.innerHeight / 2;
       // Check if we're within the section bounds
       if (scrollPosition < sectionTop || scrollPosition > sectionBottom) {
         return;
@@ -89,11 +88,11 @@ export default function Workflow() {
       setActiveStep(newActiveStep);
     };
 
-    scrollContainer.addEventListener("scroll", handleScroll);
+    scrollContainer.on("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      scrollContainer.removeEventListener("scroll", handleScroll);
+      scrollContainer.off("scroll", handleScroll);
     };
   }, [scrollableContainerRef]);
 
