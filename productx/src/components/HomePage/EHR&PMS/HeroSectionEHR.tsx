@@ -38,7 +38,6 @@ const HeroSectionEHR = () => {
       {/* <HealthFeatures /> */}
       <BlogCarousel/>
       <UserProfile />
-      <BlogCarousel/>
       <EHRFooter />
     </div>
   )

@@ -1,4 +1,6 @@
 import WorkProfile from "../../HomePage/HighTech/WorkProfile"
+import ContactSecHT from "../ContactSecHT"
+import FooterHT from "../FooterHT"
 import HighTechNavbar from "../Navbar/HighTechNavbar"
 import Banner from "./Banner"
 import BorderCTA from "./BorderCTA"
@@ -7,7 +9,7 @@ import Feature from "./Feature"
 
 import Gallery from "./Gallery"
 import HeroSection from "./HeroSection"
-import SubFooter from "./SubFooter"
+// import SubFooter from "./SubFooter"
 // import WorkProfile from "./WorkProfile"
 
 
@@ -30,7 +32,9 @@ const AboutUs = () => {
       <Gallery />
 
       <Feature />
-      <SubFooter />
+      {/* <SubFooter /> */}
+      <ContactSecHT/>
+      <FooterHT/>
 
 
 

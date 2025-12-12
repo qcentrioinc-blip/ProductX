@@ -74,7 +74,7 @@ const CardContent = () => (
     >
       <div className="w-15 h-15 bg-gray-300 rounded-full mb-4"></div>
  
-      <div className="text-justify">
+      <div className="text-left">
         <h4 className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]
         font-bricolage
         font-bold
@@ -90,7 +90,7 @@ const CardContent = () => (
  
     {/* Bottom Section */}
     <div
-      className="pl-6 pr-10 py-18 text-justify"
+      className="pl-6 pr-10 py-18 text-left"
       style={{ backgroundColor: bottomBg }}
     >
       <ul className="space-y-4">
@@ -140,7 +140,7 @@ const CardContent = () => (
  
           {/* Second Heading (Fixed — absolutely no gap) */}
           <motion.h2
-            className="text-[#2A2A2A] font-bricolage font-semibold text-[40px] leading-none"
+            className="text-[#2A2A2A] font-bricolage font-semibold text-[24px] md:text-[32px] lg:text-[64px] leading-none"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -158,11 +158,11 @@ const CardContent = () => (
         </div>
  
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-14">
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-             className="relative rounded-lg text-black overflow-hidden shadow-lg"
+             className="relative rounded-md text-black overflow-hidden shadow-lg"
 style={{ backgroundColor: bottomBg }}
  
               variants={cardVariants}

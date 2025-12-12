@@ -83,21 +83,13 @@ useEffect(() => {
           <br />
            
         </H2>
-        <P className="max-w-3xl pt-4 text-justify leading-tight text-gray-600">
+        <P className="max-w-3xl pt-4 text-justify text-[#141414] leading-tight">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
         </P>
         
         
          
-       <ContactUs
-  className="hidden lg:flex items-center absolute top-2 gap-2 whitespace-nowrap"
->
-  CONTACT US
-</ContactUs>
-
-        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden    text-black">
-          CONTACT US
-        </ContactUs>
+       <ContactUs className="mt-4">CONTACT US</ContactUs>
       </div>
       {/* Desktop Layout */}
       <div
@@ -186,12 +178,12 @@ useEffect(() => {
                   >
                     {Array.isArray(item.content) ? (
                       item.content.map((para, i) => (
-                        <P key={i} className="text-gray-700 pb-4 leading-tight text-base">
+                        <P key={i} className="text-[#141414] pb-4 leading-tight text-base">
                           {para}
                         </P>
                       ))
                     ) : (
-                      <P className="text-gray-700 leading-tight text-base">{item.content}</P>
+                      <P className="text-[#141414] leading-tight text-base">{item.content}</P>
                     )}
                   </motion.div>
                 )}
@@ -274,12 +266,12 @@ useEffect(() => {
                   >
                     {Array.isArray(item.content) ? (
                       item.content.map((para, i) => (
-                        <P key={i} className="text-gray-700 mb-4 text-sm leading-relaxed">
+                        <P key={i} className="text-[#141414] mb-4 text-sm leading-relaxed">
                           {para}
                         </P>
                       ))
                     ) : (
-                      <P className="text-gray-700 text-sm leading-relaxed">{item.content}</P>
+                      <P className="text-[#141414] text-sm leading-relaxed">{item.content}</P>
                     )}
                   </motion.div>
                 )}

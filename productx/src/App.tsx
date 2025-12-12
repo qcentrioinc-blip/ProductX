@@ -57,6 +57,7 @@ import AIOptimization from './routes/industries/AIOptimization'
 import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
 import AboutAI from './components/AI/AboutUs/AboutAI'
+import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
  
  
 
@@ -68,7 +69,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <BankingAndFinance />;
     if (industry === "high-tech") return <HighTech />;
     if (industry === "ehr-and-pms") return <EHRAndPMS />;
-    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> UNDER CONSTRUCTION  <span className='text-red-400'>!!!!</span><br /> SOON AVAILABLE<br /> Till Then Check Other Industries
+    return <div className=' bg-blue-300 h-screen items-center justify-center pt-44 font-bold text-6xl text-blue-950'> Working on  <span className='text-red-400'>!!!!</span><br /> to provide you <br /> better results....!
       <Link to="/"> <button className='w-[250px]'> CLICK ME</button></Link></div>;
   }
 
@@ -166,6 +167,7 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
+            <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor/>} />
 
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
@@ -176,6 +178,7 @@ const App = () => {
             <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
             <Route path="/industries/high-tech/resources" element={<Resources />} />
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
+            <Route path="/industries/high-tech/built-for" element={<BuiltFor/>} />
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
@@ -188,6 +191,7 @@ const App = () => {
             <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
+            <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor/>} />
 
 
 
@@ -205,8 +209,8 @@ const App = () => {
             <Route path="/industries/ai-optimization/resource-detail" element={<ResourceDetailAI />} />
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
-
-
+            <Route path="/industries/ai-optimization/built-for" element={<BuiltFor/>} />      
+                      
           </Routes>
         </div>
       </ScrollProvider>
