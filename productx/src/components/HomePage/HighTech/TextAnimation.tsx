@@ -1,17 +1,14 @@
 'use client';
 
-import { useRef, useContext } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
 
 const TextAnimation = () => {
   const containerRef = useRef(null);
-  const scrollContext = useContext(ScrollContext);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
-    container: scrollContext || undefined,
   });
 
   const springConfig = {

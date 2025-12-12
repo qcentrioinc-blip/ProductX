@@ -1,6 +1,7 @@
 // import BlogGridSection from "../Blogs/BlogsGridSection";
 import BNFNav from "../BNFnav";
-import ContactSection from "../ProductBankfair/ContactSection";
+// import ContactSection from "../ProductBankfair/ContactSection";
+import ContactUS from "../ProductRemitree/ContactUS";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import TextSec from "./TextSec";
 import TitleSec from "./TitleSec";
@@ -14,8 +15,27 @@ export default function EventssPage() {
     <TextSec/>
     <AllPosts/>
     {/* <BlogGridSection/> */}
-    <ContactSection/>
-    <NewOneFooter/>
+    
+    
+   <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
   
     </div>
   );

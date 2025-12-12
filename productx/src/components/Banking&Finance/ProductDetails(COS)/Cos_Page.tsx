@@ -14,7 +14,8 @@ import InsightThought from "../InsightThought";
 
 import BNFNav from "../BNFnav";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import ContactSection from "../ProductBankfair/ContactSection";
+ 
+import ContactUS from "../ProductRemitree/ContactUS";
 
 const Cos_Page = () => {
   return (
@@ -30,8 +31,25 @@ const Cos_Page = () => {
         <HWD />
         <FAQ />
         <InsightThought />
-        <ContactSection />
-        <NewOneFooter/>
+         <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
         
     </div>   
   );

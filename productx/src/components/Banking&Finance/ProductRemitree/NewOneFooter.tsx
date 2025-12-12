@@ -2,6 +2,7 @@ import { FaXTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import { H2, H4 } from '../../../styles/Typography';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+ 
 
 const NewOneFooter = () => {
 
@@ -20,22 +21,24 @@ const NewOneFooter = () => {
   const quickLinks = [
     { label: "Careers", url: "/industries/banking-and-finance/careers" },
     { label: "Resources", url: "/industries/banking-and-finance/news" },
-    { label: "Contact", url: "/contact" },
+    { label: "Contact", url: "/industries/banking-and-finance/contactform" },
   ];
+
+
+ 
+
 
   return (
   <div
-        className='lg:relative  '
-        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+        className='lg:relative  lg:h-full'
+         
       >
-  
-  <div className='lg:w-full'>
+      
 
-
-     <div className='relative'>
-      <footer className="relative w-full bg-white ">
-        <div className="max-w-8xl lg:mx-10 px-4 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 relative">
+     <div className='relative z-50'>
+      <footer className="relative w-full py-20  bg-gray-100 " id="financeContainer  ">
+        <div className="max-w-8xl  ">
+          <div className="grid grid-cols-1 lg:mx-10 px-4 lg:grid-cols-12 gap-14 relative">
             
             {/* Left Section - Newsletter (7 columns) */}
             <div className="lg:col-span-7 flex flex-col space-y-10">
@@ -159,28 +162,34 @@ const NewOneFooter = () => {
                 </div>
 
                 <div className="flex lg:-ml-6 items-center gap-8">
-                  <Link to="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
-                    Privacy Policy
-                  </Link>
-                  <Link to="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                   <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                    Terms and Conditions
+                  </a>
+                  <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
                     Cookies Policy
-                  </Link>
+                  </a>
+                  <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                    Privacy Policy
+                  </a>
+                  
                 </div>
               </div>
             </div>
           </div>
-        </div>
+       
 
+ 
+ </div>
         {/* Bottom Pattern Image - no extra spacing */}
         <img
           src="/BNFFooter/BottomPattern.png"
-          className="w-full h-16 object-cover block"
+          className="w-full h-16  absolute bottom-0 object-cover block"
           alt=""
         />
       </footer>
     </div>
        
-</div>
+ 
 </div>
     
   );

@@ -1,5 +1,5 @@
 import BNFNav from "../BNFnav"
-
+ 
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
 import FaqSection from "../ProductSherlock/FAQ"
@@ -15,14 +15,14 @@ import Capabilities from "./Capabilities"
 import { useContext, useEffect } from "react"
 import { ScrollContext } from "../../../context/ScrollContext"
 // import Pricing from "./Pricing"
-
+ 
 const ProductsPage1 = () => {
     const scrollableContainerRef = useContext(ScrollContext);
-
+ 
     useEffect(() => {
         // Scroll the ScrollContext container to top
-        if (scrollableContainerRef?.current) {
-            scrollableContainerRef.current.scrollTo({
+        if (scrollableContainerRef) {
+            (scrollableContainerRef as any).scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
@@ -44,20 +44,37 @@ const ProductsPage1 = () => {
             <Capabilities />
             <div id="overview">
                 <Enterprises /></div>
-
+ 
             <div id="benefits"> <Building /></div>
-
+ 
             {/* <Pricing /> */}
             <div id="usecases"> <HWD /></div>
-
+ 
             <div id="faq"><FaqSection /></div>
-
+ 
             <div id="blogs"><InsightThought /></div>
-
-            <ContactUS />
-            <NewOneFooter />
+ 
+          <div className="relative">
+     
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
         </div>
     )
 }
-
+ 
 export default ProductsPage1

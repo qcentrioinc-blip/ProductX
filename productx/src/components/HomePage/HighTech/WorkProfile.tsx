@@ -46,10 +46,10 @@ const WorkProfile = () => {
     ];
  
      useEffect(() => {
-        if (!scrollableContainerRef?.current) return;
+        if (!scrollableContainerRef) return;
  
         const calculateHeight = () => {
-            const containerH = scrollableContainerRef?.current?.clientHeight ?? 0;
+            const containerH = window.innerHeight;
             setContainerHeight(containerH);
         };
  
@@ -60,11 +60,11 @@ const WorkProfile = () => {
     }, [scrollableContainerRef]);
  
     useEffect(() => {
-        if (!scrollableContainerRef?.current || containerHeight === 0) return;
+        if (!scrollableContainerRef || containerHeight === 0) return;
  
         const handleScroll = () => {
     try {
-        const scroll = scrollableContainerRef?.current?.scrollTop ?? 0;
+        const scroll = scrollableContainerRef?.scroll ?? 0;
         const workProfileElement = workProfileRef.current;
  
         if (!workProfileElement) return;
@@ -177,11 +177,11 @@ if (currentSectionIndex === 2) {
     }
 };
  
-        const container = scrollableContainerRef.current;
-        container.addEventListener('scroll', handleScroll);
+        const container = scrollableContainerRef;
+        container?.on('scroll', handleScroll);
         handleScroll();
  
-        return () => container.removeEventListener('scroll', handleScroll);
+        return () => container?.off('scroll', handleScroll);
     }, [scrollableContainerRef, containerHeight, imageOpacity, overlayOpacity, masterOpacity]);
  
     return (
