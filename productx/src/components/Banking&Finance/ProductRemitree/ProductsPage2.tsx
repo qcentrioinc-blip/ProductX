@@ -22,23 +22,21 @@ const ProductsPage2 = () => {
 
   const scrollableContainerRef = useContext(ScrollContext);
 
-    useEffect(() => {
-        // Scroll the ScrollContext container to top
-        if (scrollableContainerRef?.current) {
-            scrollableContainerRef.current.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            // Fallback to window scroll if ScrollContext not available
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-    }, [scrollableContainerRef]);
+  useEffect(() => {
+    if (scrollableContainerRef) {
+        scrollableContainerRef.scrollTo(0, {
+            offset: 0,
+            immediate: false,
+        });
+    } else {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    }
+}, [scrollableContainerRef]);
+
   return (
     <>
     

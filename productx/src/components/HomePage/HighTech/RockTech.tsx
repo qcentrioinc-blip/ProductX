@@ -307,7 +307,7 @@ class Media {
         const position = map(this.plane.position.y, -this.viewport.height, this.viewport.height, 5, 15);
 
         this.program.uniforms.uPosition.value = position;
-        this.program.uniforms.uTime.value += 0.08;
+        this.program.uniforms.uTime.value += 0.12;
         this.program.uniforms.uSpeed.value = scroll.current;
 
         const planeHeight = this.plane.scale.y;
@@ -480,7 +480,7 @@ class Canvas {
     }
 
     onWheel(e: WheelEvent) {
-        this.scroll.target += e.deltaY * 0.009;
+        this.scroll.target += e.deltaY * 0.015;
     }
 
     update() {

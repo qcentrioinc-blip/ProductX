@@ -21,8 +21,8 @@ const HeroSection = () => {
 
     useEffect(() => {
         // Scroll the ScrollContext container to top
-        if (scrollableContainerRefe?.current) {
-            scrollableContainerRefe.current.scrollTo({
+        if (scrollableContainerRefe) {
+            (scrollableContainerRefe as any).scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'

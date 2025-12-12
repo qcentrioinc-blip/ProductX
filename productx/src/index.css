@@ -67,6 +67,42 @@ html {
   width: 100%;
 }
 
+
+/* CRITICAL: Enable smooth scrolling for Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+html, body {
+  overscroll-behavior: none;
+}
+
+
+section, 
+div[id],
+.sticky {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+
 .font-bricolage {
   font-family: "Bricolage Grotesque", sans-serif;
 }

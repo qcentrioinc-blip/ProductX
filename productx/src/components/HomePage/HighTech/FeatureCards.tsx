@@ -1,15 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useContext, useRef } from "react";
-import { ScrollContext } from "../../../context/ScrollContext";
+import { useRef } from "react";
  
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollContext = useContext(ScrollContext);
  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
-    container: scrollContext || undefined,
   });
  
   

@@ -53,28 +53,28 @@ const itemVariants = {
 
 const floatingAnimation = {
   y: [-15, 15, -15],
-  transition: { 
-    duration: 6, 
-    repeat: Infinity, 
-    ease: "easeInOut" as const 
+  transition: {
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut" as const
   }
 };
 
 const rotateAnimation = {
   rotate: [0, 8, 0, -8, 0],
-  transition: { 
-    duration: 12, 
-    repeat: Infinity, 
-    ease: "easeInOut" as const 
+  transition: {
+    duration: 12,
+    repeat: Infinity,
+    ease: "easeInOut" as const
   }
 };
 
 const scalePulseAnimation = {
   scale: [1, 1.08, 1],
-  transition: { 
-    duration: 8, 
-    repeat: Infinity, 
-    ease: "easeInOut" as const 
+  transition: {
+    duration: 8,
+    repeat: Infinity,
+    ease: "easeInOut" as const
   }
 };
 
@@ -107,23 +107,23 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, inde
 
   const scrollableContainerRef = useContext(ScrollContext);
 
-    useEffect(() => {
-        // Scroll the ScrollContext container to top
-        if (scrollableContainerRef?.current) {
-            scrollableContainerRef.current.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            // Fallback to window scroll if ScrollContext not available
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-    }, [scrollableContainerRef]);
+  useEffect(() => {
+    // Scroll the ScrollContext container to top
+    if (scrollableContainerRef) {
+      (scrollableContainerRef as any).scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      // Fallback to window scroll if ScrollContext not available
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, [scrollableContainerRef]);
 
   return (
     <motion.div
@@ -136,12 +136,12 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, inde
         transition: { type: "spring" as const, damping: 15, stiffness: 100, delay: index * 0.1 }
       } : {}}
       whileHover={{ scale: 1.03, y: -8 }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" as const }} 
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" as const }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`relative cursor-pointer ${className}`}
     >
-      <motion.div style={{ transformStyle: "preserve-3d" as const }}> 
+      <motion.div style={{ transformStyle: "preserve-3d" as const }}>
         <motion.div
           className="relative p-1 rounded-lg"
           initial={{ background: "transparent" }}
@@ -285,14 +285,14 @@ const HeroSection: React.FC = () => {
           parallaxIntensity={100}
         />
 
-        <motion.div 
-          animate={rotateAnimation} 
-          className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-blue-200/20 blur-xl" 
+        <motion.div
+          animate={rotateAnimation}
+          className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-blue-200/20 blur-xl"
         />
 
-        <motion.div 
-          animate={scalePulseAnimation} 
-          className="absolute bottom-1/4 left-1/4 w-16 h-16 rounded-full bg-yellow-200/30 blur-lg" 
+        <motion.div
+          animate={scalePulseAnimation}
+          className="absolute bottom-1/4 left-1/4 w-16 h-16 rounded-full bg-yellow-200/30 blur-lg"
         />
 
         {/* ✅ WRAPPER ADDED HERE */}
@@ -310,7 +310,7 @@ const HeroSection: React.FC = () => {
 
             <motion.div variants={itemVariants}>
               <P className="max-w-xl lg:max-w-2xl mt-[-10px]">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.sdefsfe fwevg aev ht hba v 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.sdefsfe fwevg aev ht hba v
               </P>
             </motion.div>
 
@@ -335,23 +335,23 @@ const HeroSection: React.FC = () => {
             </div>
 
             <motion.div
-  variants={containerVariants}
-  className="hidden xl:flex gap-8 justify-center px-20 scroll-smooth"
->
-  {[
-    "/SAMS/img3.png",
-    "/SAMS/img2.png",
-    "/SAMS/img3.png"
-  ].map((src, index) => (
-    <AnimatedImage
-      key={index}
-      src={src}
-      alt={`Dashboard ${index + 1}`}
-      index={index}
-      className="flex-shrink-0 rounded-lg w-[400px] h-[480px]"
-    />
-  ))}
-</motion.div>
+              variants={containerVariants}
+              className="hidden xl:flex gap-8 justify-center px-20 scroll-smooth"
+            >
+              {[
+                "/SAMS/img3.png",
+                "/SAMS/img2.png",
+                "/SAMS/img3.png"
+              ].map((src, index) => (
+                <AnimatedImage
+                  key={index}
+                  src={src}
+                  alt={`Dashboard ${index + 1}`}
+                  index={index}
+                  className="flex-shrink-0 rounded-lg w-[400px] h-[480px]"
+                />
+              ))}
+            </motion.div>
 
           </motion.div>
 

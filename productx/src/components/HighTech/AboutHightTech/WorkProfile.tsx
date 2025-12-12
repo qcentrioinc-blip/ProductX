@@ -50,7 +50,7 @@ const WorkProfile = () => {
         if (!scrollableContainerRef?.current) return;
  
         const calculateHeight = () => {
-            const containerH = scrollableContainerRef?.current?.clientHeight ?? 0;
+            const containerH = window.innerHeight;
             setContainerHeight(containerH);
         };
  

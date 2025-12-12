@@ -49,14 +49,14 @@ import EventssPage from './components/Banking&Finance/Events/EventsPage'
 import HeroSlider from './components/LandingPage/HeroSlider'
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1'
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2'
-import { CareersPageAI } from './components/AI/Careers/CareersPage'
-import JobDetails from './components/AI/Careers/JobDetails'
+import { CareersPageAI } from './components/AIOptimization/Careers/CareersPage'
+import JobDetails from './components/AIOptimization/Careers/JobDetails'
 
 
 import AIOptimization from './routes/industries/AIOptimization'
 import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
-import AboutAI from './components/AI/AboutUs/AboutAI'
+import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
  
  
  
