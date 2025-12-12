@@ -54,8 +54,25 @@ const ProductsPage1 = () => {
 
             <div id="blogs"><InsightThought /></div>
 
-            <ContactUS />
-            <NewOneFooter />
+            <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
         </div>
     )
 }

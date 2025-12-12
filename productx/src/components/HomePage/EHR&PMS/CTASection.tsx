@@ -6,6 +6,14 @@ export default function CTAFloatSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+const [enterDone, setEnterDone] = useState(false);
+
+
+useEffect(() => {
+  if (isVisible && !enterDone) {
+    setTimeout(() => setEnterDone(true), 1200);  
+  }
+}, [isVisible, enterDone]);
 
   const images = [
     { src: "/EHR-PMS/CTA/img1.jpg", id: 0, side: "left", startAngle: 0 },
@@ -47,95 +55,113 @@ export default function CTAFloatSection() {
 
   // Circular image animation
   const animationRef = useRef<number>(0);
-  const animationSpeed = 0.2;
+  const animationSpeed = 0.4;
 
-  const animate = () => {
-    if (isVisible) {
-      setAngles((prev) => prev.map((angle) => (angle + animationSpeed) % 360));
-    }
-    animationRef.current = requestAnimationFrame(animate);
-  };
+  // const animate = () => {
+  //   if (isVisible) {
+  //     setAngles((prev) => prev.map((angle) => (angle + animationSpeed) % 360));
+  //   }
+  //   animationRef.current = requestAnimationFrame(animate);
+  // };
+
+
+const animate = () => {
+  if (isVisible) {
+    setAngles((prev) =>
+      prev.map((angle, index) => {
+        const side = images[index].side;
+
+        // LEFT SIDE = clockwise (positive)
+        // RIGHT SIDE = anticlockwise (negative)
+        const direction = side === "right" ? -1 : 1;
+
+        return (angle + direction * animationSpeed + 360) % 360;
+      })
+    );
+  }
+
+  animationRef.current = requestAnimationFrame(animate);
+};
+
+
 
   useEffect(() => {
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
   }, [isVisible]);
 
+
+  
   const calculatePosition = (angle: number, side: string) => {
     const radians = (angle * Math.PI) / 180;
-    const radiusX = 200;
-    const radiusY = 240;
+    const radiusX = 180;
+    const radiusY = 180;
     const centerX =
       typeof window !== "undefined"
-        ? side === "left"
-          ? window.innerWidth * 0.06
-          : window.innerWidth * 0.94
-        : 0;
+       ? side === "left"
+        ? window.innerWidth * 0.01
+        : window.innerWidth * 1.0
+      : 0;
     const centerY = 400;
-    const x = centerX + Math.cos(radians) * radiusX;
-    const y = centerY + Math.sin(radians) * radiusY;
-    return { x, y };
-  };
 
-  const cardWidth = 140;
-  const cardHeight = 200;
+  // Inward motion: left pushes right, right pushes left
+  const inwardShift = side === "left" ? 60 : -60;
+
+  return {
+    x: centerX + Math.cos(radians) * radiusX + inwardShift,
+    y: centerY + Math.sin(radians) * radiusY,
+  };
+};
+  // const cardWidth = 140;
+  // const cardHeight = 200;
+ 
+
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white py-24 overflow-hidden h-[110vh]"
+      className="relative w-full bg-gray-50   py-24 overflow-hidden h-[110vh]"
     >
       {/* Images */}
       {images.map((img, index) => {
-        const angle = angles[index];
-        const pos = calculatePosition(angle, img.side);
-        const isLeft = img.side === "left";
+  const angle = angles[index];
+  const pos = calculatePosition(angle, img.side);
 
-        return (
-          <React.Fragment key={img.id}>
-            <div
-  className="absolute"
-  style={{
-    left: `${pos.x}px`,
-    top: `${pos.y}px`,
-    zIndex: 10,
-    opacity: isVisible ? 1 : 0,
-    transition: "opacity 0.3s ease, transform 0.5s ease",
-    transform: isVisible
-      ? "translate(-50%, -50%) translateY(0)"
-      : "translate(-50%, -50%) translateY(600px)",
-  }}
->
+  // Slight vertical overlap
+  const overlapOffset = index % 2 === 0 ? -18 : 18;
 
-              <div
-                className="floating-card rounded-xl overflow-hidden shadow-lg"
-                style={{ width: cardWidth, height: cardHeight }}
-              >
-                <img
-                  src={img.src}
-                  alt=""
-                  className="w-full h-full object-cover pointer-events-none"
-                />
-              </div>
-            </div>
+  return (
+    <React.Fragment key={img.id}>
+      <div
+        className="absolute"
+        style={{
+          left: `${pos.x}px`,
+          top: `${pos.y + overlapOffset}px`,
+          zIndex:10,
+          opacity: isVisible ? 1 : 0,
+          transition: "opacity 0.3s ease, transform 0.2s ease",
+          transform: isVisible
+            ? "translate(-50%, -50%) translateY(0)"
+            : "translate(-50%, -50%) translateY(600px)",
+          
 
-            {index === 0 && (
-              <div
-                className={`absolute border-2 border-dashed ${
-                  isLeft ? "border-blue-200" : "border-green-200"
-                } rounded-full opacity-20`}
-                style={{
-                  left: isLeft ? "18%" : "82%",
-                  top: "400px",
-                  width: "360px",
-                  height: "360px",
-                  transform: "translate(-50%, -50%)",
-                }}
-              />
-            )}
-          </React.Fragment>
-        );
-      })}
+        }}
+      >
+        <div
+          className="floating-card rounded-xl overflow-hidden relative shadow-lg"
+          style={{ width: 150, height: 200 }}
+        >
+          <img
+            src={img.src}
+            alt=""
+            className="w-full h-full border-4 border-white  rounded-xl object-cover pointer-events-none"
+          />
+        </div>
+      </div>
+    </React.Fragment>
+  );
+})}
+
 
       {/* Center Content */}
       <div
@@ -182,6 +208,21 @@ ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-100"}`}
         .floating-card:hover img {
           transform: scale(1.05);
         }
+          .floating-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 130%;
+  height: 30%;  
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(245,245,245,0.9) 90%);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 5;
+   transform: translateX(-4%) skewY(-5deg);
+  
+}
+
       `}</style>
     </section>
   );
