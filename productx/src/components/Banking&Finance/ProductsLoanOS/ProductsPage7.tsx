@@ -17,8 +17,8 @@ const ProductsPage7 = () => {
 
     useEffect(() => {
         // Scroll the ScrollContext container to top
-        if (scrollableContainerRef?.current) {
-            scrollableContainerRef.current.scrollTo({
+        if (scrollableContainerRef) {
+            (scrollableContainerRef as any).scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
