@@ -14,7 +14,7 @@ const TitleSec = () => {
       {/* Text content */}
       <div className="relative z-10 flex items-center h-full px-8 sm:px-16 md:px-24">
         <H1 className="text-white max-w-3xl">
-          Sed ut perspiciatis <br/>unde omnis iste natus
+          Sed ut perspiciatis unde omnis iste natus
         </H1>
       </div>
     </section>

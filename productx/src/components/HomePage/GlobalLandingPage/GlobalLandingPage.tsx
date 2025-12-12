@@ -1,13 +1,17 @@
-import WhatWeDo from "./WhatWeDo"
+// import WhatWeDo from "./WhatWeDo"
 import Footer from "../../Global/Footer/Footer"
 import CallToAction from "./CallToAction"
-import Counter from "./Counter"
-import HowWeDo from "./HowWeDo"
+// import Counter from "./Counter"
+// import HowWeDo from "./HowWeDo"
 import LandingPage from "./LandingPage"
-import Partnership from "./Partnership"
-import TargetAudience from "./TargetAudience"
-import Testimonial from "./Testimonial"
-import VisionImpact from "./VisionImpact"
+// import Partnership from "./Partnership"
+// import TargetAudience from "./TargetAudience"
+// import Testimonial from "./Testimonial"
+// import VisionImpact from "./VisionImpact"
+import FutureSection from "./FutureSection"
+import InnovationCards from "./InnovationCards"
+import BusinessValuesSection from "./BusinessValuesSection"
+import AnimatedStatement from "./AnimatedStatement"
 // import IndustrySlider from "./IndustrySlider"
  
  
@@ -23,7 +27,20 @@ const GlobalLandingPage = () => {
             {/* <div>
                 <IndustrySlider/>
             </div> */}
-            <div id="whatwedo">
+            <div>
+                <AnimatedStatement/>
+            </div>
+            <div id="futuresection">
+            <FutureSection/>
+            </div>
+            <div id="innovationcards">
+                <InnovationCards/>
+            </div>
+            <div id="businessvaluessection">
+                <BusinessValuesSection/>
+            </div>
+            
+            {/* <div id="whatwedo">
                 <WhatWeDo />
             </div>
             <div id="partnership">
@@ -40,8 +57,8 @@ const GlobalLandingPage = () => {
             </div>
             <div id="visionimpact">
                 <VisionImpact />
-            </div>
-            <div id="counter"><Counter /></div>
+            </div> */}
+            {/* <div id="counter"><Counter /></div> */}
             <div id="calltoaction"><CallToAction /></div>
             <div id="footer">
                 <Footer />

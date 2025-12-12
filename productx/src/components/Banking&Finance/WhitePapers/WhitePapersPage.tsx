@@ -1,15 +1,17 @@
-import BlogGridSection from "../Blogs/BlogsGridSection";
+// import BlogGridSection from "../Blogs/BlogsGridSection";
 import BNFNav from "../BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import TitleSec from "./TitleSec";
+import AllPosts from "../Blogs/AllPosts";
 
 const WhitePapersPAge = () => {
   return (
     <>
     <BNFNav/>
     <TitleSec/>
-    <BlogGridSection/>
+    <AllPosts/>
+    {/* <BlogGridSection/> */}
     <ContactUS/>
     <NewOneFooter/>
       

@@ -169,13 +169,13 @@ const Products = () => {
           <div
             id="productsSection"
             ref={sliderRef}
-            className="flex gap-6 md:gap-10 h-[300px]  md:h-[350px] overflow-x-auto scroll-smooth scrollbar-hide scrollbar-hide::-webkit-scrollbar no-scrollbar pb-4"
+            className="flex gap-6 md:gap-10 h-[300px] md:h-[350px] xl:h-[405px] overflow-x-auto scroll-smooth scrollbar-hide scrollbar-hide::-webkit-scrollbar no-scrollbar pb-4"
           >
             {products.map((product) => (
               <div
                 key={product.id}
-                className="relative aspect-[4/3] w-[280px] sm:w-[330px] md:w-[360px]
-                           flex-shrink-0 rounded-lg overflow-hidden shadow-md
+                className="relative  w-[280px] sm:w-[330px] md:w-[360px] lg:w-[384px]
+                           flex-shrink-0 rounded-sm overflow-hidden shadow-md
                            hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
                 onClick={() => handleProductClick(product.route)}
               >
@@ -210,7 +210,7 @@ const Products = () => {
                     {/* Logo sliding */}
                     <div className="absolute left-4 sm:left-6 bottom-6 w-[200px] rounded-md py-3
                                     transition-all duration-700 ease-in-out transform
-                                    group-hover:-translate-y-52">
+                                    group-hover:-translate-y-62">
                       <img src={product.logo} className=" h-20  rounded-md w-full" />
                     </div>
  

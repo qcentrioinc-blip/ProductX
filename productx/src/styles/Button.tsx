@@ -1,5 +1,5 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import React, { useRef, useEffect, useCallback } from "react";
  
 interface ButtonProps {
@@ -158,7 +158,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
         className="absolute inset-0 pointer-events-none"
       ></canvas>
  
-      <Link to={contactUrl}>
+      <a href={contactUrl}>
         <button
           className={`
             group
@@ -186,7 +186,7 @@ export const ContactUs = ({ children, className = "" }: ButtonProps) => {
             </span>
           </span>
         </button>
-      </Link>
+      </a>
     </div>
   );
 };

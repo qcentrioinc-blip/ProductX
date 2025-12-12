@@ -1,5 +1,5 @@
 import { ContactUs } from "../../styles/Button";
-import { H2 } from "../../styles/Typography";
+import { H1 } from "../../styles/Typography";
  
  
 const Intro = () => {
@@ -29,20 +29,20 @@ const Intro = () => {
       <div className="relative max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
         <div className="max-w-4xl">
           {/* Heading */}
-          <H2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">
+          <H1 className="mb-6 md:mb-8 leading-tight">
             <span className="text-[#2B68C3]">Sed ut perspiciatis</span>{' '}
             <span className="text-[#666666]">Unde Seduo ut perspiciatis</span>
-          </H2>
+          </H1>
  
           {/* First Paragraph */}
-          <p className="text-sm sm:text-base md:text-lg text-[#666666] mb-4 md:mb-6 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#141414] mb-4 md:mb-6 leading-relaxed xl:max-w-3xl max-w-xl md:max-w-3xl">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
           </p>
  
           {/* Second Paragraph */}
-          <p className="text-sm sm:text-base md:text-lg text-[#666666] mb-8 md:mb-10 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#141414] mb-8 md:mb-10 leading-relaxed xl:max-w-3xl max-w-xl md:max-w-3xl">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.

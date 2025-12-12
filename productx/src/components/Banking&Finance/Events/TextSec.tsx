@@ -1,25 +1,25 @@
 "use client";
 
-import { H2, P } from "../../../styles/Typography"; // adjust path if needed
+import { H2, H3, P } from "../../../styles/Typography"; // adjust path if needed
 
 export default function TextSec() {
   return (
     <section className="w-full bg-black text-white py-20 px-6 md:px-12">
-<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-start">
+<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-12 items-start">
         
         {/* LEFT SIDE */}
         <div className="space-y-6">
           {/* Small title with line */}
           <div className="flex items-center gap-3">
-            <div className="h-[6px] w-12 rounded-full bg-white/60"></div>
-            <p className="text-white text-3xl">Quis autem</p>
+            <div className="h-[6px] w-10 rounded-full bg-[#F5F5F5]"></div>
+            <H3 className="text-white">Quis autem</H3>
           </div>
 
           {/* Main Heading */}
           <H2 className="leading-tight">
             Shaping the  
-            <br /> Future Across  
-            <br /> Every Sector.
+            Future Across  
+            Every Sector.
           </H2>
         </div>
 

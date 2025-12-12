@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { motion, useInView as useFramerInView } from 'framer-motion';
 import { useRef, } from 'react';
 import { Link } from 'react-router-dom';
+import { H1, P } from '../../../styles/Typography';
 
 const FirstProduct = () => {
 
@@ -41,23 +42,16 @@ const FirstProduct = () => {
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 border-2 border-white"></div>
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
             </div>
-            <span 
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontSize: '16px',
-                fontWeight: 500,
-                color: '#FFFFFF'
-              }}
-            >
+            <P>
               Trusted by 15K+
-            </span>
+            </P>
           </div>
 
           {/* Content Container */}
           <div
             className="content-container"
             style={{
-              width: '886px',
+              width: '1000px',
               display: 'flex',
               flexDirection: 'column',
               gap: '10px',
@@ -66,41 +60,16 @@ const FirstProduct = () => {
             }}
           >
             {/* Main Heading */}
-            <h1
-              className="main-heading"
-              style={{
-                width: '886px',
-                height: '77px',
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 700,
-                fontSize: '64px',
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                textAlign: 'center',
-                color: '#FFFFFF'
-              }}
-            >
+            <H1 className='text-[#020059] sm:text-center'>
+              
               Smarter Banking, Simplified
-            </h1>
+            </H1>
 
             {/* Subtitle */}
-            <p
-              className="subtitle-text"
-              style={{
-                width: '886px',
-                height: '50px',
-                fontFamily: "'Quicksand', sans-serif",
-                fontWeight: 400,
-                fontSize: '20px',
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                textAlign: 'center',
-                color: '#FAFAFA',
-                overflow: 'hidden'
-              }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            </p>
+            <P>
+              
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt cupidatat non proident, sunt in culpa qui officia deserunt.
+            </P>
 
             {/* CTA Button */}
             <Link to="/industries/banking-and-finance/contactform">
