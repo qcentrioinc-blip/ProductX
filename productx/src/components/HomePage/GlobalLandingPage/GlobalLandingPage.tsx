@@ -1,5 +1,5 @@
 import WhatWeDo from "./WhatWeDo"
-import Footer from "../../Global/Footer/Footer"
+// import Footer from "../../Global/Footer/Footer"
 import CallToAction from "./CallToAction"
 import Counter from "./Counter"
 import HowWeDo from "./HowWeDo"
@@ -11,6 +11,7 @@ import VisionImpact from "./VisionImpact"
 import Milestone from "./Milestone"
 import LifeCycleTech from "./LifeCycleTech"
 import CEO from "./CEO"
+import NewFooter from "../../Global/NewFooter/NewFooter"
 
 const GlobalLandingPage = () => {
     return (
@@ -70,7 +71,7 @@ const GlobalLandingPage = () => {
                 
                 {/* Footer Section */}
                 <div id="footer">
-                    <Footer />
+                    <NewFooter />
                 </div>
             </div>
         </div>

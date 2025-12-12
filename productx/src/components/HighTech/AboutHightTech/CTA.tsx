@@ -1,5 +1,6 @@
  
-import { ContactUs } from "../../../styles/Button";
+ 
+import {   ContactUsHigh } from "../../../styles/Button";
 import { H2 } from "../../../styles/Typography";
 import redLight from "/AboutUs/UpScale.png"
 const CTA = () => {
@@ -25,8 +26,7 @@ const CTA = () => {
 
         {/* Button */}
         <div className="mt-4 items-center flex justify-center">
-          
-          <ContactUs>Contact Us</ContactUs>
+           <ContactUsHigh>Contact Us</ContactUsHigh>
         </div>
       </div>
     </section>

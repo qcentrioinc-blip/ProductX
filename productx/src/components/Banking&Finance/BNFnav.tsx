@@ -14,15 +14,14 @@ const menuRef = useRef<HTMLDivElement | null>(null);
   // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
  
 const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
- 
  const closeAllMenus = () => {
   setMegaMenuOpen(false);
   setResourcesMenuOpen(false);
   setmegaMenuBuiltFor(false);
   setLogoDropdownOpen(false);
 };
- 
- 
+
+
 const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);  
  
 const preloadImages = () => {
@@ -31,8 +30,8 @@ const preloadImages = () => {
     img.src = item.img;
   });
 };
- 
- 
+
+
 const megaMenuItems = [
   {
     title: "Almanac",
@@ -165,7 +164,6 @@ const industries = [
   },
  
 ];
- 
 const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
  
@@ -263,8 +261,8 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
         onMouseLeave={closeAllMenus}
 className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
 >
- 
- 
+
+  
          <div className="flex items-center gap-10">
        <div
 className="relative flex items-center gap-1 cursor-pointer"
@@ -313,7 +311,6 @@ className="w-4 h-4" />
   </div>
 )}
 </div>
- 
        <ul className="flex items-center   gap-8 font-bold font-quicksand">
   {navItems.map((item) => (
     <li key={item.name}>
@@ -325,7 +322,6 @@ className="w-4 h-4" />
     className="relative"
    onMouseEnter={() => {
       preloadImages();
- 
   setMegaMenuOpen(true);
   setResourcesMenuOpen(false);
   setmegaMenuBuiltFor(false);
@@ -368,12 +364,12 @@ className="w-4 h-4" />
                 <P className="text-gray-600 text-sm">{item.desc}</P>
               </div>
             </Link>
-          ))}
+          ))} 
         </div>
       </div>
     )}
   </div>
-)}  
+)}   
 {/* RESOURCES MEGA MENU */}
 {item.name === "Resources" && (
   <div
@@ -381,7 +377,7 @@ className="w-4 h-4" />
     onMouseEnter={() => setResourcesMenuOpen(true)}
     onMouseLeave={() => setMegaMenuOpen(false)}
    
-   
+    
   >
       <div className="flex items-center gap-1 cursor-pointer">
     <button className="text-gray-800 text-[18px]">Resources</button>
@@ -393,8 +389,8 @@ className="w-4 h-4" />
   </div>
   </div>
 )}
- 
- 
+
+
 {item.name === "Built for" && (
   <div
     className="relative"
@@ -403,7 +399,7 @@ className="w-4 h-4" />
   setMegaMenuOpen(false);
   setResourcesMenuOpen(false);
 }}  
- 
+  
   >
     <div className="flex items-center gap-1 cursor-pointer">
     <button className="text-gray-800 text-[18px]">Built For</button>
@@ -649,8 +645,8 @@ translate-y-1
             </a>
           </div>
         </div>
- 
-       
+
+        
         <div className="flex  scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
           {/* PRODUCTS */}
           <div className="border-b border-gray-200 pb-3">
@@ -675,7 +671,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* RESOURCES */}
           <div className="border-b border-gray-200 pb-3">
             <button
@@ -696,7 +692,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* BUILT FOR */}
           <div className="border-b border-gray-200 pb-3">
             <button
@@ -717,7 +713,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* Other navItems */}
           {navItems.map((item) =>
             item.name !== "Products" && item.name !== "Resources" &&
@@ -730,12 +726,12 @@ translate-y-1
             ) : null
           )}
         </div>
- 
+
         <div className="flex justify-between mt-10 gap-6 pt-4">
           <a href="#" className="text-blue-500 text-lg font-semibold">Platform</a>
           <a href="#" className="text-blue-500 text-lg font-semibold">Marketplace</a>
         </div>
- 
+
         <div className="mt-6 flex justify-start items-center">
           <a href="#" onClick={() => setMenuOpen(false)}>
             <ContactUsDark>Contact Us</ContactUsDark>

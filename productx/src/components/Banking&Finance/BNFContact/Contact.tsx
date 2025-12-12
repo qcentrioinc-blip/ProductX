@@ -1,5 +1,6 @@
 import BNFNav from "../BNFnav"
-import ContactSection from "../ProductBankfair/ContactSection"
+// import ContactSection from "../ProductBankfair/ContactSection"
+import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import HeroSection from "./HeroSection"
 
@@ -9,8 +10,25 @@ const Contact = () => {
     <div>
       <BNFNav/>
       <HeroSection/>
-      <ContactSection/>
-      <NewOneFooter/>
+    <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
     </div>
   )
 }

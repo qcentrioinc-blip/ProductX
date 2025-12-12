@@ -4,11 +4,12 @@
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[600px] sm:h-screen min-h-[500px] sm:max-h-[800px] w-full overflow-hidden">
+    // <div className="relative h-[600px] sm:h-screen min-h-[500px] sm:max-h-[800px] w-full overflow-hidden">
+    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-screen min-h-[500px] max-h-[900px] overflow-hidden">
       
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full  h-full object-cover animate-[scaleIn_1.2s_ease-out]"
+        className="absolute inset-0 w-full   h-full object-cover  "
         src="/Video/BNF.mp4"    
         autoPlay
         muted
@@ -20,7 +21,7 @@ const HeroSection = () => {
       {/* <div className="absolute inset-0 bg-black/70" /> */}
 
       {/* Content Container */}
-      <div className="relative h-full flex items-center justify-start md:mx-10 px-4 sm:px-6 md:px-0 lg:px-8">
+      {/* <div className="relative h-full flex items-center justify-start md:mx-10 px-4 sm:px-6 md:px-0 lg:px-8"> */}
         {/* <div className="w-full max-w-4xl text-left"> */}
           
           {/* <H1 className="font-bold lg:mt-24 text-white mb-4 md:mb-6 leading-tight animate-[slideInLeft_0.8s_ease-out]">
@@ -41,8 +42,8 @@ const HeroSection = () => {
         {/* </div> */}
       </div>
 
-      {/* Keyframe animations */}
-      <style>{`
+      /* Keyframe animations */
+      /* <style>{`
         @keyframes slideInLeft {
           from {
             opacity: 0;
@@ -63,8 +64,8 @@ const HeroSection = () => {
             opacity: 1;
           }
         }
-      `}</style>
-    </div>
+      `}</style> */
+    // </div>
   );
 };
 

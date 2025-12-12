@@ -1,5 +1,6 @@
 import BNFNav from "../BNFnav"
-import ContactSection from "../ProductBankfair/ContactSection"
+// import ContactSection from "../ProductBankfair/ContactSection"
+import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 // import BlogGridSection from "./BlogsGridSection"
 // import ContactSection from "../Products1/ContactSection"
@@ -18,10 +19,25 @@ const Blogs = () => {
       <HeroSection/>
       <FeaturedCards/>
       <AllPosts/>
-      {/* <BlogGridSection/> */}
-      {/* <ContactSection/> */}
-      <ContactSection/>
-      <NewOneFooter/>
+       <div className="relative">
+      
+      <div className=" lg:h-[200vh]"></div>
+     
+     
+       
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter/>
+        </div>
+ 
+         
+        <div
+          className="absolute inset-0 z-40 pointer-events-none"
+         
+        >
+          <ContactUS/>
+        </div>
+ 
+      </div>
     </div>
   )
 }

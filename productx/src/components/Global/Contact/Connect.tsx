@@ -1,5 +1,5 @@
  
- 
+import Navbar from "../Navbar/Navbar"
 import NewFooter from "../NewFooter/NewFooter"
 import Contact from "./Contact"
 // import Contact2 from "./Contact2"
@@ -8,7 +8,8 @@ import Contact from "./Contact"
 const Connect = () => {
   return (
     <div>
-       
+      
+       <Navbar/>
       <Contact/>
       {/* <Contact2/> */}
       <NewFooter/>
