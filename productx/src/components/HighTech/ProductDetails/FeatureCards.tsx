@@ -1,7 +1,6 @@
 "use client";
-import { useRef, useContext, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ScrollContext } from "../../../context/ScrollContext";
 import { H2, H4, P } from "../../../styles/Typography";
 
 /* ✅ Responsive Media Query Hook */
@@ -23,12 +22,10 @@ function useMediaQuery(query: string) {
 
 const FeatureCards = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollContext = useContext(ScrollContext);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
-    container: scrollContext || undefined,
   });
 
   /* ✅ Responsive X Transform */

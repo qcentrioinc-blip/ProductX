@@ -219,12 +219,12 @@ const CircleAnimation = () => {
     screenSize === 'tablet' ? tabletSlides : desktopSlides;
 
   const checkScrollPosition = useCallback(() => {
-    const scrollContainer = scrollContext?.current;
+    const scrollContainer = scrollContext;
     if (!containerRef.current || !scrollContainer) return;
 
     const rect = containerRef.current.getBoundingClientRect();
     const containerHeight = rect.height;
-    const viewportHeight = scrollContainer.clientHeight;
+    const viewportHeight = window.innerHeight;
 
     const scrolled = -rect.top;
     const scrollableHeight = containerHeight - viewportHeight;
@@ -254,18 +254,18 @@ const CircleAnimation = () => {
   }, [scrollProgress, slides.length]);
 
   useEffect(() => {
-    const scrollContainer = scrollContext?.current;
+    const scrollContainer = scrollContext;
     if (!scrollContainer) return;
 
     const handleScroll = () => {
       checkScrollPosition();
     };
 
-    scrollContainer.addEventListener('scroll', handleScroll);
+    scrollContainer.on('scroll', handleScroll);
     checkScrollPosition();
 
     return () => {
-      scrollContainer.removeEventListener('scroll', handleScroll);
+      scrollContainer.off('scroll', handleScroll);
     };
   }, [checkScrollPosition, scrollContext]);
 

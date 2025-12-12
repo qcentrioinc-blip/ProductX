@@ -1,15 +1,12 @@
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ScrollContext } from '../../../context/ScrollContext';
 
 const WhyQnest = () => {
-  const scrollContainer = useContext(ScrollContext);
   const targetRef = useRef(null);
 
   // Scroll animation setup - only for desktop
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    container: scrollContainer ?? undefined,
     offset: ["start center", "center start"]
   });
 
