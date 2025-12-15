@@ -6,10 +6,10 @@ import { H2 } from "../../../styles/Typography";
 const CallToAction = () => {
   return (
     <div className="w-full h-auto lg:h-[482px] bg-gradient-to-tr from-black via-[#01010c] to-[#000000] text-white relative overflow-hidden">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between h-full px-4 sm:px-6 lg:px-12 py-10 gap-10">
-        
+      <div className="container mx-10 flex flex-col lg:flex-row items-center justify-between h-full py-10 gap-10">
+
         {/* Left side - Text content */}
-        <div className="w-full lg:w-[685px] h-auto text-center lg:text-left">
+        <div className="w-full lg:w-[700px] h-auto text-center lg:text-left">
           {/* <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug text-white">
             Sed ut perspiciatis unde omnis iste
           </h1> */}
@@ -17,7 +17,7 @@ const CallToAction = () => {
             Sed ut perspiciatis unde omnis iste
           </H2>
 
-         
+
           {/* <p className="text-gray-300 leading-relaxed pt-4 pb-6 text-sm sm:text-base lg:text-justify">
             Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut fugit, sed olad
             consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
@@ -29,10 +29,14 @@ const CallToAction = () => {
             quisquam est, qui dolorem ipsum olad dolor sit amet.
 
           </p>
-          <button className="px-5 py-3 bg-white text-black font-semibold rounded-lg flex items-center gap-2 mx-auto lg:mx-0">
-            EXPLORE ALL PRODUCTS 
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="px-5 py-3 bg-white text-black font-semibold rounded-lg flex items-center gap-2 mx-auto lg:mx-0"
+          >
+            EXPLORE ALL PRODUCTS
             <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 font-bold" />
           </button>
+
         </div>
 
         {/* Right side - Image */}

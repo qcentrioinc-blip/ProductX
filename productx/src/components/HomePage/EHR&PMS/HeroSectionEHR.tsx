@@ -13,9 +13,9 @@ import GridSection from "./GridSection"
 import SplitSection from "./SplitSection"
 import BlogCarousel from "./BlogCarousel"
 import CTASection from "./CTASection"
-
+ 
 const HeroSectionEHR = () => {
-  
+ 
   return (
     <div>
       <LandingPageEHS />
@@ -23,16 +23,27 @@ const HeroSectionEHR = () => {
       <StatsSectionEHR/>
       <CTASection/>
       <WhyQnest />
-      
-      
-      <div className="relative  my-96"> 
-      <ShortDesc />
-      <GridSection/>
-      <SplitSection />
-      </div>
+     
+     
+      <div className="relative w-full">
+ 
+  <div className="absolute top-95 left-0 w-full z-30">
+    <GridSection />
+  </div>
+ 
+  <div className="relative z-10 pt-[55vh] pb-[55vh]">
+    <ShortDesc />
+  </div>
+ 
+  <div className="absolute bottom-0 top-20 left-0 w-full z-20 translate-y-[35vh]">
+    <SplitSection />
+  </div>
+ 
+</div>
+ 
      
       {/* <CircleAnimation /> */}
-      
+     
       {/* <Testimonials /> */}
       {/* <ParaDescription /> */}
       {/* <HealthFeatures /> */}
@@ -42,5 +53,5 @@ const HeroSectionEHR = () => {
     </div>
   )
 }
-
+ 
 export default HeroSectionEHR

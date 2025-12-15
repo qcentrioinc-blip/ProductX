@@ -91,7 +91,7 @@ const FirstPageResource = () => {
   const smallResources = allResources.slice(1); // 6 small cards
 
   return (
-    <div className="w-full bg-white lg:min-h-screen overflow-hidden lg:mt-40">
+    <div className="w-full bg-white lg:min-h-screen overflow-hidden">
       {/* Background Pattern */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none"
@@ -105,7 +105,7 @@ const FirstPageResource = () => {
       />
 
       {/* Content Container */}
-      <div className="relative z-10 w-full pt-24 md:pt-28 lg:pt-0">
+      <div className="relative z-10 w-full pt-24 md:pt-28 lg:pt-0 lg:top-50">
         {/* Header Section */}
         <div
           className="
@@ -196,7 +196,7 @@ const FirstPageResource = () => {
                     rounded-lg font-semibold transition-all
                     text-xs sm:text-sm md:text-base
                     px-4 sm:px-5 h-9 sm:h-10 md:h-12
-                    min-w-[120px] sm:min-w-[140px] md:min-w-[180px] lg:min-w-[210px]
+                    min-w-[120px] sm:min-w-[140px] md:min-w-[180px] lg:min-w-[207px]
                     ${activeFilter === filter
                       ? 'text-white bg-[#5551FF] border border-transparent'
                       : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
@@ -237,7 +237,7 @@ const FirstPageResource = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50"
+                    className="absolute right-15 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50"
                     style={{ width: '200px' }}
                   >
                     {additionalFilters.map((category, index) => (
