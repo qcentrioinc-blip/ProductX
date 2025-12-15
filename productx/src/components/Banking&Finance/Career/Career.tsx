@@ -25,7 +25,7 @@ const Career = () => {
         <Counter/>
      <div className="relative">
           
-          <div className=" lg:h-[200vh]"></div>
+          <div className=" lg:h-[100vh]"></div>
          
          
            

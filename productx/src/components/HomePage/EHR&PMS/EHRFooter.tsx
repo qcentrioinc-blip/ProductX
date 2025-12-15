@@ -1,34 +1,41 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// WAVE BREATHING EFFECT - Height changes on scroll
+// WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
 const GradientLayers = () => {
   const containerRef = useRef(null);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"] // Triggers across full viewport
   });
 
   const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
   
-  // Each layer has different height animation ranges
+  // Increased height ranges for more dramatic effect
   const layers = [
-    { opacity: 0.9, minHeight: 30, maxHeight: 70 },
-    { opacity: 0.8, minHeight: 35, maxHeight: 75 },
-    { opacity: 0.6, minHeight: 25, maxHeight: 65 },
-    { opacity: 0.4, minHeight: 40, maxHeight: 80 },
-    { opacity: 0.2, minHeight: 20, maxHeight: 60 },
-    { opacity: 0.05, minHeight: 15, maxHeight: 55 }
+    { opacity: 0.9, minHeight: 25, maxHeight: 85 },
+    { opacity: 0.8, minHeight: 30, maxHeight: 90 },
+    { opacity: 0.6, minHeight: 20, maxHeight: 80 },
+    { opacity: 0.4, minHeight: 35, maxHeight: 95 },
+    { opacity: 0.2, minHeight: 15, maxHeight: 75 },
+    { opacity: 0.05, minHeight: 10, maxHeight: 70 }
   ];
 
   return (
     <div ref={containerRef} className="w-full">
       {layers.map((layer, index) => {
-        // Animate HEIGHT based on scroll - creating wave effect
+        // FASTER ANIMATION - Narrower scroll progress range
+        // Each layer moves at slightly different speeds for wave effect
+        const scrollRange = [
+          0.1 + (index * 0.05), // Start earlier based on layer
+          0.5,
+          0.9 - (index * 0.05)  // End later based on layer
+        ];
+
         const height = useTransform(
           scrollYProgress,
-          [0, 0.5, 1],
+          scrollRange,
           [layer.minHeight, layer.maxHeight, layer.minHeight]
         );
 
@@ -53,20 +60,35 @@ const GradientLayers = () => {
 };
 
 const EHRFooter = () => {
+  const base = '/industries/ehr-and-pms';
+
+  const quickLinks = [
+    { name: 'Home', path: base },
+    { name: 'Built for', path: `${base}/built-for` },
+    { name: 'About Us', path: `${base}/aboutus` },
+    { name: 'Careers', path: `${base}/careers` }
+  ];
+
+  const resources = [
+    { name: 'Blogs', path: `${base}/blogs` },
+    { name: 'Glossary', path: `${base}/glossary` },
+    { name: 'News', path: `${base}/news` },
+    { name: 'Case Studies', path: `${base}/case-studies` },
+    { name: 'White papers', path: `${base}/white-papers` }
+  ];
+
   return (
     <footer className="bg-[#3B8866]">
-      
-      {/* Green Gradient Layers - 6 Layers */}
+      {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
       <GradientLayers />
 
-      {/* Main Container - Centered with max-width */}
+      {/* Main Container */}
       <div className="bg-[#3B8866] flex flex-col items-left max-w-8xl px-4 sm:px-6 md:px-8 py-8">
         
-        {/* TOP CARD - Newsletter - 1335px width, 20px radius */}
+        {/* TOP CARD - Newsletter */}
         <div 
           className="bg-white shadow-xl w-full"
           style={{
-            // maxWidth: '1335px',
             borderRadius: '20px',
             marginBottom: '11px',
             opacity: 1
@@ -75,7 +97,6 @@ const EHRFooter = () => {
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-16 lg:py-20">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
               
-              {/* QNEST LOGO - Left side */}
               <div className="flex-shrink-0">
                 <h1
                   style={{
@@ -91,7 +112,6 @@ const EHRFooter = () => {
                 </h1>
               </div>
 
-              {/* NEWSLETTER SECTION - Right side */}
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
                 <h2
                   className="mb-8 text-left lg:text-left"
@@ -138,18 +158,16 @@ const EHRFooter = () => {
           </div>
         </div>
 
-        {/* BOTTOM CARD - Links - 1335px width, 8px radius */}
+        {/* BOTTOM CARD - Links */}
         <div 
           className="bg-white shadow-xl w-full relative"
           style={{
-            // maxWidth: '1335px',
             borderRadius: '8px',
             opacity: 1
           }}
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
             
-            {/* Three Column Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.5fr_0.5fr_1.5fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0">
               
               {/* QUICK LINKS */}
@@ -168,11 +186,11 @@ const EHRFooter = () => {
                   Quick Links
                 </h3>
                 <ul className="space-y-5">
-                  {['Home', 'Built for', 'About Us', 'Careers'].map((link) => (
-                    <li key={link}>
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
                       <a
-                        href={`#${link.toLowerCase().replace(' ', '-')}`}
-                        className="hover:opacity-80 transition-opacity"
+                        href={link.path}
+                        className="hover:opacity-80 transition-opacity inline-block"
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 700,
@@ -182,7 +200,7 @@ const EHRFooter = () => {
                           color: '#166D48'
                         }}
                       >
-                        {link}
+                        {link.name}
                       </a>
                     </li>
                   ))}
@@ -205,11 +223,11 @@ const EHRFooter = () => {
                   Resources
                 </h3>
                 <ul className="space-y-5">
-                  {['Blogs', 'Glossary', 'News', 'Case Studies', 'White papers'].map((link) => (
-                    <li key={link}>
+                  {resources.map((link) => (
+                    <li key={link.name}>
                       <a
-                        href={`#${link.toLowerCase().replace(' ', '-')}`}
-                        className="hover:opacity-80 transition-opacity"
+                        href={link.path}
+                        className="hover:opacity-80 transition-opacity inline-block"
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 700,
@@ -219,7 +237,7 @@ const EHRFooter = () => {
                           color: '#166D48'
                         }}
                       >
-                        {link}
+                        {link.name}
                       </a>
                     </li>
                   ))}
@@ -244,8 +262,8 @@ const EHRFooter = () => {
                 <ul className="space-y-5">
                   <li>
                     <a
-                      href="#clinic-app"
-                      className="hover:opacity-80 transition-opacity"
+                      href={`${base}/clinic-app`}
+                      className="hover:opacity-80 transition-opacity inline-block"
                       style={{
                         fontFamily: "'Bricolage Grotesque', sans-serif",
                         fontWeight: 700,
@@ -262,9 +280,8 @@ const EHRFooter = () => {
               </div>
             </div>
 
-            {/* SOCIAL ICONS - Bottom Right Corner */}
+            {/* SOCIAL ICONS */}
             <div className="absolute bottom-12 right-12 md:bottom-14 md:right-16 lg:right-20 flex items-center gap-3">
-              {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -277,7 +294,6 @@ const EHRFooter = () => {
                 </svg>
               </a>
 
-              {/* X (Twitter) */}
               <a
                 href="https://x.com"
                 target="_blank"
@@ -290,7 +306,6 @@ const EHRFooter = () => {
                 </svg>
               </a>
 
-              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -308,7 +323,7 @@ const EHRFooter = () => {
       </div>
 
       {/* COPYRIGHT SECTION */}
-      <div className="bg-[#3B8866] px-4 sm:px-6 md:px-8 pb-8 pt-6">
+      <div className="bg-[#3B8866] px-4 sm:px-6 md:px-12 pb-8 pt-6">
         <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
           <p
             style={{
@@ -321,7 +336,7 @@ const EHRFooter = () => {
           </p>
           <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
             <a
-              href="#privacy-policy"
+              href={`${base}/privacy-policy`}
               className="hover:underline"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
@@ -332,7 +347,7 @@ const EHRFooter = () => {
               Privacy Policy
             </a>
             <a
-              href="#cookie-policy"
+              href={`${base}/cookie-policy`}
               className="hover:underline"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
@@ -343,7 +358,7 @@ const EHRFooter = () => {
               Cookie Policy
             </a>
             <a
-              href="#terms-and-conditions"
+              href={`${base}/terms-and-conditions`}
               className="hover:underline"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
