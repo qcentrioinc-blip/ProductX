@@ -7,6 +7,7 @@ const ShortDesc = () => {
       className="
         w-full 
         bg-[#EEFDD9]
+        py-50
          md:py-16
         px-4 sm:px-6 lg:px-20
         overflow-hidden
@@ -16,7 +17,7 @@ const ShortDesc = () => {
       <div
         className="
           w-full
-          max-w-7xl
+          max-w-8xl
           mx-auto
           flex
           flex-col

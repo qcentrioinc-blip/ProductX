@@ -1,6 +1,6 @@
 import LandingPageHighTech from "./LandingPageHighTech"
 import ThreeStep from "./ThreeStep"
-import CircleSteps from "./CircleSteps"
+// import CircleSteps from "./CircleSteps"
 import ThreeCards from "./ThreeCards"
 import OnePoint from "./OnePoint"
 import TextAnimation from "./TextAnimation"
@@ -15,6 +15,7 @@ import SmallArticle from "./SmallArticle"
 import FlyingPosters from "./RockTech"
 import ContactSecHT from "../../HighTech/ContactSecHT"
 import FooterHT from "../../HighTech/FooterHT"
+import CircleStepsCopy from "./CircleStepsCopy"
 
 const items = [
   '/HighTech/HomePage/EngineerGirl.png',
@@ -32,7 +33,8 @@ const HeroSectionHighTech = () => {
       {/* <div style={{ height: '900px', position: 'relative' }}> */}
       <FlyingPosters items={items} />
       {/* </div> */}
-      <CircleSteps />
+      {/* <CircleSteps /> */}
+      <CircleStepsCopy/>
       <OnePoint />
       <SmallArticle />
       <ThreeStep />
