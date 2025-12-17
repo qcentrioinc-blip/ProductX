@@ -120,7 +120,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative  mt-10 md:mt-0 lg:mt-36 w-full z-30 text-center">
+    <section className="relative   w-full z-30 text-center">
       {/* Top Section Container - Relative for background overlay */}
       <div className="relative w-full">
         {/* Background Overlay for the Expanding Animation */}
@@ -140,7 +140,7 @@ const HeroSection = () => {
         >
           <div className="max-w-4xl mx-auto flex flex-col items-center">
             <motion.div variants={itemVariants}>
-              <H1 className="font-bold text-white">
+              <H1 className="font-bold text-white pt-24">
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
               </H1>
             </motion.div>

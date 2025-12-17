@@ -44,7 +44,8 @@ const BankingAndFinance = () => {
           className="absolute inset-0 z-40 pointer-events-none"
          
         >
-          <ContactUS/>
+    <ContactUS />
+   
         </div>
  
       </div>

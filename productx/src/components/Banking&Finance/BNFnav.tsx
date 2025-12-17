@@ -211,7 +211,7 @@ const industryOptions = industries.filter((ind) => ind.name !== currentIndustry)
       <div
         className=" fixed top-0 z-50 left-0 w-full
         bg-white/10 backdrop-blur-lg font-bricolage
-        border-b border-white/20
+      
          px-4 sm:px-6 md:px-8 pt-3 pb-1
         flex justify-between transition-all duration-300"
       >
@@ -449,9 +449,13 @@ className="w-4 h-4" />
     Careers
   </Link>
  
-  <Link to={`${base}/contactform`}>
-    <ContactUsDark>Contact Us</ContactUsDark>
-  </Link>
+  <a
+  href="#contact"
+  onClick={() => setMenuOpen(false)}
+>
+  <ContactUsDark>Contact Us</ContactUsDark>
+</a>
+
 </div>
  
       </nav>
@@ -631,8 +635,8 @@ translate-y-1
   </div>
 )}
  
- {/* mobil view */}
- 
+ {/* mobile view */}
+ {menuOpen && (
     <div
         ref={menuRef}
         className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -738,6 +742,7 @@ translate-y-1
           </a>
         </div>
       </div>
+    )}
     </>
   );
 };
