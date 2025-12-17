@@ -5,7 +5,7 @@ import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
-import { ScrollProvider } from './context/ScrollContext'
+ 
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'
@@ -58,6 +58,7 @@ import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
 import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
 import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
+import { ScrollProvider } from './context/ScrollContext'
 
 
 

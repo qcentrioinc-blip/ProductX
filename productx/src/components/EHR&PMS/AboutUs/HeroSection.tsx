@@ -2,16 +2,16 @@ import { H1 } from "../../../styles/Typography";
 import Image1 from "/AboutUs/image81.png";
 const HeroSection = () => {
   return (
-    <div className="w-full">
-
-      <div
-        className="  h-[40vh] lg:h-[60vh]  w-full flex items-center justify-center"
+    <div className="w-full   ">
+       
+      <div 
+        className="  h-[40vh] lg:h-[60vh]  w-full flex items-center justify-center" 
         style={{
-          backgroundImage: 'url("/ClinicApp/ClinicBackground.png")',
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-
+            backgroundImage: 'url("/EHR-PMS/Careers/bg_img1.png")',
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+           
         }}
       >
         <H1 className=" font-thin  px-2 lg:px-40 text-[#166D48] text-center ">
