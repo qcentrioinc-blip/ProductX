@@ -1356,16 +1356,38 @@ export default function ContactHero() {
             "
           ></div>
 
-      <div className="max-w-8xl mx-10 px-4 py-20 relative z-20">
+      <div className="max-w-8xl mx-10 px-4 py-10 relative z-20">
         <div className="flex flex-col md:flex-row gap-12">
-          {/* LEFT: Form */}
-          <div className="md:w-1/2">
+          {/* LEFT*/}
+          <div className="md:w-1/2 ">
+            <div>
+              <H1 className=" text-white">
+                Sed ut <br />
+                perspiciatis{" "}
+                <span className=" text-[#F99526] ">unde</span>{" "}
+                <span className=" text-[#F99526]  block md:inline">
+                  omnis iste natus
+                </span>
+              </H1>
+
+              <P className="mt-6 text-gray-300 max-w-md">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                anim id est laborum. 
+              </P>
+            </div>
+          </div>
+          
+
+          {/* RIGHT*/}
+          <div className="md:w-1/2 ">
             <form className="max-w-lg">
               {/* Name */}
               <label className="block text-xl font-extrabold font-bricolage ">Name</label>
               <input
                 type="text"
-                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-6"
+                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
                 placeholder=""
                 aria-label="Name"
               />
@@ -1374,7 +1396,7 @@ export default function ContactHero() {
               <label className="block text-xl font-extrabold font-bricolage ">Email</label>
               <input
                 type="email"
-                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-6"
+                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
                 placeholder=""
                 aria-label="Email"
               />
@@ -1383,7 +1405,7 @@ export default function ContactHero() {
               <label className="block text-xl font-extrabold font-bricolage ">Purpose</label>
               <div className="relative mb-6">
                 <select
-                  className="appearance-none w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 pr-8 text-white"
+                  className="appearance-none w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-2 pr-8 text-white"
                   aria-label="Purpose"
                 >
                   <option value="">Select purpose</option>
@@ -1407,7 +1429,7 @@ export default function ContactHero() {
               <label className="block text-xl font-extrabold font-bricolage ">Mobile Number</label>
               <input
                 type="tel"
-                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-6"
+                className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
                 placeholder=""
                 aria-label="Mobile Number"
               />
@@ -1449,27 +1471,6 @@ export default function ContactHero() {
                 </span>
             </button>
             </form>
-          </div>
-
-          {/* RIGHT: Heading + copy */}
-          <div className="md:w-1/2 ">
-            <div>
-              <H1 className=" text-white">
-                Sed ut <br />
-                perspiciatis{" "}
-                <span className=" text-[#F99526] ">unde</span>{" "}
-                <span className=" text-[#F99526]  block md:inline">
-                  omnis iste natus
-                </span>
-              </H1>
-
-              <P className="mt-6 text-gray-300 max-w-md">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                anim id est laborum. occaecat cupidatat non.
-              </P>
-            </div>
           </div>
         </div>
       </div>
