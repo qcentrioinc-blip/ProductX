@@ -6,51 +6,51 @@ import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
 
 import Products from "../../components/Banking&Finance/Products"
- 
+
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
 import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
 import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactUS"
 import BNFNav from "../../components/Banking&Finance/BNFnav"
 import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOneFooter"
 import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
-  
+
 const BankingAndFinance = () => {
   return (
     <>
-      
-     <BNFNav/>
-      <HeroSection/>
-      <Intro/>
+
+      <BNFNav />
+      <HeroSection />
+      <Intro />
       <Products />
-      <WhatWeDoIn/>
-      <Counter/>
-      <AuditAnimation/>
+      <WhatWeDoIn />
+      <Counter />
+      <AuditAnimation />
       {/* <Audit/> */}
-      <Process/>
-       <Testimonial/>
-      <InsightThought/>
-     <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
+      <Process />
+      <Testimonial />
+      <InsightThought />
+      <div className="relative">
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
         <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+          <NewOneFooter />
         </div>
- 
-         
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
+
       </div>
 
 
-      
+
     </>
   )
 }
