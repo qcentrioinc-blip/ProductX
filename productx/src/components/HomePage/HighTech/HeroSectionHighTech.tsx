@@ -12,16 +12,17 @@ import SmallArticle from "./SmallArticle"
 // import ProductSec from "./ProductSec"
 // import WorkProfile from "./WorkProfile"
 
-import FlyingPosters from "./RockTech"
+// import FlyingPosters from "./RockTech"
 import ContactSecHT from "../../HighTech/ContactSecHT"
 import FooterHT from "../../HighTech/FooterHT"
 import CircleStepsCopy from "./CircleStepsCopy"
+import FloatingImage from "./FloatingImages"
 
-const items = [
-  '/HighTech/HomePage/EngineerGirl.png',
-  '/HighTech/HomePage/Scientist.png',
-  '/HighTech/HomePage/DoctorGirl.png'
-];
+// const items = [
+//   '/HighTech/HomePage/EngineerGirl.png',
+//   '/HighTech/HomePage/Scientist.png',
+//   '/HighTech/HomePage/DoctorGirl.png'
+// ];
 
 
 const HeroSectionHighTech = () => {
@@ -31,10 +32,11 @@ const HeroSectionHighTech = () => {
       <TextAnimation />
       <ThreeCards />
       {/* <div style={{ height: '900px', position: 'relative' }}> */}
-      <FlyingPosters items={items} />
+      {/* <FlyingPosters items={items} /> */}
       {/* </div> */}
       {/* <CircleSteps /> */}
       <CircleStepsCopy/>
+      <FloatingImage/>
       <OnePoint />
       <SmallArticle />
       <ThreeStep />

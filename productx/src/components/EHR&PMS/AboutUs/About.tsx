@@ -6,22 +6,26 @@ import Counter from "./Counter"
 import Headquarters from "./Headquaters"
 import HeroSection from "./HeroSection"
 import OurWork from "./OurWork"
+import Stroke from "./Stroke"
  
 
 const About = () => {
   return (
-    <div>
+    <div className="relative">
       <EHRNavbar />
-      <HeroSection/>
-      <Brief/>
-      <Counter/>
-      <OurWork/>
       
-      <Headquarters/>
-         <EHRFooter />
-    
+      {/* This creates the scroll height AND contains the fixed stroke */}
+      <Stroke />
+
+      <HeroSection />
+      <Brief />
+      <Counter />
+      <OurWork />
+      <Headquarters />
+      <EHRFooter />
     </div>
-  )
-}
+  );
+};
+
 
 export default About

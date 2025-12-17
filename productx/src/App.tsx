@@ -1,11 +1,11 @@
 import './App.css'
-// import Navbar from './components/Global/Navbar/Navbar'
+import ChatbotButton from './components/Global/Chatbot/ChatbotButton'
 import './index.css'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
-import { ScrollProvider } from './context/ScrollContext'
+ 
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'
@@ -58,9 +58,10 @@ import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
 import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
 import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
- 
- 
- 
+import { ScrollProvider } from './context/ScrollContext'
+
+
+
 
 const App = () => {
   // const location = useLocation();
@@ -111,7 +112,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <AboutUs />;
     if (industry === "high-tech") return <AboutHighTech />;
     if (industry === "ehr-and-pms") return <About />;
-    if (industry === "ai-optimization") return <AboutAI/>;
+    if (industry === "ai-optimization") return <AboutAI />;
 
     return <div>About Us page not found for this industry</div>;
   };
@@ -143,7 +144,7 @@ const App = () => {
         <div data-scroll-container>
           {/* {showNavbar && <Navbar />} */}
           <Routes>
-            
+
             <Route path="/landingpage" element={<HeroSlider />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
@@ -169,7 +170,7 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
-            <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor/>} />
+            <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
 
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
@@ -180,7 +181,7 @@ const App = () => {
             <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
             <Route path="/industries/high-tech/resources" element={<Resources />} />
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
-            <Route path="/industries/high-tech/built-for" element={<BuiltFor/>} />
+            <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/marketplace' element={<Marketing />} />
             <Route path="/platform" element={<Platform />} />
@@ -193,7 +194,7 @@ const App = () => {
             <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
-            <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor/>} />
+            <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor />} />
 
 
 
@@ -205,18 +206,18 @@ const App = () => {
 
 
             <Route path="/industries/ai-optimization" element={<AIOptimization />} />
-            
-            <Route path="/indutries/ai-optimization/about-us" element={<AboutAI/>}/>
+
+            <Route path="/indutries/ai-optimization/about-us" element={<AboutAI />} />
             <Route path="/industries/ai-optimization/resources" element={<Resource />} />
             <Route path="/industries/ai-optimization/resource-detail" element={<ResourceDetailAI />} />
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
-            <Route path="/industries/ai-optimization/built-for" element={<BuiltFor/>} />      
-                      
+            <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
+
           </Routes>
         </div>
       </ScrollProvider>
-
+      <ChatbotButton />
     </>
   )
 }

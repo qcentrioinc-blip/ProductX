@@ -29,18 +29,18 @@ const GlobalLandingPage = () => {
                 <IndustrySlider/>
             </div> */}
             <div>
-                <AnimatedStatement/>
+                <AnimatedStatement />
             </div>
             <div id="futuresection">
-            <FutureSection/>
+                <FutureSection />
             </div>
             <div id="innovationcards">
-                <InnovationCards/>
+                <InnovationCards />
             </div>
             <div id="businessvaluessection">
-                <BusinessValuesSection/>
+                <BusinessValuesSection />
             </div>
-            
+
             {/* <div id="whatwedo">
                 <WhatWeDo />
             </div>
@@ -81,14 +81,14 @@ const GlobalLandingPage = () => {
             <div className="relative z-10">
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
-                
-                
-                
+
+
+
                 {/* CallToAction Section */}
                 <div id="calltoaction">
                     <CallToAction />
                 </div>
-                
+
                 {/* Footer Section */}
                 <div id="footer">
                     <NewFooter />
