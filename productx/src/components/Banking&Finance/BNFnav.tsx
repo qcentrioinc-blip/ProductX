@@ -180,8 +180,6 @@ const BNFNav = () => {
     { name: "About Us", path: `${base}/about-us` },
     { name: "Resources", path: `${base} ` },
 
-
-
   ];
 
 
@@ -352,8 +350,7 @@ const BNFNav = () => {
 
                     {megaMenuOpen && (
                       <div
-                        className="absolute left-0 top-full w-[900px]  shadow-xl
-                   px-10 py-8 rounded-xl z-[999]"
+                        className="absolute left-0 top-full w-full sm:w-[900px] shadow-xl px-4 sm:px-10 py-4 sm:py-8 rounded-xl z-[999]"
                       >
                         <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
                         <P className="text-gray-700 text-lg mt-2 mb-4">
@@ -485,14 +482,14 @@ const BNFNav = () => {
           className="
   absolute
   left-1/2
-top-32
-translate-y-1
+  top-32
+  translate-y-1
   -translate-x-1/2
-  w-[90%]  
+  w-[95%] sm:w-[90%]
   max-w-8xl
   bg-gray-50
-  px-24
-  py-10
+  px-4 sm:px-12 lg:px-24
+  py-4 sm:py-10
   shadow-xl
   rounded-lg
   z-[200]
@@ -638,40 +635,71 @@ translate-y-1
         </div>
       )}
 
-      {/* mobil view */}
-
+      {/* MOBILE MENU - FIXED VERSION */}
+      {/* MOBILE MENU - FIXED VERSION */}
       <div
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] flex flex-col overflow-hidden transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <div className="mb-6">
+        {/* Header */}
+        <div className="p-6 pb-4 flex-shrink-0">
           <div className="flex items-center gap-3">
-            <a href="#" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">LOGO</div>
-              <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
-            </a>
+            <Link
+              to={base}
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 flex-1 min-w-0"
+            >
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold flex-shrink-0">
+                LOGO
+              </div>
+              <span className="text-xl font-semibold text-gray-900 truncate">
+                {currentIndustry}
+              </span>
+            </Link>
           </div>
         </div>
 
-
-        <div className="flex  scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
+        {/* Scrollable Content Area */}
+        <div className="flex flex-col gap-6 px-6 pb-6 overflow-y-auto overflow-x-hidden flex-1 scrollbar-hide">
           {/* PRODUCTS */}
           <div className="border-b border-gray-200 pb-3">
             <button
-              onClick={() => setMobileDropdown(mobileDropdown === "products" ? null : "products")}
+              onClick={() =>
+                setMobileDropdown(
+                  mobileDropdown === "products" ? null : "products"
+                )
+              }
               className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
             >
               Products
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "products" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${mobileDropdown === "products" ? "rotate-180" : ""
+                  }`}
+              />
             </button>
             {mobileDropdown === "products" && (
               <div className="mt-3 pl-3 space-y-4">
                 {megaMenuItems.map((item, index) => (
-                  <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="flex gap-3 items-start py-2">
-                    <img src={item.img} className="w-12 h-12 rounded-lg object-cover" loading="eager" />
-                    <div>
-                      <h3 className="text-base font-semibold">{item.title}</h3>
-                      <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <Link
+                    key={index}
+                    to={item.path}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex gap-3 items-start py-2 min-w-0"
+                  >
+                    <img
+                      src={item.img}
+                      className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+                      loading="eager"
+                      alt={item.title}
+                    />
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base font-semibold break-words">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm break-words">
+                        {item.desc}
+                      </p>
                     </div>
                   </Link>
                 ))}
@@ -682,19 +710,35 @@ translate-y-1
           {/* RESOURCES */}
           <div className="border-b border-gray-200 pb-3">
             <button
-              onClick={() => setMobileDropdown(mobileDropdown === "resources" ? null : "resources")}
+              onClick={() =>
+                setMobileDropdown(
+                  mobileDropdown === "resources" ? null : "resources"
+                )
+              }
               className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
             >
               Resources
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "resources" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${mobileDropdown === "resources" ? "rotate-180" : ""
+                  }`}
+              />
             </button>
             {mobileDropdown === "resources" && (
               <div className="mt-3 pl-3 space-y-4">
                 {resourceItems.map((item, index) => (
-                  <a key={index} href={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
-                    <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="text-gray-600 text-sm">{item.desc}</p>
-                  </a>
+                  <Link
+                    key={index}
+                    to={item.path}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-1 min-w-0"
+                  >
+                    <h3 className="text-base font-semibold break-words">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm break-words">
+                      {item.desc}
+                    </p>
+                  </Link>
                 ))}
               </div>
             )}
@@ -703,46 +747,77 @@ translate-y-1
           {/* BUILT FOR */}
           <div className="border-b border-gray-200 pb-3">
             <button
-              onClick={() => setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor")}
+              onClick={() =>
+                setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor")
+              }
               className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
             >
               Built For
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "builtfor" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${mobileDropdown === "builtfor" ? "rotate-180" : ""
+                  }`}
+              />
             </button>
             {mobileDropdown === "builtfor" && (
               <div className="mt-3 pl-3 space-y-4">
                 {BuiltForItems.map((item, index) => (
-                  <a key={index} href={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
-                    <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="text-gray-600 text-sm">{item.desc}</p>
-                  </a>
+                  <Link
+                    key={index}
+                    to={item.path}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-1 min-w-0"
+                  >
+                    <h3 className="text-base font-semibold break-words">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm break-words">{item.desc}</p>
+                  </Link>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Other navItems */}
+          {/* Other navItems (About Us, etc.) */}
           {navItems.map((item) =>
-            item.name !== "Products" && item.name !== "Resources" &&
+            item.name !== "Products" &&
+              item.name !== "Resources" &&
               item.name !== "Built for" ? (
               <div key={item.name} className="border-b border-gray-200 pb-3">
-                <a href={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-800 text-lg font-semibold block break-words"
+                >
                   {item.name}
-                </a>
+                </Link>
               </div>
             ) : null
           )}
-        </div>
 
-        <div className="flex justify-between mt-10 gap-6 pt-4">
-          <a href="#" className="text-blue-500 text-lg font-semibold">Platform</a>
-          <a href="#" className="text-blue-500 text-lg font-semibold">Marketplace</a>
-        </div>
+          {/* Platform & Marketplace Links - Now inside scrollable area after About Us */}
+          <div className="flex justify-between gap-4 pt-2">
+            <Link
+              to="/platform"
+              onClick={() => setMenuOpen(false)}
+              className="text-blue-500 text-base font-semibold"
+            >
+              Platform
+            </Link>
+            <Link
+              to="/marketplace"
+              onClick={() => setMenuOpen(false)}
+              className="text-blue-500 text-base font-semibold"
+            >
+              Marketplace
+            </Link>
+          </div>
 
-        <div className="mt-6 flex justify-start items-center">
-          <a href="#" onClick={() => setMenuOpen(false)}>
-            <ContactUsDark>Contact Us</ContactUsDark>
-          </a>
+          {/* Contact Us Button */}
+          <div className="flex justify-start items-center pt-2">
+            <button onClick={() => setMenuOpen(false)}>
+              <ContactUsDark>Contact Us</ContactUsDark>
+            </button>
+          </div>
         </div>
       </div>
     </>

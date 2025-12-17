@@ -1,5 +1,5 @@
 import './App.css'
-// import Navbar from './components/Global/Navbar/Navbar'
+import ChatbotButton from './components/Global/Chatbot/ChatbotButton'
 import './index.css'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
@@ -216,7 +216,7 @@ const App = () => {
           </Routes>
         </div>
       </ScrollProvider>
-
+      <ChatbotButton />
     </>
   )
 }
