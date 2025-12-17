@@ -48,7 +48,8 @@ const smoothClip = useSpring(clipPath, { stiffness: 100, damping: 25 });
  
   return (
    <div
-  ref={targetRef}
+  ref={targetRef} 
+  id="contact"
   className="relative z-30 h-screen pointer-events-auto bg-white overflow-hidden "
 >
 
@@ -109,6 +110,7 @@ const smoothClip = useSpring(clipPath, { stiffness: 100, damping: 25 });
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-5 py-3.5 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-base transition-colors"
                     required
+                   
                   />
                 </div>
                 <div>
