@@ -2,15 +2,34 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../../styles/Button";
 import { H3, P } from "../../../styles/Typography";
+import { ChevronDown } from "lucide-react";
 
 const HighTechNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
-  const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
+  const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
+  // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
+
+  const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
+  const closeAllMenus = () => {
+    setMegaMenuOpen(false);
+    setResourcesMenuOpen(false);
+    setmegaMenuBuiltFor(false);
+    setLogoDropdownOpen(false);
+  };
+
+
+  const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
+
+  const preloadImages = () => {
+    megaMenuItems.forEach(item => {
+      const img = new Image();
+      img.src = item.img;
+    });
+  };
 
   // ---------- FIXED HIGH-TECH ROUTES ----------
   const navItems = [
@@ -46,19 +65,57 @@ const HighTechNavbar = () => {
     {
       title: "SaaS Companies",
       desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: "/industries/high-tech/saas-companies",
+      path: "/industries/high-tech/built-for",
     },
     {
       title: "Enterprises",
       desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: "/industries/high-tech/enterprises",
+      path: "/industries/high-tech/built-for",
     },
     {
       title: "Startups",
       desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: "/industries/high-tech/startups",
+      path: "/industries/high-tech/built-for",
     },
   ];
+
+
+  // const industry = "high-tech";
+  const currentIndustry = "";
+
+  const industries = [
+    {
+      name: "Banking & Finance",
+      path: "/industries/banking-and-finance",
+      img: "/BNFHOME/P1.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+      name: "EHR and PMS", path:
+        "/industries/ehr-and-pms",
+      img: "/BNFHOME/P1.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+      name: "HighTech",
+      path: "/industries/high-tech",
+      img: "/BNFHOME/P1.png"
+      ,
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+      name: "AI Automation",
+      path: "/industries/ai-optimization",
+      img: "/BNFHOME/P1.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+  ];
+  const industryOptions = industries.filter(
+    (ind) => ind.name !== currentIndustry
+  );
 
   // ---------- EFFECTS ----------
   useEffect(() => {
@@ -87,11 +144,11 @@ const HighTechNavbar = () => {
     <>
       {/* TOP TRANSPARENT BAR */}
       <div
-        className="absolute top-0 z-50 left-0 w-full
-          bg-white/10 backdrop-blur-lg font-bricolage
-          border-b border-white/20
-          px-4 sm:px-6 md:px-8 pt-3 pb-1
-          flex justify-between transition-all duration-300"
+        className="fixed top-0 z-50 left-0 w-full
+        bg-white/10 backdrop-blur-lg font-bricolage
+        border-b border-white/20
+         px-4 sm:px-6 md:px-8 pt-3 pb-1
+        flex justify-between transition-all duration-300"
       >
         <Link to="/" className="flex items-center">
           <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
@@ -101,7 +158,7 @@ const HighTechNavbar = () => {
           </div>
         </Link>
 
-        {/* DESKTOP LINKS */}
+        {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
           <Link to="/platform" className="text-white font-medium">
             Platform
@@ -118,94 +175,140 @@ const HighTechNavbar = () => {
         >
           <span
             className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}
+              ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}
+            `}
           ></span>
           <span
             className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "opacity-0" : ""}`}
+              ${menuOpen ? "opacity-0" : ""}
+            `}
           ></span>
           <span
             className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
-              ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}
+              ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}
+            `}
           ></span>
         </button>
       </div>
 
       {/* MAIN NAV (DESKTOP ONLY) */}
       <nav
-        className={`hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-[90%] max-w-8xl 
-        z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-3 
-        items-center justify-between transition-all duration-300
-        ${isScrolled ? "top-16" : "top-16"}`}
+        onMouseLeave={closeAllMenus}
+        className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
       >
-        {/* LEFT: Logo + nav items */}
         <div className="flex items-center gap-10">
-          <Link to="/industries/high-tech" className="flex items-center gap-2">
-            <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+          {/* LOGO WITH DROPDOWN */}
+          <div
+            className="relative flex items-center gap-1 cursor-pointer"
+            onMouseEnter={() => setLogoDropdownOpen(true)}
+          >
+            <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
               LOGO
             </div>
-          </Link>
+            {/* ROTATING ICON */}
+            <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
+              <img src="/down.png" className="w-4 h-4" />
+            </div>
 
-          <ul className="flex items-center gap-10 font-bold font-quicksand">
+            {/* LOGO DROPDOWN */}
+            {logoDropdownOpen && (
+              <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
+                {industryOptions.map((ind, index) => (
+                  <Link
+                    key={index}
+                    to={ind.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                  >
+                    <img
+                      src={ind.img}
+                      alt={ind.name}
+                      className="w-16 h-14 object-cover"
+                    />
+                    <div className="flex flex-col">
+                      <h3 className="text-lg font-semibold font-quicksand text-gray-900">
+                        {ind.name}
+                      </h3>
+                      <p className="text-gray-600 font-quicksand text-sm">
+                        {ind.desc || "Click to explore"}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* NAV ITEMS */}
+          <ul className="flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
-                {/* PRODUCTS: clickable + controls products mega menu */}
+                {/* PRODUCTS MEGA MENU */}
                 {item.name === "Products" && (
                   <div
                     className="relative"
                     onMouseEnter={() => {
+                      preloadImages();
                       setMegaMenuOpen(true);
                       setResourcesMenuOpen(false);
-                      setMegaMenuBuiltFor(false);
+                      setmegaMenuBuiltFor(false);
                     }}
                   >
-                    <Link
-                      to={item.path}
-                      className="text-gray-800 text-[20px]"
-                      onClick={() => setMegaMenuOpen(false)}
-                    >
-                      Products
-                    </Link>
+                    <div className="flex items-center gap-1 cursor-pointer">
+                      <button className="text-gray-800 text-[18px]">Products</button>
+                      <img
+                        src="/down.png"
+                        className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300
+                        ${megaMenuOpen ? "rotate-180" : "rotate-0"}`}
+                      />
+                    </div>
                   </div>
                 )}
 
-                {/* BUILT FOR: controls Built-for mega menu */}
-                {item.name === "Built for" && (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => {
-                      setMegaMenuBuiltFor(true);
-                      setMegaMenuOpen(false);
-                      setResourcesMenuOpen(false);
-                    }}
-                  >
-                    <button className="text-gray-800 text-[20px]">
-                      Built for
-                    </button>
-                  </div>
-                )}
-
-                {/* RESOURCES: clickable + controls resources mega menu */}
+                {/* RESOURCES MEGA MENU */}
                 {item.name === "Resources" && (
                   <div
                     className="relative"
                     onMouseEnter={() => {
                       setResourcesMenuOpen(true);
                       setMegaMenuOpen(false);
-                      setMegaMenuBuiltFor(false);
+                      setmegaMenuBuiltFor(false);
                     }}
                   >
-                    <Link
-                      to={item.path}
-                      className="text-gray-800 text-[20px]"
-                      onClick={() => setResourcesMenuOpen(false)}
-                    >
-                      Resources
-                    </Link>
+                    <div className="flex items-center gap-1 cursor-pointer">
+                      <button className="text-gray-800 text-[18px]">Resources</button>
+                      <img
+                        src="/down.png"
+                        className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300
+                        ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`}
+                      />
+                    </div>
                   </div>
                 )}
 
-                {/* NORMAL LINKS (About Us) */}
+                {/* BUILT FOR MEGA MENU */}
+                {item.name === "Built for" && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => {
+                      setmegaMenuBuiltFor(true);
+                      setMegaMenuOpen(false);
+                      setResourcesMenuOpen(false);
+                    }}
+                  >
+                    <div className="flex items-center gap-1 cursor-pointer">
+                      <button className="text-gray-800 text-[18px]">Built For</button>
+                      <img
+                        src="/down.png"
+                        className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300
+                        ${megaMenuBuiltFor ? "rotate-180" : "rotate-0"}`}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* NORMAL LINKS */}
                 {item.name !== "Products" &&
                   item.name !== "Resources" &&
                   item.name !== "Built for" && (
@@ -214,9 +317,9 @@ const HighTechNavbar = () => {
                       onMouseEnter={() => {
                         setMegaMenuOpen(false);
                         setResourcesMenuOpen(false);
-                        setMegaMenuBuiltFor(false);
+                        setmegaMenuBuiltFor(false);
                       }}
-                      className="text-gray-800 text-[20px]"
+                      className="text-gray-800 text-[18px]"
                     >
                       {item.name}
                     </Link>
@@ -226,11 +329,11 @@ const HighTechNavbar = () => {
           </ul>
         </div>
 
-        {/* RIGHT: Careers + Contact (same pattern as EHRNavbar) */}
+        {/* RIGHT SIDE: Careers + Contact Button */}
         <div className="flex items-center gap-8">
           <Link
             to="/industries/high-tech/careers"
-            className="text-gray-800 text-[20px] font-bold font-quicksand"
+            className="text-gray-800 text-[18px] font-bold font-quicksand"
           >
             Careers
           </Link>
@@ -244,28 +347,23 @@ const HighTechNavbar = () => {
       {/* FULL-WIDTH PRODUCTS MEGA MENU */}
       {megaMenuOpen && (
         <div
-          onMouseLeave={() => setMegaMenuOpen(false)}
-          className="
-            absolute 
-            left-1/2 
-            top-36
-            -translate-x-1/2 
-            w-[90%]
-            max-w-8xl 
-            bg-gray-50 
-            px-24 
-            py-10 
-            shadow-xl 
-            rounded-lg 
-            z-[200]
-          "
+          onMouseEnter={() => {
+            setMegaMenuOpen(true);
+            setmegaMenuBuiltFor(false);
+            setResourcesMenuOpen(false);
+          }}
+          onMouseLeave={() => {
+            setMegaMenuOpen(false);
+            setResourcesMenuOpen(false);
+            setmegaMenuBuiltFor(false);
+            setLogoDropdownOpen(false);
+          }}
+          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </P>
-
           <hr className="border-gray-300 h-1 mb-8" />
 
           <div className="grid grid-cols-2 gap-y-4 gap-x-1">
@@ -273,18 +371,10 @@ const HighTechNavbar = () => {
               item ? (
                 <div key={index} className="flex items-start gap-4">
                   <Link to={item.path} className="flex items-start gap-4">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-12 h-12 rounded-xl object-cover"
-                    />
+                    <img src={item.img} alt={item.title} className="w-12 h-12 rounded-xl object-cover" loading="eager" />
                     <div>
-                      <h3 className="text-lg font-quicksand font-semibold text-gray-900">
-                        {item.title}
-                      </h3>
-                      <P className="text-gray-600 text-sm leading-snug">
-                        {item.desc}
-                      </P>
+                      <h3 className="text-lg font-quicksand font-semibold text-gray-900">{item.title}</h3>
+                      <P className="text-gray-600 text-sm leading-snug">{item.desc}</P>
                     </div>
                   </Link>
                 </div>
@@ -296,154 +386,178 @@ const HighTechNavbar = () => {
         </div>
       )}
 
-      {/* FULL-WIDTH RESOURCES MEGA MENU */}
+      {/* RESOURCES MEGA MENU */}
       {resourcesMenuOpen && (
         <div
-          onMouseLeave={() => setResourcesMenuOpen(false)}
-          className="
-            absolute 
-            left-1/2 
-            top-36
-            -translate-x-1/2 
-            w-[90%] 
-            max-w-8xl 
-            bg-gray-50
-            px-24 
-            py-10 
-            shadow-xl 
-            rounded-lg 
-            z-[200]
-          "
+          onMouseEnter={() => {
+            setResourcesMenuOpen(true);
+            setMegaMenuOpen(false);
+            setmegaMenuBuiltFor(false);
+          }}
+          onMouseLeave={() => {
+            setMegaMenuOpen(false);
+            setResourcesMenuOpen(false);
+            setmegaMenuBuiltFor(false);
+            setLogoDropdownOpen(false);
+          }}
+          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Comprehensive tools and insights for success.
           </P>
+          <hr className="border-gray-300 h-1 mb-8" />
 
-          <hr className="border-gray-300 h-1 mb-10" />
-
-          <div className="grid grid-cols-2 gap-y-10 gap-x-20">
+          <div className="grid grid-cols-2 gap-y-4 gap-x-1">
             {resourceItems.map((res, index) => (
               <Link key={index} to={res.path} className="block">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {res.title}
-                </h3>
-                <p className="text-gray-600 text-md">{res.desc}</p>
+                <h3 className="text-lg font-quicksand font-semibold text-gray-900 mb-1">{res.title}</h3>
+                <p className="text-gray-600 text-sm leading-snug">{res.desc}</p>
               </Link>
             ))}
           </div>
         </div>
       )}
 
-      {/* FULL-WIDTH BUILT FOR MEGA MENU */}
+      {/* BUILT FOR MEGA MENU */}
       {megaMenuBuiltFor && (
         <div
-          onMouseLeave={() => setMegaMenuBuiltFor(false)}
-          className="
-            absolute
-            left-1/2
-            -translate-x-1/2
-            top-36
-            w-[90%]  
-            max-w-8xl
-            bg-gray-50
-            px-24
-            py-10
-            shadow-xl
-            rounded-lg
-            z-[200]
-          "
+          onMouseEnter={() => {
+            setmegaMenuBuiltFor(true);
+            setMegaMenuOpen(false);
+            setResourcesMenuOpen(false);
+          }}
+          onMouseLeave={() => {
+            setMegaMenuOpen(false);
+            setResourcesMenuOpen(false);
+            setmegaMenuBuiltFor(false);
+            setLogoDropdownOpen(false);
+          }}
+          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </P>
-
           <hr className="border-gray-300 h-1 mb-8" />
 
-          <div className="grid grid-cols-3 gap-y-10 gap-x-20">
+          <div className="grid grid-cols-3 gap-y-4 gap-x-1">
             {builtForItems.map((item, index) => (
               <Link key={index} to={item.path} className="block">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-md">{item.desc}</p>
+                <h3 className="text-lg font-quicksand font-semibold text-gray-900 mb-1">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
               </Link>
             ))}
           </div>
         </div>
       )}
 
-      {/* ---------- MOBILE MENU ---------- */}
+      {/* MOBILE MENU */}
       <div
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] 
-        bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20
-        transition-all duration-500 ease-out
-        ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        {/* LOGO */}
         <div className="mb-6">
-          <Link
-            to="/industries/high-tech"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3"
-          >
-            <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-              LOGO
-            </div>
-            <span className="text-xl font-bricolage font-semibold text-gray-900">
-              HighTech
-            </span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/industries/high-tech" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">LOGO</div>
+              <span className="text-xl font-semibold text-gray-900">HighTech</span>
+            </Link>
+          </div>
         </div>
 
-        {/* NAV ITEMS (mobile) */}
-        <div className="flex flex-col gap-10 mt-4">
-          {navItems.map((item) => (
-            <div key={item.name} className="border-b border-gray-200 pb-3">
-              <Link
-                to={item.path}
-                onClick={() => setMenuOpen(false)}
-                className="text-gray-800 text-lg font-semibold block"
-              >
-                {item.name}
-              </Link>
-            </div>
-          ))}
+        <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
+          {/* PRODUCTS */}
+          <div className="border-b border-gray-200 pb-3">
+            <button
+              onClick={() => setMobileDropdown(mobileDropdown === "products" ? null : "products")}
+              className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
+            >
+              Products
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "products" ? "rotate-180" : ""}`} />
+            </button>
+            {mobileDropdown === "products" && (
+              <div className="mt-3 pl-3 space-y-4">
+                {megaMenuItems.map((item, index) => (
+                  <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="flex gap-3 items-start py-2">
+                    <img src={item.img} className="w-12 h-12 rounded-lg object-cover" loading="eager" />
+                    <div>
+                      <h3 className="text-base font-semibold">{item.title}</h3>
+                      <p className="text-gray-600 text-sm">{item.desc}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* RESOURCES */}
+          <div className="border-b border-gray-200 pb-3">
+            <button
+              onClick={() => setMobileDropdown(mobileDropdown === "resources" ? null : "resources")}
+              className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
+            >
+              Resources
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "resources" ? "rotate-180" : ""}`} />
+            </button>
+            {mobileDropdown === "resources" && (
+              <div className="mt-3 pl-3 space-y-4">
+                {resourceItems.map((item, index) => (
+                  <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* BUILT FOR */}
+          <div className="border-b border-gray-200 pb-3">
+            <button
+              onClick={() => setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor")}
+              className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold"
+            >
+              Built For
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "builtfor" ? "rotate-180" : ""}`} />
+            </button>
+            {mobileDropdown === "builtfor" && (
+              <div className="mt-3 pl-3 space-y-4">
+                {builtForItems.map((item, index) => (
+                  <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Other navItems */}
+          {navItems.map((item) =>
+            item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" ? (
+              <div key={item.name} className="border-b border-gray-200 pb-3">
+                <Link to={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
+                  {item.name}
+                </Link>
+              </div>
+            ) : null
+          )}
         </div>
 
-        {/* PLATFORM & MARKETPLACE */}
         <div className="flex justify-between mt-10 gap-6 pt-4">
-          <Link
-            to="/platform"
-            onClick={() => setMenuOpen(false)}
-            className="text-blue-500 text-lg font-semibold"
-          >
-            Platform
-          </Link>
-          <Link
-            to="/marketplace"
-            onClick={() => setMenuOpen(false)}
-            className="text-blue-500 text-lg font-semibold"
-          >
-            Marketplace
-          </Link>
+          <Link to="/platform" className="text-blue-500 text-lg font-semibold">Platform</Link>
+          <Link to="/marketplace" className="text-blue-500 text-lg font-semibold">Marketplace</Link>
         </div>
 
-        {/* CONTACT BUTTON */}
-        <div className="mt-6 flex justify-center items-center">
-          <Link
-            to="/industries/high-tech/contactform"
-            onClick={() => setMenuOpen(false)}
-          >
+        <div className="mt-6 flex justify-start items-center">
+          <Link to="/industries/high-tech/contactform" onClick={() => setMenuOpen(false)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>
       </div>
     </>
+
   );
 };
 

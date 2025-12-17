@@ -50,7 +50,7 @@ const CEO = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32 min-h-screen flex items-center">
         <div className="max-w-4xl">
           
           {/* Main Heading */}
