@@ -1,133 +1,114 @@
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect, useRef, useState } from "react";
-import {H3, P } from "../../styles/Typography";
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { H2, H4 } from "../../styles/Typography";
 
 export default function AuditAnimation() {
-  const controlsImage = useAnimation();
-  const controlsText = useAnimation();
-  const [sectionState, setSectionState] = useState<"reset" | "animating" | "end">("reset");
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const { ref, inView, entry } = useInView({
-    threshold: 0.3,
-    triggerOnce: false,
+  /* --------------------------------
+     SCROLL PROGRESS
+  --------------------------------- */
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
   });
 
-  useEffect(() => {
-    if (!entry) return;
+  /* --------------------------------
+     IMAGE WIDTH (DESKTOP)
+  --------------------------------- */
+  const imageWidth = useTransform(
+    scrollYProgress,
+    [0, 0.4],
+    ["100%", "58%"]
+  );
 
-    const sectionTop = entry.boundingClientRect.top;
-    const sectionBottom = entry.boundingClientRect.bottom;
-    const windowHeight = window.innerHeight;
+  /* --------------------------------
+     TEXT APPEAR
+  --------------------------------- */
+  const textOpacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.75],
+    [0, 1]
+  );
 
-    if (inView) {
-      // Section is in viewport
-      const isEnteringFromTop = sectionTop >= 0 && sectionTop < windowHeight;
-      const isEnteringFromBottom = sectionBottom <= windowHeight && sectionBottom > 0;
-
-      if (isEnteringFromTop) {
-        // RESET: Coming from previous section (scrolling down)
-        setSectionState("reset");
-        
-        controlsImage.start({
-          width: "100%",
-          transition: { duration: 0.3 },
-        });
-
-        controlsText.start({
-          opacity: 0,
-          y: 60,
-          transition: { duration: 0.2 },
-        });
-
-        // Then animate to end state
-        setTimeout(() => {
-          controlsImage.start({
-            width: "65%",
-            transition: { duration: 1.2, ease: "easeInOut" },
-          });
-
-          controlsText.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, delay: 1.25, ease: "easeOut" },
-          });
-          setSectionState("end");
-        }, 100);
-      } else if (isEnteringFromBottom || sectionState === "end") {
-        // Already at end state or coming from next section (scrolling up)
-        controlsImage.start({
-          width: "65%",
-          transition: { duration: 0.5 },
-        });
-
-        controlsText.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.3 },
-        });
-        setSectionState("end");
-      }
-    } else {
-      // Section is out of viewport
-      if (sectionTop < 0) {
-        // Section is above viewport (scrolled down past it) - KEEP END STATE
-        controlsImage.set({ width: "65%" });
-        controlsText.set({ opacity: 1, y: 0 });
-        setSectionState("end");
-      } else if (sectionBottom > windowHeight) {
-        // Section is below viewport (scrolled up past it) - RESET
-        controlsImage.set({ width: "100%" });
-        controlsText.set({ opacity: 0, y: 60 });
-        setSectionState("reset");
-      }
-    }
-  }, [inView, entry]);
+  const textY = useTransform(
+    scrollYProgress,
+    [0.3, 0.5],
+    [40, 0]
+  );
 
   return (
-    <section className="w-full h-auto bg-white py-20" ref={sectionRef}>
-      <div ref={ref} className="relative w-full overflow-hidden">
-        {/* FULL WIDTH SHRINKING IMAGE */}
-        <motion.img
-          src="/Audit.png"
-          className="rounded-sm object-cover h-[400px] md:h-[500px] lg:h-[600px] w-full"
-          initial={{ width: "100%" }}
-          animate={controlsImage}
-          style={{ display: "block" }}
-        />
+    <section
+      ref={sectionRef}
+      className="relative w-full h-[180vh] lg:h-[250vh] bg-white"
+    >
+      <div className="sticky top-0 xl:h-screen overflow-hidden">
+        <div className="relative w-full h-full">
 
-        {/* TEXT — Appears ONLY after image shrinks */}
-        <motion.div
-          className="absolute bottom-0 right-10 w-[90%] md:w-[25%]"
-          initial={{ opacity: 0, y: 60 }}
-          animate={controlsText}
-        >
-          <H3 className="text-[#2B68C3] font-bold mb-3">Audit</H3>
-          <P className="mt-3 text-[#141414]">
-            Assess your enterprise's digital maturity and AI readiness to create a strategic transformation roadmap.
-          </P>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-40 right-10 w-[90%] md:w-[25%]"
-          initial={{ opacity: 0, y: 60 }}
-          animate={controlsText}
-        >
-          <H3 className="text-[#2B68C3] font-bold mb-3">Audit</H3>
-          <P className="mt-3 text-[#141414]">
-            Assess your enterprise's digital maturity and AI readiness to create a strategic transformation roadmap.
-          </P>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-80 right-10 w-[90%] md:w-[25%]"
-          initial={{ opacity: 0, y: 60 }}
-          animate={controlsText}
-        >
-          <H3 className="text-[#2B68C3] font-bold mb-3">Audit</H3>
-          <P className="mt-3 text-[#141414]">
-            Assess your enterprise's digital maturity and AI readiness to create a strategic transformation roadmap.
-          </P>
-        </motion.div>
+          {/* ==============================
+              DESKTOP (lg+)
+          =============================== */}
+          <div className="hidden lg:flex items-center w-full xl:h-full">
+            <motion.img
+              src="/Audit.png"
+              alt="Audit"
+              className="object-cover h-[400px] md:h-[500px] lg:h-[600px]"
+              style={{
+                width: imageWidth,
+                maxWidth: "100%",
+              }}
+            />
+
+            {/* TEXT — WIDTH INCREASED */}
+            <motion.div
+              style={{ opacity: textOpacity, y: textY }}
+              className="absolute bottom-0 xl:bottom-16 right-10 w-[35%]"
+            >
+              <H2 className="text-[#2B68C3] font-bold mb-3">
+                Audit
+              </H2>
+              <H4 className="text-[#141414]">
+                Assess your enterprise's digital maturity and AI readiness
+                to create a strategic transform.
+              </H4>
+            </motion.div>
+          </div>
+
+          {/* ==============================
+              MOBILE + TABLET (<lg)
+          =============================== */}
+          <div className="flex lg:hidden flex-col justify-start h-full pt-10">
+            <motion.img
+              src="/Audit.png"
+              alt="Audit"
+              className="object-cover w-full rounded-sm"
+              style={{
+                height: useTransform(
+                  scrollYProgress,
+                  [0, 0.5],
+                  ["260px", "220px"]
+                ),
+              }}
+            />
+
+            {/* TEXT — WIDTH INCREASED */}
+            <motion.div
+              style={{ opacity: textOpacity, y: textY }}
+              className="mt-[10px] mx-auto w-[95%] max-w-[350px] text-center"
+            >
+              <H2 className="text-[#2B68C3] font-bold mb-2">
+                Audit
+              </H2>
+              <H4 className="text-[#141414] ">
+                Assess your enterprise's digital maturity and AI readiness
+                to create a strategic transform..
+              </H4>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

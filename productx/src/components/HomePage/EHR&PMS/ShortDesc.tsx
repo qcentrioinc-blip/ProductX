@@ -45,6 +45,7 @@ const ShortDesc = () => {
         className="
         w-full 
         bg-[#EEFDD9]
+        py-50
          md:py-16
         px-4 sm:px-6 lg:px-20
         overflow-hidden

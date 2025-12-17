@@ -23,24 +23,25 @@ const HeroSectionEHR = () => {
       <StatsSectionEHR/>
       <CTASection/>
       <WhyQnest />
-     
-     
+      
+      
       <div className="relative w-full">
- 
-  <div className="absolute top-95 left-0 w-full z-30">
+
+  <div className="absolute top-70 xl:top-95 left-0 w-full z-30">
     <GridSection />
   </div>
- 
-  <div className="relative z-10 pt-[55vh] pb-[55vh]">
+
+  <div className="relative z-10 pt-[90vh] lg:pt-[55vh] pb-[55vh]">
     <ShortDesc />
   </div>
- 
-  <div className="absolute bottom-0 top-20 left-0 w-full z-20 translate-y-[35vh]">
+
+  
+  <div className="absolute bottom-0 top-100 xl:top-20 left-0 w-full z-20 translate-y-[35vh]">
     <SplitSection />
   </div>
- 
+
 </div>
- 
+
      
       {/* <CircleAnimation /> */}
      
