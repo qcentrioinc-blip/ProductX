@@ -460,7 +460,7 @@ const WhyQnest = () => {
 
       {/* TABLET & MOBILE VERSION - Smooth Fade-in Animation */}
       <div className="lg:hidden w-full py-12 px-4 sm:px-8 bg-cover bg-center">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-8xl mx-6">
           {/* Title Section */}
           <div className="text-center mb-10 sm:mb-12">
             <h2 
