@@ -90,8 +90,6 @@ const animate = () => {
     return () => cancelAnimationFrame(animationRef.current);
   }, [isVisible]);
 
-
-  
   const calculatePosition = (angle: number, side: string) => {
     const radians = (angle * Math.PI) / 180;
     const radiusX = 180;
@@ -120,7 +118,7 @@ const animate = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-gray-50   py-24 overflow-hidden h-[110vh]"
+      className="relative w-full bg-gray-50   py-24 overflow-hidden h-screen"
     >
       {/* Images */}
       {images.map((img, index) => {
@@ -139,10 +137,11 @@ const animate = () => {
           top: `${pos.y + overlapOffset}px`,
           zIndex:10,
           opacity: isVisible ? 1 : 0,
-          transition: "opacity 0.3s ease, transform 0.2s ease",
+         transition: "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+
           transform: isVisible
             ? "translate(-50%, -50%) translateY(0)"
-            : "translate(-50%, -50%) translateY(600px)",
+            : "translate(-50%, -50%) translateY(-600px)",
           
 
         }}
@@ -166,8 +165,10 @@ const animate = () => {
       {/* Center Content */}
       <div
         className={`relative z-[20] max-w-3xl mx-auto flex flex-col items-center text-center px-6
-transition-all duration-300
-${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-100"}`}
+transition-all duration-500 ease-out
+
+${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-32"}
+`}
 
       >
         <H2 className="text-[#166D48] leading-tight mt-30">

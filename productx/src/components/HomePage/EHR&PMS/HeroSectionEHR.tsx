@@ -13,9 +13,9 @@ import GridSection from "./GridSection"
 import SplitSection from "./SplitSection"
 import BlogCarousel from "./BlogCarousel"
 import CTASection from "./CTASection"
-
+ 
 const HeroSectionEHR = () => {
-  
+ 
   return (
     <div>
       <LandingPageEHS />
@@ -35,6 +35,7 @@ const HeroSectionEHR = () => {
     <ShortDesc />
   </div>
 
+  
   <div className="absolute bottom-0 top-100 xl:top-20 left-0 w-full z-20 translate-y-[35vh]">
     <SplitSection />
   </div>
@@ -43,7 +44,7 @@ const HeroSectionEHR = () => {
 
      
       {/* <CircleAnimation /> */}
-      
+     
       {/* <Testimonials /> */}
       {/* <ParaDescription /> */}
       {/* <HealthFeatures /> */}
@@ -53,5 +54,5 @@ const HeroSectionEHR = () => {
     </div>
   )
 }
-
+ 
 export default HeroSectionEHR
