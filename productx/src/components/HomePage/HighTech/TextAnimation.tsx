@@ -19,7 +19,7 @@ const TextAnimation = () => {
     restSpeed: 0.001,
   };
 
-  // First text animations - 80-90% Faster & Exit Downwards
+  // First text animations - Exits Downwards
   const text1Word1Y = useSpring(
     useTransform(scrollYProgress, [0, 0.03, 0.08, 0.15], [100, 0, 0, 100]),
     springConfig
@@ -47,37 +47,65 @@ const TextAnimation = () => {
     springConfig
   );
 
-  // Second text animations - 80-90% Faster & Stays Visible
+  // Second text animations - Exits Downwards
   const text2Word1Y = useSpring(
-    useTransform(scrollYProgress, [0.25, 0.3, 0.45, 1], [100, 0, 0, 0]),
+    useTransform(scrollYProgress, [0.25, 0.3, 0.4, 0.5], [100, 0, 0, 100]),
     springConfig
   );
   const text2Word1Opacity = useSpring(
-    useTransform(scrollYProgress, [0.25, 0.3, 0.45, 1], [0, 1, 1, 1]),
+    useTransform(scrollYProgress, [0.25, 0.3, 0.4, 0.5], [0, 1, 1, 0]),
     springConfig
   );
 
   const text2Word2Y = useSpring(
-    useTransform(scrollYProgress, [0.26, 0.31, 0.46, 1], [100, 0, 0, 0]),
+    useTransform(scrollYProgress, [0.26, 0.31, 0.41, 0.51], [100, 0, 0, 100]),
     springConfig
   );
   const text2Word2Opacity = useSpring(
-    useTransform(scrollYProgress, [0.26, 0.31, 0.46, 1], [0, 1, 1, 1]),
+    useTransform(scrollYProgress, [0.26, 0.31, 0.41, 0.51], [0, 1, 1, 0]),
     springConfig
   );
 
   const text2Word3Y = useSpring(
-    useTransform(scrollYProgress, [0.27, 0.32, 0.47, 1], [100, 0, 0, 0]),
+    useTransform(scrollYProgress, [0.27, 0.32, 0.42, 0.52], [100, 0, 0, 100]),
     springConfig
   );
   const text2Word3Opacity = useSpring(
-    useTransform(scrollYProgress, [0.27, 0.32, 0.47, 1], [0, 1, 1, 1]),
+    useTransform(scrollYProgress, [0.27, 0.32, 0.42, 0.52], [0, 1, 1, 0]),
+    springConfig
+  );
+
+  // Third text animations - Stays Visible
+  const text3Word1Y = useSpring(
+    useTransform(scrollYProgress, [0.55, 0.6, 0.7, 1], [100, 0, 0, 0]),
+    springConfig
+  );
+  const text3Word1Opacity = useSpring(
+    useTransform(scrollYProgress, [0.55, 0.6, 0.7, 1], [0, 1, 1, 1]),
+    springConfig
+  );
+
+  const text3Word2Y = useSpring(
+    useTransform(scrollYProgress, [0.56, 0.61, 0.71, 1], [100, 0, 0, 0]),
+    springConfig
+  );
+  const text3Word2Opacity = useSpring(
+    useTransform(scrollYProgress, [0.56, 0.61, 0.71, 1], [0, 1, 1, 1]),
+    springConfig
+  );
+
+  const text3Word3Y = useSpring(
+    useTransform(scrollYProgress, [0.57, 0.62, 0.72, 1], [100, 0, 0, 0]),
+    springConfig
+  );
+  const text3Word3Opacity = useSpring(
+    useTransform(scrollYProgress, [0.57, 0.62, 0.72, 1], [0, 1, 1, 1]),
     springConfig
   );
 
   return (
     <div className="bg-[#1A1A1A]">
-      {/* ========= MOBILE + TABLET (NEW RESPONSIVE LAYOUT) ========= */}
+      {/* ========= MOBILE + TABLET ========= */}
       <div className="block lg:hidden py-12 px-4 sm:px-6">
         {/* Top purple dot + text */}
         <div className="flex items-center justify-center gap-3 mb-10">
@@ -203,8 +231,8 @@ const TextAnimation = () => {
           </div>
         </div>
 
-        {/* Right big text – static on mobile for readability */}
-        <div className="max-w-4xl mx-auto">
+        {/* Right big text – static on mobile */}
+        <div className="max-w-4xl mx-auto space-y-10">
           <p
             className="text-white text-3xl sm:text-4xl md:text-[40px] font-semibold"
             style={{
@@ -219,7 +247,7 @@ const TextAnimation = () => {
           </p>
 
           <p
-            className="text-white text-3xl sm:text-4xl md:text-[40px] font-semibold mt-10"
+            className="text-white text-3xl sm:text-4xl md:text-[40px] font-semibold"
             style={{
               fontFamily: "'Bricolage Grotesque', sans-serif",
               lineHeight: '120%',
@@ -230,19 +258,31 @@ const TextAnimation = () => {
             WEBSITE <br />
             CONVERSION
           </p>
+
+          <p
+            className="text-white text-3xl sm:text-4xl md:text-[40px] font-semibold"
+            style={{
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              lineHeight: '120%',
+              textTransform: 'uppercase',
+            }}
+          >
+            TRANSFORM YOUR <br />
+            DIGITAL <br />
+            EXPERIENCE
+          </p>
         </div>
       </div>
 
-      {/* ========= DESKTOP ANIMATED LAYOUT (ORIGINAL, UNCHANGED) ========= */}
+      {/* ========= DESKTOP ANIMATED LAYOUT ========= */}
       <div
         ref={containerRef}
         className="relative h-[400vh] hidden lg:block"
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           <div className="w-full">
-            {/* Main Container - Exact Width */}
             <div className="max-w-8xl mx-10 px-2 sm:px-4 lg:px-4">
-              {/* Top Purple Dot with Text - Centered */}
+              {/* Top Purple Dot with Text */}
               <div className="flex items-center justify-center gap-4 mb-20">
                 <div
                   className="w-4 h-4 rounded-full flex-shrink-0"
@@ -386,7 +426,7 @@ const TextAnimation = () => {
                   </div>
                 </div>
 
-                {/* Right Side - Animated Text with Exact Specs */}
+                {/* Right Side - Animated Text */}
                 <div className="flex items-start justify-center min-h-[400px] pt-10">
                   {/* First Text Set */}
                   <div
@@ -398,10 +438,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word1Y,
@@ -418,10 +456,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word2Y,
@@ -438,10 +474,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word3Y,
@@ -464,10 +498,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word1Y,
@@ -484,10 +516,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word2Y,
@@ -504,10 +534,8 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontStyle: 'SemiBold',
                           fontSize: '72px',
                           lineHeight: '120%',
-                          letterSpacing: '0%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word3Y,
@@ -519,9 +547,68 @@ const TextAnimation = () => {
                       </motion.div>
                     </div>
                   </div>
+
+                  {/* Third Text Set - NEW! */}
+                  <div
+                    className="absolute"
+                    style={{ width: '591.5px', maxWidth: '100%' }}
+                  >
+                    <div className="overflow-hidden mb-2">
+                      <motion.div
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 600,
+                          fontSize: '72px',
+                          lineHeight: '120%',
+                          textTransform: 'uppercase',
+                          color: '#F5F5F5',
+                          y: text3Word1Y,
+                          opacity: text3Word1Opacity,
+                        }}
+                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                      >
+                        TRANSFORM
+                      </motion.div>
+                    </div>
+
+                    <div className="overflow-hidden mb-2">
+                      <motion.div
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 600,
+                          fontSize: '72px',
+                          lineHeight: '120%',
+                          textTransform: 'uppercase',
+                          color: '#F5F5F5',
+                          y: text3Word2Y,
+                          opacity: text3Word2Opacity,
+                        }}
+                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                      >
+                        YOUR DIGITAL
+                      </motion.div>
+                    </div>
+
+                    <div className="overflow-hidden">
+                      <motion.div
+                        style={{
+                          fontFamily: "'Bricolage Grotesque', sans-serif",
+                          fontWeight: 600,
+                          fontSize: '72px',
+                          lineHeight: '120%',
+                          textTransform: 'uppercase',
+                          color: '#F5F5F5',
+                          y: text3Word3Y,
+                          opacity: text3Word3Opacity,
+                        }}
+                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                      >
+                        EXPERIENCE
+                      </motion.div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              {/* End grid */}
             </div>
           </div>
         </div>

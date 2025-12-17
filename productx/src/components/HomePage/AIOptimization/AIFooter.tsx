@@ -1,12 +1,14 @@
 import { ArrowUpRight, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AIFooter = () => {
+    const base = "/industries/ai-optimization";
     return (
         <footer className="relative w-full overflow-hidden">
 
             {/* ========== TOP SECTION ========== */}
             <div className="relative w-full py-12 sm:py-14 md:py-16 bg-gradient-to-r from-[#000B5E] via-[#003A6D] to-[#00695C]">
-                
+
                 {/* Pattern Overlay */}
                 <div className="absolute inset-0 overflow-hidden opacity-60">
                     <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +58,7 @@ const AIFooter = () => {
                 <div className="relative z-10 mx-4 sm:mx-8 md:mx-10">
 
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-0">
-                        
+
                         {/* LEFT SECTION */}
                         <div>
 
@@ -150,24 +152,85 @@ const AIFooter = () => {
                                     </h4>
 
                                     <ul className="space-y-2">
-                                        {["Careers", "Resources", "Contact", "Privacy Policy", "Cookies Policy"].map(
-                                            (item) => (
-                                                <li key={item} className="flex items-center gap-2">
-                                                    <span className="text-white text-[16px]">•</span>
-                                                    <a
-                                                        href="#"
-                                                        className="hover:text-white"
-                                                        style={{
-                                                            fontFamily: "'Quicksand', sans-serif",
-                                                            fontSize: "16px",
-                                                            color: "#F5F5F5",
-                                                        }}
-                                                    >
-                                                        {item}
-                                                    </a>
-                                                </li>
-                                            )
-                                        )}
+                                        {/* Careers Link */}
+                                        <li className="flex items-center gap-2">
+                                            <span className="text-white text-[16px]">•</span>
+                                            <a
+                                                href={`${base}/careers`}
+                                                className="hover:text-white hover:underline transition-colors"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontSize: "16px",
+                                                    color: "#F5F5F5",
+                                                }}
+                                            >
+                                                Careers
+                                            </a>
+                                        </li>
+
+                                        {/* Resources Link */}
+                                        <li className="flex items-center gap-2">
+                                            <span className="text-white text-[16px]">•</span>
+                                            <a
+                                                href={`${base}/resources`}
+                                                className="hover:text-white hover:underline transition-colors"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontSize: "16px",
+                                                    color: "#F5F5F5",
+                                                }}
+                                            >
+                                                Resources
+                                            </a>
+                                        </li>
+
+                                        {/* Contact Link */}
+                                        <li className="flex items-center gap-2">
+                                            <span className="text-white text-[16px]">•</span>
+                                            <Link
+                                                to={`${base}/contactus`}
+                                                className="hover:text-white hover:underline transition-colors"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontSize: "16px",
+                                                    color: "#F5F5F5",
+                                                }}
+                                            >
+                                                Contact
+                                            </Link>
+                                        </li>
+
+                                        {/* Privacy Policy Link */}
+                                        <li className="flex items-center gap-2">
+                                            <span className="text-white text-[16px]">•</span>
+                                            <Link
+                                                to={`${base}/privacy-policy`}
+                                                className="hover:text-white hover:underline transition-colors"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontSize: "16px",
+                                                    color: "#F5F5F5",
+                                                }}
+                                            >
+                                                Privacy Policy
+                                            </Link>
+                                        </li>
+
+                                        {/* Cookies Policy Link */}
+                                        <li className="flex items-center gap-2">
+                                            <span className="text-white text-[16px]">•</span>
+                                            <Link
+                                                to={`${base}/cookies-policy`}
+                                                className="hover:text-white hover:underline transition-colors"
+                                                style={{
+                                                    fontFamily: "'Quicksand', sans-serif",
+                                                    fontSize: "16px",
+                                                    color: "#F5F5F5",
+                                                }}
+                                            >
+                                                Cookies Policy
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
 
