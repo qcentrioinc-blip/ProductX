@@ -27,23 +27,26 @@ const ThreeCardAI = () => {
             </div>
 
             {/* Cards Grid */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Cards Row */}
+            <div className="flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {features.map((item, index) => (
                     <div
                         key={index}
                         className="
-        bg-gray-50
-        w-[403.91px]
-        h-[285px]
-        p-8
-        rounded-lg
-        flex
-        flex-col
-        gap-8
-        opacity-100
-        transition-all
-        duration-300
-      "
+                            bg-gray-50
+                            flex-shrink-0
+                            w-[85vw]
+                            sm:w-[480px]
+                            h-[285px]
+                            p-8
+                            rounded-lg
+                            flex
+                            flex-col
+                            gap-8
+                            opacity-100
+                            transition-all
+                            duration-300
+                        "
                     >
                         {/* Circle Icon */}
                         <div className="w-12 h-12 bg-gray-300 rounded-full" />
@@ -54,11 +57,11 @@ const ThreeCardAI = () => {
                             style={{
                                 fontFamily: "'Bricolage Grotesque', sans-serif",
                                 fontWeight: 700,
-                                fontStyle: 'normal',        // bold via fontWeight
+                                fontStyle: 'normal',
                                 fontSize: '24px',
                                 lineHeight: '100%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000',
+                                backgroundColor: '#000000', // Preserved from original
                             }}
                         >
                             {item.title}
@@ -71,12 +74,12 @@ const ThreeCardAI = () => {
                             style={{
                                 fontFamily: "'Quicksand', sans-serif",
                                 fontWeight: 400,
-                                fontStyle: 'normal',        // "Regular"
+                                fontStyle: 'normal',
                                 fontSize: '18px',
                                 lineHeight: '100%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000',
-                                color: '#4B5563',           // same as text-gray-700
+                                backgroundColor: '#000000', // Preserved from original
+                                color: '#4B5563',
                             }}
                         >
                             {item.description}
