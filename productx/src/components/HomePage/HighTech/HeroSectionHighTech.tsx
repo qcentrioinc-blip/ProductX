@@ -35,8 +35,8 @@ const HeroSectionHighTech = () => {
       {/* <FlyingPosters items={items} /> */}
       {/* </div> */}
       {/* <CircleSteps /> */}
-      <CircleStepsCopy/>
       <FloatingImage/>
+      <CircleStepsCopy/>
       <OnePoint />
       <SmallArticle />
       <ThreeStep />

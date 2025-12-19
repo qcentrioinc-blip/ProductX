@@ -2,7 +2,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function FutureSection() {
   return (
-    <section className="relative w-full bg-[#F5F5F5] pt-14">
+    <section className="relative w-full bg-[#F5F5F5] py-10 xl:py-0 xl:pt-14 ">
 
       {/* TOP-RIGHT SHAPE (SECTION LEVEL) */}
       <img

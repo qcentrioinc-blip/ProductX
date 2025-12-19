@@ -9,7 +9,7 @@ export default function JobDetails() {
   return (
     <section className="w-full bg-white text-[#0B0B0F] px-6 md:px-10 lg:px-20 py-16">
       {/* ---------- HEADER ---------- */}
-      <H1 className="text-4xl md:text-5xl font-bold text-[#0AC276] mb-4">
+      <H1 className=" text-[#0AC276] mb-4">
         Senior Social Media <br/> Manager
       </H1>
 

@@ -30,13 +30,13 @@ export default function FeatureSection() {
   const setItemRef2 = (el: HTMLDivElement | null) => { itemRefs.current[2] = el; };
 
   return (
-    <section ref={sectionRef} className="max-w-8xl mx-10 px-6 md:px-12 lg:px-20 py-20">
+    <section ref={sectionRef} className="max-w-8xl mx-10 px-6 md:px-12 lg:px-20 py-10">
       <div className="flex flex-col lg:flex-row gap-16 items-start">
 
         {/* LEFT BLOCK – 60% */}
         <div className="lg:basis-[60%] w-full">
           <H1 
-            className="leading-tight text-black max-w-[600px]"
+            className="leading-tight text-black max-w-[750px]"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -50,7 +50,7 @@ export default function FeatureSection() {
 
           {/* IMAGE */}
           <div 
-            className="mt-12"
+            className="mt-26"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.95)',
