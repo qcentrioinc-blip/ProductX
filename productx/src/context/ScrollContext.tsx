@@ -1,4 +1,4 @@
-import { createContext, useRef, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import Lenis from '@studio-freight/lenis';
 
@@ -9,7 +9,7 @@ type ScrollProviderProps = {
 };
 
 export const ScrollProvider = ({ children }: ScrollProviderProps) => {
-    const lenisRef = useRef<Lenis | null>(null);
+    const [lenis, setLenis] = useState<Lenis | null>(null);
 
     useEffect(() => {
         // Enforce no horizontal scroll using 'clip' to preserve sticky behavior
@@ -28,24 +28,24 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
             };
         }
 
-        const lenis = new Lenis({
-            duration: 1.2,
+        const newLenis = new Lenis({
+            duration: 2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1.2,
+            wheelMultiplier: 1,
             touchMultiplier: 2,
             infinite: false,
             autoResize: true,
         });
 
-        lenisRef.current = lenis;
+        setLenis(newLenis);
 
         let frameId: number;
 
         const animate = (time: number) => {
-            lenis.raf(time);
+            newLenis.raf(time);
             frameId = requestAnimationFrame(animate);
         };
 
@@ -53,15 +53,15 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 
         return () => {
             cancelAnimationFrame(frameId);
-            lenis.destroy();
-            lenisRef.current = null;
+            newLenis.destroy();
+            setLenis(null);
             document.documentElement.style.overflowX = '';
             document.body.style.overflowX = '';
         };
     }, []);
 
     return (
-        <ScrollContext.Provider value={lenisRef.current}>
+        <ScrollContext.Provider value={lenis}>
             {children}
         </ScrollContext.Provider>
     );
