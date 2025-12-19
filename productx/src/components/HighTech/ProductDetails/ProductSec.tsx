@@ -35,17 +35,14 @@ const scrollSteps = [
 const ProductSec: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const scrollableContainerRef = useContext(ScrollContext);
-
   /* -------- Scroll tracking logic -------- */
+  const lenis = useContext(ScrollContext);
+
   useEffect(() => {
-    const scrollableElement = scrollableContainerRef;
+    if (!lenis) return;
 
     const handleScroll = () => {
-      if (!scrollableElement) return;
-
-      const containerRect = (scrollableElement as unknown as HTMLElement).getBoundingClientRect();
-      const viewportCenter = containerRect.height / 2;
+      const viewportCenter = window.innerHeight / 2;
 
       let newIndex = 0;
       let minDistance = Infinity;
@@ -65,17 +62,13 @@ const ProductSec: React.FC = () => {
       setActiveStep(newIndex);
     };
 
-    if (scrollableElement) {
-      (scrollableElement as any).on("scroll", handleScroll);
-      handleScroll();
-    }
+    lenis.on("scroll", handleScroll);
+    handleScroll();
 
     return () => {
-      if (scrollableElement) {
-        (scrollableElement as any).off("scroll", handleScroll);
-      }
+      lenis.off("scroll", handleScroll);
     };
-  }, [scrollableContainerRef]);
+  }, [lenis]);
 
   /* -------- Animations -------- */
   const paraVariant = {
@@ -126,9 +119,8 @@ const ProductSec: React.FC = () => {
                 >
                   <div className="space-y-3">
                     <H4
-                      className={`cursor-pointer transition-colors duration-300 ${
-                        isActive ? "text-[#8338EC] font-semibold" : "text-black/50"
-                      }`}
+                      className={`cursor-pointer transition-colors duration-300 ${isActive ? "text-[#8338EC] font-semibold" : "text-black/50"
+                        }`}
                     >
                       {step.heading}
                     </H4>
@@ -149,9 +141,8 @@ const ProductSec: React.FC = () => {
                     </AnimatePresence>
 
                     <div
-                      className={`border-b-[2px] mt-2 transition-all duration-500 ${
-                        isActive ? "border-[#8338EC] w-24" : "border-black/20 w-10"
-                      }`}
+                      className={`border-b-[2px] mt-2 transition-all duration-500 ${isActive ? "border-[#8338EC] w-24" : "border-black/20 w-10"
+                        }`}
                     ></div>
                   </div>
 
@@ -164,9 +155,8 @@ const ProductSec: React.FC = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: isActive ? 1 : 0.4 }}
                       transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className={`w-full h-[300px] sm:h-[400px] object-cover rounded-lg border-[3px] ${
-                        isActive ? "border-[#8338EC]" : "border-transparent"
-                      }`}
+                      className={`w-full h-[300px] sm:h-[400px] object-cover rounded-lg border-[3px] ${isActive ? "border-[#8338EC]" : "border-transparent"
+                        }`}
                     />
                   </div>
                 </div>

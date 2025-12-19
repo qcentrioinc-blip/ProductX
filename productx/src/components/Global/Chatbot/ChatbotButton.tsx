@@ -21,7 +21,9 @@ const formatTime = (timestamp: number) => {
 const ChatbotButton: React.FC = () => {
     const [showBottomChat, setShowBottomChat] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [showExpandedChat, setShowExpandedChat] = useState(false); // New state for expanded view
+    const [showExpandedChat, setShowExpandedChat] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [userClosedChat, setUserClosedChat] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         {
             id: 'welcome',
@@ -62,6 +64,32 @@ const ChatbotButton: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const threshold = 200;
+
+            if (scrollPosition > threshold) {
+                setIsScrolled(true);
+                if (showBottomChat && !showExpandedChat) {
+                    setShowBottomChat(false);
+                }
+            } else {
+                setIsScrolled(false);
+                if (!showBottomChat && !showExpandedChat && !showModal && !userClosedChat && window.innerWidth >= 640) {
+                    setShowBottomChat(true);
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [showBottomChat, showExpandedChat, showModal, userClosedChat]);
+
+    useEffect(() => {
         if (showExpandedChat) {
             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
@@ -82,20 +110,22 @@ const ChatbotButton: React.FC = () => {
         setShowExpandedChat(false);
     };
 
-    const handleSendMessage = async (e?: React.FormEvent) => {
+    const handleSendMessage = async (e?: React.FormEvent | undefined, question?: string) => {
         e?.preventDefault();
 
-        if (!inputValue.trim() || isLoading) return;
+        const content = question || inputValue;
+
+        if (!content.trim() || isLoading) return;
 
         // Show expanded chat when first message is sent
-        if (messages.length === 1) {
+        if (messages.length === 1 && !showModal) {
             setShowExpandedChat(true);
         }
 
         const userMsg: Message = {
             id: Date.now().toString(),
             role: 'user',
-            content: inputValue.trim(),
+            content: content.trim(),
             timestamp: Date.now(),
         };
 
@@ -188,6 +218,17 @@ const ChatbotButton: React.FC = () => {
     const handleMinimize = () => {
         setShowExpandedChat(false);
         setShowBottomChat(true);
+        setUserClosedChat(false);
+    };
+
+    const handleCloseBottomChat = () => {
+        setShowBottomChat(false);
+        setUserClosedChat(true);
+    };
+
+    const handleFloatingButtonClick = () => {
+        setUserClosedChat(false);
+        setShowModal(true);
     };
 
     return createPortal(
@@ -205,7 +246,7 @@ const ChatbotButton: React.FC = () => {
                             className="fixed bottom-[200px] sm:bottom-[200px] right-4 sm:right-[calc((100%-1000px)/2+16px)] z-[10001]"
                         >
                             <button
-                                onClick={() => setShowBottomChat(false)}
+                                onClick={handleCloseBottomChat}
                                 className="p-2.5 sm:p-3 bg-white hover:bg-gray-100 rounded-full transition-all shadow-lg hover:shadow-xl border border-gray-200"
                                 aria-label="Close chat"
                             >
@@ -221,9 +262,9 @@ const ChatbotButton: React.FC = () => {
                             className="fixed bottom-0 left-0 right-0 sm:left-1/2 sm:-translate-x-1/2 w-full sm:max-w-5xl z-[10000] sm:px-4 pb-0"
                         >
                             <div
-                                className="relative rounded-t-2xl sm:rounded-t-3xl shadow-2xl overflow-hidden"
+                                className="relative rounded-t-2xl sm:rounded-t-3xl shadow-2xl overflow-hidden backdrop-blur-xl"
                                 style={{
-                                    background: 'linear-gradient(to right, #062fc2 0%, #0670d3 100%)'
+                                    background: 'linear-gradient(to right, rgba(6, 47, 194, 0.6) 0%, rgba(6, 112, 211, 0.6) 100%)'
                                 }}
                             >
                                 <div className="px-4 pt-10 pb-4 sm:px-10 sm:pt-12 sm:pb-6">
@@ -257,9 +298,8 @@ const ChatbotButton: React.FC = () => {
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                                         <button
                                             onClick={() => {
-                                                setInputValue('Connect me with a sales rep');
                                                 setShowExpandedChat(true);
-                                                setTimeout(() => handleSendMessage(), 100);
+                                                handleSendMessage(undefined, 'Connect me with a sales rep');
                                             }}
                                             className="px-3 py-2.5 sm:px-4 sm:py-3 bg-transparent hover:bg-white/10 text-white text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-white whitespace-nowrap overflow-hidden text-ellipsis"
                                         >
@@ -267,9 +307,8 @@ const ChatbotButton: React.FC = () => {
                                         </button>
                                         <button
                                             onClick={() => {
-                                                setInputValue('Show me an Agentforce demo');
                                                 setShowExpandedChat(true);
-                                                setTimeout(() => handleSendMessage(), 100);
+                                                handleSendMessage(undefined, 'Show me an Agentforce demo');
                                             }}
                                             className="px-3 py-2.5 sm:px-4 sm:py-3 bg-transparent hover:bg-white/10 text-white text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-white whitespace-nowrap overflow-hidden text-ellipsis"
                                         >
@@ -277,9 +316,8 @@ const ChatbotButton: React.FC = () => {
                                         </button>
                                         <button
                                             onClick={() => {
-                                                setInputValue('How can Salesforce help my business');
                                                 setShowExpandedChat(true);
-                                                setTimeout(() => handleSendMessage(), 100);
+                                                handleSendMessage(undefined, 'How can Salesforce help my business');
                                             }}
                                             className="px-3 py-2.5 sm:px-4 sm:py-3 bg-transparent hover:bg-white/10 text-white text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-white whitespace-nowrap overflow-hidden text-ellipsis"
                                         >
@@ -520,14 +558,14 @@ const ChatbotButton: React.FC = () => {
             </AnimatePresence>
 
             <AnimatePresence>
-                {!showBottomChat && !showModal && !showExpandedChat && (
+                {((!showBottomChat && !showModal && !showExpandedChat) || (isScrolled && !showExpandedChat && !showModal)) && (
                     <motion.button
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => setShowModal(true)}
+                        onClick={handleFloatingButtonClick}
                         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 px-4 py-3 sm:px-5 sm:py-3.5 text-white rounded-full shadow-xl flex items-center gap-2 sm:gap-3 z-[10000] cursor-pointer hover:shadow-2xl transition-all"
                         style={{
                             background: 'linear-gradient(to right, #062fc2 0%, #0670d3 100%)'
@@ -583,6 +621,13 @@ const ChatbotButton: React.FC = () => {
                                     </button>
                                 </div>
                                 <div className="flex items-center gap-0.5 sm:gap-1">
+                                    <button
+                                        onClick={handleClearChat}
+                                        className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-full transition-colors"
+                                        aria-label="Clear chat"
+                                    >
+                                        <Trash2 size={18} className="sm:w-5 sm:h-5 text-zinc-700" strokeWidth={2} />
+                                    </button>
                                     <button className="p-1.5 sm:p-2 hover:bg-zinc-100 rounded-full transition-colors">
                                         <svg className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-700" fill="currentColor" viewBox="0 0 24 24">
                                             <circle cx="12" cy="6" r="1.5" />
@@ -646,19 +691,19 @@ const ChatbotButton: React.FC = () => {
                                 {/* Action Buttons */}
                                 <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                                     <button
-                                        onClick={() => setInputValue('Connect me with a sales rep')}
+                                        onClick={() => handleSendMessage(undefined, 'Connect me with a sales rep')}
                                         className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 bg-white hover:bg-zinc-50 text-blue-600 text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-blue-600 text-left"
                                     >
                                         Connect me with a sales rep
                                     </button>
                                     <button
-                                        onClick={() => setInputValue('Show me an Agentforce demo')}
+                                        onClick={() => handleSendMessage(undefined, 'Show me an Agentforce demo')}
                                         className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 bg-white hover:bg-zinc-50 text-blue-600 text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-blue-600 text-left"
                                     >
                                         Show me an Agentforce demo
                                     </button>
                                     <button
-                                        onClick={() => setInputValue('How can Salesforce help my business')}
+                                        onClick={() => handleSendMessage(undefined, 'How can Salesforce help my business')}
                                         className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 bg-white hover:bg-zinc-50 text-blue-600 text-xs sm:text-[15px] font-semibold rounded-lg sm:rounded-xl transition-all border-2 border-blue-600 text-left"
                                     >
                                         How can Salesforce help my business
