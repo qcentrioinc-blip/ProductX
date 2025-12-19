@@ -44,7 +44,7 @@ const AINavbar = () => {
   const base = `/industries/${industry}`;
 
   const navItems = [
-    { name: "Products", path: `${base}/ai-agents`, scroll: false },
+    { name: "Products", path: `${base}/clouddiet`, scroll: false },
     { name: "Built for", path: base },
     { name: "About Us", path: `${base}/aboutus` },
     { name: "Resources", path: `${base}/resources` },
@@ -52,10 +52,10 @@ const AINavbar = () => {
 
   const megaMenuItems = [
     {
-      title: "AI Agents",
+      title: " CloudDiet",
       desc: "Intelligent agents that automate complex workflows.",
       img: "/AIOptimization/Resource1.png",
-      path: `${base}/ai-agents`,
+      path: `${base}/clouddiet`,
     },
     {
       title: "Process Automation",
@@ -173,16 +173,16 @@ const AINavbar = () => {
   return (
     <>
       {/* TOP TRANSPARENT BAR */}
-      <div className="fixed top-0 z-50 left-0 w-full bg-gradient-to-r from-purple-100/80 to-blue-100/80 backdrop-blur-lg border-b border-white/20 px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
+      <div className="fixed top-0 z-50 left-0 w-full bg-bg-white/80     bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
         <Link to="/" className="flex items-center">
           <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">LOGO</span>
+            <span className="text-black font-bricolage text-sm sm:text-base">LOGO</span>
           </div>
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-gray-800 font-medium">Platform</Link>
-          <Link to="/marketplace" className="text-gray-800 font-medium">Marketplace</Link>
+          <Link to="/platform" className="text-white font-medium">Platform</Link>
+          <Link to="/marketplace" className="text-white font-medium">Marketplace</Link>
         </div>
 
         <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>

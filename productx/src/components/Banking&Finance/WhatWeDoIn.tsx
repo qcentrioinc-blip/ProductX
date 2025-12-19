@@ -112,7 +112,8 @@ useEffect(() => {
   return (
     <div
       ref={targetRef}
-      className="bg-white text-black max-w-8xl overflow-hidden h-full py-10 lg:py-20 flex flex-col"
+     className="bg-white text-black max-w-8xl h-full flex flex-col"
+
       id="benefits"
     >
       {/* Heading Section */}
@@ -146,9 +147,19 @@ useEffect(() => {
         </ContactUs>
       </div>
       {/* Desktop Layout */}
+      {/* STICKY SCROLL WRAPPER */}
+      
+<div
+  className="relative"
+  style={{ height: `${accordionData.length * 100}vh` }}
+>
+  {/* STICKY CONTENT */}
+  <div className="sticky top-0 h-screen flex flex-col justify-center">
+
+
       <div
   ref={desktopRef}
-  className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8 sticky top-0"
+  className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8  "
 >
    
     
@@ -246,10 +257,11 @@ useEffect(() => {
           })}
         </div>
       </div>
+      </div>
       {/* Mobile/Tablet Layout */}
       <div
   ref={mobileRef}
-  className="lg:hidden flex flex-col w-full px-4 sm:px-8 sticky top-0"
+  className="lg:hidden flex flex-col w-full px-4 sm:px-8 "
 >
 
         {/* Image with Yellow Border */}
@@ -338,6 +350,7 @@ useEffect(() => {
             );
           })}
         </div>
+      </div>
       </div>
     </div>
   );

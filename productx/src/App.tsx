@@ -59,6 +59,8 @@ import ResourceDetailAI from './components/AIOptimization/ResourceDetail/Resourc
 import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
 import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
 import { ScrollProvider } from './context/ScrollContext'
+import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
+ 
 
 
 
@@ -213,6 +215,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
             <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
+            <Route path="/industries/ai-optimization/clouddiet" element={<AIProduct/>} />
 
           </Routes>
         </div>

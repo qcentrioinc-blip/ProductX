@@ -4,7 +4,7 @@ import { H2, P } from "../../../styles/Typography";
 export default function ImageGrid() {
   return (
     <section className="w-full bg-white py-10 lg:py-20 lg:px-8">
-      <div className="max-w-8xl mx-4 lg:mx-10 flex flex-col gap-24">
+      <div className="max-w-8xl mx-4 md:mx-10 flex flex-col lg:gap-24">
 
         {/* ROW 1 — TEXT LEFT, IMAGE RIGHT */}
         <div className="grid grid-cols-1 lg:grid-cols-2    items-center">
@@ -12,10 +12,10 @@ export default function ImageGrid() {
           {/* TEXT */}
           <div>
             <H2 className="  font-semibold text-gray-900">
-              Digital Data   Confluence
+             Digital Data <br className="lg:block hidden" /> Confluence
             </H2>
 
-            <P className="text-gray-700 mt-4 max-w-xl">
+            <P className="  mt-4 max-w-xl">
               At Archè, we believe technology must be a driver of sustainability.
               Our approach to AI and cloud computing focuses on:
             </P>
@@ -55,7 +55,7 @@ export default function ImageGrid() {
        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 
   {/* IMAGE */}
-  <div className="order-2 lg:order-1">
+  <div className="order-2 lg:order-1 mt-4 sm:mt-0">
     <img
       src="/AIAbout/Image1.png"
       className="rounded-xl object-cover w-full h-[300px] lg:h-[500px]"
@@ -66,10 +66,10 @@ export default function ImageGrid() {
   {/* TEXT */}
   <div className="order-1 lg:order-2 lg:pl-32 pt-6 lg:pt-0">
     <H2 className="font-semibold text-gray-900">
-      Digital Data <br /> Confluence
+      Digital Data <br className="lg:block hidden" /> Confluence
     </H2>
 
-    <P className="text-gray-700 mt-4 max-w-xl">
+    <P className="  mt-4 max-w-xl">
       At Archè, we believe technology must be a driver of sustainability.
       Our approach to AI and cloud computing focuses on:
     </P>
