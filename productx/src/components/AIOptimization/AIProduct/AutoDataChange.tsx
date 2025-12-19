@@ -1,0 +1,128 @@
+import { useState, useEffect, useRef } from 'react';
+import { H2,  H4  } from '../../../styles/Typography';
+
+const AutoDataChange = () => {
+  const [activeTab, setActiveTab] = useState(0);
+//   const containerRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+
+  const tabs = [
+    'Duis aute irure',
+    'Duis aute irure',
+    'Duis aute irure',
+    'Duis aute irure',
+    'Duis aute irure'
+  ];
+
+  const images = [
+    '/AIProduct/Onboard2.png',
+    '/AIProduct/DuisImage.png',
+    '/AIProduct/ProductImage1.png',
+    '/AIProduct/Feature.png',
+    '/AIProduct/Onboard1.png'
+  ];
+
+  const paragraphs = [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum ',
+    'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',
+    'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.',
+    'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.'
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!stickyRef.current) return;
+
+      const stickySection = stickyRef.current;
+      const rect = stickySection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Check if sticky section is in view
+      const stickyStart = rect.top <= 0;
+      const stickyEnd = rect.bottom <= windowHeight;
+
+      if (stickyStart && !stickyEnd) {
+        // We're in the sticky zone
+        const scrollProgress = Math.abs(rect.top);
+        const totalScroll = rect.height - windowHeight;
+        const progress = Math.min(scrollProgress / totalScroll, 1);
+        
+        // Calculate which tab should be active based on scroll progress
+        const newActiveTab = Math.min(Math.floor(progress * tabs.length), tabs.length - 1);
+        setActiveTab(newActiveTab);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [tabs.length]);
+
+  // Calculate the height needed for smooth scrolling through all tabs
+  const scrollHeight = `${100 * tabs.length}vh`;
+
+  return (
+    <div className="w-full max-w-8xl pt-64 pb-36  " >
+      {/* Header - Not part of sticky scroll */}
+      <div className="text-center      ">
+        <H2 className="  font-bold text-[#020059] mb-4">
+          Lorem ipsum dolor sit amet Lorem
+        </H2>
+        <p className="text-[#2A2A2A] text-quicksand text-[22px]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum
+        </p>
+      </div>
+
+      {/* Sticky Scroll Section */}
+      <div ref={stickyRef} style={{ height: scrollHeight }} className="relative  ">
+        <div className="sticky top-0 h-auto flex items-center  pt-10  overflow-hidden">
+          <div className="w-full max-w-[1400px] mx-auto px-8">
+            {/* Main Content */}
+            <div className="flex gap-8 items-start pt-10">
+              {/* Left Sidebar - Tabs (20%) */}
+              <div className='w-[20%] '>
+              <div className="flex-shrink-0 space-y-6">
+                {tabs.map((tab, index) => (
+                  <H4
+                    key={index}
+                    className={`    p-6 text-center rounded-xl transition-all duration-500 ${
+                      index === activeTab
+                        ? 'bg-[#5551FF] text-white shadow-lg scale-105'
+                        : index < activeTab
+                        ? 'bg-transparent text-[#141414]'
+                        : 'bg-transparent text-[#141414]'
+                    }`}
+                  >
+                    {tab}
+                  </H4>
+                ))}
+              </div>
+</div>
+              {/* Right Content - Image (80%) */}
+              <div className="w-[80%] pl-10 pt-1 flex-shrink-0">
+                <div className="  overflow-hidden">
+                  <img 
+                    src={images[activeTab]} 
+                    alt={`Content ${activeTab + 1}`}
+                    className="w-full h-[500px] object-cover rounded-xl transition-all duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Green Banner */}
+            <div className="mt-4 bg-emerald-500 rounded-2xl p-6 shadow-xl transition-all duration-700">
+              <p className="text-white text-center text-[18px] font-quicksand tracking-wider leading-relaxed">
+                {paragraphs[activeTab]}
+              </p >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AutoDataChange;

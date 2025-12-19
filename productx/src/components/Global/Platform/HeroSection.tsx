@@ -4,7 +4,7 @@ import { H1, P } from "../../../styles/Typography";
  
 const HeroSection = () => {
   return (
-    <div className="w-full bg-[#2B68C3] pt-20   relative overflow-hidden">
+    <div className="w-full bg-[#2B68C3]   relative overflow-hidden">
      
    
       {/* Text Section */}

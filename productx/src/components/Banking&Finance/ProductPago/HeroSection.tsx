@@ -138,7 +138,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
-          <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <div className="max-w-5xl mx-auto flex flex-col items-center">
             <motion.div variants={itemVariants}>
               <H1 className="font-bold text-white pt-24">
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
