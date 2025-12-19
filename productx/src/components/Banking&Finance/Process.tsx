@@ -10,8 +10,8 @@ type ProcessStepProps = {
 
 const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) => {
     return (
-        <div 
-            className="w-[85vw] sm:w-[75vw] md:w-[55vw] lg:w-[45vw] flex-shrink-0" 
+        <div
+            className="w-[90vw] sm:w-[75vw] md:w-[55vw] lg:w-[45vw] flex-shrink-0"
             style={{ fontFamily: 'Bricolage Grotesque' }}
         >
             <div className="relative flex flex-col items-start px-3 sm:px-4 lg:px-4">
@@ -25,7 +25,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                 {/* Title and Description - Responsive spacing */}
                 <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-4">
                     {/* Title - Responsive positioning */}
-                    <H3 
+                    <H3
                         className="font-semibold tracking-wide mb-2 sm:mb-3 md:mb-4 lg:mb-5 lg:ml-8"
                         style={{
                             fontSize: 'clamp(16px, 2.5vw, 24px)', // Mobile: 16px, Desktop: 24px
@@ -36,7 +36,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                     </H3>
 
                     {/* Description - Responsive positioning */}
-                    <P 
+                    <P
                         className="text-gray-600 leading-relaxed max-w-full pr-2 sm:pr-4 md:max-w-lg lg:ml-64 lg:max-w-md"
                         style={{
                             fontSize: 'clamp(13px, 1.5vw, 15px)', // Mobile: 13px, Desktop: 15px
@@ -61,7 +61,7 @@ const Process = () => {
     });
 
     // Transform scroll progress - Desktop keeps same
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
     const steps = [
         {
@@ -91,18 +91,17 @@ const Process = () => {
             {/* Container with section height for scroll tracking */}
             <div
                 ref={containerRef}
-                className="relative bg-white"
-                style={{ height: "120vh" }}
+                className="relative bg-white h-[200vh] sm:h-[250vh] lg:h-[300vh]"
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[70vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[30vh]">
 
                     {/* Header section - Responsive positioning */}
                     <div className="absolute top-6 sm:top-10 md:top-14 lg:top-20 left-0 right-0 flex-none z-20">
                         <div className="container mx-auto px-4 sm:px-6">
                             <div className="text-center">
-                                <H2 
+                                <H2
                                     className='text-blue-500'
                                     style={{
                                         fontSize: 'clamp(20px, 4vw, 40px)', // Mobile: 20px, Desktop: 40px

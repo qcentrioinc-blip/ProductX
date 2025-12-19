@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import { H2, P } from "../../../styles/Typography";
+import { H2 } from "../../../styles/Typography";
 
 const Statistics = () => {
     const [inView, setInView] = useState(false);
@@ -49,9 +49,9 @@ const Statistics = () => {
             />
 
             {/* Content Container */}
-            <div className="max-w-8xl md:mx-10 mx-4 lg:mx-10 sm:mx-16">
+            <div className="max-w-8xl mx-4 sm:mx-6 md:mx-10 lg:mx-16 ">
                 {/* Heading */}
-                <H2 className="  font-bold mb-12  lg:mx-6 md:mb-28">
+                <H2 className="font-bold mb-12 sm:mx-5 md:mb-28">
                     <span className="text-[#020059]">Lorem ipsum dolor sit amet,</span>
                     <br />
                     <span className="text-[#020059]">consectetur adipiscing elit</span>
@@ -66,15 +66,15 @@ const Statistics = () => {
                 ].map((item, index) => (
                     <div
                         key={index}
-                        className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0   lg:px-8"
+                        className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-2 sm:px-4 md:px-6 lg:px-8"
                     >
                         {/* Text above */}
-                        <P className="text-[#020059] mb-[30px]  lg:mb-[84px] max-w-[240px]">
+                        <p className=" mb-[30px] lg:mb-[84px] max-w-[240px]" style={{ color: "#020059", fontFamily: 'Quicksand', fontSize: '18px' }}>
                             {item.text}
-                        </P>
+                        </p>
 
                         {/* Counter with Icon */}
-                        <div className="flex items-center  gap-3 md:gap-6">
+                        <div className="flex items-center gap-3 md:gap-6">
                             <img
                                 src="/AIOptimization/BlueArrow.png"
                                 alt="Trend icon"
