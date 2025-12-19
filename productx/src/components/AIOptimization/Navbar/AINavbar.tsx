@@ -74,7 +74,17 @@ const AINavbar = () => {
     {
       title: "Newsletters",
       desc: "Latest trends in AI, automation, and machine learning.",
-      path: `${base}/resource-detail`,
+      path: `${base}/newsletter`,
+    },
+    {
+      title: "Whitepapers",
+      desc: "Real-world AI Optimization success stories and ROI metrics.",
+      path: `${base}/whitepaper`,
+    },
+    {
+      title: "Glossary",
+      desc: "Real-world AI Optimization success stories and ROI metrics.",
+      path: `${base}/glossary`,
     },
   ];
 

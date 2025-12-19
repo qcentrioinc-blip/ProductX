@@ -99,39 +99,6 @@ const LandingPageAI = () => {
             </button>
           </div>
         </div>
-
-        {/* ========== BOTTOM SECTION (Blue Bar with Cards) ========== */}
-        <div className="w-full bg-[#000B5E] py-10 sm:py-12 px-4 sm:px-8 lg:px-16">
-          <div className="max-w-8xl mx-4 sm:mx-10 px-0 sm:px-2 lg:px-4">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-10">
-              {/* Left Text */}
-              <h2
-                className="mb-6 lg:mb-0"
-                style={{
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "72px", // desktop unchanged
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  textAlign: "center",
-                  color: "#FFFFFF",
-                }}
-              >
-                consectetur
-              </h2>
-
-              {/* Right Cards Grid */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 w-full lg:w-auto">
-                {[1, 2, 3, 4].map((item) => (
-                  <div
-                    key={item}
-                    className="w-full h-[56px] sm:h-[64px] lg:h-[70px] lg:w-[186px] rounded-lg bg-[#3E3E3E] opacity-100"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* CONTACT MODAL - SLIDES FROM TOP */}

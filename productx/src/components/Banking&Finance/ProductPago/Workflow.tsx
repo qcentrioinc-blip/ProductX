@@ -6,8 +6,8 @@ import { ContactUs } from "../../../styles/Button";
  
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
- 
- 
+
+
 const steps = [
   {
     id: 1,
@@ -45,7 +45,7 @@ const steps = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
 ];
- 
+
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -187,7 +187,7 @@ export default function Workflow() {
                   >
                     {step.id}
                   </motion.div>
- 
+
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -220,7 +220,7 @@ export default function Workflow() {
                 </motion.div>
               );
             })}
- 
+
             {/* Book A Demo Button */}
             <div className=" md:pl-4  pt-4">
  

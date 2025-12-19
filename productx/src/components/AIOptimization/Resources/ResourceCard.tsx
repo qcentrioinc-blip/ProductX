@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+// import { Link } from 'react-router-dom';
 
 interface Resource {
   id: number;
@@ -19,11 +20,8 @@ interface ResourceCardProps {
 }
 
 const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCardProps) => {
-  // Filter resources based on selectedCategory prop
-  const filteredResources =
-    selectedCategory === 'All'
-      ? resources
-      : resources.filter((resource) => resource.category.includes(selectedCategory));
+  // Use resources passed from parent directly
+  const filteredResources = resources;
 
   return (
     <div className="w-full bg-white py-16">
@@ -36,7 +34,7 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-8 xl:gap-10"
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-6 md:gap-8 xl:gap-10"
             >
               {filteredResources.slice(0, 6).map((resource) => (
                 <motion.div
@@ -124,7 +122,7 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
                     </div>
 
                     {/* Read Link */}
-                    <motion.a
+                    <a
                       href={resource.link}
                       className="inline-flex items-center gap-3 group/link w-fit mt-1"
                       style={{
@@ -135,24 +133,25 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
                         letterSpacing: '0',
                         color: '#5551FF',
                       }}
-                      whileHover={{ x: 6 }}
                     >
-                      REAL FULL ARTICLE
-                      <motion.svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="group-hover/link:translate-x-2 transition-transform"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </motion.svg>
-                    </motion.a>
+                      <motion.span whileHover={{ x: 6 }} className="inline-flex items-center gap-3">
+                        REAL FULL ARTICLE
+                        <svg
+                          width="32"
+                          height="32"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="group-hover/link:translate-x-2 transition-transform"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </motion.span>
+                    </a>
                   </div>
                 </motion.div>
               ))}

@@ -61,6 +61,9 @@ import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
 import { ScrollProvider } from './context/ScrollContext'
 import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
  
+import AINewsLetter from './components/AIOptimization/NewsLetter/AINewsLetter'
+import AIWhitePapers from './components/AIOptimization/WhitePapers/AIWhitePapers'
+import AIGlossary from './components/HomePage/AIOptimization/Glossary/AIGlossary'
 
 
 
@@ -197,9 +200,6 @@ const App = () => {
             <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
             <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor />} />
-
-
-
             <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
 
 
@@ -216,6 +216,11 @@ const App = () => {
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
             <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
             <Route path="/industries/ai-optimization/clouddiet" element={<AIProduct/>} />
+            <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
+            <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
+            <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
+
+
 
           </Routes>
         </div>
