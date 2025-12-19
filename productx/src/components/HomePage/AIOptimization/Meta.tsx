@@ -1,11 +1,11 @@
 const Meta = () => {
   return (
-    <section className="relative w-full min-h-[auto] sm:min-h-[auto] lg:min-h-screen bg-[#3A3028] text-white overflow-hidden px-4 sm:px-6 pt-14 sm:pt-20 pb-10 sm:pb-16 lg:py-24">
+    <section className="relative w-full min-h-[auto] sm:min-h-[auto] md:min-h-[auto] xl:min-h-screen bg-[#3A3028] text-white overflow-hidden px-4 sm:px-6 pt-14 sm:pt-20 pb-10 sm:pb-16 xl:py-24">
       <div className="max-w-8xl mx-0 sm:mx-4 lg:mx-10 px-1 sm:px-4 lg:px-6">
-        
+
         {/* ================= HEADER ================= */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-16 space-y-6">
-          
+
           {/* Title (Desktop untouched) */}
           <h1
             className="text-center text-[36px] sm:text-[48px] lg:text-[64px]"

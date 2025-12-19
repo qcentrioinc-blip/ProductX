@@ -1,6 +1,7 @@
 import AIBlogs from "./AIBlogs"
 import AIFooter from "./AIFooter"
 import CloudDiet from "./CloudDiet"
+import Consentur from "./Consentur"
 import Frontier from "./Frontier"
 import LandingPageAI from "./LandingPageAI"
 import Meta from "./Meta"
@@ -11,6 +12,7 @@ const HeroAIOptimization = () => {
   return (
     <div>
       <LandingPageAI />
+      <Consentur />
       <Frontier />
       <ThreeCardAI />
       <Meta />
