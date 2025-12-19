@@ -17,6 +17,7 @@ import Milestone from "./Milestone"
 import LifeCycleTech from "./LifeCycleTech"
 import CEO from "./CEO"
 import NewFooter from "../../Global/NewFooter/NewFooter"
+import FlowingMenu from "./FlowingMenu"
 
 const GlobalLandingPage = () => {
     return (
@@ -82,12 +83,18 @@ const GlobalLandingPage = () => {
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
 
+                
+            
 
 
                 {/* CallToAction Section */}
                 <div id="calltoaction">
                     <CallToAction />
                 </div>
+
+                <div id="FlowingMenu">
+                <FlowingMenu/>
+            </div>
 
                 {/* Footer Section */}
                 <div id="footer">

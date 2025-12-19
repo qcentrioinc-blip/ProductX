@@ -66,3 +66,4 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
         </ScrollContext.Provider>
     );
 };
+ 

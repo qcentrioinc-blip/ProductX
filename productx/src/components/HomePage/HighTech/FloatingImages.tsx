@@ -92,8 +92,10 @@ const [active, setActive] = useState(false);
               Math.max((scrollProgress - end) / (start - end), 0),
               1
             );
+            const speedFactor = 0.8; // 🔽 smaller = slower
 
-            const translateY = 100 - localProgress *200;
+
+            const translateY = 100 - localProgress *200 * speedFactor;
             
 //             const eased = localProgress * localProgress;
 // const translateY = 100 - eased * 140;

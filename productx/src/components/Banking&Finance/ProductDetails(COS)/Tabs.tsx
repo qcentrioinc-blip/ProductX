@@ -81,7 +81,7 @@ const ResponsiveTabs: React.FC = () => {
                 }}
                 className={`cursor-pointer text-3xl md:text-3xl xl:text-5xl transition-colors duration-200
                   ${activeIndex === index
-                    ? 'text-[#C8072C] font-semibold'
+                    ? 'text-black font-semibold'
                     : 'text-gray-400 hover:text-gray-600 font-normal'}`}
               >
                 {String(index + 1).padStart(2, '0')}
@@ -96,7 +96,7 @@ const ResponsiveTabs: React.FC = () => {
 
         {/* Text Content */}
         <div className="md:w-1/2 z-10 mb-20">
-          <H2 className="text-3xl text-[#A80040] font-bold whitespace-pre-line mb-6 leading-tight">
+          <H2 className="text-3xl text-black font-bold whitespace-pre-line mb-6 leading-tight">
             {tabContents[activeIndex].headline}
           </H2>
           <P className="text-gray-700 leading-relaxed">

@@ -307,13 +307,13 @@ export const App: React.FC = () => {
 
   return (
     // 4. Attach the ref to the main section element
-    <section ref={sectionRef} className="w-full py-10 px-6 sm:px-10 lg:px-[80px]">
+    <section ref={sectionRef} className="w-full py-10 ">
       {/* Category Pills - Sticky below navbar with mobile carousel */}
       <div
         className="
-          sticky top-[45px] z-30 bg-white/50 py-3 mb-5
-          mt-4 sm:mt-8 md:mt-10 lg:mt-[10px]
-          backdrop-blur-sm
+          sticky top-[0px] z-30 bg-white py-3 mb-5 
+          shadow-xl
+          backdrop-blur-sm 
         "
       >
         <div
@@ -323,7 +323,7 @@ export const App: React.FC = () => {
             overflow-x-auto sm:overflow-x-visible 
             scrollbar-none
             px-4 sm:px-0
-            scroll-smooth
+            scroll-smooth scrollbar-hide
           "
         >
           {categories.map((c) => (
@@ -361,6 +361,7 @@ export const App: React.FC = () => {
           [@media(min-width:1400px)]:grid-cols-3
           gap-x-[32px]
           gap-y-[64px]
+          px-6 sm:px-10 lg:px-[80px]
           justify-items-center
           transition-all duration-500
           ${isAnimating ? 'opacity-70 scale-95' : 'opacity-100 scale-100'}
