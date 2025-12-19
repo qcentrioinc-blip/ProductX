@@ -43,7 +43,7 @@ export default function MarketplaceHero() {
         className="
           absolute z-0
           top-[60px] left-0
-          w-[220px] sm:w-[220px] md:w-[300px] lg:w-[350px] xl:w-[400px]
+          w-[220px] sm:w-[220px] md:w-[300px]
           h-auto
           transform transition-all duration-1000 ease-out
         "
@@ -61,7 +61,7 @@ export default function MarketplaceHero() {
   className="
     absolute z-0
     bottom-0 right-0
-    w-[220px] sm:w-[220px] md:w-[300px] lg:w-[350px] xl:w-[400px]
+    w-[220px] sm:w-[220px] md:w-[300px]
     h-auto
     transform transition-all duration-1000 ease-out
   "

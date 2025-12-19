@@ -1,3 +1,4 @@
+import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import AINavbar from "../Navbar/AINavbar"
 import BenefitsSection from "./BenefitsSection"
 import Careers from "./Careers"
@@ -16,6 +17,7 @@ export const CareersPageAI = () => {
       <ExperienceSection />
       <TeamSection />
       <JobListSection />
+      <AIFooter/>
     </div>
   )
 }

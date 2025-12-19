@@ -122,7 +122,7 @@ export default function BlogGridSection() {
 
         {/* CATEGORIES + SORT */}
         <div className="flex flex-wrap gap-3 mb-4">
-          <div className="flex overflow-x-scroll flex-nowrap md:overflow-hidden gap-3 pb-2">
+          <div className="flex overflow-x-scroll flex-nowrap md:overflow-hidden gap-3 pb-2 scrollbar-hide">
             {categories.map((cat) => (
               <button
                 key={cat}

@@ -27,7 +27,7 @@ const Platform = () => {
       </div>
 
 
-<section className="bg-[#F6DFA4]  ">
+<section className="bg-[#F6DFA4]">
 
   <div id="benefits">
          <Benefits/>

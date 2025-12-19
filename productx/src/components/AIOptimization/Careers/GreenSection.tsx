@@ -16,7 +16,7 @@ export default function GreenSection() {
          className="text-[#020059] ">
           Want to work with the
           best and for the best? Of
-          course you do.
+          course you.
         </H2>
 
       </div>
