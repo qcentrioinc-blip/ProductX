@@ -84,10 +84,10 @@ export default function HeroSection() {
         <div className="absolute w-[300px] h-[300px] bg-[#0057ff] opacity-20 blur-[200px] top-[200px] left-[40%]"></div>
       </div>
 
-      <div className="relative max-w-8xl mx-10 px-4 py-24 flex flex-col lg:flex-row items-end justify-start gap-12">
+      <div className="relative max-w-8xl lg:mx-10 px-4 py-24 flex flex-col lg:flex-row items-start   lg:justify-start gap-12">
 
         {/* LEFT TEXT SECTION */}
-        <div className="lg:mt-44 lg:ml-4 text-white">
+        <div className="lg:mt-44  px-2 lg:ml-4 text-white">
           <H1 className="font-bold leading-tight slide-in">
             <span className="text-[#00ff88]">Lorem ipsum dolor </span>  <br /> 
             sit amet, consectetur
@@ -101,16 +101,16 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT IMAGE SECTION with glowing background */}
-        <div className="-right-32 mt-44 bottom-0 absolute flex justify-center items-end lg:justify-end">
+        <div className="  -right-32 lg:mt-44  -bottom-44 md:-bottom-52 lg:bottom-0 absolute flex justify-center items-end lg:justify-end">
           {/* Glowing background blob behind image */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="glow-blob w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] bg-gradient-to-br from-[#ba79ff] via-[#19a9d1] to-[#0057ff] opacity-30 blur-[120px] rounded-full"></div>
+            <div className="glow-blob w-[300px] h-[300px]  lg:w-[600px] lg:h-[600px] bg-gradient-to-br from-[#ba79ff] via-[#19a9d1] to-[#0057ff] opacity-30 blur-[120px] rounded-full"></div>
           </div>
           
           <img
             src="/AIAbout/AIHero.png"
             alt="Futuristic Person"
-            className="max-w-md lg:max-w-2xl w-full object-contain image-glow relative z-10"
+            className="  lg:max-w-2xl  w-[350px] md:w-[450px] lg:w-full object-contain image-glow relative z-10"
           />
         </div>
 

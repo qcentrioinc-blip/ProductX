@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H3,H4 ,P} from "../../../styles/Typography";
+import { H2, H3 ,P} from "../../../styles/Typography";
 // import Image1 from "/AML/image73.png"
 
 
@@ -29,10 +29,10 @@ const Description = () => {
   <div className="max-w-8xl lg:mx-10 px-4  ">
 
       {/* Top Heading */}
-      <div className="md:py-16  md:3xl lg:w-5xl w-full py-8">
-        <H3 className="text-left ">
-          Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor , consectetur adipis,Lorem ipsum
-        </H3>
+      <div className="md:py-16  md:3xl lg:w-7xl w-full py-8">
+        <H2 className="text-left ">
+          Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor , consectetur adipis 
+        </H2>
       </div>
  <div className="lg:hidden mb-8">
   <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
@@ -40,7 +40,7 @@ const Description = () => {
       <button
         key={index}
         onClick={() => setActiveIndex(index)}
-        className={`snap-center shrink-0 md:w-[24vw] w-[40vw] py-4 rounded-full text-lg font-semibold
+        className={`snap-center shrink-0 md:w-[24vw] w-[36vw] md:py-4 py-2 rounded-full text-lg font-semibold
           ${activeIndex === index 
             ? "bg-(--primary-color) text-white" 
             : "border-2 border-neutral-700 text-black bg-white"
@@ -62,15 +62,15 @@ const Description = () => {
        <img 
   src={images[activeIndex]}
   alt="Description"
-  className="w-full h-[200px] md:h-[450px] lg:h-[550px] object-cover"
+  className="w-full h-[250px] md:h-[450px] lg:h-[550px] object-cover"
 />
 
 
         {/* Right Overlay Box - Desktop only */}
        <div className="hidden lg:block absolute top-16 right-16  lg:h-[200px] bg-neutral-500 text-white rounded-sm p-4 sm:p-6 lg:p-6 backdrop-blur-md">
-  <H4 className="mb-3">
+  < H3 className="mb-3">
     Lorem ipsum dolor <br /> consectetur
-  </H4>
+  </ H3>
 
   <div className="flex gap-6 mt-12 font-bricolage items-start">
     <div className="flex flex-col items-start">
@@ -92,28 +92,28 @@ const Description = () => {
 
 
         {/* Bottom Overlay - Desktop only */}
-        <div className="hidden lg:block absolute bottom-0 w-full px-6 py-6 sm:px-10 sm:py-8 backdrop-blur-md text-white">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-6">
+        <div className="hidden lg:block absolute bottom-0 w-full px-6 py-6 sm:px-10 sm:py-8 backdrop-blur-sm text-white/80">
+          <div className="flex flex-col p-10 lg:flex-row justify-between items-start gap-6">
             
             {/* Left Text */}
             <div className="w-full md:w-xl">
-              <H3>Lorem ipsum dolor , consectetur adipis
+              <H3 className="text-white">Lorem ipsum dolor , consectetur adipis
                 Lorem ipsum dolor  
               </H3>
             </div>
 
             {/* Right Text */}
           <div className="w-full lg:w-2/5">
-  <P>{textData[activeIndex]}</P>
+  <P className="text-[#FAFAFA]">{textData[activeIndex]}</P>
 </div>
 
           </div>
 
           {/* Dots */}
-          <div className="flex gap-3 mt-6">
+          {/* <div className="flex gap-3 mt-6">
             <div className="w-10 h-10 rounded-full bg-gray-400"></div>
             <div className="w-10 h-10 rounded-full bg-gray-400"></div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -121,7 +121,7 @@ const Description = () => {
       <div className="lg:hidden mt-6 space-y-6">
         {/* Stats Box for Mobile */}
         <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-6">
-          <H3 className="mb-4 ">
+          <H3 className="mb-4  ">
             Lorem ipsum dolor <br/>consectetur
           </H3>
           <div className="flex  justify-around gap-4 mt-10">

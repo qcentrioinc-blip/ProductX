@@ -4,7 +4,7 @@ import { H2, H4,   P } from "../../../styles/Typography";
 export default function Solutions() {
   return (
     <section className="w-full bg-black text-white py-10 lg:py-20 lg:px-10">
-      <div className="max-w-8xl mx-4 lg:mx-10  ">
+      <div className="max-w-8xl mx-4 md:mx-10 lg:mx-10  ">
  <div className="text-center">
      {/* HEADING */}
         <H2 className="   font-bold leading-tight">

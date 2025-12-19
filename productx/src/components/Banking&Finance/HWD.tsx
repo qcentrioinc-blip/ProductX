@@ -11,8 +11,8 @@ const path = location.pathname;
 const isEHR = path.startsWith("/industries/ehr-and-pms");
 const isBanking = path.startsWith("/industries/banking-and-finance");
 const isHighTech = path.startsWith("/industries/high-tech");
-// const isBanking = location.pathname === "/industries/banking-and-finance";
- 
+ const isAI = location.pathname === "/industries/ai-optimization/clouddiet";
+
 // Default (banking) colors
 const COLORS = {
   ehr: {
@@ -32,6 +32,12 @@ const COLORS = {
     bottomBg: "#E7D6FF",
     headingColor: "#5B3FD1",
     textcolor: "#CCCCCC"
+  },
+  ai: {
+    topBg: "#F5F5F5",
+    bottomBg: "#0AC276",
+    headingColor: "#020059",
+    textcolor: "#141414"
   }
 };
  
@@ -41,8 +47,11 @@ let palette;
 if (isEHR) palette = COLORS.ehr;
 else if (isBanking) palette = COLORS.banking;
 else if (isHighTech) palette = COLORS.hightech;
+else if (isAI) palette = COLORS.ai;
 else palette = COLORS.banking; // default
- 
+  const checkClass = isAI ? "text-[#5551FF]" : "text-[#A80040]";
+const textClass = isAI ? "text-white" : "";
+
 // Extract
 const { topBg, bottomBg, headingColor, textcolor } = palette;
  
@@ -99,11 +108,13 @@ const CardContent = () => (
           "Duis aute irure dolor in reprehenderit in",
           "Duis aute irure dolor in reprehenderit esse",
           "Duis aute irure dolor voluptate",
-          "Duis aute irure dolor in reprehenderit wertg",
+          "Duis aute irure dolor in reprehenderit wertg", 
         ].map((item, index) => (
           <li key={index} className="flex items-center gap-4">
-            <Check size={25} className="text-[#A80040]" />
-            <P>{item}</P>
+            <Check size={25} className={checkClass} />
+<P className={textClass}>{item}</P>
+ 
+
           </li>
         ))}
       </ul>
@@ -123,10 +134,10 @@ const CardContent = () => (
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="flex items-center gap-x-2">
+            <div className="flex text-[#2A2A2A] font-quicksand font-medium items-center gap-x-2">
               <div className="w-8 h-1 rounded-full bg-gray-400"
               ></div>
-              {"Quis autim".split(" ").map((word, wordIndex) => (
+              {"Quis autem".split(" ").map((word, wordIndex) => (
                 <span key={wordIndex} className="">
                   {word.split("").map((char, charIndex) => (
                     <motion.span key={charIndex} variants={itemVariants}>

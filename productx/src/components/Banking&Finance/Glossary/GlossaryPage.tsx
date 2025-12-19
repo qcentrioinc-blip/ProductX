@@ -14,6 +14,7 @@ import EHRFooter from '../../HomePage/EHR&PMS/EHRFooter';
 import SubFooter from '../../HighTech/AboutHightTech/SubFooter';
  
  
+ 
 // import AlphabetSec from './AlphabetsSection';
 
 interface GlossaryPageProps {
@@ -54,7 +55,7 @@ const GlossaryPage = ({ industry }: GlossaryPageProps) => {
 
       {industry === "ehrpms" && <EHRFooter />}
       {industry === "hightech" && <SubFooter />}
-  
+ 
        
       {/* <NewOneFooter/> */}
        
