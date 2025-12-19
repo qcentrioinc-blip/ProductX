@@ -57,7 +57,7 @@ const AIFooter = () => {
 
                 <div className="relative z-10 mx-4 sm:mx-8 md:mx-10">
 
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-0">
+                    <div className="grid xl:grid-cols-2 gap-12 xl:gap-0">
 
                         {/* LEFT SECTION */}
                         <div>
@@ -65,7 +65,7 @@ const AIFooter = () => {
                             {/* Newsletter */}
                             <div className="space-y-6 sm:space-y-7 md:space-y-8">
                                 <h3
-                                    className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[64px] lg:whitespace-nowrap"
+                                    className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[64px] xl:whitespace-nowrap"
                                     style={{
                                         fontFamily: "'Bricolage Grotesque', sans-serif",
                                         fontWeight: 600,
@@ -246,7 +246,7 @@ const AIFooter = () => {
                         </div>
 
                         {/* RIGHT SIDE AI IMAGE (Desktop Only) */}
-                        <div className="hidden lg:block relative">
+                        <div className="hidden xl:block relative">
                             <div className="absolute right-0 top-[-100px] left-[230px] w-[520px] xl:w-[620px]">
                                 <img
                                     src="/AIOptimization/AIGirl.png"
