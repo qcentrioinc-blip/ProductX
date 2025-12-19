@@ -24,7 +24,7 @@ const Cards = () => {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col items-center justify-center bg-black py-20 -mt-14 px-6 lg:px-12"
+      className="flex flex-col items-center justify-center bg-black py-20 -mt-20 px-6 lg:px-12"
     >
       <div className="w-full max-w-8xl lg:mx-10 lg:px-10">
         {/* Header */}

@@ -216,7 +216,7 @@ const BNFNav = () => {
       <div
         className=" fixed top-0 z-50 left-0 w-full
         bg-white/10 backdrop-blur-lg font-bricolage
-        border-b border-white/20
+          
          px-4 sm:px-6 md:px-8 pt-3 pb-1
         flex justify-between transition-all duration-300"
       >
