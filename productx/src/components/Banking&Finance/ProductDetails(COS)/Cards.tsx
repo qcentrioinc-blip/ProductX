@@ -1,5 +1,5 @@
 import React from 'react';
-import { H2, P } from '../../../styles/Typography';
+import { H3, P } from '../../../styles/Typography';
 
 interface ColumnData {
   heading: string;
@@ -35,7 +35,7 @@ const InfoColumns: React.FC<InfoColumnsProps> = ({ columns = defaultColumns }) =
     <div className="w-full mx-auto px-1 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
       {columns.map((col, idx) => (
         <div key={idx} className="flex-1 max-w-xs text-center mx-auto">
-          <H2 className="mb-4">{col.heading}</H2>
+          <H3 className="mb-4">{col.heading}</H3>
           <P className="text-gray-600 text-base">{col.text}</P>
         </div>
       ))}

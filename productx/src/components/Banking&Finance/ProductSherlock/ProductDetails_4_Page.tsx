@@ -7,7 +7,7 @@ import Grid from "./Grid";
 import FAQ from "./FAQ";
 import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-
+import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 
@@ -18,6 +18,7 @@ const ProductDetails_4_page = () => {
     <div>
       <BNFNav/>
         <TitleSec /> 
+        <HeroBottomNavbar/>
         <CardsSection />
         <Features />
         <ContentInfo />

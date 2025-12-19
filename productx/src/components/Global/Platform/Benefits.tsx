@@ -34,7 +34,7 @@ const Benefits = () => {
           <H2 className="font-bold leading-tight">
             <span className="text-black">Lorem ipsum dolor,</span>
             <br />
-            <span className="text-black"> consectetur adipis <br/>conse</span>
+            <span className="text-black"> consectetur adipis conse</span>
           </H2>
         </div>
 

@@ -20,9 +20,9 @@ export default function Careers() {
         
         
         {/* Main Heading */}
-        <H1 className="leading-snug text-[#0AC276]">
+        <H1 className="leading-snug text-[#0AC276] mb-10">
           Lorum ipsum dolor sit <br className="hidden sm:block" />
-          <span className="text-white">amet, consecutor adipisindd </span>
+          <span className="text-white">amet, consecutor </span>
         </H1>
 
         {/* Button */}

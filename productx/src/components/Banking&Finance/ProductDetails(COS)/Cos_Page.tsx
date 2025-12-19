@@ -7,6 +7,7 @@ import FeatureGrid from "./FeatureGrid";
 import HWD from "../HWD";
 import FAQ from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
+import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 // import NewFooter from "../Products2/NewFooter";
  
 // import { ScrollProvider } from "../../../context/ScrollContext"; // Import ScrollProvider
@@ -22,6 +23,7 @@ const Cos_Page = () => {
     <div>
       <BNFNav/>
         <HeroSection />
+        <HeroBottomNavbar/>
         <StatsSection />
         <Cards />
         <Tabs />

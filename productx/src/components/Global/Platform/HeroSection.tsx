@@ -15,8 +15,8 @@ const HeroSection = () => {
         </div>
 
         {/* Paragraph + Button */}
-        <div className="w-full md:w-lg lg:w-3/5  text-white flex flex-col lg:pb-10 p-4 lg:pt-20 text-center lg:text-left">
-          <P>
+        <div className="w-full md:w-lg lg:w-3/5 flex flex-col lg:pb-10 p-4 lg:pt-20 text-center lg:text-left">
+          <P className="text-white">
            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
           </P>
           <div className="flex mt-6 justify-center lg:justify-start">
