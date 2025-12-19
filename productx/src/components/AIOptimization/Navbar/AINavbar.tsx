@@ -74,7 +74,17 @@ const AINavbar = () => {
     {
       title: "Newsletters",
       desc: "Latest trends in AI, automation, and machine learning.",
-      path: `${base}/resource-detail`,
+      path: `${base}/newsletter`,
+    },
+    {
+      title: "Whitepapers",
+      desc: "Real-world AI Optimization success stories and ROI metrics.",
+      path: `${base}/whitepaper`,
+    },
+    {
+      title: "Glossary",
+      desc: "Real-world AI Optimization success stories and ROI metrics.",
+      path: `${base}/glossary`,
     },
   ];
 
@@ -173,7 +183,7 @@ const AINavbar = () => {
   return (
     <>
       {/* TOP TRANSPARENT BAR */}
-      <div className="fixed top-0 z-50 left-0 w-full bg-gradient-to-r from-purple-100/80 to-blue-100/80 backdrop-blur-lg border-b border-white/20 px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
+      <div className="fixed top-0 z-50 left-0 w-full bg-white/20 backdrop-blur-xl px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
         <Link to="/" className="flex items-center">
           <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">LOGO</span>
@@ -181,8 +191,8 @@ const AINavbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-gray-800 font-medium">Platform</Link>
-          <Link to="/marketplace" className="text-gray-800 font-medium">Marketplace</Link>
+          <Link to="/platform" className="text-white font-medium">Platform</Link>
+          <Link to="/marketplace" className="text-white font-medium">Marketplace</Link>
         </div>
 
         <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>

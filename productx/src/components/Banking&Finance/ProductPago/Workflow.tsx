@@ -1,15 +1,13 @@
-
-
 import { useState, useEffect, useRef, useContext, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
-import {  ContactUs } from "../../../styles/Button";
+import { ContactUs } from "../../../styles/Button";
 
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
- 
- 
+
+
 const steps = [
   {
     id: 1,
@@ -47,7 +45,7 @@ const steps = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
 ];
- 
+
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -56,26 +54,17 @@ export default function Workflow() {
   const scrollableContainerRef = useContext(ScrollContext);
 
   useEffect(() => {
-    const scrollContainer = scrollableContainerRef;
-    if (!scrollContainer) return;
+    const lenis = scrollableContainerRef;
+    if (!lenis) return;
 
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
       const sectionRect = sectionRef.current.getBoundingClientRect();
-      const containerScrollTop = scrollContainer.scroll.y;
+      const viewportCenter = window.innerHeight / 2;
 
-      // Calculate scroll position relative to the section
-      const sectionTop = sectionRect.top + containerScrollTop;
-      const sectionBottom = sectionTop + sectionRect.height;
-      const scrollPosition = containerScrollTop + window.innerHeight / 2;
-      // Check if we're within the section bounds
-      if (scrollPosition < sectionTop || scrollPosition > sectionBottom) {
-        return;
-      }
+      const sectionProgress = (viewportCenter - sectionRect.top) / sectionRect.height;
 
-      // Calculate progress through the section (0 to 1)
-      const sectionProgress = (scrollPosition - sectionTop) / sectionRect.height;
       setScrollProgress(sectionProgress);
 
       // Map progress to step (1 to 5)
@@ -88,36 +77,33 @@ export default function Workflow() {
       setActiveStep(newActiveStep);
     };
 
-    scrollContainer.on("scroll", handleScroll);
+    lenis.on("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      scrollContainer.off("scroll", handleScroll);
+      lenis.off("scroll", handleScroll);
     };
   }, [scrollableContainerRef]);
 
- 
- const backgroundGradient = useMemo(() => {
-  const progress = scrollProgress;
 
-  // Start Color: #C1D7F3
-  const start = { r: 193, g: 215, b: 243 };
+  const backgroundGradient = useMemo(() => {
+    const progress = scrollProgress;
 
-  // End Color: darker shade (ex: #8BA4C4)
- const end = { r: 100, g: 100, b: 255 };
+    const start = { r: 193, g: 215, b: 243 };
 
-  // Interpolated color based on scroll progress
-  const r = Math.round(start.r + (end.r - start.r) * progress);
-  const g = Math.round(start.g + (end.g - start.g) * progress);
-  const b = Math.round(start.b + (end.b - start.b) * progress);
+    const end = { r: 100, g: 100, b: 255 };
 
-  return `rgb(${r}, ${g}, ${b})`;
-}, [scrollProgress]);
+    const r = Math.round(start.r + (end.r - start.r) * progress);
+    const g = Math.round(start.g + (end.g - start.g) * progress);
+    const b = Math.round(start.b + (end.b - start.b) * progress);
+
+    return `rgb(${r}, ${g}, ${b})`;
+  }, [scrollProgress]);
 
   return (
     <motion.div
       ref={sectionRef}
-      style={{ 
+      style={{
         backgroundColor: backgroundGradient,
         transition: 'background-color 0.1s ease-out'
       }}
@@ -126,25 +112,25 @@ export default function Workflow() {
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
-           
+
           className="  text-[#2B68C3]  mb-6 leading-snug"
         >
           Lorem ipsum dolor gamis consecte ipsum
         </H2>
-        <motion.p 
+        <motion.p
           style={{
             color: scrollProgress > 0.3 ? '#374151' : '#141414'
           }}
           className="text-sm   md:text-base leading-relaxed max-w-4xl transition-colors duration-300"
         >
-          Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate velit esse Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate  
+          Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate velit esse Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate
         </motion.p>
       </div>
 
       {/* Sticky Content Container */}
       <div className="sticky top-10 lg:h-screen flex items-center justify-center">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-10">
-          
+
           {/* LEFT SIDE - Sticky Image */}
           <div className="h-[400px] md:h-[600px] order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
@@ -169,8 +155,8 @@ export default function Workflow() {
               style={{ backgroundColor: "black" }}
               className="absolute left-8 md:top-8 lg:top-2 bottom-30 w-[2px] rounded-full   hidden md:block"
             />
- 
-            {steps.map((step, index) => { 
+
+            {steps.map((step, index) => {
               const isActive = step.id === activeStep;
               return (
                 <motion.div
@@ -201,7 +187,7 @@ export default function Workflow() {
                   >
                     {step.id}
                   </motion.div>
- 
+
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -214,20 +200,19 @@ export default function Workflow() {
     ${isActive ? "shadow-md" : ""}
     
     /* Responsive padding */
-    ${isActive 
-      ? "px-3 py-2 sm:px-4 sm:py-3 md:px-2 md:py-2 lg:px-8 lg:py-5" 
-      : "px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-3"
-    }`}
+    ${isActive
+                        ? "px-3 py-2 sm:px-4 sm:py-3 md:px-2 md:py-2 lg:px-8 lg:py-5"
+                        : "px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-3"
+                      }`}
                   >
                     <motion.h3
                       style={{
-                        color: isActive 
-                          ? '#111827' 
+                        color: isActive
+                          ? '#111827'
                           : scrollProgress > 0.4 ? 'text-[#4B5563]' : 'text-[#4B5563]'
                       }}
-                      className={`  leading-tight  lg:text-[18px]   transition-colors duration-300 ${
-                        isActive ? "font-bricolage" : ""
-                      }`}
+                      className={`  leading-tight  lg:text-[18px]   transition-colors duration-300 ${isActive ? "font-bricolage" : ""
+                        }`}
                     >
                       {step.title}
                     </motion.h3>
@@ -235,10 +220,10 @@ export default function Workflow() {
                 </motion.div>
               );
             })}
- 
+
             {/* Book A Demo Button */}
             <div className=" md:pl-4  pt-4">
-               
+
 
               <ContactUs>Book A Demo</ContactUs>
             </div>

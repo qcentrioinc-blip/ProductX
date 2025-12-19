@@ -1,4 +1,12 @@
 'use client';
+import { Instagram, Linkedin } from 'lucide-react';
+
+const XIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+);
+
 const ResourceDetail = () => {
     return (
         <>
@@ -10,13 +18,13 @@ const ResourceDetail = () => {
                         className="absolute inset-0 w-full h-full"
                         style={{
                             backgroundImage: `url('/AIOptimization/AIResourceBack.png')`,
-                            backgroundSize: 'contain',
+                            backgroundSize: 'cover',
                             backgroundPosition: 'top center',
                             backgroundRepeat: 'no-repeat',
                             opacity: 0.80, // Very light - almost invisible
                         }}
                     />
-                    <div className="relative mx-4 sm:mx-6 lg:mx-10 lg:max-w-8xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18 lg:py-24">
+                    <div className="relative mx-4 sm:mx-6 lg:mx-10 lg:max-w-8xl px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-24 pb-14 sm:pb-18 lg:pb-24">
                         {/* Content wrapper */}
                         <div className="relative z-10 top-0 lg:top-40">
                             {/* Heading */}
@@ -26,15 +34,14 @@ const ResourceDetail = () => {
                                         fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
                                         fontWeight: 700,
                                         fontStyle: 'normal',
-                                        fontSize: 'clamp(32px, 5vw, 72px)', // small on mobile, 72px on large
-                                        lineHeight: '100%',
+                                        fontSize: 'clamp(28px, 6vw, 72px)', // Adjusted mobile size
+                                        lineHeight: '110%', // Increased slightly for mobile readability
                                         letterSpacing: '0',
                                         color: 'var(--Primary-AI-Optimization, #020059)',
                                     }}
                                     className="
                     font-semibold
-                    leading-[1]
-                    text-[30px] sm:text-[40px] lg:text-[56px]
+                    text-[28px] sm:text-[40px] lg:text-[56px]
                     lg:whitespace-nowrap
                   "
                                 >
@@ -65,265 +72,299 @@ const ResourceDetail = () => {
                     </div>
                 </div>
 
-                {/* Text content section - NO background pattern */}
-                <div className="mx-4 sm:mx-6 lg:mx-10 max-w-4xl lg:max-w-5xl xl:max-w-6xl relative top-0 lg:top-30 px-4 sm:px-6 lg:px-10 pb-16 sm:pb-20 lg:pb-24 mb-12">
-                    <div className="space-y-8">
-                        {/* Intro paragraph */}
-                        <div className="space-y-4">
-                            <p
-                                className="text-sm sm:text-base lg:text-lg"
-                                style={{
-                                    fontFamily: "'Quicksand', system-ui, sans-serif",
-                                    fontWeight: 400,
-                                    fontStyle: 'normal',
-                                    lineHeight: '140%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                We are pleased to offer a HIPAA-compliant Business Associate agreement (BAA) to enable customers across the healthcare industry to work with us to develop secure custom models that meet their specific business needs. Company
-                            </p>
-
-                            <div className="flex flex-wrap items-center gap-2">
-                                <span
-                                    className="text-sm sm:text-base font-semibold text-gray-900"
+                {/* Text content section */}
+                <div className="mx-4 sm:mx-6 lg:mx-10 relative top-0 lg:top-30 px-4 sm:px-6 lg:px-10 pb-16 sm:pb-20 lg:pb-24 mb-12">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
+                        {/* Left Column - ALL TEXT CONTENT */}
+                        <div className="flex-1 lg:max-w-4xl space-y-8">
+                            {/* Intro paragraph */}
+                            <div className="space-y-6">
+                                <p
+                                    className="text-sm sm:text-base lg:text-lg"
                                     style={{
                                         fontFamily: "'Quicksand', system-ui, sans-serif",
                                         fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        letterSpacing: '0',
+                                        lineHeight: '160%',
                                         color: '#000000',
                                     }}
                                 >
-                                    Share:
-                                </span>
+                                    We are pleased to offer a HIPAA-compliant Business Associate agreement (BAA) to enable customers across the healthcare industry to work with us to develop secure custom models that meet their specific business needs. Company
+                                </p>
+
+                                <div className="space-y-4">
+                                    <span
+                                        className="text-base font-medium text-gray-900 block"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                        }}
+                                    >
+                                        Share:
+                                    </span>
+
+                                    <p
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            lineHeight: '160%',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        For healthcare providers, insurers, and technology partners, compliance is not just a legal requirement, it's a cornerstone of trust and reliability. That's why we at Cohere are pleased to offer a HIPAA-compliant Business Associate agreement (BAA) to enable customers across the healthcare industry to work with us to develop secure custom models that meet their specific business needs.
+                                    </p>
+                                </div>
                             </div>
 
-                            <p
-                                className="text-sm sm:text-base lg:text-lg"
-                                style={{
-                                    fontFamily: "'Quicksand', system-ui, sans-serif",
-                                    fontWeight: 400,
-                                    fontStyle: 'normal',
-                                    lineHeight: '140%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                For healthcare providers, insurers, and technology partners, compliance is not just a legal requirement, it's a cornerstone of trust and reliability. That's why we at Cohere are pleased to offer a HIPAA-compliant Business Associate agreement (BAA) to enable customers across the healthcare industry to work with us to develop secure custom models that meet their specific business needs.
-                            </p>
+                            {/* What is HIPAA */}
+                            <div className="space-y-4">
+                                <h3
+                                    className="font-semibold text-xl sm:text-2xl lg:text-[32px]"
+                                    style={{
+                                        fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
+                                        fontWeight: 600,
+                                        fontStyle: 'normal',
+                                        lineHeight: '120%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    What is HIPAA?
+                                </h3>
+
+                                <p
+                                    className="text-sm sm:text-base lg:text-lg"
+                                    style={{
+                                        fontFamily: "'Quicksand', system-ui, sans-serif",
+                                        fontWeight: 400,
+                                        fontStyle: 'normal',
+                                        lineHeight: '140%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    The Health Insurance Portability and Accountability Act (HIPAA) sets federal standards in the United States for protecting personal health information (PHI). It applies to covered entities like insurance companies, doctors, and clinics who directly collect and handle PHI to provide healthcare services to individual patients or clients. It also applies to "Business Associates," like technology providers, that need to use or disclose PHI in order to perform services on behalf of HIPAA-regulated entities.
+                                </p>
+                            </div>
+
+                            {/* Steps Section */}
+                            <div className="space-y-4">
+                                <p
+                                    className="text-sm sm:text-base lg:text-lg font-medium"
+                                    style={{
+                                        fontFamily: "'Quicksand', system-ui, sans-serif",
+                                        fontWeight: 400,
+                                        fontStyle: 'normal',
+                                        lineHeight: '140%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    Steps to setting up a BAA with Cohere for custom model development
+                                </p>
+                                <ol className="space-y-3 list-decimal list-inside">
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Contact your dedicated Account Executive or{' '}
+                                        <a href="mailto:support@cohere.com" className="text-blue-600 hover:underline">
+                                            support@cohere.com
+                                        </a>{' '}
+                                        to discuss your use case.
+                                    </li>
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        After a review of the use case, HIPAA-related compliance checks, and an agreement on commercial matters, Cohere will provide a BAA that covers the custom model development process and the transmission of HIPAA-regulated data to Cohere for the purpose of developing a custom model on your behalf.
+                                    </li>
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Once the custom model is developed, it is deployed in your own private deployment environment.
+                                    </li>
+                                </ol>
+                            </div>
+
+                            {/* Benefits Section */}
+                            <div className="space-y-4">
+                                <h3
+                                    className="text-lg sm:text-xl lg:text-2xl"
+                                    style={{
+                                        fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
+                                        fontWeight: 700,
+                                        fontStyle: 'bold',
+                                        lineHeight: '120%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    Benefits of LLM customization with Cohere
+                                </h3>
+                                <ul className="space-y-2 list-disc list-inside">
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Robust security measures: Our infrastructure is designed with multiple layers of security, including encryption, access controls, and regular audits
+                                    </li>
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Data protection: We implement strict protocols to ensure that PHI is handled, stored, and transmitted securely
+                                    </li>
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Compliance monitoring: Continuous monitoring and updates ensure ongoing adherence to HIPAA regulations
+                                    </li>
+                                </ul>
+                                <p
+                                    className="text-sm sm:text-base lg:text-lg"
+                                    style={{
+                                        fontFamily: "'Quicksand', system-ui, sans-serif",
+                                        fontWeight: 400,
+                                        fontStyle: 'normal',
+                                        lineHeight: '140%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    Learn more about Cohere's customization offerings.
+                                </p>
+                            </div>
+
+                            {/* Other Offerings Section */}
+                            <div className="space-y-4">
+                                <h3
+                                    className="text-lg sm:text-xl lg:text-2xl"
+                                    style={{
+                                        fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
+                                        fontWeight: 700,
+                                        fontStyle: 'bold',
+                                        lineHeight: '120%',
+                                        letterSpacing: '0',
+                                        color: '#000000',
+                                    }}
+                                >
+                                    Other Cohere offerings for HIPAA-regulated
+                                </h3>
+                                <ul className="space-y-3">
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Private deployments: All private deployments without customization, including private deployments of North and Cohere models, are suitable for HIPAA-regulated entities. No BAA is required with Cohere as Cohere does not use or receive PHI (or any other customer data) for this type of deployment.
+                                    </li>
+                                    <li
+                                        className="text-sm sm:text-base lg:text-lg"
+                                        style={{
+                                            fontFamily: "'Quicksand', system-ui, sans-serif",
+                                            fontWeight: 400,
+                                            fontStyle: 'normal',
+                                            lineHeight: '140%',
+                                            letterSpacing: '0',
+                                            color: '#000000',
+                                        }}
+                                    >
+                                        Managed cloud LLM/AI platforms: Cohere's models hosted or accessed through cloud AI platforms (e.g., Amazon Bedrock, Amazon SageMaker, Microsoft Azure, and OCI Generative AI Service) are suitable for HIPAA-regulated entities. Customers must request to enter into a BAA with the cloud service provider and would be subject to the provider's own internal review and checks. For more information, we recommend reaching out directly to the third party provider. Please also note that a BAA is not required with Cohere as Cohere does not use or receive PHI (or any other customer data) for this type of deployment.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
-                        {/* What is HIPAA */}
-                        <div className="space-y-4">
-                            <h3
-                                className="font-semibold text-xl sm:text-2xl lg:text-[32px]"
-                                style={{
-                                    fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
-                                    fontWeight: 600,
-                                    fontStyle: 'normal',
-                                    lineHeight: '120%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                What is HIPAA?
-                            </h3>
-
-                            <p
-                                className="text-sm sm:text-base lg:text-lg"
-                                style={{
-                                    fontFamily: "'Quicksand', system-ui, sans-serif",
-                                    fontWeight: 400,
-                                    fontStyle: 'normal',
-                                    lineHeight: '140%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                The Health Insurance Portability and Accountability Act (HIPAA) sets federal standards in the United States for securing health information (PHI). It applies to covered entities like insurance companies, doctors, and clinics who directly collect and handle PHI to provide healthcare services. It also applies to "Business Associates," like technology providers, that need to use or disclose PHI in order to perform services on behalf of HIPAA-regulated customers.
-                            </p>
+                        {/* Right Column - SOCIAL ICONS - ABSOLUTE RIGHT */}
+                        <div className="hidden lg:block lg:absolute lg:right-0 lg:top-0">
+                            <div className="sticky top-24">
+                                <div
+                                    className="flex items-start justify-start gap-8 px-20 py-15 rounded-2xl"
+                                    style={{ backgroundColor: '#E5E7EB' }}
+                                >
+                                    <button className="p-3 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                        <XIcon />
+                                    </button>
+                                    <button className="p-3 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                        <Instagram className="w-6 h-6" strokeWidth={1.5} />
+                                    </button>
+                                    <button className="p-3 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                        <Linkedin className="w-6 h-6" strokeWidth={1.5} />
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
 
-                        {/* Steps Section */}
-                        <div className="space-y-4">
-                            <p
-                                className="text-sm sm:text-base lg:text-lg"
-                                style={{
-                                    fontFamily: "'Quicksand', system-ui, sans-serif",
-                                    fontWeight: 400,
-                                    fontStyle: 'normal',
-                                    lineHeight: '140%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                Steps to setting up a BAA with Cohere for custom model development
-                            </p>
-                            <ol className="space-y-3 list-decimal list-inside">
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Contact your dedicated account team at{' '}
-                                    <a href="mailto:support@cohere.com" className="text-blue-600 hover:underline">
-                                        support@cohere.com
-                                    </a>{' '}
-                                    to discuss your use case
-                                </li>
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    After a review of the use case, HIPAA-related compliance checks, and an agreement on commercial matters, Cohere will provide a BAA to discuss the custom model development process and the transmission of HIPAA-regulated data to Cohere for the purpose of developing a custom model and deploying it
-                                </li>
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Once the custom model is developed, it is deployed in your own private deployment environment.
-                                </li>
-                            </ol>
-                        </div>
-
-                        {/* Benefits Section */}
-                        <div className="space-y-4">
-                            <h3
-                                className="text-lg sm:text-xl lg:text-2xl"
-                                style={{
-                                    fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
-                                    fontWeight: 700,
-                                    fontStyle: 'bold',
-                                    lineHeight: '120%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                Benefits of LLM customization with Cohere
-                            </h3>
-                            <ul className="space-y-2 list-disc list-inside">
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Robust security measures: Your model is designed with multiple layers of security, including encryption, access controls, and regular audits
-                                </li>
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Data protection: We implement strict protocols to ensure that PHI is handled, stored, and transmitted securely
-                                </li>
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Compliance monitoring: We conduct regular updates ensure ongoing adherence to HIPAA regulations
-                                </li>
-                            </ul>
-                            <p
-                                className="text-sm sm:text-base lg:text-lg"
-                                style={{
-                                    fontFamily: "'Quicksand', system-ui, sans-serif",
-                                    fontWeight: 400,
-                                    fontStyle: 'normal',
-                                    lineHeight: '140%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                Learn more about Cohere's customization offerings.
-                            </p>
-                        </div>
-
-                        {/* Other Offerings Section */}
-                        <div className="space-y-4">
-                            <h3
-                                className="text-lg sm:text-xl lg:text-2xl"
-                                style={{
-                                    fontFamily: "'Bricolage Grotesque', system-ui, sans-serif",
-                                    fontWeight: 700,
-                                    fontStyle: 'bold',
-                                    lineHeight: '120%',
-                                    letterSpacing: '0',
-                                    color: '#000000',
-                                }}
-                            >
-                                Other Cohere offerings for HIPAA-regulated
-                            </h3>
-                            <ul className="space-y-3">
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Private deployments: Cohere deployments without customization, including private deployments of North and Cohere models, are suitable for HIPAA-regulated entities. No BAA is required because they don't require transmitting PHI (or any other customer data).
-                                </li>
-                                <li
-                                    className="text-sm sm:text-base lg:text-lg"
-                                    style={{
-                                        fontFamily: "'Quicksand', system-ui, sans-serif",
-                                        fontWeight: 400,
-                                        fontStyle: 'normal',
-                                        lineHeight: '140%',
-                                        letterSpacing: '0',
-                                        color: '#000000',
-                                    }}
-                                >
-                                    Managed cloud LLM/AI platforms: Cohere's models hosted or accessed through cloud AI platforms (e.g., Amazon Bedrock, Amazon SageMaker, Microsoft Azure, and GCI Generative AI Service) are suitable for HIPAA-regulated entities. Customers must request to enter into a BAA with the cloud provider, which will be subject to the provider's own internal review and checks. For more information, we recommend reaching out directly to the third party provider. Please also note that a BAA is required with Cohere as Cohere does not use or receive PHI (or any other customer data) for this type of deployment.
-                                </li>
-                            </ul>
+                    {/* Mobile Social Icons */}
+                    <div className="lg:hidden flex justify-center mt-8">
+                        <div
+                            className="flex items-center justify-center gap-6 px-10 py-5 rounded-2xl"
+                            style={{ backgroundColor: '#E5E7EB' }}
+                        >
+                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <XIcon />
+                            </button>
+                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <Instagram className="w-5 h-5" strokeWidth={1.5} />
+                            </button>
+                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+                            </button>
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     );
