@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
-
+ 
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
-
-
+ 
+ 
 const steps = [
   {
     id: 1,
@@ -45,61 +45,61 @@ const steps = [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
 ];
-
+ 
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scrollableContainerRef = useContext(ScrollContext);
-
+ 
   useEffect(() => {
     const lenis = scrollableContainerRef;
     if (!lenis) return;
-
+ 
     const handleScroll = () => {
       if (!sectionRef.current) return;
-
+ 
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const viewportCenter = window.innerHeight / 2;
-
+ 
       const sectionProgress = (viewportCenter - sectionRect.top) / sectionRect.height;
-
+ 
       setScrollProgress(sectionProgress);
-
+ 
       // Map progress to step (1 to 5)
       const stepProgress = Math.min(
         Math.max(sectionProgress * steps.length, 0),
         steps.length - 0.01
       );
       const newActiveStep = Math.floor(stepProgress) + 1;
-
+ 
       setActiveStep(newActiveStep);
     };
-
+ 
     lenis.on("scroll", handleScroll);
     handleScroll();
-
+ 
     return () => {
       lenis.off("scroll", handleScroll);
     };
   }, [scrollableContainerRef]);
-
-
+ 
+ 
   const backgroundGradient = useMemo(() => {
     const progress = scrollProgress;
-
+ 
     const start = { r: 193, g: 215, b: 243 };
-
+ 
     const end = { r: 100, g: 100, b: 255 };
-
+ 
     const r = Math.round(start.r + (end.r - start.r) * progress);
     const g = Math.round(start.g + (end.g - start.g) * progress);
     const b = Math.round(start.b + (end.b - start.b) * progress);
-
+ 
     return `rgb(${r}, ${g}, ${b})`;
   }, [scrollProgress]);
-
+ 
   return (
     <motion.div
       ref={sectionRef}
@@ -112,7 +112,7 @@ export default function Workflow() {
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
-
+ 
           className="  text-[#2B68C3]  mb-6 leading-snug"
         >
           Lorem ipsum dolor gamis consecte ipsum
@@ -126,11 +126,11 @@ export default function Workflow() {
           Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate velit esse Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate
         </motion.p>
       </div>
-
+ 
       {/* Sticky Content Container */}
       <div className="sticky top-10 lg:h-screen flex items-center justify-center">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-10">
-
+ 
           {/* LEFT SIDE - Sticky Image */}
           <div className="h-[400px] md:h-[600px] order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
@@ -155,7 +155,7 @@ export default function Workflow() {
               style={{ backgroundColor: "black" }}
               className="absolute left-8 md:top-8 lg:top-2 bottom-30 w-[2px] rounded-full   hidden md:block"
             />
-
+ 
             {steps.map((step, index) => {
               const isActive = step.id === activeStep;
               return (
@@ -187,7 +187,7 @@ export default function Workflow() {
                   >
                     {step.id}
                   </motion.div>
-
+ 
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -198,7 +198,7 @@ export default function Workflow() {
                     className={`
     flex-1 rounded-lg flex items-center
     ${isActive ? "shadow-md" : ""}
-    
+   
     /* Responsive padding */
     ${isActive
                         ? "px-3 py-2 sm:px-4 sm:py-3 md:px-2 md:py-2 lg:px-8 lg:py-5"
@@ -220,11 +220,11 @@ export default function Workflow() {
                 </motion.div>
               );
             })}
-
+ 
             {/* Book A Demo Button */}
             <div className=" md:pl-4  pt-4">
-
-
+ 
+ 
               <ContactUs>Book A Demo</ContactUs>
             </div>
           </div>
@@ -233,3 +233,4 @@ export default function Workflow() {
     </motion.div>
   );
 }
+ 

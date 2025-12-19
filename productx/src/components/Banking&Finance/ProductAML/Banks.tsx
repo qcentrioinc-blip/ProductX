@@ -12,7 +12,7 @@ const Banks = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 ">
       
       {/* Left section */}
-      <div className="lg:sticky sm:mb-10 md:mb-0 lg:top-10 lg:pt-24 self-start h-fit">
+      <div className="lg:sticky sm:mb-10 md:mb-0 lg:top-0 lg:pt-24 self-start h-fit">
         <div className="bg-white border-2 h-full lg:w-96 sm:mb-10 lg:mb-0 border-gray-200 shadow-lg rounded-md overflow-hidden p-6">
           <img
             src={Image1}
