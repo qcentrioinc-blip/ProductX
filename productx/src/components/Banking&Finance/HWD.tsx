@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
 import { useLocation } from "react-router-dom";
-import { P } from '../../styles/Typography';
+ 
 
 const HWD = () => {
   const location = useLocation();
@@ -11,35 +11,50 @@ const HWD = () => {
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
-
+ const isAI = location.pathname === "/industries/ai-optimization/clouddiet";
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
       bottomBg: "#B4E7CE",
       headingColor: "#166D48",
-      textcolor: "#000000"
+      textcolor: "#000000",
+        CheckColor: "#A80040"
+       
     },
     banking: {
       topBg: "#F5F5F5",
       bottomBg: "#C1D7F3",
       headingColor: "#2B68C3",
-      textcolor: "#000000"
+      textcolor: "#000000",
+        CheckColor: "#A80040"
     },
     hightech: {
       topBg: "#141414",
       bottomBg: "#E7D6FF",
       headingColor: "#5B3FD1",
-      textcolor: "#CCCCCC"
-    }
+      textcolor: "#CCCCCC",
+      CheckColor: "#A80040"  },
+  ai: {
+    topBg: "#F5F5F5",
+    bottomBg: "#0AC276",
+    headingColor: "#020059",
+    textcolor: "#141414",
+    CheckColor: "#5551FF"
+
+  }
   };
 
   let palette;
   if (isEHR) palette = COLORS.ehr;
   else if (isBanking) palette = COLORS.banking;
   else if (isHighTech) palette = COLORS.hightech;
-  else palette = COLORS.banking;
+else if (isAI) palette = COLORS.ai;
+else palette = COLORS.banking; // default  else palette = COLORS.banking;
 
-  const { topBg, bottomBg, headingColor, textcolor } = palette;
+const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
+
+const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
+
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -97,8 +112,13 @@ const HWD = () => {
             "Duis aute irure dolor in reprehenderit wertg",
           ].map((item, index) => (
             <li key={index} className="flex items-center gap-4">
-              <Check size={25} className="text-[#A80040]" />
-              <P>{item}</P>
+             <Check size={25} style={{ color: CheckColor }} />
+
+             
+<p style={{ color: bottomTextColor }}>
+  {item}
+</p>
+ 
             </li>
           ))}
         </ul>

@@ -7,6 +7,9 @@ interface FaqItem {
   answer: string;
 }
 
+  const showShape =
+    location.pathname === "/industries/banking-and-finance";
+    
 const faqData: FaqItem[] = [
   {
     question: "Duis aute irure dolor in reprehenderit in voluptate velit esse?",
@@ -45,7 +48,7 @@ const faqData: FaqItem[] = [
       "Absolutely. The layout adjusts to screen size using responsive Tailwind classes. It explains more about the question in detail. It explains more about the question in detail.",
   },
 ];
-const hideShape = location.pathname.startsWith("/industries/ehr-and-pms/");
+ 
 const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -109,7 +112,7 @@ const FaqSection: React.FC = () => {
       </div>
 
       {/* Decorative Shape - Always visible, anchored at bottom */}
-      {!hideShape && (
+     {showShape && (
   <div
     className="
       absolute
@@ -133,6 +136,7 @@ const FaqSection: React.FC = () => {
     />
   </div>
 )}
+
 
     </section>
   );
