@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { ContactUs } from "../../../styles/Button";
 import { H2, H3, P } from "../../../styles/Typography";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 export default function ImgSec() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   type ThemeKey =
     | "/industries/banking-and-finance/built-for"
@@ -21,6 +27,8 @@ export default function ImgSec() {
       borderColor: string;
       buttonText: string;
       buttonBg: string;
+      contactAction: "route" | "drawer" | "modal";
+      contactRoute?: string;
     }
   > = {
     "/industries/banking-and-finance/built-for": {
@@ -31,6 +39,8 @@ export default function ImgSec() {
       borderColor: "border-white",
       buttonText: "text-white",
       buttonBg: "bg-[#141414]",
+      contactAction: "route",
+      contactRoute: "/industries/banking-and-finance/contactform",
     },
 
     "/industries/ehr-and-pms/built-for": {
@@ -41,6 +51,7 @@ export default function ImgSec() {
       borderColor: "border-white",
       buttonText: "text-black",
       buttonBg: "bg-black",
+      contactAction: "drawer",
     },
 
     "/industries/high-tech/built-for": {
@@ -51,6 +62,8 @@ export default function ImgSec() {
       borderColor: "border-black",
       buttonText: "text-white",
       buttonBg: "bg-black",
+      contactAction: "route",
+      contactRoute: "/industries/high-tech/contactform",
     },
 
     "/industries/ai-optimization/built-for": {
@@ -61,6 +74,7 @@ export default function ImgSec() {
       borderColor: "border-white",
       buttonText: "text-black",
       buttonBg: "bg-[#141414]",
+      contactAction: "modal",
     },
   };
 
@@ -72,57 +86,74 @@ export default function ImgSec() {
     themeConfig[matchedKey as ThemeKey] ||
     themeConfig["/industries/banking-and-finance/built-for"];
 
-  return (
-    <section
-      className={`relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block`}
-      style={{ backgroundImage: `url(${theme.bgImage})` }}
-    >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/20"></div>
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (theme.contactAction === "route" && theme.contactRoute) {
+      if (theme.contactRoute) navigate(theme.contactRoute);
+    } else if (theme.contactAction === "drawer") {
+      setDrawerOpen(true);
+    } else if (theme.contactAction === "modal") {
+      setModalOpen(true);
+    }
+  };
 
-      <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
-        {/* LEFT TEXT */}
-        <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
-          <div className="w-full lg:w-2/3">
-            <H2 className="leading-tight text-[#FAFAFA] max-w-4xl">
-              Sed ut perspici atis Unde
-              Seduo Sed ut pers
-            </H2>
+  return (
+    <>
+      <section
+        className="relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
+        style={{ backgroundImage: `url(${theme.bgImage})` }}
+      >
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
+          {/* LEFT TEXT */}
+          <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
+            <div className="w-full lg:w-2/3">
+              <H2 className="leading-tight text-[#FAFAFA] max-w-4xl">
+                Sed ut perspici atis Unde
+                Seduo Sed ut pers
+              </H2>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* FLOATING CARD RIGHT */}
-      <div
-        className="relative w-full px-6 md:px-12 pb-12
+        {/* FLOATING CARD RIGHT */}
+        <div
+          className="relative w-full px-6 md:px-12 pb-12
                     lg:absolute lg:bottom-0 lg:right-0 lg:pb-0 lg:px-0 lg:w-auto
-                    lg:max-w-[90rem] lg:mx-auto pointer-events-none"
-      >
-        <div className="flex justify-start lg:justify-end cursor-events-auto">
-          <div
-            className={`
+                    lg:max-w-[90rem] lg:mx-auto pointer-events-none z-20"
+        >
+          <div className="flex justify-start lg:justify-end pointer-events-auto">
+            <div
+              className={`
               ${theme.cardBg} ${theme.cardText}
               rounded-md shadow-xl p-6 md:p-10 w-full lg:max-w-md
               lg:rounded-b-none lg:rounded-tr-none
               border-t-[10px] border-l-[10px] ${theme.borderColor}
             `}
-          >
-            <H3 className="mb-4">UndeSed ut</H3>
-
-            <P className={`mb-6 ${theme.paraColor}`}>
-              UndeSed ut perspiciatis UndeSed ut perspiciatis
-              UndeSed ut perspiciatis UndeSed ut perspicia
-            </P>
-
-            {/* Corrected ContactUs button */}
-            <ContactUs
-              className={`inline-flex items-center gap-2 ${theme.buttonBg} ${theme.buttonText}`}
             >
-              CONTACT US
-            </ContactUs>
+              <H3 className="mb-4">UndeSed ut</H3>
+
+              <P className={`mb-6 ${theme.paraColor}`}>
+                UndeSed ut perspiciatis UndeSed ut perspiciatis
+                UndeSed ut perspiciatis UndeSed ut perspicia
+              </P>
+
+              {/* Corrected ContactUs button */}
+              <ContactUs
+                className={`inline-flex items-center gap-2 ${theme.buttonBg} ${theme.buttonText} cursor-pointer`}
+                onClick={handleContactClick}
+              >
+                CONTACT US
+              </ContactUs>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+    </>
   );
 }

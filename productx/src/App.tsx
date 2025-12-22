@@ -5,7 +5,7 @@ import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
- 
+
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'
@@ -60,10 +60,10 @@ import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
 import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
 import { ScrollProvider } from './context/ScrollContext'
 import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
- 
+
 import AINewsLetter from './components/AIOptimization/NewsLetter/AINewsLetter'
 import AIWhitePapers from './components/AIOptimization/WhitePapers/AIWhitePapers'
-import AIGlossary from './components/HomePage/AIOptimization/Glossary/AIGlossary'
+import AIGlossary from './components/AIOptimization/Glossary/AIGlossary'
 
 
 
@@ -215,7 +215,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
             <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
-            <Route path="/industries/ai-optimization/clouddiet" element={<AIProduct/>} />
+            <Route path="/industries/ai-optimization/clouddiet" element={<AIProduct />} />
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />

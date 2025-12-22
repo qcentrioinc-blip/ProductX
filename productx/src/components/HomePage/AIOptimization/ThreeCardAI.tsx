@@ -28,7 +28,7 @@ const ThreeCardAI = () => {
 
             {/* Cards Grid */}
             {/* Cards Row */}
-            <div className="flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory">
                 {features.map((item, index) => (
                     <div
                         key={index}
@@ -36,7 +36,9 @@ const ThreeCardAI = () => {
                             bg-gray-50
                             flex-shrink-0
                             w-[85vw]
-                            sm:w-[480px]
+                            md:w-[75vw]
+                            lg:w-[60vw]
+                            xl:w-[480px]
                             h-[285px]
                             p-8
                             rounded-lg
@@ -46,6 +48,7 @@ const ThreeCardAI = () => {
                             opacity-100
                             transition-all
                             duration-300
+                            snap-center
                         "
                     >
                         {/* Circle Icon */}
