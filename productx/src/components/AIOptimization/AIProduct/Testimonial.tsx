@@ -1,40 +1,165 @@
 import { H2, H4, P } from '../../../styles/Typography';
 
-const testimonials = [
-  {
-    company: "ShareChat",
-    logo: "/AIProduct/ShareChat.png",
-    quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform"
-  },
-  {
-    company: "ShareChat",
-    logo: "/AIProduct/ShareChat.png",
-    quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform"
-  },
-  {
-    company: "ShareChat",
-    logo: "/AIProduct/ShareChat.png",
-    quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform"
-  }
-];
 
+interface Testimonial {
+  company: string;
+  logo: string;
+  quote: string;
+  name: string;
+  role: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    company: "ShareChat",
+    logo: "/AIProduct/ShareChat.png",
+    quote:
+      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+    name: "ABCDEF",
+    role: "Director of Cloud Platform",
+  },
+  {
+    company: "ShareChat",
+    logo: "/AIProduct/ShareChat.png",
+    quote:
+      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+    name: "ABCDEF",
+    role: "Director of Cloud Platform",
+  },
+  {
+    company: "ShareChat",
+    logo: "/AIProduct/ShareChat.png",
+    quote:
+      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+    name: "ABCDEF",
+    role: "Director of Cloud Platform",
+  },
+];
+interface MobileTestimonialSliderProps {
+  testimonials: Testimonial[];
+}
+
+// const testimonials = [
+//   {
+//     company: "ShareChat",
+//     logo: "/AIProduct/ShareChat.png",
+//     quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+//     name: "ABCDEF",
+//     role: "Director of Cloud Platform"
+//   },
+//   {
+//     company: "ShareChat",
+//     logo: "/AIProduct/ShareChat.png",
+//     quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+//     name: "ABCDEF",
+//     role: "Director of Cloud Platform"
+//   },
+//   {
+//     company: "ShareChat",
+//     logo: "/AIProduct/ShareChat.png",
+//     quote: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
+//     name: "ABCDEF",
+//     role: "Director of Cloud Platform"
+//   }
+// ];
+import { useState, useEffect } from 'react';
+function MobileTestimonialSlider({
+  testimonials,
+}: MobileTestimonialSliderProps) {
+ 
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 3500); // auto-slide speed
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  return (
+    <div className="relative w-full">
+      <div
+        className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+         aria-live="polite"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {testimonials.map((testimonial, idx) => (
+          <div
+            key={idx}
+            className="min-w-full   flex justify-center"
+          >
+            <div className="relative py-14 w-full max-w-md">
+              {/* White Card */}
+              <div className="bg-white md:h-[450px] rounded-lg p-8 pb-20 shadow-md text-center">
+                {/* Quote Icon */}
+                <div className="flex mt-10 justify-center mb-8">
+                  <img
+                    src="/AIProduct/Quotes.png"
+                    alt="Quote"
+                    className="w-14 h-10"
+                  />
+                </div>
+
+                {/* Logo */}
+                <div className="flex justify-center mb-6">
+                  <img
+                    src={testimonial.logo}
+                    alt={testimonial.company}
+                    className="h-12 object-contain"
+                  />
+                </div>
+
+                {/* Quote */}
+                <P className="text-[#2A2A2A] leading-relaxed">
+                  {testimonial.quote}
+                </P>
+              </div>
+
+              {/* Avatar */}
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-28">
+                <div className="w-20 h-20 rounded-full bg-gray-300 shadow-lg" />
+              </div>
+
+              {/* Name & Role */}
+              <div className="mt-14 text-center text-white">
+                <H4 className="font-bold mb-1">
+                  {testimonial.name}
+                </H4>
+                <P className="text-sm  text-white font-quicksand">
+                  {testimonial.role}
+                </P>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 ">
+        {testimonials.map((_, i) => (
+          <span
+            key={i}
+            className={`w-2.5 h-2.5 rounded-full transition-all ${
+              i === index ? "bg-white" : "bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 export default function Testimonial() {
   return (
     <section className="w-full bg-gradient-to-br from-[#3532fd] via-[#4f49f8] to-[#7e7aef] py-16 px-6">
-      <div className="max-w-8xl mx-10">
+      <div className="max-w-8xl lg:mx-10">
         {/* Title */}
-        <H2 className="text-white font-bold text-center mb-12">
+        <H2 className="text-white font-bold  lg:text-center text-left mb-12">
           Lorem ipsum dolor sit amet Lorem
         </H2>
 
         {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 ">
+        <div className=" hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 ">
           {testimonials.map((testimonial, idx) => (
             <div key={idx} className="relative pb-12">
               {/* White Card */}
@@ -72,7 +197,14 @@ export default function Testimonial() {
             </div>
           ))}
         </div>
+
+        <div className="block lg:hidden overflow-hidden relative">
+  <MobileTestimonialSlider testimonials={testimonials} />
+</div>
+
       </div>
+      
     </section>
   );
 }
+
