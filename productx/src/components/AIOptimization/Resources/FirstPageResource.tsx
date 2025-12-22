@@ -2,7 +2,6 @@
 
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-// import { Link } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
 
 const FirstPageResource = () => {
@@ -268,48 +267,75 @@ const FirstPageResource = () => {
         {/* Sticky Filters row */}
         <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md pt-4 pb-2 mb-8 sm:mb-10 2xl:mb-14 shadow-sm transition-all duration-300">
           <div className="max-w-8xl mx-auto px-8 sm:px-12 xl:px-24">
-            <div
-              className="flex items-center gap-3 sm:gap-4 overflow-x-auto"
-              style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-              }}
-            >
-              <style>{`
-                div::-webkit-scrollbar {
-                  display: none;
-                }
-              `}</style>
+            <div className="flex items-center w-full">
 
-              {/* Filter buttons */}
-              <div className="flex flex-nowrap gap-4 sm:gap-6 lg:gap-9 py-2">
-                {filters.map((filter) => (
-                  <motion.button
-                    key={filter}
-                    onClick={() => handleFilterChange(filter)}
-                    className={`
-                      rounded-lg font-semibold transition-all
-                      text-xs sm:text-sm md:text-base
-                      px-4 sm:px-5 h-9 sm:h-10 md:h-12
-                      min-w-[120px] sm:min-w-[140px] md:min-w-[180px] 2xl:min-w-[207px]
-                      ${activeFilter === filter
-                        ? 'text-white bg-[#5551FF] border border-transparent shadow-md'
-                        : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
-                      }
-                    `}
-                    style={{
-                      fontFamily: "'Bricolage Grotesque', sans-serif",
-                    }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {filter}
-                  </motion.button>
-                ))}
+              {/* Fixed 'All' Tab */}
+              <div className="flex-shrink-0 mr-4 sm:mr-6 lg:mr-9">
+                <motion.button
+                  key="All"
+                  onClick={() => handleFilterChange("All")}
+                  className={`
+                    rounded-lg font-semibold transition-all
+                    text-xs sm:text-sm md:text-base
+                    px-4 sm:px-5 h-9 sm:h-10 md:h-12
+                    min-w-[80px] sm:min-w-[100px] md:min-w-[120px]
+                    ${activeFilter === "All"
+                      ? 'text-white bg-[#5551FF] border border-transparent shadow-md'
+                      : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
+                    }
+                  `}
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  All
+                </motion.button>
               </div>
 
-              {/* Filter Settings Icon */}
-              <div className="flex-shrink-0 ml-auto pl-2" ref={filterRef}>
+              {/* Scrollable Middle Section */}
+              <div
+                className="flex-1 overflow-x-auto flex items-center scrollbar-hide"
+                style={{
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}
+              >
+                <style>{`
+                  .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}</style>
+                <div className="flex flex-nowrap gap-4 sm:gap-6 lg:gap-9 py-2 px-1">
+                  {filters.slice(1).map((filter) => (
+                    <motion.button
+                      key={filter}
+                      onClick={() => handleFilterChange(filter)}
+                      className={`
+                        rounded-lg font-semibold transition-all
+                        text-xs sm:text-sm md:text-base
+                        px-4 sm:px-5 h-9 sm:h-10 md:h-12
+                        min-w-[120px] sm:min-w-[140px] md:min-w-[180px] 2xl:min-w-[207px]
+                        ${activeFilter === filter
+                          ? 'text-white bg-[#5551FF] border border-transparent shadow-md'
+                          : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
+                        }
+                      `}
+                      style={{
+                        fontFamily: "'Bricolage Grotesque', sans-serif",
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {filter}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Fixed Filter Settings Icon */}
+              <div className="flex-shrink-0 ml-4 sm:ml-6 lg:ml-9 pl-2 relative" ref={filterRef}>
                 <button
                   onClick={() => setIsFilterOpen(!isFilterOpen)}
                   className="rounded-lg bg-white transition-all flex items-center justify-center h-9 sm:h-10 md:h-12 w-9 sm:w-10 md:w-14 border hover:bg-gray-50"
