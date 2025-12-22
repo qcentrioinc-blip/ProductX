@@ -5,23 +5,23 @@ import { H2  } from "../../../styles/Typography";
 export default function Partner() {
   return (
     <section className="w-full bg-[#FAFAFA]  ">
-      <div className=" grid max-w-8xl grid-cols-1   items-center lg:gap-52   md:grid-cols-2">
+      <div className=" grid max-w-8xl grid-cols-1 pb-16 mt-16 lg:mt-0 items-center lg:gap-52   md:grid-cols-2">
         {/* Floating partner logos image */}
 <div className="
   absolute
-  top-24
+   top-10
   lg:top-20
-  left-52
+  left-60
   lg:left-96
-  z-10
-  hidden
-  lg:block
+ 
+   
+ 
 ">
   
     <img
       src="/AIProduct/Partner1.png"
       alt="Cloud partners"
-      className="w-72 h-auto"
+      className=" w-36 md:w-44 lg:w-72  h-auto"
     />
   
 </div>
@@ -32,12 +32,12 @@ export default function Partner() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative flex justify-center md:justify-start"
+          className="relative flex  justify-start"
         >
           <img
             src="/AIProduct/Partner2.png"
             alt="Partner "
-            className=" scale-150   object-cover"
+            className=" scale-120 md:scale-150  -z-10 object-cover"
           />
         </motion.div>
 
@@ -47,9 +47,9 @@ export default function Partner() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="space-y-6 "
+          className=" space-y-4 lg:space-y-6 mt-16 sm:mt-0  mx-6  md:pl-10 lg:pl-0"
         >
-          <h5 className="font-semibold font-quicksand mt-20 lg:text-2xl text-[#0AC276]">
+          <h5 className="font-semibold font-quicksand   lg:mt-20  lg:text-2xl text-[#0AC276]">
             Lorem ipsum dolor sit amet Lorem
           </h5>
 
