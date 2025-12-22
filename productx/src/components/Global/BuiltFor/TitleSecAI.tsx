@@ -4,7 +4,7 @@ import { H1 } from "../../../styles/Typography";
 export default function TitleSecAI() {
   return (
     <section 
-      className="w-full h-screen bg-cover bg-center bg-no-repeat relative"
+      className="w-full  h-[70vh] md:h-screen bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url('/BuiltFor/bg_img2.jpg')" }}
     >
       {/* DARK OVERLAY (REMOVE IF NOT NEEDED) */}

@@ -5,7 +5,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 export default function TeamSection() {
   return (
     <section className="w-full bg-white py-20 px-10">
-      <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div className="max-w-8xl mx-10 grid grid-cols-1 xl:grid-cols-2 gap-0">
 
         {/* LEFT CONTENT */}
         <div>
