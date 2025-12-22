@@ -141,7 +141,7 @@ const AIFooter = () => {
                                 {/* Quick Links */}
                                 <div className="space-y-3 min-w-[150px]">
                                     <h4
-                                        className="text-[20px] sm:text-[22px] md:text-[24px]"
+                                        className="text-[20px] sm:text-[22px] md:text-[24px] "
                                         style={{
                                             fontFamily: "'Bricolage Grotesque', sans-serif",
                                             fontWeight: 700,

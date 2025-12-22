@@ -1,4 +1,4 @@
-import { H2, P } from "../../../styles/Typography";
+import { H2, H3, P } from "../../../styles/Typography";
 import { useLocation } from "react-router-dom";
 
 export default function SplitFeature() {
@@ -109,17 +109,17 @@ export default function SplitFeature() {
           {/* STATS */}
           <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
             <div>
-              <H2 className={`${config.stats}`}>200+</H2>
+              <H3 className={`${config.stats}`}>200+</H3>
               <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
             </div>
 
             <div>
-              <H2 className={`${config.stats}`}>30k</H2>
+              <H3 className={`${config.stats}`}>30k</H3>
               <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
             </div>
 
             <div>
-              <H2 className={`${config.stats}`}>10+</H2>
+              <H3 className={`${config.stats}`}>10+</H3>
               <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
             </div>
           </div>

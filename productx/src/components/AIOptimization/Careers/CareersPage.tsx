@@ -16,6 +16,7 @@ export const CareersPageAI = () => {
       <BenefitsSection />
       <ExperienceSection />
       <TeamSection />
+      
       <JobListSection />
       <AIFooter/>
     </div>

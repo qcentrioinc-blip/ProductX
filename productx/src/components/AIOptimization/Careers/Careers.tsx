@@ -26,6 +26,7 @@ export default function Careers() {
         </H1>
 
         {/* Button */}
+        <a href="/industries/ai-optimization/jobs">
                 <button
          
           className="
@@ -61,6 +62,7 @@ export default function Careers() {
             ></path>
           </svg>
         </button>
+        </a>
 
       </div>
 

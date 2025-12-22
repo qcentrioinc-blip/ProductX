@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { H1, H4, P } from "../../../styles/Typography";
+import AIFooter from "../../HomePage/AIOptimization/AIFooter";
+import AINavbar from "../Navbar/AINavbar";
 
 export default function JobDetails() {
   const [activeTab, setActiveTab] = useState<"overview" | "application">(
@@ -7,7 +9,9 @@ export default function JobDetails() {
   );
 
   return (
-    <section className="w-full bg-white text-[#0B0B0F] px-6 md:px-10 lg:px-20 py-16">
+     <>
+     <AINavbar/>
+    <section className="w-full bg-white text-[#0B0B0F] px-6 md:px-10 lg:px-20 py-20 pt-20 xl:pt-36">
       {/* ---------- HEADER ---------- */}
       <H1 className=" text-[#0AC276] mb-4">
         Senior Social Media <br/> Manager
@@ -108,8 +112,13 @@ export default function JobDetails() {
                         </div>
                     </div>
                     </section>
+                   
+                    <AIFooter/>
+                    </>
+                    
                 );
                 }
+
 
 /* ==========================================================
    OVERVIEW CONTENT
