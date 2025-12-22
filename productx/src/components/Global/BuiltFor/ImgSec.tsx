@@ -74,7 +74,7 @@ export default function ImgSec() {
 
   return (
     <section
-      className={`relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block`}
+      className={`relative w-full lg:h-[55vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block`}
       style={{ backgroundImage: `url(${theme.bgImage})` }}
     >
       {/* OVERLAY */}
@@ -82,7 +82,7 @@ export default function ImgSec() {
 
       <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
         {/* LEFT TEXT */}
-        <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
+        <div className="flex flex-col h-full  py-10 xl:pt-32">
           <div className="w-full lg:w-2/3">
             <H2 className="leading-tight text-[#FAFAFA] max-w-4xl">
               Sed ut perspici atis Unde
@@ -96,9 +96,9 @@ export default function ImgSec() {
       <div
         className="relative w-full px-6 md:px-12 pb-12
                     lg:absolute lg:bottom-0 lg:right-0 lg:pb-0 lg:px-0 lg:w-auto
-                    lg:max-w-[90rem] lg:mx-auto pointer-events-none"
+                    lg:max-w-[90rem] lg:mx-auto "
       >
-        <div className="flex justify-start lg:justify-end cursor-events-auto">
+        <div className="flex justify-start lg:justify-end ">
           <div
             className={`
               ${theme.cardBg} ${theme.cardText}
@@ -115,6 +115,7 @@ export default function ImgSec() {
             </P>
 
             {/* Corrected ContactUs button */}
+            
             <ContactUs
               className={`inline-flex items-center gap-2 ${theme.buttonBg} ${theme.buttonText}`}
             >

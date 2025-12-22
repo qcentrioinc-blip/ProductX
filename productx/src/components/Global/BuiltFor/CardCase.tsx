@@ -112,7 +112,7 @@ export default function Cardcase() {
 
   return (
     <section
-      className="relative w-full py-16 md:py-20 overflow-hidden"
+      className="relative w-full py-10 xl:py-20 overflow-hidden"
       style={{ backgroundColor: config.bg }}
     >
       {/* RIGHT-SIDE DIAGONAL IMAGE */}
@@ -128,15 +128,15 @@ export default function Cardcase() {
       </div>
 
       {/* CONTENT WRAPPER */}
-      <div className="relative max-w-8xl mx-10 px-10 pr-40">
+      <div className="relative max-w-8xl mx-10 md:px-10 md:pr-40">
         <H2 className="mb-10">UndeSed ut perspiciatis</H2>
 
         {/* CARDS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
           {config.cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-md shadow-sm border border-gray-200 p-8 flex flex-col min-h-[350px] transition-all duration-300 hover:bg-white hover:shadow-lg"
+              className="bg-white rounded-md shadow-sm border border-gray-200 px-8 xl:p-8 flex flex-col min-h-[300px] transition-all duration-300 hover:bg-white hover:shadow-lg"
               
             >
               {/* Placeholder Circle */}

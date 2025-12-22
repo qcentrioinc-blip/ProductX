@@ -54,7 +54,7 @@ const BuiltForIntro = () => {
 
   return (
     <section
-      className={`relative w-full py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden ${config.sectionBg}`}
+      className={`relative w-full py-10 lg:py-20 overflow-hidden ${config.sectionBg}`}
     >
       <div className="relative max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8">
         <div className="max-w-4xl">
