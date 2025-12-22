@@ -28,8 +28,8 @@ const features = [
 
 export default function FeatureCards() {
 return (
-    <section className="w-full bg-black py-32">
-      <div className="mx-10 grid max-w-8xl grid-cols-1 gap-12 px-6 md:grid-cols-2">
+    <section className="w-full bg-black py-16">
+      <div className="lg:mx-10 grid max-w-8xl grid-cols-1 gap-12 px-6 md:grid-cols-2">
         {features.map((item, idx) => (
           <motion.div
             key={idx}
@@ -39,7 +39,7 @@ return (
             viewport={{ once: true }}
             className="flex flex-col gap-6"
           >
-            <div className="flex gap-10">
+            <div className="lg:flex-row flex flex-col gap-10">
               {/* Image */}
               <img
                 src={item.image}

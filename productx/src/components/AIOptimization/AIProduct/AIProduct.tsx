@@ -18,7 +18,9 @@ const AIProduct = () => {
     <div className="relative">
       <AINavbar />
       <HeroSection />
+     
       <HeroBottomNavbar />
+      
 
       {/* Image section - positioned to overflow */}
      <section className="relative z-30    " id="overview">
@@ -28,7 +30,7 @@ const AIProduct = () => {
       {/* Cloud onboarding - negative margin pulls it up */}
       <section
        
-        className="relative -mt-52 pt-44 bg-no-repeat bg-contain z-10"
+        className="relative -mt-52 pt-24 md:pt-32 lg:pt-44 bg-no-repeat bg-contain z-10"
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
       >
         <Onboarding />

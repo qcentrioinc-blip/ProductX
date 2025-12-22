@@ -52,7 +52,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     </button>
 
                     {/* Form Container with Scroll */}
-                    <div className="h-full overflow-y-auto px-8 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20">
+                    <div className="h-full scrollbar-hide overflow-y-auto px-8 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20">
                         {/* Header */}
                         <div className="mb-12">
                             <p
