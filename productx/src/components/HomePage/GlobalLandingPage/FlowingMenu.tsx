@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import { gsap } from "gsap";
-
+ 
 const FlowingMenu: React.FC = () => {
   const items = [
     { link: "#", text: "Mojave", image: "https://picsum.photos/600/400?random=1" },
@@ -9,7 +9,7 @@ const FlowingMenu: React.FC = () => {
     // { link: "#", text: "Monterey", image: "https://picsum.photos/600/400?random=3" },
     // { link: "#", text: "Sequoia", image: "https://picsum.photos/600/400?random=4" },
   ];
-
+ 
   return (
     <div className="relative w-full h-[250px] bg-black overflow-hidden">
       <nav className="flex flex-col h-full">
@@ -20,28 +20,28 @@ const FlowingMenu: React.FC = () => {
     </div>
   );
 };
-
+ 
 interface MenuItemProps {
   link: string;
   text: string;
   image: string;
 }
-
+ 
 const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null); // Added for text visibility control
-
+ 
   const animationDefaults: gsap.TweenVars = {
     duration: 0.3,
     ease: "expo.out",
   };
-
+ 
   /* ---------------- EDGE DETECTION ---------------- */
   const dist = (x: number, y: number, x2: number, y2: number) =>
     (x - x2) ** 2 + (y - y2) ** 2;
-
+ 
   const closestEdge = (
     mx: number,
     my: number,
@@ -49,7 +49,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
     h: number
   ): "top" | "bottom" =>
     dist(mx, my, w / 2, 0) < dist(mx, my, w / 2, h) ? "top" : "bottom";
-
+ 
   /* ---------------- MARQUEE CONTROL ---------------- */
   const startScroll = () => {
     gsap.to(marqueeInnerRef.current, {
@@ -59,17 +59,17 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       repeat: -1,
     });
   };
-
+ 
   const stopScroll = () => {
     gsap.killTweensOf(marqueeInnerRef.current);
     gsap.set(marqueeInnerRef.current, { x: "0%" });
   };
-
+ 
   /* ---------------- EVENTS ---------------- */
   const onEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
-
+ 
     const r = itemRef.current.getBoundingClientRect();
     const edge = closestEdge(
       e.clientX - r.left,
@@ -77,7 +77,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       r.width,
       r.height
     );
-
+ 
     gsap
       .timeline({ defaults: animationDefaults })
       .set(marqueeRef.current, {
@@ -93,11 +93,11 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       .to(linkRef.current, { opacity: 0 }, 0) // Hides static text
       .call(startScroll);
   };
-
+ 
   const onLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
-
+ 
     const r = itemRef.current.getBoundingClientRect();
     const edge = closestEdge(
       e.clientX - r.left,
@@ -105,9 +105,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       r.width,
       r.height
     );
-
+ 
     stopScroll();
-
+ 
     gsap
       .timeline({ defaults: animationDefaults })
       .to(marqueeRef.current, {
@@ -123,7 +123,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       )
       .to(linkRef.current, { opacity: 1 }, 0); // Shows static text
   };
-
+ 
   /* ---------------- CONTENT ---------------- */
   const marqueeContent = useMemo(
     () =>
@@ -140,7 +140,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       )),
     [text, image]
   );
-
+ 
   return (
     <div
       ref={itemRef}
@@ -156,7 +156,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       >
         {text}
       </a>
-
+ 
       {/* HOVER MARQUEE */}
       <div
         ref={marqueeRef}
@@ -172,5 +172,5 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
     </div>
   );
 };
-
+ 
 export default FlowingMenu;
