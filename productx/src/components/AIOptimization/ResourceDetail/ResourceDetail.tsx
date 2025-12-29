@@ -1,8 +1,9 @@
 'use client';
+import React from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 
-const XIcon = () => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+const XIcon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className || "w-full h-full"} {...props}>
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
 );
@@ -24,9 +25,9 @@ const ResourceDetail = () => {
                             opacity: 0.80, // Very light - almost invisible
                         }}
                     />
-                    <div className="relative mx-4 sm:mx-6 lg:mx-10 lg:max-w-8xl px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-24 pb-14 sm:pb-18 lg:pb-24">
+                    <div className="relative mx-4 sm:mx-6 lg:mx-10 lg:max-w-8xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-48 xl:pt-24 pb-14 sm:pb-18 lg:pb-24">
                         {/* Content wrapper */}
-                        <div className="relative z-10 top-0 lg:top-40">
+                        <div className="relative z-10 top-0 xl:top-40">
                             {/* Heading */}
                             <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12">
                                 <h2
@@ -73,10 +74,10 @@ const ResourceDetail = () => {
                 </div>
 
                 {/* Text content section */}
-                <div className="mx-4 sm:mx-6 lg:mx-10 relative top-0 lg:top-30 px-4 sm:px-6 lg:px-10 pb-16 sm:pb-20 lg:pb-24 mb-12">
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
+                <div className="mx-4 sm:mx-6 lg:mx-10 relative top-0 xl:top-30 px-4 sm:px-6 lg:px-10 pb-16 sm:pb-20 lg:pb-24 mb-12">
+                    <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 relative">
                         {/* Left Column - ALL TEXT CONTENT */}
-                        <div className="flex-1 lg:max-w-4xl space-y-8">
+                        <div className="flex-1 xl:max-w-4xl space-y-8">
                             {/* Intro paragraph */}
                             <div className="space-y-6">
                                 <p
@@ -326,14 +327,14 @@ const ResourceDetail = () => {
                         </div>
 
                         {/* Right Column - SOCIAL ICONS - ABSOLUTE RIGHT */}
-                        <div className="hidden lg:block lg:absolute lg:right-0 lg:top-0">
+                        <div className="hidden xl:block xl:absolute xl:right-0 xl:top-0">
                             <div className="sticky top-24">
                                 <div
                                     className="flex items-start justify-start gap-8 px-20 py-15 rounded-2xl"
                                     style={{ backgroundColor: '#E5E7EB' }}
                                 >
                                     <button className="p-3 hover:bg-white/50 rounded-lg transition-colors text-black">
-                                        <XIcon />
+                                        <XIcon className="w-6 h-6" strokeWidth={1.5} />
                                     </button>
                                     <button className="p-3 hover:bg-white/50 rounded-lg transition-colors text-black">
                                         <Instagram className="w-6 h-6" strokeWidth={1.5} />
@@ -347,19 +348,21 @@ const ResourceDetail = () => {
                     </div>
 
                     {/* Mobile Social Icons */}
-                    <div className="lg:hidden flex justify-center mt-8">
+                    <div className="xl:hidden flex justify-center mt-12 sm:mt-16">
                         <div
-                            className="flex items-center justify-center gap-6 px-10 py-5 rounded-2xl"
+                            className="flex items-center justify-center gap-8 sm:gap-12 px-8 py-6 sm:px-12 sm:py-8 rounded-2xl w-full max-w-[350px] sm:max-w-[450px]"
                             style={{ backgroundColor: '#E5E7EB' }}
                         >
-                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
-                                <XIcon />
+                            <button className="p-3 sm:p-4 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
+                                    <XIcon strokeWidth={1.5} />
+                                </div>
                             </button>
-                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
-                                <Instagram className="w-5 h-5" strokeWidth={1.5} />
+                            <button className="p-3 sm:p-4 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <Instagram className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
                             </button>
-                            <button className="p-2 hover:bg-white/50 rounded-lg transition-colors text-black">
-                                <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+                            <button className="p-3 sm:p-4 hover:bg-white/50 rounded-lg transition-colors text-black">
+                                <Linkedin className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
                             </button>
                         </div>
                     </div>
