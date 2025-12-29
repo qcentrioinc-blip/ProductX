@@ -13,6 +13,7 @@ import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactU
 import BNFNav from "../../components/Banking&Finance/BNFnav"
 import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOneFooter"
 import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
+// import ContactFooterReveal from "../../components/Banking&Finance/BNFFooter/ContactForm"
 
 const BankingAndFinance = () => {
   return (
@@ -50,7 +51,7 @@ const BankingAndFinance = () => {
 
       </div>
 
-
+{/* <ContactFooterReveal/> */}
 
     </>
   )

@@ -23,7 +23,7 @@ const AIProduct = () => {
       
 
       {/* Image section - positioned to overflow */}
-     <section className="relative z-30    " id="overview">
+     <section className="relative z-30" id="overview">
         <ImageContainer />
       </section>
 
@@ -34,9 +34,10 @@ const AIProduct = () => {
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
       >
         <Onboarding />
-        <section className="relative -mt-40 z-30" id="process">
-          <AutoDataChange />
-        </section>
+       <section id="process" className="relative -mt-40 z-30">
+  <AutoDataChange />
+</section>
+
       </section>
 
       <Partner />

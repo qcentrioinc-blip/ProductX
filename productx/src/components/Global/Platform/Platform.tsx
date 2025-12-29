@@ -12,6 +12,7 @@ import InsightThought from "../../Banking&Finance/InsightThought"
 import HWD from "../../Banking&Finance/HWD"
 import ImageGrid from "./ImageGrid"
 import GradientText from "./GradientText"
+import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
  
 const Platform = () => {
   return (
@@ -44,6 +45,10 @@ const Platform = () => {
       <div id="usecases">
         <HWD/>
       </div>
+       <div id="faq">
+          <FaqSection/>
+       </div>
+    
       <div id="blog">
          <InsightThought/>
 

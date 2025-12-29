@@ -4,21 +4,21 @@ export default function InnovationCards() {
   const cards = [
     {
       img: "/LandingPage/card1.png",
-      badge: "AI Solutions",
-      title: "Transform your vision into an outstanding experience.",
-      desc: "We help organizations adopt intelligent and accessible AI systems.",
+      badge: "See How We Deliver",
+      title: "Outcome‑Driven Thinking",
+      desc: " Every project focuses on clear goals and measurable business results from day one.",
     },
     {
       img: "/LandingPage/card2.jpg",
-      badge: "Digital Strategy",
-      title: "Empower your business with future-ready technology.",
-      desc: "Our team enables seamless digital transformation to stay competitive.",
+      badge: "Learn About Our Approach",
+      title: " People‑First Collaboration",
+      desc: "We work side by side with your teams through planning, building, and support. ",
     },
     {
       img: "/LandingPage/card3.jpg",
-      badge: "Innovation Lab",
-      title: "Build the products that shape tomorrow.",
-      desc: "We collaborate with companies to create scalable, impactful solutions.",
+      badge: "Explore Our Services",
+      title: " Reliability You Can Trust",
+      desc: "We build secure, stable solutions that perform every day",
     },
   ];
 
@@ -27,8 +27,8 @@ export default function InnovationCards() {
       <div className="max-w-8xl mx-10">
 
         {/* Heading */}
-        <H2 className="mb-10 leading-tight text-left">
-          Innovation is the ability to see <br /> change as an opportunity
+        <H2 className="mb-10 pb-10 leading-tight text-left">
+          Innovation at Qnest Global turns <br className=" xl:block hidden"/> technology change into <br className=" xl:block hidden"/> business value   
         </H2>
 
         {/* ================= MOBILE / TABLET CAROUSEL ================= */}
@@ -92,7 +92,7 @@ export default function InnovationCards() {
         </div>
 
         {/* ================= DESKTOP GRID ================= */}
-        <div className="hidden lg:grid grid-cols-3 gap-4 justify-center">
+        <div className="hidden lg:grid grid-cols-3 gap-8 justify-center">
           {cards.map((card, i) => (
             <div
               key={i}
@@ -105,27 +105,30 @@ export default function InnovationCards() {
               "
               style={{
                 width: "100%",
-                maxWidth: "405px",
+                maxWidth: "500px",
                 height: "536.558px",
               }}
             >
               <img
                 src={card.img}
                 alt="Card"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-500  "
               />
 
               <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
 
               <div className="relative h-full flex flex-col justify-between pt-5 pb-5 pl-8 pr-4">
-                <div className="bg-white/20 backdrop-blur-sm border border-white text-white px-10 py-2 rounded-full w-max text-md font-medium">
+                <div className="bg-white/20 backdrop-blur-sm border border-white text-white px-10 py-2 rounded-full max-w-xs text-md font-medium">
                   {card.badge}
+                  
                 </div>
-
                 <div>
-                  <H4 className="text-white leading-snug mb-4">
+                  <H4 className="text-white   -mt-44 leading-snug ">
                     {card.title}
                   </H4>
+                  </div>
+                <div>
+                 
                   <P className="text-white/90 leading-relaxed">
                     {card.desc}
                   </P>

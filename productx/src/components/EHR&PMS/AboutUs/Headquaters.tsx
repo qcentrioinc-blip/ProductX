@@ -41,11 +41,11 @@ const Headquarters = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="min-h-screen bg-[#EDE4CA] px-4 md:py-10">
+    <div className="min-h-screen bg-[#EDE4CA] xl:px-4 md:py-10">
       <div className="max-w-8xl lg:mx-4 py-10">
 
         {/* ---------------- TOP ---------------- */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center px-2 lg:px-6 md:px-10 mb-10">
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center px-2 lg:px-6 md:px-10 mb-10">
           <H2 className="font-bold text-[#0F6B4A] leading-tight">
             Sed ut perspiciatis Unde <br />
             spiciatis spiciatis

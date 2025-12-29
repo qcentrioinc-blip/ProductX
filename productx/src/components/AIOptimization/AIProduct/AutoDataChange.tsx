@@ -62,6 +62,92 @@ const AutoDataChange = () => {
 
   // Calculate the height needed for smooth scrolling through all tabs
   const scrollHeight = `${100 * tabs.length}vh`;
+// const MobileStickyAutoData = () => {
+//   const [activeIndex, setActiveIndex] = useState(0);
+//   const containerRef = useRef<HTMLDivElement>(null);
+
+//   const totalItems = tabs.length;
+
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (!containerRef.current) return;
+
+//       const rect = containerRef.current.getBoundingClientRect();
+//       const viewportHeight = window.innerHeight;
+
+//       const progress = Math.min(
+//         Math.max(-rect.top / (rect.height - viewportHeight), 0),
+//         1
+//       );
+
+//       const index = Math.floor(progress * totalItems);
+//       setActiveIndex(Math.min(index, totalItems - 1));
+//     };
+
+//     window.addEventListener("scroll", onScroll);
+//     return () => window.removeEventListener("scroll", onScroll);
+//   });
+
+
+
+//   return (
+//     <div
+//       ref={containerRef}
+//       style={{ height: `${totalItems * 100}vh` }}
+//       className="relative"
+    
+//     >
+//       <div className="sticky top-0 pt-10 flex items-center">
+//         <div className="w-full px-6 space-y-4">
+          
+//           {/* IMAGE */}
+//           <div className="overflow-hidden  ">
+//             <img
+//               key={activeIndex}
+//               src={images[activeIndex]}
+//               alt=""
+//               className="
+//                 w-full h-[260px] object-cover
+//                 transition-all duration-700
+//                 translate-x-10 opacity-0 pt-10
+//                 animate-slideInRight
+//               "
+//             />
+//           </div>
+
+//           {/* TAB */}
+//           <H4
+//             key={`tab-${activeIndex}`}
+//             className="
+//               bg-[#5551FF] text-white
+//               p-5 rounded-xl text-center
+//               transition-all duration-700
+//               -translate-x-10 opacity-0
+//               animate-slideInLeft
+//             "
+//           >
+//             {tabs[activeIndex]}
+//           </H4>
+
+//           {/* GREEN BOX */}
+//           <div
+//             key={`para-${activeIndex}`}
+//             className="
+//               bg-emerald-500 rounded-2xl p-6
+//               transition-all duration-700 delay-100
+//               -translate-x-10 opacity-0
+//               animate-slideInLeft
+//             "
+//           >
+//             <p className="text-white leading-relaxed">
+//               {paragraphs[activeIndex]}
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 const MobileStickyAutoData = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -84,62 +170,60 @@ const MobileStickyAutoData = () => {
       setActiveIndex(Math.min(index, totalItems - 1));
     };
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
+    return () => window.removeEventListener("scroll", onScroll);
+  },);
+  
   return (
     <div
       ref={containerRef}
-      style={{ height: `${totalItems * 100}vh` }}
       className="relative"
+      style={{ height: `${totalItems * 100}vh` }}
     >
-      <div className="sticky top-0 min-h-screen flex items-center">
-        <div className="w-full px-6 space-y-6">
-          
-          {/* IMAGE */}
-          <div className="overflow-hidden rounded-xl">
-            <img
-              key={activeIndex}
-              src={images[activeIndex]}
-              alt=""
-              className="
-                w-full h-[260px] object-cover
-                transition-all duration-700
-                translate-x-10 opacity-0
-                animate-slideInRight
-              "
-            />
-          </div>
+      <div className="sticky top-20 h-[65vh] flex  ">
+        <div className="w-full mt-10 px-5 space-y-5">
 
-          {/* TAB */}
+          {/* PURPLE TAB */}
           <H4
             key={`tab-${activeIndex}`}
             className="
               bg-[#5551FF] text-white
-              p-5 rounded-xl text-center
-              transition-all duration-700
-              -translate-x-10 opacity-0
+              py-4 px-5 rounded-xl text-center
+              text-base font-semibold
               animate-slideInLeft
             "
           >
             {tabs[activeIndex]}
           </H4>
 
-          {/* GREEN BOX */}
+          {/* IMAGE CARD */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+            <img
+              key={`img-${activeIndex}`}
+              src={images[activeIndex]}
+              alt=""
+              className="
+                w-full h-[220px] object-cover
+                animate-slideInRight
+              "
+            />
+          </div>
+
+          {/* GREEN CONTENT CARD */}
           <div
             key={`para-${activeIndex}`}
             className="
-              bg-emerald-500 rounded-2xl p-6
-              transition-all duration-700 delay-100
-              -translate-x-10 opacity-0
+              bg-emerald-500 rounded-2xl p-5
               animate-slideInLeft
             "
           >
-            <p className="text-white leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               {paragraphs[activeIndex]}
             </p>
           </div>
+
         </div>
       </div>
     </div>
@@ -162,7 +246,7 @@ const MobileStickyAutoData = () => {
   <MobileStickyAutoData />
 </div>
       {/* Sticky Scroll Section */}
-      <div ref={stickyRef} style={{ height: scrollHeight }} className="relative hidden md:block">
+      <div ref={stickyRef} style={{ height: scrollHeight }} className="relative hidden md:block" >
         <div className="sticky top-0 h-auto flex items-center  pt-10  overflow-hidden">
           <div className="w-full max-w-[1400px] mx-auto px-8">
             {/* Main Content */}
