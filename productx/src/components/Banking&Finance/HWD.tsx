@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import type { Easing } from 'framer-motion';
 import { useLocation } from "react-router-dom";
  
-
+ 
 const HWD = () => {
   const location = useLocation();
   const path = location.pathname;
-
+ 
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
@@ -40,22 +40,22 @@ const HWD = () => {
     headingColor: "#020059",
     textcolor: "#141414",
     CheckColor: "#5551FF"
-
+ 
   }
   };
-
+ 
   let palette;
   if (isEHR) palette = COLORS.ehr;
   else if (isBanking) palette = COLORS.banking;
   else if (isHighTech) palette = COLORS.hightech;
 else if (isAI) palette = COLORS.ai;
 else palette = COLORS.banking; // default  else palette = COLORS.banking;
-
+ 
 const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
-
+ 
 const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
-
-
+ 
+ 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -64,17 +64,17 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
       transition: { duration: 0.8, ease: 'easeOut' as Easing },
     },
   };
-
+ 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
   };
-
+ 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-
+ 
   const CardContent = () => (
     <section id="use-cases">
       {/* Top Section */}
@@ -83,7 +83,7 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
         style={{ backgroundColor: topBg }}
       >
         <div className="w-15 h-15 bg-gray-300 rounded-full mb-4"></div>
-
+ 
         <div className="text-left">
           <h4
             className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold leading-[120%]"
@@ -91,16 +91,16 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
           >
             Sed ut reprehenderit in
           </h4>
-
+ 
           <p style={{ color: textcolor }}>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
           </p>
         </div>
       </div>
-
+ 
       {/* Bottom Section */}
       <div
-        className="pl-6 pr-10 py-18 text-left"
+        className="pl-6 pr-10 py-10 xl:py-18 text-left"
         style={{ backgroundColor: bottomBg }}
       >
         <ul className="space-y-4">
@@ -113,7 +113,7 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
           ].map((item, index) => (
             <li key={index} className="flex items-center gap-4">
              <Check size={25} style={{ color: CheckColor }} />
-
+ 
              
 <p style={{ color: bottomTextColor }}>
   {item}
@@ -125,11 +125,11 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
       </div>
     </section>
   );
-
+ 
   return (
     <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
-
+ 
         {/* HEADINGS */}
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
           <motion.h1
@@ -152,7 +152,7 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
               ))}
             </div>
           </motion.h1>
-
+ 
           <motion.h2
             className="text-[#2A2A2A] font-bricolage font-semibold text-[24px] md:text-[32px] lg:text-[64px] leading-none"
             variants={containerVariants}
@@ -167,12 +167,12 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
             ))}
           </motion.h2>
         </div>
-
+ 
         {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
         <div
           className="
             flex gap-6 overflow-x-auto snap-x snap-mandatory
-            lg:overflow-visible lg:grid 
+            lg:overflow-visible lg:grid
             lg:grid-cols-3
             sm:gap-14
             pb-4
@@ -185,8 +185,8 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
               className="
                 relative rounded-md text-black overflow-hidden shadow-lg
   snap-center flex-shrink-0
-  w-[85%] md:w-[70%] lg:w-auto
-  min-h-[420px] md:min-h-[600px] lg:min-h-0
+  w-[85%] md:w-[60%]  lg:w-auto
+  min-h-[420px] xl:min-h-[600px] lg:min-h-0
               "
               style={{ backgroundColor: bottomBg }}
               variants={cardVariants}
@@ -199,7 +199,7 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
           ))}
         </div>
       </div>
-
+ 
       {/* Hide scrollbar */}
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -213,5 +213,5 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
     </div>
   );
 };
-
+ 
 export default HWD;

@@ -1,12 +1,13 @@
  
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
+import GridSecClinic from "../ClinicApp/GridSecClinic"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Brief from "./Brief"
 import Counter from "./Counter"
 import Headquarters from "./Headquaters"
 import HeroSection from "./HeroSection"
 import OurWork from "./OurWork"
-import Stroke from "./Stroke"
+ 
  
 
 const About = () => {
@@ -14,13 +15,14 @@ const About = () => {
     <div className="relative">
       <EHRNavbar />
       
-      {/* This creates the scroll height AND contains the fixed stroke */}
-      <Stroke />
+      
+   
 
       <HeroSection />
       <Brief />
       <Counter />
       <OurWork />
+      <GridSecClinic/>
       <Headquarters />
       <EHRFooter />
     </div>

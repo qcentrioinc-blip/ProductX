@@ -1,4 +1,4 @@
-
+ 
 import HWD from "../../Banking&Finance/HWD"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
@@ -8,26 +8,44 @@ import Benefits from "./Benefits"
 import HeroSection from "./HeroSection"
 
 import Testimonial from "./Testimonial"
+import GridSecClinic from "./GridSecClinic"
 
 
 
 const Clinic = () => {
   return (
-    <div>
+    <div className="relative overflow-x-hidden">
       <EHRNavbar />
       <HeroSection />
       <Testimonial />
       <Benefits />
-      <div className="relative overflow-x-hidden">
+
+       
+      {/* <div className="relative">
+         <img
+          src="/ClinicApp/GreenCircle.png"
+          alt="Decoration"
+          className="
+            absolute
+            top-[750px]
+            right-0
+            w-[200px] md:w-[300px]
+            z-10
+            pointer-events-none
+          "
+        /> */}
+
         <Advantage />
+
+        {/* ✅ FLOATING IMAGE */}
+       <GridSecClinic/>
         <HWD />
-        <FaqSection />
-        <EHRFooter />
-      </div>
+      {/* </div> */}
 
-
+      <FaqSection />
+      <EHRFooter />
     </div>
-  )
-}
+  );
+};
 
 export default Clinic

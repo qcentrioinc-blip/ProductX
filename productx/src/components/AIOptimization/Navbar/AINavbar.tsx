@@ -120,12 +120,7 @@ const AINavbar = () => {
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
-    {
-      name: "AI Automation",
-      path: "/industries/ai-optimization",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
+    
   ];
 
   const industryOptions = industries.filter(
@@ -184,12 +179,25 @@ const AINavbar = () => {
       {/* MAIN NAV (DESKTOP ONLY) */}
       <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}>
         <div className="flex items-center gap-10">
-          <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => setLogoDropdownOpen(true)}>
+          <div
+  className="relative flex items-center gap-1 cursor-pointer"
+  onMouseEnter={() => setLogoDropdownOpen(true)}
+  onMouseLeave={() => setLogoDropdownOpen(true)}
+>
+  <Link
+    to={base}
+    className="flex items-center gap-1"
+    onClick={() => {
+      closeAllMenus();
+    }}
+  >
+
             <div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div>
             <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
               <img src="/down.png" className="w-4 h-4" />
             </div>
 
+</Link>
             {logoDropdownOpen && (
               <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
                 {industryOptions.map((ind, index) => (

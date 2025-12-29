@@ -4,18 +4,18 @@ export default function BusinessValuesSection() {
   const items = [
     {
       img: "/LandingPage/shape1.jpg",
-      title: "Innovation First",
-      desc: "We embrace challenges as opportunities to create smarter and more efficient systems.",
+      title: "Driven by Outcomes",
+      desc: "We focus on measurable improvements in performance, cost, and reliability. ",
     },
     {
       img: "/LandingPage/shape2.jpg",
-      title: "Customer at Heart",
-      desc: "Technology should be accessible, intelligent, and purposeful. We strive to empower organizations.",
+      title: "People‑Centric Delivery",
+      desc: "We align technology with how your teams actually work. ",
     },
     {
       img: "/LandingPage/shape3.jpg",
-      title: "Trust & Transparency",
-      desc: "We design with tomorrow in mind, ensuring adaptability and long-term sustainability.",
+      title: "Accountable Partnership",
+      desc: "We commit to clear expectations, honest updates, and consistent follow‑through. .",
     },
   ];
 
@@ -25,7 +25,7 @@ export default function BusinessValuesSection() {
 
         {/* Section Heading */}
         <H2 className="mb-16 leading-tight">
-          Safe. Flexible. Built for business.
+        Reliable. Scalable. Ready for Growth.
         </H2>
 
         {/* Grid Items */}

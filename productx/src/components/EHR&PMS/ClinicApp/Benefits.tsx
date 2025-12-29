@@ -23,41 +23,45 @@ const Benefits = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  const container = containerRef.current;
+  if (!container) return;
 
-    const steps = Array.from(container.querySelectorAll(".benefit-step"));
+  const totalItems = points.length;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setActiveIndex(index);
-          }
-        });
-      },
-      {
-        threshold: 0.5,  
-      }
-    );
+  const onScroll = () => {
+    const rect = container.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-    steps.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+    // progress: 0 → 1 as section scrolls through viewport
+    const progress =
+      (windowHeight - rect.top) / (rect.height + windowHeight);
+
+    const clamped = Math.min(Math.max(progress, 0), 1);
+
+    const index = Math.floor(clamped * totalItems);
+
+    setActiveIndex(Math.min(index, totalItems - 1));
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll(); // initial
+
+  return () => window.removeEventListener("scroll", onScroll);
+},  );
 
   return (
-    <section
-      ref={containerRef}
-      className="w-full min-h-screen py-16 flex flex-col justify-center px-4 lg:px-0 lg:items-center"
-    style={{
-  background: "linear-gradient(to bottom,   #FFFFFF 40%, rgba(22, 109, 72, 0.7) 100%)",
-}}
+   <section
+  ref={containerRef}
+  className="w-full min-h-full py-16 flex flex-col justify-center px-4 lg:px-0 lg:items-center"
+  style={{
+    background:
+      "linear-gradient(to bottom, #FFFFFF 40%, rgba(22, 109, 72, 0.7) 100%)",
+  }}
+>
 
-    >
       {/* Left-aligned gradient heading */}
       <div className="w-[90%] max-w-8xl  mb-12">
-        <h2 className="text-3xl md:text-5xl font-bricolage font-semibold  text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-[#28B87B] to-[#F99526] leading-snug">
+        <h2 className="text-3xl md:text-6xl font-bricolage font-semibold  text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-r from-[#28B87B] to-[#F99526] leading-snug">
           Sed ut perspiciatis Unde  <br className="hidden lg:block" />
           Seduo ut perspiciatis
         </h2>

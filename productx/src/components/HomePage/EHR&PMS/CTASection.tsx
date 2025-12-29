@@ -118,7 +118,7 @@ const animate = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-gray-50   py-24 overflow-hidden h-screen"
+      className="relative w-full    py-24 overflow-hidden h-screen"
     >
       {/* Images */}
       {images.map((img, index) => {

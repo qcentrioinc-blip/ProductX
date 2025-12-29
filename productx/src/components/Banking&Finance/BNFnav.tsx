@@ -269,11 +269,19 @@ const BNFNav = () => {
  
  
         <div className="flex items-center gap-10">
-          <div
-            className="relative flex items-center gap-1 cursor-pointer"
-            onMouseEnter={() => setLogoDropdownOpen(true)}
-            onMouseLeave={() => setLogoDropdownOpen(true)}
-          >
+         <div
+  className="relative flex items-center gap-1 cursor-pointer"
+  onMouseEnter={() => setLogoDropdownOpen(true)}
+  onMouseLeave={() => setLogoDropdownOpen(true)}
+>
+  <Link
+    to={base}
+    className="flex items-center gap-1"
+    onClick={() => {
+      closeAllMenus();
+    }}
+  >
+
             <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
               LOGO
             </div>
@@ -282,8 +290,13 @@ const BNFNav = () => {
               <img src="/down.png"
                 className="w-4 h-4" />
             </div>
+            </Link>
             {logoDropdownOpen && (
-              <div className="absolute top-14 w-80  bg-white shadow-xl rounded-md z-[999] p-3">
+              <div className="absolute top-14 w-80  bg-white shadow-xl rounded-md z-[999] p-3"
+              onMouseLeave={() => {
+                      setLogoDropdownOpen(false);
+
+                    }}>
  
                 {industryOptions.map((ind, index) => (
                   <Link
