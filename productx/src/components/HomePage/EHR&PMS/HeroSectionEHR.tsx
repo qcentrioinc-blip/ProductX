@@ -5,7 +5,7 @@ import LandingPageEHS from "./LandingPageEHS"
 // import ParaDescription from "./ParaDescription"
 import ShortDesc from "./ShortDesc"
 import StatsSectionEHR from "./StatsSectionEHR"
-import { Logos} from "./Logos"
+import { Logos } from "./Logos"
 import UserProfile from "./UserProfile"
 // import Testimonials from "./Testimonials"
 import WhyQnest from "./WhyQnest"
@@ -51,12 +51,14 @@ const HeroSectionEHR = () => {
       </div>
        
   </StickyBackgroundSection>
-      <BlogCarousel />
+    <BlogCarousel />
       <UserProfile />
       <EHRFooter />
     </div>
+
   );
 };
 
 export default HeroSectionEHR
+ 
  

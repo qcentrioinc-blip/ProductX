@@ -1,11 +1,11 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isLightNavbar= location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace');
+  const isLightNavbar = location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace');
 
 
   return (
@@ -19,37 +19,34 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav (unchanged) */}
-      <nav className="hidden md:flex items-center gap-8">
-  <Link
-    to="/platform"
-    className={`transition font-bricolage font-[20px] ${
-      isLightNavbar ? "text-black  hover:text-black/80" : "text-white hover:text-gray-300"
-    }`}
-  >
-    Platform
-  </Link>
+        <nav className="hidden md:flex items-center gap-8">
+          <Link
+            to="/platform"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-gray-300"
+              }`}
+          >
+            Platform
+          </Link>
 
-  <Link
-    to="/marketplace"
-    className={`transition font-bricolage font-[20px] ${
-      isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"
-    }`}
-  >
-    Marketplace
-  </Link>
+          <Link
+            to="/marketplace"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-gray-300"
+              }`}
+          >
+            Marketplace
+          </Link>
 
-  <Link to="/contact">
-    <button
-      className={`px-4 py-2 rounded-md font-medium transition flex items-center gap-2 ${
-        isLightNavbar
-          ? "bg-black text-white hover:bg-black/90"
-          : "bg-white text-black hover:bg-white/90"
-      }`}
-    >
-      CONTACT US <ArrowUpRight size={18} /> 
-    </button>
-  </Link>
-</nav>
+          <Link to="/contact">
+            <button
+              className={`px-4 py-2 rounded-md font-medium transition flex items-center gap-2 ${isLightNavbar
+                  ? "bg-black text-white hover:bg-black/90"
+                  : "bg-white text-black hover:bg-white/90"
+                }`}
+            >
+              CONTACT US <ArrowUpRight size={18} />
+            </button>
+          </Link>
+        </nav>
 
         {/* Mobile menu button */}
         <button

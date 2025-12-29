@@ -606,7 +606,7 @@ const ChatbotButton: React.FC = () => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 100 }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                            className="fixed right-0 top-0 bottom-0 w-full sm:max-w-md bg-white z-[10000] shadow-2xl flex flex-col"
+                            className="fixed right-0 top-[70px] bottom-0 w-full sm:max-w-md bg-white z-[10000] shadow-2xl flex flex-col"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Header */}

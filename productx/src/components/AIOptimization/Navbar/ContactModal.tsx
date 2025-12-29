@@ -42,17 +42,17 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
             }}
         >
             <Slide direction="down" in={open} timeout={500}>
-                <div className="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] h-[90vh] bg-white outline-none rounded-3xl shadow-2xl overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] h-[85vh] lg:h-[75vh] bg-white outline-none rounded-3xl shadow-2xl overflow-hidden">
                     {/* Close Button */}
                     <button
                         onClick={onClose}
-                        className="absolute top-8 right-8 p-2 hover:bg-gray-100 rounded-full transition-all z-10"
+                        className="absolute top-6 right-6 md:top-8 md:right-8 p-2 hover:bg-gray-100 rounded-full transition-all z-10"
                     >
                         <X className="w-6 h-6 text-gray-700" />
                     </button>
 
                     {/* Form Container with Scroll */}
-                    <div className="h-full scrollbar-hide overflow-y-auto px-8 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20">
+                    <div className="h-full scrollbar-hide overflow-y-auto px-6 py-8 md:px-12 md:py-10 lg:px-24 lg:py-20">
                         {/* Header */}
                         <div className="mb-12">
                             <p
@@ -63,10 +63,10 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                             </p>
 
                             {/* Form */}
-                            <form onSubmit={handleSubmit} className="space-y-8">
+                            <form onSubmit={handleSubmit} className="space-y-8" autoComplete="off">
                                 {/* First Line: HEY QNEST!* MY NAME IS [NAME] * */}
                                 <div
-                                    className="flex flex-wrap items-baseline gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
                                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                 >
                                     <span className="whitespace-nowrap">HEY <span>QNEST</span>!*</span>
@@ -78,7 +78,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         required
-                                        className="border-b-4 border-[#2ECC71] outline-none bg-transparent px-2 pb-2 min-w-[180px] flex-1 max-w-[400px] placeholder:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl"
                                         style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                     />
                                     <span className="text-[#E74C3C]">*</span>
@@ -86,7 +86,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
 
                                 {/* Second Line: MY PHONE NUMBER IS [PHONE] * AND MY */}
                                 <div
-                                    className="flex flex-wrap items-baseline gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
                                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                 >
                                     <span className="whitespace-nowrap">MY PHONE NUMBER IS</span>
@@ -97,7 +97,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         required
-                                        className="border-b-4 border-[#2ECC71] outline-none bg-transparent px-2 pb-2 min-w-[200px] flex-1 max-w-[350px] placeholder:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl"
                                         style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                     />
                                     <span className="text-[#E74C3C]">*</span>
@@ -106,7 +106,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
 
                                 {/* Third Line: EMAIL IS [EMAIL] * SEE YOU SOON */}
                                 <div
-                                    className="flex flex-wrap items-baseline gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
                                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                 >
                                     <span className="whitespace-nowrap">EMAIL IS</span>
@@ -117,7 +117,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         required
-                                        className="border-b-4 border-[#2ECC71] outline-none bg-transparent px-2 pb-2 min-w-[250px] flex-1 max-w-[450px] placeholder:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-3xl lg:text-5xl"
                                         style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                                     />
                                     <span className="text-[#E74C3C]">*</span>
@@ -140,7 +140,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     </div>
                 </div>
             </Slide>
-        </Modal>
+        </Modal >
     );
 };
 

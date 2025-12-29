@@ -304,14 +304,14 @@ const TextAnimation = () => {
               </div>
 
               {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                 {/* Left Side - Static Text and Buttons */}
                 <div className="space-y-8">
                   <h2
+                    className="text-4xl lg:text-4xl xl:text-[52px]"
                     style={{
                       fontFamily: "'Bricolage Grotesque', sans-serif",
                       fontWeight: 600,
-                      fontSize: '52px',
                       lineHeight: '120%',
                       letterSpacing: '0%',
                       color: '#F5F5F5',
@@ -324,18 +324,17 @@ const TextAnimation = () => {
                   </h2>
 
                   <h3
+                    className="text-4xl lg:text-4xl xl:text-[55px] w-full lg:w-[320px] xl:w-[485px]"
                     style={{
                       fontFamily: "'Playfair Display', serif'",
                       fontWeight: 600,
                       fontStyle: 'italic',
-                      fontSize: '55px',
                       lineHeight: '86%',
                       letterSpacing: '0%',
                       color: '#F99526',
                       opacity: 1,
                       margin: 0,
                       marginBottom: '32px',
-                      width: '485px',
                       maxWidth: '100%',
                       whiteSpace: 'nowrap',
                     }}
@@ -346,7 +345,7 @@ const TextAnimation = () => {
                   <div className="flex flex-col gap-4">
                     <motion.a
                       href="/industries/high-tech/contactform"
-                      className="bg-white text-black px-8 py-4 rounded-xl font-bold text-sm hover:bg-gray-100 transition-colors flex items-center gap-3 w-fit"
+                      className="bg-white text-black px-6 py-3 lg:px-6 lg:py-3 xl:px-8 xl:py-4 rounded-xl font-bold text-sm hover:bg-gray-100 transition-colors flex items-center gap-3 w-fit"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -384,7 +383,7 @@ const TextAnimation = () => {
 
                     <motion.a
                       href="/industries/high-tech/resources"
-                      className="border-2 px-4 py-4 rounded-xl font-bold text-sm transition-colors flex items-center gap-3 w-fit"
+                      className="border-2 px-4 py-3 lg:px-4 lg:py-3 xl:px-4 xl:py-4 rounded-xl font-bold text-sm transition-colors flex items-center gap-3 w-fit"
                       style={{
                         borderColor: '#F99526',
                         color: '#F99526',
@@ -427,25 +426,21 @@ const TextAnimation = () => {
                 </div>
 
                 {/* Right Side - Animated Text */}
-                <div className="flex items-start justify-center min-h-[400px] pt-10">
+                <div className="flex items-start justify-start min-h-[400px]">
                   {/* First Text Set */}
-                  <div
-                    className="absolute"
-                    style={{ width: '591.5px', maxWidth: '100%' }}
-                  >
+                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word1Y,
                           opacity: text1Word1Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         SED UT PERSPIC
                       </motion.div>
@@ -456,14 +451,13 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word2Y,
                           opacity: text1Word2Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         UNDE SEDUO UT
                       </motion.div>
@@ -474,14 +468,13 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text1Word3Y,
                           opacity: text1Word3Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         PERSPICIATIS
                       </motion.div>
@@ -489,23 +482,19 @@ const TextAnimation = () => {
                   </div>
 
                   {/* Second Text Set */}
-                  <div
-                    className="absolute"
-                    style={{ width: '591.5px', maxWidth: '100%' }}
-                  >
+                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word1Y,
                           opacity: text2Word1Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         IMPROVE YOUR
                       </motion.div>
@@ -516,14 +505,13 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word2Y,
                           opacity: text2Word2Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         WEBSITE
                       </motion.div>
@@ -534,38 +522,33 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text2Word3Y,
                           opacity: text2Word3Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         CONVERSION
                       </motion.div>
                     </div>
                   </div>
 
-                  {/* Third Text Set - NEW! */}
-                  <div
-                    className="absolute"
-                    style={{ width: '591.5px', maxWidth: '100%' }}
-                  >
+                  {/* Third Text Set */}
+                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text3Word1Y,
                           opacity: text3Word1Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         TRANSFORM
                       </motion.div>
@@ -576,14 +559,13 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text3Word2Y,
                           opacity: text3Word2Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         YOUR DIGITAL
                       </motion.div>
@@ -594,14 +576,13 @@ const TextAnimation = () => {
                         style={{
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 600,
-                          fontSize: '72px',
                           lineHeight: '120%',
                           textTransform: 'uppercase',
                           color: '#F5F5F5',
                           y: text3Word3Y,
                           opacity: text3Word3Opacity,
                         }}
-                        className="text-5xl lg:text-6xl xl:text-[72px]"
+                        className="text-5xl lg:text-5xl xl:text-[72px]"
                       >
                         EXPERIENCE
                       </motion.div>

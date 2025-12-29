@@ -26,7 +26,7 @@ const Testimonial = () => {
         <div className="flex justify-start md:justify-center lg:justify-start">
           <div className="w-full max-w-sm py-6 md:max-w-md bg-[#166D48] text-white overflow-hidden transform -translate-y-1/2 lg:-translate-y-10 xl:translate-y-0 lg:absolute lg:top-0 lg:mt-[-10rem] mt-20">
             <div className="p-6">
-              <P className="text-sm   leading-relaxed">
+              <P className="text-sm leading-relaxed text-white">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                 cupidatat non proident.

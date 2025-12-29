@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { H1, P } from '../../../styles/Typography';
 import Image1 from '/ClinicApp/Phone.png';
 import { ContactUs } from '../../../styles/Button';
+import ContactDrawer from '../Navbar/ContactDrawer';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [pageOpened, setPageOpened] = useState(false);
   // const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   // ✅ Type the refs properly
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -131,7 +133,7 @@ const HeroSection = () => {
 
             {/* LEFT — Heading */}
             <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
-              Sed ut perspicia tisunde  <br className='md:block hidden' />Seduo ut perspiciatis 
+              Sed ut perspicia tisunde  <br className='md:block hidden' />Seduo ut perspiciatis
             </H1>
 
 
@@ -141,7 +143,12 @@ const HeroSection = () => {
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
               </P>
 
-              <ContactUs >GET PRODUCT DEMO</ContactUs>
+              <ContactUs
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDrawerOpen(true);
+                }}
+              >GET PRODUCT DEMO</ContactUs>
             </div>
 
           </div>
@@ -223,6 +230,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
 };

@@ -50,7 +50,7 @@ const ThreeStep = () => {
     mass: 0.4,          // a bit heavier for inertia feel
     restDelta: 0.0001,
     restSpeed: 0.0001,
-  }); // [web:10][web:17]
+  });
 
   // 2) Softer springs for all Y/opacity animations
   const springConfig = {
@@ -157,13 +157,13 @@ const ThreeStep = () => {
       >
         <div className="sticky top-0 h-screen flex flex-col bg-black">
           {/* Header inside sticky */}
-          <div className="w-full px-4 sm:px-6 lg:px-6">
-            <div className="max-w-8xl mx-10 text-center pt-10">
+          <div className="w-full px-6 lg:px-8 xl:px-10">
+            <div className="max-w-8xl mx-10 text-center pt-10 lg:pt-16">
               <h2
+                className="text-3xl lg:text-4xl xl:text-[42px]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 600,
-                  fontSize: '42px',
                   color: '#F5F5F5',
                 }}
               >
@@ -171,11 +171,11 @@ const ThreeStep = () => {
               </h2>
 
               <h3
+                className="text-3xl lg:text-4xl xl:text-[40px]"
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 600,
                   fontStyle: 'italic',
-                  fontSize: '40px',
                   lineHeight: '100%',
                   color: '#F99526',
                   whiteSpace: 'nowrap',
@@ -188,7 +188,7 @@ const ThreeStep = () => {
 
           {/* Animated steps area */}
           <div className="flex-1 flex items-center overflow-hidden">
-            <div className="max-w-8xl mx-10 w-full px-6 relative">
+            <div className="max-w-[90rem] mx-10 w-full px-6 lg:px-8 xl:px-10 relative">
               {steps.map((step, index) => (
                 <AnimatedStep
                   key={index}
@@ -253,7 +253,7 @@ const AnimatedStep = ({
   // === 2) EXTENDED HOLD - exit much later ===
   const exitStart = 0.75; // start exiting at 75% of section (was 0.20)
   const exitEnd = 0.95;   // fully gone by 95% of section
-  
+
   const exitY = isLastStep ? 0 : 100;
   const exitOpacity = isLastStep ? 1 : 0;
 
@@ -385,18 +385,19 @@ const AnimatedStep = ({
             items-center 
             justify-between 
             gap-10 
+            lg:gap-6
+            xl:gap-10
             relative
           "
         >
           {/* LEFT TITLE - split into 2 lines */}
-          <div className="w-full lg:w-[280px] text-left lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+          <div className="w-full lg:w-[240px] xl:w-[280px] text-left lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
             <div className="overflow-hidden mb-1">
               <motion.h4
-                className="text-white"
+                className="text-white text-xl lg:text-xl xl:text-[24px]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 700,
-                  fontSize: '24px',
                   lineHeight: '110%',
                   y: titleLine1Y,
                   opacity: titleLine1Opacity,
@@ -408,11 +409,10 @@ const AnimatedStep = ({
 
             <div className="overflow-hidden">
               <motion.h4
-                className="text-white"
+                className="text-white text-xl lg:text-xl xl:text-[24px]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 700,
-                  fontSize: '24px',
                   lineHeight: '110%',
                   y: titleLine2Y,
                   opacity: titleLine2Opacity,
@@ -427,13 +427,12 @@ const AnimatedStep = ({
           <div className="flex justify-center w-full overflow-hidden">
             <motion.div style={{ y: numberY, opacity: numberOpacity }}>
               <div
-                className="font-bold"
+                className="font-bold text-[180px] lg:text-[200px] xl:text-[260px]"
                 style={{
                   background:
                     'linear-gradient(180deg, #a855f7 0%, #d97706 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontSize: '260px',
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 700,
                   lineHeight: 1,
@@ -445,14 +444,13 @@ const AnimatedStep = ({
           </div>
 
           {/* RIGHT DESCRIPTION - split into 3 lines */}
-          <div className="w-full lg:w-[420px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+          <div className="w-full lg:w-[350px] xl:w-[420px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
             {descLine1 && (
               <div className="overflow-hidden mb-1">
                 <motion.p
-                  className="text-white"
+                  className="text-white text-lg lg:text-lg xl:text-[22px]"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
-                    fontSize: '22px',
                     fontWeight: 400,
                     lineHeight: '150%',
                     y: descLine1Y,
@@ -467,10 +465,9 @@ const AnimatedStep = ({
             {descLine2 && (
               <div className="overflow-hidden mb-1">
                 <motion.p
-                  className="text-white"
+                  className="text-white text-lg lg:text-lg xl:text-[22px]"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
-                    fontSize: '22px',
                     fontWeight: 400,
                     lineHeight: '150%',
                     y: descLine2Y,
@@ -485,10 +482,9 @@ const AnimatedStep = ({
             {descLine3 && (
               <div className="overflow-hidden">
                 <motion.p
-                  className="text-white"
+                  className="text-white text-lg lg:text-lg xl:text-[22px]"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
-                    fontSize: '22px',
                     fontWeight: 400,
                     lineHeight: '150%',
                     y: descLine3Y,

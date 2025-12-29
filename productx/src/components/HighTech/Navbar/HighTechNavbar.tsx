@@ -11,10 +11,7 @@ const HighTechNavbar = () => {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
-    const industry = "high-tech";
- 
-
-    const base = `/industries/${industry}`;
+   
   // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
 
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
@@ -36,6 +33,10 @@ const HighTechNavbar = () => {
   };
 
   // ---------- FIXED HIGH-TECH ROUTES ----------
+  const industry = "high-tech";
+  const currentIndustry = "HighTech";
+  const base = `/industries/${industry}`;
+
   const navItems = [
     { name: "Products", path: "/industries/high-tech/product-details" },
     { name: "Built for", path: "/industries/high-tech" },
@@ -82,10 +83,6 @@ const HighTechNavbar = () => {
       path: "/industries/high-tech/built-for",
     },
   ];
-
-
-  // const industry = "high-tech";
-  const currentIndustry = "";
 
   const industries = [
     {
@@ -158,12 +155,8 @@ const HighTechNavbar = () => {
 
         {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">
-            Platform
-          </Link>
-          <Link to="/marketplace" className="text-white font-medium">
-            Marketplace
-          </Link>
+          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
 
         {/* MOBILE MENU BUTTON */}
