@@ -1,6 +1,5 @@
 import React from 'react';
 import { H1, P } from '../../../styles/Typography';
-import { Link } from 'react-router-dom';
 
 const JobHeaderBanner: React.FC = () => {
   const jobData = {
@@ -13,7 +12,7 @@ const JobHeaderBanner: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-[100vh] overflow-hidden flex items-center justify-center"
+      className="relative w-full  h-[71vh] md:h-[51vh] xl:h-screen overflow-hidden flex items-center justify-center"
       style={{
         background:
           "radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)",
@@ -52,44 +51,23 @@ const JobHeaderBanner: React.FC = () => {
             {jobData.experience}
           </span>
         </P>
-<Link to="/industries/ehr-and-pms/application-form">
         {/* Button */}
         <button
-         
-          className="
-            inline-flex 
-            items-center 
-            justify-center 
-            px-6 sm:px-8 
-            py-3 
-            bg-gray-800 
-            text-white 
-            rounded-lg 
-            shadow-lg 
-            hover:bg-gray-900 
-            transition 
-            duration-300 
-            transform 
-            hover:scale-[1.02]
-          "
-        >
-          SUBMIT APPLICATION
-          <svg
-            className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            ></path>
-          </svg>
-        </button>
-        </Link>
+  onClick={() => {
+    document.getElementById("ApplicationSec")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-green-800 hover:bg-green-700 transition duration-150 ease-in-out uppercase tracking-wider whitespace-nowrap"
+>
+  SUBMIT APPLICATION
+  <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+  </svg>
+</button>
+
+        
       </div>
     </section>
   );

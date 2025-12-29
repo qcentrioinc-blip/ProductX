@@ -6,7 +6,7 @@ export default function FutureSection() {
 
       {/* TOP-RIGHT SHAPE (SECTION LEVEL) */}
       <img
-        src="/LandingPage/shape4.jpg"
+        src="/LandingPage/shape4.png"
         alt="Abstract Shape"
         className="absolute top-0 right-0 w-[280px] md:w-[340px] lg:w-[450px] z-10"
       />

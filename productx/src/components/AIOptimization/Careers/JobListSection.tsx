@@ -36,7 +36,7 @@ const jobs = [
 
 export default function JobListSection() {
   return (
-    <section className="w-full bg-[#E9FFF7] py-16" id="JobList">
+    <section className="w-full bg-[#E9FFF7] py-16" id="JobListSection">
       <div className="max-w-8xl mx-10">
 
         {/* -------------------- HEADING -------------------- */}

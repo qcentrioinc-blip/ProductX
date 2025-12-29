@@ -70,7 +70,7 @@ const ContactUS = () => {
   return (
     <div
       ref={targetRef}
-      className="relative z-30 h-screen pointer-events-auto bg-white overflow-hidden"
+      className="relative z-30 h-screen pointer-events-auto bg-white overflow-hidden" id='ContactUs'
     >
       <div className="sticky top-0 flex items-center justify-center h-screen w-full">
         <motion.div

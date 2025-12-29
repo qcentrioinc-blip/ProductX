@@ -4,7 +4,7 @@ export default function GridSection() {
   return (
     <section className="w-full  text-white py-16 md:py-20">
       
-      <div className="max-w-8xl mx-10 p-10 rounded-md bg-[#156644] absolute -top-[30vh] lg:-top-[50vh] ">
+      <div className="max-w-8xl mx-10 p-16 rounded-md bg-[#156644] absolute -top-[30vh] md:-top-[25vh] xl:-top-[50vh] ">
 
         {/* Heading */}
         <H2 className="text-left mb-12 md:mb-16">

@@ -20,6 +20,8 @@ import AIFooter from "../../HomePage/AIOptimization/AIFooter";
 import TitleSectionSwitcher from "./TitleSectionSwitcher";
 import BlogCarousel from "../../HomePage/EHR&PMS/BlogCarousel";
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
+import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
+import ContactSecHT from "../../HighTech/ContactSecHT";
 
 export const BuiltFor = () => {
   const { pathname } = useLocation();
@@ -57,6 +59,12 @@ export const BuiltFor = () => {
     return null;
   };
 
+  const getContactForm = () => {
+    if (pathname.startsWith("/industries/banking-and-finance")) return <ContactUS />;
+    if (pathname.startsWith("/industries/high-tech")) return <ContactSecHT />;
+    return null;
+  };
+
   return (
     <div>
       {/* Navbar */}
@@ -72,6 +80,8 @@ export const BuiltFor = () => {
       
       {/*getInsightandThoughts */}
       {getInsightandThoughts()}
+
+      {getContactForm()}
 
       {/* Footer */}
       {getFooter()}

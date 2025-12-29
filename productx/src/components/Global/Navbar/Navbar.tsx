@@ -6,7 +6,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const isLightNavbar= location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace');
-
+  
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg">

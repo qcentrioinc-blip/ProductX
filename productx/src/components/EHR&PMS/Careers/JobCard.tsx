@@ -101,7 +101,7 @@ const JobCardGrid: React.FC = () => {
     // e.g., navigate(`/jobs/${jobId}`);
     console.log(`Navigating to detail page for Job ID: ${jobId}`);
     // For demonstration, we'll just log an action.
-    alert(`Redirecting to details for Job ID: ${jobId}. (Check console for simulated routing)`);
+    // alert(`Redirecting to details for Job ID: ${jobId}. (Check console for simulated routing)`);
   };
 
   return (

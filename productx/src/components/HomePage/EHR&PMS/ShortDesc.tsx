@@ -54,9 +54,9 @@ const ShortDesc = () => {
         {/* Content Wrapper */}
         <div
           className="
-          w-full
+        
           max-w-8xl
-          mx-auto
+          mx-10
           flex
           flex-col
          py-88
@@ -111,7 +111,7 @@ const ShortDesc = () => {
 
           <button
             onClick={() => setDrawerOpen(true)}
-            className="w-fit"
+            className="w-fit z-50"
             type="button"
           >
             <ContactUs>BOOK A FREE DEMO</ContactUs>

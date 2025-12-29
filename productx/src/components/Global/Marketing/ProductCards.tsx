@@ -1,10 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import {H4, P} from '../../../styles/Typography'
-
-// Mock Typography Components for self-containment
-// const H4 = ({ children, className = "" }) => <h4 className={`text-xl font-bold ${className}`}>{children}</h4>;
-// const P = ({ children, className = "" }) => <p className={`text-base text-gray-700 ${className}`}>{children}</p>;
-
+import React, { useState, useRef } from "react";
+import { H4, P } from '../../../styles/Typography'
 
 // Define the structure of a card item
 type CardItem = {
@@ -16,7 +11,6 @@ type CardItem = {
   category: string; 
 };
 
-// Expanded sampleData to contain 8 unique cards for each of the 3 categories (24 total).
 const sampleData: CardItem[] = [
   // --- Banking and Finance (8 Cards) ---
   {
@@ -192,154 +186,64 @@ const sampleData: CardItem[] = [
       "Unified view of threats, vulnerabilities, and security posture across all organizational endpoints and networks with automated alerting.",
     category: "High Tech",
   },
+  // --- AI Optimization (8 Cards) ---
   {
-    id: "20",
-    logo: "/MarketPlace/img6.png",
-    title: "DevOps CI/CD Pipeline Automation",
-    tags: ["CI/CD", "Automation"],
+    id: "25",
+    logo: "/MarketPlace/cloud1.png",
+    title: "Cloud Cost Optimization Engine",
+    tags: ["FinOps", "Savings", "Cloud"],
     description:
-      "Accelerates software delivery with automated testing, integration, and continuous deployment workflows, leveraging industry best practices.",
-    category: "High Tech",
+      "Identifies unused resources, rightsizes workloads, and auto-applies savings plans to reduce cloud spend by up to 40%.",
+    category: "AI Optimaization",
   },
   {
-    id: "21",
-    logo: "/MarketPlace/img7.png",
-    title: "Predictive Maintenance AI",
-    tags: ["AI", "Industrial", "IoT"],
+    id: "26",
+    logo: "/MarketPlace/cloud2.png",
+    title: "Idle Resource Auto-Cleaner",
+    tags: ["Automation", "Cleanup"],
     description:
-      "Uses sensor data and machine learning to forecast equipment failure with high accuracy, minimizing costly downtime in industrial settings.",
-    category: "High Tech",
-  },
-  {
-    id: "22",
-    logo: "/MarketPlace/img8.png",
-    title: "Quantum Computing Simulation SDK",
-    tags: ["Quantum", "Research"],
-    description:
-      "A software development kit for learning and experimenting with quantum algorithms on classical hardware simulators for research purposes.",
-    category: "High Tech",
-  },
-  {
-    id: "23",
-    logo: "/MarketPlace/img3.png",
-    title: "API Gateway and Microservices Manager",
-    tags: ["API", "Microservices"],
-    description:
-      "Centralized platform for rate limiting, security, routing, and monitoring of all internal and external microservices-based APIs.",
-    category: "High Tech",
-  },
-  {
-    id: "24",
-    logo: "/MarketPlace/img4.png",
-    title: "Data Lake Analytics Platform",
-    tags: ["Data", "Analytics", "BI"],
-    description:
-      "Enables massive-scale ETL, data warehousing, and business intelligence reporting on both structured and unstructured data sets.",
-    category: "High Tech",
+      "Automatically shuts down orphaned VMs, disks, snapshots, and IPs across AWS, Azure, and GCP.",
+    category: "AI Optimaization",
   },
 ];
 
-// Renaming ProductCards to App for the single-file React component convention
 export const App: React.FC = () => {
-  const categories = ["Banking and Finance", "EHR and PMS", "High Tech"];
+  const categories = ["Banking and Finance", "EHR and PMS", "High Tech", "AI Optimaization"];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [visibleCards, setVisibleCards] = useState<Set<string>>(new Set());
   
-  // 1. Create a reference to the main section element
   const sectionRef = useRef<HTMLElement>(null);
-  const cardRefs = useRef<Map<string, HTMLElement>>(new Map()); // Changed to HTMLElement
 
   const filteredData = sampleData.filter(
     (item) => item.category === selectedCategory
   );
 
-  // Intersection Observer for card animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-card-id');
-            if (id) {
-              setVisibleCards(prev => new Set(prev).add(id));
-            }
-          }
-        });
-      },
-      { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    cardRefs.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
-
-    return () => observer.disconnect();
-  }, [filteredData]);
-
   const handleCategoryClick = (category: string) => {
-    // Check if the category is changing
     if (category !== selectedCategory) {
       setIsAnimating(true);
-      setVisibleCards(new Set()); // Reset visible cards for new category
-      
-      // 2. Update the state to change the filtered view
       setSelectedCategory(category);
-      
-      // 3. Scroll the main section into view (to the top of the section)
       sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
-      // Reset animation state after transition
       setTimeout(() => setIsAnimating(false), 500);
     }
   };
 
-  const setCardRef = (element: HTMLElement | null, id: string) => { // Changed to HTMLElement
-    if (element) {
-      cardRefs.current.set(id, element);
-    } else {
-      cardRefs.current.delete(id);
-    }
-  };
-
   return (
-    // 4. Attach the ref to the main section element
-    <section ref={sectionRef} className="w-full py-10 ">
-      {/* Category Pills - Sticky below navbar with mobile carousel */}
-      <div
-        className="
-          sticky top-[0px] z-30 bg-white py-3 mb-5 
-          shadow-xl
-          backdrop-blur-sm 
-        "
-      >
-        <div
-          className="
-            flex justify-start sm:justify-center flex-nowrap sm:flex-wrap 
-            gap-x-4 sm:gap-x-8 lg:gap-x-[45px]
-            overflow-x-auto sm:overflow-x-visible 
-            scrollbar-none
-            px-4 sm:px-0
-            scroll-smooth scrollbar-hide
-          "
-        >
+    <section ref={sectionRef} className="w-full pb-10 ">
+      {/* Category Pills */}
+      <div className="sticky top-[0px] z-30 bg-white py-3 mb-5 shadow-sm backdrop-blur-sm">
+        <div className="flex justify-start sm:justify-center flex-nowrap sm:flex-wrap gap-x-4 sm:gap-x-8 lg:gap-x-[45px] overflow-x-auto sm:overflow-x-visible px-4 sm:px-0 scroll-smooth ">
           {categories.map((c) => (
             <button
               key={c}
-              // 5. Update onClick handler to use the new scrolling function
               onClick={() => handleCategoryClick(c)}
               className={`
                 flex-shrink-0 
                 px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg lg:px-[24px] lg:py-[16px] lg:text-[24px]
-                rounded-full border border-gray-200 transition-all duration-500 ease-out whitespace-nowrap font-medium
-                transform hover:scale-105 active:scale-95
+                rounded-full border border-gray-200 whitespace-nowrap font-medium transition-colors
                 ${
                   c === selectedCategory
-                    ? "bg-[#5d8ef0] text-white shadow-xl border-[#8495ae] scale-[1.03] shadow-blue-200/50"
-                    : "bg-white text-gray-700 hover:shadow-lg hover:border-gray-400 hover:bg-gray-50"
+                    ? "bg-[#5d8ef0] text-white shadow-xl border-[#8495ae]"
+                    : "bg-white text-gray-700 hover:bg-gray-50"
                 }
                 ${isAnimating ? 'pointer-events-none opacity-80' : ''}
               `}
@@ -353,111 +257,65 @@ export const App: React.FC = () => {
       {/* Cards Grid */}
       <div
         className={`
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-2
-          [@media(min-width:1024px)]:grid-cols-2
-          [@media(min-width:1400px)]:grid-cols-3
-          gap-x-[32px]
-          gap-y-[64px]
-          px-6 sm:px-10 lg:px-[80px]
-          justify-items-center
-          transition-all duration-500
-          ${isAnimating ? 'opacity-70 scale-95' : 'opacity-100 scale-100'}
+          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 
+          [@media(min-width:1024px)]:grid-cols-2 [@media(min-width:1400px)]:grid-cols-3
+          gap-x-[32px] gap-y-[64px] px-6 sm:px-10 lg:px-[80px] justify-items-center
+          transition-opacity duration-500
+          ${isAnimating ? 'opacity-70' : 'opacity-100'}
         `}
       >
-        {filteredData.map((item, index) => (
+        {filteredData.map((item) => (
           <article
             key={item.id + item.category}
-            ref={(el) => setCardRef(el, item.id)} // This will now work with HTMLElement
-            data-card-id={item.id}
             className={`
-              relative
-              bg-[#F2F2F2]
-              border border-gray-100
-              rounded-lg
-              p-6
-              shadow-sm
-              flex
-              flex-col
-              w-[90vw]
-              sm:w-[320px]
-              sm:h-[380px]
-              md:w-[360px]
-              md:h-[420px]
-              lg:w-[405px]
-              lg:h-[480px]
-              hover:shadow-xl transition-all duration-500 ease-out
-              transform
-              ${visibleCards.has(item.id) 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-8 scale-95'
-              }
-              hover:scale-105 hover:-translate-y-2
-              group
+              relative bg-[#F2F2F2] border border-gray-100 rounded-lg p-6 shadow-sm flex flex-col
+              w-[90vw] sm:w-[320px] sm:h-[380px] md:w-[360px] md:h-[420px] lg:w-[405px] lg:h-[480px]
               overflow-hidden
             `}
-            style={{
-              transitionDelay: visibleCards.has(item.id) ? `${index * 100}ms` : '0ms'
-            }}
           >
-            {/* Animated background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* Shine effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            
             <div className="flex items-start justify-between mb-4 relative z-10">
               <img
                 src={item.logo}
                 alt={`${item.title} logo`}
-                className="h-[70px] w-[200px] md:h-[90px] md:w-[260px] mb-5 object-contain transform group-hover:scale-105 transition-transform duration-500"
+                className="h-[70px] w-[200px] md:h-[90px] md:w-[260px] mb-5 object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
                     "https://placehold.co/200x70/DFDFDF/000000?text=Placeholder+Logo";
                 }}
               />
               <button
-                className="h-8 w-8 rounded-full border border-gray-200 flex items-center justify-center bg-[#DFDFDF] flex-shrink-0 hover:bg-gray-300 transition-all duration-300 transform group-hover:scale-110 group-hover:bg-blue-100 group-hover:border-blue-300"
+                className="h-8 w-8 rounded-full border border-gray-200 flex items-center justify-center bg-[#DFDFDF] flex-shrink-0"
                 aria-label="Open"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-black group-hover:text-blue-600 transition-colors duration-300"
+                  className="h-4 w-4 text-black"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
 
-            <H4 className="text-sm md:text-base font-medium text-gray-800 mb-2 relative z-10 transform group-hover:translate-x-1 transition-transform duration-300">
+            <H4 className="text-sm md:text-base font-medium text-gray-800 mb-2 relative z-10">
               {item.title}
             </H4>
 
             <div className="flex gap-2 items-center flex-wrap mb-3 relative z-10">
-              {item.tags?.map((t, tagIndex) => (
+              {item.tags?.map((t) => (
                 <span
                   key={t}
-                  className="text-xs px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 whitespace-nowrap transform group-hover:scale-105 transition-all duration-300 hover:bg-white hover:shadow-sm"
-                  style={{
-                    transitionDelay: visibleCards.has(item.id) ? `${tagIndex * 50 + 300}ms` : '0ms'
-                  }}
+                  className="text-xs px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 whitespace-nowrap"
                 >
                   {t}
                 </span>
               ))}
             </div>
 
-            <P className="text-sm text-gray-600 flex-1 leading-relaxed line-clamp-5 relative z-10 transform group-hover:translate-x-1 transition-transform duration-300">
+            <P className="text-sm text-gray-600 flex-1 leading-relaxed line-clamp-5 relative z-10">
               {item.description}
             </P>
 
@@ -466,32 +324,19 @@ export const App: React.FC = () => {
                 href="#"
                 className="
                   inline-flex items-center gap-2 px-[24PX] py-[12PX] font-quicksand font-bold 
-                  rounded-md text-sm bg-black text-white hover:opacity-95
-                  transform transition-all duration-300 ease-out
-                  hover:scale-105 hover:shadow-lg
-                  active:scale-95
-                  group/button
-                  relative
-                  overflow-hidden
+                  rounded-md text-sm bg-black text-white
                 "
               >
-                {/* Button shine effect */}
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-1000" />
-                
                 START FOR FREE
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-3 w-3 transform group-hover/button:translate-x-1 transition-transform duration-300"
+                  className="h-3 w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14 5l7 7m0 0l-7 7M21 12H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7M21 12H3" />
                 </svg>
               </a>
             </div>

@@ -1,645 +1,83 @@
-import { useRef } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { H1, H2, H3, H4, P } from "../../../styles/Typography";
 
-const WhyQnest = () => {
-  const targetRef = useRef(null);
+export default function WhyQnest() {
+  const ref = useRef(null);
 
-  // Scroll animation setup - only for desktop
   const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start center", "center start"]
+    target: ref,
+    offset: ["start center", "center start"],
   });
 
-  // Cards move from below screen to top
-  const cardsY = useTransform(scrollYProgress, [0, 0.8], ['100%', '0%']);
+  const spring = { stiffness: 120, damping: 30 };
 
-  // Card vertical offsets - they align when reaching top (become 0)
-  const card1Offset = useTransform(scrollYProgress, [0, 0.8], [128, 0]);
-  const card3Offset = useTransform(scrollYProgress, [0, 0.8], [128, 0]);
+  const cardsY = useSpring(useTransform(scrollYProgress, [0, 0.8], ["100%", "0%"]), spring);
+  const sideOffset = useSpring(useTransform(scrollYProgress, [0, 0.8], [120, 0]), spring);
+  const titleOpacity = useSpring(useTransform(scrollYProgress, [0, 0.5], [1, 0]), spring);
 
-  // Title opacity - fades out as cards move up
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  // Smooth spring transitions
-  const smoothCardsY = useSpring(cardsY, { stiffness: 100, damping: 30 });
-  const smoothCard1Offset = useSpring(card1Offset, { stiffness: 100, damping: 30 });
-  const smoothCard3Offset = useSpring(card3Offset, { stiffness: 100, damping: 30 });
-  const smoothTitleOpacity = useSpring(titleOpacity, { stiffness: 100, damping: 30 });
+  const cards = [
+    { num: "126+", title: "Countries Supported", desc: "We onboard users from 126+ countries globally." },
+    { num: "98%", title: "Success Rate", desc: "Industry-leading onboarding success performance." },
+    { num: "56", title: "Global Partners", desc: "Trusted partners across multiple regions." },
+  ];
 
   return (
     <>
-      {/* DESKTOP VERSION - Scroll Animation (Unchanged) */}
-      <div
-        ref={targetRef}
-        className='hidden lg:block relative h-[200vh]'
-        style={{
-          pointerEvents: 'all',
-        }}
-      >
-        {/* Sticky Container */}
-        <div className="sticky top-0 h-screen overflow-hidden">
+      {/* DESKTOP */}
+      <div ref={ref} className="hidden xl:block relative h-[200vh]">
+        <div className="sticky top-0 h-screen overflow-hidden bg-transparent">
 
-          {/* Background - Static */}
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{
-              // backgroundImage: `url(/EHRandPMS/WhyQnest.png)`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          ></div>
-
-          {/* Cross Decorations - Scattered across background with exact CSS */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Top Left Cross */}
-            <div
-              className="absolute"
-              style={{
-                top: '15%',
-                left: '10%',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Top Right Cross */}
-            <div
-              className="absolute"
-              style={{
-                top: '20%',
-                right: '15%',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Middle Left Cross */}
-            <div
-              className="absolute"
-              style={{
-                top: '45%',
-                left: '8%',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Middle Right Cross */}
-            <div
-              className="absolute"
-              style={{
-                top: '50%',
-                right: '12%',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Bottom Left Cross */}
-            <div
-              className="absolute"
-              style={{
-                bottom: '25%',
-                left: '15%',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Bottom Center Cross */}
-            <div
-              className="absolute"
-              style={{
-                bottom: '30%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 1
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-
-            {/* Top Center Cross */}
-            <div
-              className="absolute"
-              style={{
-                top: '30%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '50.08px',
-                height: '50.08px',
-                opacity: 5
-              }}
-            >
-              <img
-                src="/EHRandPMS/Cross.png"
-                alt=""
-                className="w-full h-full object-contain"
-                style={{
-                  filter: 'brightness(0) saturate(100%) invert(28%) sepia(47%) saturate(1070%) hue-rotate(120deg) brightness(95%) contrast(90%)'
-                }}
-              />
-            </div>
-          </div>
-
-
-          {/* Title Section - Fades out as cards move up - Updated Typography */}
-          <motion.div
-            className="absolute top-0 left-0 right-0 z-10 pt-24 pb-12"
-            style={{
-              opacity: smoothTitleOpacity
-            }}
-          >
-            <div className="text-center max-w-7xl mx-auto px-6 flex flex-col items-center">
-              {/* Title - Exact CSS */}
-              <h2
-                className="mb-5 leading-tight"
-                style={{
-                  width: '1280px',
-                  maxWidth: '100%',
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 600,
-                  fontSize: '48px',
-                  lineHeight: '100%',
-                  letterSpacing: '0%',
-                  textAlign: 'center',
-                  color: '#166D48',
-                  opacity: 1
-                }}
-              >
-                Why <span className="relative inline-block">Qnest</span>
-              </h2>
-
-              {/* Description - Exact CSS */}
-              <p
-                className="leading-relaxed"
-                style={{
-                  width: '670.98px',
-                  maxWidth: '100%',
-                  fontFamily: "'Schibsted Grotesk', sans-serif",
-                  fontWeight: 400,
-                  fontSize: '18px',
-                  lineHeight: '100%',
-                  letterSpacing: '0%',
-                  textAlign: 'center',
-                  color: '#141414',
-                  opacity: 1
-                }}
-              >
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p>
-            </div>
+          {/* TITLE */}
+          <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
+            <H2 className=" text-[#166D48] mb-4">
+              Why Qnest
+            </H2>
+            <P className="max-w-[650px] mx-auto text-white">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </P>
           </motion.div>
 
-          {/* Cards Section - Scrolls up from bottom, overrides title */}
-          <motion.div
-            style={{
-              y: smoothCardsY
-            }}
-            className="absolute inset-0 z-20 flex items-center justify-center py-12"
-          >
-            <div className="w-full px-6">
-              <div className="max-w-[1400px] mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-                  {/* Card 1 - Left - Starts lower, aligns to same height at top */}
-                  <motion.div
-                    className="lg:col-span-4"
-                    style={{
-                      marginTop: smoothCard1Offset
-                    }}
-                  >
-                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
-                      {/* Number and Title - Top */}
-                      <div
-                        style={{
-                          width: '341px',
-                          height: '99px',
-                          opacity: 1
-                        }}
-                      >
-                        <h3
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '46px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0
-                          }}
-                        >
-                          126+
-                        </h3>
-                        <p
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '36px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0,
-                            whiteSpace: 'nowrap'
-                          }}
-                        >
-                          countries supported
-                        </p>
-                      </div>
-
-                      {/* Description Text - Bottom */}
-                      <p
-                        style={{
-                          width: '339.91px',
-                          height: '95px',
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '22px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          color: '#2A2A2A',
-                          opacity: 1,
-                          margin: 0
-                        }}
-                      >
-                        We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-                      </p>
+          {/* CARDS */}
+          <motion.div style={{ y: cardsY }} className="absolute inset-0 flex items-center justify-center">
+            <div className="grid grid-cols-12 gap-8 max-w-[1400px] w-full px-6">
+              {cards.map((c, i) => (
+                <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
+                  <div className="bg-[#EDE4CA] h-[550px] rounded-sm p-10 shadow-xl flex flex-col justify-between">
+                    <div>
+                      <H1 className="text-[#166D48]">{c.num}</H1>
+                      <H3 className=" text-[#166D48]">{c.title}</H3>
                     </div>
-                  </motion.div>
-
-                  {/* Card 2 - Middle - Same height as others */}
-                  <div className="lg:col-span-4 lg:mt-0">
-                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
-                      {/* Number and Title - Top */}
-                      <div
-                        style={{
-                          width: '341px',
-                          height: '99px',
-                          opacity: 1
-                        }}
-                      >
-                        <h3
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '46px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0
-                          }}
-                        >
-                          126+
-                        </h3>
-                        <p
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '36px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0,
-                            whiteSpace: 'nowrap'
-                          }}
-                        >
-                          undesed ut persp
-                        </p>
-                      </div>
-
-                      {/* Description Text - Bottom */}
-                      <p
-                        style={{
-                          width: '339.91px',
-                          height: '95px',
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '22px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          color: '#2A2A2A',
-                          opacity: 1,
-                          margin: 0
-                        }}
-                      >
-                        We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-                      </p>
-                    </div>
+                    <H4 className="text-[#2A2A2A]">{c.desc}</H4>
                   </div>
-
-                  {/* Card 3 - Right - Starts lower, aligns to same height at top */}
-                  <motion.div
-                    className="lg:col-span-4"
-                    style={{
-                      marginTop: smoothCard3Offset
-                    }}
-                  >
-                    <div className="bg-[#EDE4CA] rounded-sm p-10 shadow-xl h-[550px] flex flex-col justify-between">
-                      {/* Number and Title - Top */}
-                      <div
-                        style={{
-                          width: '341px',
-                          height: '99px',
-                          opacity: 1
-                        }}
-                      >
-                        <h3
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '46px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0
-                          }}
-                        >
-                          56
-                        </h3>
-                        <p
-                          style={{
-                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: 600,
-                            fontSize: '36px',
-                            lineHeight: '100%',
-                            letterSpacing: '0%',
-                            color: '#166D48',
-                            margin: 0,
-                            whiteSpace: 'nowrap'
-                          }}
-                        >
-                          countries starsupp
-                        </p>
-                      </div>
-
-                      {/* Description Text - Bottom */}
-                      <p
-                        style={{
-                          width: '339.91px',
-                          height: '95px',
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '22px',
-                          lineHeight: '100%',
-                          letterSpacing: '20%',
-                          color: '#2A2A2A',
-                          opacity: 1,
-                          margin: 0
-                        }}
-                      >
-                        We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                </div>
-              </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* TABLET & MOBILE VERSION - Smooth Fade-in Animation */}
-      <div className="lg:hidden w-full py-12 px-4 sm:px-8 bg-cover bg-center">
-        <div className="max-w-8xl mx-6">
-          {/* Title Section */}
-          <div className="text-center mb-10 sm:mb-12">
-            <h2 
-              className="mb-4 sm:mb-5"
-              style={{
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(28px, 5vw, 40px)',
-                lineHeight: '110%',
-                color: '#166D48'
-              }}
-            >
-              Why <span className="relative inline-block">Qnest</span>
-            </h2>
-            <p 
-              className="mx-auto"
-              style={{
-                fontFamily: "'Schibsted Grotesk', sans-serif",
-                fontWeight: 400,
-                fontSize: 'clamp(14px, 2vw, 16px)',
-                lineHeight: '140%',
-                color: '#141414',
-                maxWidth: '670px'
-              }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
-          </div>
+      {/* MOBILE */}
+      <div className="xl:hidden py-16 px-10 space-y-8">
+        <H2 className="text-center  text-[#166D48]">
+          Why Qnest
+        </H2>
 
-          {/* Cards stacked vertically with smooth fade-in animation */}
-          <div className="flex flex-col gap-6 sm:gap-8">
-            {/* Card 1 */}
-            <motion.div 
-              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(28px, 5vw, 46px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    margin: 0
-                  }}
-                >
-                  126+
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(18px, 3vw, 28px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    marginTop: '8px'
-                  }}
-                >
-                  countries supported
-                </p>
-              </div>
-              <p
-                className="mt-4 sm:mt-6"
-                style={{
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 'clamp(14px, 2vw, 18px)',
-                  lineHeight: '120%',
-                  color: '#2A2A2A'
-                }}
-              >
-                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-              </p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div 
-              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(28px, 5vw, 46px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    margin: 0
-                  }}
-                >
-                  126+
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(18px, 3vw, 28px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    marginTop: '8px'
-                  }}
-                >
-                  undesed ut persp
-                </p>
-              </div>
-              <p
-                className="mt-4 sm:mt-6"
-                style={{
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 'clamp(14px, 2vw, 18px)',
-                  lineHeight: '120%',
-                  color: '#2A2A2A'
-                }}
-              >
-                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-              </p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div 
-              className="bg-[#EDE4CA] rounded-sm p-6 sm:p-8 md:p-10 shadow-xl flex flex-col justify-between min-h-[300px]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(28px, 5vw, 46px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    margin: 0
-                  }}
-                >
-                  56
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(18px, 3vw, 28px)',
-                    lineHeight: '100%',
-                    color: '#166D48',
-                    marginTop: '8px'
-                  }}
-                >
-                  countries sta rsuppor
-                </p>
-              </div>
-              <p
-                className="mt-4 sm:mt-6"
-                style={{
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 'clamp(14px, 2vw, 18px)',
-                  lineHeight: '120%',
-                  color: '#2A2A2A'
-                }}
-              >
-                We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.
-              </p>
-            </motion.div>
-          </div>
-        </div>
+        {cards.map((c, i) => (
+          <motion.div
+            key={i}
+            className="bg-[#EDE4CA] p-6 rounded-sm shadow-lg"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.2 }}
+            viewport={{ once: true }}
+          >
+            <H1 className=" text-[#166D48]">{c.num}</H1>
+            <H3 className="text-[#166D48]">{c.title}</H3>
+            <H4 className="mt-4 text-[#2A2A2A]">{c.desc}</H4>
+          </motion.div>
+        ))}
       </div>
     </>
   );
-};
-
-export default WhyQnest;
+}
