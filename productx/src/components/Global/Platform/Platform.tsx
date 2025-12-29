@@ -1,5 +1,5 @@
 import BNFNav from "../../Banking&Finance/BNFnav"
-import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS"
+// import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS"
 // import NewFooter from "../../Banking&Finance/ProductRemitree/NewFooter"
 import Testimonial from "../../Banking&Finance/Career/Testimonial"
 import Benefits from "./Benefits"
@@ -12,62 +12,101 @@ import InsightThought from "../../Banking&Finance/InsightThought"
 import HWD from "../../Banking&Finance/HWD"
 import ImageGrid from "./ImageGrid"
 import GradientText from "./GradientText"
- 
+import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
+import FooterHT from "../../HighTech/FooterHT"
+import AIFooter from "../../HomePage/AIOptimization/AIFooter"
+import Footer from "../Footer/Footer"
+import { useLocation } from "react-router-dom"
+import BlogCarousel from "../../HomePage/EHR&PMS/BlogCarousel"
+import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
+import Navbar from "../Navbar/Navbar"
+import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar"
+import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar"
+import AINavbar from "../../AIOptimization/Navbar/AINavbar"
+
 const Platform = () => {
+  const { pathname } = useLocation();
+
+
+  const getNavbar = () => {
+    if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
+    if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRNavbar />;
+    if (pathname.startsWith("/industries/high-tech")) return <HighTechNavbar />;
+    if (pathname.startsWith("/industries/ai-optimization")) return <AINavbar />;
+    return <Navbar />;
+  };
+  /* -------------------------------
+      FOOTER SWITCHER
+   -------------------------------- */
+  const getFooter = () => {
+    if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
+    if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
+    if (pathname.startsWith("/industries/high-tech")) return <FooterHT />;
+    if (pathname.startsWith("/industries/ai-optimization")) return <AIFooter />;
+    return <Footer />;
+  };
+
+  const getInsightandThoughts = () => {
+    if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
+    if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
+    if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
+    if (pathname.startsWith("/industries/ai-optimization")) return <AIBlogs />;
+    return null;
+  };
   return (
     <div>
-      <BNFNav/>
-      <HeroSection/>
+      {getNavbar()}
+      <HeroSection />
       {/* <PlatformNavbar/> */}
-     <HeroBottomNavbar/>
+      <HeroBottomNavbar />
 
 
-     <div id="overview">
-      <Testimonial/>
+      <div id="overview">
+        <Testimonial />
       </div>
 
 
-<section className="bg-[#F6DFA4]">
+      <section className="bg-[#F6DFA4]">
 
-  <div id="benefits">
-         <Benefits/>
-         </div>
-     <div id="process"> 
-      <Cards/>
-      </div>
-</section>
-
-<ImageGrid/>
-
-<GradientText/>
-      
-      <div id="usecases">
-        <HWD/>
-      </div>
-      <div id="blog">
-         <InsightThought/>
-
-      </div>
-     
-  <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
-        <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+        <div id="benefits" className="relative z-20">
+          <Benefits />
         </div>
- 
-         
+        <div id="process" className="relative z-10">
+          <Cards />
+        </div>
+      </section>
+
+      <ImageGrid />
+
+      <GradientText />
+
+      <div id="usecases">
+        <HWD />
+      </div>
+      <div id="insights">
+        {getInsightandThoughts()}
+      </div>
+      {/* Footer */}
+      {getFooter()}
+
+      {/* <div className="relative">
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
+        <div className="sticky bottom-0 inset-0 z-30">
+          <NewOneFooter />
+        </div>
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
-      </div>
+      </div> */}
     </div>
   )
 }

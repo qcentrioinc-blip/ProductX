@@ -10,7 +10,7 @@ const ThirdCards = () => {
     >
       {/* Content Container: Heading, Cards (Desktop Only) */}
       <div
-        className="flex flex-col items-center w-full max-w-[872px] gap-8 mt-20 hidden lg:flex"
+        className="flex flex-col items-center w-full max-w-7xl gap-8 mt-20 hidden lg:flex"
         style={{
           marginTop: '0px'
         }}
@@ -36,7 +36,7 @@ const ThirdCards = () => {
             <div
               key={id}
               style={{
-                width: '200px',
+                width: '300px',
                 height: '80px',
                 borderRadius: '8px',
                 background: '#D9D9D9'

@@ -4,11 +4,11 @@ import { Check } from "lucide-react";
 const TwoPart = () => {
   return (
     <div className="w-full relative">
-      {/* ================= DESKTOP (unchanged) ================= */}
+      {/* ================= DESKTOP (iPad Pro falls here if width >= 1024px) ================= */}
       <div
         className="hidden lg:flex w-full relative"
         style={{
-          minHeight: "100vh",
+          minHeight: "700px", // Reduced height from 100vh/800px
           height: "auto",
           position: "relative",
         }}
@@ -17,7 +17,7 @@ const TwoPart = () => {
         <div
           style={{
             width: "46.6%",
-            minHeight: "800px",
+            minHeight: "700px", // Matched parent
             background: "#2B68C3",
             position: "relative",
           }}
@@ -44,7 +44,7 @@ const TwoPart = () => {
         <div
           style={{
             width: "53.4%",
-            minHeight: "800px",
+            minHeight: "700px", // Matched parent
             background: "#F5DDA9",
             position: "relative",
           }}
@@ -81,7 +81,7 @@ const TwoPart = () => {
                 color: "#333",
               }}
             >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor eu fugiat nulla pariatur.
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             </p>
 
@@ -105,16 +105,16 @@ const TwoPart = () => {
           </div>
         </div>
 
-        {/* Overlapping Image */}
+        {/* Overlapping Image - Responsive for Desktop/Large Tablet */}
         <img
           src="/Products/Products2/ImageRadius.png"
           alt="Contractor Information"
           className="absolute"
           style={{
-            width: "clamp(400px, 50vw, 787.6px)",
+            width: "clamp(450px, 45vw, 787.6px)", // Adjusted clamp for better scaling
             height: "auto",
             top: "50%",
-            left: "80px",
+            left: "5%", // Relative left position
             transform: "translateY(-50%)",
             borderRadius: "25px",
             objectFit: "cover",
@@ -122,25 +122,26 @@ const TwoPart = () => {
           }}
         />
 
-        {/* Pink Square */}
+        {/* Pink Square - Responsive Positioning */}
         <div
+        className="absolute lg:top-[25%] xl:top-[10%]"
           style={{
             position: "absolute",
-            width: "clamp(80px, 8vw, 102.1px)",
-            height: "clamp(80px, 8vw, 100.6px)",
-            top: "140px",
-            left: "800px",
+            width: "clamp(80px, 6vw, 102.1px)",
+            height: "clamp(80px, 6vw, 100.6px)",
+            left: "47%", // Moved to percentage to stay relative to the container
             background: "#FFEAF2",
             borderRadius: "6px",
             opacity: 1,
+            zIndex: 1
           }}
         />
       </div>
 
       {/* ================= TABLET ================= */}
-      <div className="hidden md:flex lg:hidden flex-col bg-[#F5DDA9] min-h-screen relative p-6 md:p-10 gap-10">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <div className="flex flex-col gap-6">
+      <div className="hidden md:flex lg:hidden flex-col bg-[#F5DDA9] h-auto w-full py-16 px-8 md:px-12 gap-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="flex flex-col gap-6 order-2 md:order-1">
             <h2
               className="font-bold"
               style={{
@@ -184,17 +185,17 @@ const TwoPart = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center order-1 md:order-2">
             <img
               src="/Products/Products2/ImageRadius.png"
-              className="w-full h-auto max-h-[400px] rounded-xl object-cover"
+              className="w-full h-auto max-h-[400px] rounded-xl object-cover shadow-lg"
             />
           </div>
         </div>
       </div>
 
       {/* ================= MOBILE ================= */}
-      <div className="md:hidden flex flex-col bg-[#F5DDA9] min-h-screen p-6 gap-6">
+      <div className="md:hidden flex flex-col bg-[#F5DDA9] h-auto w-full py-12 px-6 gap-6">
         <h2
           className="font-bold"
           style={{
@@ -221,7 +222,7 @@ const TwoPart = () => {
 
         <img
           src="/Products/Products2/ImageRadius.png"
-          className="w-full h-auto rounded-xl max-h-[280px] object-cover"
+          className="w-full h-auto rounded-xl max-h-[280px] object-cover shadow-md"
         />
 
         <div className="flex flex-col gap-4">
