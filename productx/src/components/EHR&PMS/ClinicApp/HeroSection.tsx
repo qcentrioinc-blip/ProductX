@@ -2,9 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { H1, P } from '../../../styles/Typography';
 import Image1 from '/ClinicApp/Phone.png';
 import { ContactUs } from '../../../styles/Button';
-import { Drawer } from "@mui/material";
-import { X, ArrowUpRight } from "lucide-react";
-
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,22 +12,6 @@ const HeroSection = () => {
   // ✅ Type the refs properly
   const contentRef = useRef<HTMLDivElement | null>(null);
   const heroRef = useRef<HTMLDivElement | null>(null);
-
-    const [drawerOpen, setDrawerOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-
-  const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-) => {
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-};
-
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setDrawerOpen(false);
-};
-
-
 
   // ✅ Intersection Observer for content slide animations
   useEffect(() => {
@@ -160,16 +141,7 @@ const handleSubmit = (e: React.FormEvent) => {
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
               </P>
 
-               <ContactUs
-  onClick={(e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDrawerOpen(true);
-  }}
-  className="w-fit transition-transform hover:scale-105 active:scale-95"
->
-  BOOK A FREE DEMO
-</ContactUs>
+              <ContactUs >GET PRODUCT DEMO</ContactUs>
             </div>
 
           </div>
@@ -251,39 +223,6 @@ const handleSubmit = (e: React.FormEvent) => {
           </div>
         </div>
       </div>
-      {/* DRAWER */}
-      <Drawer 
-        anchor="right" 
-        open={drawerOpen} 
-        onClose={() => setDrawerOpen(false)}
-        PaperProps={{ sx: { width: { xs: '100%', sm: '450px' }, backgroundColor: '#F0F9F4' } }}
-      >
-        <div className="p-10 relative h-full">
-          <button onClick={() => setDrawerOpen(false)} className="absolute top-6 right-6 p-2 hover:bg-gray-200 rounded-full transition-all">
-            <X size={24} />
-          </button>
-          
-          <h2 className="text-4xl font-bold mb-8 mt-10 text-[#166D48]">Book a Demo</h2>
-          
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold text-gray-700">Name</label>
-              <input name="name" placeholder="John Doe" onChange={handleInputChange} className="border-2 border-gray-300 p-4 rounded-xl outline-none focus:border-[#166D48] bg-white"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold text-gray-700">Email</label>
-              <input name="email" type="email" placeholder="john@example.com" onChange={handleInputChange} className="border-2 border-gray-300 p-4 rounded-xl outline-none focus:border-[#166D48] bg-white"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold text-gray-700">Message</label>
-              <textarea name="message" rows={4} placeholder="How can we help?" onChange={handleInputChange} className="border-2 border-gray-300 p-4 rounded-xl outline-none focus:border-[#166D48] bg-white resize-none"/>
-            </div>
-            <button className="bg-[#166D48] text-white p-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#125a3a] transition-all">
-              Submit Request <ArrowUpRight size={20}/>
-            </button>
-          </form>
-        </div>
-      </Drawer>
     </>
   );
 };
