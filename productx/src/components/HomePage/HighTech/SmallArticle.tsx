@@ -103,7 +103,7 @@ const SmallArticle = () => {
   return (
     <div 
       ref={sectionRef}
-      className="w-full bg-black min-h-auto sm:min-h-auto lg:min-h-screen py-12 sm:py-14 lg:py-16 px-4 sm:px-6"
+      className="w-full bg-black min-h-auto sm:min-h-auto lg:min-h-auto xl:min-h-screen py-12 sm:py-14 lg:py-16 px-4 sm:px-6"
     >
       <div className="max-w-8xl mx-auto lg:mx-10 px-2 sm:px-4 lg:px-6">
         {/* MOBILE + TABLET LAYOUT */}

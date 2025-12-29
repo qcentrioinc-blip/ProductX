@@ -89,18 +89,18 @@ const ThreeCards = () => {
         </div>
       </div>
 
-      {/* ================= DESKTOP LAYOUT (ORIGINAL, UNCHANGED) ================= */}
+      {/* ================= DESKTOP LAYOUT ================= */}
       <div className="hidden lg:block">
         <div className="w-full bg-black py-20">
-          {/* ------------ CONTENT CONTAINER (correct placement) ------------ */}
-          <div className="max-w-8xl mx-10 px-2 sm:px-4 lg:px-6">
+          {/* ------------ CONTENT CONTAINER ------------ */}
+          <div className="max-w-8xl mx-10 px-6 lg:px-8 xl:px-10">
             {/* ---------------- TOP LEFT DOT TEXT ---------------- */}
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full" style={{ background: "#8338EC" }} />
               <p
                 style={{
                   fontFamily: "'Quicksand', sans-serif",
-                  fontSize: "18px",
+                  fontSize: "clamp(10px, 3.5vw, 14px)",
                   color: "#F5F5F5",
                 }}
               >
@@ -109,14 +109,13 @@ const ThreeCards = () => {
             </div>
 
             {/* ---------------- CENTER HEADINGS ---------------- */}
-            <div className="w-full flex flex-col items-center text-center -mt-10 mb-20">
+            <div className="w-full flex flex-col items-center text-center -mt-10 mb-12 lg:mb-20">
               <h2
+                className="text-3xl lg:text-4xl xl:text-[42px]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 600,
-                  fontSize: "42px",
                   position: "relative",
-                  right: "55px",
                   lineHeight: "100%",
                   color: "#F5F5F5",
                   marginBottom: "12px",
@@ -126,13 +125,12 @@ const ThreeCards = () => {
               </h2>
 
               <h3
+                className="text-3xl lg:text-5xl xl:text-[48px]"
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 600,
                   fontStyle: "italic",
                   position: "relative",
-                  left: "35px",
-                  fontSize: "48px",
                   lineHeight: "100%",
                   color: "#F99526",
                   whiteSpace: "nowrap",
@@ -143,14 +141,13 @@ const ThreeCards = () => {
             </div>
 
             {/* ---------------- CARDS CENTERED ---------------- */}
-            <div className="flex justify-center gap-8">
+            <div className="flex flex-row justify-center items-stretch gap-6 lg:gap-6 xl:gap-8">
               {cards.map((card, i) => (
                 <div
                   key={i}
-                  className="flex flex-col justify-between"
+                  className="flex flex-col justify-between flex-1 w-full max-w-[505px]"
                   style={{
-                    width: "505px",
-                    height: "350px",
+                    minHeight: "350px",
                     background: "#fff",
                     borderRadius: "8px",
                     padding: "32px",
@@ -162,10 +159,10 @@ const ThreeCards = () => {
                   />
 
                   <h4
+                    className="text-xl lg:text-xl xl:text-[24px]"
                     style={{
                       fontFamily: "'Bricolage Grotesque', sans-serif",
                       fontWeight: 700,
-                      fontSize: "24px",
                       lineHeight: "110%",
                       color: "#000",
                     }}
