@@ -36,7 +36,7 @@ const Frontier = () => {
 
                     {/* LEFT COLUMN – fully responsive */}
                     <div className="flex justify-center xl:block">
-                        <div className="relative w-full max-w-[380px] sm:max-w-[420px] md:max-w-[640px] lg:max-w-[800px] xl:max-w-none min-h-[520px] sm:min-h-[650px] xl:min-h-0 xl:h-[540px] overflow-hidden xl:overflow-visible">
+                        <div className="relative w-full max-w-[380px] sm:max-w-[420px] md:max-w-[640px] lg:max-w-[800px] xl:max-w-none xl:min-h-0 xl:h-[540px] overflow-hidden xl:overflow-visible">
 
                             {/* Heading */}
                             <h1
@@ -53,7 +53,7 @@ const Frontier = () => {
                             </h1>
 
                             {/* Responsive Decorative Boxes */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 w-full h-full max-w-[385px] pointer-events-none transform scale-[0.8] sm:scale-100 origin-top xl:origin-top-left z-0">
+                            <div className="hidden xl:block absolute top-0 left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 w-full h-full max-w-[385px] pointer-events-none transform scale-[0.8] sm:scale-100 origin-top xl:origin-top-left z-0">
                                 {/* Box 1 */}
                                 <div
                                     className="absolute rounded-lg block"

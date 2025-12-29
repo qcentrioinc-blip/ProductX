@@ -67,7 +67,7 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             <div className="block lg:hidden bg-[#F5DDA9] py-8 px-4">
                 <div className="mb-8">
-                    <H1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-left ml-2 sm:ml-4">
+                    <H1 className="font-bold text-gray-900 text-left ml-2 sm:ml-16 lg:ml-20">
                         Sed ut perspiciatis Sed ut
                     </H1>
                 </div>
@@ -102,9 +102,9 @@ const Harper = () => {
             <div
                 ref={containerRef}
                 className="hidden lg:block relative bg-[#F5DDA9]"
-                style={{ height: "300vh" }} // scroll container height
+                style={{ height: "200vh" }} // Reduced height further
             >
-                <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+                <div className="sticky top-0 flex flex-col overflow-hidden">
 
                     {/* Title */}
                     <div className="pt-16 pb-6 px-20 z-20">
@@ -121,11 +121,11 @@ const Harper = () => {
                         </h1>
                     </div>
 
-                    {/* Horizontal Scroll Section */}
-                    <div className="flex-1 flex items-center justify-start overflow-hidden py-4">
+                    {/* Reverted justify-center to justify-start to fix first card visibility. Changed items-center to items-start + pt-8 to pull cards up. */}
+                    <div className="flex-1 flex items-start justify-start overflow-hidden pt-15 pb-8">
                         <motion.div
                             style={{ x }}
-                            className="flex gap-x-16 h-full pl-20 pr-10"
+                            className="flex gap-x-16 h-full pl-20 pr-10 items-center"
                         >
                             {content.map((item) => (
                                 <div
@@ -143,8 +143,8 @@ const Harper = () => {
                                         alignItems: "center",
                                     }}
                                 >
-                                    {/* IMAGE */}
-                                    <div style={{ flex: "0 0 50%" }}>
+                                    {/* IMAGE - Changed to flex: 1 to share space properly with gap */}
+                                    <div style={{ flex: "1" }}>
                                         <img
                                             src={item.desktopImage}
                                             alt={item.alt}
@@ -152,10 +152,10 @@ const Harper = () => {
                                         />
                                     </div>
 
-                                    {/* TEXT */}
+                                    {/* TEXT - Changed to flex: 1 */}
                                     <div style={{
-                                        flex: "0 0 50%",
-                                        paddingRight: "10px",  // reduced right padding 
+                                        flex: "1",
+                                        paddingRight: "10px",
                                         display: "flex",
                                         flexDirection: "column"
                                     }}>
@@ -172,10 +172,10 @@ const Harper = () => {
                                             {item.title}
                                         </h2>
 
-                                        {/* Divider Line */}
+                                        {/* Divider Line - Changed width to 100% */}
                                         <div
                                             style={{
-                                                width: "550px",
+                                                width: "100%",
                                                 height: "2px",
                                                 backgroundColor: "gray",
                                                 borderRadius: "2px",
@@ -190,7 +190,7 @@ const Harper = () => {
                                                 fontWeight: 400,
                                                 lineHeight: "130%",
                                                 color: "#141414",
-                                                paddingRight: "10px", // Also reducing padding here
+                                                paddingRight: "10px",
                                             }}
                                         >
                                             {item.description}

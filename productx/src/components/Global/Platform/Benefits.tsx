@@ -1,6 +1,6 @@
- 
+
 import { CheckCircle } from 'lucide-react';
-import {  H2,H3,P } from '../../../styles/Typography';
+import { H2, H3, P } from '../../../styles/Typography';
 
 const Benefits = () => {
   const benefits = [
@@ -27,7 +27,7 @@ const Benefits = () => {
   ];
 
   return (
-    <div className="  pt-12 sm:pt-16 lg:pt-20 px-4 sm:px-6 lg:px-10">
+    <div className="pt-12 sm:pt-16 lg:pt-20 px-4 sm:px-6 lg:px-10 relative z-[50]">
       <div className="max-w-8xl lg:mx-10">
         {/* Header */}
         <div className="mb-8 sm:mb-12 lg:mb-16">
@@ -39,7 +39,7 @@ const Benefits = () => {
         </div>
 
         {/* Benefits Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6  lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 relative z-[999] lg:-mb-12">
           {benefits.map((benefit, index) => (
             <div
               key={index}
@@ -74,8 +74,6 @@ const Benefits = () => {
             </div>
           ))}
         </div>
-
-        
       </div>
     </div>
   );

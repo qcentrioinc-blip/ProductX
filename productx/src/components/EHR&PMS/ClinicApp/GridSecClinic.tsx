@@ -1,30 +1,30 @@
 import { H2, H3, P } from "../../../styles/Typography";
 
-export default function GridSection() {
+export default function GridSecClinic() {
   return (
-    <section className="w-full  text-white py-16 md:py-20">
+    <section className="w-full  text-white pb-16 ">
       
-      <div className="max-w-8xl mx-10 p-16 rounded-md bg-[#156644] absolute -top-[30vh] md:-top-[25vh] xl:-top-[50vh] ">
+      <div className="max-w-8xl  lg:mx-14 mx-4 lg:px-10  px-4  pt-6 rounded-xl bg-[#008280]     ">
 
         {/* Heading */}
-        <H2 className="text-left mb-12 md:mb-16">
+        <H2 className="text-left xl:text-center xl:py-10">    
           Sed ut perspiciatis Unde Sed ut
         </H2>
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 xl:grid-cols-2 pb-16 items-start gap-4 md:gap-12 xl:gap-20">
 
           {/* LEFT IMAGE */}
-          <div className="flex justify-end ">
+          <div className="flex justify-end   mt-10 xl:py-10">
             <img
               src="/EHR-PMS/LandingPage/img1.jpg"
               alt="doctor and patient"
-              className="w-full rounded-md object-cover"
+              className="w-full lg:h-[500px] rounded-md object-cover"
             />
           </div>
 
           {/* RIGHT FEATURES GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2    gap:4 xl:gap-10  ">
 
             {[
               {
@@ -44,10 +44,10 @@ export default function GridSection() {
                 text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su"
               },
             ].map((f, idx) => (
-              <div key={idx} className="flex flex-col gap-3">
+              <div key={idx} className="flex flex-col  space-y-4 gap-3">
                 
                 {/* Plus Icon */}
-                <span className="text-orange-400 text-6xl font-bold">+</span>
+                <span className="text-orange-400 text-7xl font-bold">+</span>
 
                 {/* Title */}
                 <H3 className="font-semibold">

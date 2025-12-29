@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import {   P } from '../../../styles/Typography';
+import {   H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
 // import LiquidEther from './LiquidEther';
@@ -119,44 +119,44 @@ export default function InteractiveHeroSection() {
         
       >
         <div className="sticky lg:top-10 h-full py-20 flex justify-between items-center pt-20">
-          <div className="max-w-8xl mx-10 px-4  ">
-            <div className="grid grid-cols-2  justify-between items-start">
+          <div className="max-w-8xl lg:mx-10 px-4  ">
+            <div className="grid grid-cols-1  lg:grid-cols-[2fr_0.8fr] justify-between items-start">
               {/* Left Content */}
               <div className="space-y-4  ">
-                <h1 className="font-bold font-bricolage text-3xl  md:text-4xl lg:text-6xl text-white leading-tight">
-                  Shaping the Future<br />
-                  Across Every Sector.
-                </h1>
-                <P className="text-gray-300 leading-relaxed  w-full  ">
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
+                <H1 className="  text-white leading-tight">
+                
+                  End‑to‑End IT, AI, <br className='md:block hidden'/> and Cloud Solution
+                </H1>
+                <P className="text-gray-300 max-w-xl leading-relaxed  w-full  ">
+                  Qnest Global helps businesses modernize with AI, CRM, HRM, and secure cloud platforms. Our teams design, build, and manage solutions that improve efficiency, cut risk, and support long‑term growth.
                 </P>
                 <Link to="/contact">
                 <button className="bg-white text-black font-quicksand px-8 py-3 rounded-2xl font-semibold text-sm hover:bg-gray-100 transition flex items-center gap-2 mt-6">
-                 REQUEST PROPOSAL <ArrowUpRight size={18} />
+                 Get Your Custom Proposal <ArrowUpRight size={18} />
                 </button>
                 </Link>
  
                                 {/* Stats */}
-                <div className="flex font-bricolage gap-20 lg:pt-44">
+                <div className="flex font-bricolage  gap-20 lg:pt-44">
                   <div className="flex gap-4">
                     <div className="w-1 bg-white"></div>
                     <div>
-                      <div className="text-5xl font-bold text-white">25k+</div>
-                      <div className="text-white text-sm mt-2">Success Stories</div>
+                      <div className="text-5xl font-bold text-white">30% + ROI</div>
+                      <div className="text-white text-sm mt-2">AI-Driven Outcomes</div>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-1 bg-white"></div>
                     <div>
-                      <div className="text-5xl font-bold text-white">25k+</div>
-                      <div className="text-white text-sm mt-2">Success Stories</div>
+                      <div className="text-5xl font-bold text-white">24/7</div>
+                      <div className="text-white text-sm mt-2">End-to-End Delivery</div>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-1 bg-white"></div>
                     <div>
-                      <div className="text-5xl font-bold text-white">25k+</div>
-                      <div className="text-white text-sm mt-2">Success Stories</div>
+                      <div className="text-5xl font-bold text-white">99.9%</div>
+                      <div className="text-white text-sm mt-2">Secure,Scalable Cloud</div>
                     </div>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function InteractiveHeroSection() {
 
 
               {/* Right Content - Industry Cards */}
-              <div className="space-y-3 flex flex-col items-end w-full">
+              <div className="space-y-3 flex flex-col pl-60 items-end w-full">
                 {industries.map((industry, index) => (
                   <IndustryCard
                     key={index}

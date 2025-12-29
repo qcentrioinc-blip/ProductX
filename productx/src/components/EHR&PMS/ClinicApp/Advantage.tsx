@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import type { Variants } from "framer-motion"; // ✅ add Variants here
-import GreenCircle from "/ClinicApp/GreenCircle.png";
+import type { Variants } from "framer-motion";
+// import GreenCircle from "/ClinicApp/GreenCircle.png";
 import { H2,  H4, P } from "../../../styles/Typography";
 
 const Advantage = () => {
@@ -22,9 +22,14 @@ const Advantage = () => {
         Sed ut perspiciatis Unde Seduo ut perspiciatis
       </H2>
 
-     <img src={GreenCircle} 
-     alt="Green Circle" 
-     className="absolute -bottom-10 md:-bottom-44 right-0 w-[130px] sm:w-[200px] lg:w-[300px] z-1" />
+     {/* <img
+  src={GreenCircle}
+  alt="Green Circle"
+  className="absolute -bottom-10 md:-bottom-44 right-0
+             w-[130px] sm:w-[200px] lg:w-[300px]
+             z-20 pointer-events-none"
+/> */}
+
 
     {/* DESKTOP VIEW — unchanged */}
 <div className="relative bg-[#EDE4CA] rounded-xl max-w-8xl mx-4 lg:mx-16 px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24 hidden lg:block">

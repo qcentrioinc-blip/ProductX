@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { H1, P } from '../../../styles/Typography';
 import Image1 from '/ClinicApp/Phone.png';
 import { ContactUs } from '../../../styles/Button';
+import ContactDrawer from '../Navbar/ContactDrawer';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [pageOpened, setPageOpened] = useState(false);
   // const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   // ✅ Type the refs properly
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -30,13 +32,13 @@ const HeroSection = () => {
     };
   }, []);
 
-  // ✅ Page opening animation
+ 
   useEffect(() => {
     const timer = setTimeout(() => setPageOpened(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ Custom cursor tracking
+ 
   useEffect(() => {
     const heroElement = heroRef.current;
     if (!heroElement) return;
@@ -127,21 +129,26 @@ const HeroSection = () => {
             transition: 'opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s',
           }}
         >
-          <div className="flex  lg:flex-row  flex-col justify-between  items-center px-6 lg:mx-10 md:px-14  gap-4 md:gap-10 lg:gap-8 mt-10 sm:mt-10 lg:mt-20">
+          <div className="flex  xl:flex-row  flex-col justify-between  xl:items-center px-6 lg:mx-10 md:px-14  gap-4 md:gap-10 lg:gap-8 mt-10 sm:mt-10 lg:mt-20">
 
             {/* LEFT — Heading */}
             <H1 className="font-thin  text-center  lg:text-left text-[#166D48] leading-tight">
-              Sed ut perspicia tisunde  <br className='md:block hidden' />Seduo ut perspiciatis 
+              Sed ut perspicia tisunde  <br className='md:block hidden' />Seduo ut perspiciatis
             </H1>
 
 
             {/* RIGHT — Paragraph + Button */}
-            <div className="flex   flex-col   items-center lg:items-start max-w-[360px]  md:max-w-[550px] lg:max-w-[410px] space-y-4 md:space-y-6 lg:space-y-4">
+            <div className="flex   flex-col   items-center lg:items-start max-w-[360px]  md:max-w-[550px] xl:max-w-[410px] space-y-4 md:space-y-6 lg:space-y-4">
               <P className="text-black text-center lg:text-left leading-relaxed">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in
               </P>
 
-              <ContactUs >GET PRODUCT DEMO</ContactUs>
+              <ContactUs
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDrawerOpen(true);
+                }}
+              >GET PRODUCT DEMO</ContactUs>
             </div>
 
           </div>
@@ -178,11 +185,11 @@ const HeroSection = () => {
 
         {/* ✅ White Section with Content */}
         <div
-          className="bg-white py-12    sm:py-16 md:py-20 lg:pt-80 lg:pb-40"
+          className="bg-white py-12    sm:py-16 md:py-20 xl:pt-80 lg:pb-40"
           ref={contentRef}
         >
           <div className="max-w-8xl lg:mx-10 lg:mt-28 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start px-4  ">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-start px-4  ">
               {/* Left Heading */}
               <div
                 className="space-y-4 transition-all duration-1000 ease-out"
@@ -213,7 +220,7 @@ const HeroSection = () => {
                   transitionDelay: '300ms',
                 }}
               >
-                <P className="text-black lg:pt-20 leading-relaxed">
+                <P className="text-black xl:pt-20 leading-relaxed">
                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -223,6 +230,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
 };

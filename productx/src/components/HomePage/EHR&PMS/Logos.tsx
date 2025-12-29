@@ -1,5 +1,4 @@
 import { H2 } from "../../../styles/Typography";
-
 const LogoBox = ({ title }: { title: string }) => (
   <div className="flex-shrink-0 bg-transparent border-2 border-gray-200 rounded-xl flex items-center justify-center shadow-sm px-16 py-8">
     <span className="text-gray-400 font-semibold text-xl whitespace-nowrap">{title}</span>
@@ -32,7 +31,6 @@ export const Logos = () => {
           </div>
         </div>
       </div>
-
       <style>{`
         @keyframes scroll {
           0% {
@@ -43,7 +41,6 @@ export const Logos = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           /* 10s is fast, 20s is slow. Current: 10s for 'little fast' */
           animation: scroll 10s linear infinite;

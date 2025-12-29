@@ -39,7 +39,11 @@ export default function HeroBottomNavbar() {
           }
         });
       },
-      { threshold: 0.2 }
+   {
+  rootMargin: "-45% 0px -45% 0px",
+  threshold: 0
+}
+
     );
 
     navItems.forEach((item) => {

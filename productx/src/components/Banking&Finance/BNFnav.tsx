@@ -12,7 +12,7 @@ const BNFNav = () => {
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
   // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
- 
+
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
   const closeAllMenus = () => {
     setMegaMenuOpen(false);
@@ -20,18 +20,18 @@ const BNFNav = () => {
     setmegaMenuBuiltFor(false);
     setLogoDropdownOpen(false);
   };
- 
- 
+
+
   const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
- 
+
   const preloadImages = () => {
     megaMenuItems.forEach(item => {
       const img = new Image();
       img.src = item.img;
     });
   };
- 
- 
+
+
   const megaMenuItems = [
     {
       title: "Almanac",
@@ -115,7 +115,7 @@ const BNFNav = () => {
       path: "/industries/banking-and-finance/glossary"
     },
   ];
- 
+
   const BuiltForItems = [
     {
       title: "Banks",
@@ -132,14 +132,14 @@ const BNFNav = () => {
       desc: "Praesent eget laoreet arcu, nec iaculis ",
       path: "/industries/banking-and-finance/built-for"
     },
- 
+
   ]
- 
+
   // const [industryDropdownOpen, setIndustryDropdownOpen] = useState(false);  
- 
+
   const industry = "banking-and-finance";
   const currentIndustry = "Banking & Finance";
- 
+
   const industries = [
     {
       name: "Banking & Finance",
@@ -147,14 +147,14 @@ const BNFNav = () => {
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
- 
+
     {
       name: "EHR and PMS", path:
         "/industries/ehr-and-pms",
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
- 
+
     {
       name: "HighTech",
       path: "/industries/high-tech",
@@ -162,28 +162,28 @@ const BNFNav = () => {
       ,
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
- 
+
     {
       name: "AI Automation",
       path: "/industries/ai-optimization",
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
- 
+
   ];
   const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
- 
+
   const navItems = [
     { name: "Products", path: `${base}?scroll=products`, scroll: true },
     { name: "Built for", path: `${base} ` },
     { name: "About Us", path: `${base}/about-us` },
     { name: "Resources", path: `${base} ` },
- 
+
   ];
- 
- 
- 
+
+
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -191,28 +191,28 @@ const BNFNav = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
       }
     };
- 
+
     if (menuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
- 
+
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
- 
- 
- 
- 
- 
+
+
+
+
+
   return (
     <>
- 
+
       <div
         className=" fixed top-0 z-50 left-0 w-full
         bg-white/10 backdrop-blur-lg font-bricolage
@@ -227,18 +227,14 @@ const BNFNav = () => {
             </span>
           </div>
         </Link>
- 
+
         {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">
-            Platform
-          </Link>
-          <Link to="/marketplace" className="text-white font-medium">
-            Marketplace
-          </Link>
+          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
- 
- 
+
+
         <button
           className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -260,20 +256,28 @@ const BNFNav = () => {
           ></span>
         </button>
       </div>
- 
+
       {/* MAIN NAV (DESKTOP ONLY ) */}
       <nav
         onMouseLeave={closeAllMenus}
         className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
       >
- 
- 
+
+
         <div className="flex items-center gap-10">
-          <div
-            className="relative flex items-center gap-1 cursor-pointer"
-            onMouseEnter={() => setLogoDropdownOpen(true)}
-            onMouseLeave={() => setLogoDropdownOpen(true)}
-          >
+         <div
+  className="relative flex items-center gap-1 cursor-pointer"
+  onMouseEnter={() => setLogoDropdownOpen(true)}
+  onMouseLeave={() => setLogoDropdownOpen(true)}
+>
+  <Link
+    to={base}
+    className="flex items-center gap-1"
+    onClick={() => {
+      closeAllMenus();
+    }}
+  >
+
             <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
               LOGO
             </div>
@@ -282,8 +286,13 @@ const BNFNav = () => {
               <img src="/down.png"
                 className="w-4 h-4" />
             </div>
+            </Link>
             {logoDropdownOpen && (
-              <div className="absolute top-14 w-80  bg-white shadow-xl rounded-md z-[999] p-3">
+              <div className="absolute top-14 w-80  bg-white shadow-xl rounded-md z-[999] p-3"
+              onMouseLeave={() => {
+                      setLogoDropdownOpen(false);
+
+                    }}>
  
                 {industryOptions.map((ind, index) => (
                   <Link
@@ -294,13 +303,13 @@ const BNFNav = () => {
                     className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
                   >
                     {/* ICON */}
- 
+
                     <img
                       src={ind.img}
                       alt={ind.name}
                       className="w-16 h-14 object-cover"
                     />
- 
+
                     {/* TEXT */}
                     <div className="flex flex-col">
                       <h3 className="text-lg font-semibold font-quicksand text-gray-900">
@@ -312,16 +321,16 @@ const BNFNav = () => {
                     </div>
                   </Link>
                 ))}
- 
+
               </div>
             )}
           </div>
           <ul className="flex items-center   gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
- 
+
                 {/* PRODUCTS MEGA MENU */}
- 
+
                 {item.name === "Products" && (
                   <div
                     className="relative"
@@ -331,13 +340,13 @@ const BNFNav = () => {
                       setResourcesMenuOpen(false);
                       setmegaMenuBuiltFor(false);
                     }}
- 
+
                     onMouseLeave={() => {
                       setMegaMenuOpen(false);
                       setResourcesMenuOpen(false);
                       setmegaMenuBuiltFor(false);
                     }}
- 
+
                   >
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Products</button>
@@ -347,7 +356,7 @@ const BNFNav = () => {
         ${megaMenuOpen ? "rotate-180" : "rotate-0"}`}
                       />
                     </div>
- 
+
                     {megaMenuOpen && (
                       <div
                         className="absolute left-0 top-full w-full sm:w-[900px] shadow-xl px-4 sm:px-10 py-4 sm:py-8 rounded-xl z-[999]"
@@ -356,9 +365,9 @@ const BNFNav = () => {
                         <P className="text-gray-700 text-lg mt-2 mb-4">
                           Seamless, scalable, and intelligent platforms…
                         </P>
- 
+
                         <hr className="border-gray-300 my-6" />
- 
+
                         <div className="grid grid-cols-2 gap-y-6 gap-x-10">
                           {megaMenuItems.map((item, index) => (
                             <Link key={index} to={item.path} className="flex items-start gap-4">
@@ -380,8 +389,8 @@ const BNFNav = () => {
                     className="relative"
                     onMouseEnter={() => setResourcesMenuOpen(true)}
                     onMouseLeave={() => setMegaMenuOpen(false)}
- 
- 
+
+
                   >
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Resources</button>
@@ -393,8 +402,8 @@ const BNFNav = () => {
                     </div>
                   </div>
                 )}
- 
- 
+
+
                 {item.name === "Built for" && (
                   <div
                     className="relative"
@@ -403,7 +412,7 @@ const BNFNav = () => {
                       setMegaMenuOpen(false);
                       setResourcesMenuOpen(false);
                     }}
- 
+
                   >
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Built For</button>
@@ -411,16 +420,16 @@ const BNFNav = () => {
                         src="/down.png"
                         className={`w-4 h-4  relative top-[1.5px] transition-transform duration-300
         ${megaMenuBuiltFor ? "rotate-180" : "rotate-0"}`}
- 
+
                       />
                     </div>
                   </div>
                 )}
- 
- 
- 
- 
- 
+
+
+
+
+
                 {/* NORMAL LINKS */}
                 {item.name !== "Products" &&
                   item.name !== "Resources" &&
@@ -437,13 +446,13 @@ const BNFNav = () => {
                       {item.name}
                     </Link>
                   )}
- 
- 
+
+
               </li>
             ))}
           </ul>
         </div>
- 
+
         {/* RIGHT SIDE: Careers + Contact Button */}
         <div className="flex items-center gap-8">
           <Link
@@ -452,17 +461,17 @@ const BNFNav = () => {
           >
             Careers
           </Link>
- 
+
           <Link to={`${base}/contactform`}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>
- 
+
       </nav>
- 
- 
+
+
       {/* FULL-WIDTH MEGA MENU */}
- 
+
       {megaMenuOpen && (
         <div
           onMouseEnter={() => {
@@ -476,9 +485,9 @@ const BNFNav = () => {
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
- 
- 
- 
+
+
+
           className="
   absolute
   left-1/2
@@ -494,20 +503,20 @@ const BNFNav = () => {
   rounded-lg
   z-[200]
 "
- 
+
         >
           {/* Header */}
           <H3 className=" ">
             Quisque a sagittis ligula. Nulla facilisi
           </H3>
- 
+
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </P>
- 
+
           <hr className="border-gray-300 h-1 mb-8" />
- 
- 
+
+
           <div className="grid grid-cols-2 gap-y-4 gap-x-1">
             {megaMenuItems.map((item, index) => (
               item ? (
@@ -527,9 +536,9 @@ const BNFNav = () => {
           </div>
         </div>
       )}
- 
- 
- 
+
+
+
       {/* Resources */}
       {resourcesMenuOpen && (
         <div
@@ -544,7 +553,7 @@ const BNFNav = () => {
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
- 
+
           className="absolute
   left-1/2
 top-32
@@ -562,14 +571,14 @@ translate-y-1
 "
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3 >
- 
+
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Comprehensive tools and insights for success.
           </P>
- 
+
           <hr className="border-gray-300 h-1 mb-8" />
- 
- 
+
+
           <div className="grid grid-cols-2 gap-y-4 gap-x-1">
             {resourceItems.map((res, index) => (
               <Link key={index} to={res.path} className="block">
@@ -578,12 +587,12 @@ translate-y-1
               </Link>
             ))}
           </div>
- 
- 
- 
+
+
+
         </div>
       )}
- 
+
       {megaMenuBuiltFor && (
         <div
           onMouseEnter={() => {
@@ -597,8 +606,8 @@ translate-y-1
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
- 
- 
+
+
           className="
      absolute
   left-1/2
@@ -616,13 +625,13 @@ translate-y-1
 "
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
- 
+
           <P className="text-gray-700 text-lg mt-2 mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </P>
- 
+
           <hr className="border-gray-300 h-1 mb-8" />
- 
+
           {/* GRID SAME AS OTHERS */}
           <div className="grid grid-cols-3 gap-y-4 gap-x-1">
             {BuiltForItems.map((item, index) => (
@@ -634,7 +643,7 @@ translate-y-1
           </div>
         </div>
       )}
- 
+
       {/* MOBILE MENU - FIXED VERSION */}
       {/* MOBILE MENU - FIXED VERSION */}
       <div
@@ -659,7 +668,7 @@ translate-y-1
             </Link>
           </div>
         </div>
- 
+
         {/* Scrollable Content Area */}
         <div className="flex flex-col gap-6 px-6 pb-6 overflow-y-auto overflow-x-hidden flex-1 scrollbar-hide">
           {/* PRODUCTS */}
@@ -706,7 +715,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* RESOURCES */}
           <div className="border-b border-gray-200 pb-3">
             <button
@@ -743,7 +752,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* BUILT FOR */}
           <div className="border-b border-gray-200 pb-3">
             <button
@@ -776,7 +785,7 @@ translate-y-1
               </div>
             )}
           </div>
- 
+
           {/* Other navItems (About Us, etc.) */}
           {navItems.map((item) =>
             item.name !== "Products" &&
@@ -793,7 +802,7 @@ translate-y-1
               </div>
             ) : null
           )}
- 
+
           {/* Platform & Marketplace Links - Now inside scrollable area after About Us */}
           <div className="flex justify-between gap-4 pt-2">
             <Link
@@ -811,7 +820,7 @@ translate-y-1
               Marketplace
             </Link>
           </div>
- 
+
           {/* Contact Us Button */}
           <div className="flex justify-start items-center pt-2">
             <button onClick={() => setMenuOpen(false)}>
@@ -823,5 +832,5 @@ translate-y-1
     </>
   );
 };
- 
+
 export default BNFNav;

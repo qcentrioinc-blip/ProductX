@@ -1,3 +1,4 @@
+// import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 const AIBlogs = () => {
@@ -34,7 +35,7 @@ const AIBlogs = () => {
             {/* Main Heading */}
             <div>
               <h1
-                className="text-[32px] sm:text-[40px] xl:text-[48px] leading-[110%]"
+                className="text-[30px] sm:text-[40px] xl:text-[48px] leading-[110%]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 600,
@@ -44,7 +45,7 @@ const AIBlogs = () => {
                 }}
               >
                 Lorem ipsum
-                <br />
+                <br className="hidden xl:block" />
                 dolor sit amet,
               </h1>
             </div>
@@ -63,33 +64,35 @@ const AIBlogs = () => {
                 }}
               >
                 Our Industry
-                <br />
+                <br className="hidden xl:block" />
                 Blogs
               </h2>
 
               {/* View All Button */}
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 bg-white text-[#2A2A2A] rounded-lg hover:bg-gray-100 transition-colors uppercase"
-                style={{
-                  width: "157px",
-                  height: "48px",
-                  gap: "8px",
-                  borderRadius: "8px",
-                  paddingTop: "12px",
-                  paddingRight: "24px",
-                  paddingBottom: "12px",
-                  paddingLeft: "24px",
-                  fontFamily: "'Quicksand', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "16px",
-                  lineHeight: "100%",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                VIEW ALL
-                <ArrowUpRight className="w-6 h-6" />
-              </button>
+              <a href="/industries/ai-optimization/resources">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 bg-white text-[#2A2A2A] rounded-lg hover:bg-gray-100 transition-colors uppercase cursor-pointer"
+                  style={{
+                    width: "157px",
+                    height: "48px",
+                    gap: "8px",
+                    borderRadius: "8px",
+                    paddingTop: "12px",
+                    paddingRight: "24px",
+                    paddingBottom: "12px",
+                    paddingLeft: "24px",
+                    fontFamily: "'Quicksand', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "16px",
+                    lineHeight: "100%",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  VIEW ALL
+                  <ArrowUpRight className="w-6 h-6" />
+                </button>
+              </a>
             </div>
           </div>
 
@@ -172,33 +175,35 @@ const AIBlogs = () => {
                         {blog.title}
                       </h3>
 
-                      <button
-                        type="button"
-                        className="inline-flex items-center gap-2 self-start mt-3"
-                        style={{
-                          fontFamily: "'Nunito Sans', sans-serif",
-                          fontWeight: 700,
-                          fontSize: "16px",
-                          lineHeight: "120%",
-                          color: "#5551FF",
-                        }}
-                      >
-                        Read Now
-                        <svg
-                          className="w-3.5 h-3.5"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                      <a href="/industries/ai-optimization/resources">
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-2 self-start mt-3 cursor-pointer"
+                          style={{
+                            fontFamily: "'Nunito Sans', sans-serif",
+                            fontWeight: 700,
+                            fontSize: "16px",
+                            lineHeight: "120%",
+                            color: "#5551FF",
+                          }}
                         >
-                          <path
-                            d="M6 3L11 8L6 13"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
+                          Read Now
+                          <svg
+                            className="w-3.5 h-3.5"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 3L11 8L6 13"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>

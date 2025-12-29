@@ -107,7 +107,7 @@ const AnimatedStatementWithImageTrail = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const text =
-    "Driven by purpose and powered by vision, Qnest transforms ambition into direction and direction into achievement.";
+    "Qnest Global turns business goals into measurable results with clear strategy, reliable technology, and ongoing support";
 
   const words = text.split(" ");
 
