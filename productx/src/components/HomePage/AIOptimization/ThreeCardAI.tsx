@@ -38,7 +38,7 @@ const ThreeCardAI = () => {
                             w-[85vw]
                             md:w-[75vw]
                             lg:w-[60vw]
-                            xl:w-[480px]
+                            xl:w-[28vw]
                             h-[285px]
                             p-8
                             rounded-lg
