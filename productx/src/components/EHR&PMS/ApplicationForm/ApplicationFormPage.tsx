@@ -1,11 +1,11 @@
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import FeaturesSection from "./FeatureSection"
-import TitleSec from "./TitleSec"
+import ApplicationSec from "./ApplicationSec"
 
 
 const ApplicationFormPage = () => (
   <div>
-    <TitleSec/>
+    <ApplicationSec/>
     <FeaturesSection/>
     <EHRFooter/>
   </div>

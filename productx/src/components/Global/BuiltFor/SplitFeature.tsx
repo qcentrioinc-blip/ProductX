@@ -84,7 +84,7 @@ export default function SplitFeature() {
           </H2>
 
           {/* PARAGRAPH */}
-          <P className={`mt-4 max-w-md mx-auto lg:mx-0 ${config.paragraph}`}>
+          <P className={`mt-4 max-w-md mx-auto lg:mx-0 ${config.paragraph} text-[#FAFAFA]`}>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident.
           </P>
@@ -99,7 +99,7 @@ export default function SplitFeature() {
                     className="flex items-center justify-center lg:justify-start gap-3"
                   >
                     <span className={`w-6 h-6 rounded-full ${config.bullet}`}></span>
-                    <P className={`${config.paragraph}`}>Duis aute irure dolor</P>
+                    <P className={`${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
                   </div>
                 ))}
               </div>
@@ -110,17 +110,17 @@ export default function SplitFeature() {
           <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
             <div>
               <H3 className={`${config.stats}`}>200+</H3>
-              <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
+              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
             </div>
 
             <div>
               <H3 className={`${config.stats}`}>30k</H3>
-              <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
+              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
             </div>
 
             <div>
               <H3 className={`${config.stats}`}>10+</H3>
-              <P className={`mt-2 ${config.paragraph}`}>Duis aute irure dolor</P>
+              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
             </div>
           </div>
 

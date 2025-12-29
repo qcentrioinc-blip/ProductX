@@ -1,91 +1,72 @@
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const HandSection = () => {
+export default function HandSection() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsDesktop(window.innerWidth >= 1280);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
-    <section className="relative w-full h-screen bg-[#E8F5FF] flex flex-col overflow-hidden">
-      {/* Background Image Section */}
-      <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
-        <img
-          src="/EHRandPMS/Hand.png"
-          alt="Hand"
-          className="w-full h-full object-cover"
-        />
+    <section className="relative w-full overflow-hidden">
 
-        {/* Overlay Text (Desktop only) */}
-        <div className="hidden lg:block absolute left-12 bottom-16 max-w-2xl z-20">
-          <div
-            className="backdrop-blur-sm p-10 rounded-xl border border-neutral-400/50 h-[280px] flex flex-col justify-center items-center"
-            style={{
-              backgroundImage:
-                "conic-gradient(from 180deg at 50% 50%, #5E5E5E 0deg, #666666 360deg)",
-            }}
-          >
-            <h1 className="text-5xl font-bold text-center mb-2">
-              <span className="bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
-                Sed ut perspiciatis Unde
-              </span>
+      {/* IMAGE AREA */}
+      <div className="relative w-full h-[55vh] md:h-[65vh] xl:h-[75vh]">
+        <img src="/EHRandPMS/Hand.png" className="w-full h-full object-cover" />
+
+        {/* OVERLAY (ALL SCREENS) */}
+        <div className="absolute bottom-0 left-1/2 xl:left-100 -translate-x-1/2 z-20 px-4 w-full max-w-2xl">
+          <div className="backdrop-blur-sm p-10 rounded-sm bg-white/10 shadow-2xl h-[200px] xl:h-[340px] flex flex-col justify-center text-center">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
+              Sed ut perspiciatis Unde
             </h1>
-            <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
               Seduo ut perspiciatis
             </h1>
           </div>
         </div>
 
-        {/* Green Card (Desktop only) */}
-        <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[420px] z-10 pt-140">
-          <div className="bg-[#2D9D78] rounded-xl overflow-hidden shadow-2xl">
-            <div className="p-10 ">
-              <p className="text-white text-base leading-relaxed">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                anim id est laborum. occaecat cupidatat non.
-              </p>
+        {/* DESKTOP GREEN CARD (STRADDLES IMAGE + BASE) */}
+        {isDesktop && (
+          <div className="absolute right-12 bottom-[-180px] w-[480px] z-30">
+            <div className="bg-[#2D9D78] rounded-xl shadow-2xl overflow-hidden h-[250px] flex flex-col justify-between">
+              <div className="p-10 text-white text-base leading-relaxed">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </div>
+              <div className="border-t border-white/50" />
+              <div className="p-4 flex justify-end bg-[#2D9D78]">
+                <button className="bg-white p-3 rounded-full hover:scale-110 transition">
+                  <ArrowRight className="w-6 h-6" />
+                </button>
+              </div>
             </div>
-            <div className="border-b border-white/50 w-full"></div>
-            <div className="bg-[#2D9D78] p-4 flex justify-end">
-              <button className="bg-white rounded-full p-3 hover:bg-gray-100 transition-all">
-                <ArrowRight className="w-6 h-6 text-black" />
+          </div>
+        )}
+      </div>
+
+      {/* BOTTOM COLOR BASE */}
+      <div className="bg-[#E8F5FF] pt-60"></div>
+
+      {/* TABLET / iPAD PRO / MOBILE */}
+      {!isDesktop && (
+        <div className="relative -mt-56 px-6 pb-20 z-20 max-w-xl mx-auto">
+          <div className="bg-[#2D9D78] rounded-xl shadow-xl overflow-hidden">
+            <div className="p-6 text-white text-sm sm:text-base">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+            <div className="border-t border-white/50" />
+            <div className="p-4 flex justify-end">
+              <button className="bg-white p-2 sm:p-3 rounded-full">
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Layout (Stacked) */}
-      <div className="flex flex-col lg:hidden w-full px-6 mt-[-2rem] sm:mt-[-3rem] z-20">
-        {/* Title Section */}
-        <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-neutral-300/50 text-center shadow-md">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
-            <span className="bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
-              Sed ut perspiciatis Unde
-            </span>
-          </h1>
-          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
-            Seduo ut perspiciatis
-          </h1>
-        </div>
-
-        {/* Green Card Section */}
-        <div className="bg-[#2D9D78] mt-6 rounded-xl shadow-lg overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <p className="text-white text-sm sm:text-base leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum. occaecat cupidatat non.
-            </p>
-          </div>
-          <div className="border-b border-white/50 w-full"></div>
-          <div className="bg-[#2D9D78] p-4 flex justify-end">
-            <button className="bg-white rounded-full p-2 sm:p-3 hover:bg-gray-100 transition-all">
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
-            </button>
-          </div>
-        </div>
-      </div>
+      )}
     </section>
   );
-};
-
-export default HandSection;
+}
