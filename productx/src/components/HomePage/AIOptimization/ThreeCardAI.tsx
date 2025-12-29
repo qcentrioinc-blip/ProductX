@@ -22,13 +22,13 @@ const ThreeCardAI = () => {
     return (
         <section className="w-full bg-[#5551FF] py-16 px-6 md:px-12 lg:px-20">
             {/* Section Title */}
-            <div className="max-w-7xl mx-auto text-center mb-12">
+            <div className="max-w-8xl mx-10 text-center mb-12">
                 <H2 className="text-white">Lorem ipsum dolor sit amet Lorem</H2>
             </div>
 
             {/* Cards Grid */}
             {/* Cards Row */}
-            <div className="flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory">
+            <div className=" flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory ">
                 {features.map((item, index) => (
                     <div
                         key={index}

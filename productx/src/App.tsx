@@ -15,7 +15,7 @@ import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductIBS/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7'
-import Platform from './components/Global/Platform/Platform'
+import { Platform } from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
 import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
@@ -167,7 +167,7 @@ const App = () => {
             <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             {/* <Route path='/glossary' element={<GlossaryPage />} /> */}
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
-            <Route path='/marketplace' element={<Marketing />} />
+            
             <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
@@ -176,6 +176,8 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
             <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
+            
+            
 
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
@@ -188,8 +190,8 @@ const App = () => {
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
             <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
             <Route path='/aboutus' element={<AboutUs />} />
-            <Route path='/marketplace' element={<Marketing />} />
-            <Route path="/platform" element={<Platform />} />
+            
+            
             <Route path="/career" element={<Career />} />
 
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
@@ -219,6 +221,22 @@ const App = () => {
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
+            
+
+           {/* Marketplace Routes */}
+          <Route path='/marketplace' element={<Marketing />} />
+          <Route path='/industries/ai-optimization/marketplace' element={<Marketing />} />
+          <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
+          <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
+          <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
+
+          {/* Platform Routes */}
+          <Route path="/platform" element={<Platform />} />
+          <Route path='/industries/ai-optimization/platform' element={<Platform />} />
+          <Route path='/industries/high-tech/platform' element={<Platform />} />
+          <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
+          <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
+
 
 
 

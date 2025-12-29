@@ -2,7 +2,7 @@ import { H1 } from "../../../styles/Typography";
 
 const TitleSec = () => {
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-[71vh] md:h-[51vh] xl:h-screen">
       {/* Background image with dark overlay */}
       <img
         src="/News/bg_img.png"

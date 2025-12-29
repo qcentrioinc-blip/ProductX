@@ -1,3 +1,5 @@
+import { H2 } from "../../../styles/Typography";
+
 const Consentur = () => {
     return (
         <div>
@@ -6,20 +8,12 @@ const Consentur = () => {
                 <div className="max-w-8xl mx-4 sm:mx-10 px-0 sm:px-2 xl:px-4">
                     <div className="flex flex-col xl:flex-row items-center xl:items-start justify-between gap-8 xl:gap-10">
                         {/* Left Text */}
-                        <h2
-                            className="mb-6 xl:mb-0"
-                            style={{
-                                fontFamily: "'Bricolage Grotesque', sans-serif",
-                                fontWeight: 700,
-                                fontSize: "72px", // desktop unchanged
-                                lineHeight: "100%",
-                                letterSpacing: "0%",
-                                textAlign: "center",
-                                color: "#FFFFFF",
-                            }}
+                        <H2
+                            className="mb-6 xl:mb-0 text-white"
+                            
                         >
                             consectetur
-                        </h2>
+                        </H2>
 
                         {/* Right Cards Grid */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full xl:w-auto">

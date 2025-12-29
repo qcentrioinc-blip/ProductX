@@ -5,7 +5,7 @@ export default function SplitSection() {
     <section className="w-full  text-white">
       
       {/* OUTER WRAPPER WITH RESPONSIVE PADDING */}
-      <div className="max-w-8xl mx-10 bg-[#156644] rounded-md absolute top-[120vh] px-6 md:px-12 lg:px-20 py-10">
+      <div className="max-w-8xl mx-10 bg-[#156644] rounded-md absolute top-[125vh] md:top-[75vh] lg:top-[65vh] xl:top-[120vh] px-6 md:px-12 lg:px-20 py-10">
 
         {/* TOP HEADING */}
         <H2 className="leading-tight ">

@@ -33,7 +33,7 @@ const LandingPageAI = () => {
       <div className="relative w-full">
         {/* ========== HERO SECTION WITH BACKGROUND IMAGE ========== */}
         <div
-          className="relative w-full h-screen bg-cover bg-center"
+          className="relative w-full h-[71vh] md:h-[56vh] xl:h-screen bg-cover bg-center"
           style={{
             backgroundImage: `url(${"/AIOptimization/LandingBackground.png"})`,
           }}

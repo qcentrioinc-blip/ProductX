@@ -100,7 +100,7 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
 
       {/* Bottom Section */}
       <div
-        className="pl-6 pr-10 py-18 text-left"
+        className="pl-6 pr-10 py-10 xl:py-18 text-left"
         style={{ backgroundColor: bottomBg }}
       >
         <ul className="space-y-4">
@@ -185,8 +185,8 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
               className="
                 relative rounded-md text-black overflow-hidden shadow-lg
   snap-center flex-shrink-0
-  w-[85%] md:w-[70%] lg:w-auto
-  min-h-[420px] md:min-h-[600px] lg:min-h-0
+  w-[85%] md:w-[60%]  lg:w-auto
+  min-h-[420px] xl:min-h-[600px] lg:min-h-0
               "
               style={{ backgroundColor: bottomBg }}
               variants={cardVariants}

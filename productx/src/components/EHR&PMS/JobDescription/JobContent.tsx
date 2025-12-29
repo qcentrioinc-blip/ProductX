@@ -99,16 +99,21 @@ const StickyJobActions: React.FC = () => (
 
         {/* Submit Application Button */}
         {/* Note: Since the form section is removed, this link now points to the top of the page */}
-        <a
-            href="/industries/ehr-and-pms/applicationform"
-            className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-green-800 hover:bg-green-700 transition duration-150 ease-in-out uppercase tracking-wider whitespace-nowrap"
-        >
-            Apply Now
-            {/* External link icon (using inline SVG) */}
-            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-        </a>
+        <button
+  onClick={() => {
+    document.getElementById("ApplicationSec")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="inline-flex items-center justify-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-green-800 hover:bg-green-700 transition duration-150 ease-in-out uppercase tracking-wider whitespace-nowrap"
+>
+  Apply Now
+  <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+  </svg>
+</button>
+
 
         {/* Share Job & Social Icons */}
         <div className="mt-8">

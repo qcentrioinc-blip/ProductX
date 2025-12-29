@@ -26,9 +26,13 @@ export default function Careers() {
         </H1>
 
         {/* Button */}
-        <a href="/industries/ai-optimization/jobs">
                 <button
-         
+          onClick={() => {
+    document.getElementById("JobListSection")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
           className="
             inline-flex 
             items-center 
@@ -44,6 +48,7 @@ export default function Careers() {
             duration-300 
             transform 
             hover:scale-[1.02]
+            
           "
         >
           SUBMIT APPLICATION
@@ -62,7 +67,6 @@ export default function Careers() {
             ></path>
           </svg>
         </button>
-        </a>
 
       </div>
 
