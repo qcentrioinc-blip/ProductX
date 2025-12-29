@@ -25,7 +25,7 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
 
   return (
     <div className="w-full bg-white py-16">
-      <div className="max-w-8xl mx-4 sm:mx-6 lg:mx-12">
+      <div className="max-w-8xl mx-4 sm:mx-6 lg:mx-8">
         <AnimatePresence mode="wait">
           {filteredResources.length > 0 ? (
             <motion.div
@@ -36,7 +36,7 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-6 md:gap-8 xl:gap-10"
             >
-              {filteredResources.slice(0, 6).map((resource) => (
+              {filteredResources.slice(0, 9).map((resource) => (
                 <motion.div
                   key={resource.id}
                   layout
@@ -46,8 +46,9 @@ const ResourceCard = ({ selectedCategory = 'All', resources = [] }: ResourceCard
                   transition={{ duration: 0.2 }}
                   className="
                     group bg-white overflow-hidden
-                    hover:shadow-lg transition-all duration-300
+                    hover:shadow-2xl transition-all duration-300
                     w-full max-w-[420px] mx-auto
+                    p-6 rounded-2xl
                   "
                   whileHover={{ y: -8 }}
                 >

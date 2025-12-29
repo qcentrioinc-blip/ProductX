@@ -17,7 +17,7 @@ export default function StatsSectionEHR() {
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col gap-8">
-            <P className="leading-relaxed max-w-xl">
+            <P className="leading-relaxed max-w-xl text-white">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
               cupidatat non proident, sunt in culpa qui officia deserunt mollit

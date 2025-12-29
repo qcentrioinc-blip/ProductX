@@ -4,65 +4,37 @@ export default function SecondSection() {
   return (
     <section className="w-full flex items-center justify-center bg-[#010101]">
       {/* Desktop/Laptop */}
-      <div className="hidden lg:flex w-full items-center justify-center">
-        <div
-          style={{
-            width: '1440px',
-            height: '310px',
-            padding: '80px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <div
+      <div className="hidden lg:flex w-full max-w-8xl mx-10 px-10 py-20 items-center justify-center">
+        <div className="flex w-full justify-between items-start gap-10 xl:gap-[200px]">
+          <h2
+            className="font-bold text-[#F5F5F5] m-0 shrink-0 lg:max-w-[420px] xl:max-w-[450px]"
             style={{
-              width: '1280px',
-              height: '150px',
-              display: 'flex',
-              gap: '208px',
-              alignItems: 'flex-start'
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontSize: '40px',
+              lineHeight: '120%',
+              letterSpacing: '0.01em',
             }}
           >
-            <h2
-              style={{
-                width: '440.40625px',
-                height: '148.5px',
-                fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontWeight: 700,
-                fontSize: '40px',
-                lineHeight: '120%',
-                letterSpacing: '120%',
-                color: '#F5F5F5',
-                margin: 0
-              }}
-            >
-              Sed ut perspiciatisSed ut perspiciatisSed ut perspiciatis
-            </h2>
-            <p
-              style={{
-                width: '613.076171875px',
-                height: '150px',
-                fontFamily: "'Quicksand', sans-serif",
-                fontWeight: 400,
-                fontSize: '20px',
-                lineHeight: '120%',
-                letterSpacing: '50%',
-                color: '#CCCCCC',
-                margin: 0,
-                overflow: 'hidden'
-              }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-            </p>
-          </div>
+            Sed ut perspiciatis Sed ut perspiciatis Sed ut perspiciatis
+          </h2>
+          <p
+            className="font-normal text-[#CCCCCC] m-0 lg:max-w-[500px] xl:max-w-[615px]"
+            style={{
+              fontFamily: "'Quicksand', sans-serif",
+              fontSize: '20px',
+              lineHeight: '120%',
+              letterSpacing: '0.05em',
+            }}
+          >
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+          </p>
         </div>
       </div>
 
       {/* Mobile/Tablet */}
-      <div className="lg:hidden w-full px-6 py-12 flex flex-col items-start justify-center">
+      <div className="lg:hidden w-full px-6 py-12 md:px-16 md:py-20 flex flex-col items-start justify-center">
         <h2
-          className="mb-6 text-[32px] font-bold leading-[110%]"
+          className="mb-8 md:mb-10 text-[32px] md:text-[40px] font-bold leading-[110%] md:leading-[120%]"
           style={{
             fontFamily: "'Bricolage Grotesque', sans-serif",
             fontWeight: 700,
@@ -72,14 +44,14 @@ export default function SecondSection() {
           Sed ut perspiciatisSed ut perspiciatisSed ut perspiciatis
         </h2>
         <p
-          className="text-[16px] leading-[150%]"
+          className="text-[16px] md:text-[20px] leading-[150%] md:leading-[120%]"
           style={{
             fontFamily: "'Quicksand', sans-serif",
             fontWeight: 400,
             color: '#CCCCCC'
           }}
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
         </p>
       </div>
     </section>

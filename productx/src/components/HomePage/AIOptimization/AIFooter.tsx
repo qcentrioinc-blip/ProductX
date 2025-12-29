@@ -125,7 +125,8 @@ const AIFooter = () => {
                                         <li className="flex items-center gap-2">
                                             <span className="text-white text-[16px]">•</span>
                                             <a
-                                                href="#"
+                                                className="hover:underline"
+                                                href="/industries/ai-optimization/clouddiet"
                                                 style={{
                                                     fontFamily: "'Quicksand', sans-serif",
                                                     fontSize: "16px",
