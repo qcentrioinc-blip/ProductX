@@ -37,7 +37,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
     {/* Heading */}
     <H2 className="font-semibold  text-left lg:text-center   mb-10 lg:mb-16 text-gray-800 leading-snug">
-      Sed ut perspiciatis Unde Seduo  <br className="hidden lg:block" /> ut perspiciatis
+      Sed ut perspiciatis Unde <br className="hidden lg:block" />Seduo   ut perspiciatis
     </H2>
 
     {/* Main Container */}

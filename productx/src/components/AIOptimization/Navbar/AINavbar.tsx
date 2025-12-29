@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { H3, P } from "../../../styles/Typography";
 import { createPortal } from "react-dom";
 import ContactModal from "./ContactModal";
-
+ 
 const AINavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -15,36 +15,36 @@ const AINavbar = () => {
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
   const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
+ 
   const closeAllMenus = () => {
     setMegaMenuOpen(false);
     setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
     setLogoDropdownOpen(false);
   };
-
+ 
   const preloadImages = () => {
     megaMenuItems.forEach(item => {
       const img = new Image();
       img.src = item.img;
     });
   };
-
-
-
+ 
+ 
+ 
   // ---------- AI-SPECIFIC DATA ----------
-
+ 
   const industry = "ai-optimization";
   const currentIndustry = "AI Optimization";
   const base = `/industries/${industry}`;
-
+ 
   const navItems = [
     { name: "Products", path: `${base}/clouddiet`, scroll: false },
     { name: "Built for", path: base },
     { name: "About Us", path: `${base}/aboutus` },
     { name: "Resources", path: `${base}/resources` },
   ];
-
+ 
   const megaMenuItems = [
     {
       title: " CloudDiet",
@@ -59,7 +59,7 @@ const AINavbar = () => {
       path: `${base}/process-automation`,
     },
   ];
-
+ 
   const resourceItemsAI = [
     {
       title: "Case Studies",
@@ -82,7 +82,7 @@ const AINavbar = () => {
       path: `${base}/glossary`,
     },
   ];
-
+ 
   const builtForItemsAI = [
     {
       title: "Enterprises",
@@ -100,7 +100,7 @@ const AINavbar = () => {
       path: `${base}/built-for`,
     },
   ];
-
+ 
   const industries = [
     {
       name: "Banking & Finance",
@@ -121,17 +121,17 @@ const AINavbar = () => {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
   ];
-
+ 
   const industryOptions = industries.filter(
     (ind) => ind.name !== currentIndustry
   );
-
+ 
   // ---------- EFFECTS ----------
-
-
-
+ 
+ 
+ 
   const [isScrolled, setIsScrolled] = useState(false);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -139,24 +139,24 @@ const AINavbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
       }
     };
-
+ 
     if (menuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
-
-
-
+ 
+ 
+ 
   // ---------- RENDER ----------
-
+ 
   return createPortal(
     <>
       {/* TOP TRANSPARENT BAR - Scrolls away */}
@@ -166,19 +166,19 @@ const AINavbar = () => {
             <span className="text-black font-bricolage text-sm sm:text-base">LOGO</span>
           </div>
         </Link>
-
+ 
         <div className="hidden lg:flex items-center gap-6">
           <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
           <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
-
+ 
         <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
         </button>
       </div>
-
+ 
       {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
       <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex fixed left-1/2 -translate-x-1/2 w-[90%] max-w-8xl z-[9999] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-5" : "top-15"}`}>
         <div className="flex items-center gap-10">
@@ -187,7 +187,7 @@ const AINavbar = () => {
             <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
               <img src="/down.png" className="w-4 h-4" />
             </div>
-
+ 
             {logoDropdownOpen && (
               <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
                 {industryOptions.map((ind, index) => (
@@ -202,7 +202,7 @@ const AINavbar = () => {
               </div>
             )}
           </div>
-
+ 
           <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
@@ -214,7 +214,7 @@ const AINavbar = () => {
                     </div>
                   </div>
                 )}
-
+ 
                 {item.name === "Resources" && (
                   <div className="relative" onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
@@ -223,7 +223,7 @@ const AINavbar = () => {
                     </div>
                   </div>
                 )}
-
+ 
                 {item.name === "Built for" && (
                   <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
@@ -232,7 +232,7 @@ const AINavbar = () => {
                     </div>
                   </div>
                 )}
-
+ 
                 {item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" && (
                   <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }} className="text-gray-800 text-[18px]">
                     {item.name}
@@ -242,14 +242,14 @@ const AINavbar = () => {
             ))}
           </ul>
         </div>
-
+ 
         <div className="hidden lg:flex items-center gap-8">
           <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
           <button onClick={() => setModalOpen(true)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </button>
         </div>
-
+ 
         {/* Mobile Hamburger (Dark Mode for White Nav) */}
         <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[8px]" : ""}`}></span>
@@ -257,7 +257,7 @@ const AINavbar = () => {
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
         </button>
       </nav>
-
+ 
       {/* MEGA MENUS - keeping your existing code */}
       {megaMenuOpen && (
         <div onMouseEnter={() => { setMegaMenuOpen(true); setMegaMenuBuiltFor(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]">
@@ -279,7 +279,7 @@ const AINavbar = () => {
           </div>
         </div>
       )}
-
+ 
       {resourcesMenuOpen && (
         <div onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); }} onMouseLeave={closeAllMenus} className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]">
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
@@ -295,7 +295,7 @@ const AINavbar = () => {
           </div>
         </div>
       )}
-
+ 
       {megaMenuBuiltFor && (
         <div onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]">
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
@@ -311,7 +311,7 @@ const AINavbar = () => {
           </div>
         </div>
       )}
-
+ 
       {/* MOBILE MENU - keeping your existing mobile menu code */}
       <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="mb-6">
@@ -322,7 +322,7 @@ const AINavbar = () => {
             </Link>
           </div>
         </div>
-
+ 
         <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setMobileDropdown(mobileDropdown === "products" ? null : "products")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
@@ -343,7 +343,7 @@ const AINavbar = () => {
               </div>
             )}
           </div>
-
+ 
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setMobileDropdown(mobileDropdown === "resources" ? null : "resources")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
               Resources
@@ -360,7 +360,7 @@ const AINavbar = () => {
               </div>
             )}
           </div>
-
+ 
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
               Built For
@@ -377,7 +377,7 @@ const AINavbar = () => {
               </div>
             )}
           </div>
-
+ 
           {navItems.map((item) =>
             item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" ? (
               <div key={item.name} className="border-b border-gray-200 pb-3">
@@ -387,32 +387,32 @@ const AINavbar = () => {
               </div>
             ) : null
           )}
-
+ 
           <div className="border-b border-gray-200 pb-3">
             <Link to={`${base}/careers`} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
               Careers
             </Link>
           </div>
         </div>
-
+ 
         <div className="flex justify-between mt-10 gap-6 pt-4">
           <Link to={`${base}/platform`} className="text-purple-600 text-lg font-semibold">Platform</Link>
           <Link to={`${base}/marketplace`} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
         </div>
-
+ 
         <div className="mt-6 flex justify-start items-center">
           <button onClick={() => { setMenuOpen(false); setModalOpen(true); }}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </button>
         </div>
       </div>
-
+ 
       {/* CONTACT MODAL - SLIDES FROM TOP */}
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
-
+ 
     </>,
     document.body
   );
 };
-
+ 
 export default AINavbar;

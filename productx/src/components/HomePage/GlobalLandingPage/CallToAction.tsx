@@ -1,6 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
+ 
 import cta_img from "/CTA/img1.jpg";
-import { H2 } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
+import {   ContactUsDark } from "../../../styles/Button";
 
 const CallToAction = () => {
   return (
@@ -18,30 +19,19 @@ const CallToAction = () => {
         {/* LEFT — TEXT */}
         <div className="w-full lg:max-w-[700px] text-center lg:text-left">
           <H2>
-            Sed ut perspiciatis unde omnis iste
+     See Qnest Solutions Built for Your Industry
           </H2>
 
-          <p className="mt-4 sm:mt-6 mb-8 text-white/90 leading-relaxed">
-            Nemo enim ipsam voluptatem olad voluptas sit aspernatur aut odit aut
-            fugit, sed olad consequuntur magni dolores eos qui ratione voluptatem
-            sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum olad dolor
-            sit amet.
-          </p>
+          <P className="mt-4 sm:mt-6 mb-8 text-white/90 leading-relaxed">
+         Discover how Qnest Global’s AI, CRM, HRM, and cloud products support real needs across different sectors.
+          </P>
 
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="
-              inline-flex items-center gap-2
-              px-6 py-3
-              bg-white text-black
-              font-semibold rounded-lg
-              mx-auto lg:mx-0
-              hover:bg-gray-200 transition
-            "
+          <ContactUsDark
+            
           >
-            EXPLORE ALL PRODUCTS
-            <ArrowUpRight className="h-5 w-5" />
-          </button>
+            Browse All Qnest Offerings.
+            
+          </ContactUsDark>
         </div>
 
         {/* RIGHT — IMAGE */}

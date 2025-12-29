@@ -13,46 +13,52 @@ import GridSection from "./GridSection"
 import SplitSection from "./SplitSection"
 import BlogCarousel from "./BlogCarousel"
 import CTASection from "./CTASection"
-
+ 
+ 
+import StickyBackgroundSection from "./StickyBackgroundSection"
+import Stroke from "../../EHR&PMS/AboutUs/Stroke"
+ 
+ 
 const HeroSectionEHR = () => {
-
   return (
     <div>
       <LandingPageEHS />
-      <Logos />
-      <StatsSectionEHR />
-      <CTASection />
-      <WhyQnest />
+ {/* STICKY BACKGROUND SECTION */}
+      <StickyBackgroundSection>
+      {/* Stroke overlay */}
+     <div className="relative min-h-[300vh]">
+      <Stroke/>
+        <Logos />
+        <StatsSectionEHR />
+         </div>
+        <CTASection />
+        <WhyQnest />
+    
 
-
-      {/* Interlocking Sections Container */}
-      <div className="relative w-full bg-[#EEFDD9] mt-32 md:mt-48 pb-32 md:pb-48 flex flex-col items-center">
-
-        <div className="w-full relative z-20 -mt-24 md:-mt-32 px-4 md:px-0">
+      {/* Rest stays same */}
+      <div className="relative w-full">
+        <div className="absolute top-70 xl:top-95 left-0 w-full z-30">
           <GridSection />
         </div>
 
-        <div className="w-full relative z-10 py-12 md:py-20">
+        <div className="relative z-10 pt-[90vh] lg:pt-[55vh] pb-[55vh]">
           <ShortDesc />
         </div>
 
-        <div className="w-full relative z-20 -mb-24 md:-mb-32 px-4 md:px-0">
+        <div className="absolute bottom-0 top-100 xl:top-20 left-0 w-full z-20 translate-y-[35vh]">
           <SplitSection />
         </div>
-
       </div>
-
-
-      {/* <CircleAnimation /> */}
-
-      {/* <Testimonials /> */}
-      {/* <ParaDescription /> */}
-      {/* <HealthFeatures /> */}
-      <BlogCarousel />
+       
+  </StickyBackgroundSection>
+    <BlogCarousel />
       <UserProfile />
       <EHRFooter />
     </div>
-  )
-}
+
+  );
+};
 
 export default HeroSectionEHR
+ 
+ 

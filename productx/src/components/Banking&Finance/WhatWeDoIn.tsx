@@ -1,6 +1,6 @@
 import { useState, useRef,useEffect } from "react";
 import { motion } from "framer-motion";
-import { H2, H3, P } from "../../styles/Typography";
+import { H2,   H3,   P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -150,11 +150,18 @@ useEffect(() => {
       {/* STICKY SCROLL WRAPPER */}
       
 <div
-  className="relative"
-  style={{ height: `${accordionData.length * 100}vh` }}
+  className="relative h-auto lg:h-[calc(var(--accordion-height))]"
+  style={
+    {
+      "--accordion-height": `${accordionData.length * 100}vh`,
+    } as React.CSSProperties
+  }
 >
+
+
   {/* STICKY CONTENT */}
-  <div className="sticky top-0 h-screen flex flex-col justify-center">
+ <div className="lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center">
+
 
 
       <div
@@ -259,100 +266,81 @@ useEffect(() => {
       </div>
       </div>
       {/* Mobile/Tablet Layout */}
-      <div
-  ref={mobileRef}
-  className="lg:hidden flex flex-col w-full px-4 sm:px-8 "
->
+     <div
+            ref={mobileRef}
+            className="lg:hidden flex flex-col w-full px-4 sm:px-8 py-4"
+          >
+            {/* Accordion Items with Images */}
+            <div className="w-full flex flex-col gap-6">
+              {accordionData.map((item, index) => {
+                const isOpen = openIndex === index;
 
-        {/* Image with Yellow Border */}
-        <div className="relative w-full h-[400px] mt-20 mb-8">
-           <img
-      src={images[openIndex]}
-      alt="Who we serve"
-      className="w-full h-full object-cover  rounded-br-[180px] rounded-lg"
-    />
-     <div className="
-      absolute 
-      bottom-0 right-0 
-      w-full h-full
-      border-r-[12px]
-      border-b-[12px]
-      border-t-[12px] border-[#2B68C3]
-      rounded-br-[180px]
-          
-      z-20
-    ">
+                return (
+                  <div key={item.id} className="w-full">
+                    {/* Image with Yellow Border */}
+                    <div className="relative w-full h-[280px] sm:h-[350px] mt-4 mb-4">
+                      <img
+                        src={images[index]}
+                        alt={item.title}
+                        className="w-full h-full object-cover rounded-br-[120px] rounded-lg"
+                      />
+                      <div className="absolute bottom-0 right-0 w-full h-full border-r-[8px] border-b-[8px] border-t-[8px] border-[#2B68C3] rounded-br-[120px] z-20"></div>
+                      <div className="absolute -top-12 -left-4 flex flex-col gap-2 z-20">
+                        <img src="/Products/FloatingImage.png" alt="" className="w-20 h-20" />
+                      </div>
+                    </div>
+
+                    {/* Accordion Item */}
+                    <div
+                      className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 ${
+                        isOpen ? "bg-blue-100 min-h-[200px] " : "bg-[#F6F6F6] min-h-[70px]"
+                      }`}
+                      onClick={() => setOpenIndex(index)}
+                    >
+                      <div className="flex items-center px-3 py-4">
+                        <span
+                          className={`text-4xl sm:text-5xl font-bold transition-colors duration-500 mr-4 ${
+                            isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                          }`}
+                        >
+                          {String(item.id).padStart(2, "0")}
+                        </span>
+                        <H3
+                          className={`text-lg sm:text-xl font-semibold transition-colors duration-500 ${
+                            isOpen ? "text-[#3E3E3E]" : "text-[#000000]"
+                          }`}
+                        >
+                          {item.title}
+                        </H3>
+                      </div>
+
+                      {isOpen && (
+                        <motion.div
+                          className="px-3 pb-4 text-justify"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
+                          {Array.isArray(item.content) ? (
+                            item.content.map((para, i) => (
+                              <P key={i} className="mb-3 text-xs sm:text-sm leading-relaxed">
+                                {para}
+                              </P>
+                            ))
+                          ) : (
+                            <P className="text-xs sm:text-sm leading-relaxed">{item.content}</P>
+                          )}
+                        </motion.div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+      </div>
+    </div>
+    </div>
   </div>
-  <div className="
-      absolute 
-      -top-18 -left-6
-          
-      flex flex-col gap-2 
-      z-20 
-    ">
-    <img src="/Products/FloatingImage.png" alt=""   />
-    </div>
-          
-        </div>
-        {/* Accordion Items */}
-        <div className="w-full flex flex-col gap-4">
-          {accordionData.map((item, index) => {
-            const isOpen = openIndex === index;
-            
-            return (
-              <div
-                key={item.id}
-                className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg ${
-                  isOpen ? "bg-[#F6F6F6] min-h-[200px]" : "bg-[#F6F6F6] min-h-[80px]"
-                }`}
-                onClick={() => setOpenIndex(index)}
-              >
-
-
-                 
-                <div className="flex items-center px-2 py-6 lg:p-6">
-                  <span
-                    className={`text-5xl font-bold transition-colors duration-500 mr-6 ${
-                      isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
-                    }`}
-                  >
-                    {String(item.id).padStart(2, "0")}
-                  </span>
-                  <H3
-                    className={`text-xl font-semibold transition-colors duration-500 ${
-                      isOpen ? "text-[#3E3E3E]" : "#000000"
-                    }`}
-                  >
-                    {item.title}
-                  </H3>
-                </div>
-                {isOpen && (
-                  
-                  <motion.div
-                    className=" px-4 lg:px-6 pb-6 text-justify"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                  >
-                    {Array.isArray(item.content) ? (
-                      item.content.map((para, i) => (
-                        <P key={i} className="  mb-4 text-sm leading-relaxed">
-                          {para}
-                        </P>
-                      ))
-                    ) : (
-                      <P className="  text-sm leading-relaxed">{item.content}</P>
-                    )}
-                  </motion.div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      </div>
-    </div>
   );
 };
 export default WhatWeDoIn;

@@ -19,9 +19,17 @@ const NewOneFooter = () => {
   ];
 
   const quickLinks = [
+    { label: "AboutUs", url: "/industries/banking-and-finance/aboutus" },
     { label: "Careers", url: "/industries/banking-and-finance/careers" },
-    { label: "Resources", url: "/industries/banking-and-finance/news" },
+   
+    { label: "Blogs", url: "/industries/banking-and-finance/contactform" },
+    { label: "News Letter", url: "/industries/banking-and-finance/contactform" },
+    { label: "White Papers", url: "/industries/banking-and-finance/contactform" },
+    { label: "Events", url: "/industries/banking-and-finance/contactform" },
+    
     { label: "Contact", url: "/industries/banking-and-finance/contactform" },
+    { label: "Platform", url: "/platform" },
+    { label: "Market Place", url: "/marketplace" },
   ];
 
 
@@ -146,7 +154,7 @@ const NewOneFooter = () => {
                 </ul>
               </div>
 
-              <div className="flex flex-col font-quicksand items-start space-y-10 gap-8">
+              <div className="flex  flex-col-reverse lg:flex-col font-quicksand items-start  lg:space-y-10 gap-8">
 
                 {/* Socials */}
                 <div className="flex lg:-ml-4 items-start gap-7">
@@ -161,14 +169,14 @@ const NewOneFooter = () => {
                   </a>
                 </div>
 
-                <div className="flex lg:-ml-6 items-center gap-8">
-                   <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                <div className="flex-col md:flex-row flex lg:-ml-6  items-start lg:items-center  lg:gap-8">
+                   <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                     Terms and Conditions
                   </a>
-                  <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                  <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                     Cookies Policy
                   </a>
-                  <a href="/industries/banking-and-finance/policy" className="text-black text-[18px] font-quicksand whitespace-nowrap">
+                  <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                     Privacy Policy
                   </a>
                   

@@ -18,7 +18,8 @@ import LifeCycleTech from "./LifeCycleTech"
 import CEO from "./CEO"
 import NewFooter from "../../Global/NewFooter/NewFooter"
 import FlowingMenu from "./FlowingMenu"
-
+import Counter from "./Counter"
+ 
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
@@ -82,11 +83,9 @@ const GlobalLandingPage = () => {
             <div className="relative z-10">
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
+              </div>
 
-                
-            
-
-
+              <Counter/>
                 {/* CallToAction Section */}
                 <div id="calltoaction">
                     <CallToAction />
@@ -100,7 +99,7 @@ const GlobalLandingPage = () => {
                 <div id="footer">
                     <NewFooter />
                 </div>
-            </div>
+            
         </div>
     )
 }

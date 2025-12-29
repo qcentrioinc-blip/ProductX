@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { H2 } from '../../../styles/Typography';
 
 const CEO = () => {
   const sectionRef = useRef(null);
@@ -51,15 +52,13 @@ const CEO = () => {
 
       {/* Content Container */}
       <div className="relative z-10 max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32 min-h-screen flex items-center">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           
           {/* Main Heading */}
-          <h1
-            className="mb-12 lg:mb-16 transition-all duration-700 ease-in-out"
+          <H2 
+            className="mb-12 lg:mb-16 transition-all duration-700  ease-in-out text-[#8338EC]"
             style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(32px, 5vw, 64px)',
+              
               lineHeight: '100%',
               letterSpacing: '0%',
               color: '#8338EC',
@@ -68,8 +67,8 @@ const CEO = () => {
               transitionDelay: '0.2s'
             }}
           >
-            Technology should be accessible, intelligent, and purposeful empowering organizations to make smarter decisions
-          </h1>
+            Qnest Global delivers reliable, AI‑driven, cloud‑ready systems tailored to each client’s industry, goals, and teams. 
+          </H2  >
 
           {/* Author Info */}
           <div
