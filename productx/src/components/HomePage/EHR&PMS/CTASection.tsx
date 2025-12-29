@@ -2,20 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { H2, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
+ 
 
 export default function CTAFloatSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [enterDone, setEnterDone] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+const [enterDone, setEnterDone] = useState(false);
 
-
-  useEffect(() => {
-    if (isVisible && !enterDone) {
-      setTimeout(() => setEnterDone(true), 1200);
-    }
-  }, [isVisible, enterDone]);
+const [drawerOpen, setDrawerOpen] = useState(false);
+useEffect(() => {
+  if (isVisible && !enterDone) {
+    setTimeout(() => setEnterDone(true), 1200);  
+  }
+}, [isVisible, enterDone]);
 
   const images = [
     { src: "/EHR-PMS/CTA/img1.jpg", id: 0, side: "left", startAngle: 0 },
@@ -67,23 +67,23 @@ export default function CTAFloatSection() {
   // };
 
 
-  const animate = () => {
-    if (isVisible) {
-      setAngles((prev) =>
-        prev.map((angle, index) => {
-          const side = images[index].side;
+const animate = () => {
+  if (isVisible) {
+    setAngles((prev) =>
+      prev.map((angle, index) => {
+        const side = images[index].side;
 
-          // LEFT SIDE = clockwise (positive)
-          // RIGHT SIDE = anticlockwise (negative)
-          const direction = side === "right" ? -1 : 1;
+        // LEFT SIDE = clockwise (positive)
+        // RIGHT SIDE = anticlockwise (negative)
+        const direction = side === "right" ? -1 : 1;
 
-          return (angle + direction * animationSpeed + 360) % 360;
-        })
-      );
-    }
+        return (angle + direction * animationSpeed + 360) % 360;
+      })
+    );
+  }
 
-    animationRef.current = requestAnimationFrame(animate);
-  };
+  animationRef.current = requestAnimationFrame(animate);
+};
 
 
 
@@ -98,103 +98,97 @@ export default function CTAFloatSection() {
     const radiusY = 180;
     const centerX =
       typeof window !== "undefined"
-        ? side === "left"
-          ? window.innerWidth * 0.01
-          : window.innerWidth * 1.0
-        : 0;
+       ? side === "left"
+        ? window.innerWidth * 0.01
+        : window.innerWidth * 1.0
+      : 0;
     const centerY = 400;
 
-    // Inward motion: left pushes right, right pushes left
-    const inwardShift = side === "left" ? 60 : -60;
+  // Inward motion: left pushes right, right pushes left
+  const inwardShift = side === "left" ? 60 : -60;
 
-    return {
-      x: centerX + Math.cos(radians) * radiusX + inwardShift,
-      y: centerY + Math.sin(radians) * radiusY,
-    };
+  return {
+    x: centerX + Math.cos(radians) * radiusX + inwardShift,
+    y: centerY + Math.sin(radians) * radiusY,
   };
+};
   // const cardWidth = 140;
   // const cardHeight = 200;
-
+ 
 
 
   return (
     <>
-      <section
-        ref={sectionRef}
-        className="relative w-full bg-gray-50   py-24 overflow-hidden h-screen"
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-gray-50   py-24 overflow-hidden h-screen"
+    >
+      {/* Images */}
+      {images.map((img, index) => {
+  const angle = angles[index];
+  const pos = calculatePosition(angle, img.side);
+
+  // Slight vertical overlap
+  const overlapOffset = index % 2 === 0 ? -18 : 18;
+
+  return (
+    <React.Fragment key={img.id}>
+      <div
+        className="absolute"
+        style={{
+          left: `${pos.x}px`,
+          top: `${pos.y + overlapOffset}px`,
+          zIndex:10,
+          opacity: isVisible ? 1 : 0,
+         transition: "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+
+          transform: isVisible
+            ? "translate(-50%, -50%) translateY(0)"
+            : "translate(-50%, -50%) translateY(-600px)",
+          
+
+        }}
       >
-        {/* Images */}
-        {images.map((img, index) => {
-          const angle = angles[index];
-          const pos = calculatePosition(angle, img.side);
-
-          // Slight vertical overlap
-          const overlapOffset = index % 2 === 0 ? -18 : 18;
-
-          return (
-            <React.Fragment key={img.id}>
-              <div
-                className="absolute"
-                style={{
-                  left: `${pos.x}px`,
-                  top: `${pos.y + overlapOffset}px`,
-                  zIndex: 10,
-                  opacity: isVisible ? 1 : 0,
-                  transition: "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
-
-                  transform: isVisible
-                    ? "translate(-50%, -50%) translateY(0)"
-                    : "translate(-50%, -50%) translateY(-600px)",
-
-
-                }}
-              >
-                <div
-                  className="floating-card rounded-xl overflow-hidden relative shadow-lg"
-                  style={{ width: 150, height: 200 }}
-                >
-                  <img
-                    src={img.src}
-                    alt=""
-                    className="w-full h-full border-4 border-white  rounded-xl object-cover pointer-events-none"
-                  />
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-
-
-        {/* Center Content */}
         <div
-          className={`relative z-[20] max-w-3xl mx-auto flex flex-col items-center text-center px-6
+          className="floating-card rounded-xl overflow-hidden relative shadow-lg"
+          style={{ width: 150, height: 200 }}
+        >
+          <img
+            src={img.src}
+            alt=""
+            className="w-full h-full border-4 border-white  rounded-xl object-cover pointer-events-none"
+          />
+        </div>
+      </div>
+    </React.Fragment>
+  );
+})}
+
+
+      {/* Center Content */}
+      <div
+        className={`relative z-[20] max-w-3xl mx-auto flex flex-col items-center text-center px-6
 transition-all duration-500 ease-out
 
 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-32"}
 `}
 
-        >
-          <H2 className="text-[#166D48] leading-tight mt-30">
-            Sed ut perspiciatis <br /> Unde Seduo ut
-          </H2>
+      >
+        <H2 className="text-[#166D48] leading-tight mt-30">
+          Sed ut perspiciatis <br /> Unde Seduo ut
+        </H2>
 
-          <P className="mt-3">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse <br />
-            dolor in reprehenderit in voluptate velit esse
-          </P>
+        <P className="mt-3">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse <br />
+          dolor in reprehenderit in voluptate velit esse
+        </P>
 
-          <ContactUs
-            onClick={(e) => {
-              e.preventDefault();
-              setDrawerOpen(true);
-            }}
-            className="bg-[#F6A423] hover:bg-[#e6981f] transition transform hover:scale-105 mt-8"
-          >
-            CONTACT US
-          </ContactUs>
-        </div>
+        <ContactUs className="bg-[#F6A423] hover:bg-[#e6981f] transition transform hover:scale-105 mt-8">
+          CONTACT US
+        </ContactUs>
+      </div>
 
-        <style>{`
+      <style>{`
         @keyframes subtleFloat {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-4px); }
@@ -234,9 +228,10 @@ ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-32"}
 }
 
       `}</style>
-      </section>
-
+      
+    </section>
       <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-    </>
+  </>
   );
 }
+ 

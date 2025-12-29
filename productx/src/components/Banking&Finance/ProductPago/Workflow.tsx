@@ -6,7 +6,14 @@ import { ContactUs } from "../../../styles/Button";
  
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
- 
+ const BG_COLORS = [
+  "#C1D7F3", 
+  "#9FB9DA",
+  "#4A6D9B",  
+  "#284F82",
+  "#174075",  
+];
+
  
 const steps = [
   {
@@ -85,30 +92,41 @@ export default function Workflow() {
     };
   }, [scrollableContainerRef]);
  
+  const backgroundColor = useMemo(() => {
+  // Clamp scroll progress between 0 and 1
+  const p = Math.min(Math.max(scrollProgress, 0), 1);
+
+  // Convert progress to index
+  const index = Math.floor(p * BG_COLORS.length);
+
+  return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
+}, [scrollProgress]);
+
  
-  const backgroundGradient = useMemo(() => {
-    const progress = scrollProgress;
+  // const backgroundGradient = useMemo(() => {
+  //   const progress = scrollProgress;
  
-    const start = { r: 193, g: 215, b: 243 };
+  //   const start = { r: 193, g: 215, b: 243 };
  
-    const end = { r: 100, g: 100, b: 255 };
+  //   const end = { r: 100, g: 100, b: 255 };
  
-    const r = Math.round(start.r + (end.r - start.r) * progress);
-    const g = Math.round(start.g + (end.g - start.g) * progress);
-    const b = Math.round(start.b + (end.b - start.b) * progress);
+  //   const r = Math.round(start.r + (end.r - start.r) * progress);
+  //   const g = Math.round(start.g + (end.g - start.g) * progress);
+  //   const b = Math.round(start.b + (end.b - start.b) * progress);
  
-    return `rgb(${r}, ${g}, ${b})`;
-  }, [scrollProgress]);
+  //   return `rgb(${r}, ${g}, ${b})`;
+  // }, [scrollProgress]);
  
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{
-        backgroundColor: backgroundGradient,
-        transition: 'background-color 0.1s ease-out'
-      }}
-      className="w-full relative pb-20 min-h-[400vh]"
-    >
+   <motion.div
+  ref={sectionRef}
+  style={{
+    backgroundColor: backgroundColor,
+    transition: "background-color 0.4s ease-out",
+  }}
+  className="w-full relative pb-20 min-h-[400vh]"
+>
+
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
