@@ -167,8 +167,6 @@ const App = () => {
             <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             {/* <Route path='/glossary' element={<GlossaryPage />} /> */}
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
-            <Route path='/marketplace' element={<Marketing />} />
-            <Route path="/platform" element={<Platform />} />
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
@@ -188,9 +186,6 @@ const App = () => {
             <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
             <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
             <Route path='/aboutus' element={<AboutUs />} />
-            <Route path='/marketplace' element={<Marketing />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/career" element={<Career />} />
 
             <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
             <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge />} />
@@ -221,7 +216,19 @@ const App = () => {
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
 
 
+            {/* Marketplace Routes */}
+            <Route path='/marketplace' element={<Marketing />} />
+            <Route path='/industries/ai-optimization/marketplace' element={<Marketing />} />
+            <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
+            <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
+            <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
 
+            {/* Platform Routes */}
+            <Route path="/platform" element={<Platform />} />
+            <Route path='/industries/ai-optimization/platform' element={<Platform />} />
+            <Route path='/industries/high-tech/platform' element={<Platform />} />
+            <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
+            <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
           </Routes>
         </div>
       </ScrollProvider>

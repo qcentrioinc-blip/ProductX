@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../../styles/Button";
 import { ChevronDown } from "lucide-react";
 import { H3, P } from "../../../styles/Typography";
+import { createPortal } from "react-dom";
 import ContactModal from "./ContactModal";
 
 const AINavbar = () => {
-  const [isScrolled, setIsScrolled] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -120,12 +120,6 @@ const AINavbar = () => {
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
-    {
-      name: "AI Automation",
-      path: "/industries/ai-optimization",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
   ];
 
   const industryOptions = industries.filter(
@@ -133,6 +127,10 @@ const AINavbar = () => {
   );
 
   // ---------- EFFECTS ----------
+
+
+
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -159,10 +157,10 @@ const AINavbar = () => {
 
   // ---------- RENDER ----------
 
-  return (
+  return createPortal(
     <>
-      {/* TOP TRANSPARENT BAR */}
-      <div className="fixed top-0 z-50 left-0 w-full bg-bg-white/80     bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
+      {/* TOP TRANSPARENT BAR - Scrolls away */}
+      <div className="absolute top-0 z-50 left-0 w-full bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
         <Link to="/" className="flex items-center">
           <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
             <span className="text-black font-bricolage text-sm sm:text-base">LOGO</span>
@@ -170,21 +168,21 @@ const AINavbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">Platform</Link>
-          <Link to="/marketplace" className="text-white font-medium">Marketplace</Link>
+          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
 
         <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>
-          <span className={`block w-7 h-[3px] bg-gray-800 rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-gray-800 rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-gray-800 rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
         </button>
       </div>
 
-      {/* MAIN NAV (DESKTOP ONLY) */}
-      <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}>
+      {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
+      <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex fixed left-1/2 -translate-x-1/2 w-[90%] max-w-8xl z-[9999] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-5" : "top-15"}`}>
         <div className="flex items-center gap-10">
-          <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => setLogoDropdownOpen(true)}>
+          <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setLogoDropdownOpen(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
             <div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div>
             <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
               <img src="/down.png" className="w-4 h-4" />
@@ -205,11 +203,11 @@ const AINavbar = () => {
             )}
           </div>
 
-          <ul className="flex items-center gap-8 font-bold font-quicksand">
+          <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
                 {item.name === "Products" && (
-                  <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
+                  <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Products</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
@@ -218,7 +216,7 @@ const AINavbar = () => {
                 )}
 
                 {item.name === "Resources" && (
-                  <div className="relative" onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); }}>
+                  <div className="relative" onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Resources</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
@@ -227,7 +225,7 @@ const AINavbar = () => {
                 )}
 
                 {item.name === "Built for" && (
-                  <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }}>
+                  <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Built For</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuBuiltFor ? "rotate-180" : "rotate-0"}`} />
@@ -236,7 +234,7 @@ const AINavbar = () => {
                 )}
 
                 {item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" && (
-                  <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }} className="text-gray-800 text-[18px]">
+                  <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }} className="text-gray-800 text-[18px]">
                     {item.name}
                   </Link>
                 )}
@@ -245,12 +243,19 @@ const AINavbar = () => {
           </ul>
         </div>
 
-        <div className="flex items-center gap-8">
-          <Link to={`${base}/careers`} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
+        <div className="hidden lg:flex items-center gap-8">
+          <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
           <button onClick={() => setModalOpen(true)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </button>
         </div>
+
+        {/* Mobile Hamburger (Dark Mode for White Nav) */}
+        <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)}>
+          <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[8px]" : ""}`}></span>
+          <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+          <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
+        </button>
       </nav>
 
       {/* MEGA MENUS - keeping your existing code */}
@@ -391,8 +396,8 @@ const AINavbar = () => {
         </div>
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
-          <Link to="/platform" className="text-purple-600 text-lg font-semibold">Platform</Link>
-          <Link to="/marketplace" className="text-purple-600 text-lg font-semibold">Marketplace</Link>
+          <Link to={`${base}/platform`} className="text-purple-600 text-lg font-semibold">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
         </div>
 
         <div className="mt-6 flex justify-start items-center">
@@ -405,7 +410,8 @@ const AINavbar = () => {
       {/* CONTACT MODAL - SLIDES FROM TOP */}
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
-    </>
+    </>,
+    document.body
   );
 };
 

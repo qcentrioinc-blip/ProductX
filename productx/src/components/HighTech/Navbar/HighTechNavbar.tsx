@@ -81,7 +81,9 @@ const HighTechNavbar = () => {
 
 
   // const industry = "high-tech";
-  const currentIndustry = "";
+  const industry = "high-tech";
+  const currentIndustry = "HighTech";
+  const base = `/industries/${industry}`;
 
   const industries = [
     {
@@ -160,12 +162,8 @@ const HighTechNavbar = () => {
 
         {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">
-            Platform
-          </Link>
-          <Link to="/marketplace" className="text-white font-medium">
-            Marketplace
-          </Link>
+          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
 
         {/* MOBILE MENU BUTTON */}
