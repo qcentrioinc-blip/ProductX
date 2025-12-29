@@ -12,12 +12,12 @@ const Capabilities = () => {
                     backgroundRepeat: "no-repeat"
                 }}
             >   
-                <div className="max-w-8xl lg:mx-10 mx-4 py-20 px-4">
+                <div className="max-w-8xl xl:mx-10 mx-4 py-20 px-4">
                     {/* Desktop: Side by Side | Mobile: Stacked */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,516px)_1fr] gap-10 lg:gap-16">
+                    <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
                         
                         {/* Left Column - Sticky on Desktop Only */}
-                        <div className="lg:sticky lg:top-20 lg:h-fit">
+                        <div className="xl:sticky xl:top-20 xl:h-fit">
                             <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
                                 
                                 {/* Title - Responsive Font Size */}

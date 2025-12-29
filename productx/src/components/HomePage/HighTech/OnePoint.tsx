@@ -31,7 +31,7 @@ const OnePoint = () => {
   return (
     <div 
       ref={sectionRef}
-      className="w-full bg-gradient-to-r from-black via-gray-900 to-purple-900 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 min-h-auto sm:min-h-auto lg:min-h-screen"
+      className="w-full bg-gradient-to-r from-black via-gray-900 to-purple-900 py-12 sm:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 min-h-auto sm:min-h-auto lg:min-h-auto xl:min-h-screen"
     >
       <div className="max-w-8xl mx-auto px-2 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-start">
@@ -218,7 +218,7 @@ const OnePoint = () => {
 
               {/* Content - Right of Circle */}
               <div className="relative">
-                <div className="ml-24 pt-4 absolute left-0 top-72">
+                <div className="ml-24 pt-4 absolute left-0 top-52">
                   <h3
                     className="text-white mb-5 transition-all duration-700 ease-in-out"
                     style={{
