@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { H2, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
+ 
 
 export default function CTAFloatSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -8,7 +10,7 @@ export default function CTAFloatSection() {
   const [hasAnimated, setHasAnimated] = useState(false);
 const [enterDone, setEnterDone] = useState(false);
 
-
+const [drawerOpen, setDrawerOpen] = useState(false);
 useEffect(() => {
   if (isVisible && !enterDone) {
     setTimeout(() => setEnterDone(true), 1200);  
@@ -116,6 +118,7 @@ const animate = () => {
 
 
   return (
+    <>
     <section
       ref={sectionRef}
       className="relative w-full bg-gray-50   py-20 overflow-hidden h-screen"
@@ -225,6 +228,10 @@ ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-32"}
 }
 
       `}</style>
+      
     </section>
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+  </>
   );
 }
+ 

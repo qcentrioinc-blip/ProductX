@@ -5,7 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import ResourceCard from './ResourceCard';
 
 const FirstPageResource = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [mainFilter, setMainFilter] = useState('All');
+  const [subFilter, setSubFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -125,11 +126,44 @@ const FirstPageResource = () => {
       category: ['Events', 'Company'],
       link: '/industries/ai-optimization/resource-detail',
     },
+    {
+      id: 13,
+      image: '/AIOptimization/Resource4.png',
+      author: 'Qnest Team',
+      date: '25 Oct 2025',
+      title: 'AI in Healthcare: A New Era',
+      tags: ['BLOGS', 'BUSINESS'],
+      category: ['Blogs', 'Business'],
+      link: '/industries/ai-optimization/resource-detail',
+    },
+    {
+      id: 14,
+      image: '/AIOptimization/Resource2.png',
+      author: 'Qnest Team',
+      date: '20 Oct 2025',
+      title: 'Scaling Cloud Infrastructure for 2026',
+      tags: ['WHITE PAPERS', 'CLOUD'],
+      category: ['White Papers', 'Cloud'],
+      link: '/industries/ai-optimization/resource-detail',
+    },
+    {
+      id: 15,
+      image: '/AIOptimization/Resource5.png',
+      author: 'Qnest Team',
+      date: '15 Oct 2025',
+      title: 'The Business Value of AI',
+      tags: ['CASE STUDIES', 'BUSINESS'],
+      category: ['Case Studies', 'Business'],
+      link: '/industries/ai-optimization/resource-detail',
+    }
   ];
 
-  // Combine all filters for unified selection
-  const handleFilterChange = (cat: string) => {
-    setActiveFilter(cat);
+  // Logic: Main Filter (Type) AND Sub Filter (Topic)
+  const handleMainFilterChange = (cat: string) => {
+    setMainFilter(cat);
+  };
+  const handleSubFilterChange = (cat: string) => {
+    setSubFilter(cat);
   };
 
   // Filter Logic
@@ -139,12 +173,17 @@ const FirstPageResource = () => {
       resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       resource.author.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesCategory =
-      activeFilter === 'All' ||
-      resource.category.includes(activeFilter) ||
-      resource.tags.includes(activeFilter);
+    const matchesMain =
+      mainFilter === 'All' ||
+      resource.category.includes(mainFilter) ||
+      resource.tags.some(t => t.toUpperCase() === mainFilter.toUpperCase());
 
-    return matchesSearch && matchesCategory;
+    const matchesSub =
+      subFilter === 'All' ||
+      resource.category.includes(subFilter) ||
+      resource.tags.some(t => t.toUpperCase() === subFilter.toUpperCase());
+
+    return matchesSearch && matchesMain && matchesSub;
   });
 
   const heroResource = filteredResources.length > 0 ? filteredResources[0] : null;
@@ -163,49 +202,20 @@ const FirstPageResource = () => {
           opacity: 0.8,
         }}
       />
-      <style>{`
-        @media (min-width: 1024px) and (max-width: 1535px) {
-          /* Hide Desktop Navbar container */
-          nav.hidden.lg\\:flex.absolute.z-\\[60\\] {
-            display: none !important;
-          }
-          /* Hide Desktop Links in Top Bar */
-          div.hidden.lg\\:flex.items-center.gap-6 {
-            display: none !important;
-          }
-          /* Show Mobile Menu Button */
-          button.lg\\:hidden.flex.flex-col.justify-center {
-            display: flex !important;
-          }
-           /* Ensure Mobile Sidebar is capable of showing */
-          div.lg\\:hidden.fixed.top-0.right-0.h-full.z-\\[200\\] {
-            display: flex !important;
-          }
-          
-          /* Force H1 title to be smaller on iPad Pro to match Air/Mini */
-          h1[style] {
-             font-size: 42px !important; 
-             line-height: 1.2 !important;
-          }
-          
-          /* Adjust spacing if needed */
-          .pt-24.md\\:pt-28 {
-            padding-top: 7rem !important; /* Ensure consistent top padding */
-          }
-        }
-      `}</style>
+
 
       {/* Content Container */}
-      <div className="relative z-10 w-full pt-24 md:pt-28 2xl:pt-0 2xl:top-50">
+      <div className="relative z-10 w-full pt-32 xl:pt-52">
         {/* Header Section */}
+
         <div
           className="
             relative max-w-8xl
-            mx-4 sm:mx-6 2xl:mx-10
-            px-4 sm:px-6 2xl:px-14
+            mx-6 xl:mx-10
+            px-6 xl:px-12
           "
         >
-          <div className="flex flex-col 2xl:flex-row items-start 2xl:items-center justify-between gap-6 sm:gap-8 mb-4">
+          <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6 sm:gap-8 mb-4">
             {/* Main Heading */}
             <h1
               className="flex-shrink-0"
@@ -233,7 +243,7 @@ const FirstPageResource = () => {
             </h1>
 
             {/* Search Bar */}
-            <div className="relative w-full 2xl:w-[460px] 2xl:flex-shrink-0 mt-4 2xl:mt-0">
+            <div className="relative w-full xl:w-[460px] xl:flex-shrink-0 mt-4 xl:mt-0">
               <input
                 type="text"
                 placeholder="Search posts"
@@ -265,21 +275,21 @@ const FirstPageResource = () => {
         </div>
 
         {/* Sticky Filters row */}
-        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md pt-4 pb-2 mb-8 sm:mb-10 2xl:mb-14 shadow-sm transition-all duration-300">
-          <div className="max-w-8xl mx-auto px-8 sm:px-12 xl:px-24">
+        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md pt-4 pb-2 mb-8 sm:mb-10 xl:mb-14 shadow-sm transition-all duration-300">
+          <div className="max-w-8xl mx-10 px-8 sm:px-12 md:px-12 lg:px-12">
             <div className="flex items-center w-full">
 
               {/* Fixed 'All' Tab */}
               <div className="flex-shrink-0 mr-4 sm:mr-6 lg:mr-9">
                 <motion.button
                   key="All"
-                  onClick={() => handleFilterChange("All")}
+                  onClick={() => handleMainFilterChange("All")}
                   className={`
                     rounded-lg font-semibold transition-all
                     text-xs sm:text-sm md:text-base
                     px-4 sm:px-5 h-9 sm:h-10 md:h-12
                     min-w-[80px] sm:min-w-[100px] md:min-w-[120px]
-                    ${activeFilter === "All"
+                    ${mainFilter === "All"
                       ? 'text-white bg-[#5551FF] border border-transparent shadow-md'
                       : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
                     }
@@ -311,13 +321,13 @@ const FirstPageResource = () => {
                   {filters.slice(1).map((filter) => (
                     <motion.button
                       key={filter}
-                      onClick={() => handleFilterChange(filter)}
+                      onClick={() => handleMainFilterChange(filter)}
                       className={`
                         rounded-lg font-semibold transition-all
                         text-xs sm:text-sm md:text-base
                         px-4 sm:px-5 h-9 sm:h-10 md:h-12
-                        min-w-[120px] sm:min-w-[140px] md:min-w-[180px] 2xl:min-w-[207px]
-                        ${activeFilter === filter
+                        min-w-[120px] sm:min-w-[140px] md:min-w-[180px] xl:min-w-[207px]
+                        ${mainFilter === filter
                           ? 'text-white bg-[#5551FF] border border-transparent shadow-md'
                           : 'bg-white text-[#1e293b] hover:text-[#5551FF] border border-[#B6B6B6]'
                         }
@@ -365,22 +375,22 @@ const FirstPageResource = () => {
                         <motion.button
                           key={category}
                           onClick={() => {
-                            handleFilterChange(category);
+                            handleSubFilterChange(category);
                             setIsFilterOpen(false);
                           }}
-                          className={`w-full text-left px-5 py-3 transition-colors text-sm ${activeFilter === category
+                          className={`w-full text-left px-5 py-3 transition-colors text-sm ${subFilter === category
                             ? 'bg-[#5551FF]/10 text-[#5551FF] font-semibold'
                             : 'hover:bg-gray-50 text-[#1e293b]'
                             }`}
                           style={{
                             fontFamily: "'Bricolage Grotesque', sans-serif",
-                            fontWeight: activeFilter === category ? 600 : 500,
+                            fontWeight: subFilter === category ? 600 : 500,
                             borderBottom:
                               index < additionalFilters.length - 1
                                 ? '1px solid #f1f1f1'
                                 : 'none',
                           }}
-                          whileHover={{ backgroundColor: activeFilter === category ? '#5551FF/10' : '#f9f9f9' }}
+                          whileHover={{ backgroundColor: subFilter === category ? '#5551FF/10' : '#f9f9f9' }}
                         >
                           {category}
                         </motion.button>
@@ -399,8 +409,8 @@ const FirstPageResource = () => {
         <div
           className="
         relative max-w-8xl
-        mx-4 sm:mx-6 2xl:mx-10
-        px-4 sm:px-6 2xl:px-8
+        mx-6 xl:mx-10
+        px-6 xl:px-8
         "
         >
           {heroResource ? (
@@ -413,7 +423,7 @@ const FirstPageResource = () => {
               >
                 <div className="flex flex-col md:flex-row h-full gap-4 sm:gap-6 lg:gap-7">
                   {/* Image Section */}
-                  <div className="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0 w-full md:w-[48%] 2xl:w-[50%] rounded-lg md:rounded-xl">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0 w-full md:w-[48%] xl:w-[50%] rounded-lg md:rounded-xl">
                     <img
                       src={heroResource.image}
                       alt={heroResource.title}
@@ -422,7 +432,7 @@ const FirstPageResource = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="flex flex-col justify-between py-3 sm:py-4 w-full md:w-[52%] 2xl:w-[50%]">
+                  <div className="flex flex-col justify-between py-3 sm:py-4 w-full md:w-[52%] xl:w-[50%]">
                     <div>
                       <p
                         className="mb-2 sm:mb-3 text-[#666666] text-xs sm:text-sm 2xl:text-xl"
@@ -480,7 +490,7 @@ const FirstPageResource = () => {
                         color: '#5551FF',
                       }}
                     >
-                      <motion.span whileHover={{ x: 6 }} className="inline-flex items-center gap-2 sm:gap-3">
+                      <motion.span whileHover={{ x: 6 }} className="inline-flex items-center gap-2 sm:gap-3 ">
                         REAL FULL ARTICLE
                         <svg
                           width="24"
@@ -510,7 +520,7 @@ const FirstPageResource = () => {
         {/* 6 small cards */}
         {
           smallResources.length > 0 && (
-            <ResourceCard selectedCategory={activeFilter} resources={smallResources} />
+            <ResourceCard selectedCategory={`${mainFilter}-${subFilter}`} resources={smallResources} />
           )
         }
 

@@ -165,13 +165,13 @@ const handleSubmit = (e: React.FormEvent) => {
               className="border-2 p-4 rounded-xl outline-none focus:border-[#166D48]"
             />
       
-            {/* <input
+            <input
               name="phone"
               type="tel"
               placeholder="Mobile Number"
               onChange={handleInputChange}
               className="border-2 p-4 rounded-xl outline-none focus:border-[#166D48]"
-            /> */}
+            />
       
             <div className="flex flex-col gap-2">
         <label className="font-semibold text-gray-700 text-sm">

@@ -16,7 +16,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
         >
             <div className="relative flex flex-col items-start px-3 sm:px-4 lg:px-4">
                 {/* Step Circle - Responsive sizes */}
-                <div className="relative bg-white z-10 p-1">
+                <div className="relative bg-white z-10 p-1 rounded-full">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 lg:w-24 lg:h-24 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-xs sm:text-sm md:text-base lg:text-lg">
                         {step}
                     </div>
@@ -28,7 +28,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                     <H3
                         className="font-semibold tracking-wide mb-2 sm:mb-3 md:mb-4 lg:mb-5 lg:ml-8"
                         style={{
-                            fontSize: 'clamp(16px, 2.5vw, 24px)', // Mobile: 16px, Desktop: 24px
+                            fontSize: 'clamp(16px, 2.5vw, 24px)',
                             lineHeight: '1.3'
                         }}
                     >
@@ -39,7 +39,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                     <P
                         className="text-gray-600 leading-relaxed max-w-full pr-2 sm:pr-4 md:max-w-lg lg:ml-64 lg:max-w-md"
                         style={{
-                            fontSize: 'clamp(13px, 1.5vw, 15px)', // Mobile: 13px, Desktop: 15px
+                            fontSize: 'clamp(13px, 1.5vw, 15px)',
                             lineHeight: '1.5'
                         }}
                     >
@@ -95,7 +95,7 @@ const Process = () => {
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[70vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[30vh]">
+                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[70vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
 
                     {/* Header section - Responsive positioning */}
                     <div className="absolute top-6 sm:top-10 md:top-14 lg:top-20 left-0 right-0 flex-none z-20">
@@ -118,10 +118,10 @@ const Process = () => {
                     <div className="flex-1 flex items-center justify-start overflow-hidden w-full mt-12 sm:mt-16 md:mt-20 lg:mt-0">
                         <motion.div
                             style={{ x }}
-                            className="flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-16 pl-4 sm:pl-6 md:pl-8"
+                            className="relative flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-16 pl-4 sm:pl-6 md:pl-8"
                         >
                             {/* Dotted line - Responsive positioning */}
-                            <div className="absolute top-8 sm:top-10 md:top-11 lg:top-12 left-6 sm:left-8 md:left-10 lg:left-10 w-[250vw] sm:w-[220vw] md:w-[200vw] h-px z-0">
+                            <div className="absolute top-9 sm:top-[44px] md:top-12 lg:top-[52px] left-16 sm:left-[84px] md:left-24 lg:left-[100px] w-[250vw] sm:w-[220vw] md:w-[180vw] h-px z-0">
                                 <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
                             </div>
 

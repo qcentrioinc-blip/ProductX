@@ -3,6 +3,29 @@ import { useEffect, useRef, useState } from 'react';
 const Milestone = () => {
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const milestones = [
+    {
+         
+       title: 'We speak with your teams to learn goals, issues, and industry needs in detail.'
+    },
+    {
+         
+       title: 'We turn your requirements into a practical, clear plan with agreed priorities and scope. '
+    },
+    {
+       
+       title: 'We design simple workflows that match daily work and are easy to follow. '
+    },
+    {
+         
+       title: 'We develop, integrate, and test every component against performance, security, and compliance standards. '
+    },
+
+    // {
+         
+    //    title: 'We help you go live, fix issues quickly, and keep improving with feedback.  '
+    // }
+];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -135,9 +158,9 @@ const Milestone = () => {
                         </div>
 
                         {/* Remaining 4 Circles - WITH TEXT */}
-                        {[1, 2, 3, 4].map((item, index) => (
+                        {milestones.map((item, index) => (
                             <div
-                                key={item}
+                                 
                                 className={`relative flex items-start transition-all duration-700 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                                     }`}
                                 style={{
@@ -192,19 +215,20 @@ const Milestone = () => {
                                     className="ml-6 md:ml-8 lg:ml-10 flex-1 pt-1 transition-all duration-500 hover:translate-x-2"
                                 >
                                     <h3
-                                        style={{
-                                            fontFamily: "'Bricolage Grotesque', sans-serif",
-                                            fontWeight: 600,
-                                            fontSize: 'clamp(20px, 2.5vw, 32px)',
-                                            lineHeight: '110%',
-                                            letterSpacing: '0%',
-                                            color: '#000000',
-                                            transition: 'color 0.3s ease-in-out'
-                                        }}
-                                    >
-                                        Transform your vision into an<br />
-                                        outstanding digital experience.
-                                    </h3>
+    style={{
+        fontFamily: "'Bricolage Grotesque', sans-serif",
+        fontWeight: 600,
+        fontSize: 'clamp(20px, 2.5vw, 32px)',
+        lineHeight: '110%',
+        letterSpacing: '0%',
+        color: '#000000',
+        transition: 'color 0.3s ease-in-out'
+    }}
+>
+    {item.title}
+</h3>
+ 
+
                                 </div>
                             </div>
                         ))}

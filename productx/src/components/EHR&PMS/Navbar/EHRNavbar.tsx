@@ -171,12 +171,8 @@ const EHRNavbar = () => {
 
         {/* DESKTOP RIGHT LINKS */}
         <div className="hidden lg:flex items-center gap-6">
-          <Link to="/platform" className="text-white font-medium">
-            Platform
-          </Link>
-          <Link to="/marketplace" className="text-white font-medium">
-            Marketplace
-          </Link>
+          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
+          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
 
         {/* MOBILE HAMBURGER */}
@@ -214,10 +210,18 @@ const EHRNavbar = () => {
         <div className="flex items-center gap-10">
           {/* LOGO WITH DROPDOWN */}
           <div
-            className="relative flex items-center gap-1 cursor-pointer"
-            onMouseEnter={() => setLogoDropdownOpen(true)}
-            onMouseLeave={() => setLogoDropdownOpen(true)}
-          >
+  className="relative flex items-center gap-1 cursor-pointer"
+  onMouseEnter={() => setLogoDropdownOpen(true)}
+  onMouseLeave={() => setLogoDropdownOpen(true)}
+>
+  <Link
+    to={base}
+    className="flex items-center gap-1"
+    onClick={() => {
+      closeAllMenus();
+    }}
+  >
+
             <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
               LOGO
             </div>
@@ -228,6 +232,7 @@ const EHRNavbar = () => {
             >
               <img src="/down.png" className="w-4 h-4" alt="dropdown" />
             </div>
+            </Link>
 
             {logoDropdownOpen && (
               <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">

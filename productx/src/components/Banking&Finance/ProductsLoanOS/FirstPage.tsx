@@ -83,7 +83,7 @@ const FirstPage = () => {
   };
 
   return (
-    <main 
+    <main
       className="bg-[#2B68C3] pt-16 sm:pt-24 md:pt-32 lg:pt-44 relative overflow-hidden w-full"
       style={{
         minHeight: 'auto',
@@ -93,16 +93,8 @@ const FirstPage = () => {
 
       {/* RIGHT Decorative Sphere - Desktop Only */}
       <div
-        className="hidden lg:block"
-        style={{
-          position: 'absolute',
-          width: '250px',
-          height: '410px',
-          top: '210px',
-          right: '-40px',
-          zIndex: 6,
-          pointerEvents: 'none'
-        }}>
+        className="hidden lg:block absolute w-[250px] h-[410px] lg:top-[400px] lg:-right-[40px] xl:top-[250px] z-[6] pointer-events-none"
+      >
         <img
           src="/Products/Products7/Circle7.png"
           alt="Decorative Sphere"
@@ -144,20 +136,20 @@ const FirstPage = () => {
         }} />
 
       {/* Yellow Title Band - Fully Responsive */}
-      <div 
-        className="w-full bg-[#FED600] relative z-5" 
-        style={{ 
+      <div
+        className="w-full bg-[#FED600] relative z-5"
+        style={{
           minHeight: 'auto',
           height: 'auto'
         }}
       >
-        <div className="max-w-[1530px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center justify-between relative z-2">
-          
+        <div className="max-w-8xl mx-10 px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-10 lg:py-12 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center justify-between relative z-2">
+
           {/* Left: Title */}
-          <h1 
-            className="max-w-full lg:max-w-[620px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[66px] leading-[110%] sm:leading-[120%] text-[#2A2A2A] m-0" 
-            style={{ 
-              fontFamily: "'Space Grotesk', sans-serif", 
+          <h1
+            className="max-w-full md:max-w-[620px] lg:max-w-[500px] xl:max-w-[750px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[48px] xl:text-[66px] leading-[110%] sm:leading-[120%] text-[#2A2A2A] m-0"
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
               letterSpacing: '-0.5px',
             }}
           >
@@ -165,17 +157,17 @@ const FirstPage = () => {
           </h1>
 
           {/* Right: Description + Button */}
-          <div className="max-w-full lg:max-w-[600px] w-full lg:w-auto flex flex-col gap-4 sm:gap-6 lg:gap-8">
-            <p 
-              className="text-[14px] xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-xl leading-[140%] sm:leading-[150%]" 
-              style={{ 
-                fontFamily: "'Schibsted Grotesk', sans-serif", 
+          <div className="max-w-full md:max-w-[400px] lg:max-w-[420px] xl:max-w-[600px] w-full lg:w-auto flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <p
+              className="text-[14px] xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-xl leading-[140%] sm:leading-[150%]"
+              style={{
+                fontFamily: "'Schibsted Grotesk', sans-serif",
                 color: "#141414"
               }}
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             </p>
-            
+
             {/* Contact Button */}
             <div className="w-full sm:w-auto">
               <ContactUs>Contact Us</ContactUs>
@@ -186,22 +178,22 @@ const FirstPage = () => {
 
       {/* Dashboard Images Grid/Carousel */}
       <div className="px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16 lg:py-20">
-        
+
         {/* Mobile/Tablet Carousel */}
         <div className="lg:hidden">
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
             className="flex overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none', 
-              WebkitOverflowScrolling: 'touch' 
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             {carouselImages.map((image) => (
-              <div 
-                key={image.id} 
+              <div
+                key={image.id}
                 className="flex-shrink-0 w-full snap-center px-2"
               >
                 <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
@@ -229,11 +221,10 @@ const FirstPage = () => {
                     });
                   }
                 }}
-                className={`transition-all duration-300 rounded-full ${
-                  currentSlide === index 
-                    ? "w-8 h-3 bg-white" 
-                    : "w-3 h-3 bg-white/40 hover:bg-white/60"
-                }`}
+                className={`transition-all duration-300 rounded-full ${currentSlide === index
+                  ? "w-8 h-3 bg-white"
+                  : "w-3 h-3 bg-white/40 hover:bg-white/60"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -241,49 +232,49 @@ const FirstPage = () => {
         </div>
 
         {/* Desktop Dashboard Grid */}
-        <div className="hidden lg:grid relative gap-6 lg:gap-8 xl:gap-10 grid-cols-[1fr_2fr_1fr] max-w-[1450px] mx-auto z-6">
-          
+        <div className="hidden lg:grid relative gap-6 lg:gap-8 xl:gap-10 grid-cols-[1fr_2fr_1fr] max-w-8xl mx-10 z-6">
+
           {/* Left Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
             <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img 
-                src="/Products/Products7/MainImage.png" 
-                alt="Dashboard analytics view" 
-                className="h-full w-full object-cover" 
+              <img
+                src="/Products/Products7/MainImage.png"
+                alt="Dashboard analytics view"
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img 
-                src="/Products/Products7/MainImage.png" 
-                alt="Dashboard analytics view" 
-                className="h-full w-full object-cover" 
+              <img
+                src="/Products/Products7/MainImage.png"
+                alt="Dashboard analytics view"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
 
           {/* Center Column */}
           <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-            <img 
-              src="/Products/Products7/MainImage.png" 
-              alt="Main dashboard" 
-              className="h-full w-full object-cover" 
+            <img
+              src="/Products/Products7/MainImage.png"
+              alt="Main dashboard"
+              className="h-full w-full object-cover"
             />
           </div>
 
           {/* Right Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
             <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img 
-                src="/Products/Products7/MainImage.png" 
-                alt="Dashboard analytics view" 
-                className="h-full w-full object-cover" 
+              <img
+                src="/Products/Products7/MainImage.png"
+                alt="Dashboard analytics view"
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img 
-                src="/Products/Products7/MainImage.png" 
-                alt="Dashboard analytics view" 
-                className="h-full w-full object-cover" 
+              <img
+                src="/Products/Products7/MainImage.png"
+                alt="Dashboard analytics view"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>

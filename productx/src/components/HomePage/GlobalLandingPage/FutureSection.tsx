@@ -23,8 +23,7 @@ export default function FutureSection() {
 
           {/* Heading */}
           <H2 className="leading-tight">
-            Shaping the Future
-            Every Sector.
+           Digital Growth for All Sectors
           </H2>
 
           {/* Illustration */}
@@ -40,17 +39,12 @@ export default function FutureSection() {
 
           {/* Description */}
           <P className="max-w-xl xl:ml-[-90px]">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            occaecat cupidatat non proident,cfewrce ewcde gergdgge egeehhrev gehscer.
+           Qnest Global supports companies across banking, manufacturing, healthcare, retail, and services. Our teams design AI, CRM, HRM, and cloud solutions that match industry needs and meet compliance requirements.
           </P>
 
           {/* Second Text Block */}
           <P className="max-w-2xl xl:ml-20">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+            From fast‑growing startups to global enterprises, Qnest Global builds stable, scalable systems. We connect data, automate work, and modernize core platforms so each client can operate with better speed, control, and insight. 
           </P>
 
         </div>

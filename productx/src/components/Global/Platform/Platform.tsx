@@ -1,4 +1,5 @@
 import BNFNav from "../../Banking&Finance/BNFnav"
+// import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS"
 // import NewFooter from "../../Banking&Finance/ProductRemitree/NewFooter"
 import Testimonial from "../../Banking&Finance/Career/Testimonial"
 import Benefits from "./Benefits"
@@ -11,24 +12,32 @@ import InsightThought from "../../Banking&Finance/InsightThought"
 import HWD from "../../Banking&Finance/HWD"
 import ImageGrid from "./ImageGrid"
 import GradientText from "./GradientText"
-import { useLocation } from "react-router-dom";
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import FooterHT from "../../HighTech/FooterHT"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import Footer from "../Footer/Footer"
+import { useLocation } from "react-router-dom"
 import BlogCarousel from "../../HomePage/EHR&PMS/BlogCarousel"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
-import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
+import Navbar from "../Navbar/Navbar"
+import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar"
+import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar"
+import AINavbar from "../../AIOptimization/Navbar/AINavbar"
+
+const Platform = () => {
+  const { pathname } = useLocation();
 
 
-
-
-
-export const Platform = () => {
-     const { pathname } = useLocation();
- /* -------------------------------
-     FOOTER SWITCHER
-  -------------------------------- */
+  const getNavbar = () => {
+    if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
+    if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRNavbar />;
+    if (pathname.startsWith("/industries/high-tech")) return <HighTechNavbar />;
+    if (pathname.startsWith("/industries/ai-optimization")) return <AINavbar />;
+    return <Navbar />;
+  };
+  /* -------------------------------
+      FOOTER SWITCHER
+   -------------------------------- */
   const getFooter = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
@@ -41,51 +50,48 @@ export const Platform = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
     if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AIBlogs  />;
+    if (pathname.startsWith("/industries/ai-optimization")) return <AIBlogs />;
     return null;
   };
-  
   return (
     <div>
-      <BNFNav/>
-      <HeroSection/>
+      {getNavbar()}
+      <HeroSection />
       {/* <PlatformNavbar/> */}
-     <HeroBottomNavbar/>
+      <HeroBottomNavbar />
 
 
-     <div id="overview">
-      <Testimonial/>
+      <div id="overview">
+        <Testimonial />
       </div>
 
 
-<section className="bg-[#F6DFA4]">
+      <section className="bg-[#F6DFA4]">
 
-  <div id="benefits">
-         <Benefits/>
-         </div>
-     <div id="process"> 
-      <Cards/>
-      </div>
-</section>
+        <div id="benefits" className="relative z-20">
+          <Benefits />
+        </div>
+        <div id="process" className="relative z-10">
+          <Cards />
+        </div>
+      </section>
 
-<ImageGrid/>
+      <ImageGrid />
 
-<GradientText/>
-      
+      <GradientText />
+
       <div id="usecases">
-        <HWD/>
-      </div>
-      <div id="faq">
-        <FaqSection/>
+        <HWD />
       </div>
       <div id="insights">
-      {getInsightandThoughts()}
+        {getInsightandThoughts()}
       </div>
-     {/* Footer */}
-     {getFooter()}
-  
+      {/* Footer */}
+      {getFooter()}
+
+      
     </div>
   )
 }
 
-
+export default Platform;
