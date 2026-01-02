@@ -3,10 +3,10 @@ import { H2, P } from "../../../styles/Typography";
 const Gallery = () => {
   return (
     <section className="w-full bg-white text-black py-16 md:py-20">
-      <div className="max-w-8xl lg:mx-10 grid grid-cols-1 lg:grid-cols-[1.9fr_1.2fr] gap-12 px-6 md:px-6 items-start">
+      <div className="max-w-8xl lg:mx-10 grid grid-cols-1 xl:grid-cols-[1.9fr_1.2fr] gap-12 px-6 md:px-6 items-start">
         
         {/* === Left Column: Text Content === */}
-        <div className="flex flex-col md:justify-between h-full   min-h-fit lg:min-h-[600px]">
+        <div className="flex flex-col md:justify-between h-full   min-h-fit xl:min-h-[600px]">
           {/* Top Text Block */}
          <div className="space-y-4  ">
 
@@ -22,7 +22,7 @@ const Gallery = () => {
       
 
           
-            <P className=" py-10 lg:pt-20 lg:pr-20 leading-snug">
+            <P className=" py-10 xl:pt-20 xl:pr-20 leading-snug">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
             </P>
                 </div>

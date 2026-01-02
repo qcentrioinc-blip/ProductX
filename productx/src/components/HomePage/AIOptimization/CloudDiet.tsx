@@ -24,7 +24,7 @@ const CloudDiet = () => {
                                     color: "#5551FF",
                                 }}
                             >
-                                Lorem ipsum dolor sit amet Lorem
+                               See our full optimization capabilities 
                             </p>
 
                             {/* Main Heading */}
@@ -37,7 +37,7 @@ const CloudDiet = () => {
                                     color: "#000000",
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur
+                                Explore CloudDIET Product Details 
                             </h1>
 
                             {/* CTA Button */}
@@ -49,7 +49,7 @@ const CloudDiet = () => {
                                     }}
                                     className="!bg-[#F5F5F5] !text-black !py-[14px] !px-[24px] !text-[14px] uppercase hover:!bg-gray-800 hover:!text-white shadow-lg hover:shadow-xl"
                                 >
-                                    BOOK A DEMO NOW
+                                    Book Your Demo Today!
                                 </ContactUs>
                             </div>
 

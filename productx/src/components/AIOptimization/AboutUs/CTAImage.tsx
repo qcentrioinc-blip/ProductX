@@ -2,7 +2,7 @@
 
 export default function AnimatedMap() {
   return (
-    <div className="relative w-full lg:h-[100vh] flex justify-center py-10 bg-[#020617]">
+    <div className="relative w-full xl:h-[100vh] flex justify-center py-10 bg-[#020617]">
       
       {/* Blue Map */}
       <img

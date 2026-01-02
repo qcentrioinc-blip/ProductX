@@ -154,12 +154,12 @@ export default function Testimonial() {
     <section className="w-full bg-gradient-to-br from-[#3532fd] via-[#4f49f8] to-[#7e7aef] py-16 px-6">
       <div className="max-w-8xl lg:mx-10">
         {/* Title */}
-        <H2 className="text-white font-bold  lg:text-center text-left mb-12">
+        <H2 className="text-white font-bold  xl:text-center text-left mb-12">
           Lorem ipsum dolor sit amet Lorem
         </H2>
 
         {/* Testimonial Cards */}
-        <div className=" hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 ">
+        <div className=" hidden xl:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 ">
           {testimonials.map((testimonial, idx) => (
             <div key={idx} className="relative pb-12">
               {/* White Card */}
@@ -198,7 +198,7 @@ export default function Testimonial() {
           ))}
         </div>
 
-        <div className="block lg:hidden overflow-hidden relative">
+        <div className="block xl:hidden overflow-hidden relative">
   <MobileTestimonialSlider testimonials={testimonials} />
 </div>
 

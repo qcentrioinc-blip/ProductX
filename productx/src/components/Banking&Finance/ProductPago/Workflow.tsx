@@ -146,11 +146,11 @@ export default function Workflow() {
       </div>
  
       {/* Sticky Content Container */}
-      <div className="sticky top-10 lg:h-screen flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-6 lg:px-10">
+      <div className="sticky top-10 xl:h-screen flex items-center justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 items-center px-6 xl:px-10">
  
           {/* LEFT SIDE - Sticky Image */}
-          <div className="h-[400px] md:h-[600px] order-1 md:order-0">
+          <div className="h-[400px] md:h-[550px] xl:h-[600px] pb-6 xl:pb-0 order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.img
@@ -167,7 +167,7 @@ export default function Workflow() {
             </div>
           </div>
           {/* RIGHT SIDE - All 5 Steps in View */}
-          <div className="flex flex-col relative space-y-4 lg:space-y-8 mt-6">
+          <div className="flex flex-col relative space-y-4 xl:space-y-8 mt-6">
             {/* Connecting line */}
             <div
               style={{ backgroundColor: "black" }}
@@ -240,7 +240,7 @@ export default function Workflow() {
             })}
  
             {/* Book A Demo Button */}
-            <div className=" md:pl-4  pt-4">
+            <div className=" md:pl-4 ">
  
  
               <ContactUs>Book A Demo</ContactUs>
