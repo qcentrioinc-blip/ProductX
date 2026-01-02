@@ -83,11 +83,11 @@ const FeatureGridSection: React.FC = () => {
       </div>
 
 
-            <div
+      <div
         className="
           relative bottom-[250px]
           left-[-250px] rotate-10
-
+          lg:hidden xl:block
         "
       >
         <img
@@ -97,7 +97,7 @@ const FeatureGridSection: React.FC = () => {
         />
       </div>
 
-      
+
     </section>
   );
 };

@@ -8,23 +8,23 @@ const WhatWeDoIn = () => {
 const desktopRef = useRef<HTMLDivElement | null>(null);
 const mobileRef = useRef<HTMLDivElement | null>(null);
 const isScrolling = useRef(false);
-
+ 
 const sectionInView = (el: HTMLElement) => {
   const rect = el.getBoundingClientRect();
   const vh = window.innerHeight;
-
+ 
   return rect.top < vh * 0.4 && rect.bottom > vh * 0.4;  
 };
-
+ 
 const handleScroll = (e: WheelEvent | TouchEvent) => {
   const el = desktopRef.current || mobileRef.current;
   if (!el) return;
-
+ 
   if (!sectionInView(el)) return;
-
+ 
   // Determine scroll direction
   let delta = 0;
-
+ 
   if (e instanceof WheelEvent) {
     delta = e.deltaY;
   } else if (e instanceof TouchEvent) {
@@ -32,14 +32,14 @@ const handleScroll = (e: WheelEvent | TouchEvent) => {
       delta = e.changedTouches[0].clientY - e.touches[0].clientY;
     }
   }
-
+ 
   // THROTTLE
   if (isScrolling.current) return;
   isScrolling.current = true;
-
+ 
   e.preventDefault();
   e.stopPropagation();
-
+ 
   setOpenIndex((prev) => {
     if (delta > 0) {
       // Scroll Down → Next
@@ -52,30 +52,30 @@ const handleScroll = (e: WheelEvent | TouchEvent) => {
     }
     return prev;
   });
-
+ 
   setTimeout(() => {
     isScrolling.current = false;
   }, 800);
 };
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 useEffect(() => {
  const wheelHandler = (e: WheelEvent | TouchEvent) => handleScroll(e);
-
-
+ 
+ 
   window.addEventListener("wheel", wheelHandler, { passive: false });
   window.addEventListener("touchmove", wheelHandler, { passive: false });
-
+ 
   return () => {
     window.removeEventListener("wheel", wheelHandler);
     window.removeEventListener("touchmove", wheelHandler);
   };
 } );
-
-
+ 
+ 
   const targetRef = useRef(null);
   const accordionData = [
     {
@@ -103,17 +103,17 @@ useEffect(() => {
       ]
     },
   ];
-
+ 
   const images = ["/Products/AccordionImage.png","/Image1.jpg", "/Image2.jpg"];
-
-
-  
-
+ 
+ 
+ 
+ 
   return (
     <div
       ref={targetRef}
      className="bg-white text-black max-w-8xl h-full flex flex-col"
-
+ 
       id="benefits"
     >
       {/* Heading Section */}
@@ -136,14 +136,14 @@ useEffect(() => {
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
         </P>
     </div>
-        
+       
        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden  whitespace-nowrap  text-black">
           CONTACT US
         </ContactUs>
       </div>
       {/* Desktop Layout */}
       {/* STICKY SCROLL WRAPPER */}
-      
+     
 <div
   className="relative h-auto lg:h-[calc(var(--accordion-height))]"
   style={
@@ -152,19 +152,19 @@ useEffect(() => {
     } as React.CSSProperties
   }
 >
-
-
+ 
+ 
   {/* STICKY CONTENT */}
  <div className="lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center">
-
-
-
+ 
+ 
+ 
       <div
   ref={desktopRef}
   className="hidden lg:flex flex-1 flex-row w-full mx-10 max-w-8xl md:px-0 md:mx-10 px-4 sm:px-8 lg:px-8  "
 >
    
-    
+   
 <div className="relative md:w-[500px] w-full h-[500px] md:h-[580px] flex items-center justify-start">
  
  
@@ -176,31 +176,31 @@ useEffect(() => {
       className="w-full h-full object-cover  rounded-br-[180px] rounded-lg"
     />
      <div className="
-      absolute 
-      bottom-0 right-0 
+      absolute
+      bottom-0 right-0
       w-full h-full
       border-r-[12px]
       border-b-[12px]
       border-t-[12px] border-[#2B68C3]
       rounded-br-[180px]
-          
+         
       z-20
     ">
   </div>
   <div className="
-      absolute 
+      absolute
       -top-18 -left-8
-          
-      flex flex-col gap-2 
-      z-20 
+         
+      flex flex-col gap-2
+      z-20
     ">
     <img src="/Products/FloatingImage.png" alt=""   />
     </div>
   </div>
    
-  
+ 
 </div>
-
+ 
         {/* Accordion Side */}
         <div className="w-full md:w-3/5 flex flex-col justify-center gap-4">
           {accordionData.map((item, index) => {
@@ -269,7 +269,7 @@ useEffect(() => {
             <div className="w-full flex flex-col gap-6">
               {accordionData.map((item, index) => {
                 const isOpen = openIndex === index;
-
+ 
                 return (
                   <div key={item.id} className="w-full">
                     {/* Image with Yellow Border */}
@@ -284,7 +284,7 @@ useEffect(() => {
                         <img src="/Products/FloatingImage.png" alt="" className="w-20 h-20" />
                       </div>
                     </div>
-
+ 
                     {/* Accordion Item */}
                     <div
                       className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 ${
@@ -308,7 +308,7 @@ useEffect(() => {
                           {item.title}
                         </H3>
                       </div>
-
+ 
                       {isOpen && (
                         <motion.div
                           className="px-3 pb-4 text-justify"
