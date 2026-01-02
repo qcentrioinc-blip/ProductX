@@ -137,12 +137,7 @@ useEffect(() => {
         </P>
     </div>
         
-        
-        
-         
-     
-
-        <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden  whitespace-nowrap  text-black">
+       <ContactUs className="  max-w-8xl absolute flex items-center my-4 lg:hidden  whitespace-nowrap  text-black">
           CONTACT US
         </ContactUs>
       </div>

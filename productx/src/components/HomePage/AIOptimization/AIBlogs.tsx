@@ -5,19 +5,19 @@ const AIBlogs = () => {
   const blogs = [
     {
       id: 1,
-      tag: "Lorem ipsum",
+      tag: "AI Blogs ",
       title: "Accelerating Financial Modeling with Our AI.",
       image: "/AIOptimization/GroupPeople.png",
     },
     {
       id: 2,
-      tag: "Lorem ipsum",
+      tag: "Tech Blogs",
       title: "Accelerating Financial Modeling with Our AI.",
       image: "/AIOptimization/GroupPeople.png",
     },
     {
       id: 3,
-      tag: "Lorem ipsum",
+      tag: "Solutions Blogs ",
       title: "Accelerating Financial Modeling with Our AI.",
       image: "/AIOptimization/GroupPeople.png",
     },
@@ -44,9 +44,9 @@ const AIBlogs = () => {
                   color: "#F5F5F5",
                 }}
               >
-                Lorem ipsum
+                Cloud Insights 
                 <br className="hidden xl:block" />
-                dolor sit amet,
+               Across Industries
               </h1>
             </div>
 
@@ -63,7 +63,7 @@ const AIBlogs = () => {
                   color: "#5551FF",
                 }}
               >
-                Our Industry
+                Our Industry 
                 <br className="hidden xl:block" />
                 Blogs
               </h2>
@@ -109,11 +109,7 @@ const AIBlogs = () => {
                 color: "#CCCCCC",
               }}
             >
-              Technology isn't just about features — it's about solving real
-              problems. Across industries, our solutions are trusted to improve
-              efficiency, build trust, and create better experiences. Here's
-              how different sectors are using our technology to make a tangible
-              impact.
+              Read how CloudDIET solves Azure cost challenges for enterprises in different sectors. Our blogs share real optimization strategies, customer examples, and engineering tips to cut waste and improve efficiency.
             </p>
 
             {/* Divider */}

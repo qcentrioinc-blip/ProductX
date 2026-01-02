@@ -189,7 +189,7 @@ const WorkProfile = () => {
                                         viewport={{ once: true, amount: 0.5 }}
                                         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                                     >
-                                        <h1 className={`text-[10rem] sm:text-[12rem] lg:text-[14rem] font-bold ${section.textColor} opacity-90 leading-none`}>
+                                        <h1 className={`text-[10rem] sm:text-[12rem] xl:text-[14rem] font-bold ${section.textColor} opacity-90 leading-none`}>
                                             {section.number}
                                         </h1>
                                     </motion.div>

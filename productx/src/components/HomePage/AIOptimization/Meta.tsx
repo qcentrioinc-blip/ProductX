@@ -4,7 +4,7 @@ const Meta = () => {
       <div className="max-w-8xl mx-0 sm:mx-4 lg:mx-10 px-1 sm:px-4 lg:px-6">
 
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16 space-y-6">
+        <div className="  mb-10 sm:mb-14 lg:mb-16 space-y-6">
 
           {/* Title (Desktop untouched) */}
           <h1
@@ -16,13 +16,13 @@ const Meta = () => {
               letterSpacing: "0%",
             }}
           >
-            <span style={{ color: "#0AC276" }}>AI For</span>{" "}
-            <span style={{ color: "#F5F5F5" }}>Cloud</span>
+            <span style={{ color: "#0AC276" }}> Why Qnest </span>{" "}
+            <span style={{ color: "#F5F5F5" }}>Excels</span>
           </h1>
 
           {/* Description */}
           <p
-            className="max-w-3xl mx-auto text-center sm:text-left px-0 sm:px-2 text-[16px] sm:text-[20px] lg:text-[24px]"
+            className="max-w-4xl mx-auto text-center  px-0 sm:px-2 text-[16px] sm:text-[20px] lg:text-[24px]"
             style={{
               fontFamily: "'Quicksand', sans-serif",
               fontWeight: 500,
@@ -30,8 +30,7 @@ const Meta = () => {
               color: "#CCCCCC",
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor
-            sit amet, consectetur adipiscing Lorem ipsum dolor sit amet,
+        Qnest Global delivers CloudDIET and AI solutions built on decades of engineering experience for reliable cloud savings across industries. 
           </p>
         </div>
 
@@ -61,7 +60,7 @@ const Meta = () => {
                 left: "7%",
               }}
             >
-              Lorem ipsum
+              Proven Savings 
             </div>
 
             {/* TOP RIGHT */}
@@ -75,7 +74,7 @@ const Meta = () => {
                 right: "7%",
               }}
             >
-              Lorem ipsum
+              Secure Access
             </div>
 
             {/* MIDDLE LEFT */}
@@ -90,7 +89,7 @@ const Meta = () => {
                 transform: "translateY(-50%)",
               }}
             >
-              Lorem ipsum
+              Rapid Results
             </div>
 
             {/* MIDDLE RIGHT */}
@@ -105,7 +104,7 @@ const Meta = () => {
                 transform: "translateY(-50%)",
               }}
             >
-              Lorem ipsum
+              Global Reach
             </div>
 
             {/* BOTTOM LEFT */}
@@ -119,7 +118,7 @@ const Meta = () => {
                 left: "7%",
               }}
             >
-              Lorem ipsum
+              Pay Performance
             </div>
 
             {/* BOTTOM RIGHT */}

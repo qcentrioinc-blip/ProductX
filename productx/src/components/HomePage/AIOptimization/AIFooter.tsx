@@ -47,7 +47,7 @@ const AIFooter = () => {
                             color: "#F5F5F5",
                         }}
                     >
-                        Lorem ipsum dolor sit amet, consectetur con
+                       Trust Qnest Clouddiet for guaranteed cloud savings 
                     </h2>
                 </div>
             </div>
@@ -73,9 +73,9 @@ const AIFooter = () => {
                                         color: "#F5F5F5",
                                     }}
                                 >
-                                    Subscribe to our newsletter
+                                   Get Azure optimization tips
                                     <br className="hidden sm:block" />
-                                    to stay in touch with the latest.
+                                 and savings updates monthly.
                                 </h3>
 
                                 {/* Email */}
