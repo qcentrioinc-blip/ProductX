@@ -12,7 +12,7 @@ const JobHeaderBanner: React.FC = () => {
 
   return (
     <section
-      className="relative w-full  h-[71vh] md:h-[51vh] xl:h-screen overflow-hidden flex items-center justify-center"
+      className="relative w-full   h-[71vh] md:h-[51vh] xl:h-screen overflow-hidden flex items-center justify-center"
       style={{
         background:
           "radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)",
@@ -21,7 +21,7 @@ const JobHeaderBanner: React.FC = () => {
       <div
         className="
           w-full 
-          max-w-8xl 
+          max-w-8xl  mx-10
           flex 
           flex-col 
           justify-center

@@ -170,24 +170,26 @@ const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
  
         {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
         <div
-          className="
-            flex gap-6 overflow-x-auto snap-x snap-mandatory
-            lg:overflow-visible lg:grid
-            lg:grid-cols-3
-            sm:gap-14
-            pb-4
-            scrollbar-hide
-          "
-        >
+  className="
+    flex gap-6 overflow-x-auto snap-x snap-mandatory
+    xl:overflow-visible xl:grid
+    xl:grid-cols-3
+    sm:gap-14
+    pb-4
+    scrollbar-hide
+  "
+>
+
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
               className="
-                relative rounded-md text-black overflow-hidden shadow-lg
+  relative rounded-md text-black overflow-hidden shadow-lg
   snap-center flex-shrink-0
-  w-[85%] md:w-[60%]  lg:w-auto
-  min-h-[420px] xl:min-h-[600px] lg:min-h-0
-              "
+  w-[85%] md:w-[50%] xl:w-auto
+  min-h-[420px] xl:min-h-[600px]
+"
+
               style={{ backgroundColor: bottomBg }}
               variants={cardVariants}
               initial="hidden"

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { H2, H3, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 
 interface FaqItem {
   question: string;
@@ -51,8 +53,20 @@ const faqData: FaqItem[] = [
 ];
 
 const FaqSection: React.FC = () => {
+  const { pathname } = useLocation();
+
+  const isEHR = pathname.startsWith("/industries/ehr-and-pms");
+  const isAI = pathname.startsWith("/industries/ai-optimization");
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isEHR) setDrawerOpen(true);
+    if (isAI) setModalOpen(true);
+  };
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -62,7 +76,7 @@ const FaqSection: React.FC = () => {
     <>
       <section className="relative w-full py-16 bg-white overflow-hidden">
         <div className="max-w-8xl mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
-          {/* Left Section */}
+
           <div className="lg:w-1/2 relative z-20">
             <div className="mb-4 text-sm text-gray-700 flex items-center">
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
@@ -74,13 +88,10 @@ const FaqSection: React.FC = () => {
               cillum dolore eu Duis aute irure dolor in reprehenderit in Duis aute
               irure dolor in reprehenderit in.
             </P>
-            <ContactUs onClick={(e) => {
-              e.preventDefault();
-              setDrawerOpen(true);
-            }}>CONTACT US</ContactUs>
+
+            <ContactUs onClick={handleContactClick}>CONTACT US</ContactUs>
           </div>
 
-          {/* Right Section (Accordion) */}
           <div className="lg:w-1/2 relative z-20">
             {faqData.map((item, index) => {
               const isOpen = index === openIndex;
@@ -89,24 +100,13 @@ const FaqSection: React.FC = () => {
                   <button
                     className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
                     onClick={() => handleToggle(index)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-content-${index}`}
                   >
-                    <span className="text-gray-900 font-medium">
-                      {item.question}
-                    </span>
-                    <span
-                      className={`text-2xl text-gray-500 transform transition-all duration-300 ${isOpen ? "rotate-180 text-blue-600" : ""
-                        }`}
-                    >
+                    <span className="text-gray-900 font-medium">{item.question}</span>
+                    <span className={`text-2xl text-gray-500 transition-all ${isOpen ? "rotate-180 text-blue-600" : ""}`}>
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
-                  <div
-                    id={`faq-content-${index}`}
-                    className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                      } text-gray-600`}
-                  >
+                  <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} text-gray-600`}>
                     <div className="pb-4 pr-4">{item.answer}</div>
                   </div>
                 </div>
@@ -115,39 +115,17 @@ const FaqSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Decorative Shape - Always visible, anchored at bottom */}
         {showShape && (
-          <div
-            className="
-      absolute
-      bottom-[-250px]
-      left-[150px]
-      -translate-x-1/2
-      w-[900px]
-      sm:w-[1000px]
-      md:w-[1100px]
-      h-[20px]
-      rotate-[-170deg]
-      pointer-events-none
-      opacity-100
-      z-0
-    "
-          >
-            <img
-              src="/ProductDetails4/faq_img1.png"
-              alt="FAQ Decorative Shape"
-              className="w-full h-auto object-contain"
-            />
+          <div className="absolute bottom-[-250px] left-[150px] -translate-x-1/2 w-[900px] h-[20px] rotate-[-170deg] pointer-events-none opacity-100 z-0">
+            <img src="/ProductDetails4/faq_img1.png" alt="FAQ Decorative Shape" className="w-full h-auto object-contain" />
           </div>
         )}
-
-
       </section>
 
-      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      {isEHR && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+      {isAI && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </>
   );
 };
-
 
 export default FaqSection;

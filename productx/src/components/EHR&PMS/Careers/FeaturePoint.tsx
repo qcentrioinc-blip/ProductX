@@ -77,10 +77,10 @@ const FeaturePoint: React.FC = () => {
           - Mobile (default): Image stacks above features (flex-col).
           - Tablet (sm) & Desktop (lg): Switches to side-by-side (sm:flex-row) and ensures heights match (sm:items-stretch).
         */}
-        <div className="flex flex-col sm:flex-row sm:space-x-16 sm:items-stretch items-start">
+<div className="flex flex-col xl:flex-row xl:space-x-16 xl:items-stretch items-start">
           
           {/* LEFT SECTION: Image Container */}
-          <div className="sm:w-1/2 w-full mb-10 sm:mb-0">
+<div className="xl:w-1/2 w-full mb-10 xl:mb-0">
             <img 
               src="/EHR-PMS/Careers/img6.png"
               alt="A smiling woman working at a computer station"
@@ -95,7 +95,7 @@ const FeaturePoint: React.FC = () => {
           </div>
           
           {/* RIGHT SECTION: Features List - Now set to match height and have a tight design */}
-          <div className="sm:w-1/2 w-full flex flex-col justify-between">
+<div className="xl:w-1/2 w-full flex flex-col justify-between">
             {MOCK_FEATURES.map(item => (
               <FeaturePointProps 
                 key={item.id} 
