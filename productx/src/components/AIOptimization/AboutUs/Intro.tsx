@@ -5,15 +5,15 @@ import { H2, H4, P } from "../../../styles/Typography";
 export default function Intro() {
   return (
     <section className="bg-[#D7F6E9] w-full  py-10 lg:py-20  lg:px-8">
-    <div className="max-w-8xl mx-6  lg:mx-10 grid grid-cols-1 lg:grid-cols-2   items-stretch">
+    <div className="max-w-8xl mx-6  xl:mx-10 grid grid-cols-1 xl:grid-cols-2   items-stretch">
 
 
         {/* LEFT SIDE */}
 <div className="flex flex-col  ">
   <div>
-    <H2 className="font-bold mt-10 leading-tight text-gray-900">
+    <H2 className="font-bold mt-10 leading-tight  ">
       The  
-      manufacturing <br className="md:block hidden " />
+      manufacturing <br className="xl:block hidden " />
       challenge today
     </H2>
 
@@ -44,11 +44,11 @@ export default function Intro() {
 
          
        {/* RIGHT SIDE */}
-<div className="flex flex-col  mt-10   gap-16 lg:pl-44">
+<div className="flex flex-col lg:flex-row  xl:flex-col mt-10   gap-4 xl:gap-16 xl:pl-44">
 
 
           {/* ITEM 1 */}
-          <div className="flex items-start gap-6">
+          <div className="flex items-start gap-6 lg:gap-0 xl:gap-6">
              <img src="/AIAbout/AIGraphic1.png" className="w-10 h-10 "/>
             <div >
               <H4 className="text-lg font-semibold text-gray-900">

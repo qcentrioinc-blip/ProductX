@@ -186,7 +186,7 @@ const HeroSection = () => {
       <div className="w-full  bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20 lg:pb-24">
         
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
-        <div className="lg:hidden mt-6 px-4">
+        <div className="xl:hidden lg:pt-10 mt-6 px-4">
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
@@ -233,12 +233,12 @@ const HeroSection = () => {
 
         {/* Desktop Layout - Framer Motion Integration */}
         <motion.div 
-          className="hidden lg:block relative max-w-8xl mx-auto mt-6"
+          className="hidden xl:block pt-10 relative max-w-8xl mx-auto "
           initial="hidden"
           animate="visible"
           variants={containerVariants} // Use container to stagger image animations
         >
-          <div className="relative flex  pt-6 justify-center items-center">
+          <div className="relative flex   justify-center items-center">
             
             {/* Left Image */}
             <motion.img

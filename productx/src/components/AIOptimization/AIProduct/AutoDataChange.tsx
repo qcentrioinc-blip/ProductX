@@ -62,92 +62,7 @@ const AutoDataChange = () => {
 
   // Calculate the height needed for smooth scrolling through all tabs
   const scrollHeight = `${100 * tabs.length}vh`;
-// const MobileStickyAutoData = () => {
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const containerRef = useRef<HTMLDivElement>(null);
 
-//   const totalItems = tabs.length;
-
-//   useEffect(() => {
-//     const onScroll = () => {
-//       if (!containerRef.current) return;
-
-//       const rect = containerRef.current.getBoundingClientRect();
-//       const viewportHeight = window.innerHeight;
-
-//       const progress = Math.min(
-//         Math.max(-rect.top / (rect.height - viewportHeight), 0),
-//         1
-//       );
-
-//       const index = Math.floor(progress * totalItems);
-//       setActiveIndex(Math.min(index, totalItems - 1));
-//     };
-
-//     window.addEventListener("scroll", onScroll);
-//     return () => window.removeEventListener("scroll", onScroll);
-//   });
-
-
-
-//   return (
-//     <div
-//       ref={containerRef}
-//       style={{ height: `${totalItems * 100}vh` }}
-//       className="relative"
-    
-//     >
-//       <div className="sticky top-0 pt-10 flex items-center">
-//         <div className="w-full px-6 space-y-4">
-          
-//           {/* IMAGE */}
-//           <div className="overflow-hidden  ">
-//             <img
-//               key={activeIndex}
-//               src={images[activeIndex]}
-//               alt=""
-//               className="
-//                 w-full h-[260px] object-cover
-//                 transition-all duration-700
-//                 translate-x-10 opacity-0 pt-10
-//                 animate-slideInRight
-//               "
-//             />
-//           </div>
-
-//           {/* TAB */}
-//           <H4
-//             key={`tab-${activeIndex}`}
-//             className="
-//               bg-[#5551FF] text-white
-//               p-5 rounded-xl text-center
-//               transition-all duration-700
-//               -translate-x-10 opacity-0
-//               animate-slideInLeft
-//             "
-//           >
-//             {tabs[activeIndex]}
-//           </H4>
-
-//           {/* GREEN BOX */}
-//           <div
-//             key={`para-${activeIndex}`}
-//             className="
-//               bg-emerald-500 rounded-2xl p-6
-//               transition-all duration-700 delay-100
-//               -translate-x-10 opacity-0
-//               animate-slideInLeft
-//             "
-//           >
-//             <p className="text-white leading-relaxed">
-//               {paragraphs[activeIndex]}
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 const MobileStickyAutoData = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -180,12 +95,12 @@ const MobileStickyAutoData = () => {
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: `${totalItems * 100}vh` }}
+      style={{ height: `${totalItems * 150}vh` }}
     >
       <div className="sticky top-20 h-[65vh] flex  ">
         <div className="w-full mt-10 px-5 space-y-5">
 
-          {/* PURPLE TAB */}
+          
           <H4
             key={`tab-${activeIndex}`}
             className="
@@ -233,7 +148,7 @@ const MobileStickyAutoData = () => {
   return (
     <div className="w-full max-w-8xl pt-48 lg:pt-64 lg:pb-36  " >
       {/* Header - Not part of sticky scroll */}
-      <div className=" text-left  lg:mx-0  mx-6 lg:text-center      ">
+      <div className=" text-left px-10 xl:mx-0  mx-6 xl:text-center      ">
         <H2 className="  font-bold text-[#020059] mb-4">
           Lorem ipsum dolor sit amet Lorem
         </H2>
@@ -252,12 +167,12 @@ const MobileStickyAutoData = () => {
             {/* Main Content */}
             <div className="flex gap-8 items-start pt-10">
               {/* Left Sidebar - Tabs (20%) */}
-              <div className=' w-[30%] lg:w-[20%] '>
-              <div className="flex-shrink-0 space-y-6">
+              <div className=' w-[30%] xl:w-[20%] '>
+              <div className="flex-shrink-0 space-y-6 lg:space-y-4 xl:space-y-6" >
                 {tabs.map((tab, index) => (
                   <H4
                     key={index}
-                    className={`    p-4 lg:p-6 text-center rounded-xl transition-all duration-500 ${
+                    className={`    p-4 xl:p-6 text-center rounded-xl transition-all duration-700 ${
                       index === activeTab
                         ? 'bg-[#5551FF] text-white shadow-lg scale-105'
                         : index < activeTab
@@ -271,12 +186,12 @@ const MobileStickyAutoData = () => {
               </div>
 </div>
               {/* Right Content - Image (80%) */}
-              <div className=" w-[70%] lg:w-[80%] pl-10 pt-1 flex-shrink-0">
+              <div className=" w-[70%] xl:w-[80%] pl-10 pt-1 flex-shrink-0">
                 <div className="  overflow-hidden">
                   <img 
                     src={images[activeTab]} 
                     alt={`Content ${activeTab + 1}`}
-                    className="w-full  h-[350px] lg:h-[500px] object-cover rounded-xl transition-all duration-700"
+                    className="w-full  h-[350px] xl:h-[500px] object-cover rounded-xl transition-all duration-700"
                   />
                 </div>
               </div>

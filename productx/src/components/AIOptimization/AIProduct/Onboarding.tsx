@@ -27,23 +27,23 @@ export default function Onboarding() {
       <div  id="benefits" className="relative max-w-8xl pt-52 lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
-        <H2 className=" mb-8 lg:mb-18  text-left lg:text-center font-semibold text-[#020059]">
+        <H2 className=" mb-8 lg:mb-18  text-left xl:text-center font-semibold text-[#020059]">
           Lorem ipsum dolor sit amet Lorem
         </H2>
 
         {/* WHITE CONTAINER */}
         <div className="rounded-3xl   ">
-          {/* Cards */}
+        
           {/* Cards */}
 <div
   className="
     grid grid-cols-1 gap-8
     sm:grid-cols-2
-    lg:grid-cols-3
+    xl:grid-cols-3
 
     md:flex md:gap-6 md:overflow-x-auto md:snap-x md:snap-mandatory
     md:pb-6 md:-mx-6 md:px-6
-    lg:overflow-visible lg:snap-none lg:px-0 lg:mx-0
+    xl:overflow-visible xl:snap-none lg:px-0 lg:mx-0
   "
 >
   {cards.map((card, i) => (
@@ -57,7 +57,7 @@ export default function Onboarding() {
         hover:shadow-[0_20px_60px_rgba(10,15,60,0.45)]
       
         md:min-w-[55%] md:snap-center  
-        lg:min-w-0
+        xl:min-w-0
       " 
     >
       {/* Image */}

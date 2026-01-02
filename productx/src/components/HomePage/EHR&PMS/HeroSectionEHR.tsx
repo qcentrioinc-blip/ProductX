@@ -11,6 +11,7 @@ import BlogCarousel from "./BlogCarousel";
 import UserProfile from "./UserProfile";
 import EHRFooter from "./EHRFooter";
 import UnifiedFeatureSection from "./UnifiedFeatureSection";
+import Stroke from "../../EHR&PMS/AboutUs/Stroke";
 
 const HeroSectionEHR = () => {
   return (
@@ -23,11 +24,15 @@ const HeroSectionEHR = () => {
       <StickyBackgroundLayout image="/EHRandPMS/StickyImg.jpg">
 
         <Logos />
+        
         <StatsSectionEHR />
+        <div className="relative">
+        <Stroke/>
         <CTASection />
+        
         <WhyQnest />
 
-        
+        </div>
           <UnifiedFeatureSection/>
 
       </StickyBackgroundLayout>

@@ -13,7 +13,7 @@ const Banner = () => {
               Duis aute irure dolor in reprehenderit
             </P>    
           </div>
-      <div className="grid grid-cols-1  lg:grid-cols-[1.9fr_1.2fr] gap-10
+      <div className="grid grid-cols-1  xl:grid-cols-[1.9fr_1.2fr] gap-10
   ">
         {/* LEFT SIDE */}
         
