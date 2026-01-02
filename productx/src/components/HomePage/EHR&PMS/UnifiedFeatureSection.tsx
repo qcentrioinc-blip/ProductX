@@ -1,22 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Drawer } from "@mui/material";
-import { X } from "lucide-react";
 import { H2, H3, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 export default function UnifiedFeatureSection() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-};
-
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setDrawerOpen(false);
-};
   return (
     <div className="relative w-full flex flex-col bg-transparent">
 
@@ -131,85 +121,11 @@ const handleSubmit = (e: React.FormEvent) => {
         </section>
       </div>
 
-      {/* DRAWER */}
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        PaperProps={{ sx: { width: { xs: '100%', sm: '450px' }, backgroundColor: '#F0F9F4' } }}
-      >
-        <div className="p-10 relative h-full">
-          <button
-            onClick={() => setDrawerOpen(false)}
-            className="absolute top-6 right-6 p-2 hover:bg-gray-200  rounded-full"
-          >
-            <X size={24} />
-          </button>
-      
-          <h2 className="text-4xl font-bold mb-8 mt-10 text-[#166D48]">Book a Demo</h2>
-      
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      
-            <input
-              name="name"
-              placeholder="Full Name"
-              onChange={handleInputChange}
-              className="border-2 p-4 rounded-xl outline-none focus:border-[#166D48]"
-            />
-      
-            <input
-              name="email"
-              type="email"
-              placeholder="Email Address"
-              onChange={handleInputChange}
-              className="border-2 p-4 rounded-xl outline-none focus:border-[#166D48]"
-            />
-      
-            <input
-              name="phone"
-              type="tel"
-              placeholder="Mobile Number"
-              onChange={handleInputChange}
-              className="border-2 p-4 rounded-xl outline-none focus:border-[#166D48]"
-            />
-      
-            <div className="flex flex-col gap-2">
-        <label className="font-semibold text-gray-700 text-sm">
-          What are you looking for?
-        </label>
-      
-        <select
-          name="interest"
-          onChange={handleInputChange}
-          className="border-2 border-gray-300 p-4 rounded-xl bg-white outline-none focus:border-[#166D48]"
-        >
-          <option value="">Select an option</option>
-          <option value="Product Enquiry">Product Enquiry</option>
-          <option value="Partnership">Partnership</option>
-          <option value="Support">Support</option>
-          <option value="Careers">Careers</option>
-          <option value="Others">Others</option>
-        </select>
-      </div>
-      
-      
-            <textarea
-              name="message"
-              rows={4}
-              placeholder="Message"
-              onChange={handleInputChange}
-              className="border-2 p-4 rounded-xl resize-none outline-none focus:border-[#166D48]"
-            />
-      
-            <button
-              type="submit"
-              className="bg-[#166D48] text-white p-4 rounded-xl font-bold text-lg hover:bg-[#125a3a] transition"
-            >
-              Submit Request
-            </button>
-          </form>
-        </div>
-      </Drawer>
+      <ContactDrawer
+  open={drawerOpen}
+  onClose={() => setDrawerOpen(false)}
+/>
+
 
     </div>
   );

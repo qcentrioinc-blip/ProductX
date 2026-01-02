@@ -1,9 +1,8 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Drawer } from "@mui/material";
-import { X } from "lucide-react";
 import { ContactUs } from "../../../styles/Button";
+import ContactDrawer from "../Navbar/ContactDrawer";
 
 const ContactSection: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,7 +39,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="relative w-full h-[50vh] bg-[#F1FBF5] overflow-hidden px-10 py-20"
+      className="relative w-full h-[71vh] md:h-[30vh] xl:h-[50vh] bg-[#F1FBF5] overflow-hidden px-10 py-20"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10 max-w-7xl mx-auto">
 
@@ -95,33 +94,7 @@ const ContactSection: React.FC = () => {
         transition={{ delay: 0.8 }}
       />
 
-      {/* DRAWER */}
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        PaperProps={{ sx: { width: { xs: "100%", sm: 420 }, backgroundColor: "#F0F9F4" } }}
-      >
-        <div className="p-8 relative h-full">
-          <button
-            onClick={() => setDrawerOpen(false)}
-            className="absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-full"
-          >
-            <X size={22} />
-          </button>
-
-          <h2 className="text-3xl font-bold text-[#166D48] mb-6 mt-8">Book a Demo</h2>
-
-          <form className="space-y-5">
-            <input placeholder="Name" className="w-full p-4 border rounded-lg" />
-            <input placeholder="Email" className="w-full p-4 border rounded-lg" />
-            <textarea placeholder="Message" rows={4} className="w-full p-4 border rounded-lg resize-none" />
-            <button className="bg-[#166D48] text-white w-full p-4 rounded-lg font-semibold">
-              Submit Request
-            </button>
-          </form>
-        </div>
-      </Drawer>
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </section>
   );
 };
