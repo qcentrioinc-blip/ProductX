@@ -24,11 +24,7 @@ const FirstProduct = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
-      />
-
-     
-
-     
+      />  
 
       <div className="relative lg:pt-44 z-10 px-4 sm:px-6 lg:px-8 py-16">
         <div className="relative flex flex-col items-center justify-center min-h-screen">
@@ -118,6 +114,7 @@ const FirstProduct = () => {
                 width: '700px',
                 height: '700px',
                 bottom: '-250px',
+                top: '50%',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 zIndex: 0,
