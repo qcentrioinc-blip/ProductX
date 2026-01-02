@@ -14,11 +14,11 @@ const Enterprises = () => {
 
       {/* Heading */}
       <div className="max-w-4xl mx-4 lg:mx-10 text-left mb-16">
-        <H2>Itaque earum rerum hic 
+        <H2>Itaque earum rerum hic
           <br />
-          <span className="text-[#2B68C3]">tenetur a sapiente </span> 
-           delectus</H2>
-        
+          <span className="text-[#2B68C3]">tenetur a sapiente </span>
+          delectus</H2>
+
       </div>
 
       {/* ------------------------- */}
@@ -31,14 +31,14 @@ const Enterprises = () => {
           <div >
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
             <P className="pt-4 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
             </P>
           </div>
 
           <motion.img
             src={Image1}
             alt="Enterprise 1"
-            className=" mt-2 rounded-md object-cover w-full h-[600px]"
+            className=" mt-2 rounded-md object-cover w-full lg:h-[520px] xl:h-[650px]"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -50,16 +50,16 @@ const Enterprises = () => {
         {[2, 3].map((i, index) => (
           <div key={i} className="bg-white text-black rounded-lg p-6 flex flex-col justify-between">
             <div>
-               <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-4 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
-            </P>
+              <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+              <P className="pt-4 ">
+                Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
+              </P>
             </div>
 
             <motion.img
               src={Image3}
               alt={`Enterprise ${i}`}
-              className="mt-6 rounded-md object-cover w-full h-40 md:h-48"
+              className="mt-6 rounded-md object-cover w-full h-40 md:h-48 lg:h-36 xl:h-48"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -73,14 +73,14 @@ const Enterprises = () => {
           <div>
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
             <P className="pt-4 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
+              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
             </P>
           </div>
 
           <motion.img
             src={Image2}
             alt="Enterprise 4"
-            className="mt-6 rounded-md object-cover w-full h-40 md:h-64"
+            className="mt-6 rounded-md object-cover w-full h-40 md:h-64 lg:h-48 xl:h-64"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -92,14 +92,14 @@ const Enterprises = () => {
       {/* ------------------------- */}
       {/* MOBILE + TABLET SLIDER */}
       {/* ------------------------- */}
-      <div className="lg:hidden flex gap-6 overflow-x-auto snap-x  h-[500px] snap-mandatory px-4 pb-4">
-        
+      <div className="lg:hidden flex gap-6 overflow-x-auto snap-x h-[500px] snap-mandatory px-4 pb-4">
+
         {/* Slider Card 1 */}
         <div className="min-w-[80%] bg-white  text-black rounded-lg p-4 snap-center">
-           <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
-            </P>
+          <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+          <P className="pt-2 ">
+            Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
+          </P>
           <img
             src={Image1}
             className="mt-4 rounded-md object-cover w-full h-[350px]"
@@ -109,9 +109,9 @@ const Enterprises = () => {
         {/* Slider Card 2 */}
         <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
           <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
-            </P>
+          <P className="pt-2 ">
+            Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
+          </P>
           <img
             src={Image2}
             className="mt-4 rounded-md object-cover w-full h-[350px]"
@@ -120,10 +120,10 @@ const Enterprises = () => {
 
         {/* Slider Card 3 */}
         <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
-           <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
-            </P>
+          <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+          <P className="pt-2 ">
+            Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
+          </P>
           <img
             src={Image3}
             className="mt-4 rounded-md object-cover w-full h-[350px]"
@@ -132,10 +132,10 @@ const Enterprises = () => {
 
         {/* Slider Card 4 */}
         <div className="min-w-[80%] bg-white text-black rounded-lg p-4 snap-center">
-         <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
-            <P className="pt-2 ">
-              Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.  
-            </P>
+          <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
+          <P className="pt-2 ">
+            Duis aute irure dolor in reprehenderit in volup velit esse cillum dolore eu fugiat nulla pariatur.
+          </P>
           <img
             src={Image4}
             className="mt-4 rounded-md object-cover w-full h-[350px]"

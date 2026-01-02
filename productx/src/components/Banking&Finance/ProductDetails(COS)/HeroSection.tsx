@@ -212,10 +212,10 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative w-full items-center flex flex-col md:flex-row   px-4 sm:px-8 py-0 md:py-0 max-w-[1440px] mx-auto gap-4 z-10">
+      <div className="relative w-full items-center flex flex-col md:flex-row px-4 sm:px-8 py-0 md:py-0 max-w-[1440px] mx-auto gap-4 z-10">
 
         {/* Text Section */}
-        <div className="relative w-full md:w-1/2 flex  mt-10 flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-0">
+        <div className="relative w-full md:w-1/2 flex  mt-10 flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-25">
           <H1 className="mb-6  text-[#202020]">
             Lorem ipsum dolor, consectetur adipis
           </H1>
