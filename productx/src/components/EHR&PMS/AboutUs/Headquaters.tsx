@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { H2, H4, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const Headquarters = () => {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
   const locations = [
     {
       flagUrl: "/AboutUs/India.png",
@@ -57,7 +60,12 @@ const Headquarters = () => {
               cillum dolore eu fugiat nulla pariatur. Duis aute irure.
             </P>
 
-            <ContactUs>SUBMIT APPLICATION</ContactUs>
+            <ContactUs
+                onClick={(e) => {
+                  e.preventDefault();
+                  setDrawerOpen(true);
+                }}
+              >SUBMIT APPLICATION</ContactUs>
           </div>
         </div>
 
@@ -122,6 +130,8 @@ const Headquarters = () => {
         </div>
 
       </div>
+            <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+
     </div>
   );
 };
