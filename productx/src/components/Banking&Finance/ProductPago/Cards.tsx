@@ -19,18 +19,18 @@ export default function Cards() {
   ];
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 lg:py-20">
-      <div className="max-w-8xl lg:mx-10 px-4  sm:px-8 lg:px-16">
+    <section className="w-full bg-white py-10 md:py-16 xl:py-20">
+      <div className="max-w-8xl xl:mx-10 px-4  sm:px-8 lg:px-16">
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  lg:py-10 lg:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  xl:py-10 xl:gap-14">
 
           {cards.map((card, i) => (
            <div
   key={i}
   className="bg-[#F5DDA9] rounded-xl shadow-md
-             flex flex-col md:flex-col md:items-center  lg:flex-row
-             p-6 sm:p-8 md:px-0 md:py-8 py-10 lg:py-20 gap-6 sm:gap-10"
+             flex flex-col md:flex-col md:items-center  xl:flex-row
+             p-6 sm:p-8 md:px-0 md:py-8 py-10 xl:py-20 gap-6 sm:gap-10"
 >
 
 

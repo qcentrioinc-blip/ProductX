@@ -2,19 +2,19 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 const features = [
     {
-        title: "We onboard users",
+        title: "Azure Cost Savings",
         description:
-            "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+            "CloudDIET checks your Azure setup, finds waste in resources and plans, and suggests fixes to cut costs by 30% on average. ",
     },
     {
-        title: "We onboard users",
+        title: "​Safe Setup Help",
         description:
-            "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+            "We use read-only access to check billing and configs only, and help make changes to get savings fast. ",
     },
     {
-        title: "We onboard users",
+        title: "Guaranteed Money Back",
         description:
-            "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+            "Pay only a share of what you save, with targets of 60-70% cuts in six weeks across your Azure accounts. ",
     },
 ];
 
@@ -23,7 +23,7 @@ const ThreeCardAI = () => {
         <section className="w-full bg-[#5551FF] py-16 px-6 md:px-12 lg:px-20">
             {/* Section Title */}
             <div className="max-w-8xl mx-10 text-center mb-12">
-                <H2 className="text-white">Lorem ipsum dolor sit amet Lorem</H2>
+                <H2 className="text-white"> Cloud Savings Across All Industries</H2>
             </div>
 
             {/* Cards Grid */}

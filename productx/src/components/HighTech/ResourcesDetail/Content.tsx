@@ -19,7 +19,7 @@ const Content = () => {
    
 
       <div className="  max-w-8xl lg:mx-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+        <div className="grid grid-cols-1 xl:grid-cols-12  gap-10 xl:gap-20">
           {/* Main Content - Left Side */}
           <div className="lg:col-span-8 space-y-12">
             {/* Introduction */}

@@ -52,17 +52,17 @@ const Statistics = () => {
             <div className="max-w-8xl mx-4 sm:mx-6 md:mx-10 lg:mx-16 ">
                 {/* Heading */}
                 <H2 className="font-bold mb-12 sm:mx-5 md:mb-28">
-                    <span className="text-[#020059]">Lorem ipsum dolor sit amet,</span>
+                    <span className="text-[#020059]">Proven Results from </span>
                     <br />
-                    <span className="text-[#020059]">consectetur adipiscing elit</span>
+                    <span className="text-[#020059]">CloudDIET Deployments</span>
                 </H2>
 
                 {/* Counter Grid - Left Aligned */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
-                    { value: 80, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-                    { value: 10, suffix: "X", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-                    { value: 3.5, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-                    { value: 125, suffix: "", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+                    { value: 30, suffix: "%", text: "Enterprises cut cloud spend without changing project outcomes. " },
+                    { value:1600, suffix: "K", text: "Annual savings via Azure SQL reservations. " },
+                    { value: 10, suffix: "X", text: "Retain 80-90% of savings with pay-for-performance model. " },
+                    { value: 81, suffix: "%", text: "Blended discount from Synapse 3-year reservations. " },
                 ].map((item, index) => (
                     <div
                         key={index}

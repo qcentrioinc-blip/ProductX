@@ -9,9 +9,7 @@ import Feature from "./Feature"
 
 import Gallery from "./Gallery"
 import HeroSection from "./HeroSection"
-// import SubFooter from "./SubFooter"
-// import WorkProfile from "./WorkProfile"
-
+ 
 
 const AboutUs = () => {
   return (

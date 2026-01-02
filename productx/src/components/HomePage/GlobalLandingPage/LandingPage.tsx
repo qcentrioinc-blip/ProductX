@@ -91,25 +91,7 @@ export default function InteractiveHeroSection() {
   return (
     <div className="min-h-screen bg-black">
    
-      {/* <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/95 backdrop-blur-sm">
-        <div className="max-w-8xl mx-4 px-6 py-1 flex items-center justify-between">
-          <Link to="/">
-          <div className="text-white  font-bricolage font-bold text-xl bg-neutral-700 px-4 py-2 rounded">
-          
-            LOGO
-          </div>
-          </Link>
-          <nav className="flex items-center gap-8">
-            <Link to="/platform" className="text-white hover:text-gray-300 transition">Platform</Link>
-            <Link to="/marketplace" className="text-white hover:text-gray-300 transition">Marketplace</Link>
-            <Link to="/contact">
-            <button className="bg-white text-black px-4 py-2 rounded-md font-medium  transition flex items-center gap-2">
-              CONTACT US <ArrowUpRight size={18} />
-            </button>
-           </Link>
-          </nav>
-        </div>
-      </header> */}
+      
       <Navbar/>
 
       {/* Hero Section */}
@@ -118,14 +100,14 @@ export default function InteractiveHeroSection() {
         className="relative transition-colors duration-700"
         
       >
-        <div className="sticky lg:top-10 h-full py-20 flex justify-between items-center pt-20">
+        <div className="sticky xl:top-10 h-full py-20 flex justify-between items-center pt-20">
           <div className="max-w-8xl lg:mx-10 px-4  ">
             <div className="grid grid-cols-1  lg:grid-cols-[2fr_0.8fr] justify-between items-start">
               {/* Left Content */}
               <div className="space-y-4  ">
                 <H1 className="  text-white leading-tight">
                 
-                  End‑to‑End IT, AI, <br className='md:block hidden'/> and Cloud Solution
+                 Shaping The Future <br className='xl:block hidden '/> Across Every Sector
                 </H1>
                 <P className="text-gray-300 max-w-xl leading-relaxed  w-full  ">
                   Qnest Global helps businesses modernize with AI, CRM, HRM, and secure cloud platforms. Our teams design, build, and manage solutions that improve efficiency, cut risk, and support long‑term growth.
@@ -164,7 +146,7 @@ export default function InteractiveHeroSection() {
 
 
               {/* Right Content - Industry Cards */}
-              <div className="space-y-3 flex flex-col pl-60 items-end w-full">
+              <div className="space-y-4 flex flex-col ml-44 items-end w-full">
                 {industries.map((industry, index) => (
                   <IndustryCard
                     key={index}

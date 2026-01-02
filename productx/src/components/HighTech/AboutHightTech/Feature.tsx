@@ -22,7 +22,7 @@ const Feature = () => {
   return (
     <div className="bg-black h-auto py-20   px-6  ">
       <div className="max-w-8xl  lg:mx-10">
-        <div className="grid grid-cols-1 xs:grid-cols-1 justify-between md:grid-cols-3 gap-8 lg:gap-60">
+        <div className="grid grid-cols-1 xs:grid-cols-1 justify-between md:grid-cols-3 gap-8 xl:gap-60">
           {features.map((feature) => (
             <div key={feature.number} className="flex flex-col ">
               <div className="mb-4  ">

@@ -6,83 +6,42 @@ const Stroke = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["start center", "end center"],
   });
 
-  // Smooth delayed growth
-  const grow = useTransform(scrollYProgress, [0.2, 0.85], [0, 1]);
+  // Controls drawing progress
+  const draw = useTransform(scrollYProgress, [0.15, 0.9], [1, 0]);
 
   return (
-    <div ref={ref} className="absolute inset-0 pointer-events-none z-[999]">
+    <div
+      ref={ref}
+      className="absolute inset-0 pointer-events-none z-[10]]"
+    >
       <svg
+        viewBox="0 0 100 100"
         width="100%"
         height="100%"
-        viewBox="0 0 120 160"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid meet"
+        preserveAspectRatio="none"
       >
-        {/* ================= GUIDE (WHITE) ================= */}
+    <motion.path
+  d="
+    M 52 8
+    C 48 18, 62 26, 70 38
+    C 78 50, 68 66, 58 78
+  "
+  stroke="#166D48"
+  strokeWidth="0.1"
+  fill="none"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  pathLength={1}
+  style={{
+    strokeDasharray: 1,
+    strokeDashoffset: draw,
+  }}
+/>
 
-        <path
-          d="
-            M 90 20
-            C 30 10, 20 90, 70 95
-            C 95 98, 100 75, 80 65
-            S 55 75, 60 105
-            C 62 130, 70 145, 78 155
-          "
-          stroke="rgba(255,255,255,0.5)"
-          strokeWidth="0.2"
-          fill="none"
-          strokeLinecap="round"
-        />
-
-        <path
-          d="
-            M 92 20
-            C 32 12, 22 92, 72 97
-            C 97 100, 102 77, 82 67
-            S 57 77, 62 107
-            C 64 132, 72 147, 80 157
-          "
-          stroke="rgba(255,255,255,0.5)"
-          strokeWidth="0.2"
-          fill="none"
-          strokeLinecap="round"
-        />
-
-        {/* ================= ANIMATED (GREEN) ================= */}
-
-        <motion.path
-          d="
-            M 90 20
-            C 30 10, 20 90, 70 95
-            C 95 98, 100 75, 80 65
-            S 55 75, 60 105
-            C 62 130, 70 145, 78 155
-          "
-          stroke="#9FE7C1"
-          strokeWidth="0.2"
-          fill="none"
-          strokeLinecap="round"
-          style={{ pathLength: grow }}
-        />
-
-        <motion.path
-          d="
-            M 92 20
-            C 32 12, 22 92, 72 97
-            C 97 100, 102 77, 82 67
-            S 57 77, 62 107
-            C 64 132, 72 147, 80 157
-          "
-          stroke="#9FE7C1"
-          strokeWidth="0.2"
-          fill="none"
-          strokeLinecap="round"
-          style={{ pathLength: grow }}
-        />
       </svg>
     </div>
   );
