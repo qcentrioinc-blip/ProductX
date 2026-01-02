@@ -573,13 +573,29 @@ const ChatbotButton: React.FC = () => {
                         aria-label="Open chat"
                     >
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 sm:w-5 sm:h-5" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" fill="#0670d3" />
-                                <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                                <circle cx="9" cy="10" r="1" fill="white" />
-                                <circle cx="15" cy="10" r="1" fill="white" />
+                            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" stroke="#0670d3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                {/* Robot Head Box */}
+                                <path d="M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2z" />
+
+                                {/* Robot Smile */}
+                                <path d="M9 16c1 .667 2 1 3 1s2 -.333 3 -1" />
+
+                                {/* Left Antenna */}
+                                <path d="M9 7l-1 -4" />
+
+                                {/* Right Antenna */}
+                                <path d="M15 7l1 -4" />
+
+                                {/* Left Eye */}
+                                <path d="M9 12v-1" />
+
+                                {/* Right Eye */}
+                                <path d="M15 12v-1" />
                             </svg>
                         </div>
+
+
+
                         <span className="text-sm sm:text-[17px] font-semibold whitespace-nowrap">
                             Ask Agentforce
                         </span>

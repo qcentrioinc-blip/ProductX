@@ -7,7 +7,7 @@ export default function HeroSection() {
   const animatedRef = useRef<HTMLDivElement | null>(null);
   const [hasEntered, setHasEntered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   const yellowGradientStyle = {
     background: 'linear-gradient(90deg, rgba(255, 215, 0, 0.4) -16.96%, rgba(255, 215, 0, 0.2) 51.92%)',
   };
@@ -52,10 +52,10 @@ export default function HeroSection() {
           blueBox.style.transform = 'translateY(0)';
         }
         blueBox.style.opacity = '1';
-        
+
         const cleanupTimer = setTimeout(() => {
           blueBox.style.transition = '';
-        }, 1000); 
+        }, 1000);
 
         return () => clearTimeout(cleanupTimer);
       } else {
@@ -72,14 +72,14 @@ export default function HeroSection() {
 
   return (
     <section
-      ref={sectionRef} 
-      className="w-full lg:h-screen relative overflow-hidden flex lg:items-center " 
+      ref={sectionRef}
+      className="w-full lg:h-screen relative overflow-hidden flex items-start lg:items-start xl:items-center"
       style={{ minHeight: '800px', ...yellowGradientStyle }}
     >
-      
+
       {/* Shape - Desktop Only */}
       {!isMobile && (
-        <div 
+        <div
           className="absolute hidden md:block z-0"
           style={{
             width: '1100.75px',
@@ -99,9 +99,9 @@ export default function HeroSection() {
           />
         </div>
       )}
-      
+
       {/* Blue/Orange Animated Background Container */}
-      <div 
+      <div
         ref={animatedRef}
         className="absolute shadow-2xl overflow-hidden"
         style={{
@@ -111,7 +111,7 @@ export default function HeroSection() {
             left: '0',
             height: '45%',
             width: '85%',
-            
+
             borderRadius: '0 9999px 9999px 0',
             borderBottom: '24px solid #F99526',
           } : {
@@ -126,23 +126,21 @@ export default function HeroSection() {
         }}
       >
         {/* Digital Grid Animation */}
-        <div className={`absolute inset-0 z-5 transition-all duration-800 ease-out ${
-          hasEntered ? 'opacity-100' : 'opacity-0'
-        }`} style={{
-          backgroundImage: `
+        <div className={`absolute inset-0 z-5 transition-all duration-800 ease-out ${hasEntered ? 'opacity-100' : 'opacity-0'
+          }`} style={{
+            backgroundImage: `
             linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '20px 20px',
-          animation: hasEntered ? 'gridPulse 2s ease-in-out' : 'none',
-        }}/>
+            backgroundSize: '20px 20px',
+            animation: hasEntered ? 'gridPulse 2s ease-in-out' : 'none',
+          }} />
 
         {/* Grid Sweep Animation (Left to Right) - Mobile Only */}
         {isMobile && (
-          <div 
-            className={`absolute inset-0 z-6 transition-opacity duration-500 ${
-              hasEntered ? 'opacity-100' : 'opacity-0'
-            }`}
+          <div
+            className={`absolute inset-0 z-6 transition-opacity duration-500 ${hasEntered ? 'opacity-100' : 'opacity-0'
+              }`}
             style={{
               background: 'linear-gradient(90deg, rgba(59, 130, 246, 0.6) 0%, transparent 30%)',
               backgroundSize: '300% 100%',
@@ -167,25 +165,23 @@ export default function HeroSection() {
         />
 
         {/* Holographic Overlay Effect */}
-        <div className={`absolute inset-0 z-15 transition-all duration-1000 ease-out ${
-          hasEntered ? 'opacity-30' : 'opacity-0'
-        }`} style={{
-          background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)',
-          backgroundSize: '200% 200%',
-          animation: hasEntered ? 'hologramShift 3s ease-in-out infinite' : 'none',
-        }}/>
+        <div className={`absolute inset-0 z-15 transition-all duration-1000 ease-out ${hasEntered ? 'opacity-30' : 'opacity-0'
+          }`} style={{
+            background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)',
+            backgroundSize: '200% 200%',
+            animation: hasEntered ? 'hologramShift 3s ease-in-out infinite' : 'none',
+          }} />
 
         {/* Data Stream Lines */}
-        <div className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ${
-          hasEntered ? 'opacity-0' : 'opacity-100'
-        }`} style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%)',
-          backgroundSize: '200% 100%',
-          animation: hasEntered ? 'none' : 'dataStream 1.5s ease-in-out infinite',
-        }}/>
+        <div className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ${hasEntered ? 'opacity-0' : 'opacity-100'
+          }`} style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%)',
+            backgroundSize: '200% 100%',
+            animation: hasEntered ? 'none' : 'dataStream 1.5s ease-in-out infinite',
+          }} />
 
         {/* Data Scan Light Bar */}
-        <div 
+        <div
           className={`absolute inset-0 z-25 transition-transform duration-500 ease-in-out pointer-events-none`}
           style={{
             transform: hasEntered ? 'translateY(100%)' : 'translateY(-100%)',
@@ -215,10 +211,10 @@ export default function HeroSection() {
           }
         `}</style>
       </div>
-      
+
       {/* Main Content Container (Text + Button) */}
-      <div 
-        className="relative z-10 w-full flex flex-col px-4  sm:px-8 md:pt-10 pt-10 md:py-10 md:mb-10 "
+      <div
+        className="relative z-10 w-full flex flex-col px-4 sm:px-8 py-20 xl:py-10 lg:top-30 xl:top-0"
         style={{
           ...(isMobile ? {} : {
             alignItems: 'flex-start',
@@ -227,9 +223,9 @@ export default function HeroSection() {
           })
         }}
       >
-        
-        <div 
-          className="w-full flex flex-col justify-between text-gray-900  md:pt-10"
+
+        <div
+          className="w-full flex flex-col justify-between text-gray-900"
           style={{
             ...(isMobile ? {
               alignItems: 'center',
@@ -241,7 +237,7 @@ export default function HeroSection() {
             })
           }}
         >
-          <H1 className="mb-4  pt-10 md:pt-22">
+          <H1 className="mb-4 text-3xl md:text-5xl font-bold leading-tight">
             Lorem ipsum dolor,<br /> consectetur adipis
           </H1>
           <p className="mb-8 text-gray-700 max-w-[550px]">
@@ -249,10 +245,10 @@ export default function HeroSection() {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
           </p>
           <Link to="/industries/banking-and-finance/contactform">
-          <button className="inline-flex items-center mb-20 text-sm font-semibold rounded-lg py-3 px-6 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-md text-white">
-            CONTACT US →
-          </button>
-         </Link> 
+            <button className="inline-flex items-center mb-20 text-sm font-semibold rounded-lg py-3 px-6 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-md text-white">
+              CONTACT US →
+            </button>
+          </Link>
         </div>
       </div>
     </section>

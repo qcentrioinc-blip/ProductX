@@ -24,75 +24,75 @@ const ProductsPage2 = () => {
 
   useEffect(() => {
     if (scrollableContainerRef) {
-        scrollableContainerRef.scrollTo(0, {
-            offset: 0,
-            immediate: false,
-        });
+      scrollableContainerRef.scrollTo(0, {
+        offset: 0,
+        immediate: false,
+      });
     } else {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        });
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     }
-}, [scrollableContainerRef]);
+  }, [scrollableContainerRef]);
 
   return (
     <>
-    
-    {/* <ScrollProvider>  */}
-    <BNFNav/>
-    
-   
+
+      {/* <ScrollProvider>  */}
+      <BNFNav />
+
+
       <Overview />
-   
-    <HeroBottomNavbar/>
-   
-     
+
+      <HeroBottomNavbar />
+
+
       <div id="overview">
         <ThirdCards />
-        
-      </div>
-      
 
-     <div id="benefits">
-      <ThreeTab /> 
-       </div> 
-       <FiveCards />
+      </div>
+
+
+      <div id="benefits">
+        <ThreeTab />
+      </div>
+      <FiveCards />
       <TwoPart />
-     
+
       {/* <ArrowBuilding /> */}
       <div id="process"> <NewsLetter /></div>
-     
-        <div id="usecases">
+
+      <div id="usecases">
         <HWD />
       </div>
-   <div id="faq">
-     <FaqSection />
-     </div>
+      <div id="faq">
+        <FaqSection />
+      </div>
       <div id="blogs">
         <InsightThought />
       </div>
-       <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
+      <div className="relative">
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
         <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+          <NewOneFooter />
         </div>
- 
-         
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
+
       </div>
-       </>
+    </>
     // </ScrollProvider>
   )
 }

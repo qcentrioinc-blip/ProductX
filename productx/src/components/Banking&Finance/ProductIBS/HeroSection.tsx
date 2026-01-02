@@ -13,23 +13,23 @@ const HeroSec = () => {
 
   const scrollableContainerRef = useContext(ScrollContext);
 
-    useEffect(() => {
-        // Scroll the ScrollContext container to top
-        if (scrollableContainerRef) {
-            (scrollableContainerRef as any).scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            // Fallback to window scroll if ScrollContext not available
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-    }, [scrollableContainerRef]);
+  useEffect(() => {
+    // Scroll the ScrollContext container to top
+    if (scrollableContainerRef) {
+      (scrollableContainerRef as any).scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      // Fallback to window scroll if ScrollContext not available
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, [scrollableContainerRef]);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   // FIX: Type the event 'e' as a React Mouse Event on an HTMLImageElement
@@ -113,7 +113,7 @@ const HeroSec = () => {
 
   return (
     <section className="relative w-full bg-[#2B68C3] pt-[85px] pb-[35px] overflow-hidden h-full">
-      
+
       {/* FIX: Use a regular <style> tag instead of <style jsx> */}
       <style>{`
         @keyframes pulse-glow {
@@ -132,18 +132,18 @@ const HeroSec = () => {
         }
       `}</style>
 
-      <div className="max-w-8xl mx-10 px-6 lg:px-12 flex flex-col items-center lg:items-start gap-4">
+      <div className="max-w-8xl mx-10 px-6 lg:px-12 flex flex-col items-center lg:items-center xl:items-start gap-4">
 
         {/* === TOP ROW: Heading + Avatars + Paragraph === */}
-        <div className="w-full flex flex-col lg:pt-24 lg:flex-row justify-between items-center lg:items-start gap-8">
+        <div className="w-full flex flex-col lg:pt-16 xl:pt-24 lg:flex-col xl:flex-row justify-between items-center lg:items-center xl:items-start gap-8">
           {/* Left: Heading + Avatars */}
-          <div className="flex flex-col flex-1 w-full max-w-[700px]">
-            <H1 className="mb-6 leading-tight text-white text-center z-20 lg:text-left">
+          <div className="flex flex-col flex-1 w-full max-w-[700px] items-center lg:items-center xl:items-start">
+            <H1 className="mb-6 leading-tight text-white text-center lg:text-center xl:text-left z-20 order-2 lg:order-2 xl:order-1">
               Lorem ipsum dolor, consectetur adipis
             </H1>
 
             {/* Avatar Group */}
-            <div className="flex items-center justify-center lg:justify-start gap-4">
+            <div className="flex items-center justify-center lg:justify-center xl:justify-start gap-4 order-1 lg:order-1 xl:order-2 mb-6 xl:mb-0">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
@@ -155,20 +155,20 @@ const HeroSec = () => {
               <P className="text-white/90 z-20">Trusted by 15k+</P>
             </div>
 
-            {/* Paragraph (Visible for Mobile only) */}
-            <div className="mt-6 lg:hidden bg-white/90 rounded-xl p-3 shadow-md z-20 xs:max-w-[350px] items-center mx-[1px] lg:mx-0 md:px-5">
-              <P className="text-start text-[#2B68C3] leading-relaxed">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. 
+            {/* Paragraph (Visible for Mobile and iPad Pro) */}
+            <div className="mt-6 lg:mt-8 block xl:hidden bg-white/90 rounded-xl p-3 shadow-md z-20 xs:max-w-[350px] items-center mx-[1px] lg:mx-0 md:px-5 order-3">
+              <P className="text-center lg:text-center text-[#2B68C3] leading-relaxed">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
               </P>
             </div>
           </div>
 
-          {/* Right Paragraph (Visible for 1024px and above) */}
-          <div className="hidden lg:flex flex-1 lg:max-w-md">
+          {/* Right Paragraph (Visible for 1280px and above) */}
+          <div className="hidden xl:flex flex-1 lg:max-w-md">
             <div className="bg-white/90 z-20 rounded-xl p-4 shadow-md mt-20 xl:mt-26 2xl:mt-25">
               <P className="leading-relaxed text-[#2B68C3]">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
               </P>
             </div>
@@ -183,7 +183,7 @@ const HeroSec = () => {
         <div className="w-full flex justify-center mt-16 relative">
           <div className="relative w-full max-w-7xl sm:pt-30 lg:pt-20 flex justify-center items-center">
 
-            {/* Static Shape behind dashboard */} 
+            {/* Static Shape behind dashboard */}
             <img
               src="/ProductPage9/shape.png"
               alt="shape preview"
@@ -195,11 +195,11 @@ const HeroSec = () => {
               ref={imageRef}
               src="https://framerusercontent.com/images/kH2dYUYz6bTbR4cjVTdgUbxd3jk.png?width=2400&height=1350"
               alt="Dashboard preview"
-              className="w-[99%] sm:w-[75%] md:w-[80%] lg:w-full aspect-[16/9] md:h-[500px] rounded-2xl mt-[-60px] border border-gray-200 relative z-20 cursor-pointer md:top-[-40px]"
+              className="w-[99%] sm:w-[75%] md:w-[80%] lg:w-[85%] xl:w-full aspect-[16/9] md:h-[500px] rounded-2xl mt-[-60px] border border-gray-200 relative z-20 cursor-pointer md:top-[-40px]"
               style={{
                 ...transformStyle,
-                transition: isHovering 
-                  ? "transform 0.15s ease-out, box-shadow 0.3s ease" 
+                transition: isHovering
+                  ? "transform 0.15s ease-out, box-shadow 0.3s ease"
                   : "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
                 transformStyle: "preserve-3d",
                 willChange: "transform",
