@@ -120,9 +120,9 @@ const filteredPosts = blogPosts.filter(
     (post) => post.category === activeCategory
   );
   return (
-  <div className="min-h-screen bg-black pt-6 lg:pt-10 pb-20 px-4">
+  <div className="min-h-screen bg-black pt-6 xl:pt-10 pb-20 px-4">
       <div className="max-w-8xl lg:mx-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
              

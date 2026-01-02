@@ -121,7 +121,7 @@ const animate = () => {
     <>
     <section
       ref={sectionRef}
-      className="relative w-full bg-gray-50   py-20 overflow-hidden h-screen"
+      className="relative w-full bg-gray-50   pt-20 overflow-hidden h-[70vh] lg:h-[50vh] xl:h-screen"
     >
       {/* Images */}
       {images.map((img, index) => {
@@ -133,25 +133,30 @@ const animate = () => {
 
   return (
     <React.Fragment key={img.id}>
-      <div
-        className="absolute"
-        style={{
-          left: `${pos.x}px`,
-          top: `${pos.y + overlapOffset}px`,
-          zIndex:10,
-          opacity: isVisible ? 1 : 0,
-         transition: "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+     <div
+  className={`absolute pb-20
+    ${img.side === "right" ? "hidden xl:block" : "block"}
+  `}
+  style={{
+    left: `${pos.x}px`,
+    top: `${pos.y + overlapOffset}px`,
+    zIndex: 10,
+    opacity: isVisible ? 1 : 0,
+    transition:
+      "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+    transform: isVisible
+      ? "translate(-50%, -50%) translateY(0)"
+      : "translate(-50%, -50%) translateY(-600px)",
+  }}
+>
 
-          transform: isVisible
-            ? "translate(-50%, -50%) translateY(0)"
-            : "translate(-50%, -50%) translateY(-600px)",
-          
-
-        }}
-      >
         <div
-          className="floating-card rounded-xl overflow-hidden relative shadow-lg"
-          style={{ width: 150, height: 200 }}
+          className="floating-card rounded-xl overflow-hidden relative shadow-lg
+           w-[90px] h-[120px]
+    sm:w-[110px] sm:h-[150px]
+    md:w-[130px] md:h-[180px]
+    
+    xl:w-[150px] xl:h-[200px]"
         >
           <img
             src={img.src}

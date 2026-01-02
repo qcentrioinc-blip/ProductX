@@ -4,35 +4,35 @@ const Frontier = () => {
     const features = [
         {
             id: 1,
-            title: "Frontier intelligence, tailored to You and business",
+            title: "Engineering-led Azure profiling for deep cost insights ",
             description:
-                "Make your AI your own. Train, distill, fine-tune, and build with the world's best open source models.",
+                "CloudDIET checks your Azure resources, usage, and bills to spot extra costs in services and regions without accessing your data. ",
         },
         {
             id: 2,
-            title: "Frontier intelligence, tailored to You and business",
+            title: "AI-driven analysis across IaaS, PaaS, and licensing",
             description:
-                "Make your AI your own. Train, distill, fine-tune, and build with the world's best open source models.",
+                "Hundreds of tests find wrong setups, oversized resources, and bad plans that other tools miss for real savings. ",
         },
         {
             id: 3,
-            title: "Frontier intelligence, tailored to You and business",
+            title: "Actionable savings recommendations with implementation support",
             description:
-                "Make your AI your own. Train, distill, fine-tune, and build with the world's best open source models.",
+                "CloudDIET ranks savings by effort and impact, then helps implement selected changes, so teams realize benefits quickly and reliably. ",
         },
         {
             id: 4,
-            title: "Frontier intelligence, tailored to You and business",
+            title: " Secure, read-only access with transparent financial outcomes",
             description:
-                "Make your AI your own. Train, distill, fine-tune, and build with the world's best open source models.",
+                "Using billing and configuration metadata only, CloudDIET assures measurable savings, pay-for-performance pricing, and rapid ROI for global Azure enterprises. ",
         },
     ];
 
     return (
-        <section className="w-full bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-8 lg:px-16">
-            <div className="max-w-8xl mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 lg:px-6">
+        <section className="w-full bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-8 xl:px-10">
+            <div className="max-w-8xl mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 xl:px-6">
 
-                <div className="grid xl:grid-cols-[480px_1fr] gap-12 sm:gap-16 xl:gap-20">
+                <div className="grid xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">
 
                     {/* LEFT COLUMN – fully responsive */}
                     <div className="flex justify-center xl:block">
@@ -49,7 +49,7 @@ const Frontier = () => {
                                     zIndex: 50,
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur
+                               Cloud AI intelligence for modern enterprises
                             </h1>
 
                             {/* Responsive Decorative Boxes */}
@@ -130,7 +130,7 @@ const Frontier = () => {
                     </div>
 
                     {/* RIGHT COLUMN – fully responsive */}
-                    <div className="flex justify-center xl:justify-end lg:my-4">
+                    <div className="flex justify-center  xl:justify-end lg:my-4">
                         <div className="flex flex-col space-y-8 max-w-xl sm:max-w-2xl">
 
                             {features.map((feature, index) => (

@@ -18,7 +18,7 @@ export default function ContactSecHT() {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="w-full lg:w-1/2 bg-[#F79520] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-20">
+        <div className="w-full xl:w-1/2 bg-[#F79520] flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-20">
           <H2 className="text-white leading-tight mb-8 text-3xl sm:text-4xl lg:text-5xl">
             An ecosystem to be part of. Stay in.
           </H2>
