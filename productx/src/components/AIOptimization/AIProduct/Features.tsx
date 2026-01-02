@@ -39,7 +39,7 @@ return (
             viewport={{ once: true }}
             className="flex flex-col gap-6"
           >
-            <div className="lg:flex-row flex flex-col gap-10">
+            <div className="xl:flex-row flex flex-col gap-10">
               {/* Image */}
               <img
                 src={item.image}

@@ -8,8 +8,8 @@ export default function Solutions() {
  <div className="text-center">
      {/* HEADING */}
         <H2 className="   font-bold leading-tight">
-          Our tailored solutions crafted <br />
-          from your problem <br /> statement.
+          Our tailored solutions crafted <br className="xl:block hidden" />
+          from your problem <br className="xl:block hidden" />statement.
         </H2>
 
         {/* DESCRIPTION */}

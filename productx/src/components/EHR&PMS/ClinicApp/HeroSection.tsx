@@ -145,7 +145,7 @@ const HeroSection = () => {
 
               <ContactUs
                 onClick={(e) => {
-                  e.preventDefault();
+                  e.preventDefault(); 
                   setDrawerOpen(true);
                 }}
               >GET PRODUCT DEMO</ContactUs>

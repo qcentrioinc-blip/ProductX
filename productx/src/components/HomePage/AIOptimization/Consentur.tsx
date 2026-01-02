@@ -12,7 +12,7 @@ const Consentur = () => {
                             className="mb-6 xl:mb-0 text-white"
                             
                         >
-                            consectetur
+                          Our Partners  
                         </H2>
 
                         {/* Right Cards Grid */}
