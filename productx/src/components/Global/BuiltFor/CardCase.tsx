@@ -1,115 +1,155 @@
 import { H2, H4, P } from "../../../styles/Typography";
-import { useLocation } from "react-router-dom";
+import {   useParams } from "react-router-dom";
 
-export default function Cardcase() {
-  const { pathname } = useLocation();
-
-  // -------- PAGE CONFIG (BACKGROUND + IMAGE + CARDS) -------- //
-  type PageConfig = {
-    bg: string;
-    image: string;
-    cards: {
-      id: number;
-      title: string;
-      desc: string;
-    }[];
-  };
-
-  const pageConfig: Record<string, PageConfig> = {
-    "/industries/ehr-and-pms/built-for": {
-      bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
-      cards: [
-        {
-          id: 1,
-          title: "AI-Driven Patient Insights",
-          desc: "Get real-time analytics and insights into patient health patterns, workflows, and optimization.",
-        },
-        {
-          id: 2,
-          title: "Clinical Workflow Automation",
-          desc: "Automates repetitive clinical tasks, enabling faster operations across EHR & PMS systems.",
-        },
-        {
-          id: 3,
-          title: "Secure Data Interoperability",
-          desc: "Ensures seamless integration with HIPAA-compliant systems and healthcare platforms.",
-        },
-      ],
-    },
-
-    "/industries/banking-and-finance/built-for": {
-      bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
-      cards: [
-        {
-          id: 1,
-          title: "Fraud Detection Engine",
-          desc: "AI-powered fraud monitoring system that detects anomalies in real-time across transactions.",
-        },
-        {
-          id: 2,
-          title: "Automated Risk Scoring",
-          desc: "Intelligent scoring models that optimize credit risk profiling with precision.",
-        },
-        {
-          id: 3,
-          title: "Smart Financial Dashboards",
-          desc: "Dynamic dashboards that visualize financial data, KPIs, and compliance insights.",
-        },
-      ],
-    },
-
-    "/industries/high-tech/built-for": {
-      bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
-      cards: [
-        {
-          id: 1,
-          title: "Intelligent Automation",
-          desc: "Enhance your tech workflows with end-to-end automation using advanced AI models.",
-        },
-        {
-          id: 2,
-          title: "Predictive System Monitoring",
-          desc: "Monitor and predict system failures, performance drops, and optimization opportunities.",
-        },
-        {
-          id: 3,
-          title: "High-Performance Engineering Tools",
-          desc: "Boost engineering pipelines with AI-enhanced developer tools and system accelerators.",
-        },
-      ],
-    },
-
-    "/industries/ai-optimization/built-for": {
+ ;
+ 
+const CARD_CONFIG: Record<
+  string,
+  Record<
+    string,
+    {
+      bg: string;
+      image: string;
+      heading: string;
+      cards: {
+        id: number;
+        title: string;
+        desc: string;
+      }[];
+    }
+  >
+> = {
+  "ai-optimization": {
+    enterprises: {
       bg: "#E3FFF4",
       image: "/BuiltFor/img6.jpg",
+      heading: " Azure Spend Issues",
       cards: [
-        {
-          id: 1,
-          title: "Intelligent Automation",
-          desc: "Enhance your tech workflows with end-to-end automation using advanced AI models.",
-        },
-        {
-          id: 2,
-          title: "Predictive System Monitoring",
-          desc: "Monitor and predict system failures, performance drops, and optimization opportunities.",
-        },
-        {
-          id: 3,
-          title: "High-Performance Engineering Tools",
-          desc: "Boost engineering pipelines with AI-enhanced developer tools and system accelerators.",
-        },
+        { id: 1, title: "Hidden Scale", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" },
+        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. " },
+        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ." },
       ],
     },
-  };
 
-  // -------- DEFAULT FALLBACK (BANKING & FINANCE) -------- //
+    "digital-native": {
+      bg: "#E3FFF4",
+      image: "/BuiltFor/img6.jpg",
+      heading: "SaaS Cost Problems",
+      cards: [
+        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. " },
+        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. " },
+        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. " },
+      ],
+    },
+
+    smb: {
+      bg: "#E3FFF4",
+      image: "/BuiltFor/img6.jpg",
+      heading: "Industry Struggles Today",
+      cards: [
+        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. " },
+        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " },
+        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend." },
+      ],
+    },
+  },
+
+  "banking-and-finance": {
+    banks: {
+      bg: "#F2F2F2",
+      image: "/BuiltFor/img1.jpg",
+      heading: "Technology Challenges in Banking",
+      cards: [
+        { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." },
+        { id: 2, title: "Regulatory Complexity", desc: "Compliance increases operational cost." },
+        { id: 3, title: "Fraud Risk", desc: "Real-time detection requires advanced systems." },
+      ],
+    },
+
+    nbfc: {
+      bg: "#F2F2F2",
+      image: "/BuiltFor/img1.jpg",
+      heading: "NBFC Operational Challenges",
+      cards: [
+        { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical." },
+        { id: 2, title: "Risk Management", desc: "Credit risk requires precision." },
+        { id: 3, title: "Data Visibility", desc: "Fragmented data reduces insight." },
+      ],
+    },
+
+    "credit-union": {
+      bg: "#F2F2F2",
+      image: "/BuiltFor/img1.jpg",
+      heading: "Credit Union Technology Gaps",
+      cards: [
+        { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential." },
+        { id: 2, title: "Member Experience", desc: "Digital expectations are rising." },
+        { id: 3, title: "Security Concerns", desc: "Protecting member data is critical." },
+      ],
+    },
+  },
+
+  "ehr-and-pms": {
+    hospitals: {
+      bg: "#EEFDD9",
+      image: "/BuiltFor/img4.jpg",
+      heading: "Hospital System Challenges",
+      cards: [
+        { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." },
+        { id: 2, title: "Data Interoperability", desc: "Clinical data is siloed." },
+        { id: 3, title: "Operational Inefficiency", desc: "Manual workflows increase cost." },
+      ],
+    },
+
+    clinics: {
+      bg: "#EEFDD9",
+      image: "/BuiltFor/img4.jpg",
+      heading: "Clinic Management Challenges",
+      cards: [
+        { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks." },
+        { id: 2, title: "Limited Scalability", desc: "Systems don’t grow with clinics." },
+        { id: 3, title: "Patient Experience", desc: "Slow processes impact satisfaction." },
+      ],
+    },
+  },
+
+  "high-tech": {
+    startups: {
+      bg: "#EFEFEF",
+      image: "/BuiltFor/img5.jpg",
+      heading: "Startup Engineering Challenges",
+      cards: [
+        { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt." },
+        { id: 2, title: "Cost Visibility", desc: "Cloud spend grows unnoticed." },
+        { id: 3, title: "Scaling Infrastructure", desc: "Systems break under growth." },
+      ],
+    },
+
+    enterprises: {
+      bg: "#EFEFEF",
+      image: "/BuiltFor/img5.jpg",
+      heading: "Enterprise High-Tech Challenges",
+      cards: [
+        { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." },
+        { id: 2, title: "Security at Scale", desc: "Risk increases with complexity." },
+        { id: 3, title: "Operational Efficiency", desc: "Optimization lags innovation." },
+      ],
+    },
+  },
+};
+
+export default function Cardcase() {
+    const { industry, builtForType } = useParams<{
+    industry: string;
+    builtForType: string;
+  }>();
+
   const config =
-    pageConfig[pathname] || pageConfig["/industries/banking-and-finance/built-for"];
+    CARD_CONFIG[industry ?? ""]?.[builtForType ?? ""];
 
-
+  if (!config) return null;
+ 
+ 
   return (
     <section
       className="relative w-full py-10 xl:py-20 overflow-hidden"
@@ -129,7 +169,7 @@ export default function Cardcase() {
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-8xl mx-10 md:px-10 md:pr-40">
-        <H2 className="mb-10">UndeSed ut perspiciatis</H2>
+        <H2 className="mb-10">{config.heading}</H2>
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">

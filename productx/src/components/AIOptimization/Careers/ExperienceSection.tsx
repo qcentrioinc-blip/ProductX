@@ -1,6 +1,20 @@
 "use client";
 
-import { H1, P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
+const stats = [
+  {
+    title: "150+ Team Tech Years",
+    description: "Engineers bring decades of cloud AI expertise",
+  },
+  {
+    title: "95% Employee Retention Rate",
+    description: "Low turnover shows strong culture and growth paths. ",
+  },
+  {
+    title: "100+ Internal Trainings Yearly",
+    description: "Qcentrio Academy builds skills in latest tech. ",
+  },
+];
 
 const images = [
   "/AI/Careers/img5.png",
@@ -12,21 +26,22 @@ const images = [
 
 export default function ExperienceSection() {
   return (
-    <section className="w-full bg-[#020059] py-20">
+    <section className="max-w-8xl bg-[#020059] py-20">
       <div className="text-white">
 
         {/* -------------------------------------------------- */}
         {/* TOP TEXT CONTAINER (UNCHANGED) */}
         {/* -------------------------------------------------- */}
         <div className="max-w-8xl mx-10 grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-20 px-6 md:px-12 lg:px-24">
-          {[1, 2, 3].map((_, i) => (
-            <div key={i}>
-              <H1 className="text-[#0AC276]">150+</H1>
-              <P className="text-[#CCCCCC]">
-                Years of combined digital<br />travel technology experience
-              </P>
-            </div>
-          ))}
+         {stats.map((item, i) => (
+  <div key={i}>
+    <H2 className="text-[#0AC276]">{item.title}</H2>
+    <P className="text-[#CCCCCC]">
+      {item.description}
+    </P>
+  </div>
+))}
+
         </div>
 
         {/* -------------------------------------------------- */}

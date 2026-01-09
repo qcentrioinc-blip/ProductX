@@ -24,7 +24,7 @@ export default function Onboarding() {
   
 >
 
-      <div  id="benefits" className="relative max-w-8xl pt-52 lg:px-10 mx-6 lg:mx-10"
+      <div  id="benefits" className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
         <H2 className=" mb-8 lg:mb-18  text-left xl:text-center font-semibold text-[#020059]">
