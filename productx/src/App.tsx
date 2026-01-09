@@ -64,6 +64,7 @@ import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
 import AINewsLetter from './components/AIOptimization/NewsLetter/AINewsLetter'
 import AIWhitePapers from './components/AIOptimization/WhitePapers/AIWhitePapers'
 import AIGlossary from './components/AIOptimization/Glossary/AIGlossary'
+import Pricing from './components/AIOptimization/Pricing/Pricing'
 
 
 
@@ -216,6 +217,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
+            <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
             
 
            
