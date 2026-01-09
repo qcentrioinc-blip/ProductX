@@ -1,168 +1,187 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import {   H1, P } from '../../../styles/Typography';
+import { motion, AnimatePresence } from 'framer-motion';
+import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
-// import LiquidEther from './LiquidEther';
- 
- 
 
 interface IndustryCardProps {
   title: string;
   image: string;
   isActive: boolean;
+  onClick: () => void;
   url: string;
 }
 
+const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
+  ({ title, image, isActive, onClick, url }, ref) => (
+    <motion.div
+      ref={ref}
+      layout
+      onClick={onClick}
+      className="relative cursor-pointer group shrink-0 xl:w-full flex xl:justify-end"
+      initial={false}
+      animate={{
+        scale: isActive ? 1.05 : 1,
+        opacity: isActive ? 1 : 0.6,
+      }}
+      whileHover={{ opacity: 1, scale: isActive ? 1.05 : 1.02 }}
+      transition={{
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        layout: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+      }}
+    >
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`block relative overflow-hidden rounded-xl transition-all duration-700 ${
+          isActive ? 'shadow-[0_0_40px_rgba(255,255,255,0.2)]' : ''
+        }`}
+        style={{ height: '140px', width: '260px' }}
+      >
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+        />
 
-const IndustryCard: React.FC<IndustryCardProps> = ({ title, image, isActive, url }) => (
-   <a 
-    href={url}
-    target="_blank"                
-    rel="noopener noreferrer"       
-    className={`block relative overflow-hidden rounded-lg transition-all duration-500 ${
-      isActive ? 'scale-110 shadow-2xl opacity-100' : 'scale-100 opacity-50'
-    }`}
-    style={{ height: '150px' }}
-  >
-    <img 
-      src={image} 
-      alt={title}
-      className="w-full h-full object-cover"
-    />
-  </a>
+        <div className={`absolute inset-0 bg-black/40 transition-opacity duration-700 flex items-end p-4 ${
+          isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+        }`}>
+          <div className={`flex justify-between items-center w-full transition-transform duration-700 ${
+            isActive ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'
+          }`}>
+            <span className="text-white font-semibold text-base tracking-tight">{title}</span>
+            <div className="bg-white/20 p-1.5 rounded-full backdrop-blur-md">
+              <ArrowUpRight size={16} className="text-white" />
+            </div>
+          </div>
+        </div>
+
+        {isActive && (
+          <motion.div layoutId="activeGlowBorder"
+            className="absolute inset-0 border-2 border-white/70 rounded-xl z-30 pointer-events-none"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
+        )}
+
+        {isActive && (
+          <motion.div className="absolute bottom-0 left-0 h-1 bg-white z-20"
+            initial={{ width: '0%' }} animate={{ width: '100%' }}
+            transition={{ duration: 5, ease: 'linear' }} />
+        )}
+      </a>
+    </motion.div>
+  )
 );
 
 export default function InteractiveHeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const isHeroVisible = useRef(true);
 
   const industries = [
-    {
-      title: 'Banking and Finance',
-      image: '/LandingPageNew/BNFImage.png',
-      url: '/industries/banking-and-finance',
-      // bgColor: '#000000'
-    },
-    {
-      title: 'EHR and PMS',
-      image: '/LandingPageNew/EHRImage.png',
-      url: '/industries/ehr-and-pms',
-      // bgColor: '#1a1a2e'
-    },
-    {
-      title: 'High Tech',
-      image: '/LandingPageNew/HighTechImage.png',
-      url: '/industries/high-tech',
-      // bgColor: '#16213e'
-    },
-    {
-      title: 'AI Optimization',
-      image: '/LandingPageNew/AI.png',
-      url: '/industries/ai-optimization',
-      // bgColor: '#0f3460'
-    }
+    { title: 'Banking and Finance', image: '/LandingPageNew/BNFImage.jpg', url: '/industries/banking-and-finance' },
+    { title: 'EHR and PMS', image: '/LandingPageNew/EHRImage.png', url: '/industries/ehr-and-pms' },
+    { title: 'High Tech', image: '/LandingPageNew/HighTechImage.png', url: '/industries/high-tech' },
+    { title: 'AI Optimization', image: '/LandingPageNew/AI.png', url: '/industries/ai-optimization' }
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const section = sectionRef.current;
-      const rect = section.getBoundingClientRect();
-      const sectionHeight = rect.height;
-      const scrollProgress = -rect.top / (sectionHeight - window.innerHeight);
-      
-      if (scrollProgress >= 0 && scrollProgress <= 1) {
-        const newIndex = Math.min(
-          Math.floor(scrollProgress * industries.length),
-          industries.length - 1
-        );
-        setActiveIndex(newIndex);
-      }
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => (isHeroVisible.current = entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    heroRef.current && observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [industries.length]);
+  useEffect(() => {
+    if (!isHeroVisible.current) return;
+    cardRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => setActiveIndex((p) => (p + 1) % industries.length), 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-black">
-   
+    <>
+    <Navbar />
+    <div className=" bg-black overflow-x-hidden font-quicksand">
       
-      <Navbar/>
 
-      {/* Hero Section */}
-      <div 
-        ref={sectionRef}
-        className="relative transition-colors duration-700"
-        
-      >
-        <div className="sticky xl:top-10 h-full py-20 flex justify-between items-center pt-20">
-          <div className="max-w-8xl lg:mx-10 px-4  ">
-            <div className="grid grid-cols-1  lg:grid-cols-[2fr_0.8fr] justify-between items-start">
-              {/* Left Content */}
-              <div className="space-y-4  ">
-                <H1 className="  text-white leading-tight">
-                
-                 Shaping The Future <br className='xl:block hidden '/> Across Every Sector
+      <div ref={heroRef} className="relative min-h-[100svh] md:min-h-[70svh] xl:min-h-screen flex items-center  md:pt-15  xl:py-6 ">
+        <div className="max-w-8xl xl:px-10 w-full">
+          <div className="grid grid-cols-1 xl:grid-cols-[60%_1fr_20%] gap-10 xl:gap-8 items-stretch pt-28 md:pt-15 xl:pr-10 ">
+
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col justify-between mx-10">
+
+              <div className="space-y-6">
+                <H1 className="text-white">
+                  Shaping The Future <br className="hidden sm:block" /> Across Every Sector
                 </H1>
-                <P className="text-gray-300 max-w-xl leading-relaxed  w-full  ">
+                <P className="text-[#F5F5F5] max-w-xl leading-relaxed ">
                   Qnest Global helps businesses modernize with AI, CRM, HRM, and secure cloud platforms. Our teams design, build, and manage solutions that improve efficiency, cut risk, and support long‑term growth.
                 </P>
-                <Link to="/contact">
-                <button className="bg-white text-black font-quicksand px-8 py-3 rounded-2xl font-semibold text-sm hover:bg-gray-100 transition flex items-center gap-2 mt-6">
-                 Get Your Custom Proposal <ArrowUpRight size={18} />
-                </button>
+                <Link to="/contact" className="inline-block w-fit">
+                  <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                    className="bg-white w-fit text-black px-8 py-4 rounded-2xl font-bold text-sm cursor-pointer flex items-center gap-2 mt-4 xl:mt-6 shadow-xl ">
+                    Get Your Custom Proposal <ArrowUpRight size={18} />
+                  </motion.button>
                 </Link>
- 
-                                {/* Stats */}
-                <div className="flex font-bricolage  gap-20 lg:pt-44">
-                  <div className="flex gap-4">
-                    <div className="w-1 bg-white"></div>
-                    <div>
-                      <div className="text-5xl font-bold text-white">30% + ROI</div>
-                      <div className="text-white text-sm mt-2">AI-Driven Outcomes</div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-1 bg-white"></div>
-                    <div>
-                      <div className="text-5xl font-bold text-white">24/7</div>
-                      <div className="text-white text-sm mt-2">End-to-End Delivery</div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-1 bg-white"></div>
-                    <div>
-                      <div className="text-5xl font-bold text-white">99.9%</div>
-                      <div className="text-white text-sm mt-2">Secure,Scalable Cloud</div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
-
-              {/* Right Content - Industry Cards */}
-              <div className="space-y-4 flex flex-col ml-44 items-end w-full">
-                {industries.map((industry, index) => (
-                  <IndustryCard
-                    key={index}
-                    title={industry.title}
-                    image={industry.image}
-                    url={industry.url}
-                    isActive={activeIndex === index}
-                  />
+              <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
+                {[
+                  { label: '30% + ROI', sub: 'AI-Driven Outcomes' },
+                  { label: '24/7', sub: 'End-to-End Delivery' },
+                  { label: '99.9%', sub: 'Secure, Scalable Cloud' }
+                ].map((stat, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-[3px] bg-gradient-to-b from-white to-transparent opacity-50"></div>
+                    <div>
+                      <div className="text-4xl xl:text-6xl font-bold text-white whitespace-nowrap tracking-tighter">{stat.label}</div>
+                      <div className="text-[#F5F5F5] text-[10px] mt-1 uppercase tracking-widest font-quicksand">{stat.sub}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
+            </motion.div>
+
+            <div className="hidden xl:block"></div>
+
+            <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
+              <div ref={scrollContainerRef}
+                className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end pl-6 pr-6 xl:pl-0 xl:pr-0">
+
+                <AnimatePresence mode="popLayout">
+                  {industries.map((industry, index) => (
+                    <IndustryCard
+                      key={industry.title}
+                      ref={(el) => { cardRefs.current[index] = el; }}
+                      title={industry.title}
+                      image={industry.image}
+                      url={industry.url}
+                      isActive={activeIndex === index}
+                      onClick={() => setActiveIndex(index)}
+                    />
+                  ))}
+                </AnimatePresence>
+              </div>
+
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 blur-[120px] pointer-events-none" />
             </div>
+
           </div>
         </div>
       </div>
-
-     
     </div>
+    </>
   );
 }

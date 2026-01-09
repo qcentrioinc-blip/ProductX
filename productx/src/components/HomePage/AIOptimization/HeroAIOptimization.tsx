@@ -6,6 +6,7 @@ import Frontier from "./Frontier"
 import LandingPageAI from "./LandingPageAI"
 import Meta from "./Meta"
 import Statistics from "./Statistics"
+import StickyScrollSections from "./StickyScrollSections"
 import ThreeCardAI from "./ThreeCardAI"
 
 const HeroAIOptimization = () => {
@@ -13,6 +14,7 @@ const HeroAIOptimization = () => {
     <div>
       <LandingPageAI />
       <Consentur />
+      <StickyScrollSections/>
       <Frontier />
       <ThreeCardAI />
       <Meta />

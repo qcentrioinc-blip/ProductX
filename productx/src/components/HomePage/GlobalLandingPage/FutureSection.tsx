@@ -2,13 +2,13 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function FutureSection() {
   return (
-    <section className="relative w-full bg-[#F5F5F5] py-10 xl:py-0 xl:pt-14 ">
+    <section className="relative w-full bg-[#F5F5F5] py-10 lg:py-0 lg:pt-14 ">
 
       {/* TOP-RIGHT SHAPE (SECTION LEVEL) */}
       <img
         src="/LandingPage/shape4.png"
         alt="Abstract Shape"
-        className="absolute top-0 right-0 w-[280px] md:w-[340px] lg:w-[450px] z-10"
+        className="hidden sm:block absolute top-0 right-0 w-[280px] md:w-[340px] lg:w-[450px] z-10"
       />
 
       <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-20">
@@ -35,7 +35,7 @@ export default function FutureSection() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex flex-col gap-10 xl:mt-40">
+        <div className="flex flex-col gap-10 lg:mt-80 ">
 
           {/* Description */}
           <P className="max-w-xl xl:ml-[-90px]">
