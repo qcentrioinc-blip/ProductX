@@ -1,7 +1,41 @@
-import { ArrowUpRight } from "lucide-react";
-import { H1 } from "../../../styles/Typography";
+ 
+import { H1, P } from "../../../styles/Typography";
+import { ContactUsAI } from "../../../styles/Button";
+import { useParams } from "react-router-dom";
+
+type BuiltForKey="digital-native"|"enterprises"|"smb"
+
+const CONTENT_MAP:Record<
+BuiltForKey,
+{heading:string;
+  description:string;
+  cta:string;
+}
+>={
+ "digital-native": {
+    heading: "Scale Your SaaS Profitably \n With CloudDIET",
+    description:
+      " CloudDIET fixes Azure Functions and scale issues so SaaS teams save costs without hurting performance or customer growth.",
+    cta: "Optimize Now",
+  },
+  enterprises: {
+    heading: "Optimize Multi-Subscription Azure Costs",
+    description:
+      "CloudDIET profiles your infrastructure usage patterns to automatically cut waste across all Azure subscriptions safely..",
+    cta: "Start Your Scan",
+  },
+  smb: {
+    heading: "Assured Azure savings for Large enterprises. ",
+    description:
+      " Cut multi-region Azure waste, keep compliance strong, and protect every critical workload without service risk.",
+    cta: "Get Started",
+  },
+};
 
 export default function TitleSecAI() {
+    const { builtForType } = useParams<{ builtForType: BuiltForKey }>();
+
+  const content = CONTENT_MAP[builtForType ?? "enterprises"];
   return (
     <section 
       className="w-full  h-[70vh] md:h-screen bg-cover bg-center bg-no-repeat relative"
@@ -12,23 +46,22 @@ export default function TitleSecAI() {
 
       {/* CONTENT */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-8xl mx-10 ">
+        <div className="max-w-8xl mx-10 xl:px-10 ">
           
-          <div className="w-full md:w-[60%] space-y-6">
+          <div className="w-full md:w-[80%] space-y-6">
             <H1 className="text-white leading-tight">
-              Shaping the 
-              Future Across 
-              B and F.
+              {content.heading}
             </H1>
-            <p className="text-[#CCCCCC] leading-tight">
-              Lorem ipsum dolor sit amet, consectetur adipiscing Lorem 
-dolor sit amet, consectetur adipiscing  Lorem ipsum dolor leading-tight leading-tightleading-tight
-            </p>
+            <P   className="text-[#CCCCCC] max-w-xl leading-tight">
+             {content.description}
+            </P>
 
-            <button className="px-6 py-3 bg-white/90 backdrop-blur-sm border border-gray-300 rounded-lg flex items-center gap-2 text-gray-900 shadow-lg hover:bg-white transition">
-              <span className="text-sm font-semibold">EXPLORE SOLUTIONS</span>
-              <ArrowUpRight size={18} />
-            </button>
+            <ContactUsAI>
+                  <span className="text-sm font-semibold">{content.cta}</span>
+           
+            </ContactUsAI>
+          
+            
           </div>
 
         </div>

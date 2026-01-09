@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation  } from "react-router-dom";
 
 import InsightThought from "../../Banking&Finance/InsightThought";
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
@@ -25,10 +25,8 @@ import ContactSecHT from "../../HighTech/ContactSecHT";
 
 export const BuiltFor = () => {
   const { pathname } = useLocation();
-
-  /* -------------------------------
-     NAVBAR SWITCHER
-  -------------------------------- */
+ 
+ 
   const getNavbar = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
     if (pathname.startsWith("/industries/ai-optimization")) return <AINavbar />;
@@ -37,9 +35,7 @@ export const BuiltFor = () => {
     return null;
   };
 
-  /* -------------------------------
-     FOOTER SWITCHER
-  -------------------------------- */
+ 
   const getFooter = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
@@ -47,10 +43,7 @@ export const BuiltFor = () => {
     if (pathname.startsWith("/industries/ai-optimization")) return <AIFooter />;
     return null;
   };
-
-  /* -------------------------------
-    InsightandThoughts SWITCHER
-  -------------------------------- */
+ 
   const getInsightandThoughts = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
@@ -70,20 +63,16 @@ export const BuiltFor = () => {
       {/* Navbar */}
       {getNavbar()}
 
-      <TitleSectionSwitcher/>
-      <TextSec />
-      <Cardcase />
-      <BuiltForIntro />
-      <GradientCardsSection />
-      <SplitFeature />
-      <ImgSec />
-      
-      {/*getInsightandThoughts */}
+    <TitleSectionSwitcher />
+<TextSec />
+<Cardcase />
+<BuiltForIntro />
+<GradientCardsSection />
+<SplitFeature />
+<ImgSec />
+
       {getInsightandThoughts()}
-
       {getContactForm()}
-
-      {/* Footer */}
       {getFooter()}
     </div>
   );

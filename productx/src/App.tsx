@@ -57,13 +57,17 @@ import AIOptimization from './routes/industries/AIOptimization'
 import Resource from './components/AIOptimization/Resources/Resource'
 import ResourceDetailAI from './components/AIOptimization/ResourceDetail/ResourceDetailAI'
 import { BuiltFor } from './components/Global/BuiltFor/BuiltFor'
+
+
 import AboutAI from './components/AIOptimization/AboutUs/AboutAI'
 import { ScrollProvider } from './context/ScrollContext'
-import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
+// import AIProduct from './components/AIOptimization/AIProduct/AIProduct'
 
 import AINewsLetter from './components/AIOptimization/NewsLetter/AINewsLetter'
 import AIWhitePapers from './components/AIOptimization/WhitePapers/AIWhitePapers'
 import AIGlossary from './components/AIOptimization/Glossary/AIGlossary'
+import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptimization'
+import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc'
 import Pricing from './components/AIOptimization/Pricing/Pricing'
 
 
@@ -151,6 +155,10 @@ const App = () => {
           {/* {showNavbar && <Navbar />} */}
           <Routes>
 
+
+          
+
+
             <Route path="/landingpage" element={<HeroSlider />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
@@ -213,14 +221,19 @@ const App = () => {
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
             <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
-            <Route path="/industries/ai-optimization/clouddiet" element={<AIProduct />} />
+            <Route path="/industries/ai-optimization/clouddiet" element={<HeroAIOptimization />} />
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
             <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
             
 
-           
+           {/* Built for globally */}
+
+           <Route
+    path="/industries/:industry/built-for/:builtForType"
+    element={<BuiltFor />}
+  />
             {/* Marketplace Routes */}
             <Route path='/marketplace' element={<Marketing />} />
             <Route path='/industries/ai-optimization/marketplace' element={<Marketing />} />
@@ -234,6 +247,14 @@ const App = () => {
             <Route path='/industries/high-tech/platform' element={<Platform />} />
             <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
             <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
+      
+        {/* FOR RESOURCES ai */}
+      <Route
+  path="/industries/:industry/resources/:category/:slug"
+  element={<ResourceDoc />}
+/>
+
+      
           </Routes>
         </div>
       </ScrollProvider>

@@ -14,7 +14,7 @@ const AIFooter = () => {
             {/* Background for the entire footer */}
             <div className="absolute inset-0 z-0">
                 <FloatingLines
-                    enabledWaves={['top', 'middle', 'bottom']}
+                    enabledWaves={['middle', 'bottom']}
                     lineCount={[10, 15, 20]}
                     lineDistance={[8, 6, 4]}
                     bendRadius={5.0}
