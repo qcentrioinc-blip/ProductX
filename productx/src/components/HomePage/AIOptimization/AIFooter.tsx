@@ -1,13 +1,37 @@
 import { ArrowUpRight, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
+import FloatingLines from "./AIFooterBackground";
+
+
+
 const AIFooter = () => {
     const base = "/industries/ai-optimization";
     return (
         <footer className="relative w-full overflow-hidden">
 
+            {/* Background for the entire footer */}
+            <div className="absolute inset-0 z-0">
+                <FloatingLines
+                    enabledWaves={['middle', 'bottom']}
+                    lineCount={[10, 15, 20]}
+                    lineDistance={[8, 6, 4]}
+                    bendRadius={5.0}
+                    bendStrength={-0.5}
+                    interactive={true}
+                    parallax={true}
+                // topWavePosition={{ x: 10.0, y: 0.15, rotate: -0.4 }}
+                // middleWavePosition={{ x: 5.0, y: -0.35, rotate: 0.2 }} // height
+                // bottomWavePosition={{ x: 2.0, y: -1.0, rotate: -1.0 }}
+                // topWavePosition={{ x: 10.0, y: 0.5, rotate: 0.4 }}
+                // middleWavePosition={{ x: 5.0, y: 0.0, rotate: -0.2 }} // reverse
+                // bottomWavePosition={{ x: 2.0, y: -0.7, rotate: 1.0 }}
+                />
+            </div>
+
             {/* ========== TOP SECTION ========== */}
-            <div className="relative w-full py-12 sm:py-14 md:py-16 bg-gradient-to-r from-[#000B5E] via-[#003A6D] to-[#00695C]">
+            <div className="relative w-full py-12 sm:py-14 md:py-16">
 
                 {/* Pattern Overlay */}
                 <div className="absolute inset-0 overflow-hidden opacity-60">
@@ -47,13 +71,14 @@ const AIFooter = () => {
                             color: "#F5F5F5",
                         }}
                     >
-                       Trust Qnest Clouddiet for guaranteed cloud savings 
+                        Trust Qnest Clouddiet for guaranteed cloud savings
                     </h2>
                 </div>
             </div>
 
             {/* ========== MAIN SECTION ========== */}
-            <div className="relative w-full pt-10 sm:pt-12 md:pt-16 pb-10 sm:pb-14 md:pb-16 px-4 sm:px-8 lg:px-16 bg-[#5B4FFF]">
+            <div className="relative w-full pt-10 sm:pt-12 md:pt-16 pb-10 sm:pb-14 md:pb-16 px-4 sm:px-8 lg:px-16">
+                {/* FloatingLines removed from here */}
 
                 <div className="relative z-10 mx-4 sm:mx-8 md:mx-10">
 
@@ -73,9 +98,9 @@ const AIFooter = () => {
                                         color: "#F5F5F5",
                                     }}
                                 >
-                                   Get Azure optimization tips
+                                    Get Azure optimization tips
                                     <br className="hidden sm:block" />
-                                 and savings updates monthly.
+                                    and savings updates monthly.
                                 </h3>
 
                                 {/* Email */}

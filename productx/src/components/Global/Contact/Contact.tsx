@@ -1,14 +1,14 @@
 "use client";
 import { H1, P } from "../../../styles/Typography";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react"; 
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
- 
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(InertiaPlugin);
 }
- 
+
 /* -------------------------------------- */
 /* UTILS
 /* -------------------------------------- */
@@ -30,7 +30,6 @@ interface Dot {
   yOffset: number;
   _inertiaApplied: boolean;
 }
- 
 function hexToRgb(hex: string) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
   if (!m) return { r: 0, g: 0, b: 0 };
@@ -40,7 +39,6 @@ function hexToRgb(hex: string) {
     b: parseInt(m[3], 16),
   };
 }
- 
 const Contact: React.FC = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -55,7 +53,6 @@ const Contact: React.FC = () => {
     lastX: 0,
     lastY: 0,
   });
- 
   /* DOT SETTINGS */
   const dotSize = 5;
   const gap = 15;
@@ -66,37 +63,36 @@ const Contact: React.FC = () => {
   const maxSpeed = 4000;
   const resistance = 750;
   const returnDuration = 1.5;
- 
+
   const baseRgb = useMemo(() => hexToRgb(baseColor), []);
   const activeRgb = useMemo(() => hexToRgb(activeColor), []);
- 
+
   const circlePath = useMemo(() => {
     if (typeof window === "undefined" || !window.Path2D) return null;
     const p = new Path2D();
     p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
     return p;
   }, []);
- 
   const buildGrid = useCallback(() => {
     const wrap = wrapperRef.current;
     const canvas = canvasRef.current;
     if (!wrap || !canvas) return;
- 
+
     const { width, height } = wrap.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
- 
+
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
- 
+
     const ctx = canvas.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
- 
+
     const cell = dotSize + gap;
     const cols = Math.ceil(width / cell) + 1;
     const rows = Math.ceil(height / cell) + 1;
- 
+
     const dots: Dot[] = [];
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
@@ -112,6 +108,7 @@ const Contact: React.FC = () => {
     dotsRef.current = dots;
   }, []);
  
+
   useEffect(() => {
     if (!circlePath) return;
     let rafId: number;
@@ -146,6 +143,7 @@ const Contact: React.FC = () => {
     return () => cancelAnimationFrame(rafId);
   }, [circlePath, baseRgb, activeRgb]);
  
+
   useEffect(() => {
     buildGrid();
     const ro = new ResizeObserver(buildGrid);
@@ -153,6 +151,7 @@ const Contact: React.FC = () => {
     return () => ro.disconnect();
   }, [buildGrid]);
  
+
   useEffect(() => {
     const onMove = (clientX: number, clientY: number) => {
       const now = performance.now();
@@ -175,6 +174,7 @@ const Contact: React.FC = () => {
       pr.lastTime = now; pr.lastX = clientX; pr.lastY = clientY;
       pr.vx = vx; pr.vy = vy; pr.speed = speed; pr.x = currentX; pr.y = currentY;
  
+
       for (const dot of dotsRef.current) {
         const dist = Math.hypot(dot.cx - pr.x, dot.cy - pr.y);
         if (speed > speedTrigger && dist < proximity && !dot._inertiaApplied) {
@@ -199,31 +199,31 @@ const Contact: React.FC = () => {
     window.addEventListener("mousemove", throttledMouse, { passive: true });
     return () => window.removeEventListener("mousemove", throttledMouse);
   }, []);
- 
+
   return (
     <section className="w-full min-h-[900px] flex relative bg-[#FAFAFA] overflow-hidden font-quicksand justify-center xl:justify-end px-6 lg:px-24">
-     
+      
       {/* BACKGROUND DOTS */}
       <div className="absolute inset-0 z-0 pointer-events-none lg:pointer-events-auto">
         <div ref={wrapperRef} className="w-full h-full opacity-60 lg:opacity-80">
           <canvas ref={canvasRef} className="block" />
         </div>
       </div>
- 
+
       {/* FORM: Width 20%, Height 700px */}
       <div className="relative z-10 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-white/50">
         <div className="mb-12">
           <H1 className="text-black font-bold mb-4 text-4xl tracking-tight leading-tight">Let's talk</H1>
-          <P className=" font-medium text-base">Fill out the form and we'll be in touch shortly.</P>
+          <P className="">Fill out the form and we'll be in touch shortly.</P>
         </div>
- 
+
         <form className="flex flex-col flex-grow gap-6" onSubmit={(e) => e.preventDefault()}>
           <div className="flex flex-col gap-5">
             <input className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" placeholder="Full Name" />
             <input className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" placeholder="Email Address" />
-           
+            
             <div className="relative">
-              <select className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer   text-sm">
+              <select className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer text-gray-500 text-sm">
                 <option value="" disabled selected>Interested in...</option>
                 <option>Manufacturing</option>
                 <option>Healthcare</option>
@@ -233,10 +233,10 @@ const Contact: React.FC = () => {
                  <ArrowRight size={16} className="rotate-90" />
               </div>
             </div>
-           
+            
             <textarea rows={4} className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl resize-none focus:ring-2 focus:ring-black outline-none text-sm" placeholder="Message" />
           </div>
- 
+
           <div className="mt-auto">
             <button className="group flex items-center justify-center w-full h-[64px] rounded-2xl font-bold text-lg bg-black text-white transition-all hover:shadow-2xl active:scale-[0.98]">
               <span className="mr-2">Send Message</span>
@@ -248,5 +248,4 @@ const Contact: React.FC = () => {
     </section>
   );
 };
- 
 export default Contact;

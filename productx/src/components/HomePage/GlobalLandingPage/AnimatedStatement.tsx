@@ -131,7 +131,7 @@ const AnimatedStatementWithImageTrail = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[500px] overflow-hidden flex items-center justify-center"
+      className="relative w-full h-[30vh] lg:h-[50vh] xl:h-[70vh] overflow-hidden flex items-center justify-center"
     >
       {/* TEXT */}
       <div className="relative z-10 text-center max-w-8xl mx-10">
