@@ -1,3 +1,4 @@
+import AINavbar from "../../AIOptimization/Navbar/AINavbar"
 import AIBlogs from "./AIBlogs"
 import AIFooter from "./AIFooter"
 import CloudDiet from "./CloudDiet"
@@ -11,6 +12,7 @@ import ThreeCardAI from "./ThreeCardAI"
 const HeroAIOptimization = () => {
   return (
     <div>
+      <AINavbar/>
       <LandingPageAI />
       <Consentur />
       <Frontier />

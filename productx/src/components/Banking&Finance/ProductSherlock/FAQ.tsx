@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2,   P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
@@ -13,47 +13,66 @@ interface FaqItem {
 const showShape =
   location.pathname === "/industries/banking-and-finance";
 
-const faqData: FaqItem[] = [
-  {
-    question: "Duis aute irure dolor in reprehenderit in voluptate velit esse?",
-    answer:
-      "This is the answer to question 1. It explains more about the question in detail. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse Lorem ipsum dolor?",
-    answer:
-      "This is the answer to question 2. It goes into some helpful explanation. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question: "Why do we use it instead of actual content?",
-    answer:
-      "To focus on layout and interaction, we use placeholder content during development. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question: "What are the benefits of Tailwind CSS?",
-    answer:
-      "Tailwind CSS allows rapid UI development using utility-first class names. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question: "How does the accordion work?",
-    answer:
-      "It uses React state to track which item is open and show/hide content accordingly. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question: "Is this component accessible?",
-    answer:
-      "Yes. We use ARIA attributes and keyboard navigation to enhance accessibility. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-  {
-    question: "Can I use this on mobile?",
-    answer:
-      "Absolutely. The layout adjusts to screen size using responsive Tailwind classes. It explains more about the question in detail. It explains more about the question in detail.",
-  },
-];
+ 
+const faqContentByIndustry: Record<string, FaqItem[]> = {
+  "/industries/high-tech": [
+    {
+      question: "How does our platform support high-tech innovation?",
+      answer:
+        "Our solution accelerates product development cycles, enhances R&D collaboration, and enables data-driven innovation across high-tech organizations.",
+    },
+    {
+      question: "Is the platform scalable for rapid growth?",
+      answer:
+        "Yes. It is built on cloud-native architecture designed to scale with evolving high-tech business demands.",
+    },
+  ],
+
+  "/industries/ai-optimization": [
+    {
+      question: "How does AI optimization improve business performance?",
+      answer:
+        "AI optimization enhances decision-making, automates workflows, and improves operational efficiency using intelligent models.",
+    },
+    {
+      question: "Can the platform integrate with existing AI pipelines?",
+      answer:
+        "Absolutely. Our solution integrates seamlessly with modern ML frameworks and enterprise data ecosystems.",
+    },
+  ],
+
+  "/industries/ehr-and-pms": [
+    {
+      question: "Is the platform compliant with healthcare regulations?",
+      answer:
+        "Yes. We adhere to HIPAA and industry security standards to ensure patient data safety and compliance.",
+    },
+    {
+      question: "Can it integrate with existing EHR systems?",
+      answer:
+        "Our platform supports interoperability with leading EHR and PMS solutions through secure APIs.",
+    },
+  ],
+
+  "/industries/banking-and-finance": [
+    {
+      question: "How does the platform enhance financial security?",
+      answer:
+        "We provide enterprise-grade security, fraud detection, and compliance monitoring tailored for financial institutions.",
+    },
+    {
+      question: "Does it support regulatory compliance?",
+      answer:
+        "Yes. Our solution is designed to meet global banking and financial regulatory requirements.",
+    },
+  ],
+};
 
 const FaqSection: React.FC = () => {
   const { pathname } = useLocation();
+const faqData =
+  faqContentByIndustry[pathname] ||
+  faqContentByIndustry["/industries/banking-and-finance"];
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/ai-optimization");
@@ -78,15 +97,13 @@ const FaqSection: React.FC = () => {
         <div className="max-w-8xl mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
-            <div className="mb-4 text-sm text-gray-700 flex items-center">
+            {/* <div className="mb-4 text-sm text-gray-700 flex items-center">
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
-              <H3>Quis autem</H3>
-            </div>
-            <H2 className="mb-4 text-gray-900">Sed ut perspiciatis unde</H2>
-            <P className="text-[#141414] mb-6">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu Duis aute irure dolor in reprehenderit in Duis aute
-              irure dolor in reprehenderit in.
+              <H3> </H3>
+            </div> */}
+            <H2 className="mb-4 text-[#020059]">What Sets <br/>Us Apart</H2>
+            <P className=" mb-6 max-w-lg">
+              Work on cutting-edge AI and cloud projects at Qcentrio. Gain real impact through AI optimizations and team collaboration daily.
             </P>
 
             <ContactUs onClick={handleContactClick}>CONTACT US</ContactUs>

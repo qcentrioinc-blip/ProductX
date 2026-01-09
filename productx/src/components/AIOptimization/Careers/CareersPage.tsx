@@ -1,3 +1,4 @@
+import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import AINavbar from "../Navbar/AINavbar"
 import BenefitsSection from "./BenefitsSection"
@@ -15,9 +16,12 @@ export const CareersPageAI = () => {
       <GreenSection />
       <BenefitsSection />
       <ExperienceSection />
-      <TeamSection />
+     
       
       <JobListSection />
+       <TeamSection />
+       <FaqSection/>
+   
       <AIFooter/>
     </div>
   )
