@@ -11,7 +11,6 @@ import BNFNav from "../BNFnav";
 // import KeytomStickyScroll from "./KeytomStickyScroll";
  
 import ContactUS from "../ProductRemitree/ContactUS";
-// import StickyCardStack from "./StickyCardStack";
 
 const PDPage9 = () => {
   return (
@@ -19,7 +18,6 @@ const PDPage9 = () => {
     <BNFNav/>
       <HeroSection />
       <FeatureGridSection />
-      {/* <StickyCardStack/> */}
       <StatsSection />
             
 

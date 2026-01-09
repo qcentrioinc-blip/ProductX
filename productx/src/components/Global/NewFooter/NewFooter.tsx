@@ -46,22 +46,22 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
             <ul className="space-y-3 text-gray-300 text-sm ">
-              <a href="/industries/high-tech" target="_blank" ><Li className="mb-3">High Tech</Li></a>
+              <a href="/industries/high-tech" target="_blank" ><Li className="mb-3 hover:text-white hover:underline">High Tech</Li></a>
               
-              <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3">Banking and Finance</Li></a> 
-              <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3">EHR-PMS</Li></a> 
-              <a href="/industries/ai-optimization" target="_blank"> <Li className="mb-3">AI-Optimization</Li></a>
+              <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3 hover:text-white hover:underline">Banking and Finance</Li></a> 
+              <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3 hover:text-white hover:underline">EHR-PMS</Li></a> 
+              <a href="/industries/ai-optimization" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">AI-Optimization</Li></a>
             </ul>
           </div>
 
           {/* Quick Links */}
           <div>
             <H4 className="text-gray-300 mb-4">Quick Links</H4>
-            <ul className="space-y-3 text-gray-300 text-sm">
-              <Li>Industries</Li>
-              <Li>Products</Li>
-              <Li>Resources</Li>
-              <Li>Company</Li>
+            <ul className="space-y-3 text-gray-300 text-sm ">
+              <Li className="hover:text-white hover:underline cursor-default">Industries</Li>
+              <Li className="hover:text-white hover:underline cursor-default">Products</Li>
+              <Li className="hover:text-white hover:underline cursor-default">Resources</Li>
+              <Li className="hover:text-white hover:underline cursor-default">Company</Li>
             </ul>
           </div>
 
@@ -69,8 +69,8 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Contact Sales</H4>
             <ul className="space-y-3 text-gray-300 text-sm">
-              <Li>info@abc.com</Li>
-              <Li>040-7418529630</Li>
+              <Li className="hover:text-white hover:underline cursor-default">info@abc.com</Li>
+              <Li className="hover:text-white hover:underline cursor-default">040-7418529630</Li>
             </ul>
           </div>
 
@@ -100,10 +100,10 @@ export default function NewFooter() {
           <P>2025 Abc Technologies. All rights reserved</P>
 
           <div className="flex flex-none gap-4">
-            <span className="font-quickstand md:text-[16px] text-[12px] ">Security Policy</span>
-            <span className="font-quickstand md:text-[16px] text-[12px] ">Privacy Policy</span>
-            <span className="font-quickstand md:text-[16px] text-[12px] ">Terms of service</span>
-            <span className="font-quickstand md:text-[16px] text-[12px] ">Cookie Policy</span>
+            <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Security Policy</span>
+            <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Privacy Policy</span>
+            <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Terms of service</span>
+            <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Cookie Policy</span>
           </div>
         </div>
       </div>
