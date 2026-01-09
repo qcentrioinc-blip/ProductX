@@ -101,7 +101,7 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT IMAGE SECTION with glowing background */}
-        <div className="  -right-32 xl:mt-44  -bottom-44 md:-bottom-52 lg:-bottom-96 xl:bottom-0 absolute flex justify-center items-end lg:justify-end">
+        <div className="  -right-32 xl:mt-44  -bottom-44 md:-bottom-52 lg:-bottom-96 xl:bottom-[-110px] absolute flex justify-center items-end lg:justify-end">
           {/* Glowing background blob behind image */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <div className="glow-blob w-[300px] h-[300px]  lg:w-[600px] lg:h-[600px] bg-gradient-to-br from-[#ba79ff] via-[#19a9d1] to-[#0057ff] opacity-30 blur-[120px] rounded-full"></div>
