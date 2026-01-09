@@ -78,7 +78,7 @@ export default function InnovationCards() {
                   </div>
 
                   <div>
-                    <H4 className="text-white leading-snug mb-4">
+                    <H4 className="text-white leading-snug my-4">
                       {card.title}
                     </H4>
                     <P className="text-white/90 leading-relaxed">

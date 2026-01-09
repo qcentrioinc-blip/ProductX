@@ -1,74 +1,158 @@
 import { H2, H3, P } from "../../../styles/Typography";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+/* ================= TYPES ================= */
+
+type SplitContent = {
+  headingPrimary: string;
+  // headingSecondary: string;
+  paragraph: string;
+  bulletPoints: string[];
+  stats: {
+    value: string;
+    label: string;
+  }[];
+};
+
+type Theme = {
+  sectionBg: string;
+  headingPrimaryColor: string;
+  headingSecondaryColor: string;
+  paragraphColor: string;
+  bulletColor: string;
+  statsColor: string;
+  imageSrc: string;
+};
+
+/* ================= THEMES (BY INDUSTRY) ================= */
+
+const THEMES: Record<string, Theme> = {
+  "banking-and-finance": {
+    sectionBg: "bg-white",
+    imageSrc: "/BuiltFor/img2.png",
+    headingPrimaryColor: "text-[#2B68C3]",
+    headingSecondaryColor: "text-[#2A2A2A]",
+    paragraphColor: "text-[#141414]",
+    bulletColor: "bg-[#2B68C3]",
+    statsColor: "text-[#2A2A2A]",
+  },
+
+  "ehr-and-pms": {
+    sectionBg: "bg-[#166D48]",
+    imageSrc: "/BuiltFor/img2.png",
+    headingPrimaryColor: "text-[#F5F5F5]",
+    headingSecondaryColor: "text-[#F5F5F5]",
+    paragraphColor: "text-[#CCCCCC]",
+    bulletColor: "bg-[#2B68C3]",
+    statsColor: "text-[#F5F5F5]",
+  },
+
+  "high-tech": {
+    sectionBg: "bg-[#230053]",
+    imageSrc: "/BuiltFor/img2.png",
+    headingPrimaryColor: "text-[#F5F5F5]",
+    headingSecondaryColor: "text-[#F99526]",
+    paragraphColor: "text-[#CCCCCC]",
+    bulletColor: "bg-[#2B68C3]",
+    statsColor: "text-[#F99526]",
+  },
+
+  "ai-optimization": {
+    sectionBg: "bg-[#0AC276]",
+    imageSrc: "/BuiltFor/img2.png",
+    headingPrimaryColor: "text-[#F5F5F5]",
+    headingSecondaryColor: "text-[#F5F5F5]",
+    paragraphColor: "text-[#FAFAFA]",
+    bulletColor: "bg-[#7C3AED]",
+    statsColor: "text-[#F5F5F5]",
+  },
+};
+
+/* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
+
+const CONTENT: Record<string, Record<string, SplitContent>> = {
+  "ai-optimization": {
+    enterprises: {
+      headingPrimary: "The Impact CloudDIET Delivers For Enterprises",
+      // headingSecondary: "Delivers For Enterprises",
+      paragraph:
+        "CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
+      bulletPoints: [
+        "Cut Waste Fast",
+        "Fix Config Errors",
+        "Lower License Costs",
+        "Boost Team Efficiency",
+      ],
+      stats: [
+        { value: "30%", label: "Average savings across estates" },
+        { value: "100+", label: "Measures checked per scan" },
+        { value: "8X", label: "ROI in first month" },
+      ],
+    },
+
+    "digital-native": {
+      headingPrimary: "Impact We Deliver",
+      // headingSecondary: "Deliver",
+      paragraph:
+        "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
+      bulletPoints: [
+        "Cut Costs Now ",
+        "Scale Without Waste ",
+        "Assure Savings Long-Term ",
+        "Boost Team Speed ",
+      ],
+      stats: [
+        { value: "200+", label: "Customers" },
+        { value: "30%", label: "Average Solutions" },
+        { value: "10M+", label: "Spend Optimized" },
+      ],
+    },
+
+    smb: {
+      headingPrimary: "The Enterprise Impact We Deliver ",
+      // headingSecondary: "Built For SMBs",
+      paragraph:
+        "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",
+      bulletPoints: [
+        "Cut Waste Fast",
+        "Keep Services Running",
+        "Azure Every Dollar",
+        "Scale Regions Smart",
+      ],
+      stats: [
+        { value: "200+", label: "Customers" },
+        { value: "30%", label: "Average Savings" },
+        { value: "10M+", label: "Spend Managed" },
+      ],
+    },
+  },
+};
+
+/* ================= COMPONENT ================= */
 
 export default function SplitFeature() {
-  const { pathname } = useLocation();
+  const { industry, builtForType } = useParams<{
+    industry: string;
+    builtForType: string;
+  }>();
 
-  const pageConfig: Record<
-    string,
-    {
-      sectionBg: string;
-      headingPrimary: string;
-      headingSecondary: string;
-      paragraph: string;
-      bullet: string;
-      stats: string;
-      imageSrc: string;
-    }
-  > = {
-    "/industries/banking-and-finance/built-for": {
-      sectionBg: "bg-white",
-      imageSrc: "/BuiltFor/img2.png",
-      headingPrimary: "text-[#2B68C3]",
-      headingSecondary: "text-[#2A2A2A]",
-      paragraph: "text-[#141414]",
-      bullet: "bg-[#2B68C3]",
-      stats: "text-[#2A2A2A]",
-    },
+  const theme =
+    THEMES[industry ?? "banking-and-finance"] ??
+    THEMES["banking-and-finance"];
 
-    "/industries/ehr-and-pms/built-for": {
-      sectionBg: "bg-[#166D48]",
-      imageSrc: "/BuiltFor/img2.png",
-      headingPrimary: "text-[#F5F5F5]",
-      headingSecondary: "text-[#F5F5F5]",
-      paragraph: "text-[#CCCCCC]",
-      bullet: "bg-[#2B68C3]",
-      stats: "text-[#F5F5F5]",
-    },
+  const content =
+    CONTENT[industry ?? ""]?.[builtForType ?? ""];
 
-    "/industries/high-tech/built-for": {
-      sectionBg: "bg-[#230053]",
-      imageSrc: "/BuiltFor/img2.png",
-      headingPrimary: "text-[#F5F5F5]",
-      headingSecondary: "text-[#F99526]",
-      paragraph: "text-[#CCCCCC]",
-      bullet: "bg-[#2B68C3]",
-      stats: "text-[#F99526]",
-    },
-
-    "/industries/ai-optimization/built-for": {
-      sectionBg: "bg-[#0AC276]",
-      imageSrc: "/BuiltFor/img2.png",
-      headingPrimary: "text-[#F5F5F5]",
-      headingSecondary: "text-[#F5F5F5]",
-      paragraph: "text-[#CCCCCC]",
-      bullet: "bg-[#7C3AED]",
-      stats: "text-[#F5F5F5]",
-    },
-  };
-
-  const config =
-    pageConfig[pathname] ||
-    pageConfig["/industries/banking-and-finance/built-for"];
+  if (!content) return null;
 
   return (
-    <section className={`w-full py-16 px-6 ${config.sectionBg}`}>
-      <div className="max-w-8xl mx-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className={`w-full py-16   ${theme.sectionBg}`}>
+      <div className="max-w-8xl mx-10  grid grid-cols-1 lg:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
         <div className="flex justify-center lg:justify-start">
           <img
-            src={config.imageSrc}
+            src={theme.imageSrc}
             alt="Feature"
             className="w-full max-w-xl rounded-2xl object-cover shadow-sm"
           />
@@ -78,50 +162,41 @@ export default function SplitFeature() {
         <div className="w-full text-center lg:text-left mx-auto lg:mx-0">
 
           {/* HEADING */}
-          <H2 className="leading-tight xl:mb-10 max-w-xl">
-            <span className={`${config.headingPrimary}`}>Sed ut perspic iatis </span>
-            <span className={`${config.headingSecondary}`}>Unde Seduo</span>
+          <H2 className="leading-tight xl:mb-10 max-w-3xl">
+            <span className={theme.headingPrimaryColor}>
+              {content.headingPrimary}{" "}
+            </span>
+           
           </H2>
 
           {/* PARAGRAPH */}
-          <P className={`mt-4 max-w-md mx-auto lg:mx-0 ${config.paragraph} text-[#FAFAFA]`}>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident.
+          <P className={`mt-4 max-w-md mx-auto lg:mx-0 ${theme.paragraphColor}`}>
+            {content.paragraph}
           </P>
 
           {/* BULLETS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 justify-items-center lg:justify-items-start">
-            {[1, 2].map((col) => (
-              <div key={col} className="space-y-4">
-                {[1, 2].map((row) => (
-                  <div
-                    key={row}
-                    className="flex items-center justify-center lg:justify-start gap-3"
-                  >
-                    <span className={`w-6 h-6 rounded-full ${config.bullet}`}></span>
-                    <P className={`${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
-                  </div>
-                ))}
+            {content.bulletPoints.map((text, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center lg:justify-start gap-3"
+              >
+                <span className={`w-6 h-6 rounded-full ${theme.bulletColor}`} />
+                <P className={theme.paragraphColor}>{text}</P>
               </div>
             ))}
           </div>
 
           {/* STATS */}
           <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-            <div>
-              <H3 className={`${config.stats}`}>200+</H3>
-              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
-            </div>
-
-            <div>
-              <H3 className={`${config.stats}`}>30k</H3>
-              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
-            </div>
-
-            <div>
-              <H3 className={`${config.stats}`}>10+</H3>
-              <P className={`mt-2 ${config.paragraph} text-[#FAFAFA]`}>Duis aute irure dolor</P>
-            </div>
+            {content.stats.map((stat, index) => (
+              <div key={index}>
+                <H3 className={theme.statsColor}>{stat.value}</H3>
+                <P className={`mt-2 ${theme.paragraphColor}`}>
+                  {stat.label}
+                </P>
+              </div>
+            ))}
           </div>
 
         </div>

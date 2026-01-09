@@ -10,27 +10,23 @@ export default function TeamSection() {
         {/* LEFT CONTENT */}
         <div>
           <H2 className="text-[#020059] leading-tight mb-10 max-w-3xl whitespace-nowrap">
-            We are the brightest<br/>
-            minds, biggest talents<br/>
-            and bravest thinkers in<br/>
-            the industry.
+          We Bring Together<br/> Top Talent & Experience
           </H2>
 
           {/* Reusable Item */}
           <div className="mb-10">
             <H4 className=" text-[#6c6aff] mb-2">Our Mission</H4>
             <P className="  leading-relaxed">
-              Years of combined digital travel technology experience<br />
-              Years of combined digital travel
+             Build AI cloud solutions like CloudDIET to cut enterprise <br/> Azure costs safely and fast. 
             </P>
             <div className="border-b border-[#d0f5e6] mt-4"></div>
           </div>
 
           <div className="mb-10">
-            <H4 className=" text-[#6c6aff] mb-2">Training and Progression</H4>
+            <H4 className=" text-[#6c6aff] mb-2">Training   Progression</H4>
             <P className="  leading-relaxed">
-              Years of combined digital travel technology experience<br />
-              Years of combined digital travel
+             Qcentrio Academy runs 100+ yearly trainings on cloud,<br /> AI, Python, React for skill growth
+              
             </P>
             <div className="border-b border-[#d0f5e6] mt-4"></div>
           </div>
@@ -38,8 +34,7 @@ export default function TeamSection() {
           <div className="mb-10">
             <H4 className=" text-[#6c6aff] mb-2">Our Culture</H4>
             <P className="  leading-relaxed">
-              Years of combined digital travel technology experience<br />
-              Years of combined digital travel
+            Collaborative teams own projects, share knowledge,<br/> and get equal chances for career advancement here. 
             </P>
             {/* <div className="border-b border-[#d0f5e6] mt-4"></div> */}
           </div>
