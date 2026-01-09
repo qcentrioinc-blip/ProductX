@@ -40,7 +40,7 @@ export default function JobListSection() {
       <div className="max-w-8xl mx-10">
 
         {/* -------------------- HEADING -------------------- */}
-        <H2 className="text-[#020059] mb-10">Find your next job</H2>
+        <H2 className="text-[#020059] mb-10">Find your next role</H2>
 
         {/* -------------------- JOB CARDS -------------------- */}
         <a href="/industries/ai-optimization/jobs">
@@ -106,17 +106,17 @@ export default function JobListSection() {
 
           {/* Left Text */}
           <H2 className="text-[#020059] leading-snug">
-            Not found what you <br /> are looking for?
+           Can’t find a matching <br/> role to your skills? 
           </H2>
 
           {/* Right Section */}
           <div className="flex flex-col justify-between">
-            <p className="text-2xl text-[#141414] mb-6">
-              Get in touch and let us know what you can bring to the party.swdd dewt g er gereg eqgerg.
+            <p className="text-2xl font-bricolage text-[#141414] mb-6">
+            Tell us your unique skills and experience to join our growing AI cloud team. 
             </p>
 
             <button className="bg-[#0AC276] text-[#2A2A2A] px-6 py-3 rounded-lg font-medium flex items-center gap-2 w-fit hover:bg-[#b0f5d8] transition">
-              INTRODUCE YOURSELF <ArrowUpRight size={18} />
+              Apply Here <ArrowUpRight size={18} />
             </button>
           </div>
         </div>

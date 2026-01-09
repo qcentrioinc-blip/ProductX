@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
-import { H2, H3, P } from "../../../styles/Typography"
+import { H2, H3, P } from "../../../../../styles/Typography"
 
 const sections = [
   { id: "optimizations", label: "Productivity" },

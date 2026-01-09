@@ -127,8 +127,8 @@ export default function BenefitsSection() {
     {
       id: 1,
       image: "/AI/Careers/img1.jpg",
-      leftText: "Upto 20 \n Days",
-      rightText: "Paid time \n off"
+      leftText: "Fast Career \n Growth ",
+      rightText: "Remote Work \n Options "
     },
     {
       id: 2,

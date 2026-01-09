@@ -22,7 +22,7 @@ const throttle = <T extends (event: any) => void>(func: T, limit: number) => {
     }
   };
 };
-
+ 
 interface Dot {
   cx: number;
   cy: number;
@@ -30,7 +30,6 @@ interface Dot {
   yOffset: number;
   _inertiaApplied: boolean;
 }
-
 function hexToRgb(hex: string) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
   if (!m) return { r: 0, g: 0, b: 0 };
@@ -40,7 +39,6 @@ function hexToRgb(hex: string) {
     b: parseInt(m[3], 16),
   };
 }
-
 const Contact: React.FC = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -55,7 +53,6 @@ const Contact: React.FC = () => {
     lastX: 0,
     lastY: 0,
   });
-
   /* DOT SETTINGS */
   const dotSize = 5;
   const gap = 15;
@@ -76,7 +73,6 @@ const Contact: React.FC = () => {
     p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
     return p;
   }, []);
-
   const buildGrid = useCallback(() => {
     const wrap = wrapperRef.current;
     const canvas = canvasRef.current;
@@ -111,6 +107,7 @@ const Contact: React.FC = () => {
     }
     dotsRef.current = dots;
   }, []);
+ 
 
   useEffect(() => {
     if (!circlePath) return;
@@ -145,6 +142,7 @@ const Contact: React.FC = () => {
     draw();
     return () => cancelAnimationFrame(rafId);
   }, [circlePath, baseRgb, activeRgb]);
+ 
 
   useEffect(() => {
     buildGrid();
@@ -152,6 +150,7 @@ const Contact: React.FC = () => {
     if (wrapperRef.current) ro.observe(wrapperRef.current);
     return () => ro.disconnect();
   }, [buildGrid]);
+ 
 
   useEffect(() => {
     const onMove = (clientX: number, clientY: number) => {
@@ -174,6 +173,7 @@ const Contact: React.FC = () => {
       }
       pr.lastTime = now; pr.lastX = clientX; pr.lastY = clientY;
       pr.vx = vx; pr.vy = vy; pr.speed = speed; pr.x = currentX; pr.y = currentY;
+ 
 
       for (const dot of dotsRef.current) {
         const dist = Math.hypot(dot.cx - pr.x, dot.cy - pr.y);
@@ -248,5 +248,4 @@ const Contact: React.FC = () => {
     </section>
   );
 };
-
 export default Contact;
