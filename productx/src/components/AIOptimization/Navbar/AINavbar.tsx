@@ -83,23 +83,23 @@ const AINavbar = () => {
     },
   ];
 
-  const builtForItemsAI = [
-    {
-      title: "Enterprises",
-      desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: `${base}/built-for`,
-    },
-    {
-      title: "Digital Natives",
-      desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: `${base}/built-for`,
-    },
-    {
-      title: "SMBs",
-      desc: "Praesent eget laoreet arcu, nec iaculis.",
-      path: `${base}/built-for`,
-    },
-  ];
+ const builtForItemsAI = [
+  {
+    title: "Enterprises",
+    desc: "IT and Cloud Infrastructure Teams",
+    path: `${base}/built-for/enterprises`,
+  },
+  {
+    title: "Digital Natives",
+    desc: "SaaS and Application Providers",
+    path: `${base}/built-for/digital-native`,
+  },
+  {
+    title: "Large, Multi-Region Enterprises",
+    desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
+    path: `${base}/built-for/smb`,
+  },
+];
 
   const industries = [
     {
@@ -214,15 +214,18 @@ const AINavbar = () => {
                     </div>
                   </div>
                 )}
+                {
+                   
+                }
 
-                {item.name === "Resources" && (
+                {/* {item.name === "Resources" && (
                   <div className="relative" onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Resources</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
                     </div>
                   </div>
-                )}
+                )} */}
 
                 {item.name === "Built for" && (
                   <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setLogoDropdownOpen(false); }}>
@@ -246,7 +249,7 @@ const AINavbar = () => {
         <div className="hidden lg:flex items-center gap-8">
           <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
           <button onClick={() => setModalOpen(true)}>
-            <ContactUsDark>Contact Us</ContactUsDark>
+          Contact Us 
           </button>
         </div>
 

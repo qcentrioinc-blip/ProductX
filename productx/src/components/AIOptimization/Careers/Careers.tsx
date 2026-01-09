@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { H1 } from "../../../styles/Typography";
 
 
@@ -16,13 +17,13 @@ export default function Careers() {
         />
       </div>
 
-      <div className="relative text-center max-w-3xl mx-auto">
+      <div className="relative text-center max-w-4xl mx-auto">
         
         
         {/* Main Heading */}
         <H1 className="leading-snug text-[#0AC276] mb-10">
-          Lorum ipsum dolor sit <br className="hidden sm:block" />
-          <span className="text-white">amet, consecutor </span>
+          Build the Best AI   <br className="hidden sm:block" />
+          <span className="text-white">Cloud  Solutions With Us </span>
         </H1>
 
         {/* Button */}
@@ -35,6 +36,7 @@ export default function Careers() {
   }}
           className="
             inline-flex 
+            font-bricolage
             items-center 
             justify-center 
             px-6 sm:px-8 
@@ -43,7 +45,7 @@ export default function Careers() {
             text-black 
             rounded-lg 
             shadow-lg 
-            hover:bg-green-600 
+          
             transition 
             duration-300 
             transform 
@@ -51,21 +53,8 @@ export default function Careers() {
             
           "
         >
-          SUBMIT APPLICATION
-          <svg
-            className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            ></path>
-          </svg>
+          See Positions
+         <ArrowRight/>
         </button>
 
       </div>
