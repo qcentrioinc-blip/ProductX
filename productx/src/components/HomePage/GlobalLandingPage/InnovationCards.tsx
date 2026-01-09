@@ -32,7 +32,7 @@ export default function InnovationCards() {
         </H2>
 
         {/* ================= MOBILE / TABLET CAROUSEL ================= */}
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           <div
             className="
               flex gap-6
@@ -92,7 +92,7 @@ export default function InnovationCards() {
         </div>
 
         {/* ================= DESKTOP GRID ================= */}
-        <div className="hidden lg:grid grid-cols-3 gap-8 justify-center">
+        <div className="hidden xl:grid grid-cols-3 gap-8 justify-center">
           {cards.map((card, i) => (
             <div
               key={i}

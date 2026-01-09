@@ -68,6 +68,7 @@ import AIWhitePapers from './components/AIOptimization/WhitePapers/AIWhitePapers
 import AIGlossary from './components/AIOptimization/Glossary/AIGlossary'
 import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptimization'
 import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc'
+import Pricing from './components/AIOptimization/Pricing/Pricing'
 
 
 
@@ -224,6 +225,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
+            <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
             
 
            {/* Built for globally */}
