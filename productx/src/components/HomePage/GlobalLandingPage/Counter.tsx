@@ -58,7 +58,7 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className={`rounded-lg shadow-md transition-all duration-300 p-4 sm:p-6 text-start cursor-pointer border-2 border-gray-200
+      className={`rounded-2xl shadow-md transition-all duration-300 p-4 sm:p-6 text-start cursor-pointer border-2 border-gray-200
         ${dark ? "bg-black text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"}
       `}
     >
@@ -89,7 +89,7 @@ const Counter = () => {
       <div className="max-w-8xl lg:mx-10 text-center mb-8 sm:mb-12 px-4 ">
         {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2> */}
         <H2>
-         Results That Prove Our Impac
+         Results That Prove Our Impact
         </H2>
         {/* <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
           Behind every number is a team achieving more — see how high-performing workflows,
@@ -101,7 +101,7 @@ const Counter = () => {
         </P> */}
       </div>
       <div className="w-full     px-6 lg:px-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-2 lg:gap-2 min-h-[200px] sm:min-h-[240px] md:min-h-[250px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 min-h-[200px] sm:min-h-[240px] md:min-h-[250px]">
           <CounterCard
             number={25}
             suffix="K+"

@@ -27,7 +27,7 @@ interface MenuItemProps {
   image: string;
 }
  
-const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
+const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
@@ -144,16 +144,20 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   return (
     <div
       ref={itemRef}
-      className="relative flex-1 overflow-hidden text-center border-t border-white/20"
+      className="relative flex-1 overflow-hidden text-center"
     >
       {/* STATIC TEXT (DEFAULT VIEW) */}
       <a
-        ref={linkRef}
-        href={link}
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-        className="relative z-10 flex h-full items-center justify-center uppercase font-semibold text-white text-[4vh] transition-opacity"
-      >
+  ref={linkRef}
+  href="javascript:void(0)"
+  role="button"
+  tabIndex={0}
+  onClick={(e) => e.preventDefault()}
+  onMouseEnter={onEnter}
+  onMouseLeave={onLeave}
+  className="relative z-10 flex h-full items-center justify-center uppercase font-semibold text-white text-[4vh] transition-opacity select-none"
+>
+
         {text}
       </a>
  
