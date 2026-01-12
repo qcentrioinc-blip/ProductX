@@ -31,9 +31,7 @@ const AIFooter = () => {
             </div>
 
             {/* ========== TOP SECTION ========== */}
-            <div className="relative w-full py-12 sm:py-14 md:py-16">
-
-                {/* Pattern Overlay */}
+            {/* <div className="relative w-full py-12 sm:py-14 md:py-16">
                 <div className="absolute inset-0 overflow-hidden opacity-60">
                     <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -60,7 +58,6 @@ const AIFooter = () => {
                     </svg>
                 </div>
 
-                {/* Heading */}
                 <div className="relative z-20 mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 lg:px-7 text-center">
                     <h2
                         className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[70px]"
@@ -74,7 +71,7 @@ const AIFooter = () => {
                         Trust Qnest Clouddiet for guaranteed cloud savings
                     </h2>
                 </div>
-            </div>
+            </div> */}
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 sm:pt-12 md:pt-16 pb-10 sm:pb-14 md:pb-16 px-4 sm:px-8 lg:px-16">
@@ -273,7 +270,7 @@ const AIFooter = () => {
 
                         {/* RIGHT SIDE AI IMAGE (Desktop Only) */}
                         <div className="hidden xl:block relative">
-                            <div className="absolute right-0 top-[-100px] left-[230px] w-[520px] xl:w-[620px]">
+                            <div className="absolute right-0 top-[-90px] left-[240px] w-[520px] xl:w-[620px]">
                                 <img
                                     src="/AIOptimization/AIGirl.png"
                                     alt="AI Girl"
