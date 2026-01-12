@@ -41,7 +41,7 @@ const AINavbar = () => {
   const navItems = [
     { name: "Products", path: `${base}/clouddiet`, scroll: false },
     { name: "Built for", path: base },
-    { name: "About Us", path: `${base}/aboutus` },
+    { name: "Pricing", path: `${base}/pricing` },
     { name: "Resources", path: `${base}/resources` },
   ];
 
@@ -83,23 +83,23 @@ const AINavbar = () => {
     },
   ];
 
- const builtForItemsAI = [
-  {
-    title: "Enterprises",
-    desc: "IT and Cloud Infrastructure Teams",
-    path: `${base}/built-for/enterprises`,
-  },
-  {
-    title: "Digital Natives",
-    desc: "SaaS and Application Providers",
-    path: `${base}/built-for/digital-native`,
-  },
-  {
-    title: "Large, Multi-Region Enterprises",
-    desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
-    path: `${base}/built-for/smb`,
-  },
-];
+  const builtForItemsAI = [
+    {
+      title: "Enterprises",
+      desc: "IT and Cloud Infrastructure Teams",
+      path: `${base}/built-for/enterprises`,
+    },
+    {
+      title: "Digital Natives",
+      desc: "SaaS and Application Providers",
+      path: `${base}/built-for/digital-native`,
+    },
+    {
+      title: "Large, Multi-Region Enterprises",
+      desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
+      path: `${base}/built-for/smb`,
+    },
+  ];
 
   const industries = [
     {
@@ -215,7 +215,7 @@ const AINavbar = () => {
                   </div>
                 )}
                 {
-                   
+
                 }
 
                 {/* {item.name === "Resources" && (
@@ -249,7 +249,7 @@ const AINavbar = () => {
         <div className="hidden lg:flex items-center gap-8">
           <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
           <button onClick={() => setModalOpen(true)}>
-          Contact Us 
+            Contact Us
           </button>
         </div>
 
