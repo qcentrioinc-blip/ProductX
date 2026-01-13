@@ -1,5 +1,5 @@
  
-import FeatureCards from "./Features"
+import FeatureCards from "../HomePageAI/Features"
 // import HeroSection from "./HeroSection"
  
 import Testimonial from "./Testimonial"
@@ -10,14 +10,15 @@ import HWD from "../../Banking&Finance/HWD"
 import Onboarding from "./Onboarding"
 // import AutoDataChange from "./AutoDataChange"
 // import HeroBottomNavbar from "../../Banking&Finance/ProductPago/HeroBottomNav"
-import ImageContainer from "./ImageContainer"
+// import ImageContainer from "./ImageContainer"
 // import Partner from "./Partner"
 import Firm from "./Firm"
-import ImageGrid from "./ImageGrid"
-import Timeline from "./Timeline"
+import ImageGrid from "../HomePageAI/ImageGrid"
+import Timeline from "../HomePageAI/Timeline"
 import FinalHero from "./FinalHero"
 import CTA from "./CTA"
 import CostOptimization from "./CostOptimization"
+import ImageContainer from "./ImageContainer"
  
  
 

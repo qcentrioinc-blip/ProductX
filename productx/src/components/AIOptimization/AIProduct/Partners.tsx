@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { H2,   H4, P  } from "../../../styles/Typography";
-
+ 
 const logos = [
   "/CompanyLogo/Dell.png",
     "/CompanyLogo/GoogleCloud.png",
@@ -9,34 +9,34 @@ const logos = [
    "/CompanyLogo/AWS.png",
     "/CompanyLogo/Deloitte.png",
 ];
-
+ 
 export default function Partners() {
   const trackRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
   const translateX = useRef(0);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const direction = currentScrollY > lastScrollY.current ? -1 : 1;
-
+ 
       translateX.current += direction * 1.5;
-
+ 
       if (trackRef.current) {
         trackRef.current.style.transform = `translateX(${translateX.current}px)`;
       }
-
+ 
       lastScrollY.current = currentScrollY;
     };
-
+ 
     const onScroll = () => {
       requestAnimationFrame(handleScroll);
     };
-
+ 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+ 
   return (
     <section className="w-full  overflow-hidden pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto xl:px-10   flex flex-col text-center">
@@ -64,7 +64,7 @@ export default function Partners() {
          
         </P>
       </div>
-
+ 
       {/* Card 2 */}
       <div className="text-center">
        <H4 className="inline-block  px-5 py-3 mb-3 rounded-full bg-white  text-sm font-semibold text-black">
@@ -75,7 +75,7 @@ export default function Partners() {
           <span className="font-semibold"></span>
         </P>
       </div>
-
+ 
       {/* Card 3 */}
       <div className="text-center">
         <H4 className="inline-block mb-3 rounded-full bg-white  px-5 py-3 text-sm font-semibold text-black">
@@ -89,12 +89,12 @@ export default function Partners() {
     </div>
   </div>
 </div>
-
+ 
       <H2 className="  font-semibold text-[#F5F5F5]">
           {/* text-[#020059] */}
           We partnered with
         </H2>
-
+ 
         <div className="relative mt-10 overflow-hidden">
           <div
             ref={trackRef}
@@ -122,9 +122,11 @@ export default function Partners() {
             ))}
           </div>
         </div>
-
-      
+ 
+     
       </div>
     </section>
   );
 }
+ 
+ 
