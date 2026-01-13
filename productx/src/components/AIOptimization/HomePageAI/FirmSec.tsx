@@ -1,5 +1,5 @@
 import { H2, H3, H4, P } from "../../../styles/Typography";
-import { useRef, useEffect, useState } from 'react';
+import   { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 
@@ -45,7 +45,6 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         e.clientY >= rect.top && e.clientY <= rect.bottom;
 
       isInsideSection.current = mouseInside;
-      // FIX: Cast to NodeListOf<HTMLElement> to access .style
       const cards = section.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
 
 
@@ -111,8 +110,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
 
     const handleMouseLeave = () => {
       isInsideSection.current = false;
-      // FIX: Cast to NodeListOf<HTMLElement>
-      containerRef.current?.querySelectorAll('.animated-card').forEach((card: HTMLElement) => {
+      containerRef.current?.querySelectorAll('.animated-card').forEach(card => {
         card.style.setProperty('--glow-intensity', '0');
       });
       if (spotlightRef.current) {
@@ -140,8 +138,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
 
 export default function Firm() {
 
-  // FIX: Add <HTMLDivElement> generic type to useRef
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -207,8 +204,8 @@ const withoutCloudDietFeatures = [
             padding: 4px;
              background: radial-gradient(
     var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(59, 130, 246, calc(var(--glow-intensity) * 1)) 0%,
-    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.6)) 30%,
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 1)) 0%,  /* ← Change color here */
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.6)) 30%,  /* ← And here */
     transparent 60%
   );
             border-radius: inherit;
@@ -267,7 +264,7 @@ const withoutCloudDietFeatures = [
         <P className="mt-4">{item.desc}</P>
       </div>
     </li>
-))}
+  ))}
 </ul>
 
             </div>
@@ -296,7 +293,7 @@ const withoutCloudDietFeatures = [
         <P className="mt-4">{item.desc}</P>
       </div>
     </li>
-))}
+  ))}
 </ul>
 
             </div>
