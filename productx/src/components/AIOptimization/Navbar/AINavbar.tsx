@@ -12,7 +12,7 @@ const AINavbar = () => {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
+  const [mobileDropdown, setMobileDropdown] = useState<null | "features" | "resources" | "builtfor">(null);
   const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -39,7 +39,7 @@ const AINavbar = () => {
   const base = `/industries/${industry}`;
 
   const navItems = [
-    { name: "Products", path: `${base}/clouddiet`, scroll: false },
+    { name: "Features", path: `${base}/features`, scroll: false },
     { name: "Built for", path: base },
     { name: "Pricing", path: `${base}/pricing` },
     { name: "Resources", path: `${base}/resources` },
@@ -47,17 +47,17 @@ const AINavbar = () => {
 
   const megaMenuItems = [
     {
-      title: " CloudDiet",
+      title: "AI Features",
       desc: "Intelligent agents that automate complex workflows.",
       img: "/AIOptimization/Resource1.png",
-      path: `${base}/clouddiet`,
+      path: `${base}/features`,
     },
-    {
-      title: "Process Automation",
-      desc: "End-to-end automation for repetitive business tasks.",
-      img: "/AIOptimization/Resource2.png",
-      path: `${base}/process-automation`,
-    },
+    // {
+    //   title: "Process Automation",
+    //   desc: "End-to-end automation for repetitive business tasks.",
+    //   img: "/AIOptimization/Resource2.png",
+    //   path: `${base}/process-automation`,
+    // },
   ];
 
   const resourceItemsAI = [
@@ -206,10 +206,10 @@ const AINavbar = () => {
           <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
-                {item.name === "Products" && (
+                {item.name === "Features" && (
                   <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
-                      <button className="text-gray-800 text-[18px]">Products</button>
+                      <button className="text-gray-800 text-[18px]">Features</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
                     </div>
                   </div>
@@ -236,7 +236,7 @@ const AINavbar = () => {
                   </div>
                 )}
 
-                {item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" && (
+                {item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" && (
                   <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }} className="text-gray-800 text-[18px]">
                     {item.name}
                   </Link>
@@ -328,11 +328,11 @@ const AINavbar = () => {
 
         <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
           <div className="border-b border-gray-200 pb-3">
-            <button onClick={() => setMobileDropdown(mobileDropdown === "products" ? null : "products")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
-              Products
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "products" ? "rotate-180" : ""}`} />
+            <button onClick={() => setMobileDropdown(mobileDropdown === "features" ? null : "features")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
+              Features
+              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "features" ? "rotate-180" : ""}`} />
             </button>
-            {mobileDropdown === "products" && (
+            {mobileDropdown === "features" && (
               <div className="mt-3 pl-3 space-y-4">
                 {megaMenuItems.map((item, index) => (
                   <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="flex gap-3 items-start py-2">
@@ -382,7 +382,7 @@ const AINavbar = () => {
           </div>
 
           {navItems.map((item) =>
-            item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" ? (
+            item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" ? (
               <div key={item.name} className="border-b border-gray-200 pb-3">
                 <Link to={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
                   {item.name}
