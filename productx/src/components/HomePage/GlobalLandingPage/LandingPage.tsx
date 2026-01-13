@@ -19,7 +19,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
       ref={ref}
       layout
       onClick={onClick}
-      className="relative cursor-pointer group shrink-0 xl:w-full flex xl:justify-end"
+      className="relative cursor-pointer group shrink-0 xl:w-full flex flex-col xl:block"
       initial={false}
       animate={{
         scale: isActive ? 1.05 : 1,
@@ -32,6 +32,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         layout: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
       }}
     >
+      {/* Image Container */}
       <a
         href={url}
         target="_blank"
@@ -47,7 +48,8 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
         />
 
-        <div className={`absolute inset-0 bg-black/40 transition-opacity duration-700 flex items-end p-4 ${
+        {/* Desktop Overlay - Title on hover/active */}
+        <div className={`hidden xl:flex absolute inset-0 bg-black/40 transition-opacity duration-700 items-end p-4 ${
           isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`}>
           <div className={`flex justify-between items-center w-full transition-transform duration-700 ${
@@ -72,6 +74,32 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
             transition={{ duration: 5, ease: 'linear' }} />
         )}
       </a>
+
+      {/* Mobile/Tablet Title - Below image (always visible) */}
+      <div className="xl:hidden mt-4 w-full max-w-[260px]">
+        <div className="flex justify-between items-center w-full">
+          <span className={`text-white font-semibold text-base tracking-tight transition-all duration-300 ${
+            isActive ? 'opacity-100' : 'opacity-60'
+          }`}>
+            {title}
+          </span>
+          <div className={`p-1.5 rounded-full backdrop-blur-md transition-all duration-300 ${
+            isActive ? 'bg-white/20' : 'bg-white/10'
+          }`}>
+            <ArrowUpRight size={16} className="text-white" />
+          </div>
+        </div>
+        
+        {/* Active indicator for mobile/tablet */}
+        {isActive && (
+          <motion.div 
+            className="h-0.5 bg-white mt-3"
+            initial={{ width: '0%' }} 
+            animate={{ width: '100%' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          />
+        )}
+      </div>
     </motion.div>
   )
 );
@@ -112,26 +140,22 @@ export default function InteractiveHeroSection() {
   return (
     <>
     <Navbar />
-    <div className=" bg-black overflow-x-hidden font-quicksand">
-      
-
-      <div ref={heroRef} className="relative min-h-[100svh] md:min-h-[70svh] xl:min-h-screen flex items-center  md:pt-15  xl:py-6 ">
+    <div className="bg-black overflow-x-hidden font-quicksand">
+      <div ref={heroRef} className="relative min-h-[100svh] md:min-h-[70svh] xl:min-h-screen flex items-center md:pt-15 xl:py-6">
         <div className="max-w-8xl xl:px-10 w-full">
-          <div className="grid grid-cols-1 xl:grid-cols-[60%_1fr_20%] gap-10 xl:gap-8 items-stretch pt-28 md:pt-15 xl:pr-10 ">
-
+          <div className="grid grid-cols-1 xl:grid-cols-[60%_1fr_20%] gap-10 xl:gap-8 items-stretch pt-28 md:pt-15 xl:pr-10">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="flex flex-col justify-between mx-10">
-
               <div className="space-y-6">
                 <H1 className="text-white">
                   Shaping The Future <br className="hidden sm:block" /> Across Every Sector
                 </H1>
-                <P className="text-[#F5F5F5] max-w-xl leading-relaxed ">
+                <P className="text-[#F5F5F5] max-w-xl leading-relaxed">
                   Qnest Global helps businesses modernize with AI, CRM, HRM, and secure cloud platforms. Our teams design, build, and manage solutions that improve efficiency, cut risk, and support long‑term growth.
                 </P>
                 <Link to="/contact" className="inline-block w-fit">
                   <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                    className="bg-white w-fit text-black px-8 py-4 rounded-2xl font-bold text-sm cursor-pointer flex items-center gap-2 mt-4 xl:mt-6 shadow-xl ">
+                    className="bg-white w-fit text-black px-8 py-4 rounded-2xl font-bold text-sm cursor-pointer flex items-center gap-2 mt-4 xl:mt-6 shadow-xl">
                     Get Your Custom Proposal <ArrowUpRight size={18} />
                   </motion.button>
                 </Link>
@@ -158,26 +182,26 @@ export default function InteractiveHeroSection() {
 
             <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
               <div ref={scrollContainerRef}
-                className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end pl-6 pr-6 xl:pl-0 xl:pr-0">
-
+                className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0">
+                
                 <AnimatePresence mode="popLayout">
                   {industries.map((industry, index) => (
-                    <IndustryCard
-                      key={industry.title}
-                      ref={(el) => { cardRefs.current[index] = el; }}
-                      title={industry.title}
-                      image={industry.image}
-                      url={industry.url}
-                      isActive={activeIndex === index}
-                      onClick={() => setActiveIndex(index)}
-                    />
+                    <div key={industry.title} className="flex flex-col items-center">
+                      <IndustryCard
+                        ref={(el) => { cardRefs.current[index] = el; }}
+                        title={industry.title}
+                        image={industry.image}
+                        url={industry.url}
+                        isActive={activeIndex === index}
+                        onClick={() => setActiveIndex(index)}
+                      />
+                    </div>
                   ))}
                 </AnimatePresence>
               </div>
 
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 blur-[120px] pointer-events-none" />
             </div>
-
           </div>
         </div>
       </div>
