@@ -218,14 +218,15 @@ const AINavbar = () => {
                    
                 }
 
-                {/* {item.name === "Resources" && (
-                  <div className="relative" onMouseEnter={() => { setResourcesMenuOpen(true); setMegaMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
-                    <div className="flex items-center gap-1 cursor-pointer">
-                      <button className="text-gray-800 text-[18px]">Resources</button>
-                      <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </div>
-                )} */}
+               {item.name === "Resources" && (
+  <Link
+    to="/industries/ai-optimization/resources/whyclouddiet/clouddiet"
+    className="text-gray-800 text-[18px]"
+    onClick={closeAllMenus}
+  >
+    Resources
+  </Link>
+)}
 
                 {item.name === "Built for" && (
                   <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setLogoDropdownOpen(false); }}>

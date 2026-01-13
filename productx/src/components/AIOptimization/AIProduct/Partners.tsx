@@ -57,33 +57,33 @@ export default function Partners() {
       {/* Card 1 */}
       <div className="text-center">
         <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white  text-sm font-semibold text-black">
-          Lorem ipsum
+          AI-Powered Profiling
         </H4>
-        <P className="text-white  xl:pl-12 font-medium">
-          We onboard users from <br />
-          <span className="font-semibold">126+ countries</span>
+        <P className="text-white     mx-auto font-medium">
+         Analyzes resource configuration,<br/> usage, and costs. 
+         
         </P>
       </div>
 
       {/* Card 2 */}
       <div className="text-center">
        <H4 className="inline-block  px-5 py-3 mb-3 rounded-full bg-white  text-sm font-semibold text-black">
-          Lorem ipsum
+         Expert Recommendations
         </H4>
-        <P className="text-white  xl:pl-12 font-medium">
-          We onboard users from <br />
-          <span className="font-semibold">126+ countries</span>
+        <P className="text-white  mx-auto  font-medium">
+        Actionable insights from   <br />cloud engineering veterans.
+          <span className="font-semibold"></span>
         </P>
       </div>
 
       {/* Card 3 */}
       <div className="text-center">
         <H4 className="inline-block mb-3 rounded-full bg-white  px-5 py-3 text-sm font-semibold text-black">
-          Lorem ipsum
+         Guaranteed Savings
         </H4>
-        <P className="text-white xl:pl-12  font-medium">
-          We onboard users from <br />
-          <span className="font-semibold">126+ countries</span>
+        <P className="text-white mx-auto   font-medium">
+          Pay only a share<br /> of realized savings.
+          
         </P>
       </div>
     </div>

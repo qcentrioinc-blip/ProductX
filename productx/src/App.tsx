@@ -221,7 +221,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
             <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
             <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
-            <Route path="/industries/ai-optimization/clouddiet" element={<HeroAIOptimization />} />
+            <Route path="/industries/ai-optimization/features" element={<HeroAIOptimization />} />
             <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />

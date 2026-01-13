@@ -1,9 +1,9 @@
 import React from "react";
-import { H2 ,H1} from "../../../../../styles/Typography";
+import { H1, H3} from "../../../../../styles/Typography";
 
 const Service: React.FC = () => {
   return (
-    <div>
+    <div className="space-y-4">
       <H1 className="text-[#5551FF]">Service Security</H1>
       
       <p>
@@ -13,7 +13,7 @@ const Service: React.FC = () => {
         and make data-driven decisions.
       </p>
 
-      <h2>Key Capabilities</h2>
+      <H3>Key Capabilities</H3>
       <p>
         We offer a wide range of AI capabilities including machine learning, 
         natural language processing, computer vision, and predictive analytics.
@@ -26,14 +26,14 @@ const Service: React.FC = () => {
         <li>Predictive Analytics and Forecasting</li>
       </ul>
 
-      <H2>Implementation Process</H2> 
+      <H3>Implementation Process</H3> 
       <p>
         Our implementation process is designed to minimize disruption while 
         maximizing value. We work closely with your team to understand your 
         specific needs and tailor our solutions accordingly.
       </p>
 
-      <h2>Benefits</h2>
+      <H3>Benefits</H3>
       <p>
         Organizations that implement our AI solutions typically see significant 
         improvements in efficiency, accuracy, and decision-making capabilities.
