@@ -7,10 +7,10 @@ export default function Timeline() {
       {/* Heading */}
       <div className="max-w-8xl mx-auto text-center mb-10">
         <H2 className="  font-bold text-[#020059] mb-4">
-          Lorem ipsum dolor sit amet Lorem
+    Unique Visibility 
         </H2>
         <P className=" max-w-3xl mx-auto">
-        Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum 
+        Our data-rich profiling provides unique visibility into resource configuration and utilization. This supports precise optimization recommendations and enables you to make informed, cost-saving decisions. 
         </P>
       </div>
 

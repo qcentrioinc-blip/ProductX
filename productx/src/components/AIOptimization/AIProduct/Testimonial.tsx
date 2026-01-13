@@ -14,25 +14,28 @@ const testimonials: Testimonial[] = [
     company: "ShareChat",
     logo: "/AIProduct/ShareChat.png",
     quote:
-      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform",
+      " CloudDIET identified over $3.8M in annual optimizations beyond our Reserved Instances. Their engineering approach is a game-changer for cloud financial management.",
+    name: "David Chen ",
+    role: "Director of Cloud Operations",
+     
   },
   {
     company: "ShareChat",
     logo: "/AIProduct/ShareChat.png",
     quote:
-      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform",
+      "The platform's deep profiling caught misconfigurations our internal team missed. We achieved 30% savings without impacting performance. Highly recommended.",
+    name: " Sarah Mitchell",
+    role: "VP of Engineering",
+     
   },
   {
     company: "ShareChat",
     logo: "/AIProduct/ShareChat.png",
     quote:
-      "We onboard users from 126+ countries — whether you hold a passport or a residence permit we've got you covered.We onboard users from",
-    name: "ABCDEF",
-    role: "Director of Cloud Platform",
+      "Their read-only, no-data-access model gave us confidence. The pay-for-performance pricing meant we only paid after seeing real results. ",
+    name: "Marc Johnson",
+    role: "CTO",
+   
   },
 ];
 interface MobileTestimonialSliderProps {
@@ -127,8 +130,9 @@ function MobileTestimonialSlider({
                   {testimonial.name}
                 </H4>
                 <P className="text-sm  text-white font-quicksand">
-                  {testimonial.role}
+               {testimonial.role}
                 </P>
+                <P>{testimonial.company}</P>
               </div>
             </div>
           </div>
@@ -155,7 +159,7 @@ export default function Testimonial() {
       <div className="max-w-8xl lg:mx-10">
         {/* Title */}
         <H2 className="text-white font-bold  xl:text-center text-left mb-12">
-          Lorem ipsum dolor sit amet Lorem
+         Massive Savings 
         </H2>
 
         {/* Testimonial Cards */}

@@ -6,47 +6,50 @@ import { H2, P } from "../../../styles/Typography";
 
 const features = [
   {
-    title: "Digital Cam",
-    description: "Empower students with personalised services Empower students with personalised services",
+    title: "Engineering Expertise",
+    description: "Built by cloud engineering veterans.",
     image: "/AIProduct/Feature.png",
     points: [
-      "Automate workflows and eliminate manual tasks",
-      "Ease onboarding and reduce the administrative burden",
+      "Decades of AWS, Azure, and Google Cloud experience. ",
+      "Advanced optimization beyond standard FinOps tools. ",
      
-      "Integrate siloed systems with SIS and optimize campus interactions",
+      "Crafted by seasoned multi-cloud platform professionals.",
+      "Understands complex configurations and commercial cloud terms. ",
     ],
   },
   {
-    title: "Digital Cam",
-      description: "Empower students with personalised services Empower students with personalised services",
+    title: "Guaranteed Savings",
+      description: " Pay only for performance results.",
     image: "/AIProduct/Feature.png",
     points: [
-      "Automate workflows and eliminate manual tasks",
-      "Ease onboarding and reduce the administrative burden",
+      "Rapid ROI as early as the first month. ",
+      "Unique pay-for-performance model ensures shared success. ",
      
-      "Integrate siloed systems with SIS and optimize campus interactions",
+      "Customers keep 100% of the assured savings. ",
+      "We charge a percentage of realized savings. ",
     ],
   },
   {
-    title: "Digital Cam",
-       description: "Empower students with personalised services Empower students with personalised services",
+    title: "Continuous Optimization",
+       description: " Retain savings long-term with AI.",
     image: "/AIProduct/Feature.png",
     points: [
-      "Automate workflows and eliminate manual tasks",
-      "Ease onboarding and reduce the administrative burden",
+      "Keep 80–90% of savings over time. ",
+      "AI-driven measures enable continuous efficiency gains. ",
      
-      "Integrate siloed systems with SIS and optimize campus interactions",
+      "Full savings from enhancements over three years. ",
+      "Maximized savings retention with an 8x ROI. ",
     ],
   },
   {
-    title: "Digital Cam",
-    description: "Empower students with personalised services Empower students with personalised services",
+    title: " Secure & Compliant",
+    description: "Zero data access, full customer control",
     image: "/AIProduct/Feature.png",
     points: [
-      "Automate workflows and eliminate manual tasks",
-      "Ease onboarding and reduce the administrative burden",
-     
-      "Integrate siloed systems with SIS and optimize campus interactions",
+      "Never access customer files, databases, or apps.",
+      "Read-only by design with Azure RBAC roles. ",
+      "Encrypted data at rest and in transit. ",
+      "Onboarding and permissions managed by you. ",
     ],
   },
 ];

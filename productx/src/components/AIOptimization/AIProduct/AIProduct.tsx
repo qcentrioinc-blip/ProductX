@@ -2,7 +2,7 @@
 import FeatureCards from "./Features"
 // import HeroSection from "./HeroSection"
  
-// import Testimonial from "./Testimonial"
+import Testimonial from "./Testimonial"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
@@ -17,6 +17,7 @@ import ImageGrid from "./ImageGrid"
 import Timeline from "./Timeline"
 import FinalHero from "./FinalHero"
 import CTA from "./CTA"
+import CostOptimization from "./CostOptimization"
  
  
 
@@ -31,13 +32,13 @@ const AIProduct = () => {
     <FinalHero/>
       {/* <HeroSection /> */} 
       {/* <HeroBottomNavbar /> */}
-       {/* Image section - positioned to overflow */}
+      
      
         <ImageContainer />
     
       </section>
      <CTA/>
-      {/* Cloud onboarding - negative margin pulls it up */}
+       
       <section
        
         className="relative     bg-no-repeat bg-cover z-10"
@@ -57,8 +58,9 @@ const AIProduct = () => {
       <ImageGrid/>
        </section>
       <FeatureCards />
+      <CostOptimization/>
       <Timeline/>
-      {/* <Testimonial /> */}
+      <Testimonial />
       <div id="usecases">
       <HWD />
       </div>
