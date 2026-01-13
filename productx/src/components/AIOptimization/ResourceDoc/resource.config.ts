@@ -15,33 +15,52 @@ export type ResourceCategory = {
 
 export const resourceConfig: Record<string, ResourceCategory> = {
     
+  whyclouddiet: {
+    label: "Why Clouddiet",
+    items: [
+     {
+        slug: "clouddiet",
+        label: "Clouddiet",
+        component: () => import("./content/onboarding/Clouddiet"),
+        type: "text",
+      },
+     ]
+  },   
   onboarding: {
     label: "Onboarding",
     items: [
+      // {
+      //   slug: "clouddiet",
+      //   label: "Clouddiet",
+      //   component: () => import("./content/onboarding/Clouddiet"),
+      //   type: "text",
+      // },
       {
-        slug: "artificial-intelligence",
-        label: "Artificial Intelligence",
-        component: () => import("./content/onboarding/Artificial"),
+        slug: "register",
+        label: "Register",
+        component: () => import("./content/onboarding/Register"),
         type: "text",
       },
       {
-        slug: "quantum-computing",
-        label: "Quantum Computing",
-        component: () => import("./content/onboarding/Quantum"),
+        slug: "single-sign-on-sso",
+        label: "Single Sign-On (SSO)",
+        component: () => import("./content/onboarding/Sign-On"),
         type: "cards",
       },
       {
-        slug: "cloud-data",
-        label: "Cloud Data",
-        component: () => import("./content/onboarding/CloudData"),
+        slug: "clouddiet-permissions",
+        label: "CloudDIET Permissions",
+        component: () => import("./content/onboarding/Clouddietpermissions"),
         type: "text",
       },
       {
-        slug: "cyber-security",
-        label: "Cyber Security",
-        component: () => import("./content/onboarding/CyberSecurity"),
+        slug: "adding-service-principal",
+        label: "Adding Service Principals",
+        component: () => import("./content/onboarding/AddingService"),
         type: "text",
       },
+      
+
       
     ],
   },

@@ -34,14 +34,14 @@ const FinalHero: React.FC = () => {
          
             <div className=" text-center ">
               <H1 className=" text-[#0AC276] text-center pt-10 leading-tight">
-                Cloud Financial Optimization-
+                Cloud Financial Optimization- 
                 <span className=" text-white block">
                  Smarter, Faster, Simpler.
                 </span>
               </H1>
- 
+
               <P className="mt-6 mx-auto max-w-2xl   text-center text-white/90">
-            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access.
+            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. 
               </P>
  
               <div className="mt-8    flex flex-flex-row   gap-4 justify-center">

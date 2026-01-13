@@ -2,18 +2,18 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 const cards = [
   {
-    title: "We onboard users",
-    desc: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+    title: " Potential Savings",
+    desc: "Description: Instantly view potential savings categorized by implementation effort, easy, medium, and hard. Target 60–70% savings within six weeks. ",
     img: "/AIProduct/Onboard1.png",
   },
   {
-    title: "We onboard users",
-    desc: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+    title: " Cost Transparency",
+    desc: "Gain deeper cost insights than native tools. Break down spending by environment, division, service, and resource configuration.",
     img: "/AIProduct/Onboard2.png",
   },
   {
-    title: "We onboard users",
-    desc: "We onboard users from 126+ countries — whether you hold a passport or a residence permit we’ve got you covered.",
+    title: " Savings Plans",
+    desc: " Make informed decisions with what-if analyses for Reserved Instances and Savings Plans. Optimize commitments for maximum long-term value.",
     img: "/AIProduct/Onboard3.png",
   },
 ];
@@ -28,7 +28,7 @@ export default function Onboarding() {
       >
         {/* Heading */}
         <H2 className=" mb-8 lg:mb-18  text-left xl:text-center font-semibold text-[#020059]">
-          Lorem ipsum dolor sit amet Lorem
+          Cloud Optimization Features That Deliver Results 
         </H2>
 
         {/* WHITE CONTAINER */}

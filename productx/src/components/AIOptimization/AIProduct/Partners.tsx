@@ -60,7 +60,7 @@ export default function Partners() {
           AI-Powered Profiling
         </H4>
         <P className="text-white     mx-auto font-medium">
-         Analyzes resource configuration,<br/> usage, and costs.
+         Analyzes resource configuration,<br/> usage, and costs. 
          
         </P>
       </div>
@@ -83,7 +83,7 @@ export default function Partners() {
         </H4>
         <P className="text-white mx-auto   font-medium">
           Pay only a share<br /> of realized savings.
-         
+          
         </P>
       </div>
     </div>

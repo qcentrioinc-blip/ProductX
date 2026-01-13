@@ -2,7 +2,7 @@
 import FeatureCards from "../HomePageAI/Features"
 // import HeroSection from "./HeroSection"
  
-// import Testimonial from "./Testimonial"
+import Testimonial from "./Testimonial"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
@@ -15,11 +15,10 @@ import Onboarding from "./Onboarding"
 import Firm from "./Firm"
 import ImageGrid from "../HomePageAI/ImageGrid"
 import Timeline from "../HomePageAI/Timeline"
-// import FinalHero from "./FinalHero"
+import FinalHero from "./FinalHero"
 import CTA from "./CTA"
-import TitleSec from "./TitleSec"
-import GlassyFeatures from "./GlassyFeatures"
-import PartnersLogos from "./PartnersLogos"
+import CostOptimization from "./CostOptimization"
+import ImageContainer from "./ImageContainer"
  
  
 
@@ -31,18 +30,16 @@ const AIProduct = () => {
           backgroundImage: "url(/AIProduct/AiHome.png)",
          
         }}>
-    {/* <FinalHero/> */}
+    <FinalHero/>
       {/* <HeroSection /> */} 
       {/* <HeroBottomNavbar /> */}
-       {/* Image section - positioned to overflow */}
-        <TitleSec/>
-        <GlassyFeatures/>
-        <PartnersLogos/>
-        {/* <ImageContainer /> */}
+      
+     
+        <ImageContainer />
     
       </section>
      <CTA/>
-      {/* Cloud onboarding - negative margin pulls it up */}
+       
       <section
        
         className="relative     bg-no-repeat bg-cover z-10"
@@ -62,8 +59,9 @@ const AIProduct = () => {
       <ImageGrid/>
        </section>
       <FeatureCards />
+      <CostOptimization/>
       <Timeline/>
-      {/* <Testimonial /> */}
+      <Testimonial />
       <div id="usecases">
       <HWD />
       </div>
