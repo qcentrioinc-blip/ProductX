@@ -11,26 +11,30 @@ type Item = {
   description: string;
   image: string;
   reverse?: boolean;
+cta: string;
 };
 
 const items: Item[] = [
   {
-    title: "Simple Booking",
+    title: " Secure Access",
     description:
-      "Effortlessly schedule a consultation to discuss your business needs and challenges. We streamline the process to get started quickly.",
+      " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
+      cta:"Get Started",
     image: "/ImageAI.png",
   },
   {
-    title: "Simple Booking",
+    title: "AI Analysis",
     description:
-      "Effortlessly schedule a consultation to discuss your business needs and challenges. We streamline the process to get started quickly.",
+      " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
     image: "/ImageAI.png",
+    cta:"Learn More",
     reverse: true,
   },
   {
-    title: "Simple Booking",
+    title: "Realize Savings",
     description:
-      "Effortlessly schedule a consultation to discuss your business needs and challenges. We streamline the process to get started quickly.",
+      "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
+      cta:"See Results",
     image: "/ImageAI.png",
   },
 ];
@@ -63,15 +67,15 @@ export default function ImageGrid() {
     {/* Header */}
     <div className="flex flex-col items-center justify-center text-center ">
       <H2 className=" mb-6 text-[#020059]">
-        Lorem ipsum dolor sit amet Lorem
+       How CloudDIET Works For You
       </H2>
-      <P className="xl:mb-28  ">
-        Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum 
+      <P className="xl:mb-28 mb-10  ">
+       A secure, four-step process to guarantee cloud savings. 
       </P>
     </div>
 
     {/* Content */}
-    <div className="space-y-20 max-w-7xl mx-auto pb-32">
+    <div className="space-y-20 max-w-7xl xl:mx-auto  mx-10 pb-32">
       {items.map((item, index) => (
         <div
           key={index}
@@ -99,7 +103,7 @@ export default function ImageGrid() {
             <H3 className="mb-3">{item.title}</H3>
             <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
               <div className="flex mt-8 flex-row space-x-2 ">
-            <P className=" font-bold">Discover More</P>
+            <P className=" font-bold">{item.cta}</P>
              <span><ArrowRight/></span>
             </div>
           </div>

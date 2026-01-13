@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { H2,   P } from "../../../styles/Typography";
+import { H2,   H3,   P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
@@ -30,14 +30,39 @@ const faqContentByIndustry: Record<string, FaqItem[]> = {
 
   "/industries/ai-optimization": [
     {
-      question: "How does AI optimization improve business performance?",
+      question: "What exactly does CloudDIET do?",
       answer:
-        "AI optimization enhances decision-making, automates workflows, and improves operational efficiency using intelligent models.",
+        "CloudDIET uses AI to profile, analyze, and optimize cloud resource configuration, utilization, and commercial terms to reduce waste and guarantee savings. ",
     },
     {
-      question: "Can the platform integrate with existing AI pipelines?",
+      question: "Does CloudDIET access my company's data?",
       answer:
-        "Absolutely. Our solution integrates seamlessly with modern ML frameworks and enterprise data ecosystems.",
+        "No. CloudDIET only accesses billing metadata, usage metrics, and resource configuration, never your files, databases, or application data. .",
+    },
+     {
+      question: " How is CloudDIET different from Azure Cost Management or AWS Cost Explorer?",
+      answer:
+        "CloudDIET provides engineering-led insights and AI-powered profiling that identifies misconfigurations and optimization opportunities beyond basic cost reporting. ",
+    },
+     {
+      question: " What cloud platforms does CloudDIET support?",
+      answer:
+        "CloudDIET supports Azure, AWS, and Google Cloud, with optimizations tailored to each platform's services and pricing models. ",
+    },
+     {
+      question: " What’s the typical timeline to see results?",
+      answer:
+        "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks. ",
+    },
+     {
+      question: "Can CloudDIET help with Reserved Instances and Savings Plans?",
+      answer:
+        "Yes. We analyze your usage and provide data-driven recommendations for optimal Reserved Instance and Savings Plan purchases",
+    },
+     {
+      question: "What kind of customer is CloudDIET best suited for?",
+      answer:
+        "Enterprises with mature cloud environments, dedicated cloud/FinOps teams, and significant spend on Azure, AWS, or Google Cloud. ",
     },
   ],
 
@@ -94,19 +119,19 @@ const faqData =
   return (
     <>
       <section className="relative w-full py-16 bg-white overflow-hidden">
-        <div className="max-w-8xl mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="max-w-8xl xl:px-10 mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
-            {/* <div className="mb-4 text-sm text-gray-700 flex items-center">
+            <div className="mb-4 text-sm text-gray-700 flex items-center">
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
-              <H3> </H3>
-            </div> */}
-            <H2 className="mb-4 text-[#020059]">What Sets <br/>Us Apart</H2>
+              <H3> FAQ</H3>
+            </div>
+            <H2 className="mb-4  "> Frequently Asked Questions</H2>
             <P className=" mb-6 max-w-lg">
-              Work on cutting-edge AI and cloud projects at Qcentrio. Gain real impact through AI optimizations and team collaboration daily.
+            Find clear answers about how CloudDIET works, its security model, savings process, and AI-driven approach to cloud financial optimization.
             </P>
 
-            <ContactUs onClick={handleContactClick}>CONTACT US</ContactUs>
+            <ContactUs onClick={handleContactClick}>Learn More</ContactUs>
           </div>
 
           <div className="lg:w-1/2 relative z-20">
