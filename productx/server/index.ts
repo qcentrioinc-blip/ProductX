@@ -1,122 +1,113 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
-import { GoogleGenAI } from '@google/genai';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { GoogleGenAI } from "@google/genai";
 
-dotenv.config();
+dotenv.config(); // works locally, env vars come from cPanel in prod
 
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
-  throw new Error('GEMINI_API_KEY environment variable is not set');
+  throw new Error("GEMINI_API_KEY environment variable is not set");
 }
 
 const ai = new GoogleGenAI({ apiKey });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(bodyParser.json());
+const PORT = Number(process.env.PORT);
 
-app.get('/', (req, res) => {
-  res.send('Backend server is running!');
+app.use(cors({
+  origin: "https://qnestglobal.com",
+  methods: ["GET", "POST"],
+}));
+
+app.use(express.json());
+
+app.get("/", (_req, res) => {
+  res.send("Backend server is running 🚀");
 });
 
-app.post('/api/chat', async (req, res) => {
+/* ---------------- CHAT ---------------- */
+app.post("/api/chat", async (req, res) => {
   try {
     const { prompt } = req.body;
 
     if (!prompt) {
-      return res.status(400).json({ error: 'Prompt is required' });
+      return res.status(400).json({ error: "Prompt is required" });
     }
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+      model: "gemini-2.5-flash-lite",
       contents: `Keep the response between 15 to 20 words. ${prompt}`,
     });
 
-    
     res.json({ text: response.text });
 
   } catch (error: any) {
-    console.error('Error generating content:', error);
-    res.status(500).json({
-      error: 'Failed to generate response',
-      details: error.message || 'Unknown error'
-    });
+    console.error("Chat error:", error);
+    res.status(500).json({ error: "Failed to generate response" });
   }
 });
 
-app.post('/api/chat/stream', async (req, res) => {
+/* ---------------- STREAM ---------------- */
+app.post("/api/chat/stream", async (req, res) => {
   try {
     const { prompt } = req.body;
 
     if (!prompt) {
-      return res.status(400).json({ error: 'Prompt is required' });
+      return res.status(400).json({ error: "Prompt is required" });
     }
 
-    res.setHeader('Content-Type', 'text/event-stream');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+    res.flushHeaders(); // 🔥 REQUIRED for Passenger
 
-    const response = await ai.models.generateContentStream({
-      model: 'gemini-2.5-flash-lite',
+    const stream = await ai.models.generateContentStream({
+      model: "gemini-2.5-flash-lite",
       contents: `Keep the response between 15 to 20 words. ${prompt}`,
     });
 
-    for await (const chunk of response) {
+    for await (const chunk of stream) {
       if (chunk.text) {
         res.write(`data: ${JSON.stringify({ text: chunk.text })}\n\n`);
       }
     }
 
-    res.write('data: [DONE]\n\n');
+    res.write("data: [DONE]\n\n");
     res.end();
 
   } catch (error: any) {
-    console.error('Error streaming content:', error);
-    res.status(500).json({
-      error: 'Failed to stream response',
-      details: error.message || 'Unknown error'
-    });
+    console.error("Stream error:", error);
+    res.end();
   }
 });
 
-app.post('/api/chat/search', async (req, res) => {
+/* ---------------- SEARCH ---------------- */
+app.post("/api/chat/search", async (req, res) => {
   try {
     const { prompt } = req.body;
 
     if (!prompt) {
-      return res.status(400).json({ error: 'Prompt is required' });
+      return res.status(400).json({ error: "Prompt is required" });
     }
 
-    const tools = [
-      {
-        googleSearch: {}
-      }
-    ];
-
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+      model: "gemini-2.5-flash-lite",
       contents: `Keep the response between 15 to 20 words. ${prompt}`,
       config: {
-        tools,
-      }
+        tools: [{ googleSearch: {} }],
+      },
     });
 
     res.json({ text: response.text });
 
   } catch (error: any) {
-    console.error('Error with search:', error);
-    res.status(500).json({
-      error: 'Failed to generate response with search',
-      details: error.message || 'Unknown error'
-    });
+    console.error("Search error:", error);
+    res.status(500).json({ error: "Search failed" });
   }
 });
 
-
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log("Server started on Passenger port");
 });
