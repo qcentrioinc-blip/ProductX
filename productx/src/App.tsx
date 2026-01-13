@@ -226,6 +226,7 @@ const App = () => {
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
             <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
+            <Route path="/industries/ai-optimization/features" element={<HeroAIOptimization />} />
 
 
             {/* Built for globally */}
