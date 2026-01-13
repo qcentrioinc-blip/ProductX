@@ -45,7 +45,7 @@ const AIFooter = () => {
                         Trust Qnest Clouddiet for guaranteed cloud savings
                     </h2>
                 </div>
-            </div>
+            </div> 
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-16 z-10">

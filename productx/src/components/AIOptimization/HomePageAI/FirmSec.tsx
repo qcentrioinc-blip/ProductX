@@ -1,9 +1,9 @@
 import { H2, H3, H4, P } from "../../../styles/Typography";
-import   { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 
-const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement>; enabled?: boolean; spotlightRadius?: number }) => {
+const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement | null>; enabled?: boolean; spotlightRadius?: number }) => {
   const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
 
@@ -34,17 +34,18 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
 
- const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
 
       if (!spotlightRef.current || !containerRef.current) return;
 
       const section = containerRef.current;
       const rect = section.getBoundingClientRect();
       const mouseInside =
-        e.clientX >= rect.left && e.clientX <= rect.right && 
+        e.clientX >= rect.left && e.clientX <= rect.right &&
         e.clientY >= rect.top && e.clientY <= rect.bottom;
 
       isInsideSection.current = mouseInside;
+      // FIX: Cast to NodeListOf<HTMLElement> to access .style
       const cards = section.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
 
 
@@ -68,7 +69,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         const cardRect = card.getBoundingClientRect();
         const centerX = cardRect.left + cardRect.width / 2;
         const centerY = cardRect.top + cardRect.height / 2;
-        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) - 
+        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) -
           Math.max(cardRect.width, cardRect.height) / 2;
         const effectiveDistance = Math.max(0, distance);
 
@@ -99,7 +100,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
 
       const targetOpacity =
         minDistance <= proximity ? 0.8 :
-        minDistance <= fadeDistance ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8 : 0;
+          minDistance <= fadeDistance ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8 : 0;
 
       gsap.to(spotlightRef.current, {
         opacity: targetOpacity,
@@ -111,7 +112,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     const handleMouseLeave = () => {
       isInsideSection.current = false;
       containerRef.current?.querySelectorAll('.animated-card').forEach(card => {
-        card.style.setProperty('--glow-intensity', '0');
+        (card as HTMLElement).style.setProperty('--glow-intensity', '0');
       });
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
@@ -138,7 +139,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
 
 export default function Firm() {
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -149,44 +150,44 @@ export default function Firm() {
   }, []);
 
   const cloudDietFeatures = [
-  {
-    id: 1,
-    title: "Reserved Instance ",
-    desc: "Optimizes reserved instances across full Azure ecosystem with deep billing model analysis for maximum guaranteed savings every month. ",
-  },
-  {
-    id: 2,
-    title: "Kubernetes Costs ",
-    desc: "Manages Kubernetes clusters safely with zero downtime risks and full compliance during all Azure cost optimization processes. ",
-  },
-  {
-    id: 3,
-    title: "Microsoft Fabric ",
-    desc: "Supports Microsoft Fabric workloads completely for comprehensive Azure cost management across all modern data platforms reliably",
-  },
-];
+    {
+      id: 1,
+      title: "Reserved Instance ",
+      desc: "Optimizes reserved instances across full Azure ecosystem with deep billing model analysis for maximum guaranteed savings every month. ",
+    },
+    {
+      id: 2,
+      title: "Kubernetes Costs ",
+      desc: "Manages Kubernetes clusters safely with zero downtime risks and full compliance during all Azure cost optimization processes. ",
+    },
+    {
+      id: 3,
+      title: "Microsoft Fabric ",
+      desc: "Supports Microsoft Fabric workloads completely for comprehensive Azure cost management across all modern data platforms reliably",
+    },
+  ];
 
-const withoutCloudDietFeatures = [
-  {
-    id: 1,
-    title: "Reserved Instances ",
-    desc: "Provides limited reserved instance optimization without complete understanding of Azure billing ecosystem and resource relationships. ",
-  },
-  {
-    id: 2,
-    title: "Kubernetes Costs ",
-    desc: "Often creates Kubernetes downtime risks and compliance violations when attempting Azure cost optimization across clusters. ",
-  },
-  {
-    id: 3,
-    title: "Microsoft Fabric ",
-    desc: "Lacks proper Microsoft Fabric support causing incomplete cost optimization across Azure's modern data and analytics platforms. ",
-  },
-];
+  const withoutCloudDietFeatures = [
+    {
+      id: 1,
+      title: "Reserved Instances ",
+      desc: "Provides limited reserved instance optimization without complete understanding of Azure billing ecosystem and resource relationships. ",
+    },
+    {
+      id: 2,
+      title: "Kubernetes Costs ",
+      desc: "Often creates Kubernetes downtime risks and compliance violations when attempting Azure cost optimization across clusters. ",
+    },
+    {
+      id: 3,
+      title: "Microsoft Fabric ",
+      desc: "Lacks proper Microsoft Fabric support causing incomplete cost optimization across Azure's modern data and analytics platforms. ",
+    },
+  ];
 
   return (
     <>
-     <style>
+      <style>
         {`
           .animated-card {
             --glow-x: 50%;
@@ -204,8 +205,8 @@ const withoutCloudDietFeatures = [
             padding: 4px;
              background: radial-gradient(
     var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(59, 130, 246, calc(var(--glow-intensity) * 1)) 0%,  /* ← Change color here */
-    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.6)) 30%,  /* ← And here */
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 1)) 0%,
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.6)) 30%,
     transparent 60%
   );
             border-radius: inherit;
@@ -226,82 +227,82 @@ const withoutCloudDietFeatures = [
         `}
       </style>
 
-      <GlobalSpotlight 
-        containerRef={containerRef} 
+      <GlobalSpotlight
+        containerRef={containerRef}
         enabled={!isMobile}
         spotlightRadius={590}
       />
-    <section className="w-full pt-16 px-4 sm:px-6 lg:px-8" ref={containerRef}>
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center">
-          <H2 className="text-[#020059]">
-            How CloudDIET Compares Better To Other Tools & Platforms  
-          </H2>
+      <section className="w-full pt-16 px-4 sm:px-6 lg:px-8" ref={containerRef}>
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="text-center">
+            <H2 className="text-[#020059]">
+              How CloudDIET Compares Better To Other Tools & Platforms
+            </H2>
 
-          <P className="my-4 max-w-3xl mx-auto">
-            See why CloudDIET delivers better Azure savings and functionality reliably  
-          </P>
-        </div>
+            <P className="my-4 max-w-3xl mx-auto">
+              See why CloudDIET delivers better Azure savings and functionality reliably
+            </P>
+          </div>
 
-        {/* Outer White Container */}
-        <div className="bg-white  rounded-3xl my-14 p-4 sm:p-6 md:p-8">
-          <div className="grid bg-gray-100 rounded-4xl grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Outer White Container */}
+          <div className="bg-white  rounded-3xl my-14 p-4 sm:p-6 md:p-8">
+            <div className="grid bg-gray-100 rounded-4xl grid-cols-1 lg:grid-cols-2 gap-6">
 
-            {/* Other Firms */}
-            <div className="rounded-4xl animated-card my-10 p-6 sm:p-8 text-left">
-              <H3>Other Platforms </H3>
-<ul className="mt-8 space-y-12">
-  {withoutCloudDietFeatures.map((item) => (
-    <li key={item.id} className="flex items-start gap-4">
-      <img
-        src="/Check.png"
-        alt="check"
-        className="mt-1 h-7 w-7 shrink-0"
-      />
-      <div>
-        <H4>{item.title}</H4>
-        <P className="mt-4">{item.desc}</P>
-      </div>
-    </li>
-  ))}
-</ul>
+              {/* Other Firms */}
+              <div className="rounded-4xl animated-card my-10 p-6 sm:p-8 text-left">
+                <H3>Other Platforms </H3>
+                <ul className="mt-8 space-y-12">
+                  {withoutCloudDietFeatures.map((item) => (
+                    <li key={item.id} className="flex items-start gap-4">
+                      <img
+                        src="/Check.png"
+                        alt="check"
+                        className="mt-1 h-7 w-7 shrink-0"
+                      />
+                      <div>
+                        <H4>{item.title}</H4>
+                        <P className="mt-4">{item.desc}</P>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
-            </div>
+              </div>
 
-            {/* With CloudDiet */}
-            <div
-              className="
+              {/* With CloudDiet */}
+              <div
+                className="
                 relative bg-white animated-card rounded-4xl mx-4 ring-gray-400 shadow-gray-600 my-10 p-6 sm:p-8 text-left
                 shadow-2xl
                
                 md:-ml-4
               "
-            >
-              <H3 className="">CloudDiet</H3>
+              >
+                <H3 className="">CloudDiet</H3>
 
-              <ul className="mt-8 space-y-12">
-  {cloudDietFeatures.map((item) => (
-    <li key={item.id} className="flex items-start gap-4">
-      <img
-        src="/CheckCircle.png"
-        alt="check"
-        className="mt-1 h-7 w-7 shrink-0"
-      />
-      <div>
-        <H4 className="my-1">{item.title}</H4>
-        <P className="mt-4">{item.desc}</P>
-      </div>
-    </li>
-  ))}
-</ul>
+                <ul className="mt-8 space-y-12">
+                  {cloudDietFeatures.map((item) => (
+                    <li key={item.id} className="flex items-start gap-4">
+                      <img
+                        src="/CheckCircle.png"
+                        alt="check"
+                        className="mt-1 h-7 w-7 shrink-0"
+                      />
+                      <div>
+                        <H4 className="my-1">{item.title}</H4>
+                        <P className="mt-4">{item.desc}</P>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
 
             </div>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }
