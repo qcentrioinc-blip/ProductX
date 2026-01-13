@@ -110,39 +110,39 @@ const features: Feature[] = [
 interface FeatureVisualizationProps {
   activeFeature: number;
   onDotClick: (index: number) => void;
+  onNavigate: (direction: 'start' | 'end' | 'prev' | 'next') => void;
   animate?: boolean;
 }
 
 const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({ 
   activeFeature, 
   onDotClick,
+  onNavigate,
   animate = true
 }) => {
   return (
     <div className="w-full">
-      {/* Image Container - Increased height and removed gradient */}
+      {/* Image Container */}
       <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white">
         {animate ? (
-          // Desktop animation - fast slide up with parallax effect
+          // Desktop animation - SMOOTHED SLIDE UP
           <AnimatePresence mode="wait">
             <motion.div
               key={activeFeature}
-              initial={{ opacity: 0, y: 40, scale: 1.02 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ 
                 opacity: 1, 
                 y: 0, 
-                scale: 1,
                 transition: {
-                  duration: 0.25,
-                  ease: "easeOut"
+                  duration: 0.5, 
+                  ease: [0.25, 1, 0.5, 1] 
                 }
               }}
               exit={{ 
                 opacity: 0, 
-                y: -40,
-                scale: 0.98,
+                y: -30,
                 transition: {
-                  duration: 0.2,
+                  duration: 0.3,
                   ease: "easeIn"
                 }
               }}
@@ -154,7 +154,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
                 className="w-full h-full object-cover"
               />
               
-              {/* Feature Indicator - Removed gradient overlay */}
+              {/* Feature Indicator */}
               <div className="absolute top-4 left-4">
                 <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                   <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
@@ -166,15 +166,13 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             </motion.div>
           </AnimatePresence>
         ) : (
-          // Mobile/Tablet - no animation
+          // Mobile/Tablet - no animation logic handled here
           <div className="absolute inset-0 w-full h-full">
             <img
               src={featureImages[activeFeature]}
               alt={`Feature ${activeFeature + 1}`}
               className="w-full h-full object-cover"
             />
-            
-            {/* Feature Indicator - Removed gradient overlay */}
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
@@ -187,8 +185,33 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
         )}
       </div>
       
-      {/* Pagination Dots */}
-      <div className="mt-6 flex justify-center items-center gap-3">
+      {/* Pagination Controls - Desktop Only */}
+      <div className="mt-6 hidden xl:flex justify-center items-center gap-4">
+        {/* Start Button */}
+        <button 
+          onClick={() => onNavigate('start')}
+          disabled={activeFeature === 0}
+          className={`
+            px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium transition-all duration-300 shadow-sm
+            ${activeFeature === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
+          `}
+        >
+          Start
+        </button>
+
+        {/* Prev Button (<) */}
+        <button
+          onClick={() => onNavigate('prev')}
+          disabled={activeFeature === 0}
+          className={`
+            p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm
+            ${activeFeature === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
+          `}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        {/* Dots */}
         <div className="flex items-center gap-2">
           {features.map((_, idx) => (
             <button
@@ -196,7 +219,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
               onClick={() => onDotClick(idx)}
               className={`transition-all duration-300 ${
                 idx === activeFeature 
-                  ? `${features[activeFeature].color} scale-110` 
+                  ? `${features[activeFeature].color} scale-110 shadow-md` 
                   : "bg-gray-300 hover:bg-gray-400"
               } rounded-full`}
               style={{
@@ -207,6 +230,30 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             />
           ))}
         </div>
+
+        {/* Next Button (>) */}
+        <button
+          onClick={() => onNavigate('next')}
+          disabled={activeFeature === features.length - 1}
+          className={`
+            p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm
+            ${activeFeature === features.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
+          `}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
+        {/* End Button */}
+        <button
+          onClick={() => onNavigate('end')}
+          disabled={activeFeature === features.length - 1}
+          className={`
+            px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium transition-all duration-300 shadow-sm
+            ${activeFeature === features.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
+          `}
+        >
+          End
+        </button>
       </div>
     </div>
   );
@@ -226,7 +273,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { 
-    margin: "-50% 0px -50% 0px" // Trigger exactly when element hits the center horizontal line
+    margin: "-50% 0px -50% 0px" 
   });
 
   useEffect(() => {
@@ -238,7 +285,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
       ref={ref}
       className={`
         min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] flex flex-col justify-center px-6 sm:px-8 py-12 sm:py-16 transition-all duration-500
-        ${isInView ? "opacity-100 blur-0 scale-100" : "opacity-30 blur-sm scale-95"}
+        ${isInView ? "opacity-100 scale-100" : "opacity-30 scale-95"}
       `}
     >
       <div className="flex items-center gap-4 mb-6">
@@ -274,10 +321,8 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
       id={`mobile-feature-${index}`}
       className="w-full scroll-mt-24"
     >
-      {/* Text Block - Enhanced shadows and elevation */}
-      <div
-        
-      >
+      {/* Text Block */}
+      <div>
         <div className="flex items-center gap-4 mb-4">
           <span 
             className={`text-4xl font-bold transition-all duration-300 ${
@@ -310,7 +355,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
         </P>
       </div>
 
-      {/* Image Block - Increased height and removed gradient */}
+      {/* Image Block */}
       <AnimatePresence mode="wait">
         {isActive && (
           <motion.div
@@ -324,7 +369,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
             animate={{ 
               opacity: 1,
               y: 0,
-              height: 280, // Increased from 250px
+              height: 280,
               marginBottom: 32
             }}
             exit={{ 
@@ -345,7 +390,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
               className="w-full h-full object-cover"
             />
             
-            {/* Feature Indicator - Removed gradient overlay */}
+            {/* Feature Indicator */}
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${feature.color}`}></div>
@@ -367,19 +412,17 @@ export default function StickyPremiumSections() {
   const [activeFeature, setActiveFeature] = useState<number>(0)
   
   const storyboardRef = useRef<HTMLDivElement>(null)
-  const sectionRefs = useRef<(HTMLElement | null)[]>([])
-  const featureElementsRef = useRef<(HTMLDivElement | null)[]>([])
-  const scrollTimeoutRef = useRef<number | null>(null)
   const activeFeatureRef = useRef<number>(0)
 
   // Store refs for each section
+  const sectionRefs = useRef<(HTMLElement | null)[]>([])
   useEffect(() => {
     sectionRefs.current = sections.map(section => 
       document.getElementById(section.id)
     )
   }, [])
 
-  // Main scroll handler for section detection
+  // Main scroll handler for section detection (Sections 1 & 2)
   useEffect(() => {
     let ticking = false
     
@@ -445,86 +488,74 @@ export default function StickyPremiumSections() {
     
     return () => {
       window.removeEventListener("scroll", onScroll)
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current)
-      }
     }
   }, [])
 
-  // FIXED: Improved mobile scroll handler with throttling and better detection
+  // FIXED: Unified Scroll Handler for Mobile and Tablet
+  // This fixes the "only works on reload" issue by running the calculation immediately on mount
   useEffect(() => {
+    // Only run for mobile/tablet screens
     if (typeof window === 'undefined' || window.innerWidth >= 1280) return;
-    
-    let lastScrollTime = Date.now();
-    let isScrolling = false;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const currentTime = Date.now();
-      
-      // Throttle scroll events
-      if (currentTime - lastScrollTime < 50) return;
-      
-      const viewportHeight = window.innerHeight;
-      const scrollY = currentScrollY;
-      const viewportCenter = scrollY + viewportHeight / 2;
-      
-      let bestMatchIndex = activeFeatureRef.current;
-      let closestDistance = Infinity;
-      
-      // Find feature block closest to viewport center
-      for (let i = 0; i < features.length; i++) {
-        const element = document.getElementById(`mobile-feature-${i}`);
-        if (!element) continue;
-        
-        const rect = element.getBoundingClientRect();
-        const elementTop = scrollY + rect.top;
-        const elementHeight = rect.height;
-        const elementCenter = elementTop + elementHeight / 2;
-        
-        // Calculate distance from viewport center
-        const distance = Math.abs(elementCenter - viewportCenter);
-        
-        // Check if element is mostly in viewport
-        const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
-        
-        if (isInViewport && distance < closestDistance) {
-          closestDistance = distance;
-          bestMatchIndex = i;
-        }
-      }
-      
-      // Only update if different
-      if (bestMatchIndex !== activeFeatureRef.current) {
-        setActiveFeature(bestMatchIndex);
-        activeFeatureRef.current = bestMatchIndex;
-      }
-      
-      lastScrollTime = currentTime;
-    };
-    
-    // Throttled scroll handler
-    const throttledScroll = () => {
-      if (isScrolling) return;
-      
-      isScrolling = true;
+
+    let ticking = false;
+
+    const updateActiveFeature = () => {
+      if (ticking) return;
+      ticking = true;
+
       requestAnimationFrame(() => {
-        handleScroll();
-        isScrolling = false;
+        const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        const viewportCenter = scrollY + viewportHeight / 2;
+
+        let bestMatchIndex = activeFeatureRef.current;
+        let closestDistance = Infinity;
+
+        // Find feature block closest to viewport center
+        for (let i = 0; i < features.length; i++) {
+          const element = document.getElementById(`mobile-feature-${i}`);
+          if (!element) continue;
+          
+          const rect = element.getBoundingClientRect();
+          const elementTop = scrollY + rect.top;
+          const elementHeight = rect.height;
+          const elementCenter = elementTop + elementHeight / 2;
+          
+          // Calculate distance from viewport center
+          const distance = Math.abs(elementCenter - viewportCenter);
+          
+          // Check if element is mostly in viewport
+          const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
+          
+          if (isInViewport && distance < closestDistance) {
+            closestDistance = distance;
+            bestMatchIndex = i;
+          }
+        }
+        
+        // Only update if changed
+        if (bestMatchIndex !== activeFeatureRef.current) {
+          setActiveFeature(bestMatchIndex);
+          activeFeatureRef.current = bestMatchIndex;
+        }
+
+        ticking = false;
       });
     };
+
+    // Add scroll listener
+    window.addEventListener("scroll", updateActiveFeature, { passive: true });
     
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-    
-    // Initial calculation
-    handleScroll();
+    // CRITICAL FIX: Initial Call
+    // This runs immediately to fix the "only works on reload" issue
+    updateActiveFeature();
     
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("scroll", updateActiveFeature);
     };
   }, []);
 
-  // FIXED: Desktop scroll handler for feature activation
+  // Desktop scroll handler for feature activation (Section 3)
   useEffect(() => {
     if (typeof window === 'undefined' || window.innerWidth < 1280) return;
     
@@ -587,13 +618,6 @@ export default function StickyPremiumSections() {
     };
   }, []);
 
-  // Initialize feature elements refs
-  useEffect(() => {
-    features.forEach((_, index) => {
-      featureElementsRef.current[index] = document.getElementById(`mobile-feature-${index}`) as HTMLDivElement;
-    });
-  }, []);
-
   // Scroll to section handler
   const scrollToSection = (index: number) => {
     const element = document.getElementById(sections[index].id)
@@ -607,6 +631,40 @@ export default function StickyPremiumSections() {
   // Handle dot click for desktop
   const handleDotClick = (index: number) => {
     setActiveFeature(index)
+    // Scroll to the text element associated with this feature
+    const element = document.querySelector(`[data-feature-index="${index}"]`);
+    if(element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  // Handle Navigation buttons for desktop (Start, End, Prev, Next)
+  const handleNavigate = (direction: 'start' | 'end' | 'prev' | 'next') => {
+    let newIndex = activeFeature;
+    
+    if (direction === 'start') newIndex = 0;
+    if (direction === 'end') newIndex = features.length - 1;
+    if (direction === 'prev') newIndex = Math.max(0, activeFeature - 1);
+    if (direction === 'next') newIndex = Math.min(features.length - 1, activeFeature + 1);
+
+    if (newIndex !== activeFeature) {
+      setActiveFeature(newIndex);
+      
+      // Priority 1: Scroll Desktop Element (ensures image updates via scroll detection)
+      const desktopElement = document.querySelector(`[data-feature-index="${newIndex}"]`);
+      if (desktopElement && window.innerWidth >= 1280) {
+        desktopElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      } 
+      // Priority 2: Scroll Mobile Element
+      else {
+        const mobileElement = document.getElementById(`mobile-feature-${newIndex}`);
+        if (mobileElement) {
+          const yOffset = -80; 
+          const y = mobileElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
+    }
   }
 
   return (
@@ -825,6 +883,7 @@ export default function StickyPremiumSections() {
                   <FeatureVisualization 
                     activeFeature={activeFeature} 
                     onDotClick={handleDotClick}
+                    onNavigate={handleNavigate}
                     animate={true}
                   />
                 </div>

@@ -15,7 +15,7 @@ import Marketing from './components/Global/Marketing/MarketPage'
 import Sams_Page from './components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'
 import PDPage9 from './components/Banking&Finance/ProductIBS/PDPage9'
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7'
-import  Platform  from './components/Global/Platform/Platform'
+import Platform from './components/Global/Platform/Platform'
 import Career from './components/Banking&Finance/Career/Career'
 import About from './components/EHR&PMS/AboutUs/About'
 import Clinic from './components/EHR&PMS/ClinicApp/Clinic'
@@ -156,7 +156,7 @@ const App = () => {
           <Routes>
 
 
-          
+
 
 
             <Route path="/landingpage" element={<HeroSlider />} />
@@ -183,8 +183,8 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
             <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
-            
-            
+
+
 
             <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
             <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
@@ -226,14 +226,15 @@ const App = () => {
             <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
             <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
             <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
-            
+            <Route path="/industries/ai-optimization/features" element={<HeroAIOptimization />} />
 
-           {/* Built for globally */}
 
-           <Route
-    path="/industries/:industry/built-for/:builtForType"
-    element={<BuiltFor />}
-  />
+            {/* Built for globally */}
+
+            <Route
+              path="/industries/:industry/built-for/:builtForType"
+              element={<BuiltFor />}
+            />
             {/* Marketplace Routes */}
             <Route path='/marketplace' element={<Marketing />} />
             <Route path='/industries/ai-optimization/marketplace' element={<Marketing />} />
@@ -247,14 +248,14 @@ const App = () => {
             <Route path='/industries/high-tech/platform' element={<Platform />} />
             <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
             <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
-      
-        {/* FOR RESOURCES ai */}
-      <Route
-  path="/industries/:industry/resources/:category/:slug"
-  element={<ResourceDoc />}
-/>
 
-      
+            {/* FOR RESOURCES ai */}
+            <Route
+              path="/industries/:industry/resources/:category/:slug"
+              element={<ResourceDoc />}
+            />
+
+
           </Routes>
         </div>
       </ScrollProvider>
