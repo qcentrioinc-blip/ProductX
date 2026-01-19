@@ -2,19 +2,19 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 const features = [
     {
-        title: "Azure Cost Savings",
+        title: "Deep Azure Expertise",
         description:
-            "CloudDIET checks your Azure setup, finds waste in resources and plans, and suggests fixes to cut costs by 30% on average. ",
+            "Built by cloud engineers with decades of experience across AWS, Azure, and GCP. We understand Azure’s complexity so you don’t have to.",
     },
     {
-        title: "​Safe Setup Help",
+        title: "Advanced Savings Insights",
         description:
-            "We use read-only access to check billing and configs only, and help make changes to get savings fast. ",
+            "Move beyond basic FinOps. Our AI identifies hidden inefficiencies, from SKU optimizations to unused capacity and licensing waste.",
     },
     {
-        title: "Guaranteed Money Back",
+        title: "Performance-Based Pricing",
         description:
-            "Pay only a share of what you save, with targets of 60-70% cuts in six weeks across your Azure accounts. ",
+            "You only pay a percentage of the savings we deliver. Most customers see ROI within the first month of use.",
     },
 ];
 
@@ -23,7 +23,7 @@ const ThreeCardAI = () => {
         <section className="w-full bg-[#5551FF] py-16 px-6 md:px-12 lg:px-20">
             {/* Section Title */}
             <div className="max-w-8xl mx-10 text-center mb-12">
-                <H2 className="text-white"> Cloud Savings Across All Industries</H2>
+                <H2 className="text-white">Why You Should Choose CloudDIET</H2>
             </div>
 
             {/* Cards Grid */}
