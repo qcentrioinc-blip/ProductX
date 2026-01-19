@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { H2, H4  } from "../../../styles/Typography";
+import { H2 } from "../../../styles/Typography";
  
 const CounterCard = ({
   number,
   suffix = "",
-  title,
+  // title,
   description,
   dark,
 }: {
@@ -72,9 +72,9 @@ const CounterCard = ({
         {suffix}
       </H2>
       {/* <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3> */}
-      <H4 className=" mt-8 sm:mt-10 md:mt-18 lg:mt-20 ">
+      {/* <H4 className=" mt-8 sm:mt-10 md:mt-18 lg:mt-20 ">
         {title}
-      </H4>
+      </H4> */}
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
       <p className="lg:py-4 font-quicksand text-[16px] font-bold  py-4 md:pt-2 md:pb-0">
         {description}
