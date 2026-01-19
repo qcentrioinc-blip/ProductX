@@ -5,10 +5,10 @@ import { gsap } from 'gsap';
 
 const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement | null>; enabled?: boolean; spotlightRadius?: number }) => {
   const spotlightRef = useRef<HTMLDivElement | null>(null);
-  const isInsideSection = useRef(false);
 
   useEffect(() => {
-    if (!containerRef?.current || !enabled) return;
+    const container = containerRef.current;
+    if (!container || !enabled) return;
 
     const spotlight = document.createElement('div');
     spotlight.className = 'global-spotlight';
@@ -28,52 +28,37 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       );
       z-index: 200;
       opacity: 0;
+      display: none; /* Hidden by default to save compositor */
       transform: translate(-50%, -50%);
       mix-blend-mode: screen;
     `;
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
 
+    // Cache cards once
+    const cards = container.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
+
     const handleMouseMove = (e: MouseEvent) => {
+      if (!spotlightRef.current) return;
 
-      if (!spotlightRef.current || !containerRef.current) return;
-
-      const section = containerRef.current;
-      const rect = section.getBoundingClientRect();
-      const mouseInside =
-        e.clientX >= rect.left && e.clientX <= rect.right &&
-        e.clientY >= rect.top && e.clientY <= rect.bottom;
-
-      isInsideSection.current = mouseInside;
-      // FIX: Cast to NodeListOf<HTMLElement> to access .style
-      const cards = section.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
-
-
-      if (!mouseInside) {
-        gsap.to(spotlightRef.current, {
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-        cards.forEach(card => {
-          card.style.setProperty('--glow-intensity', '0');
-        });
-        return;
+      // Ensure visible
+      if (spotlightRef.current.style.display === 'none') {
+        spotlightRef.current.style.display = 'block';
       }
 
       const proximity = spotlightRadius * 0.5;
       const fadeDistance = spotlightRadius * 0.75;
       let minDistance = Infinity;
 
-      cards.forEach(card => {
+      // Update cards
+      // 1. Batch READS: Calculate proximity and styles for all cards
+      const updates = Array.from(cards).map(card => {
         const cardRect = card.getBoundingClientRect();
         const centerX = cardRect.left + cardRect.width / 2;
         const centerY = cardRect.top + cardRect.height / 2;
         const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) -
           Math.max(cardRect.width, cardRect.height) / 2;
         const effectiveDistance = Math.max(0, distance);
-
-        minDistance = Math.min(minDistance, effectiveDistance);
 
         let glowIntensity = 0;
         if (effectiveDistance <= proximity) {
@@ -85,12 +70,23 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         const relativeX = ((e.clientX - cardRect.left) / cardRect.width) * 100;
         const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
 
+        return { card, effectiveDistance, glowIntensity, relativeX, relativeY };
+      });
+
+      // Update global minDistance for spotlight opacity
+      updates.forEach(({ effectiveDistance }) => {
+        minDistance = Math.min(minDistance, effectiveDistance);
+      });
+
+      // 2. Batch WRITES: Apply styles
+      updates.forEach(({ card, glowIntensity, relativeX, relativeY }) => {
         card.style.setProperty('--glow-x', `${relativeX}%`);
         card.style.setProperty('--glow-y', `${relativeY}%`);
         card.style.setProperty('--glow-intensity', glowIntensity.toString());
         card.style.setProperty('--glow-radius', `${spotlightRadius}px`);
       });
 
+      // Update spotlight position
       gsap.to(spotlightRef.current, {
         left: e.clientX,
         top: e.clientY,
@@ -105,31 +101,40 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       gsap.to(spotlightRef.current, {
         opacity: targetOpacity,
         duration: targetOpacity > 0 ? 0.2 : 0.5,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        onComplete: () => {
+          if (targetOpacity === 0 && spotlightRef.current) {
+            spotlightRef.current.style.display = 'none';
+          }
+        }
       });
     };
 
     const handleMouseLeave = () => {
-      isInsideSection.current = false;
-      containerRef.current?.querySelectorAll('.animated-card').forEach(card => {
-        (card as HTMLElement).style.setProperty('--glow-intensity', '0');
+      cards.forEach(card => {
+        card.style.setProperty('--glow-intensity', '0');
       });
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          onComplete: () => {
+            if (spotlightRef.current) spotlightRef.current.style.display = 'none';
+          }
         });
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      spotlightRef.current?.parentNode?.removeChild(spotlightRef.current);
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+      if (spotlightRef.current && spotlightRef.current.parentNode) {
+        spotlightRef.current.parentNode.removeChild(spotlightRef.current);
+      }
     };
   }, [containerRef, enabled, spotlightRadius]);
 

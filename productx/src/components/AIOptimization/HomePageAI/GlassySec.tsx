@@ -32,10 +32,10 @@ export default function GlassySec() {
           className="
             w-full max-w-7xl
             rounded-3xl
-            bg-transparent
-            backdrop-blur-xs
-            border border-gray-100
-            shadow-xl
+            bg-white/5 
+            will-change-transform
+            border border-white/10
+            shadow-2xl
             px-6 py-16
           "
         >
@@ -67,6 +67,6 @@ export default function GlassySec() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 }

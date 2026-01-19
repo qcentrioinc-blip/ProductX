@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { H2,  H4  } from '../../../styles/Typography';
+import { H2, H4 } from '../../../styles/Typography';
 
 const AutoDataChange = () => {
   const [activeTab, setActiveTab] = useState(0);
-//   const containerRef = useRef<HTMLDivElement>(null);
+  //   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
@@ -37,7 +37,7 @@ const AutoDataChange = () => {
       const stickySection = stickyRef.current;
       const rect = stickySection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       // Check if sticky section is in view
       const stickyStart = rect.top <= 0;
       const stickyEnd = rect.bottom <= windowHeight;
@@ -47,7 +47,7 @@ const AutoDataChange = () => {
         const scrollProgress = Math.abs(rect.top);
         const totalScroll = rect.height - windowHeight;
         const progress = Math.min(scrollProgress / totalScroll, 1);
-        
+
         // Calculate which tab should be active based on scroll progress
         const newActiveTab = Math.min(Math.floor(progress * tabs.length), tabs.length - 1);
         setActiveTab(newActiveTab);
@@ -63,87 +63,87 @@ const AutoDataChange = () => {
   // Calculate the height needed for smooth scrolling through all tabs
   const scrollHeight = `${100 * tabs.length}vh`;
 
-const MobileStickyAutoData = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const MobileStickyAutoData = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
 
-  const totalItems = tabs.length;
+    const totalItems = tabs.length;
 
-  useEffect(() => {
-    const onScroll = () => {
-      if (!containerRef.current) return;
+    useEffect(() => {
+      const onScroll = () => {
+        if (!containerRef.current) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
+        const rect = containerRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
 
-      const progress = Math.min(
-        Math.max(-rect.top / (rect.height - viewportHeight), 0),
-        1
-      );
+        const progress = Math.min(
+          Math.max(-rect.top / (rect.height - viewportHeight), 0),
+          1
+        );
 
-      const index = Math.floor(progress * totalItems);
-      setActiveIndex(Math.min(index, totalItems - 1));
-    };
+        const index = Math.floor(progress * totalItems);
+        setActiveIndex(Math.min(index, totalItems - 1));
+      };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
 
-    return () => window.removeEventListener("scroll", onScroll);
-  },);
-  
-  return (
-    <div
-      ref={containerRef}
-      className="relative"
-      style={{ height: `${totalItems * 150}vh` }}
-    >
-      <div className="sticky top-20 h-[65vh] flex  ">
-        <div className="w-full mt-10 px-5 space-y-5">
+      return () => window.removeEventListener("scroll", onScroll);
+    },);
 
-          
-          <H4
-            key={`tab-${activeIndex}`}
-            className="
+    return (
+      <div
+        ref={containerRef}
+        className="relative"
+        style={{ height: `${totalItems * 150}vh` }}
+      >
+        <div className="sticky top-20 h-[65vh] flex  ">
+          <div className="w-full mt-10 px-5 space-y-5">
+
+
+            <H4
+              key={`tab-${activeIndex}`}
+              className="
               bg-[#5551FF] text-white
               py-4 px-5 rounded-xl text-center
               text-base font-semibold
               animate-slideInLeft
             "
-          >
-            {tabs[activeIndex]}
-          </H4>
+            >
+              {tabs[activeIndex]}
+            </H4>
 
-          {/* IMAGE CARD */}
-          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-            <img
-              key={`img-${activeIndex}`}
-              src={images[activeIndex]}
-              alt=""
-              className="
+            {/* IMAGE CARD */}
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+              <img
+                key={`img-${activeIndex}`}
+                src={images[activeIndex]}
+                alt=""
+                className="
                 w-full h-[220px] object-cover
                 animate-slideInRight
               "
-            />
-          </div>
+              />
+            </div>
 
-          {/* GREEN CONTENT CARD */}
-          <div
-            key={`para-${activeIndex}`}
-            className="
+            {/* GREEN CONTENT CARD */}
+            <div
+              key={`para-${activeIndex}`}
+              className="
               bg-emerald-500 rounded-2xl p-5
               animate-slideInLeft
             "
-          >
-            <p className="text-white text-sm leading-relaxed">
-              {paragraphs[activeIndex]}
-            </p>
-          </div>
+            >
+              <p className="text-white text-sm leading-relaxed">
+                {paragraphs[activeIndex]}
+              </p>
+            </div>
 
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
   return (
     <div className="w-full max-w-8xl pt-48 lg:pt-64 lg:pb-36  " >
@@ -156,10 +156,10 @@ const MobileStickyAutoData = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum
         </p>
       </div>
-      
+
       <div className="block md:hidden">
-  <MobileStickyAutoData />
-</div>
+        <MobileStickyAutoData />
+      </div>
       {/* Sticky Scroll Section */}
       <div ref={stickyRef} style={{ height: scrollHeight }} className="relative hidden md:block" >
         <div className="sticky top-0 h-auto flex items-center  pt-10  overflow-hidden">
@@ -168,28 +168,27 @@ const MobileStickyAutoData = () => {
             <div className="flex gap-8 items-start pt-10">
               {/* Left Sidebar - Tabs (20%) */}
               <div className=' w-[30%] xl:w-[20%] '>
-              <div className="flex-shrink-0 space-y-6 lg:space-y-4 xl:space-y-6" >
-                {tabs.map((tab, index) => (
-                  <H4
-                    key={index}
-                    className={`    p-4 xl:p-6 text-center rounded-xl transition-all duration-700 ${
-                      index === activeTab
-                        ? 'bg-[#5551FF] text-white shadow-lg scale-105'
-                        : index < activeTab
-                        ? 'bg-transparent text-[#141414]'
-                        : 'bg-transparent text-[#141414]'
-                    }`}
-                  >
-                    {tab}
-                  </H4>
-                ))}
+                <div className="flex-shrink-0 space-y-6 lg:space-y-4 xl:space-y-6" >
+                  {tabs.map((tab, index) => (
+                    <H4
+                      key={index}
+                      className={`    p-4 xl:p-6 text-center rounded-xl transition-all duration-700 ${index === activeTab
+                          ? 'bg-[#5551FF] text-white shadow-lg scale-105'
+                          : index < activeTab
+                            ? 'bg-transparent text-[#141414]'
+                            : 'bg-transparent text-[#141414]'
+                        }`}
+                    >
+                      {tab}
+                    </H4>
+                  ))}
+                </div>
               </div>
-</div>
               {/* Right Content - Image (80%) */}
               <div className=" w-[70%] xl:w-[80%] pl-10 pt-1 flex-shrink-0">
                 <div className="  overflow-hidden">
-                  <img 
-                    src={images[activeTab]} 
+                  <img
+                    src={images[activeTab]}
                     alt={`Content ${activeTab + 1}`}
                     className="w-full  h-[350px] xl:h-[500px] object-cover rounded-xl transition-all duration-700"
                   />
