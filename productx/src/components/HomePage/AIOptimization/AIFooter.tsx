@@ -3,6 +3,10 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import FloatingLines from "./AIFooterBackground";
 
+const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['middle', 'bottom'];
+const LINE_COUNT = [10, 15, 20];
+const LINE_DISTANCE = [8, 6, 4];
+
 const AIFooter = () => {
     const base = "/industries/ai-optimization";
     const footerRef = useRef(null);
@@ -13,17 +17,16 @@ const AIFooter = () => {
         <footer ref={footerRef} className="relative w-full overflow-hidden bg-[#050505]">
             {/* Conditional Background Rendering */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                {isInView && (
-                    <FloatingLines
-                        enabledWaves={['middle', 'bottom']}
-                        lineCount={[10, 15, 20]}
-                        lineDistance={[8, 6, 4]}
-                        bendRadius={5.0}
-                        bendStrength={-0.5}
-                        interactive={false} // Set to false to reduce mouse listener overhead
-                        parallax={true}
-                    />
-                )}
+                <FloatingLines
+                    enabledWaves={ENABLED_WAVES}
+                    lineCount={LINE_COUNT}
+                    lineDistance={LINE_DISTANCE}
+                    bendRadius={5.0}
+                    bendStrength={-0.5}
+                    interactive={false} // Set to false to reduce mouse listener overhead
+                    parallax={true}
+                    paused={!isInView}
+                />
             </div>
 
             {/* ========== TOP SECTION ========== */}
@@ -44,7 +47,7 @@ const AIFooter = () => {
                         Trust Qnest Clouddiet for guaranteed cloud savings
                     </h2>
                 </div>
-            </div> 
+            </div>
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-16 z-10">

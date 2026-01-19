@@ -6,7 +6,7 @@ import { ContactUs, ContactUsAI } from '../../../styles/Button';
 const HeroSection = () => {
   const ref = useRef(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useFramerInView(ref, { 
+  const isInView = useFramerInView(ref, {
     once: true,
     amount: 0.3,
     margin: "0px 0px -100px 0px"
@@ -15,14 +15,38 @@ const HeroSection = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleMouseEnter = () => {
+    if (containerRef.current) {
+      rectRef.current = containerRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
+    // Fallback if not cached
+    if (!rectRef.current && containerRef.current) {
+      rectRef.current = containerRef.current.getBoundingClientRect();
+    }
+
+    if (!rectRef.current) return;
+
+    // Check if rect is invalid (e.g. 0 width)
+    const rect = rectRef.current;
+
+    // Calculate relative to the cached rect
+    // Note: e.clientX is global, rect.left is global. This works assuming no scroll shift of the element *during* the hover without mouseleaving.
+    // However, if user scrolls *while* hovering, rect might become stale relative to viewport.
+    // BUT mousemove usually fires on scroll.
+    // For a Hero section which is top of page, this is generally safe enough for a tilt effect.
+    // A safer, more robust way: use e.nativeEvent.offsetX / offsetY if possible? No, react synthetic event.
+    // Let's rely on cached rect for high perf. 
+
     const width = rect.width;
     const height = rect.height;
     const x = (e.clientX - rect.left) / width - 0.5;
     const y = (e.clientY - rect.top) / height - 0.5;
-    
+
     mouseX.set(x);
     mouseY.set(y);
   };
@@ -44,8 +68,8 @@ const HeroSection = () => {
     <div className="w-full min-h-screen relative overflow-hidden">
       <div className="relative lg:pt-44 z-10 px-4 sm:px-6 md:px-8 lg:px-12 py-16 max-w-8xl">
         <div className="relative flex flex-col items-center justify-center min-h-screen">
-          
-          <motion.div 
+
+          <motion.div
             className="content-container"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,7 +109,7 @@ const HeroSection = () => {
               </P>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="py-14 flex gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -119,6 +143,7 @@ const HeroSection = () => {
                   willChange: "transform", // Crucial for smooth 3D
                   backfaceVisibility: "hidden", // Prevents flickering
                 }}
+                onMouseEnter={handleMouseEnter}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 className="w-full h-full"

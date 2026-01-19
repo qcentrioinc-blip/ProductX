@@ -1,4 +1,4 @@
- 
+
 import { H2, P } from "../../../styles/Typography";
 
 export default function Timeline() {
@@ -7,10 +7,10 @@ export default function Timeline() {
       {/* Heading */}
       <div className="max-w-8xl mx-auto text-center mb-10">
         <H2 className="  font-bold text-[#020059] mb-4">
-    Unique Visibility 
+          Unique Visibility
         </H2>
         <P className=" max-w-3xl mx-auto">
-        Our data-rich profiling provides unique visibility into resource configuration and utilization. This supports precise optimization recommendations and enables you to make informed, cost-saving decisions. 
+          Our data-rich profiling provides unique visibility into resource configuration and utilization. This supports precise optimization recommendations and enables you to make informed, cost-saving decisions.
         </P>
       </div>
 
@@ -21,6 +21,7 @@ export default function Timeline() {
             src="/AIProduct/Timeline.png"
             alt="Timeline"
             className="w-full h-auto object-contain"
+            loading="lazy"
           />
         </div>
       </div>

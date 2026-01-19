@@ -1,4 +1,4 @@
-import { ArrowRight} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import { H1 } from "../../../styles/Typography";
@@ -24,16 +24,16 @@ const LandingPageAI = () => {
             {/* Main Heading */}
             <H1
               className="max-w-6xl mb-6"
-              
+
             >
               <span
                 style={{
                   color: "#0AC276",
                 }}
               >
-                 AI-Powered Azure <br/> 
+                Smarter Azure Cost <br />
               </span>
-              <span style={{ color: "#FFFFFF" }}>Optimization Platform </span>
+              <span style={{ color: "#FFFFFF" }}>Optimization With AI </span>
             </H1>
 
             {/* Description */}
@@ -50,7 +50,7 @@ const LandingPageAI = () => {
                 color: "#CCCCCC",
               }}
             >
-              CloudDIET profiles your Azure resources, analyzes configurations and usage, and delivers recommendations that cut waste across IaaS, PaaS, and licensing. Enterprises save 30% on average with our pay-for-performance model
+              Reduce cloud spend by up to 30% using AI-powered analysis, engineering expertise, and actionable optimization insights.
             </p>
 
             {/* CTA Button */}
@@ -63,7 +63,7 @@ const LandingPageAI = () => {
                 color: "#000000",
               }}
             >
-             Get Savings Assessment
+              Start Saving
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
