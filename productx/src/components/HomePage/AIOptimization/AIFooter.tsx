@@ -1,8 +1,11 @@
 import { ArrowUpRight, Twitter, Instagram, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import FloatingLines from "./AIFooterBackground";
+
+const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['middle', 'bottom'];
+const LINE_COUNT = [10, 15, 20];
+const LINE_DISTANCE = [8, 6, 4];
 
 const AIFooter = () => {
     const base = "/industries/ai-optimization";
@@ -14,17 +17,16 @@ const AIFooter = () => {
         <footer ref={footerRef} className="relative w-full overflow-hidden bg-[#050505]">
             {/* Conditional Background Rendering */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                {isInView && (
-                    <FloatingLines
-                        enabledWaves={['middle', 'bottom']}
-                        lineCount={[10, 15, 20]}
-                        lineDistance={[8, 6, 4]}
-                        bendRadius={5.0}
-                        bendStrength={-0.5}
-                        interactive={false} // Set to false to reduce mouse listener overhead
-                        parallax={true}
-                    />
-                )}
+                <FloatingLines
+                    enabledWaves={ENABLED_WAVES}
+                    lineCount={LINE_COUNT}
+                    lineDistance={LINE_DISTANCE}
+                    bendRadius={5.0}
+                    bendStrength={-0.5}
+                    interactive={false} // Set to false to reduce mouse listener overhead
+                    parallax={true}
+                    paused={!isInView}
+                />
             </div>
 
             {/* ========== TOP SECTION ========== */}
@@ -45,15 +47,15 @@ const AIFooter = () => {
                         Trust Qnest Clouddiet for guaranteed cloud savings
                     </h2>
                 </div>
-            </div> 
+            </div>
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-16 z-10">
                 <div className="grid xl:grid-cols-1.5fr_1fr gap-12">
                     {/* LEFT SECTION */}
                     <div className="space-y-8">
-                        <h3 className="text-[28px] sm:text-[44px] lg:text-[64px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                            Get Azure optimization tips  <br className="xl:block hidden"/> and savings updates monthly.
+                        <h3 className="text-[28px] sm:text-[44px] lg:text-[50px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                            Get Azure optimization tips  and savings updates monthly.
                         </h3>
 
                         <div className="max-w-md w-full space-y-4">
@@ -72,15 +74,15 @@ const AIFooter = () => {
                             <div className="space-y-4">
                                 <h4 className="text-xl font-bold text-white">Products</h4>
                                 <ul className="space-y-2 text-[#F5F5F5]">
-                                    <li><a href={`${base}/clouddiet`} className="hover:underline">• CloudDIET</a></li>
+                                    <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
                                 <h4 className="text-xl font-bold text-white">Quick Links</h4>
                                 <ul className="space-y-2 text-[#F5F5F5]">
-                                    <li><Link to={`${base}/careers`}>• Careers</Link></li>
-                                    <li><Link to={`${base}/contactus`}>• Contact</Link></li>
-                                    <li><Link to={`${base}/privacy-policy`}>• Privacy Policy</Link></li>
+                                    <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
+                                    <li><a href={`${base}/contactus`} className="hover:underline">• Contact</a></li>
+                                    <li><a href={`${base}/privacy-policy`} className="hover:underline">• Privacy Policy</a></li>
                                 </ul>
                             </div>
                             <div className="flex gap-4 items-start">
@@ -90,7 +92,6 @@ const AIFooter = () => {
                             </div>
                         </div>
                     </div>
-
                     {/* RIGHT SIDE AI IMAGE */}
                     <div className="hidden xl:block relative">
                         <img
@@ -99,7 +100,10 @@ const AIFooter = () => {
                             className="absolute -right-18 -bottom-20 w-[600px] object-contain pointer-events-none"
                         />
                     </div>
+
+
                 </div>
+
             </div>
         </footer>
     );

@@ -8,7 +8,7 @@
 
   --primary-color: #2B68C3;
   --secondary-color: #FED600;
-   -ms-overflow-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
@@ -214,6 +214,7 @@ div[id],
     opacity: 0;
     transform: translateX(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -225,6 +226,7 @@ div[id],
     opacity: 0;
     transform: translateX(40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);

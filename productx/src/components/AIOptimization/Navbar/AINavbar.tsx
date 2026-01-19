@@ -268,7 +268,7 @@ const AINavbar = () => {
         <div className="hidden lg:flex items-center gap-8">
           <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
           <button className="text-gray-800 text-[18px] font-bold font-quicksand" onClick={() => setModalOpen(true)}>
-            Contact Us
+            Support
           </button>
         </div>
 
@@ -425,7 +425,7 @@ const AINavbar = () => {
 
         <div className="mt-6 flex justify-start items-center">
           <button onClick={() => { setMenuOpen(false); setModalOpen(true); }}>
-            <ContactUsDark>Contact Us</ContactUsDark>
+            <ContactUsDark>Support</ContactUsDark>
           </button>
         </div>
       </div>

@@ -24,7 +24,7 @@ const CloudDiet = () => {
                                     color: "#5551FF",
                                 }}
                             >
-                               See our full optimization capabilities 
+                               Ready to optimize your Azure spend? 
                             </p>
 
                             {/* Main Heading */}
@@ -37,7 +37,7 @@ const CloudDiet = () => {
                                     color: "#000000",
                                 }}
                             >
-                                Explore CloudDIET Product Details 
+                                Start saving with CloudDIET today. 
                             </h1>
 
                             {/* CTA Button */}
@@ -49,7 +49,7 @@ const CloudDiet = () => {
                                     }}
                                     className="!bg-[#F5F5F5] !text-black !py-[14px] !px-[24px] !text-[14px] uppercase hover:!bg-gray-800 hover:!text-white shadow-lg hover:shadow-xl"
                                 >
-                                    Book Your Demo Today!
+                                    Book Your Demo
                                 </ContactUs>
                             </div>
 

@@ -4,27 +4,27 @@ const Frontier = () => {
     const features = [
         {
             id: 1,
-            title: "Engineering-led Azure profiling for deep cost insights ",
+            title: "Azure App Service SKU Optimization",
             description:
-                "CloudDIET checks your Azure resources, usage, and bills to spot extra costs in services and regions without accessing your data. ",
+                "Identifies over-provisioned or misconfigured App Services, such as Premium plans running underutilized, and recommends cost-effective SKU changes.",
         },
         {
             id: 2,
-            title: "AI-driven analysis across IaaS, PaaS, and licensing",
+            title: "Cosmos DB Multi-Master to Read Replica",
             description:
-                "Hundreds of tests find wrong setups, oversized resources, and bad plans that other tools miss for real savings. ",
+                "Detects Cosmos DB instances configured for expensive multi-master write where read replicas would provide the same availability and disaster recovery.",
         },
         {
             id: 3,
-            title: "Actionable savings recommendations with implementation support",
+            title: "Reserved Instance Purchase Recommendations",
             description:
-                "CloudDIET ranks savings by effort and impact, then helps implement selected changes, so teams realize benefits quickly and reliably. ",
+                "Analyzes compute usage to recommend Reserved Instance purchases with flexible terms, ensuring optimal discounting and commitment alignment.",
         },
         {
             id: 4,
-            title: " Secure, read-only access with transparent financial outcomes",
+            title: "Unused Fabric Capacity Identificati",
             description:
-                "Using billing and configuration metadata only, CloudDIET assures measurable savings, pay-for-performance pricing, and rapid ROI for global Azure enterprises. ",
+                "Finds and recommends pausing Microsoft Fabric capacities with no recent activity or stored data, eliminating unnecessary fixed costs.",
         },
     ];
 
@@ -49,7 +49,7 @@ const Frontier = () => {
                                     zIndex: 50,
                                 }}
                             >
-                               Cloud AI intelligence for modern enterprises
+                               Real-World Cloud Optimization Measures 
                             </h1>
 
                             {/* Responsive Decorative Boxes */}
@@ -87,9 +87,7 @@ const Frontier = () => {
                                                     color: "#141414",
                                                 }}
                                             >
-                                                Make your AI your own. Train, distill, fine-tune, and build with
-                                                <br className="hidden sm:block" />
-                                                the world's best open source models.
+                                                {feature.description}
                                             </p>
                                         </div>
                                     </div>
