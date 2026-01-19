@@ -12,31 +12,31 @@ const features = [
     points: [
       "Decades of AWS, Azure, and Google Cloud experience. ",
       "Advanced optimization beyond standard FinOps tools. ",
-     
+
       "Crafted by seasoned multi-cloud platform professionals.",
       "Understands complex configurations and commercial cloud terms. ",
     ],
   },
   {
     title: "Guaranteed Savings",
-      description: " Pay only for performance results.",
+    description: " Pay only for performance results.",
     image: "/AIProduct/Feature.png",
     points: [
       "Rapid ROI as early as the first month. ",
       "Unique pay-for-performance model ensures shared success. ",
-     
+
       "Customers keep 100% of the assured savings. ",
       "We charge a percentage of realized savings. ",
     ],
   },
   {
     title: "Continuous Optimization",
-       description: " Retain savings long-term with AI.",
+    description: " Retain savings long-term with AI.",
     image: "/AIProduct/Feature.png",
     points: [
       "Keep 80–90% of savings over time. ",
       "AI-driven measures enable continuous efficiency gains. ",
-     
+
       "Full savings from enhancements over three years. ",
       "Maximized savings retention with an 8x ROI. ",
     ],
@@ -164,7 +164,7 @@ const features = [
 
 //     float lineX = 1.0 - smoothstep(tx, tx + aax, ax);
 //     float lineY = 1.0 - smoothstep(ty, ty + aay, ay);
-    
+
 //     float primaryMask = max(lineX, lineY);
 
 //     vec2 gridUV2 = (hitIsY > 0.5 ? hit.xz : hit.zy) / gridScale;
@@ -187,7 +187,7 @@ const features = [
 //     float aay2 = wy2;
 //     float lineX2 = 1.0 - smoothstep(tx2, tx2 + aax2, ax2);
 //     float lineY2 = 1.0 - smoothstep(ty2, ty2 + aay2, ay2);
-    
+
 //     float altMask = max(lineX2, lineY2);
 
 //     float edgeDistX = min(abs(hit.x - (-0.5)), abs(hit.x - 0.5));
@@ -411,7 +411,7 @@ const features = [
 export default function FeatureCards() {
   return (
     <section className="w-full bg-neutral-900 py-16 relative overflow-hidden">
-     
+
       {/* <GridScanBg />   */}
       {/* Content */}
       <div className="lg:mx-10 grid max-w-8xl grid-cols-1  gap-16 xl:py-20 px-6 md:grid-cols-2 relative z-10">

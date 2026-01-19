@@ -114,8 +114,8 @@ interface FeatureVisualizationProps {
   animate?: boolean;
 }
 
-const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({ 
-  activeFeature, 
+const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
+  activeFeature,
   onDotClick,
   onNavigate,
   animate = true
@@ -130,16 +130,16 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             <motion.div
               key={activeFeature}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ 
-                opacity: 1, 
-                y: 0, 
+              animate={{
+                opacity: 1,
+                y: 0,
                 transition: {
-                  duration: 0.5, 
-                  ease: [0.25, 1, 0.5, 1] 
+                  duration: 0.5,
+                  ease: [0.25, 1, 0.5, 1]
                 }
               }}
-              exit={{ 
-                opacity: 0, 
+              exit={{
+                opacity: 0,
                 y: -30,
                 transition: {
                   duration: 0.3,
@@ -153,7 +153,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
                 alt={`Feature ${activeFeature + 1}`}
                 className="w-full h-full object-cover"
               />
-              
+
               {/* Feature Indicator */}
               <div className="absolute top-4 left-4">
                 <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
@@ -184,11 +184,11 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
           </div>
         )}
       </div>
-      
+
       {/* Pagination Controls - Desktop Only */}
       <div className="mt-6 hidden xl:flex justify-center items-center gap-4">
         {/* Start Button */}
-        <button 
+        <button
           onClick={() => onNavigate('start')}
           disabled={activeFeature === 0}
           className={`
@@ -208,7 +208,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             ${activeFeature === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
           `}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
         </button>
 
         {/* Dots */}
@@ -217,11 +217,10 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             <button
               key={idx}
               onClick={() => onDotClick(idx)}
-              className={`transition-all duration-300 ${
-                idx === activeFeature 
-                  ? `${features[activeFeature].color} scale-110 shadow-md` 
-                  : "bg-gray-300 hover:bg-gray-400"
-              } rounded-full`}
+              className={`transition-all duration-300 ${idx === activeFeature
+                ? `${features[activeFeature].color} scale-110 shadow-md`
+                : "bg-gray-300 hover:bg-gray-400"
+                } rounded-full`}
               style={{
                 width: idx === activeFeature ? "24px" : "12px",
                 height: idx === activeFeature ? "24px" : "12px"
@@ -240,7 +239,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             ${activeFeature === features.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
           `}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
         </button>
 
         {/* End Button */}
@@ -272,8 +271,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
   setInView,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { 
-    margin: "-50% 0px -50% 0px" 
+  const isInView = useInView(ref, {
+    margin: "-50% 0px -50% 0px"
   });
 
   useEffect(() => {
@@ -317,39 +316,35 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
   isActive,
 }) => {
   return (
-    <div 
+    <div
       id={`mobile-feature-${index}`}
       className="w-full scroll-mt-24"
     >
       {/* Text Block */}
       <div>
         <div className="flex items-center gap-4 mb-4">
-          <span 
-            className={`text-4xl font-bold transition-all duration-300 ${
-              isActive ? `opacity-30 ${feature.highlight}` : "opacity-20 text-gray-400"
-            }`}
+          <span
+            className={`text-4xl font-bold transition-all duration-300 ${isActive ? `opacity-30 ${feature.highlight}` : "opacity-20 text-gray-400"
+              }`}
           >
             0{feature.id}
           </span>
-          <div 
-            className={`p-3 rounded-xl transition-all duration-300 ${feature.color} ${
-              isActive ? "opacity-100 shadow-lg" : "opacity-70 shadow"
-            }`}
+          <div
+            className={`p-3 rounded-xl transition-all duration-300 ${feature.color} ${isActive ? "opacity-100 shadow-lg" : "opacity-70 shadow"
+              }`}
           >
             <div className="w-6 h-6"></div>
           </div>
         </div>
-        <H3 
-          className={`mb-3 transition-all duration-300 ${
-            isActive ? "text-gray-900" : "text-gray-700"
-          }`}
+        <H3
+          className={`mb-3 transition-all duration-300 ${isActive ? "text-gray-900" : "text-gray-700"
+            }`}
         >
           {feature.title}
         </H3>
-        <P 
-          className={`leading-relaxed transition-all duration-300 ${
-            isActive ? "text-gray-800" : "text-gray-500"
-          }`}
+        <P
+          className={`leading-relaxed transition-all duration-300 ${isActive ? "text-gray-800" : "text-gray-500"
+            }`}
         >
           {feature.description}
         </P>
@@ -360,25 +355,25 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
         {isActive && (
           <motion.div
             key={`image-${index}`}
-            initial={{ 
+            initial={{
               opacity: 0,
               y: 20,
               height: 0,
               marginBottom: 0
             }}
-            animate={{ 
+            animate={{
               opacity: 1,
               y: 0,
               height: 280,
               marginBottom: 32
             }}
-            exit={{ 
+            exit={{
               opacity: 0,
               y: -20,
               height: 0,
               marginBottom: 0
             }}
-            transition={{ 
+            transition={{
               duration: 0.3,
               ease: "easeOut"
             }}
@@ -389,7 +384,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
               alt={`Feature ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            
+
             {/* Feature Indicator */}
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
@@ -410,14 +405,14 @@ export default function StickyPremiumSections() {
   const [active, setActive] = useState<number>(0)
   const [progress, setProgress] = useState<number>(0)
   const [activeFeature, setActiveFeature] = useState<number>(0)
-  
+
   const storyboardRef = useRef<HTMLDivElement>(null)
   const activeFeatureRef = useRef<number>(0)
 
   // Store refs for each section
   const sectionRefs = useRef<(HTMLElement | null)[]>([])
   useEffect(() => {
-    sectionRefs.current = sections.map(section => 
+    sectionRefs.current = sections.map(section =>
       document.getElementById(section.id)
     )
   }, [])
@@ -425,67 +420,67 @@ export default function StickyPremiumSections() {
   // Main scroll handler for section detection (Sections 1 & 2)
   useEffect(() => {
     let ticking = false
-    
+
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY
           const windowHeight = window.innerHeight
-          
+
           let currentActive = 0
           let currentProgress = 0
-          
+
           sections.forEach((section, index) => {
             const element = document.getElementById(section.id)
             if (!element) return
-            
+
             const rect = element.getBoundingClientRect()
             const elementTop = rect.top + scrollY
             const elementBottom = elementTop + element.offsetHeight
-            
-            if (scrollY + windowHeight * 0.2 >= elementTop && 
-                scrollY + windowHeight * 0.2 < elementBottom) {
+
+            if (scrollY + windowHeight * 0.2 >= elementTop &&
+              scrollY + windowHeight * 0.2 < elementBottom) {
               currentActive = index
-              
+
               const sectionStart = elementTop - windowHeight * 0.5
               const sectionEnd = elementBottom - windowHeight * 0.5
               const sectionLength = sectionEnd - sectionStart
-              
+
               if (sectionLength > 0) {
                 currentProgress = (scrollY - sectionStart) / sectionLength
                 currentProgress = Math.max(0, Math.min(1, currentProgress))
               }
             }
           })
-          
+
           if (currentProgress === 0) {
             sections.forEach((section, index) => {
               const element = document.getElementById(section.id)
               if (!element) return
-              
+
               const rect = element.getBoundingClientRect()
               const elementTop = rect.top + scrollY
-              
+
               if (scrollY >= elementTop) {
                 currentActive = index
                 currentProgress = 1
               }
             })
           }
-          
+
           setActive(currentActive)
           setProgress(currentProgress)
-          
+
           ticking = false
         })
-        
+
         ticking = true
       }
     }
 
     window.addEventListener("scroll", onScroll, { passive: true })
     onScroll()
-    
+
     return () => {
       window.removeEventListener("scroll", onScroll)
     }
@@ -515,24 +510,24 @@ export default function StickyPremiumSections() {
         for (let i = 0; i < features.length; i++) {
           const element = document.getElementById(`mobile-feature-${i}`);
           if (!element) continue;
-          
+
           const rect = element.getBoundingClientRect();
           const elementTop = scrollY + rect.top;
           const elementHeight = rect.height;
           const elementCenter = elementTop + elementHeight / 2;
-          
+
           // Calculate distance from viewport center
           const distance = Math.abs(elementCenter - viewportCenter);
-          
+
           // Check if element is mostly in viewport
           const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
-          
+
           if (isInViewport && distance < closestDistance) {
             closestDistance = distance;
             bestMatchIndex = i;
           }
         }
-        
+
         // Only update if changed
         if (bestMatchIndex !== activeFeatureRef.current) {
           setActiveFeature(bestMatchIndex);
@@ -545,11 +540,11 @@ export default function StickyPremiumSections() {
 
     // Add scroll listener
     window.addEventListener("scroll", updateActiveFeature, { passive: true });
-    
+
     // CRITICAL FIX: Initial Call
     // This runs immediately to fix the "only works on reload" issue
     updateActiveFeature();
-    
+
     return () => {
       window.removeEventListener("scroll", updateActiveFeature);
     };
@@ -558,58 +553,58 @@ export default function StickyPremiumSections() {
   // Desktop scroll handler for feature activation (Section 3)
   useEffect(() => {
     if (typeof window === 'undefined' || window.innerWidth < 1280) return;
-    
+
     const handleDesktopScroll = () => {
       const viewportHeight = window.innerHeight;
       const scrollY = window.scrollY;
       const viewportCenter = scrollY + viewportHeight / 2;
-      
+
       let bestMatchIndex = activeFeatureRef.current;
       let closestDistance = Infinity;
-      
+
       // Find the feature text element closest to viewport center
       features.forEach((_, index) => {
         const element = document.querySelector(`[data-feature-index="${index}"]`);
         if (!element) return;
-        
+
         const rect = element.getBoundingClientRect();
         const elementTop = scrollY + rect.top;
         const elementHeight = rect.height;
         const elementCenter = elementTop + elementHeight / 2;
-        
+
         const distance = Math.abs(elementCenter - viewportCenter);
-        
+
         // Check if element is mostly in viewport
         const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
-        
+
         if (isInViewport && distance < closestDistance) {
           closestDistance = distance;
           bestMatchIndex = index;
         }
       });
-      
+
       if (bestMatchIndex !== activeFeatureRef.current) {
         setActiveFeature(bestMatchIndex);
         activeFeatureRef.current = bestMatchIndex;
       }
     };
-    
+
     // Throttle desktop scroll
     let desktopScrollTimeout: number | null = null;
     const throttledDesktopScroll = () => {
       if (desktopScrollTimeout) return;
-      
+
       desktopScrollTimeout = window.setTimeout(() => {
         handleDesktopScroll();
         desktopScrollTimeout = null;
       }, 16);
     };
-    
+
     window.addEventListener("scroll", throttledDesktopScroll, { passive: true });
-    
+
     // Initial calculation
     handleDesktopScroll();
-    
+
     return () => {
       window.removeEventListener("scroll", throttledDesktopScroll);
       if (desktopScrollTimeout) {
@@ -633,7 +628,7 @@ export default function StickyPremiumSections() {
     setActiveFeature(index)
     // Scroll to the text element associated with this feature
     const element = document.querySelector(`[data-feature-index="${index}"]`);
-    if(element) {
+    if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
@@ -641,7 +636,7 @@ export default function StickyPremiumSections() {
   // Handle Navigation buttons for desktop (Start, End, Prev, Next)
   const handleNavigate = (direction: 'start' | 'end' | 'prev' | 'next') => {
     let newIndex = activeFeature;
-    
+
     if (direction === 'start') newIndex = 0;
     if (direction === 'end') newIndex = features.length - 1;
     if (direction === 'prev') newIndex = Math.max(0, activeFeature - 1);
@@ -649,17 +644,17 @@ export default function StickyPremiumSections() {
 
     if (newIndex !== activeFeature) {
       setActiveFeature(newIndex);
-      
+
       // Priority 1: Scroll Desktop Element (ensures image updates via scroll detection)
       const desktopElement = document.querySelector(`[data-feature-index="${newIndex}"]`);
       if (desktopElement && window.innerWidth >= 1280) {
         desktopElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      } 
+      }
       // Priority 2: Scroll Mobile Element
       else {
         const mobileElement = document.getElementById(`mobile-feature-${newIndex}`);
         if (mobileElement) {
-          const yOffset = -80; 
+          const yOffset = -80;
           const y = mobileElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
@@ -679,8 +674,8 @@ export default function StickyPremiumSections() {
                   key={s.id}
                   onClick={() => scrollToSection(i)}
                   className={`px-4 py-2 text-sm font-medium font-bricolage rounded-full transition-all duration-300 shadow-sm
-                    ${active === i 
-                      ? "bg-indigo-900 text-white shadow-lg" 
+                    ${active === i
+                      ? "bg-indigo-900 text-white shadow-lg"
                       : "text-gray-600 hover:text-indigo-900 hover:bg-gray-100"
                     }`}
                 >
@@ -689,10 +684,10 @@ export default function StickyPremiumSections() {
               ))}
             </div>
           </div>
-          
+
           {/* Progress Bar */}
           <div className="h-1 w-full bg-gray-200 rounded-full overflow-hidden shadow-inner">
-            <motion.div 
+            <motion.div
               className="h-full bg-indigo-900 shadow-sm"
               animate={{ width: `${((active + progress) / sections.length) * 100}%` }}
             />
@@ -701,7 +696,7 @@ export default function StickyPremiumSections() {
       </div>
 
       <div className="max-w-8xl mx-4 sm:mx-6 lg:mx-6 flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
-        
+
         {/* LEFT NAV (Desktop and iPad Pro - lg screens and above) */}
         <div className="hidden lg:block w-56 sticky top-32 space-y-4 lg:mt-14 xl:mt-20">
           {sections.map((s, i) => (
@@ -719,16 +714,16 @@ export default function StickyPremiumSections() {
 
               {/* Progress bar container */}
               {/* Progress bar */}
-{active === i && (
-  <div className="relative mt-2 h-[2px] w-full overflow-hidden">
-    <motion.div
-      className="absolute left-0 top-0 h-full bg-indigo-900"
-      initial={{ width: 0 }}
-      animate={{ width: `${progress * 100}%` }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    />
-  </div>
-)}
+              {active === i && (
+                <div className="relative mt-2 h-[2px] w-full overflow-hidden">
+                  <motion.div
+                    className="absolute left-0 top-0 h-full bg-indigo-900"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progress * 100}%` }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                </div>
+              )}
 
             </div>
           ))}
@@ -736,10 +731,10 @@ export default function StickyPremiumSections() {
 
         {/* RIGHT CONTENT */}
         <div className="flex-1 space-y-24 md:space-y-40 lg:space-y-48">
-          
+
           {/* Section 1 */}
-          <section 
-            id="optimizations" 
+          <section
+            id="optimizations"
             className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
           >
             <H2 className="text-indigo-900">
@@ -761,85 +756,82 @@ export default function StickyPremiumSections() {
                 src="/AI/Careers/img10.png"
                 className="w-full h-full object-cover"
                 alt=""
-              />              
+              />
             </div>
-            
+
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
               <H2 className="text-indigo-900">
-              Lorem ipsum dolor
-              <br className="hidden lg:block" />
-              <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
-              sit amet Lorem
-            </H2>
+                Transform Your Cloud
+                <br className="hidden lg:block" />
+                <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
+                Spend with AI Insights
+              </H2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:mt-4">
-              
-              {/* LEFT BLOCK */}
-              <div className="mt-3 md:mt-4 lg:mt-6 lg:p-6">
-                <H3 className="text-indigo-900 mb-3">
-                  We onboard users lorum ipsum
-                </H3>
-                <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                </P>
-                
-                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                  <img
-                    src="/AI/Careers/img10.png"
-                    className="w-full h-full object-cover"
-                    alt=""
-                  />
+              <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:mt-4">
+
+                {/* LEFT BLOCK */}
+                <div className="mt-3 md:mt-4 lg:mt-6 lg:p-6">
+                  <H3 className="text-indigo-900 mb-3">
+                    Engineering-Led Profiling
+                  </H3>
+                  <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
+                    CloudDIET’s AI-powered profiler analyzes Azure configuration, usage, and billing metadata without accessing your data. It identifies misconfigurations, over-provisioning, and optimization opportunities across IaaS, PaaS, and Azure services.
+                  </P>
+
+                  <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
+                    <img
+                      src="/AI/Careers/img10.png"
+                      className="w-full h-full object-cover"
+                      alt=""
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* RIGHT BLOCK */}
-              <div className="xl:mt-6 md:mt-6 lg:mt-3 lg:p-6">
-                <H3 className="text-indigo-900 mb-3">
-                  We onboard users lorun ipsum
-                </H3>
-                <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                </P>
-                
-                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                  <img
-                    src="/AI/Careers/img10.png"
-                    className="w-full h-full object-cover"
-                    alt=""
-                  />
+                {/* RIGHT BLOCK */}
+                <div className="xl:mt-6 md:mt-6 lg:mt-3 lg:p-6">
+                  <H3 className="text-indigo-900 mb-3">
+                    Advanced Cost Intelligence
+                  </H3>
+                  <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
+                    Go beyond basic FinOps with deep cost attribution, granular spend breakdowns, and trend analysis. View costs at the resource, table, or SKU level—insights standard Azure billing can't provide.
+                  </P>
+
+                  <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
+                    <img
+                      src="/AI/Careers/img10.png"
+                      className="w-full h-full object-cover"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
-            
+
           </section>
-          
+
           {/* Section 2 */}
-          <section 
-            id="cloud" 
+          <section
+            id="cloud"
             className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 lg:scroll-mt-32"
           >
             <H2 className="text-indigo-900 mx-6">
-              Lorem ipsum dolor
+              Engineered for Azure Cost
               <br className="hidden lg:block" />
               <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
-              sit amet Lorem
+              Intelligence & Savings
             </H2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:mt-6">
-              
+
               {/* LEFT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-indigo-900 mb-3">
-                  We onboard users lorum ipsum
+                  Savings Plan Designer 
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
+                  Model and optimize Azure Savings Plan commitments with interactive what-if analysis. Adjust terms, commitment percentages, and forecast savings while avoiding overcommitment—all backed by real usage data. 
                 </P>
-                
+
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
                   <img
                     src="/AI/Careers/img10.png"
@@ -852,13 +844,12 @@ export default function StickyPremiumSections() {
               {/* RIGHT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-indigo-900 mb-3">
-                  We onboard users lorun ipsum
+                  Guided Optimization Workflows 
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
-                  We onboard users from 126+ countries — whether you hold a passport residence permit we've got you covered.
+                  Receive categorized savings opportunities with detailed implementation steps, risk assessments, and effort levels (Minimal, Moderate, Significant). CloudDIET helps you prioritize and execute optimizations with confidence. 
                 </P>
-                
+
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
                   <img
                     src="/AI/Careers/img10.png"
@@ -871,17 +862,17 @@ export default function StickyPremiumSections() {
           </section>
 
           {/* Section 3 - RESPONSIVE STICKY SCROLL SECTION */}
-          <section 
-            ref={storyboardRef} 
-            id="security" 
+          <section
+            ref={storyboardRef}
+            id="security"
             className="relative w-full bg-white font-bricolage"
           >
             {/* Desktop Layout (xl screens and above - 1280px+) */}
             <div className="hidden xl:flex relative w-full max-w-[1400px] mx-auto flex-row">
               <div className="flex-1 h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 lg:p-8 xl:p-10">
                 <div className="w-full max-w-[600px]">
-                  <FeatureVisualization 
-                    activeFeature={activeFeature} 
+                  <FeatureVisualization
+                    activeFeature={activeFeature}
                     onDotClick={handleDotClick}
                     onNavigate={handleNavigate}
                     animate={true}
@@ -891,7 +882,7 @@ export default function StickyPremiumSections() {
 
               <div className="flex-1 relative z-10">
                 <div className="h-[15vh]" />
-                
+
                 <div className="flex flex-col pb-20">
                   {features.map((feature, index) => (
                     <div key={feature.id} data-feature-index={index}>
@@ -903,7 +894,7 @@ export default function StickyPremiumSections() {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="h-[15vh]" />
               </div>
             </div>
@@ -925,8 +916,8 @@ export default function StickyPremiumSections() {
                 </div>
               </div>
             </div>
-            
-            
+
+
           </section>
         </div>
       </div>

@@ -34,16 +34,11 @@ export const Product = () => {
         <Firm/>
         <ImageGrid/>
       </section>
-        
         <FeatureCards/>
         <Timeline/>
         <HWD/>
         <FaqSection/>
         <AIBlogs/>
-        
-        
-        
-
     </div>    
   )
 }
