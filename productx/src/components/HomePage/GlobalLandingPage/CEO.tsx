@@ -71,16 +71,16 @@ const CEO = () => {
           </H2  >
 
           {/* Author Info */}
-          <div
+          {/* <div
             className="transition-all duration-700 ease-in-out"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               transitionDelay: '0.5s'
             }}
-          >
+          > */}
             {/* RAO */}
-            <h2
+            {/* <h2
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
@@ -92,10 +92,10 @@ const CEO = () => {
               }}
             >
               RAO
-            </h2>
+            </h2> */}
             
             {/* CEO and Founder QNEST */}
-            <p
+            {/* <p
               style={{
                 fontFamily: "'Quicksand', sans-serif",
                 fontWeight: 400,
@@ -107,7 +107,7 @@ const CEO = () => {
             >
               CEO and Founder QNEST
             </p>
-          </div>
+          </div> */}
 
         </div>
       </div>

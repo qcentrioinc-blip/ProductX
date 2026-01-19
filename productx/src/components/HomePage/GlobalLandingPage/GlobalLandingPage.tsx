@@ -43,30 +43,9 @@ const GlobalLandingPage = () => {
                 <BusinessValuesSection />
             </div>
 
-            {/* <div id="whatwedo">
-                <WhatWeDo />
-            </div>
+            
 
-            <div id="partnership">
-                <Partnership />
-            </div>
-
-            <div id="howwedo">
-                <HowWeDo />
-            </div>
-
-            <div id="targetaudience">
-                <TargetAudience />
-            </div>
-
-            <div id="testimonial">
-                <Testimonial />
-            </div>
-
-            <div id="visionimpact">
-                <VisionImpact />
-            </div>
-
+           
             
 
             {/* CEO Section - Sticky Background */}

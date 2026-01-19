@@ -89,15 +89,15 @@ export default function HeroSection() {
         {/* LEFT TEXT SECTION */}
         <div className="xl:mt-44  lg:mt-28 px-2  xl:ml-4 text-white">
           <H1 className="font-bold leading-tight slide-in">
-            <span className="text-[#00ff88]">Lorem ipsum dolor </span>  <br /> 
-            sit amet, consectetur
+            <span className="text-[#00ff88]">Pay Only for </span>  <br /> 
+            What You Save
           </H1>
 
-          <P className="text-gray-300 mt-6 max-w-lg fade-in-delay-1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing  Lorem ipsum dolor sit amet, 
+          <P className="text-gray-300 mt-6 max-w-lg fade-in-delay-1 leading-snug">
+            With CloudDIET's performance-based model, you pay a fraction of the savings we deliver. Most customers see ROI in the first month. 
           </P>
 
-       <ContactUsAI className="my-6">Get Started</ContactUsAI>
+       <ContactUsAI className="my-6">Start Saving</ContactUsAI>
         </div>
 
         {/* RIGHT IMAGE SECTION with glowing background */}
@@ -110,7 +110,7 @@ export default function HeroSection() {
           <img
             src="/AIAbout/AIHero.png"
             alt="Futuristic Person"
-            className="  lg:max-w-2xl  w-[350px] md:w-[450px] lg:w-full object-contain image-glow relative z-10"
+            className="  lg:max-w-2xl  w-[350px] md:w-[550px] lg:w-full md:bottom-[-110px] lg:bottom-[70px] xl:bottom-[110px] object-contain image-glow relative z-10"
           />
         </div>
 

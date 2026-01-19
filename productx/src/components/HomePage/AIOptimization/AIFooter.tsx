@@ -101,9 +101,9 @@ const AIFooter = () => {
                         />
                     </div>
 
-
+                    
                 </div>
-
+                
             </div>
         </footer>
     );

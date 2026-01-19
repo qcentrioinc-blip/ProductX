@@ -1,4 +1,4 @@
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 export default function FutureSection() {
   return (
@@ -16,10 +16,10 @@ export default function FutureSection() {
         {/* LEFT SIDE */}
         <div>
           {/* Breadcrumb */}
-          <div className="flex items-center gap-3 mb-2">
+          {/* <div className="flex items-center gap-3 mb-2">
             <span className="h-[3px] w-8 bg-gray-400 rounded-full"></span>
             <H4 className="text-blue-600">Quis autem</H4>
-          </div>
+          </div> */}
 
           {/* Heading */}
           <H2 className="leading-tight">
