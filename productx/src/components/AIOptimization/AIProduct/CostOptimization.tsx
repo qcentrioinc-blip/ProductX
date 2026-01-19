@@ -1,5 +1,5 @@
- 
-import { H2, H3, P } from "../../../styles/Typography";
+import { useEffect, useRef } from 'react';
+import { H2, H3, P } from '../../../styles/Typography';
 
 const COST_LAYERS = [
   {
@@ -29,9 +29,103 @@ const COST_LAYERS = [
   },
 ];
 
+const ParticleWave = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationId: number;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const rows = 35;
+    const cols = 120;
+    
+    // ADJUST THIS VALUE TO INCREASE/DECREASE DOT SIZE
+    const dotSizeMultiplier = 1; // Increase this number for larger dots (try 2, 3, 4, etc.)
+    
+    const animate = () => {
+      ctx.fillStyle = '#1E2440';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const spacing = canvas.width / cols;
+      const rowSpacing = canvas.height / rows;
+
+      for (let i = 0; i < rows; i++) {
+        ctx.beginPath();
+        
+        for (let j = 0; j < cols; j++) {
+          const x = j * spacing;
+          const y = i * rowSpacing;
+          
+          // Create multiple wave layers with different frequencies
+          const wave1 = Math.sin((j * 0.05) + (time * 0.02) + (i * 0.1)) * 20;
+          const wave2 = Math.sin((j * 0.03) - (time * 0.015) + (i * 0.15)) * 15;
+          const wave3 = Math.cos((j * 0.04) + (time * 0.01) + (i * 0.08)) * 10;
+          
+          const offsetY = wave1 + wave2 + wave3;
+          
+          // Calculate depth for brightness
+          const depth = (offsetY + 45) / 90;
+          
+          // Create gradient colors from teal to dark blue
+          const brightness = Math.max(0.2, depth);
+          const r = Math.floor(25 + brightness * 30);
+          const g = Math.floor(227 - (1 - brightness) * 140);
+          const b = Math.floor(161 + (1 - brightness) * 40);
+          
+          // Draw dots with adjustable size
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${brightness})`;
+          const size = (1.5 + brightness * 1) * dotSizeMultiplier; // Apply multiplier here
+          ctx.fillRect(x, y + offsetY, size, size);
+          
+          // Connect dots in the same row
+          if (j > 0) {
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${brightness * 0.3})`;
+            ctx.lineWidth = 0.5 * dotSizeMultiplier; // Also scale line width
+            const prevX = (j - 1) * spacing;
+            const prevWave1 = Math.sin(((j - 1) * 0.05) + (time * 0.02) + (i * 0.1)) * 20;
+            const prevWave2 = Math.sin(((j - 1) * 0.03) - (time * 0.015) + (i * 0.15)) * 15;
+            const prevWave3 = Math.cos(((j - 1) * 0.04) + (time * 0.01) + (i * 0.08)) * 10;
+            const prevOffsetY = prevWave1 + prevWave2 + prevWave3;
+            
+            ctx.beginPath();
+            ctx.moveTo(prevX, y + prevOffsetY);
+            ctx.lineTo(x, y + offsetY);
+            ctx.stroke();
+          }
+        }
+      }
+
+      time += 1;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="w-full h-full" />;
+};
+
 const CostOptimization = () => {
   return (
-    <section className="w-full bg-[#1E2440] text-white px-4 sm:px-6 md:px-10 py-12 md:py-16">
+    <section className="w-full relative z-20 bg-[#1E2440] text-white px-4 sm:px-6 md:px-10 py-12 md:py-16 overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex justify-center mb-12">
@@ -53,7 +147,7 @@ const CostOptimization = () => {
                   {layer.title}
                 </H3>
 
-                <div className="border border-gray-300 font-quicksand font-medium p-4 text-sm md:text-base text-[#19E3A1] bg-white/10 backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
+                <div className="border border-gray-300 font-medium p-4 text-sm md:text-base text-[#19E3A1] bg-white/10 backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
                   {layer.description}
                 </div>
               </div>
@@ -129,7 +223,7 @@ const CostOptimization = () => {
         </div>
 
         {/* CloudDIET Logo */}
-        <div className="relative mt-8 flex justify-center">
+        <div className="relative mt-8 flex justify-center z-20">
           <div className="bg-[#19E3A1] px-8 py-4 flex items-center gap-3 shadow-lg">
             {/* Cloud Icon */}
             <svg
@@ -141,14 +235,29 @@ const CostOptimization = () => {
             </svg>
             
             {/* Text */}
-            <div className="text-white font-bricolage  text-2xl">
+            <div className="text-white text-2xl font-bold">
               Cloud<span className="font-normal">DIET</span>
             </div>
           </div>
         </div>
-
-       
       </div>
+
+      {/* 3D PARTICLE WAVE DECORATION */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 -z-10 md:h-56 overflow-hidden pointer-events-none">
+        <ParticleWave />
+      </div> 
+      {/* WAVE VIDEO DECORATION
+<div className="absolute bottom-0 left-0 right-0 h-[28%] overflow-hidden pointer-events-none -z-10">
+  <video
+    className="w-full h-full object-cover opacity-80"
+    src="/videos/AIProduct/COVideo.moc"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+</div>*/}
+
     </section>
   );
 };

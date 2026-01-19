@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect,    useState } from "react";
 import { H1, P } from "../../../styles/Typography";
 import { ContactUs, ContactUsAI } from "../../../styles/Button";
- 
-const FinalHero: React.FC = () => {
-   const [scrollProgress, setScrollProgress] = useState(0);
- 
+
+const FinalHero = () => {
+  // const heroRef = useRef<HTMLDivElement>(null);
+  const [opacity, setOpacity] = useState(1);
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const maxScroll = 400; // Same value as ImageContainer
-      const progress = Math.min(scrollPosition / maxScroll, 1);
-      setScrollProgress(progress);
+      const progress = Math.min(window.scrollY / 400, 1);
+      setOpacity(1 - progress);
     };
- 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
-  // Calculate opacity: starts at 1, decreases to 0
-  const opacity = 1 - scrollProgress;
+  
  
   return (
     <section className="relative  overflow-hidden"  style={{ opacity }}>

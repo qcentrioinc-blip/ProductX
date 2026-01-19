@@ -9,6 +9,7 @@ type Card = {
   id: number;
   title: string;
   desc: string;
+  image: string;
 };
 
 type SectionContent = {
@@ -70,11 +71,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables enterprise IT teams to identify, analyze, and fix any Azure waste quickly and efficiently across complex multi-subscription environments. ",
       },
       cards: [
-        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs." },
-        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. " },
-        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. " },
-        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads.." },
-        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. " },
+        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs.", image:"/BuiltFor/Scissor.png"},
+        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. ", image:"/BuiltFor/Trend.png"},
+        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. ", image:"/BuiltFor/Budget.png"},
+        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads..", image:"/BuiltFor/Setting.png"},
+        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. ", image:"/BuiltFor/Teamwork.png"},
       ],
     },
 
@@ -84,11 +85,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables SaaS teams to scale their apps efficiently and reliably without wasteful Azure spending or any performance compromises across workloads.  ",
       },
       cards: [
-        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. " },
-        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day." },
-        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete.. " },
-        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.." },
-        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably." },
+        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. " ,image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.", image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete.. ", image:"/BuiltFor/Recycle.png" },
+        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day..", image:"/BuiltFor/Recycle.png" },
+        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably.", image:"/BuiltFor/Recycle.png" },
       ],
     },
 
@@ -98,11 +99,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET fixes Azure waste in multi-region setups for safe enterprise scaling. ",
       },
       cards: [
-        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low." },
-        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ." },
-        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale." },
-        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%." },
-        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. " },
+        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low.", image:"/BuiltFor/Recycle.png"},
+        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ", image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale.", image:"/BuiltFor/Recycle.png" },
+        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%.", image:"/BuiltFor/Recycle.png" },
+        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. ", image:"/BuiltFor/Recycle.png" },
       ],
     },
   },
@@ -216,8 +217,8 @@ export default function FiveCardGradientSection() {
               onScroll={handleScroll}
               className="hide-scrollbar flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6"
               style={{
-                scrollbarWidth: "none",   // Firefox
-                msOverflowStyle: "none",  // IE / Edge
+                scrollbarWidth: "none",    
+                msOverflowStyle: "none",  
               }}
             >
               {contentCards.map((card) => (
@@ -232,9 +233,11 @@ export default function FiveCardGradientSection() {
                   "
                 >
                   <div
-                    className="w-14 h-14 rounded-full mb-6"
-                    style={{ backgroundColor: active.circleColor }}
-                  />
+                    className="w-20 h-20 rounded-full mb-6"
+                   
+                  >
+                  <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4"/>
+                  </div>
                   <H4 style={{ color: active.headingColor }} className="mb-4">
                     {card.title}
                   </H4>
@@ -276,9 +279,9 @@ export default function FiveCardGradientSection() {
               "
             >
               <div
-                className="w-14 h-14 rounded-full mb-6"
-                style={{ backgroundColor: active.circleColor }}
-              />
+                className="w-20 h-20 rounded-full mb-6">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4"/>
+                </div>
               <H4 style={{ color: active.headingColor }} className="mb-4">
                 {card.title}
               </H4>

@@ -65,7 +65,7 @@ const THEMES: Record<string, Theme> = {
   },
 
   "ai-optimization": {
-    bgImage: "/BuiltFor/img3.jpg",
+    bgImage: "/BuiltFor/ImageBg.png",
     cardBg: "bg-[#5551FF]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
@@ -178,7 +178,7 @@ export default function ImgSec() {
           {/* LEFT TEXT */}
           <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
             <div className="w-full lg:w-2/3">
-              <H2 className="leading-tight text-[#FAFAFA] max-w-4xl">
+              <H2 className="leading-tight text-[#020059] max-w-4xl">
                 {content.heroHeading}
               </H2>
             </div>

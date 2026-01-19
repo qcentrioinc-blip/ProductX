@@ -130,6 +130,21 @@ div[id],
   display: none;
 }
 
+@keyframes partner-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partner-track {
+  animation: partner-scroll 30s linear infinite;
+  transform: translateZ(0);
+}
+
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

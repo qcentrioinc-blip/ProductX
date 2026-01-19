@@ -15,6 +15,7 @@ const CARD_CONFIG: Record<
         id: number;
         title: string;
         desc: string;
+        image: string;
       }[];
     }
   >
@@ -25,9 +26,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: " Azure Spend Issues",
       cards: [
-        { id: 1, title: "Hidden Scale", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" },
-        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. " },
-        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ." },
+        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Recycle.png" },
+        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Inefficient.png" },
+        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/EyeIcon.png" },
       ],
     },
 
@@ -36,9 +37,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: "SaaS Cost Problems",
       cards: [
-        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. " },
-        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. " },
-        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. " },
+        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/Recycle.png" },
+        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. ", image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. ", image:"/BuiltFor/Recycle.png"   },
       ],
     },
 
@@ -47,9 +48,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: "Industry Struggles Today",
       cards: [
-        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. " },
-        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " },
-        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend." },
+        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Recycle.png"  },
       ],
     },
   },
@@ -60,9 +61,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img1.jpg",
       heading: "Technology Challenges in Banking",
       cards: [
-        { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." },
-        { id: 2, title: "Regulatory Complexity", desc: "Compliance increases operational cost." },
-        { id: 3, title: "Fraud Risk", desc: "Real-time detection requires advanced systems." },
+        { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." ,image:"/BuiltFor/Recycle.png" },
+        { id: 2, title: "Regulatory Complexity", desc: "Compliance increases operational cost.",image:"/BuiltFor/Recycle.png"  },
+        { id: 3, title: "Fraud Risk", desc: "Real-time detection requires advanced systems.",image:"/BuiltFor/Recycle.png"  },
       ],
     },
 
@@ -71,9 +72,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img1.jpg",
       heading: "NBFC Operational Challenges",
       cards: [
-        { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical." },
-        { id: 2, title: "Risk Management", desc: "Credit risk requires precision." },
-        { id: 3, title: "Data Visibility", desc: "Fragmented data reduces insight." },
+        { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical.",image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Risk Management", desc: "Credit risk requires precision.",image:"/BuiltFor/Recycle.png"  },
+        { id: 3, title: "Data Visibility", desc: "Fragmented data reduces insight.",image:"/BuiltFor/Recycle.png"  },
       ],
     },
 
@@ -82,9 +83,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img1.jpg",
       heading: "Credit Union Technology Gaps",
       cards: [
-        { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential." },
-        { id: 2, title: "Member Experience", desc: "Digital expectations are rising." },
-        { id: 3, title: "Security Concerns", desc: "Protecting member data is critical." },
+        { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential.",image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Member Experience", desc: "Digital expectations are rising." ,image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Security Concerns", desc: "Protecting member data is critical.",image:"/BuiltFor/Recycle.png" },
       ],
     },
   },
@@ -95,9 +96,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img4.jpg",
       heading: "Hospital System Challenges",
       cards: [
-        { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." },
-        { id: 2, title: "Data Interoperability", desc: "Clinical data is siloed." },
-        { id: 3, title: "Operational Inefficiency", desc: "Manual workflows increase cost." },
+        { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." ,image:"/BuiltFor/Recycle.png" },
+        { id: 2, title: "Data Interoperability", desc: "Clinical data is siloed.",image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Operational Inefficiency", desc: "Manual workflows increase cost.",image:"/BuiltFor/Recycle.png" },
       ],
     },
 
@@ -106,9 +107,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img4.jpg",
       heading: "Clinic Management Challenges",
       cards: [
-        { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks." },
-        { id: 2, title: "Limited Scalability", desc: "Systems don’t grow with clinics." },
-        { id: 3, title: "Patient Experience", desc: "Slow processes impact satisfaction." },
+        { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks.",image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Limited Scalability", desc: "Systems don’t grow with clinics.",image:"/BuiltFor/Recycle.png"  },
+        { id: 3, title: "Patient Experience", desc: "Slow processes impact satisfaction.",image:"/BuiltFor/Recycle.png" },
       ],
     },
   },
@@ -119,9 +120,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img5.jpg",
       heading: "Startup Engineering Challenges",
       cards: [
-        { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt." },
-        { id: 2, title: "Cost Visibility", desc: "Cloud spend grows unnoticed." },
-        { id: 3, title: "Scaling Infrastructure", desc: "Systems break under growth." },
+        { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt.",image:"/BuiltFor/Recycle.png"  },
+        { id: 2, title: "Cost Visibility", desc: "Cloud spend grows unnoticed.",image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Scaling Infrastructure", desc: "Systems break under growth.",image:"/BuiltFor/Recycle.png" },
       ],
     },
 
@@ -130,9 +131,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img5.jpg",
       heading: "Enterprise High-Tech Challenges",
       cards: [
-        { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." },
-        { id: 2, title: "Security at Scale", desc: "Risk increases with complexity." },
-        { id: 3, title: "Operational Efficiency", desc: "Optimization lags innovation." },
+        { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." ,image:"/BuiltFor/Recycle.png" },
+        { id: 2, title: "Security at Scale", desc: "Risk increases with complexity.",image:"/BuiltFor/Recycle.png" },
+        { id: 3, title: "Operational Efficiency", desc: "Optimization lags innovation.",image:"/BuiltFor/Recycle.png" },
       ],
     },
   },
@@ -156,7 +157,7 @@ export default function Cardcase() {
       style={{ backgroundColor: config.bg }}
     >
       {/* RIGHT-SIDE DIAGONAL IMAGE */}
-      <div className="absolute top-[-5%] -right-10 h-full w-[17%] pointer-events-none">
+      <div className=" hidden lg:block absolute top-[-5%] -right-10 h-full w-[17%] pointer-events-none">
         <div
           className="w-full h-full bg-cover bg-right bg-no-repeat animate-rotateScale"
           style={{
@@ -168,7 +169,7 @@ export default function Cardcase() {
       </div>
 
       {/* CONTENT WRAPPER */}
-      <div className="relative max-w-8xl mx-10 md:px-10 md:pr-40">
+      <div className="relative max-w-8xl mx-10 md:px-10 xl:pr-40">
         <H2 className="mb-10">{config.heading}</H2>
 
         {/* CARDS GRID */}
@@ -180,7 +181,9 @@ export default function Cardcase() {
               
             >
               {/* Placeholder Circle */}
-              <div className="w-16 h-16 bg-gray-300 rounded-full mt-10"></div>
+              <div className="w-20 h-20    mt-10">
+                <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
+              </div>
 
               {/* Title */}
               <H4 className="mt-6">{card.title}</H4>

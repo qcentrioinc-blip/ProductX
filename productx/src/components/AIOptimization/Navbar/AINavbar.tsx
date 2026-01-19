@@ -23,12 +23,6 @@ const AINavbar = () => {
     setLogoDropdownOpen(false);
   };
 
-  const preloadImages = () => {
-    megaMenuItems.forEach(item => {
-      const img = new Image();
-      img.src = item.img;
-    });
-  };
 
 
 
@@ -180,7 +174,20 @@ const AINavbar = () => {
       </div>
 
       {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
-      <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex fixed left-1/2 -translate-x-1/2 w-[90%] max-w-8xl z-[9999] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-5" : "top-15"}`}>
+    <nav
+  onMouseLeave={closeAllMenus}
+  className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none`}
+>
+  <div
+    className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between
+    transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+    ${isScrolled
+      ? "w-full rounded-none scale-100"
+      : "w-[90%] max-w-8xl rounded-full scale-[0.98] translate-y-15"
+    }`}
+  >
+
+
         <div className="flex items-center gap-10">
           <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setLogoDropdownOpen(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
             <Link to="/industries/ai-optimization"><div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div></Link>
@@ -206,26 +213,37 @@ const AINavbar = () => {
           <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
-                {item.name === "Features" && (
+                {/* {item.name === "Features" && (
                   <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Features</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
                     </div>
                   </div>
-                )}
+                )} */}
+                {item.name === "Features" && (
+  <Link
+    to={item.path}
+    onMouseEnter={closeAllMenus}
+    className="text-gray-800 text-[18px]"
+  >
+    Features
+  </Link>
+)}
+
                 {
 
                 }
 
                {item.name === "Resources" && (
-  <Link
-    to="/industries/ai-optimization/resources/whyclouddiet/clouddiet"
+  <a
+  target="_blank"
+    href="/industries/ai-optimization/resources/whyclouddiet/clouddiet"
     className="text-gray-800 text-[18px]"
     onClick={closeAllMenus}
   >
     Resources
-  </Link>
+  </a>
 )}
 
                 {item.name === "Built for" && (
@@ -249,7 +267,7 @@ const AINavbar = () => {
 
         <div className="hidden lg:flex items-center gap-8">
           <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
-          <button onClick={() => setModalOpen(true)}>
+          <button className="text-gray-800 text-[18px] font-bold font-quicksand" onClick={() => setModalOpen(true)}>
             Contact Us
           </button>
         </div>
@@ -260,6 +278,7 @@ const AINavbar = () => {
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
         </button>
+        </div>
       </nav>
 
       {/* MEGA MENUS - keeping your existing code */}
@@ -301,7 +320,7 @@ const AINavbar = () => {
       )}
 
       {megaMenuBuiltFor && (
-        <div onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}>
+        <div onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-7xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}>
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
           <P className="text-gray-700 text-lg mt-2 mb-4">Tailored AI optimization solutions for different types of organizations.</P>
           <hr className="border-gray-300 h-1 mb-8" />

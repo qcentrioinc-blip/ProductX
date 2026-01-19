@@ -25,15 +25,15 @@ const Clouddietpermissions: React.FC = () => {
           </ol>
 
          <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Required Azure Roles</h3>
-
+<div className="pl-16">
          <table className="border-2 border-collapse w-full">
            <colgroup>
     <col style={{ width: "50%" }} />
     <col style={{ width: "50%" }} />
   </colgroup>
   <thead>
-    <tr className="border-b-2">
-      <th className="font-bricolage text-left text-2xl px-4 py-2 border-r-2">
+    <tr className="border-b-2 bg-gray-200">
+      <th className="font-bricolage text-left  text-2xl px-4 py-2 border-r-2">
         Role
       </th>
       <th className="font-bricolage text-left text-2xl px-4 py-2">
@@ -42,7 +42,7 @@ const Clouddietpermissions: React.FC = () => {
     </tr>
   </thead>
   <tbody className="font-quicksand  font-extrabold text-lg leading-tight tracking-wide">
-    <tr className="border-b">
+    <tr className="border-b ">
       <td className="px-4 py-3 border-r">
         Billing Account Reader<br />
         Billing Scope
@@ -52,7 +52,7 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr className="border-b">
+    <tr className="border-b bg-gray-200">
       <td className="px-4 py-3 border-r">
         Billing Reader<br />
         All Subscriptions
@@ -62,7 +62,7 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr className="border-b">
+    <tr className="border-b ">
       <td className="px-4 py-3 border-r">
         Log Analytics Reader<br />
         All Subscriptions
@@ -72,7 +72,7 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr className="border-b">
+    <tr className="border-b bg-gray-200">
       <td className="px-4 py-3 border-r">
         Reader<br />
         All Subscriptions
@@ -92,8 +92,8 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr>
-      <td className="px-4 py-3 border-r">
+    <tr className="bg-gray-200">
+      <td className="px-4 py-3 border-r ">
         Savings Plan Reader<br />
         All Subscriptions
       </td>
@@ -103,7 +103,7 @@ const Clouddietpermissions: React.FC = () => {
     </tr>
   </tbody>
 </table>
-
+</div>
 <h2 className="font-bricolage  text-xl lg:text-3xl my-4">Configuration Steps </h2>
 <h3 className="font-bricolage text-xl lg:text-2xl">Step 1: Create an Azure Service Principal </h3>
 <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
@@ -137,11 +137,11 @@ const Clouddietpermissions: React.FC = () => {
 
 
    <li className="mt-4"> The Azure Service Principal is now ready. The details above must be configured in CloudDIET. </li>
- <div className="mt-6 overflow-x-auto">
-  <table className="w-full border  border-collapse bg-white rounded-lg">
-    <thead className="bg-gray-50">
+ <div className="mt-6  pl-16 overflow-x-auto">
+  <table className="w-full border   border-collapse bg-white rounded-lg">
+    <thead className="bg-gray-100">
       <tr >
-        <th className="text-left px-6 py-4 font-bricolage text-base border-b border-gray-200">
+        <th className="text-left px-6 py-4 border-r  font-bricolage text-base border-b border-gray-200">
           Value
         </th>
         <th className="text-left px-6 py-4 font-bricolage text-base border-b border-gray-200">
@@ -152,7 +152,7 @@ const Clouddietpermissions: React.FC = () => {
 
     <tbody className="font-quicksand text-lg">
       <tr className="border-b">
-        <td className="px-6 py-5">
+        <td className="px-6 py-5 border-r border-gray-200">
           <div className="font-semibold">Application (client) ID</div>
           <div className="text-sm text-gray-600 mt-1">App Registration</div>
         </td>
@@ -161,8 +161,8 @@ const Clouddietpermissions: React.FC = () => {
         </td>
       </tr>
 
-      <tr className="border-b">
-        <td className="px-6 py-5">
+      <tr className="border-b bg-gray-100">
+        <td className="px-6 py-5 border-r border-gray-200">
           <div className="font-semibold">Directory (tenant) ID</div>
           <div className="text-sm text-gray-600 mt-1">App Registration</div>
         </td>
@@ -172,7 +172,7 @@ const Clouddietpermissions: React.FC = () => {
       </tr>
 
       <tr className="border-b">
-        <td className="px-6 py-5">
+        <td className="px-6 py-5 border-r border-gray-200">
           <div className="font-semibold">Client secret</div>
           <div className="text-sm text-gray-600 mt-1">App Registration</div>
         </td>
@@ -181,8 +181,8 @@ const Clouddietpermissions: React.FC = () => {
         </td>
       </tr>
 
-      <tr className="border-b">
-        <td className="px-6 py-5">
+      <tr className="border-b bg-gray-100">
+        <td className="px-6 py-5 border-r border-gray-200">
           <div className="font-semibold">Object ID</div>
           <div className="text-sm text-gray-600 mt-1">Enterprise Application</div>
         </td>
@@ -192,7 +192,7 @@ const Clouddietpermissions: React.FC = () => {
       </tr>
 
       <tr>
-        <td className="px-6 py-5">
+        <td className="px-6 py-5 border-r border-gray-200">
           <div className="font-semibold">Subscription ID</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -231,7 +231,7 @@ const Clouddietpermissions: React.FC = () => {
    <img className="pl-16" src="/AIOptimization/2step6.png" alt="" />
 
 <li>Repeat these steps for each role and each Subscription as needed. </li>
-<div className="mt-6 overflow-x-auto">
+<div className="mt-6  pl-16 overflow-x-auto">
   <table className="w-full border border-gray-200 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
@@ -246,7 +246,7 @@ const Clouddietpermissions: React.FC = () => {
 
     <tbody className="font-quicksand text-lg">
       <tr className="border-b   bg-white">
-        <td className="px-6  py-5">
+        <td className="px-6  border-r  border-gray-200 py-5">
           <div className="font-semibold">Billing Reader</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -256,7 +256,7 @@ const Clouddietpermissions: React.FC = () => {
       </tr>
 
       <tr className="border-b bg-gray-50">
-        <td className="px-6 py-5">
+        <td className="px-6 border-r  border-gray-200 py-5">
           <div className="font-semibold">Log Analytics Reader</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -266,7 +266,7 @@ const Clouddietpermissions: React.FC = () => {
       </tr>
 
       <tr className="border-b bg-white">
-        <td className="px-6 py-5">
+        <td className="px-6 border-r  border-gray-200  py-5">
           <div className="font-semibold">Reader</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -275,8 +275,8 @@ const Clouddietpermissions: React.FC = () => {
         </td>
       </tr>
 
-      <tr className="border-b bg-gray-50">
-        <td className="px-6 py-5">
+      <tr className="border-b  bg-gray-50">
+        <td className="px-6 border-r  border-gray-200 py-5">
           <div className="font-semibold">Reservations Reader</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -286,7 +286,7 @@ const Clouddietpermissions: React.FC = () => {
       </tr>
 
       <tr className="bg-white">
-        <td className="px-6 py-5">
+        <td className="px-6 py-5 border-r  border-gray-200">
           <div className="font-semibold">Savings Plan Reader</div>
           <div className="text-sm text-gray-600 mt-1">All Subscriptions</div>
         </td>
@@ -304,7 +304,7 @@ const Clouddietpermissions: React.FC = () => {
 <h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 3 : Assign Billing Account Permissions </h3>
  <p className="font-quicksand text-lg leading-tight tracking-wide">An additional role is required for MCA (Microsoft Customer Agreement) billing to grant read access to billing data. </p>
 
-<div className="mt-6 overflow-x-auto">
+<div className="mt-6  pl-16 overflow-x-auto">
   <table className="w-full border border-gray-200 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
@@ -343,7 +343,7 @@ const Clouddietpermissions: React.FC = () => {
 
 <h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 4 : Add Service Principal(s) in CloudDIET </h3>
  <p className="font-quicksand text-lg leading-tight tracking-wide">Log in to <a href="https://clouddiet.app" className="text-blue-600">https://clouddiet.app</a> using your Azure Active Directory credentials. Then, enter the Service Principal details collected in Step 1 to configure CloudDIET.  </p>
-<div className="mt-6 overflow-x-auto">
+<div className="mt-6  pl-16 overflow-x-auto">
   <table className="w-full border border-gray-400 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
