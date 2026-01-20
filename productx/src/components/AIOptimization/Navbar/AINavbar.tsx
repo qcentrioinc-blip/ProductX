@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ContactUsDark } from "../../../styles/Button";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { H3, P } from "../../../styles/Typography";
 import { createPortal } from "react-dom";
 import ContactModal from "./ContactModal";
@@ -13,22 +13,16 @@ const AINavbar = () => {
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "features" | "resources" | "builtfor">(null);
-  const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
+  // const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const closeAllMenus = () => {
     setMegaMenuOpen(false);
     setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
-    setLogoDropdownOpen(false);
+    
   };
 
-  const preloadImages = () => {
-    megaMenuItems.forEach(item => {
-      const img = new Image();
-      img.src = item.img;
-    });
-  };
 
 
 
@@ -101,30 +95,30 @@ const AINavbar = () => {
     },
   ];
 
-  const industries = [
-    {
-      name: "Banking & Finance",
-      path: "/industries/banking-and-finance",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
-    {
-      name: "EHR and PMS",
-      path: "/industries/ehr-and-pms",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
-    {
-      name: "HighTech",
-      path: "/industries/high-tech",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
-  ];
+  // const industries = [
+  //   {
+  //     name: "Banking & Finance",
+  //     path: "/industries/banking-and-finance",
+  //     img: "/BNFHOME/P1.png",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  //   },
+  //   {
+  //     name: "EHR and PMS",
+  //     path: "/industries/ehr-and-pms",
+  //     img: "/BNFHOME/P1.png",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  //   },
+  //   {
+  //     name: "HighTech",
+  //     path: "/industries/high-tech",
+  //     img: "/BNFHOME/P1.png",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+  //   },
+  // ];
 
-  const industryOptions = industries.filter(
-    (ind) => ind.name !== currentIndustry
-  );
+  // const industryOptions = industries.filter(
+  //   (ind) => ind.name !== currentIndustry
+  // );
 
   // ---------- EFFECTS ----------
 
@@ -160,11 +154,14 @@ const AINavbar = () => {
   return createPortal(
     <>
       {/* TOP TRANSPARENT BAR - Scrolls away */}
-      <div className="absolute top-0 z-50 left-0 w-full bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-3 pb-1 flex justify-between transition-all duration-300">
+      <div className="absolute top-0 z-50 left-0 w-full bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-2 pb-1 flex justify-between transition-all duration-300">
         <Link to="/" className="flex items-center">
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-            <span className="text-black font-bricolage text-sm sm:text-base">LOGO</span>
-          </div>
+          
+                    <div className="text-[#010101] font-bricolage font-light text-xl  px-2  pn rounded">
+                      
+                      <img className="h-10 w-full" src="../logo.svg"/>
+                    </div>
+              
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
@@ -180,15 +177,30 @@ const AINavbar = () => {
       </div>
 
       {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
-      <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex fixed left-1/2 -translate-x-1/2 w-[90%] max-w-8xl z-[9999] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-5" : "top-15"}`}>
-        <div className="flex items-center gap-10">
-          <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setLogoDropdownOpen(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
-            <Link to="/industries/cloud-finops-ai"><div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div></Link>
-            <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
-              <img src="/down.png" className="w-4 h-4" />
-            </div>
+    <nav
+  onMouseLeave={closeAllMenus}
+  className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none`}
+>
+  <div
+    className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between
+    transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+    ${isScrolled
+      ? "w-full rounded-none scale-100"
+      : "w-[90%] max-w-8xl rounded-full scale-[0.98] translate-y-15"
+    }`}
+  >
 
-            {logoDropdownOpen && (
+
+        <div className="flex items-center gap-10">
+          <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => {  setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
+            <Link to="/industries/cloud-finops-ai">
+            <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
+              <img src="/AILogoo.png"  className="w-auto h-10" alt=""/></div></Link>
+            {/* <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
+              <img src="/down.png" className="w-4 h-4" />
+            </div> */}
+
+            {/* {logoDropdownOpen && (
               <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
                 {industryOptions.map((ind, index) => (
                   <Link key={index} to={ind.path} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all">
@@ -200,36 +212,47 @@ const AINavbar = () => {
                   </Link>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
 
           <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
             {navItems.map((item) => (
               <li key={item.name}>
-                {item.name === "Features" && (
-                  <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }}>
+                {/* {item.name === "Features" && (
+                  <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false) }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Features</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
                     </div>
                   </div>
-                )}
+                )} */}
+                {item.name === "Features" && (
+  <Link
+    to={item.path}
+    onMouseEnter={closeAllMenus}
+    className="text-gray-800 text-[18px]"
+  >
+    Features
+  </Link>
+)}
+
                 {
 
                 }
 
                {item.name === "Resources" && (
-  <Link
-    to="/industries/cloud-finops-ai/resources/whyclouddiet/clouddiet"
+  <a
+  target="_blank"
+    href="/industries/ai-optimization/resources/whyclouddiet/clouddiet"
     className="text-gray-800 text-[18px]"
     onClick={closeAllMenus}
   >
     Resources
-  </Link>
+  </a>
 )}
 
                 {item.name === "Built for" && (
-                  <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setLogoDropdownOpen(false); }}>
+                  <div className="relative" onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false) }}>
                     <div className="flex items-center gap-1 cursor-pointer">
                       <button className="text-gray-800 text-[18px]">Built For</button>
                       <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuBuiltFor ? "rotate-180" : "rotate-0"}`} />
@@ -238,7 +261,7 @@ const AINavbar = () => {
                 )}
 
                 {item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" && (
-                  <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); setLogoDropdownOpen(false); }} className="text-gray-800 text-[18px]">
+                  <Link to={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false) }} className="text-gray-800 text-[18px]">
                     {item.name}
                   </Link>
                 )}
@@ -248,10 +271,35 @@ const AINavbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-8">
-          <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link>
-          <button onClick={() => setModalOpen(true)}>
-            Contact Us
+          {/* <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link> */}
+          <button className="text-gray-800 text-[18px] font-bold font-quicksand" onClick={() => setModalOpen(true)}>
+            Support
           </button>
+        <button
+  onClick={() => window.open("https://clouddiet.ai/signup", "_blank")}
+        className="
+          group
+          flex items-center justify-center
+          w-auto h-[48px]
+          px-[28px] py-[10px]
+          rounded-[8px]
+          font-quicksand font-bold text-[16px]
+          bg-black text-white
+          border-2 border-[#141414]
+          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+          transition-all duration-300
+          hover:bg-white hover:text-black
+          
+        "
+      > SIGN UP
+        <span className="flex items-center gap-2">
+          
+          <span className="relative flex items-center w-[20px] h-[20px]">
+            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </span>
+        </span>
+      </button>
         </div>
 
         {/* Mobile Hamburger (Dark Mode for White Nav) */}
@@ -260,6 +308,7 @@ const AINavbar = () => {
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
           <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
         </button>
+        </div>
       </nav>
 
       {/* MEGA MENUS - keeping your existing code */}
@@ -301,7 +350,7 @@ const AINavbar = () => {
       )}
 
       {megaMenuBuiltFor && (
-        <div onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}>
+        <div onMouseEnter={() => { setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }} onMouseLeave={closeAllMenus} className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-34"} translate-y-1 -translate-x-1/2 w-[90%] max-w-7xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}>
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
           <P className="text-gray-700 text-lg mt-2 mb-4">Tailored AI optimization solutions for different types of organizations.</P>
           <hr className="border-gray-300 h-1 mb-8" />
@@ -405,9 +454,36 @@ const AINavbar = () => {
         </div>
 
         <div className="mt-6 flex justify-start items-center">
+
           <button onClick={() => { setMenuOpen(false); setModalOpen(true); }}>
-            <ContactUsDark>Contact Us</ContactUsDark>
+            <ContactUsDark>Support</ContactUsDark>
           </button>
+          <a href="https://clouddiet.ai/signup" target="_blank" rel="noopener noreferrer"  
+            
+        className="
+          group
+          flex items-center justify-center
+          w-auto h-[48px]
+          px-[24px] py-[12px]
+          rounded-[8px]
+          font-quicksand font-bold text-[16px]
+          bg-black text-white
+          border-2 border-[#141414]
+          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+          transition-all duration-300
+          hover:bg-white hover:text-black
+          
+        "
+      > SIGN UP
+        <span className="flex items-center gap-2">
+          
+          <span className="relative flex items-center w-[20px] h-[20px]">
+            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </span>
+        </span>
+      
+          </a>
         </div>
       </div>
 

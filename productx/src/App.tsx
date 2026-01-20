@@ -69,6 +69,7 @@ import AIGlossary from './components/AIOptimization/Glossary/AIGlossary'
 import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptimization'
 import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc'
 import Pricing from './components/AIOptimization/Pricing/Pricing'
+import ComingSoon from './components/Global/NewFooter/ComingSoon'
 
 
 
@@ -254,7 +255,10 @@ const App = () => {
               path="/industries/:industry/resources/:category/:slug"
               element={<ResourceDoc />}
             />
-
+ <Route
+              path="/comingsoon"
+              element={<ComingSoon/>}
+            />
 
           </Routes>
         </div>

@@ -43,11 +43,6 @@ const GlobalLandingPage = () => {
                 <BusinessValuesSection />
             </div>
 
-            
-
-           
-            
-
             {/* CEO Section - Sticky Background */}
 
             <div>

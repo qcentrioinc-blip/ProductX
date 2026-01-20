@@ -1,17 +1,20 @@
  
+import type { ReactNode } from "react";
 import { H1, P } from "../../../styles/Typography";
 import { ContactUsAI } from "../../../styles/Button";
 import { useParams } from "react-router-dom";
 
 type BuiltForKey="digital-native"|"enterprises"|"smb"
 
-const CONTENT_MAP:Record<
-BuiltForKey,
-{heading:string;
-  description:string;
-  cta:string;
-}
->={
+const CONTENT_MAP: Record<
+  BuiltForKey,
+  {
+    heading: string | ReactNode;
+    description: string;
+    cta: string;
+  }
+> = {
+
  "digital-native": {
     heading: "Scale Your SaaS Profitably \n With CloudDIET",
     description:
@@ -19,7 +22,13 @@ BuiltForKey,
     cta: "Optimize Now",
   },
   enterprises: {
-    heading: "Optimize Multi-Subscription Azure Costs",
+    heading: (
+    <>
+      Optimize Multi <br />
+      Subscription{" "}
+      <span className="text-[#020059]">Azure Costs</span>
+    </>
+  ),
     description:
       "CloudDIET profiles your infrastructure usage patterns to automatically cut waste across all Azure subscriptions safely..",
     cta: "Start Your Scan",
@@ -38,8 +47,8 @@ export default function TitleSecAI() {
   const content = CONTENT_MAP[builtForType ?? "enterprises"];
   return (
     <section 
-      className="w-full  h-[70vh] md:h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/BuiltFor/bg_img2.jpg')" }}
+      className="w-full  h-[60vh] md:h-[50vh] xl:h-screen bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: "url('/BuiltFor/BuiltEnter.png')" }}
     >
       {/* DARK OVERLAY (REMOVE IF NOT NEEDED) */}
       <div className="absolute inset-0 bg-black/40"></div>
@@ -48,7 +57,7 @@ export default function TitleSecAI() {
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-8xl mx-10 xl:px-10 ">
           
-          <div className="w-full md:w-[80%] space-y-6">
+          <div className="w-full md:w-[100%] space-y-6">
             <H1 className="text-white leading-tight">
               {content.heading}
             </H1>

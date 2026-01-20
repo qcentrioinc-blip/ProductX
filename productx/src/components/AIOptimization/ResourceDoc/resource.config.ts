@@ -59,47 +59,28 @@ export const resourceConfig: Record<string, ResourceCategory> = {
         component: () => import("./content/onboarding/AddingService"),
         type: "text",
       },
-      
-
+       {
+        slug: "adding-subscriptions",
+        label: "Adding Subscriptions",
+        component: () => import("./content/onboarding/AddingSubscriptions"),
+        type: "text",
+      },
+        {
+        slug: "profile-activites",
+        label: "Profiling Activities",
+        component: () => import("./content/onboarding/ProfilingActivities"),
+        type: "text",
+      },
       
     ],
   },
-  management: {
-    label: "Management",
-    items: [
-      {
-        slug: "case-studies",
-        label: "Case Studies",
-        component: () => import("./content/management/CaseStudies"),
-        type: "cards",
-      },
-      {
-        slug: "service",
-        label: "Service",
-        component: () => import("./content/management/Service"),
-        type: "text",
-      },
-      {
-        slug: "user-permissions",
-        label: "User Permission",
-        component: () => import("./content/management/UserPermission"),
-        type: "text",
-      },
-    ],
-  },
-
   features: {
     label: "Features",
     items: [
-      {
-        slug: "cost-explorer",
-        label: "Cost Explorer",
-        component: () => import("./content/features/CostExplorer"),
-        type: "cards",
-      },
+      
       {
         slug: "optimizations",
-        label: "optimizations",
+        label: "Optimizations",
         component: () => import("./content/features/Optimizations"),
         type: "text",
       },
@@ -109,12 +90,52 @@ export const resourceConfig: Record<string, ResourceCategory> = {
         component: () => import("./content/features/SavingPlans"),
         type: "text",
       },
+      {
+        slug: "cost-explorer",
+        label: "Cost Explorer",
+        component: () => import("./content/features/CostExplorer"),
+        type: "text",
+      },
     ],
   },
+  
+  management: {
+    label: "Management",
+    items: [
+      {
+        slug: "user-permissions",
+        label: "User Permission",
+        component: () => import("./content/management/UserPermission"),
+        type: "text",
+      },
+      
+      {
+        slug: "service-principal",
+        label: "Service Principal",
+        component: () => import("./content/management/Service"),
+        type: "text",
+      },
+      {
+        slug: "subscriptions",
+        label: "Subscriptions",
+        component: () => import("./content/management/Subscriptions"),
+        type: "cards",
+      },
+    ],
+  },
+
+  
 
   additional: {
     label: "Additional",
     items: [
+       {
+        slug: "overview",
+        label: "Overview",
+        component: () => import("./content/Additional/Overview"),
+        type: "text",
+      },
+      
       {
         slug: "support",
         label: "Support",

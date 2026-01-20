@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 // import  { useEffect, useRef} from 'react';
 // import { EffectComposer, RenderPass, EffectPass, BloomEffect, ChromaticAberrationEffect } from 'postprocessing';
 // import * as THREE from 'three';
-import { H2, P } from "../../../styles/Typography";
+import {  H3, P } from "../../../styles/Typography";
 
 const features = [
   {
     title: "Engineering Expertise",
     description: "Built by cloud engineering veterans.",
-    image: "/AIProduct/Feature.png",
+    image: "/AIProduct/Secure.png",
     points: [
       "Decades of AWS, Azure, and Google Cloud experience. ",
       "Advanced optimization beyond standard FinOps tools. ",
@@ -20,7 +20,7 @@ const features = [
   {
     title: "Guaranteed Savings",
     description: " Pay only for performance results.",
-    image: "/AIProduct/Feature.png",
+    image: "/AIProduct/Saving.png",
     points: [
       "Rapid ROI as early as the first month. ",
       "Unique pay-for-performance model ensures shared success. ",
@@ -32,7 +32,7 @@ const features = [
   {
     title: "Continuous Optimization",
     description: " Retain savings long-term with AI.",
-    image: "/AIProduct/Feature.png",
+    image: "/AIProduct/ContinousOpti.png",
     points: [
       "Keep 80–90% of savings over time. ",
       "AI-driven measures enable continuous efficiency gains. ",
@@ -44,7 +44,7 @@ const features = [
   {
     title: " Secure & Compliant",
     description: "Zero data access, full customer control",
-    image: "/AIProduct/Feature.png",
+    image: "/AIProduct/Secure.png",
     points: [
       "Never access customer files, databases, or apps.",
       "Read-only by design with Azure RBAC roles. ",
@@ -414,7 +414,23 @@ export default function FeatureCards() {
 
       {/* <GridScanBg />   */}
       {/* Content */}
-      <div className="lg:mx-10 grid max-w-8xl grid-cols-1  gap-16 xl:py-20 px-6 md:grid-cols-2 relative z-10">
+   <div
+  className="
+    xl:ml-32
+    max-w-8xl
+    px-6
+    xl:px-0
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    gap-y-16
+    gap-x-20
+    xl:py-20
+    relative
+    z-10
+  "
+>
+
         {features.map((item, idx) => (
           <motion.div
             key={idx}
@@ -426,17 +442,28 @@ export default function FeatureCards() {
           >
             <div className="xl:flex-row flex flex-col gap-10">
               {/* Image */}
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-[250px] flex-shrink-0 rounded-sm object-cover"
-              />
+             <img
+  src={item.image}
+  alt={item.title}
+  className="
+    flex-shrink-0
+    rounded-sm
+    object-contain
+
+    md:max-h-16
+    md:max-w-16
+
+    xl:max-h-[100px]
+    xl:max-w-[100px]
+  "
+/>
+
 
               {/* Title and Description */}
               <div className="space-y-2">
-                <H2 className="inline-block border-b-4 border-[#5551FF]   font-semibold text-white">
+                <H3 className="inline-block border-b-4 border-[#5551FF]   font-semibold text-white">
                   {item.title}
-                </H2>
+                </H3>
                 <P className="mt-2 text-[28px] font-quicksand text-sm text-[#F5F5F5]">
                   {item.description}
                 </P>

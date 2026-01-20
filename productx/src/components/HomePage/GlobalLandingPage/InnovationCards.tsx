@@ -5,20 +5,20 @@ export default function InnovationCards() {
     {
       img: "/LandingPage/card1.png",
       badge: "See How We Deliver",
-      title: "Outcome-Driven Thinking for Measurable, Consistent, and Long-Term Business Results",
-      desc: " Every engagement starts with clear goals, agreed success measures, and realistic timelines, so technology investments directly support performance, revenue, and long-term competitive advantage for your organization. ",
+      title: "Outcome-Driven Results for Clear Business Wins",
+      desc: " Every engagement begins with clear goals, agreed metrics, and realistic timelines, ensuring technology drives performance, revenue, and competitive edge. ",
     },
     {
       img: "/LandingPage/card2.jpg",
       badge: "Learn About Our Approach",
-      title: "  People-First Collaboration That Aligns Technology with Real-World Teams and Processes",
-      desc: "We listen to your stakeholders, involve them in key decisions, and design solutions that fit daily work, reduce resistance to change, and support smooth adoption across the organization.   ",
+      title: " People-First Collaboration Aligns Tech with Teams  ",
+      desc: " We engage stakeholders, involve them in decisions, and craft solutions that fit workflows, ease change, and boost adoption.    ",
     },
     {
       img: "/LandingPage/card3.jpg",
       badge: "Explore Our Services",
-      title: " Reliability You Can Trust in Every System We Design and Manage",
-      desc: "We build secure, stable platforms using proven practices, monitor them closely, and respond quickly, so your critical operations continue running safely, even as needs and volumes grow.  ",
+      title: " Trusted Reliability in Every System We Build  ",
+      desc: "We deliver secure, stable platforms with proven practices, constant monitoring, and fast response to keep operations safe amid growth. ",
     },
   ];
 

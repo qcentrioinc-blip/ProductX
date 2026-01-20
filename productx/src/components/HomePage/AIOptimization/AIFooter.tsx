@@ -51,7 +51,7 @@ const AIFooter = () => {
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-16 z-10">
-                <div className="grid xl:grid-cols-2 gap-12">
+                <div className="grid xl:grid-cols-1.5fr_1fr gap-12">
                     {/* LEFT SECTION */}
                     <div className="space-y-8">
                         <h3 className="text-[28px] sm:text-[44px] lg:text-[50px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
@@ -97,13 +97,13 @@ const AIFooter = () => {
                         <img
                             src="/AIOptimization/AIGirl.png"
                             alt="AI interface"
-                            className="absolute right-[-70px] bottom-[-65px] w-[600px] object-contain pointer-events-none"
+                            className="absolute -right-18 -bottom-20 w-[600px] object-contain pointer-events-none"
                         />
                     </div>
 
-                    
+
                 </div>
-                
+
             </div>
         </footer>
     );
