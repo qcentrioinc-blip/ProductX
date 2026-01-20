@@ -3,7 +3,7 @@
 import CallToAction from "./CallToAction"
 // import Counter from "./Counter"
 // import HowWeDo from "./HowWeDo"
-import LandingPage from "./LandingPage"
+// import LandingPage from "./LandingPage"
 // import Partnership from "./Partnership"
 // import TargetAudience from "./TargetAudience"
 // import Testimonial from "./Testimonial"
@@ -19,13 +19,14 @@ import CEO from "./CEO"
 import NewFooter from "../../Global/NewFooter/NewFooter"
 import FlowingMenu from "./FlowingMenu"
 import Counter from "./Counter"
+import LandingPage1 from "./LandingPage1"
  
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
 
             <div id="landingpage">
-                <LandingPage />
+                <LandingPage1 />
             </div>
             {/* <div>
                 <IndustrySlider/>

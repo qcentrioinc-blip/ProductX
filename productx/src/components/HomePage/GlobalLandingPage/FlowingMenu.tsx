@@ -1,47 +1,66 @@
 import React, { useMemo, useRef } from "react";
 import { gsap } from "gsap";
- 
+
 const FlowingMenu: React.FC = () => {
   const items = [
-    { link: "#", text: "Mojave", image: "https://picsum.photos/600/400?random=1" },
-    { link: "#", text: "Mojave", image: "https://picsum.photos/600/400?random=1" },
-    // { link: "#", text: "Sonoma", image: "https://picsum.photos/600/400?random=2" },
-    // { link: "#", text: "Monterey", image: "https://picsum.photos/600/400?random=3" },
-    // { link: "#", text: "Sequoia", image: "https://picsum.photos/600/400?random=4" },
+    {
+      text: "Cloud Finops AI",
+      hoverText: "Cloud Diet",
+      image: "https://picsum.photos/600/400?random=1",
+      isLive: true,
+    },
+    {
+      text: "Other Industries",
+      hoverText: "coming soon",
+      image: "https://picsum.photos/600/400?random=1",
+      isLive: true,
+    },
   ];
- 
+
   return (
-    <div className="relative w-full h-[250px] bg-black overflow-hidden">
+    <div className="relative w-full h-[250px] bg-black overflow-hidden font-bricolage">
       <nav className="flex flex-col h-full">
         {items.map((item, i) => (
-          <MenuItem key={i} {...item} />
+          <MenuItem
+            key={i}
+            {...item}
+            isLast={i === items.length - 1}
+          />
         ))}
       </nav>
     </div>
   );
 };
- 
+
 interface MenuItemProps {
-  link: string;
   text: string;
+  hoverText: string;
   image: string;
+  isLive: boolean;
+  isLast: boolean;
 }
- 
-const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
+
+const MenuItem: React.FC<MenuItemProps> = ({
+  text,
+  hoverText,
+  image,
+  isLive,
+  isLast,
+}) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null); // Added for text visibility control
- 
+  const linkRef = useRef<HTMLAnchorElement>(null);
+
   const animationDefaults: gsap.TweenVars = {
     duration: 0.3,
     ease: "expo.out",
   };
- 
+
   /* ---------------- EDGE DETECTION ---------------- */
   const dist = (x: number, y: number, x2: number, y2: number) =>
     (x - x2) ** 2 + (y - y2) ** 2;
- 
+
   const closestEdge = (
     mx: number,
     my: number,
@@ -49,7 +68,7 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
     h: number
   ): "top" | "bottom" =>
     dist(mx, my, w / 2, 0) < dist(mx, my, w / 2, h) ? "top" : "bottom";
- 
+
   /* ---------------- MARQUEE CONTROL ---------------- */
   const startScroll = () => {
     gsap.to(marqueeInnerRef.current, {
@@ -59,17 +78,18 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
       repeat: -1,
     });
   };
- 
+
   const stopScroll = () => {
     gsap.killTweensOf(marqueeInnerRef.current);
     gsap.set(marqueeInnerRef.current, { x: "0%" });
   };
- 
+
   /* ---------------- EVENTS ---------------- */
   const onEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isLive) return;
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
- 
+
     const r = itemRef.current.getBoundingClientRect();
     const edge = closestEdge(
       e.clientX - r.left,
@@ -77,7 +97,7 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
       r.width,
       r.height
     );
- 
+
     gsap
       .timeline({ defaults: animationDefaults })
       .set(marqueeRef.current, {
@@ -90,14 +110,15 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
         x: "0%",
       })
       .to([marqueeRef.current, marqueeInnerRef.current], { y: "0%" }, 0)
-      .to(linkRef.current, { opacity: 0 }, 0) // Hides static text
+      .to(linkRef.current, { opacity: 0 }, 0)
       .call(startScroll);
   };
- 
+
   const onLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isLive) return;
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current)
       return;
- 
+
     const r = itemRef.current.getBoundingClientRect();
     const edge = closestEdge(
       e.clientX - r.left,
@@ -105,9 +126,9 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
       r.width,
       r.height
     );
- 
+
     stopScroll();
- 
+
     gsap
       .timeline({ defaults: animationDefaults })
       .to(marqueeRef.current, {
@@ -121,60 +142,66 @@ const MenuItem: React.FC<MenuItemProps> = ({  text, image }) => {
         },
         0
       )
-      .to(linkRef.current, { opacity: 1 }, 0); // Shows static text
+      .to(linkRef.current, { opacity: 1 }, 0);
   };
- 
-  /* ---------------- CONTENT ---------------- */
+
+  /* ---------------- MARQUEE CONTENT ---------------- */
   const marqueeContent = useMemo(
     () =>
       Array.from({ length: 4 }).map((_, i) => (
         <React.Fragment key={i}>
-          <span className="uppercase text-[4vh] font-normal px-[1vw] pt-[1vh] text-black whitespace-nowrap">
-            {text}
+          <span className="uppercase text-[4vh] font-normal px-[1vw] pt-[1vh] text-black whitespace-nowrap font-bricolage">
+            {hoverText}
           </span>
-          <div
-            className="w-[200px] h-[7vh] my-[2em] mx-[2vw] rounded-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
-          />
+
+          {image && (
+            <div
+              className="w-[200px] h-[7vh] my-[2em] mx-[2vw] rounded-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          )}
         </React.Fragment>
       )),
-    [text, image]
+    [hoverText, image]
   );
- 
+
   return (
     <div
       ref={itemRef}
-      className="relative flex-1 overflow-hidden text-center"
+      className={`relative flex-1 overflow-hidden text-center
+        ${!isLast ? "border-b border-white/15" : ""}
+        ${isLive ? "cursor-pointer" : "cursor-not-allowed opacity-60"}
+      `}
     >
-      {/* STATIC TEXT (DEFAULT VIEW) */}
+      {/* STATIC TEXT */}
       <a
-  ref={linkRef}
-  href="javascript:void(0)"
-  role="button"
-  tabIndex={0}
-  onClick={(e) => e.preventDefault()}
-  onMouseEnter={onEnter}
-  onMouseLeave={onLeave}
-  className="relative z-10 flex h-full items-center justify-center uppercase font-semibold text-white text-[4vh] transition-opacity select-none"
->
-
+        ref={linkRef}
+        href="#"
+        onClick={(e) => e.preventDefault()}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        className="relative z-10 flex h-full items-center justify-center uppercase
+          font-semibold text-white text-[4vh] select-none font-bricolage"
+      >
         {text}
       </a>
- 
+
       {/* HOVER MARQUEE */}
-      <div
-        ref={marqueeRef}
-        className="pointer-events-none absolute inset-0 bg-white translate-y-[101%] opacity-0"
-      >
+      {isLive && (
         <div
-          ref={marqueeInnerRef}
-          className="flex w-[200%] h-full items-center opacity-0"
+          ref={marqueeRef}
+          className="pointer-events-none absolute inset-0 bg-white translate-y-[101%] opacity-0"
         >
-          {marqueeContent}
+          <div
+            ref={marqueeInnerRef}
+            className="flex w-[200%] h-full items-center opacity-0"
+          >
+            {marqueeContent}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
- 
+
 export default FlowingMenu;

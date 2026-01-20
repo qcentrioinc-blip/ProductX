@@ -51,26 +51,10 @@ const AIFooter = () => {
 
             {/* ========== MAIN SECTION ========== */}
             <div className="relative w-full pt-10 pb-16 px-4 sm:px-8 lg:px-16 z-10">
-                <div className="grid xl:grid-cols-2 gap-12">
+                <div className="grid xl:grid-cols-[1fr_2fr] gap-12">
                     {/* LEFT SECTION */}
-                    <div className="space-y-8">
-                        <h3 className="text-[28px] sm:text-[44px] lg:text-[50px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                            Get Azure optimization tips  and savings updates monthly.
-                        </h3>
-
-                        <div className="max-w-md w-full space-y-4">
-                            <input
-                                type="email"
-                                placeholder="Enter your mail"
-                                className="w-full px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
-                            />
-                            <button className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-lg font-bold uppercase hover:bg-zinc-900 transition-all">
-                                SUBMIT <ArrowUpRight className="w-5 h-5" />
-                            </button>
-                        </div>
-
-                        {/* Links */}
-                        <div className="pt-10 flex flex-wrap gap-16">
+                    {/* Links */}
+                        <div className="flex flex-wrap gap-16">
                             <div className="space-y-4">
                                 <h4 className="text-xl font-bold text-white">Products</h4>
                                 <ul className="space-y-2 text-[#F5F5F5]">
@@ -91,15 +75,35 @@ const AIFooter = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    
                     {/* RIGHT SIDE AI IMAGE */}
-                    <div className="hidden xl:block relative">
+                    <div className="xl:pl-36 space-y-6">
+                        <h3 className="text-[28px] sm:text-[44px] lg:text-[44px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+                            Get Azure optimization tips  and savings updates monthly.
+                        </h3>
+
+                        <div className="max-w-md w-full flex items-center gap-4">
+  <input
+    type="email"
+    placeholder="Enter your mail"
+    className="flex-1 px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
+  />
+
+  <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap">
+    SUBMIT <ArrowUpRight className="w-5 h-5" />
+  </button>
+</div>
+
+
+                        
+                    </div>
+                    {/* <div className="hidden xl:block relative">
                         <img
                             src="/AIOptimization/AIGirl.png"
                             alt="AI interface"
                             className="absolute right-[-70px] bottom-[-65px] w-[600px] object-contain pointer-events-none"
                         />
-                    </div>
+                    </div> */}
 
                     
                 </div>

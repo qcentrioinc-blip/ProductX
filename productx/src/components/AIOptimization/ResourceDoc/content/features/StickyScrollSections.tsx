@@ -10,15 +10,15 @@ const sections = [
 
 // --- Image URLs for each feature ---
 const featureImages = [
-  "/AI/Careers/img10.png",
-  "/AI/Careers/img7.png",
-  "/AI/Careers/img4.png",
-  "/AI/Careers/img6.png",
-  "/AI/Careers/img10.png",
-  "/AI/Careers/img7.png",
-  "/AI/Careers/img4.png",
-  "/AI/Careers/img6.png",
-  "/AI/Careers/img10.png",
+  "/AI/Careers/Feature1.jpg",
+  "/AI/Careers/Feature2.png",
+  "/AI/Careers/Feature3.png",
+  "/AI/Careers/Feature4.png",
+  "/AI/Careers/Feature5.png",
+  "/AI/Careers/Feature6.png",
+  "/AI/Careers/Feature7.png",
+  "/AI/Careers/Feature8.png",
+  "/AI/Careers/Feature9.png",
 ]
 
 // --- Configuration Data & Mockups ---
@@ -123,7 +123,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   return (
     <div className="w-full">
       {/* Image Container */}
-      <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white">
+      <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[400px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white">
         {animate ? (
           // Desktop animation - SMOOTHED SLIDE UP
           <AnimatePresence mode="wait">
@@ -146,23 +146,23 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
                   ease: "easeIn"
                 }
               }}
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 w-full h-auto"
             >
               <img
                 src={featureImages[activeFeature]}
                 alt={`Feature ${activeFeature + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
 
               {/* Feature Indicator */}
-              <div className="absolute top-4 left-4">
+              {/* <div className="absolute top-4 left-4">
                 <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                   <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
                   <span className="text-sm font-medium text-gray-900">
                     Feature {features[activeFeature].id}
                   </span>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </AnimatePresence>
         ) : (
@@ -188,7 +188,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
       {/* Pagination Controls - Desktop Only */}
       <div className="mt-6 hidden xl:flex justify-center items-center gap-4">
         {/* Start Button */}
-        <button
+        {/* <button
           onClick={() => onNavigate('start')}
           disabled={activeFeature === 0}
           className={`
@@ -197,7 +197,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
           `}
         >
           Start
-        </button>
+        </button> */}
 
         {/* Prev Button (<) */}
         <button
@@ -243,7 +243,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
         </button>
 
         {/* End Button */}
-        <button
+        {/* <button
           onClick={() => onNavigate('end')}
           disabled={activeFeature === features.length - 1}
           className={`
@@ -252,7 +252,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
           `}
         >
           End
-        </button>
+        </button> */}
       </div>
     </div>
   );
@@ -283,17 +283,17 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     <div
       ref={ref}
       className={`
-        min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] flex flex-col justify-center px-6 sm:px-8 py-12 sm:py-16 transition-all duration-500
+        min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] flex flex-col justify-center px-2 sm:px-8 py-12 sm:py-16 transition-all duration-500
         ${isInView ? "opacity-100 scale-100" : "opacity-30 scale-95"}
       `}
     >
       <div className="flex items-center gap-4 mb-6">
         <span className={`text-5xl sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
-        <div className={`p-3 rounded-xl shadow-lg ${feature.color}`}>
+        {/* <div className={`p-3 rounded-xl shadow-lg ${feature.color}`}>
           <div className="w-6 h-6"></div>
-        </div>
+        </div> */}
       </div>
-      <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
         {feature.title}
       </h3>
       <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
@@ -737,27 +737,7 @@ export default function StickyPremiumSections() {
             id="optimizations"
             className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
           >
-            <H2 className="text-indigo-900">
-              Lorem ipsum dolor
-              <br className="hidden lg:block" />
-              <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
-              sit amet Lorem
-            </H2>
-
-            <P className="mt-6 md:mt-8 xl:mt-10 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
-              Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus. Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.
-            </P>
-            <P className="mt-4 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
-              Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus. Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.
-            </P>
-
-            <div className="mt-10 md:mt-10 xl:mt-12 w-full lg:w-[750px] xl:w-[1000px] h-[300px] sm:h-[400px] lg:h-[450px] xl:h-[550px] rounded-xl lg:rounded-2xl overflow-hidden bg-white">
-              <img
-                src="/AI/Careers/img10.png"
-                className="w-full h-full object-cover"
-                alt=""
-              />
-            </div>
+            
 
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
               <H2 className="text-indigo-900">
@@ -780,8 +760,8 @@ export default function StickyPremiumSections() {
 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
                     <img
-                      src="/AI/Careers/img10.png"
-                      className="w-full h-full object-cover"
+                      src="/AI/Careers/optimization1.png"
+                      className="w-full h-full object-contain"
                       alt=""
                     />
                   </div>
@@ -798,8 +778,8 @@ export default function StickyPremiumSections() {
 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
                     <img
-                      src="/AI/Careers/img10.png"
-                      className="w-full h-full object-cover"
+                      src="/AI/Careers/optimization2.png"
+                      className="w-full h-full object-contain"
                       alt=""
                     />
                   </div>
@@ -834,8 +814,8 @@ export default function StickyPremiumSections() {
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
                   <img
-                    src="/AI/Careers/img10.png"
-                    className="w-full h-full object-cover"
+                    src="/AI/Careers/usability1.png"
+                    className="w-full h-full object-contain"
                     alt=""
                   />
                 </div>
@@ -852,8 +832,8 @@ export default function StickyPremiumSections() {
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
                   <img
-                    src="/AI/Careers/img10.png"
-                    className="w-full h-full object-cover"
+                    src="/AI/Careers/usability2.png"
+                    className="w-full h-full object-contain"
                     alt=""
                   />
                 </div>
@@ -867,10 +847,31 @@ export default function StickyPremiumSections() {
             id="security"
             className="relative w-full bg-white font-bricolage"
           >
-            {/* Desktop Layout (xl screens and above - 1280px+) */}
+            <H2 className="text-indigo-900">
+              Lorem ipsum dolor
+              <br className="hidden lg:block" />
+              <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
+              sit amet Lorem
+            </H2>
+
+            <P className="mt-6 md:mt-8 xl:mt-10 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
+              Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus. Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.
+            </P>
+            
+
+            <div className="mt-10 md:mt-10 xl:mt-12 w-full lg:w-[750px] xl:w-[1000px] h-[300px] sm:h-[400px] lg:h-[450px] xl:h-[550px] rounded-xl lg:rounded-2xl overflow-hidden bg-white">
+              <img
+                src="/AI/Careers/outbound1.png"
+                className="w-full h-full object-contain"
+                alt=""
+              />
+            </div>
+                       {/* Desktop Layout (xl screens and above - 1280px+) */}
             <div className="hidden xl:flex relative w-full max-w-[1400px] mx-auto flex-row">
-              <div className="flex-1 h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 lg:p-8 xl:p-10">
-                <div className="w-full max-w-[600px]">
+              
+              {/* LEFT COLUMN: Sticky Image Display (Increased Width - 2/3rds) */}
+              <div className="w-2/3 h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 bg-transparent">
+                <div className="w-full h-full flex items-center justify-center">
                   <FeatureVisualization
                     activeFeature={activeFeature}
                     onDotClick={handleDotClick}
@@ -880,7 +881,8 @@ export default function StickyPremiumSections() {
                 </div>
               </div>
 
-              <div className="flex-1 relative z-10">
+              {/* RIGHT COLUMN: Scrollable Feature List (Decreased Width - 1/3rd) */}
+              <div className="w-1/3 relative z-10">
                 <div className="h-[15vh]" />
 
                 <div className="flex flex-col pb-20">
