@@ -102,8 +102,8 @@ const HighTechNavbar = () => {
     
 
     {
-      name: "AI Automation",
-      path: "/industries/ai-optimization",
+      name: "Cloud FinOps AI",
+      path: "/industries/cloud-finops-ai",
       img: "/BNFHOME/P1.png",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },

@@ -26,7 +26,7 @@ const MarketPage = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRNavbar />;
     if (pathname.startsWith("/industries/high-tech")) return <HighTechNavbar />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AINavbar />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AINavbar />;
     return <Navbar />;
   };
 
@@ -37,7 +37,7 @@ const MarketPage = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
     if (pathname.startsWith("/industries/high-tech")) return <FooterHT />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AIFooter />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIFooter />;
     return <Footer />;
   }
   return (

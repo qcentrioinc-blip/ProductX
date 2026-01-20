@@ -34,8 +34,8 @@ const AINavbar = () => {
 
   // ---------- AI-SPECIFIC DATA ----------
 
-  const industry = "ai-optimization";
-  const currentIndustry = "AI Optimization";
+  const industry = "cloud-finops-ai";
+  const currentIndustry = "Cloud FinOps AI";
   const base = `/industries/${industry}`;
 
   const navItems = [
@@ -183,7 +183,7 @@ const AINavbar = () => {
       <nav onMouseLeave={closeAllMenus} className={`hidden lg:flex fixed left-1/2 -translate-x-1/2 w-[90%] max-w-8xl z-[9999] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-5" : "top-15"}`}>
         <div className="flex items-center gap-10">
           <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setLogoDropdownOpen(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
-            <Link to="/industries/ai-optimization"><div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div></Link>
+            <Link to="/industries/cloud-finops-ai"><div className="w-10 h-10 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">LOGO</div></Link>
             <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
               <img src="/down.png" className="w-4 h-4" />
             </div>
@@ -220,7 +220,7 @@ const AINavbar = () => {
 
                {item.name === "Resources" && (
   <Link
-    to="/industries/ai-optimization/resources/whyclouddiet/clouddiet"
+    to="/industries/cloud-finops-ai/resources/whyclouddiet/clouddiet"
     className="text-gray-800 text-[18px]"
     onClick={closeAllMenus}
   >

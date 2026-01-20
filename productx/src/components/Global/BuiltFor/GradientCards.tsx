@@ -51,7 +51,7 @@ const themes: Record<string, Theme> = {
     cardGradient: "linear-gradient(135deg, #FFFFFF, #FFFFFF)",
     circleColor: "#D9D9D9",
   },
-  "/industries/ai-optimization/built-for": {
+  "/industries/cloud-finops-ai/built-for": {
     sectionBg: "#FFFFFF",
     headingColor: "#020059",
     paraColor: "#141414",
@@ -63,7 +63,7 @@ const themes: Record<string, Theme> = {
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, SectionContent>> = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       intro: {
         title: "Real Scenarios",

@@ -29,7 +29,7 @@ const HeroSection = () => {
       contactAction: "route",
       contactRoute: "/industries/high-tech/contactform",
     },
-    "/industries/ai-optimization/platform": {
+    "/industries/cloud-finops-ai/platform": {
       contactAction: "modal",
     },
   };

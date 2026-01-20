@@ -8,7 +8,7 @@ import TitleSecAI from "./TitleSecAI";
 export default function TitleSectionSwitcher() {
   const { industry } = useParams<{ industry: string }>();
 
-  if (industry === "ai-optimization") return <TitleSecAI />;
+  if (industry === "cloud-finops-ai") return <TitleSecAI />;
   if (industry === "banking-and-finance") return <TitleSecBnF />;
   if (industry === "ehr-and-pms") return <TitleSecEHR />;
   if (industry === "high-tech") return <TitleSecHT />;
