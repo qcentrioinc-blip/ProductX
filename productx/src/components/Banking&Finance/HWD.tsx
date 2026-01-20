@@ -50,6 +50,7 @@ const HWD = () => {
     ai: [
       {
         title: "Major Azure Cost Reduction",
+        image:"/UseCase1.png",
         description:
           "A mature cloud team saved millions annually through advanced optimization and reserved instance strategies.",
         points: [
@@ -63,6 +64,7 @@ const HWD = () => {
      
       {
         title: " Retain Savings Long-Term",
+        image:"/UseCase2.png",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -76,6 +78,7 @@ const HWD = () => {
       },
        {
         title: "Multi-Cloud Waste Elimination",
+          image:"/UseCase3.png",
         description:
           "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
         points: [
@@ -91,6 +94,7 @@ const HWD = () => {
     banking: [
       {
         title: "Fraud Detection Modernization",
+        image: "/UseCase1.png",
         description:
           "Advanced analytics reduced fraud losses while improving customer trust.",
         points: [
@@ -102,6 +106,7 @@ const HWD = () => {
       },
       {
         title: "Cost-Efficient Core Banking",
+        image: "/UseCase2.png",
         description:
           "Legacy systems optimized for modern banking workloads.",
         points: [
@@ -113,6 +118,7 @@ const HWD = () => {
       },
       {
         title: "Compliance Automation",
+        image: "/UseCase3.png",
         description:
           "Automated compliance reduced risk and operational overhead.",
         points: [
@@ -168,12 +174,20 @@ const HWD = () => {
   //   visible: { opacity: 1, y: 0 },
   // };
 
-  const CardContent = ({ title, description, points }: { title: string; description: string; points: string[] }) => (
+  const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
       <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
-        <div className="w-15 h-15 bg-gray-300 rounded-full mb-4" />
+     <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
+  <img
+    src={image}
+    alt={title}
+    className="w-full h-full object-contain p-2"
+  />
+</div>
 
+
+        
         <h4
           className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold"
           style={{ color: headingColor }}
@@ -181,7 +195,7 @@ const HWD = () => {
           {title}
         </h4>
 
-        <p style={{ color: textcolor }}>{description}</p>
+        <p style={{ color: textcolor }} >{description}</p>
       </div>
 
       {/* Bottom Section */}

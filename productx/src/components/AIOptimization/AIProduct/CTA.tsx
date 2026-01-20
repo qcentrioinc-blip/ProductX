@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { H3 } from "../../../styles/Typography"
-
+ 
 const TextSec = () => {
   return (
     <section className="w-full overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ const TextSec = () => {
               of their Azure spend
             </H3>
           </motion.div>
-
+ 
           {/* Line 2 */}
           <motion.div
             className="mt-4"
@@ -84,5 +84,5 @@ const TextSec = () => {
     </section>
   )
 }
-
+ 
 export default TextSec
