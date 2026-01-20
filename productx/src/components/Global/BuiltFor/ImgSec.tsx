@@ -64,7 +64,7 @@ const THEMES: Record<string, Theme> = {
     contactRoute: "/industries/high-tech/contactform",
   },
 
-  "ai-optimization": {
+  "cloud-finops-ai": {
     bgImage: "/BuiltFor/img3.jpg",
     cardBg: "bg-[#5551FF]",
     cardText: "text-white",
@@ -79,7 +79,7 @@ const THEMES: Record<string, Theme> = {
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, Content>> = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       heroHeading:
         "We cut Azure waste for enterprise IT teams across subscriptions.",

@@ -69,7 +69,7 @@ const AIBlogs = () => {
               </h2>
 
               {/* View All Button */}
-              <a href="/industries/ai-optimization/resources">
+              <a href="/industries/cloud-finops-ai/resources">
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 bg-white text-[#2A2A2A] rounded-lg hover:bg-gray-100 transition-colors uppercase cursor-pointer"
@@ -172,7 +172,7 @@ const AIBlogs = () => {
                         {blog.title}
                       </h3>
 
-                      <a href="/industries/ai-optimization/resources">
+                      <a href="/industries/cloud-finops-ai/resources">
                         <button
                           type="button"
                           className="inline-flex items-center gap-2 self-start mt-3 cursor-pointer"

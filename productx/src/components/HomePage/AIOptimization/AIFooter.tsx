@@ -8,7 +8,7 @@ const LINE_COUNT = [10, 15, 20];
 const LINE_DISTANCE = [8, 6, 4];
 
 const AIFooter = () => {
-    const base = "/industries/ai-optimization";
+    const base = "/industries/cloud-finops-ai";
     const footerRef = useRef(null);
     // Trigger when footer is within 400px of the viewport
     const isInView = useInView(footerRef, { margin: "400px 0px 0px 0px" });

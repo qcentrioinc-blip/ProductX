@@ -24,7 +24,7 @@ const FirstPageResource = () => {
       title: 'We are Available on the Google Cloud Marketplace',
       tags: ['FOR BUSINESS', 'CLOUD'],
       category: ['Business', 'Cloud', 'Events'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const FirstPageResource = () => {
       title: 'AI in Finance: A Comprehensive Guide',
       tags: ['WHITE PAPERS', 'FINANCE'],
       category: ['White Papers', 'Finance'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const FirstPageResource = () => {
       title: 'Customer Success Story: Retail Giant',
       tags: ['CASE STUDIES', 'RETAIL'],
       category: ['Case Studies', 'Business'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ const FirstPageResource = () => {
       title: 'Product Update: version 2.0 release',
       tags: ['NEWSLETTER', 'PRODUCT'],
       category: ['Newsletter', 'Product'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 5,
@@ -64,7 +64,7 @@ const FirstPageResource = () => {
       title: 'The Rise of Generative AI',
       tags: ['BLOGS', 'AI'],
       category: ['Blogs', 'Research'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 6,
@@ -74,7 +74,7 @@ const FirstPageResource = () => {
       title: 'Cloud Security Best Practices',
       tags: ['WHITE PAPERS', 'CLOUD'],
       category: ['White Papers', 'Cloud'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 8,
@@ -84,7 +84,7 @@ const FirstPageResource = () => {
       title: 'Top AI Trends to Watch in 2026',
       tags: ['BLOGS', 'AI'],
       category: ['Blogs', 'Research'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 9,
@@ -94,7 +94,7 @@ const FirstPageResource = () => {
       title: 'Case Study: Optimizing Cloud Costs by 30%',
       tags: ['CASE STUDIES', 'CLOUD'],
       category: ['Case Studies', 'Cloud'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 10,
@@ -104,7 +104,7 @@ const FirstPageResource = () => {
       title: 'Monthly Newsletter: November Issue',
       tags: ['NEWSLETTER', 'UPDATE'],
       category: ['Newsletter', 'Company'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 11,
@@ -114,7 +114,7 @@ const FirstPageResource = () => {
       title: 'White Paper: The Future of Quantum Computing',
       tags: ['WHITE PAPERS', 'RESEARCH'],
       category: ['White Papers', 'Research'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 12,
@@ -124,7 +124,7 @@ const FirstPageResource = () => {
       title: 'Global Tech Summit 2025 Highlights',
       tags: ['EVENTS', 'TECH'],
       category: ['Events', 'Company'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 13,
@@ -134,7 +134,7 @@ const FirstPageResource = () => {
       title: 'AI in Healthcare: A New Era',
       tags: ['BLOGS', 'BUSINESS'],
       category: ['Blogs', 'Business'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 14,
@@ -144,7 +144,7 @@ const FirstPageResource = () => {
       title: 'Scaling Cloud Infrastructure for 2026',
       tags: ['WHITE PAPERS', 'CLOUD'],
       category: ['White Papers', 'Cloud'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     },
     {
       id: 15,
@@ -154,7 +154,7 @@ const FirstPageResource = () => {
       title: 'The Business Value of AI',
       tags: ['CASE STUDIES', 'BUSINESS'],
       category: ['Case Studies', 'Business'],
-      link: '/industries/ai-optimization/resource-detail',
+      link: '/industries/cloud-finops-ai/resource-detail',
     }
   ];
 

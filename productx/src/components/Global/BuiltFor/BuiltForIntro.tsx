@@ -52,7 +52,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
     contactRoute: "/industries/high-tech/contactform",
   },
 
-  "ai-optimization": {
+  "cloud-finops-ai": {
     sectionBg: "bg-white",
     headingColor: "text-[#020059]",
     paraColor: "text-[#141414]",
@@ -63,7 +63,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
 };
 
 const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       heading: "Why Traditional Solutions Fall Short",
       para1:
