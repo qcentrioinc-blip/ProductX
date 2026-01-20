@@ -1,132 +1,104 @@
-import { useEffect, useRef } from "react";
-import { H2,   H4, P  } from "../../../styles/Typography";
- 
-const logos = [
-  "/CompanyLogo/Dell.png",
-    "/CompanyLogo/GoogleCloud.png",
-    "/CompanyLogo/Infosys.png",
-    "/CompanyLogo/Oracle.png",
-   "/CompanyLogo/AWS.png",
-    "/CompanyLogo/Deloitte.png",
-];
- 
+import {  useMotionValue, useAnimationFrame, useInView } from "framer-motion";
+import { useRef } from "react";
+import { H4, P } from "../../../styles/Typography";
+
+// const logos = [
+//   "/CompanyLogo/Dell.png",
+//   "/CompanyLogo/GoogleCloud.png",
+//   "/CompanyLogo/Infosys.png",
+//   "/CompanyLogo/Oracle.png",
+//   "/CompanyLogo/AWS.png",
+//   "/CompanyLogo/Deloitte.png",
+// ];
+
 export default function Partners() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const lastScrollY = useRef(0);
-  const translateX = useRef(0);
- 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const direction = currentScrollY > lastScrollY.current ? -1 : 1;
- 
-      translateX.current += direction * 1.5;
- 
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${translateX.current}px)`;
-      }
- 
-      lastScrollY.current = currentScrollY;
-    };
- 
-    const onScroll = () => {
-      requestAnimationFrame(handleScroll);
-    };
- 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
- 
+  // const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const x = useMotionValue(0);
+  const isInView = useInView(sectionRef, { amount: 0.2 });
+
+  const SPEED = 0.6;          // px per frame
+  const RESET_AT = -1400;     // adjust based on logo width
+
+  useAnimationFrame(() => {
+    if (!isInView) return;
+
+    const current = x.get();
+    const next = current - SPEED;
+
+    x.set(next <= RESET_AT ? 0 : next);
+  });
+
   return (
-    <section className="w-full  overflow-hidden pb-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-8xl mx-auto xl:px-10   flex flex-col text-center">
-         
-<div className="relative mb-20 ">
-  <div
-    className="
-      mx-auto
-      max-w-7xl
-      rounded-3xl
-      bg-transparent
-      backdrop-blur-xs    border border-gray-100
-      shadow-xl
-      px-6 py-8
-    "
-  >
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white">
-      {/* Card 1 */}
-      <div className="text-center">
-        <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white  text-sm font-semibold text-black">
-          AI-Powered Profiling
-        </H4>
-        <P className="text-white     mx-auto font-medium">
-         Analyzes resource configuration,<br/> usage, and costs. 
-         
-        </P>
-      </div>
- 
-      {/* Card 2 */}
-      <div className="text-center">
-       <H4 className="inline-block  px-5 py-3 mb-3 rounded-full bg-white  text-sm font-semibold text-black">
-         Expert Recommendations
-        </H4>
-        <P className="text-white  mx-auto  font-medium">
-        Actionable insights from   <br />cloud engineering veterans.
-          <span className="font-semibold"></span>
-        </P>
-      </div>
- 
-      {/* Card 3 */}
-      <div className="text-center">
-        <H4 className="inline-block mb-3 rounded-full bg-white  px-5 py-3 text-sm font-semibold text-black">
-         Guaranteed Savings
-        </H4>
-        <P className="text-white mx-auto   font-medium">
-          Pay only a share<br /> of realized savings.
-          
-        </P>
-      </div>
-    </div>
-  </div>
-</div>
- 
-      <H2 className="  font-semibold text-[#F5F5F5]">
-          {/* text-[#020059] */}
+    <section
+      ref={sectionRef}
+      className="w-full overflow-hidden pb-20 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-8xl mx-auto xl:px-10 flex flex-col text-center">
+
+        {/* INFO CARDS (UNCHANGED) */}
+        <div className="relative mb-20">
+          <div className="mx-auto max-w-7xl rounded-3xl bg-transparent backdrop-blur-xs border border-gray-100 shadow-xl px-6 py-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white">
+              <div className="text-center">
+                <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+                  AI-Powered Profiling
+                </H4>
+                <P className="font-medium text-white">
+                  Analyzes resource configuration,<br />usage, and costs.
+                </P>
+              </div>
+
+              <div className="text-center">
+                <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+                  Expert Recommendations
+                </H4>
+                <P className="font-medium text-white">
+                  Actionable insights from<br />cloud engineering veterans.
+                </P>
+              </div>
+
+              <div className="text-center">
+                <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+                  Guaranteed Savings
+                </H4>
+                <P className="font-medium text-white">
+                  Pay only a share<br />of realized savings.
+                </P>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <H2 className="font-semibold text-[#F5F5F5]">
           We partnered with
-        </H2>
- 
-        <div className="relative mt-10 overflow-hidden">
-          <div
+        </H2> */}
+
+        {/* AUTO SLIDER (SAME UI) */}
+        {/* <div className="relative mt-10 overflow-hidden">
+          <motion.div
             ref={trackRef}
-            className="flex gap-6 sm:gap-8 transition-transform duration-300 ease-out"
+            style={{ x }}
+            className="flex gap-8 will-change-transform"
           >
-            {logos.concat(logos).map((logo, index) => (
+            {logos.concat(logos, logos).map((logo, index) => (
               <div
                 key={index}
-                className="
-                  flex items-center justify-center
-                  min-w-[200px] h-[80px]
-                  sm:min-w-[160px] sm:h-[90px]
-                  md:min-w-[180px] md:h-[100px]
-                  lg:min-w-[200px] lg:h-[110px]
-                  xl:min-w-[250px] xl:h-[100px]
-                  bg-gray-200 rounded-md
-                "
+                className="flex items-center justify-center min-w-[220px] h-[100px] bg-gray-200 rounded-md"
               >
                 <img
                   src={logo}
                   alt="Partner logo"
                   className="h-full w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
-          </div>
-        </div>
- 
-     
+          </motion.div>
+        </div> */}
+
       </div>
     </section>
   );
 }
- 
- 

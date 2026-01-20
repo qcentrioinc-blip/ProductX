@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ContactUs } from "../../../styles/Button";
+// import { ContactUs, ContactUsAI } from "../../../styles/Button";
 import { H2, H3, P } from "../../../styles/Typography";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
@@ -65,7 +65,7 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    bgImage: "/BuiltFor/img3.jpg",
+    bgImage: "/BuiltFor/ImageBg.png",
     cardBg: "bg-[#5551FF]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
@@ -140,7 +140,7 @@ export default function ImgSec() {
     builtForType: string;
   }>();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -153,17 +153,17 @@ export default function ImgSec() {
 
   if (!content) return null;
 
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  // const handleContactClick = (e: React.MouseEvent) => {
+  //   e.preventDefault();
 
-    if (theme.contactAction === "route" && theme.contactRoute) {
-      navigate(theme.contactRoute);
-    } else if (theme.contactAction === "drawer") {
-      setDrawerOpen(true);
-    } else if (theme.contactAction === "modal") {
-      setModalOpen(true);
-    }
-  };
+  //   if (theme.contactAction === "route" && theme.contactRoute) {
+  //     navigate(theme.contactRoute);
+  //   } else if (theme.contactAction === "drawer") {
+  //     setDrawerOpen(true);
+  //   } else if (theme.contactAction === "modal") {
+  //     setModalOpen(true);
+  //   }
+  // };
 
   return (
     <>
@@ -178,7 +178,7 @@ export default function ImgSec() {
           {/* LEFT TEXT */}
           <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
             <div className="w-full lg:w-2/3">
-              <H2 className="leading-tight text-[#FAFAFA] max-w-4xl">
+              <H2 className="leading-tight text-[#020059] max-w-4xl">
                 {content.heroHeading}
               </H2>
             </div>
@@ -205,13 +205,29 @@ export default function ImgSec() {
               <P className={`mb-6 ${theme.paraColor}`}>
                 {content.cardPara}
               </P>
+             
 
-              <ContactUs
-                className={`inline-flex items-center gap-2 ${theme.buttonBg} ${theme.buttonText} cursor-pointer`}
-                onClick={handleContactClick}
+                <a href="/comingsoon">
+              <button
+                className={` gap-2 group
+            flex items-center justify-center
+            w-auto h-[44px] sm:h-[48px]
+            px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
+            rounded-[8px]
+            font-quicksand font-bold text-[14px] sm:text-[16px]
+            bg-[#141414] text-white
+            transition-all duration-300 ease-in-out
+            border border-transparent
+            hover:bg-white hover:text-[#141414]
+            hover:border-[#010101]
+            hover:border-b-[4px]
+            hover:-translate-y-[2px]
+            shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] ${theme.buttonBg} ${theme.buttonText} cursor-pointer`}
+               
               >
                 {content.buttonLabel}
-              </ContactUs>
+              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -14,23 +14,23 @@ const items: Item[] = [
     title: " Secure Access",
     description:
       " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
-    cta: "Get Started",
-    image: "/ImageAI.png",
+      cta:"Get Started",
+    image: "/AIProduct/SecureAccess.png",
   },
   {
     title: "AI Analysis",
     description:
       " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
-    image: "/ImageAI.png",
-    cta: "Learn More",
+    image: "/AIProduct/Analysis.png",
+    cta:"Learn More",
     reverse: true,
   },
   {
     title: "Realize Savings",
     description:
       "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
-    cta: "See Results",
-    image: "/ImageAI.png",
+      cta:"See Results",
+    image: "/AIProduct/AISaving.png",
   },
 ];
 

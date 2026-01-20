@@ -2,9 +2,9 @@
 import FeatureCards from "../HomePageAI/Features"
 // import HeroSection from "./HeroSection"
  
-import Testimonial from "./Testimonial"
+// import Testimonial from "./Testimonial"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
-import AIFooter from "../../HomePage/AIOptimization/AIFooter"
+// import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
 import HWD from "../../Banking&Finance/HWD"
 import Onboarding from "./Onboarding"
@@ -30,38 +30,24 @@ const AIProduct = () => {
           backgroundImage: "url(/AIProduct/AiHome.png)",
          
         }}>
-    <FinalHero/>
-      {/* <HeroSection /> */} 
-      {/* <HeroBottomNavbar /> */}
-      
-     
+    <FinalHero/>  
         <ImageContainer />
-    
       </section>
      <CTA/>
        
       <section
-       
-        className="relative     bg-no-repeat bg-cover z-10"
+       className="relative     bg-no-repeat bg-cover z-10"
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
       >
         <Onboarding />
          <Firm/>
-       {/* <section id="process" className="relative -mt-40 z-30">
-  <AutoDataChange />
- 
-</section> */}
-
-     
-
-
-      {/* <Partner /> */}
+     {/* <Partner /> */}
       <ImageGrid/>
        </section>
       <FeatureCards />
       <CostOptimization/>
       <Timeline/>
-      <Testimonial />
+      {/* <Testimonial /> */}
       <div id="usecases">
       <HWD />
       </div>
@@ -71,7 +57,7 @@ const AIProduct = () => {
       <div id="blogs">
       <AIBlogs />
       </div> 
-      <AIFooter />
+      {/* <AIFooter /> */}
     </div>
   );
 };

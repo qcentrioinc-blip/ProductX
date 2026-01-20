@@ -101,13 +101,13 @@ const AIFooter = () => {
                         <img
                             src="/AIOptimization/AIGirl.png"
                             alt="AI interface"
-                            className="absolute right-[-70px] bottom-[-65px] w-[600px] object-contain pointer-events-none"
+                            className="absolute -right-18 -bottom-20 w-[600px] object-contain pointer-events-none"
                         />
                     </div> */}
 
-                    
+
                 </div>
-                
+
             </div>
         </footer>
     );

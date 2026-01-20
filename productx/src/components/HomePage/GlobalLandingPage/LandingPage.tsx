@@ -123,7 +123,9 @@ export default function InteractiveHeroSection() {
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
       { threshold: 0.3 }
     );
-    heroRef.current && observer.observe(heroRef.current);
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 
@@ -163,7 +165,7 @@ export default function InteractiveHeroSection() {
 
               <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
                 {[
-                  { label: '30% + ROI', sub: 'AI-Driven Outcomes' },
+                  { label: '30% ', sub: 'AI-Driven Outcomes' },
                   { label: '24/7', sub: 'End-to-End Delivery' },
                   { label: '99.9%', sub: 'Secure, Scalable Cloud' }
                 ].map((stat, i) => (

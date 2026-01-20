@@ -10,8 +10,8 @@ export default function NewFooter() {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 space-x-16   pb-8">
           {/* Logo & Description */}
           <div className="max-w-sm space-y-8">
-            <div className="w-14 h-10 rounded-sm font-quickstand bg-gray-300 mb-6 flex  py-6 items-center justify-center text-black  text-sm">
-              < a href="/">LOGO</a>
+            <div className="w-36 h-12 rounded-sm font-quickstand bg-gray-300 mb-6 flex  p-2 items-center justify-center text-black  text-sm">
+              < a href="/"><img src="../logo.svg" alt="Logo" className="w-30 h-10"/></a>
             </div>
             <P className="  text-gray-300">
               We are more than a technology provider; we <br/> are your strategic partner in progress.
@@ -46,11 +46,12 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
             <ul className="space-y-3 text-gray-300 text-sm ">
-              <a href="/industries/high-tech" target="_blank" ><Li className="mb-3 hover:text-white hover:underline">High Tech</Li></a>
+               <a href="/industries/cloud-finops-ai" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">Cloud Finops AI</Li></a>
+              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
               
-              <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3 hover:text-white hover:underline">Banking and Finance</Li></a> 
-              <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3 hover:text-white hover:underline">EHR-PMS</Li></a> 
-              <a href="/industries/cloud-finops-ai" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">Cloud FinOps AI</Li></a>
+              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a> 
+              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">EHR-PMS</Li></a> 
+             
             </ul>
           </div>
 
@@ -58,10 +59,10 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Quick Links</H4>
             <ul className="space-y-3 text-gray-300 text-sm ">
-              <Li className="hover:text-white hover:underline cursor-default">Industries</Li>
-              <Li className="hover:text-white hover:underline cursor-default">Products</Li>
-              <Li className="hover:text-white hover:underline cursor-default">Resources</Li>
-              <Li className="hover:text-white hover:underline cursor-default">Company</Li>
+              <a href="/platform"><Li className="hover:text-white hover:underline mb-2 cursor-default">Platform</Li></a>
+              <a ><Li className="hover:text-white hover:underline cursor-default">Marketplce</Li></a>
+              {/* <Li className="hover:text-white hover:underline cursor-default">Resources</Li>
+              <Li className="hover:text-white hover:underline cursor-default">Company</Li> */}
             </ul>
           </div>
 
@@ -97,7 +98,7 @@ export default function NewFooter() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-start text-xs text-gray-300 gap-4   pt-6">
-          <P>2025 Abc Technologies. All rights reserved</P>
+          <P className="text-gray-300">2026 Qnest Global. All rights reserved</P>
 
           <div className="flex flex-none gap-4">
             <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Security Policy</span>

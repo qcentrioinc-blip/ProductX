@@ -17,13 +17,13 @@ const AddingService: React.FC = () => {
      <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Configuration Steps  </h2>
          <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li> Log in to CloudDIET, navigate to Settings, and then Credentials. </li>
-  <img src="/AIOptimization/Adding1.png" alt="" />
+  <img className="pl-16 " src="/AIOptimization/Adding1.png" alt="" />
 
   <li> Click the Add Credentials button and provide the Service Principal details from the previous CloudDIET Permissions step. The Service Principal will be validated automatically to ensure it can properly authenticate </li>
-  <img src="/AIOptimization/Adding2.png" alt="" />
+  <img className="pl-16 " src="/AIOptimization/Adding2.png" alt="" />
 
   <li>  Once added and validated, you will see the Service Principal(s) listed and the secret expiration date. You can now configure your Azure Subscriptions in CloudDIET. </li>
-  <img src="/AIOptimization/Adding3.png" alt="" />
+  <img className="pl-16 " src="/AIOptimization/Adding3.png" alt="" />
 
 </ol>
 

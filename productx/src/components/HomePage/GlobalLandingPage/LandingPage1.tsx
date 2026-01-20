@@ -185,7 +185,7 @@ export default function InteractiveHeroSection() {
   }, []);
 
   const industries = [
-    { title: 'Cloud Finops AI', image: '/LandingPageNew/AI.png', url: '/industries/ai-optimization', isReady: true },
+    { title: 'Cloud Finops AI', image: '/LandingPageNew/AI.png', url: '/industries/cloud-finops-ai', isReady: true },
     { title: 'Banking and Finance', image: '/LandingPageNew/BNFImage.jpg', url: '/industries/banking-and-finance', isReady: false },
     { title: 'EHR and PMS', image: '/LandingPageNew/EHRImage.png', url: '/industries/ehr-and-pms', isReady: false },
     { title: 'High Tech', image: '/LandingPageNew/HighTechImage.png', url: '/industries/high-tech', isReady: false }

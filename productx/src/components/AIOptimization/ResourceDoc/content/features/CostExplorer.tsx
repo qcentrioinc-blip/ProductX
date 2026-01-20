@@ -1,44 +1,40 @@
-import React from "react";
-import { H2 ,H1} from "../../../../../styles/Typography";
+  
 
 const CostExplorer: React.FC = () => {
+ 
+ 
   return (
-    <div>
-   <H1 className="text-[#5551FF]">Cost Explore</H1>
+    <div className="space-y-4">
+     <h1 className=" text-lg md:text-3xl lg:text-4xl my-4 font-bricolage ">
+       Cost Explorer
+        </h1>
+
       
-      <p>
-        Our AI solutions leverage cutting-edge technology to transform your 
-        business operations. We provide comprehensive artificial intelligence 
-        CostExplorers that help organizations automate processes, gain insights, 
-        and make data-driven decisions.
-      </p>
+ <p className="font-quicksand text-base text-gray-700 leading-relaxed">CloudDIET provides deeper cost insights than standard Azure billing. For instance, while Azure aggregates Log Analytics costs at the Workspace level, CloudDIET breaks them down by Table, identifying high-cost tables clearly.  </p>
 
-      <h2>Key Capabilities</h2>
-      <p>
-        We offer a wide range of AI capabilities including machine learning, 
-        natural language processing, computer vision, and predictive analytics.
-      </p>
+<h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
 
-      <ul>
-        <li>Machine Learning and Deep Learning</li>
-        <li>Natural Language Processing (NLP)</li>
-        <li>Computer Vision and Image Recognition</li>
-        <li>Predictive Analytics and Forecasting</li>
-      </ul>
+Search, Filter, and View Resource Cost Trends </h2>
 
-      <H2>Implementation Process</H2> 
-      <p>
-        Our implementation process is designed to minimize disruption while 
-        maximizing value. We work closely with your team to understand your 
-        specific needs and tailor our solutions accordingly.
-      </p>
+ <p className="font-quicksand text-base text-gray-700 leading-relaxed">Examine Azure resources and costs in detail. Filter, view, and analyze resources across your environment. Track daily, weekly, and monthly cost trends. Drill into specific resources for deeper insight.  </p>
 
-      <h2>Benefits</h2>
-      <p>
-        Organizations that implement our AI solutions typically see significant 
-        improvements in efficiency, accuracy, and decision-making capabilities.
-      </p>
-    </div>
+<img className="pl-16" src="/AIOptimization/CostExpo1.jpg" alt="Savings Plan Visualization"/>
+
+
+
+
+    <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> Cost Attribution </h2>
+ <p className="font-quicksand text-base text-gray-700 leading-relaxed">CloudDIET attributes costs at a finer level than Azure billing. Using Log Analytics as an example, costs are shown per Table rather than per Workspace. </p>
+<img className="pl-16" src="/AIOptimization/CostExpop2.jpg" alt="Savings Plan Visualization"/>
+ 
+
+    <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Metric Attribution </h2>
+ <p className="font-quicksand text-base text-gray-700 leading-relaxed">Along with detailed cost views, CloudDIET shows granular utilization metrics. For example, view logs ingested per Table and source resource in Log Analytics. Visualizations can be filtered and pivoted beyond Azure Monitor’s capabilities.  </p>
+<img className="pl-16" src="/AIOptimization/CostExpo3.jpg" alt="Savings Plan Visualization"/>
+
+<img className="pl-16" src="/AIOptimization/CostExpo4.jpg" alt="Savings Plan Visualization"/>
+
+ </div>
   );
 };
 

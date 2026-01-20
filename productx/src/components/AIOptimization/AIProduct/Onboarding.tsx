@@ -4,17 +4,17 @@ const cards = [
   {
     title: " Potential Savings",
     desc: "Description: Instantly view potential savings categorized by implementation effort, easy, medium, and hard. Target 60–70% savings within six weeks. ",
-    img: "/AIProduct/Onboard1.png",
+     video: "/Video/1.mp4",
   },
   {
     title: " Cost Transparency",
     desc: "Gain deeper cost insights than native tools. Break down spending by environment, division, service, and resource configuration.",
-    img: "/AIProduct/Onboard2.png",
+    video: "/Video/2.1.mp4",
   },
   {
     title: " Savings Plans",
     desc: " Make informed decisions with what-if analyses for Reserved Instances and Savings Plans. Optimize commitments for maximum long-term value.",
-    img: "/AIProduct/Onboard3.png",
+     video: "/Video/3.mp4",
   },
 ];
 
@@ -27,8 +27,8 @@ export default function Onboarding() {
       <div  id="benefits" className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
-        <H2 className=" mb-8 lg:mb-18  text-left xl:text-center font-semibold text-[#020059]">
-          Cloud Optimization Features That Deliver Results 
+        <H2 className=" mb-8 lg:mb-18  max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#020059]">
+          Cloud Optimization Features That  Deliver Results 
         </H2>
 
         {/* WHITE CONTAINER */}
@@ -42,7 +42,7 @@ export default function Onboarding() {
     xl:grid-cols-3
 
     md:flex md:gap-6 md:overflow-x-auto md:snap-x md:snap-mandatory
-    md:pb-6 md:-mx-6 md:px-6
+      md:-mx-6 md:px-6
     xl:overflow-visible xl:snap-none lg:px-0 lg:mx-0
   "
 >
@@ -61,21 +61,26 @@ export default function Onboarding() {
       " 
     >
       {/* Image */}
-      <div className=" lg:h-80 overflow-hidden">
-        <img
-          src={card.img}
-          alt={card.title}
-          className="
-            h-[300px] w-full p-6 lg:p-10 object-cover
-            sm:h-[320px] lg:h-[350px]
-            transition-transform duration-700 ease-out
-            group-hover:scale-110
-          "
-        />
+      <div className="  overflow-hidden">
+        <video
+  src={card.video}
+  className="
+       w-full  object-contain
+   
+    transition-transform duration-700 ease-out
+    group-hover:scale-110
+  "
+  autoPlay
+  
+  muted
+ 
+  preload="metadata"
+/>
+
       </div>
 
       {/* Content */}
-      <div className="relative p-6 lg:px-10 lg:py-8">
+      <div className="relative p-6 lg:px-10 ">
         <H4 className="mb-2 text-lg font-semibold text-slate-900">
           {card.title}
         </H4>
