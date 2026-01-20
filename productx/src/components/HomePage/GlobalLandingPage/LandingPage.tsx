@@ -123,7 +123,9 @@ export default function InteractiveHeroSection() {
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
       { threshold: 0.3 }
     );
-    heroRef.current && observer.observe(heroRef.current);
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 

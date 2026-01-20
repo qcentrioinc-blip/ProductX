@@ -82,11 +82,7 @@ const ResourceDoc: React.FC = () => {
     return currentItem ? React.lazy(currentItem.component) : null;
   }, [currentItem]);
  
- useEffect(() => {
-  if (ContentComponent) {
-    setStableComponent(ContentComponent);
-  }
-}, [ContentComponent]);
+
 
   useEffect(() => {
     if (ContentComponent) {
@@ -192,19 +188,9 @@ const ResourceDoc: React.FC = () => {
     };
   }, [slug]);
 
-  useEffect(() => {
-  if (!slug) return;
-
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant",
-  });
-}, [slug]);
 
  
-const [StableComponent, setStableComponent] =
-  useState<React.LazyExoticComponent<React.ComponentType<any>> | null>(null);
+
 
   
 useEffect(() => {
@@ -329,13 +315,14 @@ useEffect(() => {
         </div>
  
         {/* Content */}
-       <div ref={contentRef}>
-  {StableComponent && (
+      <div ref={contentRef} key={slug}>
+  {ContentComponent && (
     <Suspense fallback={null}>
-      <StableComponent />
+      <ContentComponent />
     </Suspense>
   )}
 </div>
+
 
  
  

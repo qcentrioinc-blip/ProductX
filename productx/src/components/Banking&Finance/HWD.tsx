@@ -60,20 +60,9 @@ const HWD = () => {
           "Implemented 3-year Synapse RIs, achieving an 81% blended discount on runtime costs. ",
         ],
       },
+     
       {
-        title: "Multi-Cloud Waste Elimination",
-        description:
-          "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
-        points: [
-          "Profiled hundreds of resource configurations across AWS, Azure, and Google Cloud. ",
-          "Identified and corrected over-provisioned App Services and misconfigured scale-out rules.",
-          "Optimized Cosmos DB from expensive multi-master to cost-effective read replicas. ",
-          "Recommended tier changes for Azure Files from Hot to Transaction Optimized. ",
-          "Provided ongoing AI-driven measures to retain 80-90% of savings long-term.",
-        ],
-      },
-      {
-        title: " Engineering-Led Savings Retention",
+        title: " Retain Savings Long-Term",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -83,6 +72,18 @@ const HWD = () => {
           "Leveraged AI to identify unused messaging buses and unlinked integration accounts. ",
           "Optimized licensing and commercial terms across IaaS and PaaS service deployments.",
           "Ensured full customer control and zero access to sensitive data or workloads. ",
+        ],
+      },
+       {
+        title: "Multi-Cloud Waste Elimination",
+        description:
+          "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
+        points: [
+          "Profiled hundreds of resource configurations across AWS, Azure, and Google Cloud. ",
+          "Identified and corrected over-provisioned App Services and misconfigured scale-out rules.",
+          "Optimized Cosmos DB from expensive multi-master to cost-effective read replicas. ",
+          "Recommended tier changes for Azure Files from Hot to Transaction Optimized. ",
+          "Provided ongoing AI-driven measures to retain 80-90% of savings long-term.",
         ],
       },
     ],
@@ -240,7 +241,7 @@ const HWD = () => {
                 {char}
               </motion.span>
             ))} */}
-            Real-World Customer<br className='xl:block hidden ' /> Success Stories
+            Real-World  Use Cases
           </motion.h2>
         </div>
 

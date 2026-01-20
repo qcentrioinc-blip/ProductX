@@ -111,11 +111,9 @@ const LifeCycleTech = () => {
       {[
         '/CompanyLogo/Microsoft.png',
         '/CompanyLogo/GoogleCloud.png',
-        '/CompanyLogo/Oracle.png',
-        '/CompanyLogo/Dell.png',
-        '/CompanyLogo/Infosys.png',
+        '/CompanyLogo/Siemens.png',
+        '/CompanyLogo/Toyota.png',
         '/CompanyLogo/AWS.png',
-        '/CompanyLogo/Deloitte.png',
       ].map((logo, index) => (
         <img
           key={index}

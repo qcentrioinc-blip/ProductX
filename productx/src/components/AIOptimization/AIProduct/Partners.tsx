@@ -1,18 +1,18 @@
-import { motion, useMotionValue, useAnimationFrame, useInView } from "framer-motion";
+import {  useMotionValue, useAnimationFrame, useInView } from "framer-motion";
 import { useRef } from "react";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H4, P } from "../../../styles/Typography";
 
-const logos = [
-  "/CompanyLogo/Dell.png",
-  "/CompanyLogo/GoogleCloud.png",
-  "/CompanyLogo/Infosys.png",
-  "/CompanyLogo/Oracle.png",
-  "/CompanyLogo/AWS.png",
-  "/CompanyLogo/Deloitte.png",
-];
+// const logos = [
+//   "/CompanyLogo/Dell.png",
+//   "/CompanyLogo/GoogleCloud.png",
+//   "/CompanyLogo/Infosys.png",
+//   "/CompanyLogo/Oracle.png",
+//   "/CompanyLogo/AWS.png",
+//   "/CompanyLogo/Deloitte.png",
+// ];
 
 export default function Partners() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  // const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   const x = useMotionValue(0);
@@ -71,12 +71,12 @@ export default function Partners() {
           </div>
         </div>
 
-        <H2 className="font-semibold text-[#F5F5F5]">
+        {/* <H2 className="font-semibold text-[#F5F5F5]">
           We partnered with
-        </H2>
+        </H2> */}
 
         {/* AUTO SLIDER (SAME UI) */}
-        <div className="relative mt-10 overflow-hidden">
+        {/* <div className="relative mt-10 overflow-hidden">
           <motion.div
             ref={trackRef}
             style={{ x }}
@@ -96,7 +96,7 @@ export default function Partners() {
               </div>
             ))}
           </motion.div>
-        </div>
+        </div> */}
 
       </div>
     </section>

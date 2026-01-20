@@ -250,7 +250,7 @@ export default function Firm() {
             <div className="grid bg-gray-100 rounded-4xl grid-cols-1 lg:grid-cols-2 gap-6">
 
               {/* Other Firms */}
-              <div className="rounded-4xl animated-card my-10 p-6 sm:p-8 text-left">
+              <div className="rounded-4xl animated-card my-10 p-6 ml-4 sm:p-8 text-left">
                 <H3>Other Platforms </H3>
                 <ul className="mt-8 space-y-12">
                   {withoutCloudDietFeatures.map((item) => (

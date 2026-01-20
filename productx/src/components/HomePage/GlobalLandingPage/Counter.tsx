@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { H2, H4  } from "../../../styles/Typography";
+import { H2 } from "../../../styles/Typography";
  
 const CounterCard = ({
   number,
   suffix = "",
-  title,
+  // title,
   description,
   dark,
 }: {
@@ -58,7 +58,7 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className={`rounded-2xl shadow-md transition-all duration-300 p-4 sm:p-6 text-start cursor-pointer border-2 border-gray-200
+      className={`rounded-2xl shadow-md transition-all duration-300   sm:p-6 text-start cursor-pointer border-2 border-gray-200
         ${dark ? "bg-black text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"}
       `}
     >
@@ -67,16 +67,18 @@ const CounterCard = ({
         {suffix}
       </h2> */}
       
-      <H2 className="text-blue-500 pt-2 sm:pt-4"> 
+    <H2 className="text-blue-500  sm:pt-4 mb-24 sm:mb-8">
+
         {count}
         {suffix}
       </H2>
       {/* <h3 className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 font-semibold text-sm sm:text-base">{title}</h3> */}
-      <H4 className=" mt-8 sm:mt-10 md:mt-18 lg:mt-20 ">
+      {/* <H4 className=" mt-8 sm:mt-10 md:mt-18 lg:mt-20 ">
         {title}
-      </H4>
+      </H4> */}
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
-      <p className="lg:py-4 font-quicksand text-[16px] font-bold  py-4 md:pt-2 md:pb-0">
+   <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-2 md:pb-0">
+
         {description}
       </p >
     </div>
@@ -102,7 +104,7 @@ const Counter = () => {
       </div>
       <div className="w-full     px-6 lg:px-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 min-h-[200px] sm:min-h-[240px] md:min-h-[250px]">
-          <CounterCard
+          <CounterCard 
             number={25}
             suffix="K+"
             title="Emily"

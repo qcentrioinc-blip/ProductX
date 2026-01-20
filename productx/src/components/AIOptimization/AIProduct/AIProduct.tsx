@@ -2,7 +2,7 @@
 import FeatureCards from "../HomePageAI/Features"
 // import HeroSection from "./HeroSection"
  
-import Testimonial from "./Testimonial"
+// import Testimonial from "./Testimonial"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
 // import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
@@ -47,7 +47,7 @@ const AIProduct = () => {
       <FeatureCards />
       <CostOptimization/>
       <Timeline/>
-      <Testimonial />
+      {/* <Testimonial /> */}
       <div id="usecases">
       <HWD />
       </div>
