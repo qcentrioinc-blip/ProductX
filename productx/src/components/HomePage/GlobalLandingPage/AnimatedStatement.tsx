@@ -113,12 +113,12 @@ const AnimatedStatementWithImageTrail = () => {
 
   const images = useMemo(
     () => [
-      "https://picsum.photos/id/287/300/300",
-      "https://picsum.photos/id/1001/300/300",
-      "https://picsum.photos/id/1025/300/300",
-      "https://picsum.photos/id/1026/300/300",
-      "https://picsum.photos/id/1027/300/300",
-      "https://picsum.photos/id/1028/300/300"
+      "../AIOptimization/1.webp",
+      "../AIOptimization/2.webp",
+      "../AIOptimization/3.webp",
+      "../AIOptimization/4.webp",
+      "../AIOptimization/5.webp",
+      "../AIOptimization/6.webp"
     ],
     []
   );

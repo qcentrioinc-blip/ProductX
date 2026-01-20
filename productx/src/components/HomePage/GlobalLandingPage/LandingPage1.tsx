@@ -186,9 +186,9 @@ export default function InteractiveHeroSection() {
 
   const industries = [
     { title: 'Cloud Finops AI', image: '/LandingPageNew/AI.png', url: '/industries/cloud-finops-ai', isReady: true },
-    { title: 'Banking and Finance', image: '/LandingPageNew/BNFImage.jpg', url: '/industries/banking-and-finance', isReady: false },
-    { title: 'EHR and PMS', image: '/LandingPageNew/EHRImage.png', url: '/industries/ehr-and-pms', isReady: false },
-    { title: 'High Tech', image: '/LandingPageNew/HighTechImage.png', url: '/industries/high-tech', isReady: false }
+    { title: 'Banking and Finance', image: '/LandingPageNew/BNF.jpg', url: '/industries/banking-and-finance', isReady: false },
+    { title: 'EHR and PMS', image: '/LandingPageNew/EHR.jpg', url: '/industries/ehr-and-pms', isReady: false },
+    { title: 'High Tech', image: '/LandingPageNew/HighTech.png', url: '/industries/high-tech', isReady: false }
   ];
 
   const handleComingSoon = (title: string) => {
@@ -248,12 +248,12 @@ export default function InteractiveHeroSection() {
 
               <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
                 {[
-                  { label: '30% + ROI', sub: 'AI-Driven Outcomes' },
+                  { label: '30%', sub: 'AI-Driven Outcomes' },
                   { label: '24/7', sub: 'End-to-End Delivery' },
                   { label: '99.9%', sub: 'Secure, Scalable Cloud' }
                 ].map((stat, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-[3px] bg-gradient-to-b from-white to-transparent opacity-50"></div>
+                    <div className="w-[4px] bg-[#92278F] opacity-100"></div>
                     <div>
                       <div className="text-4xl xl:text-6xl font-bold text-white whitespace-nowrap tracking-tighter">{stat.label}</div>
                       <div className="text-[#F5F5F5] text-[10px] mt-1 uppercase tracking-widest font-quicksand">{stat.sub}</div>
