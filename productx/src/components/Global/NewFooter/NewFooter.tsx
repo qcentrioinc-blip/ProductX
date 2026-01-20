@@ -50,7 +50,7 @@ export default function NewFooter() {
               
               <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3 hover:text-white hover:underline">Banking and Finance</Li></a> 
               <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3 hover:text-white hover:underline">EHR-PMS</Li></a> 
-              <a href="/industries/ai-optimization" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">AI-Optimization</Li></a>
+              <a href="/industries/cloud-finops-ai" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">Cloud FinOps AI</Li></a>
             </ul>
           </div>
 

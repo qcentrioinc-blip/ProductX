@@ -19,7 +19,7 @@ const CARD_CONFIG: Record<
     }
   >
 > = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       bg: "#E3FFF4",
       image: "/BuiltFor/img6.jpg",

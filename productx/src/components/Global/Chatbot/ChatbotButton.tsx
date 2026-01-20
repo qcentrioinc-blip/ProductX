@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, Send, Sparkles, Trash2, Minus } from 'lucide-react';
+import { X, Send, Trash2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
 interface Message {
@@ -13,16 +13,16 @@ interface Message {
 
 const STORAGE_KEY = 'productx-chat-history';
 
-const formatTime = (timestamp: number) => {
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-};
+// const formatTime = (timestamp: number) => {
+//     const date = new Date(timestamp);
+//     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+// };
 
 const ChatbotButton: React.FC = () => {
     const [showBottomChat, setShowBottomChat] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showExpandedChat, setShowExpandedChat] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [, setIsScrolled] = useState(false);
     const [userClosedChat, setUserClosedChat] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -215,16 +215,16 @@ const ChatbotButton: React.FC = () => {
         }
     };
 
-    const handleMinimize = () => {
-        setShowExpandedChat(false);
-        setShowBottomChat(true);
-        setUserClosedChat(false);
-    };
+    // const handleMinimize = () => {
+    //     setShowExpandedChat(false);
+    //     setShowBottomChat(true);
+    //     setUserClosedChat(false);
+    // };
 
-    const handleCloseBottomChat = () => {
-        setShowBottomChat(false);
-        setUserClosedChat(true);
-    };
+    // const handleCloseBottomChat = () => {
+    //     setShowBottomChat(false);
+    //     setUserClosedChat(true);
+    // };
 
     const handleFloatingButtonClick = () => {
         setUserClosedChat(false);
@@ -234,10 +234,9 @@ const ChatbotButton: React.FC = () => {
     return createPortal(
         <>
             {/* STEP 1: Initial Bottom Center Chat (Input + Suggestions) */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {showBottomChat && !showExpandedChat && (
                     <>
-                        {/* Close Button - Outside Card at Top Right */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -329,13 +328,11 @@ const ChatbotButton: React.FC = () => {
                         </motion.div>
                     </>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
 
-            {/* STEP 1.5: Expanded Chat Modal (Like Image) */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {showExpandedChat && (
                     <>
-                        {/* Action Buttons */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -378,7 +375,7 @@ const ChatbotButton: React.FC = () => {
                         >
                             <div className="w-full h-full rounded-t-2xl sm:rounded-2xl shadow-2xl bg-white overflow-hidden">
                                 <div className="h-full flex flex-col">
-                                    {/* Header */}
+                                    
                                     <div className="bg-white border-b border-zinc-200 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-between flex-shrink-0">
                                         <div className="flex items-center gap-2">
                                             <span className="text-base sm:text-lg font-semibold text-zinc-900">Agentforce</span>
@@ -400,7 +397,7 @@ const ChatbotButton: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    {/* Title */}
+                                    
                                     <div className="bg-white px-4 py-6 sm:px-6 sm:py-8 flex-shrink-0">
                                         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-1">
                                             <span className="text-zinc-900">How can </span>
@@ -409,7 +406,6 @@ const ChatbotButton: React.FC = () => {
                                         </h1>
                                     </div>
 
-                                    {/* Messages Area - PROPERLY FIXED SCROLLING */}
                                     <div
                                         className="flex-1 overflow-y-auto overflow-x-hidden pl-4 pr-5 py-4 sm:pl-6 sm:pr-8 sm:py-6 bg-[#EEF2FF]"
                                         data-lenis-prevent
@@ -425,7 +421,6 @@ const ChatbotButton: React.FC = () => {
                                             <span className="text-xs sm:text-sm text-zinc-500">Agentforce joined</span>
                                         </div>
 
-                                        {/* Bot Welcome */}
                                         <div className="flex items-start gap-2 sm:gap-3 mb-4 sm:mb-6">
                                             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                                                 <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 sm:w-5 sm:h-5">
@@ -446,7 +441,6 @@ const ChatbotButton: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        {/* User Messages */}
                                         {messages.slice(1).map((msg) => (
                                             <motion.div
                                                 key={msg.id}
@@ -530,7 +524,7 @@ const ChatbotButton: React.FC = () => {
                                         <div ref={messagesEndRef} />
                                     </div>
 
-                                    {/* Input Area */}
+                                    
                                     <div className="bg-white border-t border-zinc-200 px-3 py-3 sm:px-5 sm:py-4 flex-shrink-0">
                                         <form onSubmit={handleSendMessage} className="flex items-center gap-2 sm:gap-3">
                                             <input
@@ -555,10 +549,11 @@ const ChatbotButton: React.FC = () => {
                         </motion.div>
                     </>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
 
             <AnimatePresence>
-                {((!showBottomChat && !showModal && !showExpandedChat) || (isScrolled && !showExpandedChat && !showModal)) && (
+                {/* {((!showBottomChat && !showModal && !showExpandedChat) || (isScrolled && !showExpandedChat && !showModal)) && ( */}
+                {!showModal && !showExpandedChat && (
                     <motion.button
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -596,9 +591,9 @@ const ChatbotButton: React.FC = () => {
 
 
 
-                        <span className="text-sm sm:text-[17px] font-semibold whitespace-nowrap">
+                        {/* <span className="text-sm sm:text-[17px] font-semibold whitespace-nowrap">
                             Ask Agentforce
-                        </span>
+                        </span> */}
                     </motion.button>
                 )}
             </AnimatePresence>

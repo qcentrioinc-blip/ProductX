@@ -43,7 +43,7 @@ export default function JobListSection() {
         <H2 className="text-[#020059] mb-10">Find your next role</H2>
 
         {/* -------------------- JOB CARDS -------------------- */}
-        <a href="/industries/ai-optimization/jobs">
+        <a href="/industries/cloud-finops-ai/jobs">
 
         <div className="space-y-4">
           {jobs.map((job, index) => (

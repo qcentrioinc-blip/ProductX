@@ -29,7 +29,7 @@ export const BuiltFor = () => {
  
   const getNavbar = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AINavbar />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AINavbar />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRNavbar />;
     if (pathname.startsWith("/industries/high-tech")) return <HighTechNavbar />;
     return null;
@@ -40,7 +40,7 @@ export const BuiltFor = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
     if (pathname.startsWith("/industries/high-tech")) return <FooterHT />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AIFooter />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIFooter />;
     return null;
   };
  
@@ -48,7 +48,7 @@ export const BuiltFor = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
     if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
-    if (pathname.startsWith("/industries/ai-optimization")) return <AIBlogs  />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIBlogs  />;
     return null;
   };
 

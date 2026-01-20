@@ -8,7 +8,7 @@ type TextContent = {
 };
 
 const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       h4: "Challenges",
       h2: "Enterprise IT and Cloud Operations",
