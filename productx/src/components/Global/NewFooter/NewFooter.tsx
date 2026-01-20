@@ -46,7 +46,7 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
             <ul className="space-y-3 text-gray-300 text-sm ">
-               <a href="/industries/ai-optimization" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">AI-Optimization</Li></a>
+               <a href="/industries/cloud-finops-ai" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">Cloud Finops AI</Li></a>
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
               
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a> 

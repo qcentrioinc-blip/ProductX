@@ -123,7 +123,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <AboutUs />;
     if (industry === "high-tech") return <AboutHighTech />;
     if (industry === "ehr-and-pms") return <About />;
-    if (industry === "ai-optimization") return <AboutAI />;
+    if (industry === "cloud-finops-ai") return <AboutAI />;
 
     return <div>About Us page not found for this industry</div>;
   };
@@ -134,7 +134,7 @@ const App = () => {
     if (industry === "banking-and-finance") return <div>Coming Soon</div>;
     if (industry === "high-tech") return <Resources />;
     if (industry === "ehr-and-pms") return <div>Coming Soon</div>;
-    // if (industry === "ai-optimization") return <div><ResourceDetailAI /></div>
+    // if (industry === "cloud-finops-ai") return <div><ResourceDetailAI /></div>
     return <div>Resources page not found for this industry</div>;
   };
 
@@ -214,20 +214,20 @@ const App = () => {
             <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
 
 
-            <Route path="/industries/ai-optimization" element={<AIOptimization />} />
+            <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
 
-            <Route path="/indutries/ai-optimization/about-us" element={<AboutAI />} />
-            <Route path="/industries/ai-optimization/resources" element={<Resource />} />
-            <Route path="/industries/ai-optimization/resource-detail" element={<ResourceDetailAI />} />
-            <Route path="/industries/ai-optimization/careers" element={<CareersPageAI />} />
-            <Route path="/industries/ai-optimization/jobs" element={<JobDetails />} />
-            <Route path="/industries/ai-optimization/built-for" element={<BuiltFor />} />
-            <Route path="/industries/ai-optimization/features" element={<HeroAIOptimization />} />
-            <Route path="/industries/ai-optimization/newsletter" element={<AINewsLetter />} />
-            <Route path="/industries/ai-optimization/whitepaper" element={<AIWhitePapers />} />
-            <Route path="/industries/ai-optimization/glossary" element={<AIGlossary />} />
-            <Route path="/industries/ai-optimization/pricing" element={<Pricing />} />
-            <Route path="/industries/ai-optimization/features" element={<HeroAIOptimization />} />
+            <Route path="/indutries/cloud-finops-ai/about-us" element={<AboutAI />} />
+            <Route path="/industries/cloud-finops-ai/resources" element={<Resource />} />
+            <Route path="/industries/cloud-finops-ai/resource-detail" element={<ResourceDetailAI />} />
+            <Route path="/industries/cloud-finops-ai/careers" element={<CareersPageAI />} />
+            <Route path="/industries/cloud-finops-ai/jobs" element={<JobDetails />} />
+            <Route path="/industries/cloud-finops-ai/built-for" element={<BuiltFor />} />
+            <Route path="/industries/cloud-finops-ai/features" element={<HeroAIOptimization />} />
+            <Route path="/industries/cloud-finops-ai/newsletter" element={<AINewsLetter />} />
+            <Route path="/industries/cloud-finops-ai/whitepaper" element={<AIWhitePapers />} />
+            <Route path="/industries/cloud-finops-ai/glossary" element={<AIGlossary />} />
+            <Route path="/industries/cloud-finops-ai/pricing" element={<Pricing />} />
+            <Route path="/industries/cloud-finops-ai/features" element={<HeroAIOptimization />} />
 
 
             {/* Built for globally */}
@@ -238,14 +238,14 @@ const App = () => {
             />
             {/* Marketplace Routes */}
             <Route path='/marketplace' element={<Marketing />} />
-            <Route path='/industries/ai-optimization/marketplace' element={<Marketing />} />
+            <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
             <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
             <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
             <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
 
             {/* Platform Routes */}
             <Route path="/platform" element={<Platform />} />
-            <Route path='/industries/ai-optimization/platform' element={<Platform />} />
+            <Route path='/industries/cloud-finops-ai/platform' element={<Platform />} />
             <Route path='/industries/high-tech/platform' element={<Platform />} />
             <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
             <Route path='/industries/banking-and-finance/platform' element={<Platform />} />

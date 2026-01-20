@@ -28,8 +28,8 @@ const AINavbar = () => {
 
   // ---------- AI-SPECIFIC DATA ----------
 
-  const industry = "ai-optimization";
-  const currentIndustry = "AI Optimization";
+  const industry = "cloud-finops-ai";
+  const currentIndustry = "Cloud FinOps AI";
   const base = `/industries/${industry}`;
 
   const navItems = [
@@ -193,7 +193,7 @@ const AINavbar = () => {
 
         <div className="flex items-center gap-10">
           <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => {  setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
-            <Link to="/industries/ai-optimization">
+            <Link to="/industries/cloud-finops-ai">
             <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
               <img src="/AILogoo.png"  className="w-auto h-10" alt=""/></div></Link>
             {/* <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>

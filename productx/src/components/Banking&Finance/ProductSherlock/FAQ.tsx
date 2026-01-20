@@ -28,7 +28,7 @@ const faqContentByIndustry: Record<string, FaqItem[]> = {
     },
   ],
 
-  "/industries/ai-optimization": [
+  "/industries/cloud-finops-ai": [
     {
       question: "What exactly does CloudDIET do?",
       answer:
@@ -100,7 +100,7 @@ const faqData =
   faqContentByIndustry["/industries/banking-and-finance"];
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
-  const isAI = pathname.startsWith("/industries/ai-optimization");
+  const isAI = pathname.startsWith("/industries/cloud-finops-ai");
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);

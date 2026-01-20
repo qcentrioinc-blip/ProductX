@@ -115,7 +115,7 @@ export default function InteractiveHeroSection() {
     { title: 'Banking and Finance', image: '/LandingPageNew/BNFImage.jpg', url: '/industries/banking-and-finance' },
     { title: 'EHR and PMS', image: '/LandingPageNew/EHRImage.png', url: '/industries/ehr-and-pms' },
     { title: 'High Tech', image: '/LandingPageNew/HighTechImage.png', url: '/industries/high-tech' },
-    { title: 'AI Optimization', image: '/LandingPageNew/AI.png', url: '/industries/ai-optimization' }
+    { title: 'Cloud FinOps AI', image: '/LandingPageNew/AI.png', url: '/industries/cloud-finops-ai' }
   ];
 
   useEffect(() => {

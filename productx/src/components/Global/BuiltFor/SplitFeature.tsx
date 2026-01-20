@@ -63,7 +63,7 @@ const THEMES: Record<string, Theme> = {
     statsColor: "text-[#F99526]",
   },
 
-  "ai-optimization": {
+  "cloud-finops-ai": {
     sectionBg: "bg-[#0AC276]",
     imageSrc: "/BuiltFor/img2.png",
     headingPrimaryColor: "text-[#F5F5F5]",
@@ -77,7 +77,7 @@ const THEMES: Record<string, Theme> = {
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, SplitContent>> = {
-  "ai-optimization": {
+  "cloud-finops-ai": {
     enterprises: {
       // headingPrimary: "The Impact CloudDIET Delivers For Enterprises",
          headingPrimary: (

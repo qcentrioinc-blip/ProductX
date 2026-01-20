@@ -11,7 +11,7 @@ const HWD = () => {
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
-  const isAI = location.pathname === "/industries/ai-optimization";
+  const isAI = location.pathname === "/industries/cloud-finops-ai";
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
