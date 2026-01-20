@@ -24,7 +24,7 @@ export default function ComingSoon() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/industries/ai-optimization"
+            href="/industries/cloud-finops-ai"
             className="px-8 py-3 rounded-lg bg-[#19E3A1] text-black font-semibold hover:opacity-90 transition"
           >
             Explore Cloud Finops AI
