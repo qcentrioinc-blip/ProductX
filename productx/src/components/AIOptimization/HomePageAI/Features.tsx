@@ -8,7 +8,7 @@ const features = [
   {
     title: "Engineering Expertise",
     description: "Built by cloud engineering veterans.",
-    image: "/AIProduct/Secure.png",
+    image: "/AIProduct/FeatureAI.png",
     points: [
       "Decades of AWS, Azure, and Google Cloud experience. ",
       "Advanced optimization beyond standard FinOps tools. ",
