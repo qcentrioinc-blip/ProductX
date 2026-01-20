@@ -16,9 +16,10 @@ import Firm from "./Firm"
 import ImageGrid from "../HomePageAI/ImageGrid"
 import Timeline from "../HomePageAI/Timeline"
 import FinalHero from "./FinalHero"
-import CTA from "./CTA"
+// import CTA from "./CTA"
 import CostOptimization from "./CostOptimization"
 import ImageContainer from "./ImageContainer"
+import TextSec from "./CTA"
  
  
 
@@ -33,8 +34,8 @@ const AIProduct = () => {
     <FinalHero/>  
         <ImageContainer />
       </section>
-     <CTA/>
-       
+     {/* <CTA/> */}
+       <TextSec/>
       <section
        className="relative     bg-no-repeat bg-cover z-10"
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
