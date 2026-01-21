@@ -20,7 +20,7 @@ const LandingPageAI = () => {
           <div className="absolute inset-0 bg-black/20" />
 
           {/* Hero Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center xl:top-12">
             {/* Main Heading */}
             <H1
               className="max-w-6xl mb-6"

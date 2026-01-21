@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 :root {
@@ -23,11 +23,11 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+ 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+ 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +44,7 @@ a:hover {
 } */
 /* global.css ya index.css me */
 
-/* 
+/*
 body {
   margin: 0;
   display: flex;
@@ -134,6 +134,7 @@ div[id],
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -163,6 +164,36 @@ div[id],
   opacity: 0;
   transform: translateY(-20px);
   transition: 0.4s ease;
+}
+
+@keyframes marquee-inner {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-inner-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-inner {
+  animation: marquee-inner 25s linear infinite;
+  min-width: 200%;
+}
+
+.animate-marquee-inner-reverse {
+  animation: marquee-inner-reverse 25s linear infinite;
+  min-width: 200%;
 }
 
 .pago-navbar.visible {
@@ -248,23 +279,23 @@ div[id],
 font-family: "Bricolage Grotesque",sans-serif;
 font-style:"bold" ;
 }
-
-
+ 
+ 
 h2{
 font-family: "Bricolage Grotesque",sans-serif;
 font-weight:600;
-
+ 
 line-height: 48px;
-
+ 
 }
-
-
+ 
+ 
 h3{
   font-family: "Bricolage Grotesque",sans-serif;
 font-weight: 300;
-
+ 
 }
-
+ 
 p {
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
