@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 import { Modal, Slide, Backdrop } from "@mui/material";
-
+ 
 interface ContactModalProps {
     open: boolean;
     onClose: () => void;
 }
-
+ 
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
         email: "",
     });
-
+ 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
+ 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
@@ -27,7 +27,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
         // Reset form
         setFormData({ name: "", phone: "", email: "" });
     };
-
+ 
     return (
         <Modal
             open={open}
@@ -40,9 +40,10 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     sx: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }
                 }
             }}
+            sx={{ zIndex: 10002 }}
         >
             <Slide direction="down" in={open} timeout={500}>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] h-[85vh] lg:h-[75vh] bg-white outline-none rounded-3xl shadow-2xl overflow-hidden">
+                <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] h-[85vh] lg:h-[90vh] bg-white outline-none rounded-3xl shadow-2xl overflow-hidden">
                     {/* Close Button */}
                     <button
                         onClick={onClose}
@@ -50,9 +51,9 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     >
                         <X className="w-6 h-6 text-gray-700" />
                     </button>
-
+ 
                     {/* Form Container with Scroll */}
-                    <div className="h-full scrollbar-hide overflow-y-auto px-6 py-8 md:px-12 md:py-10 lg:px-24 lg:py-20">
+                    <div className="h-full scrollbar-hide overflow-y-auto px-6 py-8 md:px-12 md:py-10 lg:px-24 lg:py-12">
                         {/* Header */}
                         <div className="mb-12">
                             <p
@@ -61,7 +62,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                             >
                                 TO: QNEST GLOBAL
                             </p>
-
+ 
                             {/* Form */}
                             <form onSubmit={handleSubmit} className="space-y-8" autoComplete="off">
                                 {/* First Line: HEY QNEST!* MY NAME IS [NAME] * */}
@@ -83,7 +84,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                     />
                                     <span className="text-[#E74C3C]">*</span>
                                 </div>
-
+ 
                                 {/* Second Line: MY PHONE NUMBER IS [PHONE] * AND MY */}
                                 <div
                                     className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
@@ -103,7 +104,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                     <span className="text-[#E74C3C]">*</span>
                                     <span className="whitespace-nowrap">AND MY</span>
                                 </div>
-
+ 
                                 {/* Third Line: EMAIL IS [EMAIL] * SEE YOU SOON */}
                                 <div
                                     className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
@@ -123,7 +124,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                                     <span className="text-[#E74C3C]">*</span>
                                     <span className="whitespace-nowrap">SEE YOU SOON</span>
                                 </div>
-
+ 
                                 {/* Send Button */}
                                 <div className="pt-8">
                                     <button
@@ -143,5 +144,5 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
         </Modal >
     );
 };
-
+ 
 export default ContactModal;
