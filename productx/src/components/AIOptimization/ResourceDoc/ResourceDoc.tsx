@@ -40,6 +40,7 @@ const ResourceDoc: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isLoadingDuration, setIsLoadingDuration] = useState(false);
 
   // Format time helper (converts seconds to MM:SS format)
   const formatTime = (time: number) => {
@@ -268,6 +269,44 @@ const ResourceDoc: React.FC = () => {
       }
     };
   }, [slug]);
+
+  // Preload audio duration on page load (before user clicks play)
+  useEffect(() => {
+    if (!currentItem?.audio) {
+      setDuration(0);
+      setIsLoadingDuration(false);
+      return;
+    }
+
+    setIsLoadingDuration(true);
+
+    // Create a temporary audio element to fetch duration
+    const tempAudio = new Audio();
+    tempAudio.preload = "metadata";
+
+    tempAudio.onloadedmetadata = () => {
+      if (tempAudio.duration && !isNaN(tempAudio.duration) && isFinite(tempAudio.duration)) {
+        setDuration(tempAudio.duration);
+      }
+      setIsLoadingDuration(false);
+    };
+
+    tempAudio.onerror = () => {
+      console.warn("Could not preload audio duration");
+      setDuration(0);
+      setIsLoadingDuration(false);
+    };
+
+    // Set src after adding event listeners, then force load
+    tempAudio.src = currentItem.audio;
+    tempAudio.load();
+
+    return () => {
+      tempAudio.onloadedmetadata = null;
+      tempAudio.onerror = null;
+      tempAudio.src = "";
+    };
+  }, [currentItem?.audio]);
 
   /* ---------------------------------------------
      Render
@@ -538,7 +577,13 @@ const ResourceDoc: React.FC = () => {
               {/* Time Display */}
               <div className="flex justify-between text-xs text-gray-500">
                 <span>{formatTime(currentTime)}</span>
-                <span>{formatTime(duration)}</span>
+                <span>
+                  {isLoadingDuration ? (
+                    <span className="animate-pulse">Loading...</span>
+                  ) : (
+                    formatTime(duration)
+                  )}
+                </span>
               </div>
             </div>
           )}
