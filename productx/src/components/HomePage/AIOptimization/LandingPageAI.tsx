@@ -28,7 +28,7 @@ const LandingPageAI = () => {
             >
               <span
                 style={{
-                  color: "#0AC276",
+                  color: "#FFFFFF",
                 }}
               >
                 Smarter Azure Cost <br />
@@ -38,7 +38,7 @@ const LandingPageAI = () => {
 
             {/* Description */}
             <p
-              className="max-w-4xl mb-10 px-1 sm:px-0"
+              className="max-w-4xl mb-6 px-1 sm:px-0"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
                 fontWeight: 500,
@@ -59,8 +59,8 @@ const LandingPageAI = () => {
               className="inline-flex items-center gap-3 rounded-lg text-[14px] sm:text-[15px] font-semibold tracking-wide px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               style={{
                 fontFamily: "'Inter', sans-serif",
-                backgroundColor: "#10DC78",
-                color: "#000000",
+                backgroundColor: " #0079FF",
+                color: "#FFFFFF",
               }}
             >
               Start Saving
