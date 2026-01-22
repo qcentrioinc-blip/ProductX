@@ -54,28 +54,28 @@ const AIFooter = () => {
                 <div className="grid xl:grid-cols-[1fr_2fr] gap-12">
                     {/* LEFT SECTION */}
                     {/* Links */}
-                        <div className="flex flex-wrap gap-16">
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white">Products</h4>
-                                <ul className="space-y-2 text-[#F5F5F5]">
-                                    <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
-                                </ul>
-                            </div>
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white">Quick Links</h4>
-                                <ul className="space-y-2 text-[#F5F5F5]">
-                                    <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
-                                    <li><a href={`${base}/contactus`} className="hover:underline">• Contact</a></li>
-                                    <li><a href={`${base}/privacy-policy`} className="hover:underline">• Privacy Policy</a></li>
-                                </ul>
-                            </div>
-                            <div className="flex gap-4 items-start">
-                                {[Twitter, Instagram, Linkedin].map((Icon, i) => (
-                                    <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
-                                ))}
-                            </div>
+                    <div className="flex flex-wrap gap-16">
+                        <div className="space-y-4">
+                            <h4 className="text-xl font-bold text-white">Products</h4>
+                            <ul className="space-y-2 text-[#F5F5F5]">
+                                <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
+                            </ul>
                         </div>
-                    
+                        <div className="space-y-4">
+                            <h4 className="text-xl font-bold text-white">Quick Links</h4>
+                            <ul className="space-y-2 text-[#F5F5F5]">
+                                <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
+                                <li><a href={`${base}/contactus`} className="hover:underline">• Contact</a></li>
+                                <li><a href={`${base}/privacy-policy`} className="hover:underline">• Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div className="flex gap-4 items-start">
+                            {[Twitter, Instagram, Linkedin].map((Icon, i) => (
+                                <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
+                            ))}
+                        </div>
+                    </div>
+
                     {/* RIGHT SIDE AI IMAGE */}
                     <div className="xl:pl-36 space-y-6">
                         <h3 className="text-[28px] sm:text-[44px] lg:text-[44px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
@@ -83,19 +83,19 @@ const AIFooter = () => {
                         </h3>
 
                         <div className="max-w-md w-full flex items-center gap-4">
-  <input
-    type="email"
-    placeholder="Enter your mail"
-    className="flex-1 px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
-  />
+                            <input
+                                type="email"
+                                placeholder="Enter your mail"
+                                className="flex-1 px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
+                            />
 
-  <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap">
-    SUBMIT <ArrowUpRight className="w-5 h-5" />
-  </button>
-</div>
+                            <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap">
+                                SUBMIT <ArrowUpRight className="w-5 h-5" />
+                            </button>
+                        </div>
 
 
-                        
+
                     </div>
                     {/* <div className="hidden xl:block relative">
                         <img
