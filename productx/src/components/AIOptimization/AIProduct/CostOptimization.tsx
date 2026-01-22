@@ -152,7 +152,7 @@ const CostOptimization = () => {
         {/* CloudDIET Logo */}
         <div className="relative mt-20 flex justify-center z-20">
           <div className="bg-[#19E3A1] px-8 py-4 flex items-center gap-3 shadow-lg">
-           <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" />
+           {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
 
             <div className="text-white text-4xl font-bricolage font-extrabold">
               Cloud<span className="text-[#1E2440] font-medium">DIET</span>

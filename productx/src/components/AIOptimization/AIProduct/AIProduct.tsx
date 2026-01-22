@@ -22,7 +22,6 @@ import TextSec from "./CTA"
 import FloatingLines from "../../HomePage/AIOptimization/AIFooterBackground"
  
  
- 
 const AIProduct = () => {
   const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['top', 'bottom', 'middle'];
 const LINE_COUNT = [4, 4, 4];
@@ -34,8 +33,9 @@ const LINE_DISTANCE = [8, 6, 4];
         //   backgroundImage: "url(/AIProduct/AiHome.png)",
          
         // }}
-        > <div className="absolute inset-0 z-0 pointer-events-none">
-                             <FloatingLines
+        >
+           <div className="absolute inset-0 z-0 pointer-events-none">
+                             <FloatingLines 
                               linesGradient={[
                  '#00FFCC',
                  '#0099FF',
@@ -46,19 +46,19 @@ const LINE_DISTANCE = [8, 6, 4];
                                  lineDistance={LINE_DISTANCE}
                                  bendRadius={5.0}
                                  bendStrength={-0.5}
-                                 interactive={false}
+                                 interactive={false} 
                                  parallax={true}
-                                 
+                                  
                              />
                          </div>
- 
+
     <FinalHero/>  
         <ImageContainer />
       </section>
      {/* <CTA/> */}
        <TextSec/>
       <section
-       className="relative     bg-no-repeat bg-cover z-10"
+       className="relative     "
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
       >
         <Onboarding />

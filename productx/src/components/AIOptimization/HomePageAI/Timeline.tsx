@@ -6,7 +6,7 @@ export default function Timeline() {
     <section className="w-full px-4 sm:px-6 lg:px-10 py-16">
       {/* Heading */}
       <div className="max-w-8xl mx-auto text-center mb-10">
-        <H2 className="  font-bold text-[#020059] mb-4">
+        <H2 className="  font-bold text-[#254D70] mb-4">
           Unique Visibility
         </H2>
         <P className=" max-w-3xl mx-auto">

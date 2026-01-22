@@ -20,7 +20,7 @@ type Theme = {
 };
 
 type Content = {
-  heroHeading: string;
+  heroHeading: string | React.ReactNode;
   cardTitle: string;
   cardPara: string;
   buttonLabel: string;
@@ -31,12 +31,12 @@ type Content = {
 const THEMES: Record<string, Theme> = {
   "banking-and-finance": {
     bgImage: "/BuiltFor/img3.jpg",
-    cardBg: "bg-[#1A73E8]",
+    cardBg: "bg-[#254D70]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
-    borderColor: "border-white",
-    buttonText: "text-white",
-    buttonBg: "bg-[#141414]",
+    borderColor: "border-[#D9D9D9]",
+    buttonText: "text-[#010101]",
+    buttonBg: "bg-[#FAFAFA]",
     contactAction: "route",
     contactRoute: "/industries/banking-and-finance/contactform",
   },
@@ -65,13 +65,13 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    bgImage: "/BuiltFor/ImageBg.png",
-    cardBg: "bg-[#5551FF]",
+    bgImage: "/BuiltFor/ImageBg2.png",
+      cardBg: "bg-[#254D70]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
-    borderColor: "border-white",
+    borderColor: "border-[#D9D9D9]",
     buttonText: "text-black",
-    buttonBg: "bg-[#141414]",
+    buttonBg: "bg-[#FAFAFA]",
     contactAction: "modal",
   },
 };
@@ -81,8 +81,9 @@ const THEMES: Record<string, Theme> = {
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
-      heroHeading:
-        "We cut Azure waste for enterprise IT teams across subscriptions.",
+      heroHeading:(<>
+      CloudDIET cuts enterprise <br/> {" "} Azure waste.
+      </>),
       cardTitle: "Our Platform",
       cardPara: "Check our solution for large-scale Azure environments.",
       buttonLabel: "View Demo",
@@ -90,15 +91,17 @@ const CONTENT: Record<string, Record<string, Content>> = {
 
     "digital-native": {
       heroHeading:
-        "CloudDIET stops cloud waste so SaaS teams scale apps without extra costs",
+        "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ",
       cardPara: "See CloudDIET platform and cut your cloud bills today.",
       buttonLabel: "Try Now",
     },
 
     smb: {
-      heroHeading:
-        "CloudDIET secures 30% Azure savings for multi-region enterprises without risking compliance or uptime. ",
+      heroHeading:(<>
+      CloudDIET stops SaaS <br/> {" "}cloud waste.
+      </>),
+     
       cardTitle: "Start Optimizing ",
       cardPara: "Check CloudDIET platform to cut Azure costs safely in regulated setups",
       buttonLabel: " Try Platform",
@@ -132,8 +135,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
   },
 };
 
-/* ================= COMPONENT ================= */
-
+ 
 export default function ImgSec() {
   const { industry, builtForType } = useParams<{
     industry: string;
@@ -171,16 +173,16 @@ export default function ImgSec() {
         className="relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
         style={{ backgroundImage: `url(${theme.bgImage})` }}
       >
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        
 
         <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
           {/* LEFT TEXT */}
-          <div className="flex flex-col h-full pt-20 pb-10 lg:pt-32">
-            <div className="w-full lg:w-2/3">
-              <H2 className="leading-tight text-[#020059] max-w-4xl">
-                {content.heroHeading}
-              </H2>
+          <div className="   h-full pt-20 pb-10  ">
+            <div className="w-full  ">
+            <H2 className="leading-tight text-white max-w-5xl">
+  {content.heroHeading}
+</H2>
+
             </div>
           </div>
         </div>
@@ -215,7 +217,7 @@ export default function ImgSec() {
             px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
             rounded-[8px]
             font-quicksand font-bold text-[14px] sm:text-[16px]
-            bg-[#141414] text-white
+           
             transition-all duration-300 ease-in-out
             border border-transparent
             hover:bg-white hover:text-[#141414]

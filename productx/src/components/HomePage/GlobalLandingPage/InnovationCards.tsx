@@ -6,7 +6,7 @@ export default function InnovationCards() {
       img: "/LandingPage/card1.png",
       badge: "See How We Deliver",
       title: "Outcome-Driven Results for Clear Business Wins",
-      desc: " Every engagement begins with clear goals, agreed metrics, and realistic timelines, ensuring technology drives performance, revenue, and competitive edge. ",
+      desc: " Every engagement begins with clear goals, agreed metrics, and realistic timelines, to drive performance, revenue, and competitive edge. ",
     },
     {
       img: "/LandingPage/card2.jpg",

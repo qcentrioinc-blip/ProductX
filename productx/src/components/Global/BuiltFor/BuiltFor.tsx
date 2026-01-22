@@ -67,8 +67,9 @@ export const BuiltFor = () => {
 <TextSec />
 <Cardcase />
 <BuiltForIntro />
-<GradientCardsSection />
+
 <SplitFeature />
+<GradientCardsSection />
 <ImgSec />
 
       {getInsightandThoughts()}

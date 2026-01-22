@@ -165,6 +165,33 @@ div[id],
   transform: translateY(-20px);
   transition: 0.4s ease;
 }
+@keyframes marquee-inner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-inner-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-inner {
+  animation: marquee-inner 25s linear infinite;
+  min-width: 200%;
+}
+
+.animate-marquee-inner-reverse {
+  animation: marquee-inner-reverse 25s linear infinite;
+  min-width: 200%;
+}
 
 @keyframes marquee-inner {
   0% {

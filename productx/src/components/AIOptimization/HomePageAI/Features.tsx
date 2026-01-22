@@ -6,21 +6,21 @@ import {  H3, P } from "../../../styles/Typography";
 
 const features = [
   {
-    title: "Engineering Expertise",
-    description: "Built by cloud engineering veterans.",
-    image: "/AIProduct/FeatureAI.png",
+    title: "Varied Solutions",
+    description: "Built for specific goals.",
+    image: "/AIProduct/FeatureStar.svg",
     points: [
-      "Decades of AWS, Azure, and Google Cloud experience. ",
-      "Advanced optimization beyond standard FinOps tools. ",
+      "Implement AWS, Azure, and Google Cloud solutions.  ",
+      "Advanced optimization beyond standard FinOps tools. . ",
 
-      "Crafted by seasoned multi-cloud platform professionals.",
-      "Understands complex configurations and commercial cloud terms. ",
+      "Crafted for multi-cloud platform professionals. .",
+      "Understands complex configurations and commercial cloud term ",
     ],
   },
   {
     title: "Guaranteed Savings",
     description: " Pay only for performance results.",
-    image: "/AIProduct/Saving.png",
+    image: "/AIProduct/FeatureSaving.svg",
     points: [
       "Rapid ROI as early as the first month. ",
       "Unique pay-for-performance model ensures shared success. ",
@@ -32,7 +32,7 @@ const features = [
   {
     title: "Continuous Optimization",
     description: " Retain savings long-term with AI.",
-    image: "/AIProduct/ContinousOpti.png",
+    image: "/AIProduct/optimization.svg",
     points: [
       "Keep 80–90% of savings over time. ",
       "AI-driven measures enable continuous efficiency gains. ",
@@ -44,7 +44,7 @@ const features = [
   {
     title: " Secure & Compliant",
     description: "Zero data access, full customer control",
-    image: "/AIProduct/Secure.png",
+    image: "/AIProduct/FeaturesSecurity.svg",
     points: [
       "Never access customer files, databases, or apps.",
       "Read-only by design with Azure RBAC roles. ",

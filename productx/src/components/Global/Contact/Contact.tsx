@@ -1,13 +1,16 @@
 "use client";
 import { H1, P } from "../../../styles/Typography";
 import { ArrowUpRight, ArrowRight } from "lucide-react"; 
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
+import React, { useRef, useEffect, useCallback, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(InertiaPlugin);
 }
+
+
+
 
 /* -------------------------------------- */
 /* UTILS
@@ -53,6 +56,9 @@ const Contact: React.FC = () => {
     lastX: 0,
     lastY: 0,
   });
+  
+ 
+  
   /* DOT SETTINGS */
   const dotSize = 5;
   const gap = 15;
@@ -198,10 +204,28 @@ const Contact: React.FC = () => {
     const throttledMouse = throttle((e: MouseEvent) => onMove(e.clientX, e.clientY), 20);
     window.addEventListener("mousemove", throttledMouse, { passive: true });
     return () => window.removeEventListener("mousemove", throttledMouse);
-  }, []);
+}, []);
+const [isSubmitted, setIsSubmitted] = useState(false);
 
-  return (
-    <section className="w-full min-h-[900px] flex relative bg-[#FAFAFA] overflow-hidden font-quicksand justify-center xl:justify-end px-6 lg:px-24">
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  // If all validations pass
+  setIsSubmitted(true);
+
+  // Reset form
+  e.currentTarget.reset();
+
+  // Reset button after 3 seconds
+  setTimeout(() => {
+    setIsSubmitted(false);
+  }, 3000);
+};
+
+return (
+    <>
+       
+      
+      <section className="w-full min-h-[900px] flex relative bg-[#FAFAFA] overflow-hidden font-quicksand justify-center xl:justify-end px-6 lg:px-24">
       
       {/* BACKGROUND DOTS */}
       <div className="absolute inset-0 z-0 pointer-events-none lg:pointer-events-auto">
@@ -217,35 +241,74 @@ const Contact: React.FC = () => {
           <P className="">Fill out the form and we'll be in touch shortly.</P>
         </div>
 
-        <form className="flex flex-col flex-grow gap-6" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex flex-col flex-grow gap-6" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-5">
-            <input className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" placeholder="Full Name" />
-            <input className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" placeholder="Email Address" />
+            <input 
+              name="name"
+              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
+              placeholder="Full Name" 
+            />
+            <input 
+              name="email"
+              type="email"
+              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
+              placeholder="Email Address" 
+            />
             
             <div className="relative">
-              <select className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer text-gray-500 text-sm">
-                <option value="" disabled selected>Interested in...</option>
-                <option>Manufacturing</option>
-                <option>Healthcare</option>
-                <option>Finance</option>
+              <select 
+                name="interest"
+                className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer text-gray-500 text-sm"
+              >
+                <option value="">Interested in...</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Finance">Finance</option>
               </select>
               <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                  <ArrowRight size={16} className="rotate-90" />
               </div>
             </div>
             
-            <textarea rows={4} className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl resize-none focus:ring-2 focus:ring-black outline-none text-sm" placeholder="Message" />
+            <textarea 
+              name="message"
+              rows={4} 
+              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl resize-none focus:ring-2 focus:ring-black outline-none text-sm" 
+              placeholder="Message" 
+            />
           </div>
 
           <div className="mt-auto">
-            <button className="group flex items-center justify-center w-full h-[64px] rounded-2xl font-bold text-lg bg-black text-white transition-all hover:shadow-2xl active:scale-[0.98]">
-              <span className="mr-2">Send Message</span>
-              <ArrowUpRight size={22} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </button>
+           <button
+  type="submit"
+  disabled={isSubmitted}
+  className={`
+    group flex items-center justify-center w-full h-[64px]
+    rounded-2xl font-bold text-lg text-white transition-all
+    ${isSubmitted ? 'bg-green-600 cursor-default' : 'bg-black hover:shadow-2xl'}
+    active:scale-[0.98]
+  `}
+>
+  {isSubmitted ? (
+    <span>Submitted Successfully</span>
+  ) : (
+    <>
+      <span className="mr-2">Send Message</span>
+      <ArrowUpRight
+        size={22}
+        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+      />
+    </>
+  )}
+</button>
+
           </div>
         </form>
       </div>
+      
+      
     </section>
+    </>
   );
 };
 export default Contact;

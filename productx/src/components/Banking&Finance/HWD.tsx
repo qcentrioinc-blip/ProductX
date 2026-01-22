@@ -38,10 +38,10 @@ const HWD = () => {
     },
     ai: {
       topBg: "#F5F5F5",
-      bottomBg: "#0AC276",
-      headingColor: "#020059",
-      textcolor: "#141414",
-      CheckColor: "#5551FF"
+      bottomBg: "#F7DFB8",
+      headingColor: "#254D70",
+      textcolor: "#254D70",
+      CheckColor: "#254D70"
 
     }
   };
@@ -50,7 +50,7 @@ const HWD = () => {
     ai: [
       {
         title: "Major Azure Cost Reduction",
-        image:"/UseCase1.png",
+        image:"/UseCase1.svg",
         description:
           "A mature cloud team saved millions annually through advanced optimization and reserved instance strategies.",
         points: [
@@ -64,7 +64,7 @@ const HWD = () => {
      
       {
         title: " Retain Savings Long-Term",
-        image:"/UseCase2.png",
+        image:"/UseCase2.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -78,7 +78,7 @@ const HWD = () => {
       },
        {
         title: "Multi-Cloud Waste Elimination",
-          image:"/UseCase3.png",
+          image:"/UseCase3.svg",
         description:
           "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
         points: [
@@ -94,7 +94,7 @@ const HWD = () => {
     banking: [
       {
         title: "Fraud Detection Modernization",
-        image: "/UseCase1.png",
+        image: "/UseCase1.svg",
         description:
           "Advanced analytics reduced fraud losses while improving customer trust.",
         points: [
@@ -106,7 +106,7 @@ const HWD = () => {
       },
       {
         title: "Cost-Efficient Core Banking",
-        image: "/UseCase2.png",
+        image: "/UseCase2.svg",
         description:
           "Legacy systems optimized for modern banking workloads.",
         points: [
@@ -118,7 +118,7 @@ const HWD = () => {
       },
       {
         title: "Compliance Automation",
-        image: "/UseCase3.png",
+        image: "/UseCase3.svg",
         description:
           "Automated compliance reduced risk and operational overhead.",
         points: [
@@ -152,7 +152,7 @@ const HWD = () => {
 
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
 
-  const bottomTextColor = isAI ? "#F5F5F5" : textcolor;
+  const bottomTextColor = isAI ? "#254D70" : textcolor;
 
 
   const cardVariants = {
@@ -195,7 +195,10 @@ const HWD = () => {
           {title}
         </h4>
 
-        <p style={{ color: textcolor }} >{description}</p>
+  <p className="balance-text" style={{ color: textcolor }}>
+  {description}
+</p>
+
       </div>
 
       {/* Bottom Section */}
@@ -216,7 +219,7 @@ const HWD = () => {
   );
 
   return (
-    <div className="w-full relative bg-white flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
+    <div className="w-full relative bg-white shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
 
         {/* HEADINGS */}

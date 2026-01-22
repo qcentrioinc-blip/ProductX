@@ -1,8 +1,33 @@
+import { useState } from "react";
 import { H4, Li, P } from "../../../styles/Typography";
 
  
+import { toast } from "react-toastify";
+
+
+
 
 export default function NewFooter() {
+  const [email, setEmail] = useState("");
+ 
+const handleSubmit = () => {
+  if (!email.trim()) {
+    toast.error("Please enter your email");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    toast.error("Please enter a valid email address");
+    return;
+  }
+
+  toast.success("Submitted successfully");
+  setEmail("");
+};
+
+
   return (
     <footer className="bg-black text-white  py-10 lg:py-20 ">
       <div className="max-w-8xl lg:mx-10 px-4">
@@ -24,18 +49,20 @@ export default function NewFooter() {
               <span className="cursor-pointer"><img src="/GlobalLinkedIn.png" w-14 h-14 alt=""/> </span>
             </div>
           </div>
-           <div className="hidden md:flex lg:hidden flex-col mt-16">
+           <div className="    flex lg:hidden flex-col mt-16">
             <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
             <P className="text-gray-300 text-sm mb-4">
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
-            <div className="hidden md:flex lg:hidden flex-row items-center lg:items-center gap-4">
-              <input
-                type="email"
-                placeholder="Email"
+            <div className=" flex lg:hidden flex-row items-center lg:items-center gap-4">
+            <input
+  type="email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+
                 className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-gray-500"
               />
-              <button className="bg-[#8C8C8C]  text-gray-300 px-6 py-3 rounded-xl text-sm">SUBMIT</button>
+             <button onClick={handleSubmit}>SUBMIT</button>
             </div>
             </div>
         </div>
@@ -46,7 +73,15 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
             <ul className="space-y-3 text-gray-300 text-sm ">
-               <a href="/industries/cloud-finops-ai" target="_blank"> <Li className="mb-3 hover:text-white hover:underline">Cloud Finops AI</Li></a>
+              <li>
+    <a
+      href="/industries/cloud-finops-ai"
+      className="inline-block hover:text-white hover:underline"
+      target="_blank"
+    >
+      Cloud FinOps AI
+    </a>
+  </li>
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
               
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a> 
@@ -58,22 +93,45 @@ export default function NewFooter() {
           {/* Quick Links */}
           <div>
             <H4 className="text-gray-300 mb-4">Quick Links</H4>
-            <ul className="space-y-3 text-gray-300 text-sm ">
-              <a href="/platform"><Li className="hover:text-white hover:underline mb-2 cursor-default">Platform</Li></a>
-              <a ><Li className="hover:text-white hover:underline cursor-default">Marketplce</Li></a>
-              {/* <Li className="hover:text-white hover:underline cursor-default">Resources</Li>
-              <Li className="hover:text-white hover:underline cursor-default">Company</Li> */}
-            </ul>
+            <ul className="space-y-3 font-quicksand text-gray-300 text-sm">
+  <li>
+    <a
+      href="/platform"
+      className="inline-block hover:text-white hover:underline"
+    >
+      Platform
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="/comingsoon"
+      className="inline-block hover:text-white hover:underline"
+    >
+      Marketplace
+    </a>
+  </li>
+</ul>
+
           </div>
 
           {/* Contact Sales */}
           <div>
-            <H4 className="text-gray-300 mb-4">Contact Sales</H4>
-            <ul className="space-y-3 text-gray-300 text-sm">
-              <Li className="hover:text-white hover:underline cursor-default">info@abc.com</Li>
-              <Li className="hover:text-white hover:underline cursor-default">040-7418529630</Li>
-            </ul>
-          </div>
+  <H4 className="text-gray-300 mb-4">Contact Sales</H4>
+  <ul className="space-y-3 text-gray-300 text-sm">
+    <Li>
+      <span className="inline-block hover:text-white hover:underline cursor-pointer">
+        info@abc.com
+      </span>
+    </Li>
+    <Li>
+      <span className="inline-block hover:text-white hover:underline cursor-pointer">
+        040-7418529630
+      </span>
+    </Li>
+  </ul>
+</div>
+
 
           {/* Stay up to date */}
           <div className="hidden lg:flex flex-col ">
@@ -82,12 +140,22 @@ export default function NewFooter() {
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
             <div className="flex md:hidden lg:flex lg:flex-row flex-col items-start lg:items-center gap-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-none"
-              />
-              <button className="bg-[#8C8C8C]  text-gray-300 px-6 py-3 rounded-xl text-sm">SUBMIT</button>
+             <input
+  type="email"
+  placeholder="Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-none"
+/>
+
+<button
+  onClick={handleSubmit}
+  className="bg-[#8C8C8C] text-gray-300 px-6 py-3 rounded-xl text-sm"
+>
+  SUBMIT
+</button>
+
+
             </div>
           </div>
           

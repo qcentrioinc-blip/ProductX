@@ -236,7 +236,7 @@ export default function Firm() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center">
-            <H2 className="text-[#020059]">
+            <H2 className="text-[#254D70]">
               How CloudDIET Compares Better To Other Tools & Platforms
             </H2>
 
