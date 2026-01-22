@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 import { Modal, Slide, Backdrop } from "@mui/material";
-
+ 
 interface ContactModalProps {
   open: boolean;
   onClose: () => void;
 }
-
+ 
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -62,7 +62,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 md:top-8 md:right-8 p-2 rounded-full hover:bg-black/10 transition z-20"
+              className="absolute top-6 right-6 md:top-8 md:right-10 p-2 rounded-full hover:bg-black/10 transition z-20"
             >
               <X className="w-6 h-6 text-gray-800" />
             </button>
@@ -159,5 +159,5 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
     </Modal>
   );
 };
-
+ 
 export default ContactModal;
