@@ -5,7 +5,7 @@ import {   ContactUsDark } from "../../../styles/Button";
 
 const CallToAction = () => {
   return (
-    <section className="w-full bg-gradient-to-tr from-black via-[#01010c] to-[#000000] text-white overflow-hidden">
+    <section className="w-full bg-gradient-to-tr from-black via-[#01010c] to-[#471e46] text-white overflow-hidden">
       <div
         className="
           max-w-8xl mx-auto
@@ -44,7 +44,7 @@ const CallToAction = () => {
                 sm:w-[420px] sm:h-[420px]
                 lg:w-[700px] lg:h-[700px]
                 rounded-full
-                bg-gradient-to-br from-[#0E25CB] to-[#3648d4]
+                bg-gradient-to-br from-[#92278F] to-[#b712b2]
                 blur-[120px] sm:blur-[160px] lg:blur-[200px]
                 opacity-70
               "

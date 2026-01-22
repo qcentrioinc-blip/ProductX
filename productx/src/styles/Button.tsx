@@ -385,7 +385,7 @@ export const ContactUsAI = ({ children, className = "", onClick }: ButtonProps) 
           px-[24px] py-[12px]
           rounded-[8px]
           font-quicksand font-bold text-[16px]
-          bg-[#0AC276] text-black
+          bg-[#0079FF] text-white
         
           shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
           transition-all duration-300

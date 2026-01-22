@@ -49,24 +49,37 @@ useEffect(() => {
   // const translateY = -(scrollProgress * 80);  
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div 
-          ref={containerRef}
-          className="flex justify-center items-center py-8 md:py-12"
-          style={{
-            // Reserve space to prevent layout shift
-            minHeight: '400px'
-          }}
-        >
-          <img
-  ref={imgRef}
-  src="/AIProduct/DataImage.png"
-  className="w-[70%] xl:w-[60%] will-change-transform transform-gpu"
-  alt="Analytics dashboard"
-/>
+     <section className="relative overflow-hidden">
+  <div
+    ref={containerRef}
+    className="flex justify-center items-center py-8 md:py-12"
+    style={{ minHeight: "400px" }}
+  >
+    {/* Frame wrapper */}
+    <div className="relative w-[70%] xl:w-[90%]">
+      
+      {/* Background frame */}
+     
 
-        </div>
-      </section>
+      {/* Animated image */}
+      <img
+        ref={imgRef}
+        src="/AIProduct/Dash.png"
+        alt="Analytics dashboard"
+        className="
+          relative
+          z-10
+          w-full
+        
+        
+          will-change-transform
+          transform-gpu
+        "
+      />
+    </div>
+  </div>
+</section>
+
       <div className="relative z-40">
         <Partners />
       </div>

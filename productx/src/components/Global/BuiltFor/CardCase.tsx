@@ -26,9 +26,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: " Azure Spend Issues",
       cards: [
-        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Recycle.png" },
-        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Inefficient.png" },
-        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/EyeIcon.png" },
+        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Enterprises3.svg" },
+        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Enterprises2.svg" },
+        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/Enterprises1.svg" },
       ],
     },
 
@@ -37,9 +37,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: "SaaS Cost Problems",
       cards: [
-        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/Recycle.png" },
-        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. ", image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. ", image:"/BuiltFor/Recycle.png"   },
+        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/BalanceScale.svg" },
+        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. ", image:"/BuiltFor/BlockUser.svg" },
+        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. ", image:"/BuiltFor/Calender.svg"   },
       ],
     },
 
@@ -48,9 +48,9 @@ const CARD_CONFIG: Record<
       image: "/BuiltFor/img6.jpg",
       heading: "Industry Struggles Today",
       cards: [
-        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/Recycle.png"  },
-        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Recycle.png"  },
+        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/OpenEye.svg"  },
+        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Danger.svg" },
+        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Performance.svg"  },
       ],
     },
   },
@@ -170,7 +170,7 @@ export default function Cardcase() {
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-8xl mx-10 md:px-10 xl:pr-40">
-        <H2 className="mb-10">{config.heading}</H2>
+        <H2 className="mb-10 text-[#254D70]">{config.heading}</H2>
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">

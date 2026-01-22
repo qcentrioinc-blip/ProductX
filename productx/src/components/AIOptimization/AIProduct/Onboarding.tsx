@@ -3,7 +3,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 const cards = [
   {
     title: " Potential Savings",
-    desc: "Description: Instantly view potential savings categorized by implementation effort, easy, medium, and hard. Target 60–70% savings within six weeks. ",
+    desc: " Instantly view potential savings categorized by implementation effort, easy, medium, and hard. Target 60–70% savings within six weeks. ",
      video: "/Video/1.mp4",
   },
   {
@@ -27,7 +27,7 @@ export default function Onboarding() {
       <div  id="benefits" className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
-        <H2 className=" mb-8 lg:mb-18  max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#020059]">
+        <H2 className=" mb-8 lg:mb-18  max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">
           Cloud Optimization Features That  Deliver Results 
         </H2>
 

@@ -303,7 +303,7 @@ useEffect(() => {
         </div>
  
         <div className="font-quicksand text-[#5551FF] mb-6">
-          <Link to={`/industries/${industry}`} className="hover:text-blue-600">
+          <Link to="/industries/cloud-finops-ai" className="hover:text-blue-600">
             Home
           </Link>
           {" > "}

@@ -44,7 +44,7 @@ export default function ImageGrid() {
       <div className="relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center ">
-          <H2 className=" mb-6 text-[#020059]">
+          <H2 className=" mb-6 text-[#254D70]">
             How CloudDIET Works For You
           </H2>
           <P className="xl:mb-28 mb-10  ">
@@ -78,7 +78,9 @@ export default function ImageGrid() {
                 <H3 className="mb-3">{item.title}</H3>
                 <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
                 <div className="flex mt-8 flex-row space-x-2 ">
+                  <a href="https://clouddiet.ai/signup" target="_blank">
                   <P className=" font-bold">{item.cta}</P>
+                  </a>
                   <span><ArrowRight /></span>
                 </div>
               </div>

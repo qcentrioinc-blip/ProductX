@@ -54,10 +54,10 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
 
   "cloud-finops-ai": {
     sectionBg: "bg-white",
-    headingColor: "text-[#020059]",
+    headingColor: "text-[#254D70]",
     paraColor: "text-[#141414]",
-    buttonBg: "bg-[#0AC276]",
-    buttonText: "text-white",
+    buttonBg: "bg-white",
+    buttonText: "text-[#254D70]",
     contactAction: "modal",
   },
 };
@@ -169,13 +169,13 @@ export default function BuiltForIntro() {
           px-[24px] py-[12px]
           rounded-[8px]
           font-quicksand font-bold text-[16px]
-          bg-[#0AC276] text-black
-          border-2 border-[#141414]
+         
+          border-2 border-[#254D70]
           shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
           transition-all duration-300
           hover:bg-white hover:text-black
          
-        `}
+        ${style.buttonBg} ${style.buttonText}`}
       >
         Learn More
         <span className="flex items-center gap-2">

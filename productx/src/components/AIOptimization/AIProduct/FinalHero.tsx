@@ -3,9 +3,11 @@ import { H1, P } from "../../../styles/Typography";
 
 import ContactModal from "../Navbar/ContactModal";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+// import FloatingLines from "../../HomePage/AIOptimization/AIFooterBackground";
 
 
 const FinalHero = () => {
+
 
   // const heroRef = useRef<HTMLDivElement>(null);
   const [opacity, setOpacity] = useState(1);
@@ -23,37 +25,43 @@ const [modalOpen, setModalOpen] = useState(false);
  
   return (
     <section className="relative  overflow-hidden"  style={{ opacity }}>
-      {/* Background */}
-       
-        {/* Overlay (optional for contrast) */}
-        {/* <div className="absolute inset-0 bg-black/30" /> */}
- 
-        {/* Content */}
+     
+     
        <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-10 max-w-8xl xl:px-10 py-20
                 flex flex-col items-center justify-center  ">
  
          
             <div className=" text-center ">
-              <H1 className=" text-[#0AC276] text-center pt-10 leading-tight">
-                Cloud Financial Optimization- 
-                <span className=" text-white block">
-                 Smarter, Faster, Simpler.
-                </span>
-              </H1>
+             <H1
+  className="
+    text-center
+    pt-10
+    
+    leading-tight
+    bg-gradient-to-b
+    from-[#8DC1FB]
+    to-[#FFFFFF]
+    bg-clip-text
+    text-transparent
+  "
+>
+  AI-Powered Cloud Cost <br /> Optimization Platform
+</H1>
 
-              <P className="mt-6 mx-auto max-w-2xl   text-center text-white/90">
-            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. 
+
+              <P className="mt-6 mx-auto max-w-4xl  text-center text-white/90">
+  CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver, with most customers seeing returns within the first month.
               </P>
  
               <div className="mt-8    flex flex-flex-row  item-center gap-4 justify-center">
            <button className=" group
           flex items-center justify-center
-          w-auto h-[48px]
+          w-52 h-[48px]
           px-[24px] py-[12px]
           rounded-[8px]
-          font-quicksand font-bold text-[16px]
-          bg-[#FAFAFA] text-black
-        
+          font-quicksand   text-[16px]
+          bg-transparent text-white
+        border-white border-2
           shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
           transition-all duration-300
           hover:bg-white hover:text-black" onClick={() => setModalOpen(true)}>
@@ -73,15 +81,15 @@ const [modalOpen, setModalOpen] = useState(false);
   rel="noopener noreferrer"
   className="group
             flex items-center justify-center
-            w-auto h-[48px]
+            w-44 h-[48px]
             px-[24px] py-[12px]
             rounded-[8px]
             font-quicksand font-bold text-[16px]
-            bg-[#0AC276] text-black
+            bg-white text-black
           
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
             transition-all duration-300
-            hover:bg-white hover:text-black
+            hover:bg-white hover:text-[#254D70]
             ${className}
           "
         >Login

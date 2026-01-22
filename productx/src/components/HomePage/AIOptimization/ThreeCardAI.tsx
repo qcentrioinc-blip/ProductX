@@ -20,10 +20,10 @@ const features = [
 
 const ThreeCardAI = () => {
     return (
-        <section className="w-full bg-[#5551FF] py-16 px-6 md:px-12 lg:px-20">
+        <section className="w-full bg-[#F5F5F5] py-16 px-6 md:px-12 lg:px-20">
             {/* Section Title */}
             <div className="max-w-8xl mx-10 text-center mb-12">
-                <H2 className="text-white">Why You Should Choose CloudDIET</H2>
+                <H2 className="text-[#254D70]">Why You Should Choose CloudDIET</H2>
             </div>
 
             {/* Cards Grid */}
@@ -40,7 +40,7 @@ const ThreeCardAI = () => {
                             lg:w-[60vw]
                             xl:w-[28vw]
                             h-[285px]
-                            p-8
+                            p-8 shadow-lg
                             rounded-lg
                             flex
                             flex-col

@@ -17,8 +17,9 @@ const HeroAIOptimization = () => {
       <LandingPageAI />
       <Consentur />
       <StickyScrollSections/>
+       <ThreeCardAI />
       <Frontier />
-      <ThreeCardAI />
+     
       {/* <Meta /> */}
       <Statistics />
       <CloudDiet />

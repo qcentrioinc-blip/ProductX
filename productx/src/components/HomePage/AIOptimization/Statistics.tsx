@@ -52,9 +52,9 @@ const Statistics = () => {
             <div className="max-w-8xl mx-4 sm:mx-6 md:mx-10 lg:mx-16 ">
                 {/* Heading */}
                 <H2 className="font-bold mb-12 sm:mx-5 md:mb-28">
-                    <span className="text-[#020059]">How CloudDIET Protect </span>
+                    <span className="text-[#254D70]">How CloudDIET Protect </span>
                     <br />
-                    <span className="text-[#020059]">Your Azure Environment & Data </span>
+                    <span className="text-[#254D70]">Your Azure Environment & Data </span>
                 </H2>
 
                 {/* Counter Grid - Left Aligned */}
@@ -69,7 +69,7 @@ const Statistics = () => {
                         className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-2 sm:px-4 md:px-6 lg:px-8"
                     >
                         {/* Text above */}
-                        <p className=" mb-[30px] lg:mb-[84px] max-w-[240px]" style={{ color: "#020059", fontFamily: 'Quicksand', fontSize: '18px' }}>
+                        <p className=" mb-[30px] lg:mb-[84px] max-w-[240px]" style={{ color: "#141414", fontFamily: 'Quicksand', fontSize: '18px' }}>
                             {item.text}
                         </p>
 
@@ -78,9 +78,9 @@ const Statistics = () => {
                             <img
                                 src="/AIOptimization/BlueArrow.png"
                                 alt="Trend icon"
-                                className="h-4 md:h-6 lg:h-8"
+                                className="h-4 md:h-6   lg:h-8"
                             />
-                            <h2 className="text-[#0AC276] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
+                            <h2 className="text-[#0079FF] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
                                 {inView && (
                                     <CountUp
                                         start={0}
