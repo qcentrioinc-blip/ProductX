@@ -104,7 +104,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "digital-native": {
       headingPrimary: "Impact We Deliver",
-        imageSrc: "/BuiltFor/BuiltDigital.svg",
+        imageSrc: "/BuiltFor/DigitalBuilt.svg",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -123,7 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     smb: {
       headingPrimary: "The Enterprise Impact We Deliver ",
-        imageSrc: "/BuiltFor/EnterpriseSplit.png",
+        imageSrc: "/BuiltFor/SMBBuilt.svg",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",

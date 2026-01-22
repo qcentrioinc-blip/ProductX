@@ -25,13 +25,14 @@ const CallToAction = () => {
           <P className="mt-4 sm:mt-6 mb-8 text-white/90 leading-relaxed">
          Discover how Qnest Global’s AI, CRM, HRM, and cloud products support real needs across different sectors.
           </P>
-
+          <a href="/marketplace">
           <ContactUsDark
             
           >
             Browse All Qnest Offerings.
             
           </ContactUsDark>
+          </a>
         </div>
 
         {/* RIGHT — IMAGE */}

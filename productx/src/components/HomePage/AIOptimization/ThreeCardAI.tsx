@@ -5,16 +5,19 @@ const features = [
         title: "Deep Azure Expertise",
         description:
             "Built by cloud engineers with decades of experience across AWS, Azure, and GCP. We understand Azure’s complexity so you don’t have to.",
+            image:"/AIOptimization/Star.svg",
     },
     {
         title: "Advanced Savings Insights",
         description:
             "Move beyond basic FinOps. Our AI identifies hidden inefficiencies, from SKU optimizations to unused capacity and licensing waste.",
+             image:"/AIOptimization/Wallet.svg",
     },
     {
         title: "Performance-Based Pricing",
         description:
             "You only pay a percentage of the savings we deliver. Most customers see ROI within the first month of use.",
+             image:"/AIOptimization/PriceTag.svg",
     },
 ];
 
@@ -52,7 +55,13 @@ const ThreeCardAI = () => {
                         "
                     >
                         {/* Circle Icon */}
-                        <div className="w-12 h-12 bg-gray-300 rounded-full" />
+                        <div className=" rounded-full">
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-12 h-12 "
+                            />
+                            </div>
 
                         {/* Title */}
                         <H4
@@ -64,7 +73,7 @@ const ThreeCardAI = () => {
                                 fontSize: '24px',
                                 lineHeight: '100%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000', // Preserved from original
+                                backgroundColor: '#000000',  
                             }}
                         >
                             {item.title}
@@ -81,7 +90,7 @@ const ThreeCardAI = () => {
                                 fontSize: '18px',
                                 lineHeight: '100%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000', // Preserved from original
+                                backgroundColor: '#000000',  
                                 color: '#4B5563',
                             }}
                         >

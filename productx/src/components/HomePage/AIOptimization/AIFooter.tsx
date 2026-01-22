@@ -105,8 +105,10 @@ const handleSubmit = () => {
                                     <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
                                 ))}
                             </div>
-                        </div>
-                    
+                      
+                        
+                    </div>
+
                     {/* RIGHT SIDE AI IMAGE */}
                     <div className="xl:pl-36 space-y-6">
                         <h3 className="text-[28px] sm:text-[44px] lg:text-[44px] text-[#F5F5F5] font-semibold leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
@@ -129,7 +131,6 @@ const handleSubmit = () => {
 </div>
 
 
-                        
                     </div>
                     {/* <div className="hidden xl:block relative">
                         <img

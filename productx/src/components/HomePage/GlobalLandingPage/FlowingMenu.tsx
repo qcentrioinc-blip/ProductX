@@ -6,19 +6,21 @@ const FlowingMenu: React.FC = () => {
     {
       text: "Cloud Finops AI",
       hoverText: "Cloud Diet",
-      image: "https://picsum.photos/600/400?random=1",
+      image: "../AzureLogo.png",
       isLive: true,
+      href: "/industries/cloud-finops-ai",
     },
     {
       text: "Other Industries",
-      hoverText: "coming soon",
+      hoverText: "Coming Soon",
       image: "https://picsum.photos/600/400?random=1",
       isLive: true,
+      href: "#",
     },
   ];
 
   return (
-    <div className="relative w-full h-[250px] bg-black overflow-hidden font-bricolage">
+    <div className="relative w-full h-[250px] bg-black overflow-hidden font-bricolage border-t border-b border-white/15">
       <nav className="flex flex-col h-full">
         {items.map((item, i) => (
           <MenuItem
@@ -38,6 +40,7 @@ interface MenuItemProps {
   image: string;
   isLive: boolean;
   isLast: boolean;
+  href: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -46,6 +49,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   image,
   isLive,
   isLast,
+  href,
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -156,7 +160,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
           {image && (
             <div
-              className="w-[200px] h-[7vh] my-[2em] mx-[2vw] rounded-full bg-cover bg-center"
+              className="w-[140px] h-[6vh] my-[0.25em] mx-[1.5vw] bg-contain bg-no-repeat bg-center"
               style={{ backgroundImage: `url(${image})` }}
             />
           )}
@@ -170,14 +174,16 @@ const MenuItem: React.FC<MenuItemProps> = ({
       ref={itemRef}
       className={`relative flex-1 overflow-hidden text-center
         ${!isLast ? "border-b border-white/15" : ""}
-        ${isLive ? "cursor-pointer" : "cursor-not-allowed opacity-60"}
+        ${isLive ? "cursor-pointer" : "cursor-not-allowed opacity-50"}
       `}
     >
       {/* STATIC TEXT */}
       <a
         ref={linkRef}
-        href="#"
-        onClick={(e) => e.preventDefault()}
+        href={href}
+        onClick={(e) => {
+          if (!isLive || href === "#") e.preventDefault();
+        }}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
         className="relative z-10 flex h-full items-center justify-center uppercase

@@ -20,7 +20,7 @@ type Theme = {
 };
 
 type Content = {
-  heroHeading: string;
+  heroHeading: string | React.ReactNode;
   cardTitle: string;
   cardPara: string;
   buttonLabel: string;
@@ -65,7 +65,7 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    bgImage: "/BuiltFor/ImageBg.png",
+    bgImage: "/BuiltFor/ImageBg2.png",
       cardBg: "bg-[#254D70]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
@@ -81,8 +81,9 @@ const THEMES: Record<string, Theme> = {
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
-      heroHeading:
-        "CloudDIET cuts enterprise Azure waste.",
+      heroHeading:(<>
+      CloudDIET cuts enterprise <br/> {" "} Azure waste.
+      </>),
       cardTitle: "Our Platform",
       cardPara: "Check our solution for large-scale Azure environments.",
       buttonLabel: "View Demo",
@@ -97,8 +98,10 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     smb: {
-      heroHeading:
-        "CloudDIET stops SaaS cloud waste.  ",
+      heroHeading:(<>
+      CloudDIET stops SaaS <br/> {" "}cloud waste.
+      </>),
+     
       cardTitle: "Start Optimizing ",
       cardPara: "Check CloudDIET platform to cut Azure costs safely in regulated setups",
       buttonLabel: " Try Platform",
@@ -176,7 +179,7 @@ export default function ImgSec() {
           {/* LEFT TEXT */}
           <div className="   h-full pt-20 pb-10  ">
             <div className="w-full  ">
-            <H2 className="leading-tight text-[#254D70] max-w-3xl">
+            <H2 className="leading-tight text-white max-w-5xl">
   {content.heroHeading}
 </H2>
 

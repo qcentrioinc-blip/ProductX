@@ -1,8 +1,8 @@
 'use client';
-
+ 
 import { useEffect, useRef, useState } from 'react';
 import { H2, H3, P } from '../../../styles/Typography';
-
+ 
 const LifeCycleTech = () => {
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -20,7 +20,6 @@ const logosRow1 = [
   "/Logo/logo11.svg",
   "/Logo/logo12.svg",
 ];
-
 // const logosRow2 = [
 //   "/Logo/logo7.svg",
 //   "/Logo/logo8.svg",
@@ -29,7 +28,6 @@ const logosRow1 = [
 //   "/Logo/logo11.svg",
 //   "/Logo/logo12.svg",
 // ];
-
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -42,18 +40,18 @@ const logosRow1 = [
                 rootMargin: '0px 0px -50px 0px'
             }
         );
-
+ 
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
         }
-
+ 
         return () => {
             if (sectionRef.current) {
                 observer.unobserve(sectionRef.current);
             }
         };
     }, []);
-
+ 
     return (
         <div
             ref={sectionRef}
@@ -81,21 +79,21 @@ const logosRow1 = [
                     zIndex: 1
                 }}
             />
-
+ 
             <div className="relative z-10 max-w-8xl lg:mx-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-
+ 
                 {/* Header Section */}
                 <div className="text-center max-w-6xl  mb-12 lg:mb-16">
                     <H2
                         className="transition-all text-[#F5F5F5] duration-700 ease-in-out mb-4"
                         style={{
-                            
+                           
                             opacity: isVisible ? 1 : 0,
                             transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                             transitionDelay: '0.1s'
                         }}
                     >
-                         Efficient Lifecycle Management and Modernization 
+                         Efficient Lifecycle Management and Modernization
                     </H2>
                     <p
                         className="max-w-4xl mx-auto transition-all duration-700 ease-in-out"
@@ -110,10 +108,10 @@ const logosRow1 = [
                             transitionDelay: '0.3s'
                         }}
                     >
-                        Clients rely on Qnest Global to move from legacy systems to AI‑ready, cloud platforms with minimal disruption, aligning technology changes with daily work for both business and IT teams. 
+                        Clients rely on Qnest Global to move from legacy systems to AI‑ready, cloud platforms with minimal disruption, aligning technology changes with daily work for both business and IT teams.
                     </p>
                 </div>
-
+ 
                 {/* White Card Section */}
                 <div
                     className="bg-white rounded-none shadow-2xl p-8 lg:px-14 lg:py-28 transition-all duration-700 ease-in-out"
@@ -129,7 +127,6 @@ const logosRow1 = [
 <section className="bg-white pt-10">
  {/* Logo Marquee Container */}
 <div className="relative mb-4 overflow-hidden w-full pt-10">
-
   {/* Row 1 */}
   <div className="flex gap-12 animate-marquee-inner">
     {[...logosRow1, ...logosRow1].map((logo, i) => (
@@ -190,32 +187,31 @@ const logosRow1 = [
         />
       ))}
     </div> */}
-
     {/* Two-column text */}
     <div className="grid grid-cols-1  lg:grid-cols-2 lg:gap-x-40 justify-between">
-
+ 
       {/* Left column */}
       <div className="  border-t  border-[#858585]">
         <P className='lg:pt-10'>
-        Qnest Global builds every partnership on trust, clarity, and shared goals. Our team works closely with leading technology providers and enterprises, combining proven platforms with tailored solutions that match each </P> 
+        Qnest Global builds every partnership on trust, clarity, and shared goals. Our team works closely with leading technology providers and enterprises, combining proven platforms with tailored solutions that match each </P>
       </div>
-
+ 
       {/* Right column */}
       <div className="border-t border-[#858585]">
      <P className='lg:pt-10'>
-         Working with leading platforms and enterprise clients, we combine proven tools with practical delivery experience. This collaboration helps organizations modernize safely, reduce risk, and keep their systems ready for future change. 
+         Working with leading platforms and enterprise clients, we combine proven tools with practical delivery experience. This collaboration helps organizations modernize safely, reduce risk, and keep their systems ready for future change.
         </P >
       </div>
-
+ 
     </div>
  
 </section>
-
+ 
            </div>
-
+ 
             </div>
         </div>
     );
 };
-
+ 
 export default LifeCycleTech;
