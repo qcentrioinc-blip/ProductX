@@ -1,16 +1,17 @@
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { H2, H3, P } from "../../../../../styles/Typography"
+import { HoverExpandImage } from "./HoverExpandImage"
 
 const sections = [
-  { id: "optimizations", label: "Productivity" },
-  { id: "cloud", label: "Usability" },
-  { id: "security", label: "Outbound" },
+  { id: "optimizations", label: "Insights " },
+  { id: "cloud", label: " Optimization " },
+  { id: "security", label: "Security" },
 ]
 
 // --- Image URLs for each feature ---
 const featureImages = [
-  "/AI/Careers/Feature1.jpg",
+  "/AI/Careers/Feature1.png",
   "/AI/Careers/Feature2.png",
   "/AI/Careers/Feature3.png",
   "/AI/Careers/Feature4.png",
@@ -20,6 +21,7 @@ const featureImages = [
   "/AI/Careers/Feature8.png",
   "/AI/Careers/Feature9.png",
 ]
+
 
 // --- Configuration Data & Mockups ---
 interface Feature {
@@ -34,72 +36,72 @@ interface Feature {
 const features: Feature[] = [
   {
     id: 1,
-    title: "Instant crypto exchange",
-    description: "Swap crypto to crypto or crypto to euros at Tier-1 exchange rates, with access to over 100 trading pairs — all in one seamless platform.",
+    title: " Interactive Forecasting & Alerts",
+    description: "Predict future spend, set budgets, and spot issues fast. Track savings plans and fixes across subscriptions. ",
     color: "bg-blue-600",
     highlight: "text-blue-500",
     borderColor: "border-blue-500",
   },
   {
     id: 2,
-    title: "Crypto wallet & personal IBAN",
-    description: "Securely store crypto and manage your euro funds with a personal IBAN — all from a single, intuitive interface. Supports BTC, ETH, USDC and more.",
+    title: "Granular Cost Attribution ",
+    description: "View costs at the table or SKU level, not just workspace summaries. More detail than Azure billing. ",
     color: "bg-purple-600",
     highlight: "text-purple-500",
     borderColor: "border-purple-500",
   },
   {
     id: 3,
-    title: "Simple deposits & withdrawals",
-    description: "Top up your wallet, exchange crypto to euros, and withdraw directly to your IBAN. SEPA/SEPA Instant transfers are fully integrated.",
+    title: " Resource Cost Drilling ",
+    description: "Drill into any resource to see cost drivers and usage patterns. Identify optimization potential in detail. ",
     color: "bg-emerald-600",
     highlight: "text-emerald-500",
     borderColor: "border-emerald-500",
   },
   {
     id: 4,
-    title: "Virtual cards with auto-conversion",
-    description: "Issue virtual cards linked to your crypto accounts. Spend fiat or crypto online and offline via your phone, with automatic conversion.",
+    title: "Daily Trend Monitoring",
+    description: "Track spending patterns daily, weekly, or monthly. Spot anomalies and seasonal trends in your cloud spend. ",
     color: "bg-rose-600",
     highlight: "text-rose-500",
     borderColor: "border-rose-500",
   },
   {
     id: 5,
-    title: "Team collaboration tools",
-    description: "Work seamlessly with your team with shared wallets, multi-signature approvals, and role-based access controls for enhanced security.",
+    title: "Tag-Based Allocation ",
+    description: "Assign costs by department, project, or team using Azure tags. Enable accurate showback and chargeback reporting. ",
     color: "bg-indigo-600",
     highlight: "text-indigo-500",
     borderColor: "border-indigo-500",
   },
   {
     id: 6,
-    title: "Advanced analytics dashboard",
-    description: "Get detailed insights into your transactions, portfolio performance, and market trends with our comprehensive analytics dashboard.",
+    title: "Savings Plan Tracking ",
+    description: "Visualize how Savings Plans and Reserved Instances impact your current and forecasted cloud spend over time. ",
     color: "bg-amber-600",
     highlight: "text-amber-500",
     borderColor: "border-amber-500",
   },
   {
     id: 7,
-    title: "Enterprise-grade security",
-    description: "Bank-level security with biometric authentication, cold storage, and insurance coverage for your digital assets.",
+    title: " Anomaly Detection ",
+    description: "Receive alerts when spending spikes or deviates from expected patterns. Respond quickly to overspend risks. ",
     color: "bg-green-600",
     highlight: "text-green-500",
     borderColor: "border-green-500",
   },
   {
     id: 8,
-    title: "Global payment network",
-    description: "Send and receive payments in over 50 countries with instant settlement and competitive exchange rates.",
+    title: "Custom Dashboards ",
+    description: "Build and save personalized cost views and reports. Tailor dashboards to your team’s specific needs and goals. ",
     color: "bg-cyan-600",
     highlight: "text-cyan-500",
     borderColor: "border-cyan-500",
   },
   {
     id: 9,
-    title: "API & automation tools",
-    description: "Integrate our platform into your business workflows with our comprehensive API and automation tools.",
+    title: " Export & Integration ",
+    description: "Export cost data or integrate insights into your BI, FinOps, and governance tools seamlessly. ",
     color: "bg-orange-600",
     highlight: "text-orange-500",
     borderColor: "border-orange-500",
@@ -110,7 +112,7 @@ const features: Feature[] = [
 interface FeatureVisualizationProps {
   activeFeature: number;
   onDotClick: (index: number) => void;
-  onNavigate: (direction: 'start' | 'end' | 'prev' | 'next') => void;
+  onNavigate: (direction: 'prev' | 'next') => void;
   animate?: boolean;
 }
 
@@ -148,31 +150,22 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
               }}
               className="absolute inset-0 w-full h-auto"
             >
-              <img
-                src={featureImages[activeFeature]}
-                alt={`Feature ${activeFeature + 1}`}
-                className="w-full h-full object-contain"
-              />
-
-              {/* Feature Indicator */}
-              {/* <div className="absolute top-4 left-4">
-                <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                  <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
-                  <span className="text-sm font-medium text-gray-900">
-                    Feature {features[activeFeature].id}
-                  </span>
-                </div>
-              </div> */}
+              <HoverExpandImage
+  src={featureImages[activeFeature]}
+  className="w-full h-full"
+  objectFit="contain"
+/>
             </motion.div>
           </AnimatePresence>
         ) : (
           // Mobile/Tablet - no animation logic handled here
           <div className="absolute inset-0 w-full h-full">
-            <img
-              src={featureImages[activeFeature]}
-              alt={`Feature ${activeFeature + 1}`}
-              className="w-full h-full object-cover"
-            />
+           <HoverExpandImage
+  src={featureImages[activeFeature]}
+  className="w-full h-full"
+  objectFit="cover"
+/>
+
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
@@ -187,26 +180,11 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
 
       {/* Pagination Controls - Desktop Only */}
       <div className="mt-6 hidden xl:flex justify-center items-center gap-4">
-        {/* Start Button */}
-        {/* <button
-          onClick={() => onNavigate('start')}
-          disabled={activeFeature === 0}
-          className={`
-            px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium transition-all duration-300 shadow-sm
-            ${activeFeature === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
-          `}
-        >
-          Start
-        </button> */}
-
         {/* Prev Button (<) */}
         <button
           onClick={() => onNavigate('prev')}
-          disabled={activeFeature === 0}
-          className={`
-            p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm
-            ${activeFeature === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
-          `}
+          // FIX: Removed 'disabled' prop and conditional opacity classes
+          className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#254D70] hover:text-[#254D70] active:scale-95"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
         </button>
@@ -233,26 +211,11 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
         {/* Next Button (>) */}
         <button
           onClick={() => onNavigate('next')}
-          disabled={activeFeature === features.length - 1}
-          className={`
-            p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm
-            ${activeFeature === features.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
-          `}
+          // FIX: Removed 'disabled' prop and conditional opacity classes
+          className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#254D70] hover:text-[#254D70] active:scale-95"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
         </button>
-
-        {/* End Button */}
-        {/* <button
-          onClick={() => onNavigate('end')}
-          disabled={activeFeature === features.length - 1}
-          className={`
-            px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium transition-all duration-300 shadow-sm
-            ${activeFeature === features.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:border-indigo-900 hover:text-indigo-900 active:scale-95'}
-          `}
-        >
-          End
-        </button> */}
       </div>
     </div>
   );
@@ -289,11 +252,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     >
       <div className="flex items-center gap-4 mb-6">
         <span className={`text-5xl sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
-        {/* <div className={`p-3 rounded-xl shadow-lg ${feature.color}`}>
-          <div className="w-6 h-6"></div>
-        </div> */}
       </div>
-      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#254D70] mb-4 sm:mb-6 leading-tight">
         {feature.title}
       </h3>
       <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
@@ -379,7 +339,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
             }}
             className="relative w-full rounded-xl overflow-hidden shadow-2xl mt-4"
           >
-            <img
+            <HoverExpandImage
               src={featureImages[index]}
               alt={`Feature ${index + 1}`}
               className="w-full h-full object-cover"
@@ -487,7 +447,7 @@ export default function StickyPremiumSections() {
   }, [])
 
   // FIXED: Unified Scroll Handler for Mobile and Tablet
-  // This fixes the "only works on reload" issue by running the calculation immediately on mount
+  // Added setTimeout to fix "only works on reload" issue
   useEffect(() => {
     // Only run for mobile/tablet screens
     if (typeof window === 'undefined' || window.innerWidth >= 1280) return;
@@ -541,11 +501,15 @@ export default function StickyPremiumSections() {
     // Add scroll listener
     window.addEventListener("scroll", updateActiveFeature, { passive: true });
 
-    // CRITICAL FIX: Initial Call
-    // This runs immediately to fix the "only works on reload" issue
-    updateActiveFeature();
+    // CRITICAL FIX: Delayed Initial Call
+    // We delay the initial call to ensure the DOM layout has settled
+    // after render, otherwise getBoundingClientRect might return incorrect values
+    const timeoutId = setTimeout(() => {
+        updateActiveFeature();
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       window.removeEventListener("scroll", updateActiveFeature);
     };
   }, []);
@@ -634,13 +598,15 @@ export default function StickyPremiumSections() {
   }
 
   // Handle Navigation buttons for desktop (Start, End, Prev, Next)
-  const handleNavigate = (direction: 'start' | 'end' | 'prev' | 'next') => {
+  const handleNavigate = (direction: 'prev' | 'next') => {
     let newIndex = activeFeature;
 
-    if (direction === 'start') newIndex = 0;
-    if (direction === 'end') newIndex = features.length - 1;
-    if (direction === 'prev') newIndex = Math.max(0, activeFeature - 1);
-    if (direction === 'next') newIndex = Math.min(features.length - 1, activeFeature + 1);
+    // FIX: Implement Wrapping Logic (Circular Navigation)
+    if (direction === 'prev') {
+      newIndex = (activeFeature - 1 + features.length) % features.length;
+    } else if (direction === 'next') {
+      newIndex = (activeFeature + 1) % features.length;
+    }
 
     if (newIndex !== activeFeature) {
       setActiveFeature(newIndex);
@@ -675,8 +641,8 @@ export default function StickyPremiumSections() {
                   onClick={() => scrollToSection(i)}
                   className={`px-4 py-2 text-sm font-medium font-bricolage rounded-full transition-all duration-300 shadow-sm
                     ${active === i
-                      ? "bg-indigo-900 text-white shadow-lg"
-                      : "text-gray-600 hover:text-indigo-900 hover:bg-gray-100"
+                      ? "bg-[#254D70] text-white shadow-lg"
+                      : "text-gray-600 hover:text-[#254D70] hover:bg-gray-100"
                     }`}
                 >
                   {s.label}
@@ -688,7 +654,7 @@ export default function StickyPremiumSections() {
           {/* Progress Bar */}
           <div className="h-1 w-full bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <motion.div
-              className="h-full bg-indigo-900 shadow-sm"
+              className="h-full bg-[#254D70] shadow-sm"
               animate={{ width: `${((active + progress) / sections.length) * 100}%` }}
             />
           </div>
@@ -705,10 +671,10 @@ export default function StickyPremiumSections() {
                 onClick={() => scrollToSection(i)}
                 className={`w-full flex items-center gap-2 uppercase text-[16px] md:text-[20px] lg:text-[24px]
                   font-bricolage leading-[120%] transition-all duration-300 
-                  ${active === i ? "text-indigo-900 font-semibold" : "text-gray-400 hover:text-gray-600"}`}
+                  ${active === i ? "text-[#254D70] font-semibold" : "text-gray-400 hover:text-gray-600"}`}
               >
                 <span className={`h-2 w-2 rounded-full transition-all duration-300 flex-shrink-0 
-                  ${active === i ? "bg-indigo-900 shadow" : "bg-gray-300"}`} />
+                  ${active === i ? "bg-[#254D70] shadow" : "bg-gray-300"}`} />
                 <span className="text-left">{s.label}</span>
               </button>
 
@@ -717,7 +683,7 @@ export default function StickyPremiumSections() {
               {active === i && (
                 <div className="relative mt-2 h-[2px] w-full overflow-hidden">
                   <motion.div
-                    className="absolute left-0 top-0 h-full bg-indigo-900"
+                    className="absolute left-0 top-0 h-full bg-[#254D70]"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress * 100}%` }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -740,7 +706,7 @@ export default function StickyPremiumSections() {
             
 
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
-              <H2 className="text-indigo-900">
+              <H2 className="text-[#254D70]">
                 Transform Your Cloud
                 <br className="hidden lg:block" />
                 <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
@@ -751,7 +717,7 @@ export default function StickyPremiumSections() {
 
                 {/* LEFT BLOCK */}
                 <div className="mt-3 md:mt-4 lg:mt-6 lg:p-6">
-                  <H3 className="text-indigo-900 mb-3">
+                  <H3 className="text-[#254D70] mb-3">
                     Engineering-Led Profiling
                   </H3>
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -759,7 +725,7 @@ export default function StickyPremiumSections() {
                   </P>
 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                    <img
+                    <HoverExpandImage
                       src="/AI/Careers/optimization1.png"
                       className="w-full h-full object-contain"
                       alt=""
@@ -769,7 +735,7 @@ export default function StickyPremiumSections() {
 
                 {/* RIGHT BLOCK */}
                 <div className="xl:mt-6 md:mt-6 lg:mt-3 lg:p-6">
-                  <H3 className="text-indigo-900 mb-3">
+                  <H3 className="text-[#254D70] mb-3">
                     Advanced Cost Intelligence
                   </H3>
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -777,7 +743,7 @@ export default function StickyPremiumSections() {
                   </P>
 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                    <img
+                    <HoverExpandImage
                       src="/AI/Careers/optimization2.png"
                       className="w-full h-full object-contain"
                       alt=""
@@ -794,7 +760,7 @@ export default function StickyPremiumSections() {
             id="cloud"
             className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 lg:scroll-mt-32"
           >
-            <H2 className="text-indigo-900 mx-6">
+            <H2 className="text-[#254D70] mx-6">
               Engineered for Azure Cost
               <br className="hidden lg:block" />
               <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
@@ -805,7 +771,7 @@ export default function StickyPremiumSections() {
 
               {/* LEFT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
-                <H3 className="text-indigo-900 mb-3">
+                <H3 className="text-[#254D70] mb-3">
                   Savings Plan Designer 
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -813,7 +779,7 @@ export default function StickyPremiumSections() {
                 </P>
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
-                  <img
+                  <HoverExpandImage
                     src="/AI/Careers/usability1.png"
                     className="w-full h-full object-contain"
                     alt=""
@@ -823,7 +789,7 @@ export default function StickyPremiumSections() {
 
               {/* RIGHT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
-                <H3 className="text-indigo-900 mb-3">
+                <H3 className="text-[#254D70] mb-3">
                   Guided Optimization Workflows 
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -831,7 +797,7 @@ export default function StickyPremiumSections() {
                 </P>
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
-                  <img
+                  <HoverExpandImage
                     src="/AI/Careers/usability2.png"
                     className="w-full h-full object-contain"
                     alt=""
@@ -847,15 +813,15 @@ export default function StickyPremiumSections() {
             id="security"
             className="relative w-full bg-white font-bricolage"
           >
-            <H2 className="text-indigo-900">
-              Lorem ipsum dolor
+            <H2 className="text-[#254D70]">
+              Multi-Dimensional  
               <br className="hidden lg:block" />
               <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
-              sit amet Lorem
+              Cost Views
             </H2>
 
             <P className="mt-6 md:mt-8 xl:mt-10 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
-              Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus. Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.Sed ac faucibus lectus. Ut sed eros vel sapien tristique. Sed ac faucibus lectus.
+              See Azure costs by service, resource, or tag. Zoom from trends to details, better than basic Azure tools. Identify cost drivers at table or SKU level with granular breakdowns. Pinpoint waste and accelerate decisions with clarity.  
             </P>
             
 

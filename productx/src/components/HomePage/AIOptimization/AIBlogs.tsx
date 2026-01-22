@@ -6,20 +6,20 @@ const AIBlogs = () => {
     {
       id: 1,
       tag: "AI Blogs ",
-      title: "Accelerating Financial Modeling with Our AI.",
+      title: "CloudDIET uncovers savings others miss.",
       image: "/AIOptimization/GroupPeople.png",
     },
     {
       id: 2,
       tag: "Tech Blogs",
       title: "Accelerating Financial Modeling with Our AI.",
-      image: "/AIOptimization/GroupPeople.png",
+      image: "/AIOptimization/Blog2.jpg",
     },
     {
       id: 3,
       tag: "Solutions Blogs ",
-      title: "Accelerating Financial Modeling with Our AI.",
-      image: "/AIOptimization/GroupPeople.png",
+      title: "CloudDIET profiler to authenticate to Azure.",
+      image: "/AIOptimization/Blog1.jpg",
     },
   ];
 
@@ -63,13 +63,13 @@ const AIBlogs = () => {
                   color: "#5551FF",
                 }}
               >
-                Our Industry
+                Our 
                 <br className="hidden xl:block" />
-                Blogs
+                Resources
               </h2>
 
               {/* View All Button */}
-              <a href="/industries/cloud-finops-ai/resources">
+              <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 bg-white text-[#2A2A2A] rounded-lg hover:bg-gray-100 transition-colors uppercase cursor-pointer"
@@ -172,7 +172,7 @@ const AIBlogs = () => {
                         {blog.title}
                       </h3>
 
-                      <a href="/industries/cloud-finops-ai/resources">
+                      <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                         <button
                           type="button"
                           className="inline-flex items-center gap-2 self-start mt-3 cursor-pointer"

@@ -3,145 +3,161 @@ import { ArrowUpRight, X } from "lucide-react";
 import { Modal, Slide, Backdrop } from "@mui/material";
 
 interface ContactModalProps {
-    open: boolean;
-    onClose: () => void;
+  open: boolean;
+  onClose: () => void;
 }
 
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        email: "",
-    });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Form submitted:", formData);
-        // Add your form submission logic here
-        onClose();
-        // Reset form
-        setFormData({ name: "", phone: "", email: "" });
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    onClose();
+    setFormData({ name: "", phone: "", email: "" });
+  };
 
-    return (
-        <Modal
-            open={open}
-            onClose={onClose}
-            closeAfterTransition
-            slots={{ backdrop: Backdrop }}
-            slotProps={{
-                backdrop: {
-                    timeout: 500,
-                    sx: { backgroundColor: 'rgba(0, 0, 0, 0.5)' }
-                }
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      closeAfterTransition
+      slots={{ backdrop: Backdrop }}
+      slotProps={{
+        backdrop: {
+          timeout: 500,
+          sx: { backgroundColor: "rgba(0,0,0,0.55)" },
+        },
+      }}
+      sx={{ zIndex: 10002 }}
+    >
+      <Slide direction="down" in={open} timeout={500}>
+        <div className="relative  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[83vw] h-[85vh] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
+
+          {/* 🔹 BACKGROUND IMAGE */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: "url('/bg_image.jpg')", // <-- update path
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
-        >
-            <Slide direction="down" in={open} timeout={500}>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] h-[85vh] lg:h-[75vh] bg-white outline-none rounded-3xl shadow-2xl overflow-hidden">
-                    {/* Close Button */}
-                    <button
-                        onClick={onClose}
-                        className="absolute top-6 right-6 md:top-8 md:right-8 p-2 hover:bg-gray-100 rounded-full transition-all z-10"
-                    >
-                        <X className="w-6 h-6 text-gray-700" />
-                    </button>
+          />
 
-                    {/* Form Container with Scroll */}
-                    <div className="h-full scrollbar-hide overflow-y-auto px-6 py-8 md:px-12 md:py-10 lg:px-24 lg:py-20">
-                        {/* Header */}
-                        <div className="mb-12">
-                            <p
-                                className="font-quicksand text-xl mb-12"
-                                style={{ color: '#2ECC71' }}
-                            >
-                                TO: QNEST GLOBAL
-                            </p>
+          {/* 🔹 SOFT OVERLAY FOR READABILITY */}
+          {/* <div className="absolute inset-0 bg-white/85 backdrop-blur-sm z-0" /> */}
 
-                            {/* Form */}
-                            <form onSubmit={handleSubmit} className="space-y-8" autoComplete="off">
-                                {/* First Line: HEY QNEST!* MY NAME IS [NAME] * */}
-                                <div
-                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
-                                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                >
-                                    <span className="whitespace-nowrap">HEY <span>QNEST</span>!*</span>
-                                    <span className="whitespace-nowrap">MY NAME IS</span>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="[NAME]"
-                                        value={formData.name}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl"
-                                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                    />
-                                    <span className="text-[#E74C3C]">*</span>
-                                </div>
+          {/* 🔹 FOREGROUND CONTENT */}
+          <div className="relative z-10 h-full flex justify-center items-center">
 
-                                {/* Second Line: MY PHONE NUMBER IS [PHONE] * AND MY */}
-                                <div
-                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
-                                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                >
-                                    <span className="whitespace-nowrap">MY PHONE NUMBER IS</span>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        placeholder="[PHONE]"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl"
-                                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                    />
-                                    <span className="text-[#E74C3C]">*</span>
-                                    <span className="whitespace-nowrap">AND MY</span>
-                                </div>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 md:top-8 md:right-8 p-2 rounded-full hover:bg-black/10 transition z-20"
+            >
+              <X className="w-6 h-6 text-gray-800" />
+            </button>
 
-                                {/* Third Line: EMAIL IS [EMAIL] * SEE YOU SOON */}
-                                <div
-                                    className="flex flex-wrap items-baseline gap-2 sm:gap-4 text-[20px] sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
-                                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                >
-                                    <span className="whitespace-nowrap">EMAIL IS</span>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="[EMAIL]"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        required
-                                        className="border-b-2 sm:border-b-4 border-[#2ECC71] outline-none bg-transparent px-1 sm:px-2 pb-1 sm:pb-2 min-w-[85%] lg:min-w-[300px] flex-1 max-w-full placeholder:text-gray-300 text-[20px] sm:text-2xl md:text-3xl lg:text-5xl"
-                                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                                    />
-                                    <span className="text-[#E74C3C]">*</span>
-                                    <span className="whitespace-nowrap">SEE YOU SOON</span>
-                                </div>
+            {/* 🔹 FORM CARD (REDUCED WIDTH) */}
+            <div className="w-full max-w-[1200px] mx-auto px-6 bg-white rounded-2xl md:px-12 lg:px-16 py-10 overflow-y-auto scrollbar-hide">
 
-                                {/* Send Button */}
-                                <div className="pt-8">
-                                    <button
-                                        type="submit"
-                                        className="bg-black text-white px-10 py-5 rounded-2xl font-bold text-base flex items-center gap-3 hover:bg-gray-900 transition-all group"
-                                        style={{ fontFamily: "'Arial', sans-serif", letterSpacing: "1px" }}
-                                    >
-                                        SEND
-                                        <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+              {/* Header */}
+              <p
+                className="text-3xl md:text-4xl font-bold mb-12"
+                style={{
+                  color: "#0079FF",
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                }}
+              >
+                TO: QNEST GLOBAL
+              </p>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-10" autoComplete="off">
+
+                {/* LINE 1 */}
+                <div
+                  className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
+                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                >
+                  <span>HEY QNEST!*</span>
+                  <span>MY NAME IS</span>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="[NAME]"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
+                  />
+                  <span className="text-[#0079FF]">*</span>
                 </div>
-            </Slide>
-        </Modal >
-    );
+
+                {/* LINE 2 */}
+                <div
+                  className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
+                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                >
+                  <span>MY PHONE NUMBER IS</span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="[PHONE]"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
+                  />
+                  <span className="text-[#0079FF]">*</span>
+                  <span>AND MY</span>
+                </div>
+
+                {/* LINE 3 */}
+                <div
+                  className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
+                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                >
+                  <span>EMAIL IS</span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="[EMAIL]"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
+                  />
+                  <span className="text-[#0079FF]">*</span>
+                  <span>SEE YOU SOON</span>
+                </div>
+
+                {/* SEND BUTTON */}
+                <button
+                  type="submit"
+                  className="mt-6 bg-black text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-3 hover:bg-gray-900 transition group"
+                  style={{ letterSpacing: "1px" }}
+                >
+                  SEND
+                  <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </Slide>
+    </Modal>
+  );
 };
 
 export default ContactModal;

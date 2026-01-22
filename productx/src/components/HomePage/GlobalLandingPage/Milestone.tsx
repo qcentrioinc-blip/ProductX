@@ -86,9 +86,9 @@ const Milestone = () => {
                                 transition: 'all 0.6s ease-in-out'
                             }}
                         >
-                            Milestone-based.<br />
-                            Results-oriented<br />
-                            approach.
+                             Qnest Approach <br />
+                            Built Around<br />
+                             Your Business
                         </h1>
                         <p
                             className={`max-w-md transition-all duration-700 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
