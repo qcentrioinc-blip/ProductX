@@ -1,4 +1,3 @@
- 
 import FeatureCards from "../HomePageAI/Features"
 // import HeroSection from "./HeroSection"
  
@@ -20,17 +19,39 @@ import FinalHero from "./FinalHero"
 import CostOptimization from "./CostOptimization"
 import ImageContainer from "./ImageContainer"
 import TextSec from "./CTA"
+import FloatingLines from "../../HomePage/AIOptimization/AIFooterBackground"
  
  
-
+ 
 const AIProduct = () => {
+  const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['top', 'bottom', 'middle'];
+const LINE_COUNT = [4, 4, 4];
+const LINE_DISTANCE = [8, 6, 4];
   return (
     <div className="relative">
-      <section   className="bg-no-repeat bg-cover z-10 "
-        style={{
-          backgroundImage: "url(/AIProduct/AiHome.png)",
+      <section   className="bg-no-repeat  bg-cover z-10 "
+        // style={{
+        //   backgroundImage: "url(/AIProduct/AiHome.png)",
          
-        }}>
+        // }}
+        > <div className="absolute inset-0 z-0 pointer-events-none">
+                             <FloatingLines
+                              linesGradient={[
+                 '#00FFCC',
+                 '#0099FF',
+                 '#6600FF'
+               ]}
+                                 enabledWaves={ENABLED_WAVES}
+                                 lineCount={LINE_COUNT}
+                                 lineDistance={LINE_DISTANCE}
+                                 bendRadius={5.0}
+                                 bendStrength={-0.5}
+                                 interactive={false}
+                                 parallax={true}
+                                 
+                             />
+                         </div>
+ 
     <FinalHero/>  
         <ImageContainer />
       </section>
@@ -57,12 +78,10 @@ const AIProduct = () => {
       </div>
       <div id="blogs">
       <AIBlogs />
-      </div> 
+      </div>
       {/* <AIFooter /> */}
     </div>
   );
 };
-
-export default AIProduct;
-
  
+export default AIProduct;

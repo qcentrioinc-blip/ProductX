@@ -41,7 +41,7 @@ const ResourceDoc: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isLoadingDuration, setIsLoadingDuration] = useState(false);
-
+  
   // Format time helper (converts seconds to MM:SS format)
   const formatTime = (time: number) => {
     if (isNaN(time)) return "0:00";

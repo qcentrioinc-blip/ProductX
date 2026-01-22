@@ -14,31 +14,31 @@ import TextSec from "./TextSec"
 export const Product = () => {
   return (
     <div>
-      <section   className="bg-no-repeat bg-cover z-10 "
+      <section className="bg-no-repeat bg-cover z-10 "
         style={{
           backgroundImage: "url(/AIProduct/AiHome.png)",
-         
+
         }}>
-          <HeroSection/>
-        <GlassySec/>
-        <LogoSec/>
-        </section>
-        
-        <TextSec/>
-        <section
-       
+        <HeroSection />
+        <GlassySec />
+        <LogoSec />
+      </section>
+
+      <TextSec />
+      <section
+
         className="relative     bg-no-repeat bg-cover z-10"
         style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
       >
-        <OnboardingSec/>
-        <Firm/>
-        <ImageGrid/>
+        <OnboardingSec />
+        <Firm />
+        <ImageGrid />
       </section>
-        <FeatureCards/>
-        <Timeline/>
-        <HWD/>
-        <FaqSection/>
-        <AIBlogs/>
-    </div>    
+      <FeatureCards />
+      <Timeline />
+      <HWD />
+      <FaqSection />
+      <AIBlogs />
+    </div>
   )
 }
