@@ -61,7 +61,7 @@ useEffect(() => {
           <img
   ref={imgRef}
   src="/AIProduct/DataImage.png"
-  className="w-[70%] xl:w-[60%] will-change-transform transform-gpu"
+  className="w-[70%] xl:w-[90%] will-change-transform transform-gpu"
   alt="Analytics dashboard"
 />
 
