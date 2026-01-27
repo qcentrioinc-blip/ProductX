@@ -6,9 +6,47 @@ import { gsap } from 'gsap';
 const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement | null>; enabled?: boolean; spotlightRadius?: number }) => {
   const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
+  const isVisibleRef = useRef(false);
+
+  // Cache layout measurements to avoid thrashing
+  const layoutRef = useRef<{
+    container: DOMRect;
+    cards: { el: HTMLElement; rect: DOMRect }[];
+  } | null>(null);
+
+  const updateLayout = () => {
+    if (!containerRef.current) return;
+    // We use viewport-relative rects so we must re-measure on scroll.
+    // Ideally we'd use page-relative, but this is simpler to drop-in.
+    // To minimize cost, we ONLY measure if we are visible.
+    if (!isVisibleRef.current) return;
+
+    layoutRef.current = {
+      container: containerRef.current.getBoundingClientRect(),
+      cards: Array.from(containerRef.current.querySelectorAll('.animated-card')).map(el => ({
+        el: el as HTMLElement,
+        rect: el.getBoundingClientRect()
+      }))
+    };
+  };
 
   useEffect(() => {
     if (!containerRef?.current || !enabled) return;
+
+    // INTERSECTION OBSERVER
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const isVisible = entries[0].isIntersecting;
+        isVisibleRef.current = isVisible;
+        if (isVisible) {
+          updateLayout();
+        } else if (spotlightRef.current) {
+          gsap.set(spotlightRef.current, { opacity: 0 });
+        }
+      },
+      { threshold: 0, rootMargin: '100px' }
+    );
+    observer.observe(containerRef.current);
 
     const spotlight = document.createElement('div');
     spotlight.className = 'global-spotlight';
@@ -34,29 +72,48 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
 
+    let ticking = false;
+
+    // Update layout cache on scroll/resize (throttled)
+    const handleLayoutUpdate = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateLayout();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleLayoutUpdate, { passive: true });
+    window.addEventListener('resize', handleLayoutUpdate, { passive: true });
+
     const handleMouseMove = (e: MouseEvent) => {
+      if (!isVisibleRef.current) return;
 
-      if (!spotlightRef.current || !containerRef.current) return;
+      // Use cached layout if available, else fall back (safety)
+      // Note: Layout is updated on scroll, so this cache is fresh enough for 60fps
+      if (!layoutRef.current) updateLayout();
+      if (!layoutRef.current || !spotlightRef.current) return;
 
-      const section = containerRef.current;
-      const rect = section.getBoundingClientRect();
+      const { container, cards } = layoutRef.current;
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
       const mouseInside =
-        e.clientX >= rect.left && e.clientX <= rect.right &&
-        e.clientY >= rect.top && e.clientY <= rect.bottom;
+        mouseX >= container.left && mouseX <= container.right &&
+        mouseY >= container.top && mouseY <= container.bottom;
 
       isInsideSection.current = mouseInside;
-      // FIX: Cast to NodeListOf<HTMLElement> to access .style
-      const cards = section.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
-
 
       if (!mouseInside) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          overwrite: 'auto'
         });
-        cards.forEach(card => {
-          card.style.setProperty('--glow-intensity', '0');
+        cards.forEach(({ el }) => {
+          el.style.setProperty('--glow-intensity', '0');
         });
         return;
       }
@@ -65,12 +122,14 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       const fadeDistance = spotlightRadius * 0.75;
       let minDistance = Infinity;
 
-      cards.forEach(card => {
-        const cardRect = card.getBoundingClientRect();
-        const centerX = cardRect.left + cardRect.width / 2;
-        const centerY = cardRect.top + cardRect.height / 2;
-        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) -
-          Math.max(cardRect.width, cardRect.height) / 2;
+      // Heavy loop - Optimized by using cached rects
+      for (let i = 0; i < cards.length; i++) {
+        const { el, rect } = cards[i];
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const distance = Math.hypot(mouseX - centerX, mouseY - centerY) -
+          Math.max(rect.width, rect.height) / 2;
         const effectiveDistance = Math.max(0, distance);
 
         minDistance = Math.min(minDistance, effectiveDistance);
@@ -82,20 +141,18 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
           glowIntensity = (fadeDistance - effectiveDistance) / (fadeDistance - proximity);
         }
 
-        const relativeX = ((e.clientX - cardRect.left) / cardRect.width) * 100;
-        const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
+        const relativeX = ((mouseX - rect.left) / rect.width) * 100;
+        const relativeY = ((mouseY - rect.top) / rect.height) * 100;
 
-        card.style.setProperty('--glow-x', `${relativeX}%`);
-        card.style.setProperty('--glow-y', `${relativeY}%`);
-        card.style.setProperty('--glow-intensity', glowIntensity.toString());
-        card.style.setProperty('--glow-radius', `${spotlightRadius}px`);
-      });
+        el.style.setProperty('--glow-x', `${relativeX}%`);
+        el.style.setProperty('--glow-y', `${relativeY}%`);
+        el.style.setProperty('--glow-intensity', glowIntensity.toString());
+        el.style.setProperty('--glow-radius', `${spotlightRadius}px`);
+      }
 
-      gsap.to(spotlightRef.current, {
-        left: e.clientX,
-        top: e.clientY,
-        duration: 0.1,
-        ease: 'power2.out'
+      gsap.set(spotlightRef.current, {
+        left: mouseX,
+        top: mouseY
       });
 
       const targetOpacity =
@@ -104,31 +161,30 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
 
       gsap.to(spotlightRef.current, {
         opacity: targetOpacity,
-        duration: targetOpacity > 0 ? 0.2 : 0.5,
-        ease: 'power2.out'
+        duration: targetOpacity > 0 ? 0.15 : 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
       });
     };
 
     const handleMouseLeave = () => {
       isInsideSection.current = false;
-      containerRef.current?.querySelectorAll('.animated-card').forEach(card => {
-        (card as HTMLElement).style.setProperty('--glow-intensity', '0');
-      });
+      // Clear glow on leave
+      layoutRef.current?.cards.forEach(({ el }) => el.style.setProperty('--glow-intensity', '0'));
       if (spotlightRef.current) {
-        gsap.to(spotlightRef.current, {
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power2.out'
-        });
+        gsap.to(spotlightRef.current, { opacity: 0, duration: 0.3, ease: 'power2.out' });
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('scroll', handleLayoutUpdate);
+      window.removeEventListener('resize', handleLayoutUpdate);
+      observer.disconnect();
       spotlightRef.current?.parentNode?.removeChild(spotlightRef.current);
     };
   }, [containerRef, enabled, spotlightRadius]);

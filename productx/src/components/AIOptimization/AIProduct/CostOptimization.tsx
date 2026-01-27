@@ -33,21 +33,20 @@ const COST_LAYERS = [
 const CostOptimization = () => {
   return (
     <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:py-16 overflow-hidden">
-      
+
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <video
           className="w-full h-full object-cover"
           src="/Video/LCO.mp4"
-          preload="auto"
-  muted
-  playsInline
-  disablePictureInPicture
-  disableRemotePlayback
+          preload="none"
+          muted
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
           autoPlay
           loop
-          
-         />
+        />
         {/* Optional dark overlay for readability */}
         <div className="absolute inset-0 bg-[#1E2440]/70" />
       </div>
@@ -102,9 +101,9 @@ const CostOptimization = () => {
                 fill="none"
               />
 
-           {/* LONG CONNECTOR — Visualization → Engineering (shifted left) */}
-<path
-  d="
+              {/* LONG CONNECTOR — Visualization → Engineering (shifted left) */}
+              <path
+                d="
     M 70 170
     L 70 340
     Q 70 380, 130 380
@@ -112,10 +111,10 @@ const CostOptimization = () => {
     Q 1060 380, 1060 340
     L 1060 170
   "
-  stroke="white"
-  strokeWidth="3"
-  fill="none"
-/>
+                stroke="white"
+                strokeWidth="3"
+                fill="none"
+              />
 
 
               <line
@@ -128,14 +127,14 @@ const CostOptimization = () => {
               />
 
               {/* Vertical connector above CloudDIET logo */}
-<line
-  x1="600"
-  y1="380"
-  x2="600"
-  y2="450"
-  stroke="white"
-  strokeWidth="3"
-/>
+              <line
+                x1="600"
+                y1="380"
+                x2="600"
+                y2="450"
+                stroke="white"
+                strokeWidth="3"
+              />
 
             </svg>
           </div>
@@ -152,7 +151,7 @@ const CostOptimization = () => {
         {/* CloudDIET Logo */}
         <div className="relative mt-20 flex justify-center z-20">
           <div className="bg-[#19E3A1] px-8 py-4 flex items-center gap-3 shadow-lg">
-           {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
+            {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
 
             <div className="text-white text-4xl font-bricolage font-extrabold">
               Cloud<span className="text-[#1E2440] font-medium">DIET</span>

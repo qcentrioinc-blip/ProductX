@@ -13,13 +13,13 @@ import ThreeCardAI from "./ThreeCardAI"
 const HeroAIOptimization = () => {
   return (
     <div>
-      <AINavbar/>
+      <AINavbar />
       <LandingPageAI />
       {/* <Consentur /> */}
-      <StickyScrollSections/>
-       <ThreeCardAI />
+      <StickyScrollSections />
+      <ThreeCardAI />
       <Frontier />
-     
+
       {/* <Meta /> */}
       <Statistics />
       <CloudDiet />
