@@ -62,7 +62,8 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Let Lenis handle smooth scrolling - CSS scroll-behavior conflicts with it */
+  scroll-behavior: auto;
 }
 
 #root {
@@ -104,6 +105,24 @@ div[id],
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Performance optimizations for scroll */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  content-visibility: auto;
+}
+
+/* Reduce paint on hover transitions */
+.group:hover,
+[class*="hover:"] {
+  transform: translateZ(0);
 }
 
 
@@ -165,10 +184,12 @@ div[id],
   transform: translateY(-20px);
   transition: 0.4s ease;
 }
+
 @keyframes marquee-inner {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -178,6 +199,7 @@ div[id],
   0% {
     transform: translateX(-50%);
   }
+
   100% {
     transform: translateX(0);
   }

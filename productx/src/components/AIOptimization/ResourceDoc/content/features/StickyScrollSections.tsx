@@ -151,20 +151,20 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
               className="absolute inset-0 w-full h-auto"
             >
               <HoverExpandImage
-  src={featureImages[activeFeature]}
-  className="w-full h-full"
-  objectFit="contain"
-/>
+                src={featureImages[activeFeature]}
+                className="w-full h-full"
+                objectFit="contain"
+              />
             </motion.div>
           </AnimatePresence>
         ) : (
           // Mobile/Tablet - no animation logic handled here
           <div className="absolute inset-0 w-full h-full">
-           <HoverExpandImage
-  src={featureImages[activeFeature]}
-  className="w-full h-full"
-  objectFit="cover"
-/>
+            <HoverExpandImage
+              src={featureImages[activeFeature]}
+              className="w-full h-full"
+              objectFit="cover"
+            />
 
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
@@ -377,11 +377,29 @@ export default function StickyPremiumSections() {
     )
   }, [])
 
+  // INTERSECTION OBSERVER OPTIMIZATION
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInternalIntersecting = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      isInternalIntersecting.current = entry.isIntersecting;
+    }, { rootMargin: "200px" }); // Buffer to start slightly before view
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   // Main scroll handler for section detection (Sections 1 & 2)
   useEffect(() => {
     let ticking = false
 
     const onScroll = () => {
+      // Optimization: Skip if not visible
+      if (!isInternalIntersecting.current) return;
+
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY
@@ -455,6 +473,9 @@ export default function StickyPremiumSections() {
     let ticking = false;
 
     const updateActiveFeature = () => {
+      // Optimization: Skip if not visible
+      if (!isInternalIntersecting.current) return;
+
       if (ticking) return;
       ticking = true;
 
@@ -505,7 +526,7 @@ export default function StickyPremiumSections() {
     // We delay the initial call to ensure the DOM layout has settled
     // after render, otherwise getBoundingClientRect might return incorrect values
     const timeoutId = setTimeout(() => {
-        updateActiveFeature();
+      updateActiveFeature();
     }, 100);
 
     return () => {
@@ -519,6 +540,9 @@ export default function StickyPremiumSections() {
     if (typeof window === 'undefined' || window.innerWidth < 1280) return;
 
     const handleDesktopScroll = () => {
+      // Optimization: Skip if not visible
+      if (!isInternalIntersecting.current) return;
+
       const viewportHeight = window.innerHeight;
       const scrollY = window.scrollY;
       const viewportCenter = scrollY + viewportHeight / 2;
@@ -629,7 +653,7 @@ export default function StickyPremiumSections() {
   }
 
   return (
-    <div className="relative w-full overflow-visible">
+    <div ref={containerRef} className="relative w-full overflow-visible">
       {/* Mobile Navigation */}
       <div className="lg:hidden sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-lg">
         <div className="max-w-8xl mx-6">
@@ -703,7 +727,7 @@ export default function StickyPremiumSections() {
             id="optimizations"
             className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
           >
-            
+
 
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
               <H2 className="text-[#254D70]">
@@ -772,10 +796,10 @@ export default function StickyPremiumSections() {
               {/* LEFT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-[#254D70] mb-3">
-                  Savings Plan Designer 
+                  Savings Plan Designer
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  Model and optimize Azure Savings Plan commitments with interactive what-if analysis. Adjust terms, commitment percentages, and forecast savings while avoiding overcommitment—all backed by real usage data. 
+                  Model and optimize Azure Savings Plan commitments with interactive what-if analysis. Adjust terms, commitment percentages, and forecast savings while avoiding overcommitment—all backed by real usage data.
                 </P>
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
@@ -790,10 +814,10 @@ export default function StickyPremiumSections() {
               {/* RIGHT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-[#254D70] mb-3">
-                  Guided Optimization Workflows 
+                  Guided Optimization Workflows
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
-                  Receive categorized savings opportunities with detailed implementation steps, risk assessments, and effort levels (Minimal, Moderate, Significant). CloudDIET helps you prioritize and execute optimizations with confidence. 
+                  Receive categorized savings opportunities with detailed implementation steps, risk assessments, and effort levels (Minimal, Moderate, Significant). CloudDIET helps you prioritize and execute optimizations with confidence.
                 </P>
 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
@@ -814,16 +838,16 @@ export default function StickyPremiumSections() {
             className="relative w-full bg-white font-bricolage"
           >
             <H2 className="text-[#254D70]">
-              Multi-Dimensional  
+              Multi-Dimensional
               <br className="hidden lg:block" />
               <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
               Cost Views
             </H2>
 
             <P className="mt-6 md:mt-8 xl:mt-10 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
-              See Azure costs by service, resource, or tag. Zoom from trends to details, better than basic Azure tools. Identify cost drivers at table or SKU level with granular breakdowns. Pinpoint waste and accelerate decisions with clarity.  
+              See Azure costs by service, resource, or tag. Zoom from trends to details, better than basic Azure tools. Identify cost drivers at table or SKU level with granular breakdowns. Pinpoint waste and accelerate decisions with clarity.
             </P>
-            
+
 
             <div className="mt-10 md:mt-10 xl:mt-12 w-full lg:w-[750px] xl:w-[1000px] h-[300px] sm:h-[400px] lg:h-[450px] xl:h-[550px] rounded-xl lg:rounded-2xl overflow-hidden bg-white">
               <img
@@ -832,9 +856,9 @@ export default function StickyPremiumSections() {
                 alt=""
               />
             </div>
-                       {/* Desktop Layout (xl screens and above - 1280px+) */}
+            {/* Desktop Layout (xl screens and above - 1280px+) */}
             <div className="hidden xl:flex relative w-full max-w-[1400px] mx-auto flex-row">
-              
+
               {/* LEFT COLUMN: Sticky Image Display (Increased Width - 2/3rds) */}
               <div className="w-2/3 h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 bg-transparent">
                 <div className="w-full h-full flex items-center justify-center">

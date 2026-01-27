@@ -28,31 +28,49 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
             };
         }
 
+        // Ultra-smooth Lenis configuration
         const newLenis = new Lenis({
             duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            easing: (t) => {
+                // Custom easing: smooth start, smooth end (ease-in-out sine)
+                return -(Math.cos(Math.PI * t) - 1) / 2;
+            },
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
+            wheelMultiplier: 0.6,
+            touchMultiplier: 1.0,
             infinite: false,
             autoResize: true,
+            lerp: 0.08,
         });
 
         setLenis(newLenis);
 
         let frameId: number;
-
         const animate = (time: number) => {
+            // DIRECT PASS-THROUGH: Do not throttle requestAnimationFrame.
+            // Modern browsers and Lenis handle synchronization better than manual timing.
             newLenis.raf(time);
             frameId = requestAnimationFrame(animate);
         };
 
         frameId = requestAnimationFrame(animate);
 
+        // Pause Lenis when tab is not visible
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                newLenis.stop();
+            } else {
+                newLenis.start();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
         return () => {
             cancelAnimationFrame(frameId);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
             newLenis.destroy();
             setLenis(null);
             document.documentElement.style.overflowX = '';

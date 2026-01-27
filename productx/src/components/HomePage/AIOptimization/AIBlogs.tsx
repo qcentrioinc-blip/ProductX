@@ -46,7 +46,7 @@ const AIBlogs = () => {
               >
                 Stay Ahead with
                 <br className="hidden xl:block" />
-                Cloud Insights 
+                Cloud Insights
               </h1>
             </div>
 
@@ -63,7 +63,7 @@ const AIBlogs = () => {
                   color: "white",
                 }}
               >
-                Our 
+                Our
                 <br className="hidden xl:block" />
                 Resources
               </h2>

@@ -60,7 +60,7 @@ const Statistics = () => {
                 {/* Counter Grid - Left Aligned */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
                     { value: 0, suffix: "", text: "We analyze metadata only, never your files, databases, or apps. " },
-                    { value:100, suffix: "%", text: "CloudDIET never modifies resources or accesses customer data. " },
+                    { value: 100, suffix: "%", text: "CloudDIET never modifies resources or accesses customer data. " },
                     { value: 30, suffix: "%", text: "Enterprises reduce Azure spend without compromising performance. " },
                     { value: 256, suffix: "-bit", text: "All data is encrypted at rest and in transit. " },
                 ].map((item, index) => (
