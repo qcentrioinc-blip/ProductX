@@ -1,41 +1,53 @@
 import { useState } from "react";
-import { ArrowUpRight, X } from "lucide-react";
 import { Modal, Slide, Backdrop } from "@mui/material";
- 
+
+// Inline SVG icons to avoid importing lucide-react
+const ArrowUpRightIcon = ({ size = 22, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M7 7h10v10" /><path d="M7 17L17 7" />
+  </svg>
+);
+
+const XIcon = ({ className = "" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 6L6 18" /><path d="M6 6l12 12" />
+  </svg>
+);
+
 interface ContactModalProps {
   open: boolean;
   onClose: () => void;
 }
- 
+
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
   });
- 
+
   const [isSubmitted, setIsSubmitted] = useState(false);
- 
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
- 
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
- 
+
     // Simulate submit success
     setIsSubmitted(true);
- 
+
     // Reset controlled inputs
     setFormData({ name: "", phone: "", email: "" });
- 
+
     // Optional auto-reset after 3s
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
   };
- 
+
   return (
     <Modal
       open={open}
@@ -52,7 +64,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
     >
       <Slide direction="down" in={open} timeout={500}>
         <div className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[83vw] h-[85vh] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
- 
+
           {/* 🔹 BACKGROUND IMAGE */}
           <div
             className="absolute inset-0 z-0"
@@ -62,21 +74,21 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
               backgroundPosition: "center",
             }}
           />
- 
+
           {/* 🔹 FOREGROUND */}
           <div className="relative z-10 h-full flex items-center justify-center">
- 
+
             {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute top-6 right-6 md:top-8 md:right-10 p-2 rounded-full hover:bg-black/10 transition z-20"
             >
-              <X className="w-6 h-6 text-gray-800" />
+              <XIcon className="w-6 h-6 text-gray-800" />
             </button>
- 
+
             {/* 🔹 FORM CARD */}
             <div className="w-full max-w-[1200px] bg-white rounded-2xl px-6 md:px-12 lg:px-16 py-10 overflow-y-auto scrollbar-hide">
- 
+
               {/* Header */}
               <p
                 className="text-3xl md:text-4xl font-bold mb-12"
@@ -87,10 +99,10 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
               >
                 TO: QNEST GLOBAL
               </p>
- 
+
               {/* FORM */}
               <form onSubmit={handleSubmit} className="space-y-10" autoComplete="off">
- 
+
                 {/* INPUTS — HIDE AFTER SUBMIT */}
                 {!isSubmitted && (
                   <>
@@ -112,7 +124,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                       />
                       <span className="text-[#0079FF]">*</span>
                     </div>
- 
+
                     {/* LINE 2 */}
                     <div
                       className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
@@ -131,7 +143,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                       <span className="text-[#0079FF]">*</span>
                       <span>AND MY</span>
                     </div>
- 
+
                     {/* LINE 3 */}
                     <div
                       className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
@@ -152,7 +164,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     </div>
                   </>
                 )}
- 
+
                 {/* SUCCESS MESSAGE */}
                 {isSubmitted && (
                   <div className="py-14 text-center text-2xl md:text-3xl font-bold text-green-600">
@@ -160,7 +172,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                     We’ll get back to you shortly.
                   </div>
                 )}
- 
+
                 {/* BUTTON */}
                 <button
                   type="submit"
@@ -177,14 +189,14 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                   ) : (
                     <>
                       <span className="mr-2">Send Message</span>
-                      <ArrowUpRight
+                      <ArrowUpRightIcon
                         size={22}
                         className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                       />
                     </>
                   )}
                 </button>
- 
+
               </form>
             </div>
           </div>
@@ -193,5 +205,5 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
     </Modal>
   );
 };
- 
+
 export default ContactModal;

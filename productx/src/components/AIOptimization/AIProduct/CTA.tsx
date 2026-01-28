@@ -1,88 +1,191 @@
-import { motion } from "framer-motion"
-import { H3 } from "../../../styles/Typography"
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
  
-const TextSec = () => {
+const text =
+  "On average, CloudDIET customers save 30% of their Azure spend beyond existing Reserved Instances.";
+ 
+const images = [
+  "/Img1.webp",
+  "/Img2.webp",
+  "/Img3.webp",
+  "/Img4.webp",
+];
+ 
+export default function CTA() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+ 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "start 0.15"],
+  });
+ 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 30,
+    restDelta: 0.001,
+  });
+ 
+  /* ------------------------------
+     Image transforms (DESKTOP ONLY)
+  ------------------------------- */
+  const transforms = [
+    {
+      x: useTransform(smoothProgress, [0, 1], [0, -490]),
+      y: useTransform(smoothProgress, [0, 1], [0, -200]),
+      r: -10,
+    },
+    {
+      x: useTransform(smoothProgress, [0, 1], [0, 490]),
+      y: useTransform(smoothProgress, [0, 1], [0, -200]),
+      r: 10,
+    },
+    {
+      x: useTransform(smoothProgress, [0, 1], [0, -450]),
+      y: useTransform(smoothProgress, [0, 1], [0, 180]),
+      r: 8,
+    },
+    {
+      x: useTransform(smoothProgress, [0, 1], [0, 450]),
+      y: useTransform(smoothProgress, [0, 1], [0, 180]),
+      r: -8,
+    },
+  ];
+ 
+  const words = text.split(" ");
+  const highlightStart = text.indexOf("30%");
+  const highlightEnd = highlightStart + 3;
+ 
   return (
-    <section className="w-full overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
-      <motion.div
-        className="max-w-8xl mx-auto xl:px-10 flex flex-col text-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{
-          duration: 0.9,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-        <motion.div
-          className="xl:mx-auto max-w-6xl relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.15,
-              },
-            },
-          }}
-        >
-          {/* Line 1 */}
+    <section
+      ref={sectionRef}
+      className="
+        relative
+        bg-white
+        xl:h-screen
+        overflow-hidden
+        px-6
+        py-30
+        flex
+        items-center
+        justify-center
+      "
+    >
+      {/* ================= IMAGES (DESKTOP ONLY) ================= */}
+      <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none">
+        {images.map((src, i) => (
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
+            key={i}
+            style={{
+              x: transforms[i].x,
+              y: transforms[i].y,
+              rotate: transforms[i].r,
             }}
+            className="
+              absolute
+              w-32 h-32
+              xl:w-48 xl:h-48
+              rounded-xl
+              overflow-hidden
+              border border-black/5
+              shadow-2xl
+            "
           >
-            <H3>
-              On average, CloudDIET customers save{" "}
-              <motion.span
-                className="inline-block font-bold text-indigo-900 relative"
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{
-                  delay: 0.4,
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                30%
-                {/* Underline sweep */}
-                <motion.span
-                  className="absolute left-0 -bottom-2 h-[3px] bg-indigo-900 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{
-                    delay: 0.6,
-                    duration: 0.5,
-                    ease: "easeOut",
-                  }}
-                />
-              </motion.span>{" "}
-              of their Azure spend
-            </H3>
+            <img
+              src={src}
+              alt="Work"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
           </motion.div>
+        ))}
+      </div>
  
-          {/* Line 2 */}
-          <motion.div
-            className="mt-4"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            <H3>
-              beyond existing{" "}
-              <span className="font-semibold text-indigo-900">
-                Reserved Instances
-              </span>.
-            </H3>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+      {/* ================= TEXT (ALL SCREENS) ================= */}
+      <div className="relative z-10 max-w-4xl text-center">
+        <h2 className="
+          text-[24px]
+          sm:text-[28px]
+          md:text-[42px]
+          lg:text-[64px]
+          font-bricolage
+          font-semibold
+          leading-[115%]
+          tracking-tight
+        ">
+          {words.map((word, wordIndex) => (
+            <span
+              key={wordIndex}
+              className="inline-flex whitespace-nowrap mr-[0.25em]"
+            >
+              {word.split("").map((char, charIndex) => {
+                const globalIndex =
+                  text.indexOf(word) + charIndex;
+ 
+                const start = globalIndex / text.length;
+                const end = start + 1 / text.length;
+ 
+                const isHighlight =
+                  globalIndex >= highlightStart &&
+                  globalIndex < highlightEnd;
+ 
+                return (
+                  <Character
+                    key={charIndex}
+                    progress={smoothProgress}
+                    range={[start, end]}
+                    highlight={isHighlight}
+                  >
+                    {char}
+                  </Character>
+                );
+              })}
+            </span>
+          ))}
+        </h2>
+      </div>
     </section>
-  )
+  );
 }
  
-export default TextSec
+/* ------------------------------
+   Character component
+-------------------------------- */
+function Character({
+  children,
+  progress,
+  range,
+  highlight,
+}: {
+  children: string;
+  progress: any;
+  range: [number, number];
+  highlight?: boolean;
+}) {
+  const color = useTransform(
+    progress,
+    highlight
+      ? [range[0], range[1], 1]
+      : range,
+    highlight
+      ? ["#9ca3af", "#000000", "#2563eb"]
+      : ["#9ca3af", "#000000"]
+  );
+ 
+  const scale = useTransform(
+    progress,
+    [0.9, 1],
+    highlight ? [1, 1.15] : [1, 1]
+  );
+ 
+  return (
+    <motion.span
+      style={{ color, scale }}
+      className={`inline-block ${
+        highlight ? "font-bold tracking-tight" : ""
+      }`}
+    >
+      {children}
+    </motion.span>
+  );
+}

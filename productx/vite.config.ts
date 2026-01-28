@@ -8,4 +8,16 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split heavy libraries into separate chunks
+          'three': ['three'],
+          'mui': ['@mui/material', '@mui/icons-material'],
+          'framer': ['framer-motion'],
+        }
+      }
+    }
+  }
 })

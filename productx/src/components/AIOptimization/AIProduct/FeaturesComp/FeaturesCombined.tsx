@@ -8,7 +8,7 @@ const FeaturesCombined = () => {
         <section
             className="relative"
             style={{
-                backgroundImage: "url('/AIProduct/CloudBg.png')",
+                backgroundImage: "url('/AIProduct/CloudBg.webp')",
                 contain: 'layout paint' // Optimization to isolate layout recalculations
             }}
         >

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 import { H2, H4, P } from "../../../styles/Typography";
 
 const cards = [
@@ -19,79 +19,52 @@ const cards = [
   },
 ];
 
-// Video card component with visibility-based playback and lazy loading
-const VideoCard = ({ card, index }: { card: typeof cards[0]; index: number }) => {
+// Video card - loads once triggered, plays when section visible
+const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
+  card: typeof cards[0];
+  shouldLoad: boolean;
+  isPlaying: boolean;
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    if (!cardRef.current) return;
+    if (!videoRef.current) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShouldLoad(true);
-            if (videoRef.current) {
-              videoRef.current.play().catch(() => { });
-            }
-          } else {
-            if (videoRef.current) {
-              videoRef.current.pause();
-            }
-          }
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: "200px 0px 200px 0px" // Pre-load before visible to hide jank
-      }
-    );
-
-    observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
+    if (isPlaying) {
+      videoRef.current.play().catch(() => { });
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isPlaying]);
 
   return (
     <div
-      ref={cardRef}
-      key={index}
       className="
         group relative overflow-hidden rounded-lg bg-white
         border-2 border-slate-100
-        transition-transform duration-300 ease-out 
-        will-change-transform contain-content
-        hover:scale-[1.02]
-        hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
+        hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
+        [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
       
-        md:min-w-[55%] md:snap-center  
-        xl:min-w-0
+        md:w-[450px] md:flex-shrink-0
+        xl:w-auto xl:flex-shrink xl:flex-1
       "
-      style={{ contentVisibility: 'auto' }} // Modern browser optimization
     >
-      {/* Video - Lazy loaded with strict aspect ratio */}
-      <div className="overflow-hidden aspect-video bg-gray-50 flex items-center justify-center transform-gpu">
+      <div className="overflow-hidden aspect-video bg-gray-50 flex items-center justify-center">
         {shouldLoad ? (
           <video
             ref={videoRef}
             src={card.video}
-            className="
-            w-full h-full object-contain
-            transition-opacity duration-500 ease-out
-          "
+            className="w-full h-full object-contain"
             playsInline
             muted
             loop
             preload="metadata"
           />
         ) : (
-          /* Placeholder while waiting for scroll */
           <div className="w-full h-full bg-gray-100/50" />
         )}
       </div>
 
-      {/* Content */}
       <div className="relative p-6 lg:px-10">
         <H4 className="mb-2 text-lg font-semibold text-slate-900">
           {card.title}
@@ -102,12 +75,62 @@ const VideoCard = ({ card, index }: { card: typeof cards[0]; index: number }) =>
       </div>
     </div>
   );
-};
+});
 
 export default function Onboarding() {
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Observer 1: Trigger video LOAD once (sentinel at top)
+  useEffect(() => {
+    if (!triggerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasLoaded) {
+          setHasLoaded(true);
+          observer.disconnect(); // Stop observing after first trigger
+        }
+      },
+      {
+        threshold: 1.0, // Fully visible
+        rootMargin: "-100px 0px 0px 0px" // Only trigger when 100px into viewport
+      }
+    );
+
+    observer.observe(triggerRef.current);
+    return () => observer.disconnect();
+  }, [hasLoaded]);
+
+  // Observer 2: Control PLAY/PAUSE based on section visibility
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsPlaying(entries[0].isIntersecting);
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section>
-      <div id="benefits" className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10">
+      <div
+        ref={sectionRef}
+        id="benefits"
+        className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
+      >
+        {/* Invisible trigger sentinel at the TOP of section */}
+        <div ref={triggerRef} className="absolute top-0 left-0 w-full h-1" aria-hidden="true" />
+
         {/* Heading */}
         <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">
           Cloud Optimization Features That Deliver Results
@@ -122,13 +145,19 @@ export default function Onboarding() {
               sm:grid-cols-2
               xl:grid-cols-3
 
-              md:flex md:gap-6 md:overflow-x-auto md:snap-x md:snap-mandatory
-              md:-mx-6 md:px-6
-              xl:overflow-visible xl:snap-none lg:px-0 lg:mx-0
+              md:flex md:gap-6 md:overflow-x-auto
+              md:-mx-6 md:px-6 md:pb-4
+              md:overscroll-x-contain
+              xl:overflow-visible lg:px-0 lg:mx-0
             "
           >
             {cards.map((card, i) => (
-              <VideoCard key={i} card={card} index={i} />
+              <VideoCard
+                key={i}
+                card={card}
+                shouldLoad={hasLoaded}
+                isPlaying={isPlaying}
+              />
             ))}
           </div>
         </div>
@@ -136,3 +165,6 @@ export default function Onboarding() {
     </section>
   );
 }
+
+
+

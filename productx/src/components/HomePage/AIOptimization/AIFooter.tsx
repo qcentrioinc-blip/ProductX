@@ -1,12 +1,32 @@
-import { ArrowUpRight, Twitter, Instagram, Linkedin } from "lucide-react";
-import { useRef, useState } from "react";
-import { useInView } from "framer-motion";
-import FloatingLines from "./AIFooterBackground";
-import ContactModal from "../../AIOptimization/Navbar/ContactModal";
+import { useRef, useState, useEffect, lazy, Suspense } from "react";
+const FloatingLines = lazy(() => import("./AIFooterBackground"));
+const ContactModal = lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
 import { toast } from "react-toastify";
 
+// Simple inline SVG icons to avoid importing entire lucide-react library
+const ArrowUpRightIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 7h10v10" /><path d="M7 17L17 7" />
+    </svg>
+);
 
+const TwitterIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+    </svg>
+);
 
+const InstagramIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+);
+
+const LinkedinIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" />
+    </svg>
+);
 
 const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['middle', 'bottom'];
 const LINE_COUNT = [10, 15, 20];
@@ -14,6 +34,23 @@ const LINE_DISTANCE = [8, 6, 4];
 
 const AIFooter = () => {
     const [email, setEmail] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const footerRef = useRef<HTMLElement>(null);
+    const base = "/industries/cloud-finops-ai";
+
+    // Native IntersectionObserver instead of framer-motion's useInView
+    useEffect(() => {
+        if (!footerRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { rootMargin: "400px 0px 0px 0px" }
+        );
+
+        observer.observe(footerRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     const handleSubmit = () => {
         if (!email.trim()) {
@@ -32,32 +69,31 @@ const AIFooter = () => {
         setEmail("");
     };
 
-
-    const [modalOpen, setModalOpen] = useState(false);
-    const base = "/industries/cloud-finops-ai";
-    const footerRef = useRef(null);
-    // Trigger when footer is within 400px of the viewport
-    const isInView = useInView(footerRef, { margin: "400px 0px 0px 0px" });
+    const socialIcons = [TwitterIcon, InstagramIcon, LinkedinIcon];
 
     return (
         <footer ref={footerRef} className="relative w-full overflow-hidden bg-[#050505]">
             {/* Conditional Background Rendering */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <FloatingLines
-                    linesGradient={[
-                        '#00FFCC',
-                        '#0099FF',
-                        '#6600FF'
-                    ]}
-                    enabledWaves={ENABLED_WAVES}
-                    lineCount={LINE_COUNT}
-                    lineDistance={LINE_DISTANCE}
-                    bendRadius={5.0}
-                    bendStrength={-0.5}
-                    interactive={false} // Set to false to reduce mouse listener overhead
-                    parallax={true}
-                    paused={!isInView}
-                />
+                <Suspense fallback={null}>
+                    {isInView && (
+                        <FloatingLines
+                            linesGradient={[
+                                '#00FFCC',
+                                '#0099FF',
+                                '#6600FF'
+                            ]}
+                            enabledWaves={ENABLED_WAVES}
+                            lineCount={LINE_COUNT}
+                            lineDistance={LINE_DISTANCE}
+                            bendRadius={5.0}
+                            bendStrength={-0.5}
+                            interactive={false}
+                            parallax={true}
+                            paused={!isInView}
+                        />
+                    )}
+                </Suspense>
             </div>
 
             {/* ========== TOP SECTION ========== */}
@@ -87,13 +123,13 @@ const AIFooter = () => {
                     {/* Links */}
                     <div className="flex flex-wrap gap-16">
                         <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-white">Products</h4>
+                            <span className="text-xl font-bold text-white block">Products</span>
                             <ul className="space-y-2 text-[#F5F5F5]">
                                 <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
                             </ul>
                         </div>
                         <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-white">Quick Links</h4>
+                            <span className="text-xl font-bold text-white block">Quick Links</span>
                             <ul className="space-y-2 text-[#F5F5F5]">
                                 <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
                                 <li><button onClick={() => setModalOpen(true)} className="hover:underline">• Contact</button></li>
@@ -101,8 +137,10 @@ const AIFooter = () => {
                             </ul>
                         </div>
                         <div className="flex gap-4 items-start">
-                            {[Twitter, Instagram, Linkedin].map((Icon, i) => (
-                                <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
+                            {socialIcons.map((Icon, i) => (
+                                <span key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70">
+                                    <Icon />
+                                </span>
                             ))}
                         </div>
 
@@ -126,25 +164,19 @@ const AIFooter = () => {
                             />
 
                             <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap" onClick={handleSubmit}>
-                                SUBMIT <ArrowUpRight className="w-5 h-5" />
+                                SUBMIT <ArrowUpRightIcon />
                             </button>
                         </div>
 
 
                     </div>
-                    {/* <div className="hidden xl:block relative">
-                        <img
-                            src="/AIOptimization/AIGirl.png"
-                            alt="AI interface"
-                            className="absolute -right-18 -bottom-20 w-[600px] object-contain pointer-events-none"
-                        />
-                    </div> */}
-
 
                 </div>
 
             </div>
-            <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+            <Suspense fallback={null}>
+                {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
+            </Suspense>
         </footer>
     );
 };
