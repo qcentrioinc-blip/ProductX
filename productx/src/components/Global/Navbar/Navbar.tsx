@@ -14,8 +14,8 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
-            
-            <img className="h-10 w-full" src="../logo.svg"/>
+
+            <img className="h-10 w-full" src="../logo.svg" alt="Company Logo" />
           </div>
         </Link>
 
@@ -40,8 +40,8 @@ const Navbar = () => {
           <Link to="/contact">
             <button
               className={`px-4 py-2 rounded-md font-medium transition flex items-center gap-2 ${isLightNavbar
-                  ? "bg-black text-white hover:bg-black/90"
-                  : "bg-white text-black hover:bg-white/90"
+                ? "bg-black text-white hover:bg-black/90"
+                : "bg-white text-black hover:bg-white/90"
                 }`}
             >
               CONTACT US <ArrowUpRight size={18} />

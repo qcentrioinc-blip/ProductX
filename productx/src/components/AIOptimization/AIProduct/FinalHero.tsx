@@ -1,9 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { H1, P } from "../../../styles/Typography";
 
-import ContactModal from "../Navbar/ContactModal";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-// import FloatingLines from "../../HomePage/AIOptimization/AIFooterBackground";
+const ContactModal = lazy(() => import("../Navbar/ContactModal"));
+
+// Inline SVG icons to avoid importing lucide-react
+const ArrowUpRightIcon = ({ className = "" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M7 7h10v10" /><path d="M7 17L17 7" />
+  </svg>
+);
+
+const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+  </svg>
+);
 
 
 const FinalHero = () => {
@@ -84,8 +95,8 @@ const FinalHero = () => {
               <span className="flex items-center gap-4">
 
                 <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
             </button>
@@ -110,8 +121,8 @@ const FinalHero = () => {
               <span className="flex items-center gap-2">
 
                 <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
 
@@ -121,7 +132,9 @@ const FinalHero = () => {
 
 
       </div>
-      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <Suspense fallback={null}>
+        {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
+      </Suspense>
 
 
     </section>

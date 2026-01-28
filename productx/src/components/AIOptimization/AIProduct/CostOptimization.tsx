@@ -1,5 +1,6 @@
 
 import { H2, P } from '../../../styles/Typography';
+import { useInView } from 'react-intersection-observer';
 
 const COST_LAYERS = [
   {
@@ -31,22 +32,29 @@ const COST_LAYERS = [
 
 
 const CostOptimization = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '200px',
+  });
+
   return (
     <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:py-16 overflow-hidden">
 
       {/* VIDEO BACKGROUND */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <video
-          className="w-full h-full object-cover"
-          src="/Video/LCO.mp4"
-          preload="none"
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          autoPlay
-          loop
-        />
+      <div ref={ref} className="absolute inset-0 -z-10 overflow-hidden">
+        {inView && (
+          <video
+            className="w-full h-full object-cover"
+            src="/Video/LCO.mp4"
+            preload="none"
+            muted
+            playsInline
+            disablePictureInPicture
+            disableRemotePlayback
+            autoPlay
+            loop
+          />
+        )}
         {/* Optional dark overlay for readability */}
         <div className="absolute inset-0 bg-[#1E2440]/70" />
       </div>

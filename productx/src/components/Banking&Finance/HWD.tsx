@@ -50,7 +50,7 @@ const HWD = () => {
     ai: [
       {
         title: "Major Azure Cost Reduction",
-        image:"/UseCase1.svg",
+        image: "/UseCase1.svg",
         description:
           "A mature cloud team saved millions annually through advanced optimization and reserved instance strategies.",
         points: [
@@ -61,10 +61,10 @@ const HWD = () => {
           "Implemented 3-year Synapse RIs, achieving an 81% blended discount on runtime costs. ",
         ],
       },
-     
+
       {
         title: " Retain Savings Long-Term",
-        image:"/UseCase2.svg",
+        image: "/UseCase2.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -76,9 +76,9 @@ const HWD = () => {
           "Ensured full customer control and zero access to sensitive data or workloads. ",
         ],
       },
-       {
+      {
         title: "Multi-Cloud Waste Elimination",
-          image:"/UseCase3.svg",
+        image: "/UseCase3.svg",
         description:
           "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
         points: [
@@ -178,26 +178,26 @@ const HWD = () => {
     <section>
       {/* Top Section */}
       <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
-     <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
-  <img
-    src={image}
-    alt={title}
-    className="w-full h-full object-contain p-2"
-  />
-</div>
+        <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-contain p-2"
+          />
+        </div>
 
 
-        
-        <h4
+
+        <h3
           className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold"
           style={{ color: headingColor }}
         >
           {title}
-        </h4>
+        </h3>
 
-  <p className="balance-text" style={{ color: textcolor }}>
-  {description}
-</p>
+        <p className="balance-text" style={{ color: textcolor }}>
+          {description}
+        </p>
 
       </div>
 

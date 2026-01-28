@@ -28,7 +28,7 @@ export const Product = () => {
       <section
 
         className="relative     bg-no-repeat bg-cover z-10"
-        style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
+        style={{ backgroundImage: "url('/AIProduct/CloudBg.webp')" }}
       >
         <OnboardingSec />
         <Firm />

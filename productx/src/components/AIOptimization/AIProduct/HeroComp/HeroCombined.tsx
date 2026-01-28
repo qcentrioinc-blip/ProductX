@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useMemo, memo } from "react";
+import { useRef, useState, useEffect, useMemo, memo, Suspense } from "react";
 import FloatingLines from "../../../HomePage/AIOptimization/AIFooterBackground";
 import FinalHero from "../FinalHero";
 import ImageContainer from "../ImageContainer";
@@ -37,15 +37,7 @@ const HeroCombined = () => {
         };
     }, []);
 
-    const [mounted, setMounted] = useState(false);
-
-    // Defer heavy WebGL init until after first paint
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // ... existing IO effect ...
-
+    // Render immediately - no need to defer mounted state if we want instant feel
     return (
         <section
             ref={heroSectionRef}
@@ -53,7 +45,7 @@ const HeroCombined = () => {
             style={{ minHeight: '100vh', contain: 'layout paint' }}
         >
             <div className="absolute inset-0 z-0 pointer-events-none">
-                {mounted && (
+                <Suspense fallback={null}>
                     <FloatingLines
                         linesGradient={[
                             '#00FFCC',
@@ -70,7 +62,7 @@ const HeroCombined = () => {
                         animationSpeed={0.4}
                         paused={!isHeroVisible}
                     />
-                )}
+                </Suspense>
             </div>
 
             <FinalHero />

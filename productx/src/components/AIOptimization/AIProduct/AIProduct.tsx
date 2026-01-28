@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+// import { Suspense, lazy } from 'react';
 import FeatureCards from "../HomePageAI/Features"
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs"
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
@@ -7,8 +7,11 @@ import Timeline from "../HomePageAI/Timeline"
 import CostOptimization from "./CostOptimization"
 import TextSec from "./CTA"
 import HeroCombined from "./HeroComp/HeroCombined"
+import Onboarding from './Onboarding';
+import Firm from './Firm';
+import ImageGrid from '../HomePageAI/ImageGrid';
 
-const FeaturesCombined = lazy(() => import("./FeaturesComp/FeaturesCombined"));
+// const FeaturesCombined = lazy(() => import("./FeaturesComp/FeaturesCombined"));
 
 const AIProduct = () => {
   return (
@@ -16,16 +19,17 @@ const AIProduct = () => {
       <HeroCombined />
       {/* <CTA/> */}
       <TextSec />
-      <Suspense fallback={<div className="w-full min-h-screen bg-[#0A0A0B]" />}>
+      {/* <Suspense fallback={<div className="w-full min-h-screen bg-[#0A0A0B]" />}>
         <FeaturesCombined />
-      </Suspense>
+      </Suspense> */}
+      <Onboarding />
+      <Firm />
+      <ImageGrid />
       <FeatureCards />
       <CostOptimization />
       <Timeline />
       {/* <Testimonial /> */}
-      <div id="usecases">
-        <HWD />
-      </div>
+      <HWD />
       <div id="faq">
         <FaqSection />
       </div>

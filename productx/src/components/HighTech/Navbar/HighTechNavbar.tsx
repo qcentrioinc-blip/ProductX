@@ -11,7 +11,7 @@ const HighTechNavbar = () => {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
-   
+
   // const [openMenu, setOpenMenu] = useState<"products" | "resources" | "built" | null>(null);
 
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
@@ -99,7 +99,7 @@ const HighTechNavbar = () => {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
 
-    
+
 
     {
       name: "Cloud FinOps AI",
@@ -163,6 +163,7 @@ const HighTechNavbar = () => {
         <button
           className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
         >
           <span
             className={`block w-7 h-[3px] bg-white rounded transition-all duration-300
@@ -189,27 +190,27 @@ const HighTechNavbar = () => {
       >
         <div className="flex items-center gap-10">
           {/* LOGO WITH DROPDOWN */}
-       <div
-  className="relative flex items-center gap-1 cursor-pointer"
-  onMouseEnter={() => setLogoDropdownOpen(true)}
-  onMouseLeave={() => setLogoDropdownOpen(true)}
->
-  <Link
-    to={base}
-    className="flex items-center gap-1"
-    onClick={() => {
-      closeAllMenus();
-    }}
-  >
+          <div
+            className="relative flex items-center gap-1 cursor-pointer"
+            onMouseEnter={() => setLogoDropdownOpen(true)}
+            onMouseLeave={() => setLogoDropdownOpen(true)}
+          >
+            <Link
+              to={base}
+              className="flex items-center gap-1"
+              onClick={() => {
+                closeAllMenus();
+              }}
+            >
 
-            <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-              LOGO
-            </div>
-            {/* ROTATING ICON */}
-            <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
-              <img src="/down.png" className="w-4 h-4" />
-            </div>
-</Link>
+              <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                LOGO
+              </div>
+              {/* ROTATING ICON */}
+              <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
+                <img src="/down.png" className="w-4 h-4" />
+              </div>
+            </Link>
             {/* LOGO DROPDOWN */}
             {logoDropdownOpen && (
               <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
