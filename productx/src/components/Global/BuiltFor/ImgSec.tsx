@@ -187,7 +187,7 @@ export default function ImgSec() {
   return (
     <>
       <section
-        className="relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
+        className="relative w-full lg:h-[50vh] xl:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
         style={{ backgroundImage: `url(${getBgImage()})` }}
       >
         
@@ -210,7 +210,7 @@ export default function ImgSec() {
           lg:absolute lg:bottom-0 lg:right-0 lg:pb-0 lg:px-0 lg:w-auto
           lg:max-w-[90rem] lg:mx-auto pointer-events-none z-20"
         >
-          <div className="flex justify-start lg:justify-end pointer-events-auto">
+          <div className="flex justify-start xl:justify-end pointer-events-auto">
             <div
               className={`
                 ${theme.cardBg} ${theme.cardText}

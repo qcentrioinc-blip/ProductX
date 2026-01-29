@@ -10,6 +10,7 @@ import HeroCombined from "./HeroComp/HeroCombined"
 import Onboarding from './Onboarding';
 import Firm from './Firm';
 import ImageGrid from '../HomePageAI/ImageGrid';
+import UseCases from "./UseCases"
 
 // const FeaturesCombined = lazy(() => import("./FeaturesComp/FeaturesCombined"));
 
@@ -30,6 +31,7 @@ const AIProduct = () => {
       <Timeline />
       {/* <Testimonial /> */}
       <HWD />
+      <UseCases/>
       <div id="faq">
         <FaqSection />
       </div>

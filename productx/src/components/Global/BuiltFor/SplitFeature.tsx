@@ -161,22 +161,22 @@ export default function SplitFeature() {
 
   return (
     <section className={`w-full py-16   ${theme.sectionBg}`}>
-      <div className="max-w-8xl mx-10  grid grid-cols-1 lg:grid-cols-2 xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl mx-10  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
-        <div className="flex justify-center lg:justify-start">
+        <div className="flex  justify-start   lg:justify-center xl:justify-start">
           <img
               src={content.imageSrc}
             alt="Feature"
-            className="w-full max-w-xl rounded-2xl object-cover "
+            className="w-full  rounded-2xl object-cover "
           />
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="w-full text-center lg:text-left mx-auto lg:mx-0">
+        <div className="w-full text-left lg:text-center xl:text-left   mx-auto xl:mx-0">
 
           {/* HEADING */}
-          <H2 className="leading-tight xl:mb-10 max-w-3xl">
+          <H2 className="leading-tight xl:mb-10 mx-auto max-w-3xl">
             <span className={theme.headingPrimaryColor}>
               {content.headingPrimary}{" "}
             </span>
@@ -184,32 +184,37 @@ export default function SplitFeature() {
           </H2>
 
           {/* PARAGRAPH */}
-          <P className={`mt-4 max-w-md mx-auto lg:mx-0 ${theme.paragraphColor}`}>
+          <P className={`mt-4  mx-auto lg:max-w-lg xl:mx-0 ${theme.paragraphColor}`}>
             {content.paragraph}
           </P>
 
           {/* BULLETS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 justify-items-center lg:justify-items-start">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-2 gap-2 mt-8">
   {content.bulletPoints.map((text, index) => (
     <div
       key={index}
-      className="flex items-center justify-center lg:justify-start gap-3"
+      className="flex items-center gap-3 w-full"
     >
-      <div className={`rounded-full ${theme.bulletColor} w-14 h-14    rounded-full flex items-center justify-center`}>
-      <img
-        src={BULLET_ICONS[index]}
-        alt=""
-        className=" w-full h-full p-3  flex-shrink-0 object-contain"
-      />
+      <div
+        className={`rounded-full ${theme.bulletColor} w-14 h-14 flex items-center justify-center flex-shrink-0`}
+      >
+        <img
+          src={BULLET_ICONS[index]}
+          alt=""
+          className="w-full h-full p-3 object-contain"
+        />
       </div>
-      <P className={theme.paragraphColor}>{text}</P>
+      <P className={`${theme.paragraphColor} text-left`}>
+        {text}
+      </P>
     </div>
   ))}
 </div>
 
 
+
           {/* STATS */}
-          <div className="grid grid-cols-3 gap-6 mt-12 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+          <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
                 <H3 className={theme.statsColor}>{stat.value}</H3>

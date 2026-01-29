@@ -114,7 +114,7 @@ const logosRow1 = [
  
                 {/* White Card Section */}
                 <div
-                    className="bg-white rounded-none shadow-2xl p-8 lg:px-14 lg:py-28 transition-all duration-700 ease-in-out"
+                    className="bg-white  rounded-none shadow-2xl md:mx-20 max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-full p-8 lg:px-14 lg:py-28 transition-all duration-700 ease-in-out"
                     style={{
                         opacity: isVisible ? 1 : 0,
                         transform: isVisible ? 'translateY(0)' : 'translateY(10px)',

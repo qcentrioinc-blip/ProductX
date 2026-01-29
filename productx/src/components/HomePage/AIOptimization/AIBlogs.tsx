@@ -53,7 +53,7 @@ const AIBlogs = () => {
             {/* Bottom Section */}
             <div className="space-y-6 sm:space-y-8 xl:space-y-8">
               {/* Section Title */}
-             <h2
+        <h2
   className="uppercase text-[32px] sm:text-[40px] xl:text-[48px]"
   style={{
     fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -61,9 +61,10 @@ const AIBlogs = () => {
     lineHeight: "110%",
   }}
 >
-  <span className="block">Our</span>
-  <span className="block">Resources</span>
+  <span className="inline xl:block">Our </span>
+  <span className="inline xl:block">Resources</span>
 </h2>
+
 
 
               {/* View All Button */}

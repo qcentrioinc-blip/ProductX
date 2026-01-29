@@ -132,7 +132,7 @@ const HEADING_CONTENT = {
       },
       {
         title: "Cost-Efficient Core Banking",
-        image: "/AIOptimization/priceTag.svg",
+        image: "/AIOptimization/pricetag.svg",
         description:
           "Legacy systems optimized for modern banking workloads.",
         points: [

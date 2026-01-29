@@ -50,7 +50,7 @@ const GlobalLandingPage = () => {
                 <Milestone />
             </div>
 
-            <div className="sticky top-0 h-screen z-0">
+            <div className="sticky top-0  h-[60vh] xl:h-screen z-0">
                 <CEO />
             </div>
 
