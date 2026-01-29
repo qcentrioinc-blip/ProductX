@@ -18,13 +18,11 @@ export default function CTA() {
     target: sectionRef,
     offset: ["start end", "start 0.15"],
   });
-
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 70,
     damping: 30,
     restDelta: 0.001,
   });
-
   /* ------------------------------
      Image transforms (DESKTOP ONLY)
   ------------------------------- */
@@ -100,7 +98,7 @@ export default function CTA() {
           </motion.div>
         ))}
       </div>
-
+ 
       {/* ================= TEXT (ALL SCREENS) ================= */}
       <div className="relative z-10 max-w-4xl text-center">
         <h2 className="

@@ -1,39 +1,65 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { H1, P } from "../../../styles/Typography";
 
-import ContactModal from "../Navbar/ContactModal";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-// import FloatingLines from "../../HomePage/AIOptimization/AIFooterBackground";
+const ContactModal = lazy(() => import("../Navbar/ContactModal"));
+
+// Inline SVG icons to avoid importing lucide-react
+const ArrowUpRightIcon = ({ className = "" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M7 7h10v10" /><path d="M7 17L17 7" />
+  </svg>
+);
+
+const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+  </svg>
+);
 
 
 const FinalHero = () => {
-
-
-  // const heroRef = useRef<HTMLDivElement>(null);
-  const [opacity, setOpacity] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
+    let rafId: number;
+    let lastScrollY = -1;
+
     const handleScroll = () => {
-      const progress = Math.min(window.scrollY / 400, 1);
-      setOpacity(1 - progress);
+      // Skip if scroll position hasn't changed
+      if (window.scrollY === lastScrollY) return;
+      lastScrollY = window.scrollY;
+
+      // Cancel any pending frame to avoid stacking
+      if (rafId) cancelAnimationFrame(rafId);
+
+      rafId = requestAnimationFrame(() => {
+        if (!sectionRef.current) return;
+        const progress = Math.min(window.scrollY / 400, 1);
+        const opacity = 1 - progress;
+        sectionRef.current.style.opacity = String(opacity);
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
-  
- 
+
+
   return (
-    <section className="relative  overflow-hidden"  style={{ opacity }}>
-     
-     
-       <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-10 max-w-8xl xl:px-10 py-20
+    <section ref={sectionRef} className="relative overflow-hidden">
+
+
+      <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-10 max-w-8xl xl:px-10 py-20
                 flex flex-col items-center justify-center  ">
- 
-         
-            <div className=" text-center ">
-             <H1
-  className="
+
+
+        <div className=" text-center ">
+          <H1
+            className="
     text-center
     pt-10
     
@@ -44,17 +70,17 @@ const FinalHero = () => {
     bg-clip-text
     text-transparent
   "
->
-  AI-Powered Cloud Cost <br /> Optimization Platform
-</H1>
+          >
+            AI-Powered Cloud Cost <br /> Optimization Platform
+          </H1>
 
 
-              <P className="mt-6 mx-auto max-w-4xl  text-center text-white/90">
-  CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver, with most customers seeing returns within the first month.
-              </P>
- 
-              <div className="mt-8    flex flex-flex-row  item-center gap-4 justify-center">
-           <button className=" group
+          <P className="mt-6 mx-auto max-w-4xl  text-center text-white/90">
+            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver, with most customers seeing returns within the first month.
+          </P>
+
+          <div className="mt-8    flex flex-flex-row  item-center gap-4 justify-center">
+            <button className=" group
           flex items-center justify-center
           w-52 h-[48px]
           px-[24px] py-[12px]
@@ -69,8 +95,8 @@ const FinalHero = () => {
               <span className="flex items-center gap-4">
 
                 <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
             </button>
@@ -90,14 +116,13 @@ const FinalHero = () => {
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
             transition-all duration-300
             hover:bg-white hover:text-[#254D70]
-            ${className}
           "
             >Login
               <span className="flex items-center gap-2">
 
                 <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
 
@@ -107,7 +132,9 @@ const FinalHero = () => {
 
 
       </div>
-      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <Suspense fallback={null}>
+        {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
+      </Suspense>
 
 
     </section>

@@ -1,11 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('/fonts/bricolage-grotesque-latin-600-normal.woff2') format('woff2');
+}
 
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/quicksand-latin-400-normal.woff2') format('woff2');
+}
 
 :root {
-
   --primary-color: #2B68C3;
   --secondary-color: #FED600;
   -ms-overflow-style: none;
@@ -62,7 +71,8 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Let Lenis handle smooth scrolling - CSS scroll-behavior conflicts with it */
+  scroll-behavior: auto;
 }
 
 #root {
@@ -104,6 +114,24 @@ div[id],
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Performance optimizations for scroll */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  content-visibility: auto;
+}
+
+/* Reduce paint on hover transitions */
+.group:hover,
+[class*="hover:"] {
+  transform: translateZ(0);
 }
 
 
@@ -165,10 +193,12 @@ div[id],
   transform: translateY(-20px);
   transition: 0.4s ease;
 }
+
 @keyframes marquee-inner {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -178,6 +208,7 @@ div[id],
   0% {
     transform: translateX(-50%);
   }
+
   100% {
     transform: translateX(0);
   }

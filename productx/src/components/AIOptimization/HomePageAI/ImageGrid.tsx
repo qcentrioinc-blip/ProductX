@@ -67,6 +67,9 @@ export default function ImageGrid() {
                   <img
                     src={item.image}
                     alt={item.title}
+                    width={800}
+                    height={600}
+                    decoding="async"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -79,7 +82,7 @@ export default function ImageGrid() {
                 <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
                 <div className="flex mt-8 flex-row space-x-2 ">
                   <a href="https://clouddiet.ai/signup" target="_blank">
-                  <P className=" font-bold">{item.cta}</P>
+                    <P className=" font-bold">{item.cta}</P>
                   </a>
                   <span><ArrowRight /></span>
                 </div>
