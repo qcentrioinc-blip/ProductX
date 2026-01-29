@@ -353,12 +353,12 @@ const AINavbar = () => {
 
         <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
           <MobileFeaturesDropdown setMenuOpen={setMenuOpen} />
-          <MobileResourcesDropdown setMenuOpen={setMenuOpen} />
           <MobileBuiltForDropdown
             mobileDropdown={mobileDropdown}
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
           />
+
 
           {navItems.map((item) =>
             item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" ? (
@@ -369,6 +369,9 @@ const AINavbar = () => {
               </div>
             ) : null
           )}
+
+
+          <MobileResourcesDropdown setMenuOpen={setMenuOpen} />
 
           <div className="border-b border-gray-200 pb-3">
             <Link to={`${base}/careers`} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
