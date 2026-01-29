@@ -8,7 +8,7 @@ const features = [
   {
     title: "Varied Solutions",
     description: "Built for specific goals.",
-    image: "/AIProduct/FeatureStar.svg",
+    image: "/AI-CloudFinOps/HomePage/FeatureStar.svg",
     points: [
       "Implement AWS, Azure, and Google Cloud solutions.  ",
       "Advanced optimization beyond standard FinOps tools. . ",
@@ -20,7 +20,7 @@ const features = [
   {
     title: "Guaranteed Savings",
     description: " Pay only for performance results.",
-    image: "/AIProduct/FeatureSaving.svg",
+    image: "/AI-CloudFinOps/HomePage/FeaturesSavings.svg",
     points: [
       "Rapid ROI as early as the first month. ",
       "Unique pay-for-performance model ensures shared success. ",
@@ -32,7 +32,7 @@ const features = [
   {
     title: "Continuous Optimization",
     description: " Retain savings long-term with AI.",
-    image: "/AIProduct/optimization.svg",
+    image: "/AI-CloudFinOps/HomePage/optimization.svg",
     points: [
       "Keep 80–90% of savings over time. ",
       "AI-driven measures enable continuous efficiency gains. ",
@@ -44,7 +44,7 @@ const features = [
   {
     title: " Secure & Compliant",
     description: "Zero data access, full customer control",
-    image: "/AIProduct/FeaturesSecurity.svg",
+    image: "/AI-CloudFinOps/HomePage/FeaturesSecurity.svg",
     points: [
       "Never access customer files, databases, or apps.",
       "Read-only by design with Azure RBAC roles. ",

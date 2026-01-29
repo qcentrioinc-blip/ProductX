@@ -28,7 +28,7 @@ export default function FutureSection() {
 
           {/* Illustration */}
           <img
-            src="/LandingPage/FutureSection1.png"
+            src="/Global-Landing-Page/earth.webp"
             alt="People walking on globe"
             className="w-full max-w-xl"
           />

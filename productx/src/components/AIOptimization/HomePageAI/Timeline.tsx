@@ -18,7 +18,7 @@ export default function Timeline() {
       <div className="relative w-full overflow-x-auto">
         <div className="min-w-[900px] max-w-7xl mx-auto">
           <img
-            src="/AIProduct/Timeline.png"
+            src="/AI-CloudFinOps/HomePage/Timeline.webp"
             alt="Timeline"
             className="w-full h-auto object-contain"
             loading="lazy"

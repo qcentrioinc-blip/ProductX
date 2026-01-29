@@ -41,24 +41,22 @@ export default function FeatureGrid() {
         {/* Column 1: Heading (Left Side) */}
         <div className="lg:col-span-1">
           <H2 className="leading-tight text-center lg:text-left text-[#2B68C3] xl:mt-8">
-            Lorem ipsum dolor, consect adipis ipsum
+            Why Choose CloudDIET Solutions
           </H2>
         </div>
         
         {/* Column 2: Paragraph and Feature Grid (Right Side) */}
         <div className="lg:col-span-1">
           <P className="mb-6 sm:mb-8 md:mb-14 md:mt-10 ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, swde tempor.
+            CloudDIET combines deep cloud engineering expertise with AI to deliver guaranteed Azure savings, without accessing your data or impacting performance. 
           </P>
 
           {/* Feature Items Grid */}
           <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-10 gap-y-8 sm:gap-y-10 md:gap-y-12 max-w-md sm:max-w-lg mx-auto lg:mx-0">
-            <FeatureItem number="01" text="Lorem ipsum dolor" />
-            <FeatureItem number="02" text="Lorem ipsum dolor" />
-            <FeatureItem number="03" text="Lorem ipsum dolor" />
-            <FeatureItem number="04" text="Lorem ipsum dolor" />
+            <FeatureItem number="01" text="Engineering-Led Insights " />
+            <FeatureItem number="02" text="Guaranteed Cloud Savings " />
+            <FeatureItem number="03" text="Zero Data Access " />
+            <FeatureItem number="04" text="Rapid ROI Delivery " />
           </div>
         </div>
       </div>

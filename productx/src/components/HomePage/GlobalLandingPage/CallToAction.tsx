@@ -1,6 +1,4 @@
- 
-import cta_img from "/CTA/img1.jpg";
-import { H2, P } from "../../../styles/Typography";
+ import { H2, P } from "../../../styles/Typography";
 import {   ContactUsDark } from "../../../styles/Button";
 
 const CallToAction = () => {
@@ -54,7 +52,7 @@ const CallToAction = () => {
 
           {/* IMAGE */}
           <img
-            src={cta_img}
+            src="/Global-Landing-Page/CtaImg.webp"
             alt="CTA"
             className="
               relative

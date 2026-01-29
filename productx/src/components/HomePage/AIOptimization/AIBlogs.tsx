@@ -7,19 +7,19 @@ const AIBlogs = () => {
       id: 1,
       tag: "AI Blogs ",
       title: "CloudDIET uncovers savings others miss.",
-      image: "/AIOptimization/GroupPeople.png",
+      image: "/AI-CloudFinOps/HomePage/GroupPeople.webp",
     },
     {
       id: 2,
       tag: "Tech Blogs",
       title: "Accelerating Financial Modeling with Our AI.",
-      image: "/AIOptimization/Blog2.jpg",
+      image: "/AI-CloudFinOps/HomePage/Blog2.webp",
     },
     {
       id: 3,
       tag: "Solutions Blogs ",
       title: "CloudDIET profiler to authenticate to Azure.",
-      image: "/AIOptimization/Blog1.jpg",
+      image: "/AI-CloudFinOps/HomePage/Blog1.webp",
     },
   ];
 

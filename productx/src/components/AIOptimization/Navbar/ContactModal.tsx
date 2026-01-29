@@ -1,18 +1,6 @@
 import { useState } from "react";
 import { Modal, Slide, Backdrop } from "@mui/material";
-
-// Inline SVG icons to avoid importing lucide-react
-const ArrowUpRightIcon = ({ size = 22, className = "" }: { size?: number; className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M7 7h10v10" /><path d="M7 17L17 7" />
-  </svg>
-);
-
-const XIcon = ({ className = "" }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M18 6L6 18" /><path d="M6 6l12 12" />
-  </svg>
-);
+import { ArrowUpRightIcon, XIcon } from "lucide-react";
 
 interface ContactModalProps {
   open: boolean;
@@ -69,7 +57,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
           <div
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: "url('/bg_image.jpg')",
+              backgroundImage: "url('/bg_image.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -81,7 +69,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 md:top-8 md:right-10 p-2 rounded-full hover:bg-black/10 transition z-20"
+              className="absolute top-6 right-6 md:top-6 md:right-12 p-2 rounded-full hover:bg-black/10 transition z-20"
             >
               <XIcon className="w-6 h-6 text-gray-800" />
             </button>

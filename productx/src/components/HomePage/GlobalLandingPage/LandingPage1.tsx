@@ -212,10 +212,10 @@ export default function InteractiveHeroSection() {
   }, []);
 
   const industries = [
-    { title: 'Cloud Finops AI', image: '/LandingPageNew/AI.png', url: '/industries/cloud-finops-ai', isReady: true },
-    { title: 'Banking and Finance', image: '/LandingPageNew/BNF.jpg', url: '/industries/banking-and-finance', isReady: false },
-    { title: 'EHR and PMS', image: '/LandingPageNew/EHR.jpg', url: '/industries/ehr-and-pms', isReady: false },
-    { title: 'High Tech', image: '/LandingPageNew/HighTech.png', url: '/industries/high-tech', isReady: false }
+    { title: 'Cloud Finops AI', image: '/Global-Landing-Page/AI.webp', url: '/industries/cloud-finops-ai', isReady: true },
+    { title: 'Banking and Finance', image: '/Global-Landing-Page/BNF.webp', url: '/industries/banking-and-finance', isReady: false },
+    { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: false },
+    { title: 'High Tech', image: '/Global-Landing-Page/HighTech.webp', url: '/industries/high-tech', isReady: false }
   ];
 
   const handleComingSoon = (title: string) => {

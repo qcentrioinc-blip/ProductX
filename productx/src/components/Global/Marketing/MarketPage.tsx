@@ -2,22 +2,22 @@ import TitlePage from "./TitlePage";
 import ProductCards from "./ProductCards";
 import FeatureGrid from "../../Banking&Finance/ProductDetails(COS)/FeatureGrid";
 // import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
-import Counter from "../../HomePage/GlobalLandingPage/Counter";
+// import Counter from "../../HomePage/GlobalLandingPage/Counter";
 
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
 import FeatureSection from "./FeatureSection";
-import InfoCards from "./InfoCards";
+// import InfoCards from "./InfoCards";
 import Navbar from "../Navbar/Navbar";
 import { useLocation } from "react-router-dom";
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter";
 import FooterHT from "../../HighTech/FooterHT";
 import AIFooter from "../../HomePage/AIOptimization/AIFooter";
-import Footer from "../Footer/Footer";
 
 import BNFNav from "../../Banking&Finance/BNFnav";
 import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar";
 import AINavbar from "../../AIOptimization/Navbar/AINavbar";
+import NewFooter from "../NewFooter/NewFooter";
 
 const MarketPage = () => {
   const { pathname } = useLocation();
@@ -38,7 +38,7 @@ const MarketPage = () => {
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
     if (pathname.startsWith("/industries/high-tech")) return <FooterHT />;
     if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIFooter />;
-    return <Footer />;
+    return <NewFooter />;
   }
   return (
     <div>
@@ -47,8 +47,8 @@ const MarketPage = () => {
       <ProductCards />
       <FeatureSection />
       <FeatureGrid />
-      <InfoCards />
-      <Counter />
+      {/* <InfoCards />
+      <Counter /> */}
       {/* <div className="relative">
 
         <div className="sticky bottom-0 inset-0 z-30">

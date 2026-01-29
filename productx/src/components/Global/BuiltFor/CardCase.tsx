@@ -23,7 +23,7 @@ const CARD_CONFIG: Record<
   "cloud-finops-ai": {
     enterprises: {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: " Azure Spend Issues",
       cards: [
         { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Enterprises3.svg" },
@@ -34,7 +34,7 @@ const CARD_CONFIG: Record<
 
     "digital-native": {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: "SaaS Cost Problems",
       cards: [
         { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/BalanceScale.svg" },
@@ -45,7 +45,7 @@ const CARD_CONFIG: Record<
 
     smb: {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: "Industry Struggles Today",
       cards: [
         { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/OpenEye.svg"  },
@@ -58,7 +58,7 @@ const CARD_CONFIG: Record<
   "banking-and-finance": {
     banks: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "Technology Challenges in Banking",
       cards: [
         { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." ,image:"/BuiltFor/Recycle.png" },
@@ -69,7 +69,7 @@ const CARD_CONFIG: Record<
 
     nbfc: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "NBFC Operational Challenges",
       cards: [
         { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical.",image:"/BuiltFor/Recycle.png"  },
@@ -80,7 +80,7 @@ const CARD_CONFIG: Record<
 
     "credit-union": {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "Credit Union Technology Gaps",
       cards: [
         { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential.",image:"/BuiltFor/Recycle.png"  },
@@ -93,7 +93,7 @@ const CARD_CONFIG: Record<
   "ehr-and-pms": {
     hospitals: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+      image: "/BuiltFor/img4.webp",
       heading: "Hospital System Challenges",
       cards: [
         { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." ,image:"/BuiltFor/Recycle.png" },
@@ -104,7 +104,7 @@ const CARD_CONFIG: Record<
 
     clinics: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+      image: "  /BuiltFor/img4.webp",
       heading: "Clinic Management Challenges",
       cards: [
         { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks.",image:"/BuiltFor/Recycle.png"  },
@@ -117,7 +117,7 @@ const CARD_CONFIG: Record<
   "high-tech": {
     startups: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+      image: "/BuiltFor/img5.webp",
       heading: "Startup Engineering Challenges",
       cards: [
         { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt.",image:"/BuiltFor/Recycle.png"  },
@@ -128,7 +128,7 @@ const CARD_CONFIG: Record<
 
     enterprises: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+      image: "/BuiltFor/img5.webp",
       heading: "Enterprise High-Tech Challenges",
       cards: [
         { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." ,image:"/BuiltFor/Recycle.png" },

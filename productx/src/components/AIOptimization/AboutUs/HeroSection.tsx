@@ -96,7 +96,7 @@ export default function HeroSection() {
           <P className="text-gray-300 mt-6 max-w-lg fade-in-delay-1 leading-snug">
             With CloudDIET's performance-based model, you pay a fraction of the savings we deliver. Most customers see ROI in the first month.
           </P>
- 
+        
        <ContactUsAI className="my-6">Start Saving</ContactUsAI>
         </div>
  
@@ -108,7 +108,7 @@ export default function HeroSection() {
           </div>
          
           <img
-            src="/AIAbout/AIHero.png"
+            src="/AI-CloudFinOps/Pricing/AIHero.webp"
             alt="Futuristic Person"
             className="  lg:max-w-2xl  w-[350px] md:w-[550px] lg:w-full md:bottom-[-110px] lg:bottom-[70px] xl:bottom-[110px] object-contain image-glow relative z-10"
           />
