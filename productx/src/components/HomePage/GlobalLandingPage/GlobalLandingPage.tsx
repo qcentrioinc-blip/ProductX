@@ -66,7 +66,7 @@ const GlobalLandingPage = () => {
                 <CallToAction />
             </div>
 
-            <div id="FlowingMenu">
+            <div id="FlowingMenu"  className="hidden xl:block">
                 <FlowingMenu />
             </div>
 
