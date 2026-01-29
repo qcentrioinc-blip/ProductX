@@ -14,14 +14,14 @@ const ComparePrice = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-black flex flex-col items-center justify-center py-8 px-4 md:py-12 gap-6 md:gap-[32px]">
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center py-8 px-4 md:py-12 gap-6 md:gap-[32px]">
             {/* Header Section */}
             <div className="w-full max-w-[1320px] flex flex-col items-center gap-6 md:gap-[32px] px-4">
                 <div className="text-center">
-                    <H2 className="text-[#F5F5F5] leading-tight md:leading-none mb-3 md:mb-4">
+                    <H2 className="text-[#141414] leading-tight md:leading-none mb-3 md:mb-4">
                         Find Your Perfect Plan
                     </H2>
-                    <P className="text-[#CCCCCC] leading-relaxed md:leading-[34px] text-center max-w-full md:max-w-[758px] mx-auto px-2">
+                    <P className="text-[#141414] leading-relaxed md:leading-[34px] text-center max-w-full md:max-w-[758px] mx-auto px-2">
                         Discover the ideal CloudDIET plan to optimize your Azure environment. Our pricing is performance-based, meaning you only pay when we deliver savings.
                     </P>
                 </div>

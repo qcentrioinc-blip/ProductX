@@ -65,6 +65,7 @@ export default function FeatureCards() {
         className="
     xl:ml-32
     max-w-8xl
+    py-10
     px-6
     xl:px-0
     grid
@@ -89,7 +90,7 @@ export default function FeatureCards() {
               ease: [0.25, 0.1, 0.25, 1]
             }}
             viewport={{ once: true, margin: "-50px" }}
-            className="flex flex-col gap-10"
+            className="flex flex-col gap-10 mx-4 xl:mx-0"
             style={{ willChange: 'opacity, transform' }}
           >
             <div className="xl:flex-row flex flex-col gap-10">

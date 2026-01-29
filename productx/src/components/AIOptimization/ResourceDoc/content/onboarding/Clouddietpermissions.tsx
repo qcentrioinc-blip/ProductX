@@ -25,7 +25,7 @@ const Clouddietpermissions: React.FC = () => {
           </ol>
 
          <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Required Azure Roles</h3>
-<div className="pl-16">
+<div className="xl:pl-16">
          <table className="border-2 border-collapse w-full">
            <colgroup>
     <col style={{ width: "50%" }} />
@@ -108,34 +108,34 @@ const Clouddietpermissions: React.FC = () => {
 <h3 className="font-bricolage text-xl lg:text-2xl">Step 1: Create an Azure Service Principal </h3>
 <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li> Log in to the Azure portal and go to Azure Active Directory. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step1clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step1clouddiet.webp" alt="" />
 
   <li className="mt-16"> Select App registrations, then New registration </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step2clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step2clouddiet.webp" alt="" />
 
   <li className="mt-16"> Enter CloudDIET as the Name. Keep defaults and click Register. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step3clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step3clouddiet.webp" alt="" />
 
   <li className="mt-16">Note the displayed GUIDs: Application (client) ID and Directory (tenant) ID. These will be used in CloudDIET.    </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step4clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step4clouddiet.webp" alt="" />
 
   <li className="mt-16"> Select Certificates & secrets from the menu.</li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step5clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step5clouddiet.webp" alt="" />
   <li className="mt-16"> Click New client secret. Add a Description and set Expires to 365 days. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step6clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step6clouddiet.webp" alt="" />
 
 
   <li className="mt-4"> Copy the secret Value immediately. It will not be visible again and must be entered in CloudDIET.</li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step7clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step7clouddiet.webp" alt="" />
 
   <li className="mt-4"> Go to Overview. On the right, select Managed application in local directory: CloudDIET. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step8clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step8clouddiet.webp" alt="" />
   <li className="mt-4">   The app registration automatically creates an Enterprise Application. Copy the Object ID for CloudDIET.  </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/step9clouddiet.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step9clouddiet.webp" alt="" />
 
 
    <li className="mt-4"> The Azure Service Principal is now ready. The details above must be configured in CloudDIET. </li>
- <div className="mt-6  pl-16 overflow-x-auto">
+ <div className="mt-6  xl:pl-16 overflow-x-auto">
   <table className="w-full border   border-collapse bg-white rounded-lg">
     <thead className="bg-gray-100">
       <tr >
@@ -211,24 +211,24 @@ const Clouddietpermissions: React.FC = () => {
 
  <ol className="list-decimal list-inside space-y-6 gap-y-10 font-quicksand text-lg leading-tight tracking-wide">
   <li>In the Azure portal, search for Subscriptions in the top search bar.  </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/2step1.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step1.webp" alt="" />
 
   <li>Select a Subscription from the list.  </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/2step2.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step2.webp" alt="" />
 
   <li>Go to Access control (IAM) in the menu. Click Add &gt; Add role assignment. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/2step3.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step3.webp" alt="" />
 
   <li>On the Add role assignment page, choose the Reader role and click Next.   </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/2step4.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step4.webp" alt="" />
   <li> In the Members section, click + Select members. Search for and select the CloudDIET Service Principal created earlier, then click Select </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/2step5.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step5.webp" alt="" />
 
   <li> Click Review + assign to finalize the role assignment.</li>
-   <img className="pl-16" src="/AI-CloudFinOps/Resources/2step6.webp" alt="" />
+   <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step6.webp" alt="" />
 
 <li>Repeat these steps for each role and each Subscription as needed. </li>
-<div className="mt-6  pl-16 overflow-x-auto">
+<div className="mt-6  xl:pl-16 overflow-x-auto">
   <table className="w-full border border-gray-200 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
@@ -301,7 +301,7 @@ const Clouddietpermissions: React.FC = () => {
 <h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 3 : Assign Billing Account Permissions </h3>
  <p className="font-quicksand text-lg leading-tight tracking-wide">An additional role is required for MCA (Microsoft Customer Agreement) billing to grant read access to billing data. </p>
 
-<div className="mt-6  pl-16 overflow-x-auto">
+<div className="mt-6  xl:pl-16 overflow-x-auto">
   <table className="w-full border border-gray-200 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
@@ -329,18 +329,18 @@ const Clouddietpermissions: React.FC = () => {
 </div>
  <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>In the Azure portal, search for Cost Management + Billing. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/3step1.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/3step1.webp" alt="" />
 
     <li>Select a Billing scope, then go to Access control (IAM). </li>
 
       <li> Click Add within IAM. </li>
-  <img className="pl-16" src="/AI-CloudFinOps/Resources/3step2.webp" alt="" />
+  <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/3step2.webp" alt="" />
   <li> Set the Role to Billing account reader. Search for the CloudDIET Service Principal and select it. Click Save to assign the role. </li>
   </ol>
 
 <h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 4 : Add Service Principal(s) in CloudDIET </h3>
  <p className="font-quicksand text-lg leading-tight tracking-wide">Log in to <a href="https://clouddiet.app" className="text-blue-600">https://clouddiet.app</a> using your Azure Active Directory credentials. Then, enter the Service Principal details collected in Step 1 to configure CloudDIET.  </p>
-<div className="mt-6  pl-16 overflow-x-auto">
+<div className="mt-6  xl:pl-16 overflow-x-auto">
   <table className="w-full border border-gray-400 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>

@@ -56,7 +56,7 @@ Opportunities requiring little effort and no risk. Example: pausing an unused Mi
 Summarized Savings Opportunities  </h2>
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">Savings Opportunities are organized by Azure service. You can also filter findings in other ways. The Discovery view, for instance, displays opportunities for Azure Cosmos DB, Azure App Services, and Microsoft Fabric. Drilling into each service reveals various opportunities across resources, each with its own effort level.  </p>
 
-    <img   className="pl-16" src="/AI-CloudFinOps/Resources/featuresOpti1.webp"/>
+    <img   className="xl:pl-16" src="/AI-CloudFinOps/Resources/featuresOpti1.webp"/>
 
     <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
 Savings Opportunity Details 
@@ -64,7 +64,7 @@ Savings Opportunity Details
  </h2>
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">Each opportunity shows impacted resources, potential savings, and relevant configuration and usage metrics. Use the dropdown to view the full description and resolution guidance.  </p>
 
-    <img   className="pl-16" src="/AI-CloudFinOps/Resources/FeaturesOpti2.webp"/>
+    <img   className="xl:pl-16" src="/AI-CloudFinOps/Resources/FeaturesOpti2.webp"/>
      
 
 <div className="my-6">

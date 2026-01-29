@@ -4,7 +4,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function Intro() {
   return (
-    <section className="bg-[#EAE9FF] w-full  py-10 lg:py-20  lg:px-8">
+    <section className="bg-white w-full  py-10 lg:py-20  lg:px-8">
     <div className="max-w-8xl mx-6  xl:mx-10 grid grid-cols-1 xl:grid-cols-2   items-stretch">
 
 

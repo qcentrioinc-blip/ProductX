@@ -15,9 +15,9 @@ const SavingPlans: React.FC = () => {
   <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Visualizations </h3>
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">The graph shows usage patterns of resources eligible for a Savings Plan. It displays spending only for qualifying compute resources. For example, it includes VM compute SKU costs but excludes disks and other non-covered expenses. </p>
 
-<img className="pl-16" src="/AI-CloudFinOps/Resources/SavingPlans1.webp" alt="Savings Plan Visualization"/>
+<img className="xl:pl-16" src="/AI-CloudFinOps/Resources/SavingPlans1.webp" alt="Savings Plan Visualization"/>
 
-<div className="overflow-x-auto pl-16 mt-6">
+<div className="overflow-x-auto xl:pl-16 mt-6">
   <table className="min-w-full border border-gray-300 text-left font-quicksand">
     <thead className="bg-gray-200">
       <tr>
@@ -80,7 +80,7 @@ const SavingPlans: React.FC = () => {
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">The Designer enables you to model what-if scenarios by adjusting Savings Plan terms, commitment percentages, and identifying resources that could become eligible with SKU changes.</p>
 
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">For example, recommendations may include ineligible App Service Plans. Only the Premium V3 SKU qualifies. CloudDIET flags these plans and assesses whether they can be upgraded with minimal risk. </p>
-<img className="pl-16 h-[650px] w-[80%]"  src="/AI-CloudFinOps/Resources/SavingPlans2.webp" alt="Savings Plan Visualization"/>
+<img className="xl:pl-16 h-[650px] w-[80%]"  src="/AI-CloudFinOps/Resources/SavingPlans2.webp" alt="Savings Plan Visualization"/>
         
 <div className="flex gap-4 rounded-lg bg-green-50 border-l-4 border-green-600 p-5 my-6">
   {/* Icon */}
