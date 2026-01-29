@@ -3,7 +3,7 @@ import { H1, P } from "../../../styles/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
- 
+
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 type IntroStyle = {
@@ -160,9 +160,9 @@ export default function BuiltForIntro() {
             <P className={`mb-8 ${style.paraColor}`}>
               {content.para2}
             </P>
-  <button
-    onClick={handleContactClick}
-        className={`
+            <button
+              onClick={handleContactClick}
+              className={`
           group
           flex items-center justify-center
           w-auto h-[48px]
@@ -176,17 +176,17 @@ export default function BuiltForIntro() {
           hover:bg-white hover:text-black
          
         ${style.buttonBg} ${style.buttonText}`}
-      >
-        Learn More
-        <span className="flex items-center gap-2">
-           
-          <span className="relative flex items-center w-[20px] h-[20px]">
-            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </span>
-        </span>
-      </button>
-            
+            >
+              Learn More
+              <span className="flex items-center gap-2">
+
+                <span className="relative flex items-center w-[20px] h-[20px]">
+                  <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+                  <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </span>
+              </span>
+            </button>
+
           </div>
         </div>
       </section>

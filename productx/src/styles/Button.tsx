@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+
 import { useLocation } from "react-router-dom";
 import React, { useRef, useEffect, useCallback } from "react";
 
@@ -67,20 +67,30 @@ const useClickSpark = (options: {
     const parent = canvas.parentElement;
     if (!parent) return;
 
-    const resizeCanvas = () => {
-      const { width, height } = parent.getBoundingClientRect();
+    const updateCanvasSize = (width: number, height: number) => {
       canvas.width = width;
       canvas.height = height;
     };
 
-    resizeCanvas();
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        // Use contentRect to avoid getBoundingClientRect()
+        const { width, height } = entry.contentRect;
+        updateCanvasSize(width, height);
+      }
+    });
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    resizeObserver.observe(parent);
 
+    resizeObserver.observe(parent);
+
+    const ctx = canvas?.getContext("2d");
     let frame: number;
 
     const draw = (timestamp: number) => {
+      // Ensure canvas and ctx are valid before drawing
+      if (!canvas || !ctx) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       sparksRef.current = sparksRef.current.filter((spark) => {
@@ -109,9 +119,14 @@ const useClickSpark = (options: {
       frame = requestAnimationFrame(draw);
     };
 
-    frame = requestAnimationFrame(draw);
+    if (ctx) {
+      frame = requestAnimationFrame(draw);
+    }
 
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      resizeObserver.disconnect();
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [sparkRadius, sparkSize, sparkColor, duration, extraScale, easeFunc]);
 
   const triggerSpark = (e: React.MouseEvent) => {
@@ -192,8 +207,14 @@ export const ContactUs = ({ children, className = "", onClick }: ButtonProps) =>
           <span className="flex items-center gap-[8px]">
             {children}
             <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-              <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-              <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </span>
           </span>
         </button>
@@ -254,8 +275,14 @@ export const ContactUsHigh = ({ children, className = "", onClick }: ButtonProps
           <span className="flex items-center gap-[8px]">
             {children}
             <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-              <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-              <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </span>
           </span>
         </button>
@@ -312,8 +339,14 @@ export const ContactUsHighYellow = ({ children, className = "", onClick }: Butto
           <span className="flex items-center gap-[8px]">
             {children}
             <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-              <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-              <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </span>
           </span>
         </button>
@@ -337,7 +370,7 @@ export const ContactUsDark = ({ children, className = "", onClick }: ButtonProps
     <div className="relative inline-block w-fit" onClick={handleClick}>
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none"></canvas>
 
-      <button
+      <div
         className={`
           group
           flex items-center justify-center
@@ -356,11 +389,17 @@ export const ContactUsDark = ({ children, className = "", onClick }: ButtonProps
         <span className="flex items-center gap-2">
           {children}
           <span className="relative flex items-center w-[20px] h-[20px]">
-            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <path d="M7 7h10v10" />
+              <path d="M7 17L17 7" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
           </span>
         </span>
-      </button>
+      </div>
     </div>
   );
 };
@@ -396,8 +435,14 @@ export const ContactUsAI = ({ children, className = "", onClick }: ButtonProps) 
         <span className="flex items-center gap-2">
           {children}
           <span className="relative flex items-center w-[20px] h-[20px]">
-            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <path d="M7 7h10v10" />
+              <path d="M7 17L17 7" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
           </span>
         </span>
       </button>
@@ -440,8 +485,14 @@ export const Submit = ({ children, className = "", onClick }: ButtonProps) => {
         <span className="flex items-center gap-[8px]">
           {children}
           <span className="relative flex items-center w-[15px] h-[15px]">
-            <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-            <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <path d="M7 7h10v10" />
+              <path d="M7 17L17 7" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
           </span>
         </span>
       </button>

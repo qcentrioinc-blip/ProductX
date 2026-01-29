@@ -173,10 +173,10 @@ const AutoDataChange = () => {
                     <H4
                       key={index}
                       className={`    p-4 xl:p-6 text-center rounded-xl transition-all duration-700 ${index === activeTab
-                          ? 'bg-[#5551FF] text-white shadow-lg scale-105'
-                          : index < activeTab
-                            ? 'bg-transparent text-[#141414]'
-                            : 'bg-transparent text-[#141414]'
+                        ? 'bg-[#5551FF] text-white shadow-lg scale-105'
+                        : index < activeTab
+                          ? 'bg-transparent text-[#141414]'
+                          : 'bg-transparent text-[#141414]'
                         }`}
                     >
                       {tab}

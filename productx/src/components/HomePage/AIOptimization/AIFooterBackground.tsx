@@ -314,7 +314,8 @@ export default function FloatingLines({
     camera.position.z = 1;
 
     const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Optimization: Cap pixel ratio at 0.75 for better performance on high-DPI screens
+    renderer.setPixelRatio(0.75);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     containerRef.current.appendChild(renderer.domElement);
@@ -415,19 +416,23 @@ export default function FloatingLines({
     }
 
     const handlePointerMove = (event: PointerEvent) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+      // Use offsetX/Y to avoid getBoundingClientRect() forced reflow
+      const x = event.offsetX;
+      const y = event.offsetY;
+      const rect = renderer.domElement; // We need dimensions for normalization
+      const width = rect.clientWidth;
+      const height = rect.clientHeight;
+
       const dpr = renderer.getPixelRatio();
 
-      targetMouseRef.current.set(x * dpr, (rect.height - y) * dpr);
+      targetMouseRef.current.set(x * dpr, (height - y) * dpr);
       targetInfluenceRef.current = 1.0;
 
       if (parallax) {
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const offsetX = (x - centerX) / rect.width;
-        const offsetY = -(y - centerY) / rect.height;
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const offsetX = (x - centerX) / width;
+        const offsetY = -(y - centerY) / height;
         targetParallaxRef.current.set(offsetX * parallaxStrength, offsetY * parallaxStrength);
       }
     };

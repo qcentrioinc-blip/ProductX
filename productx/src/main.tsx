@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ScrollProvider } from './context/ScrollContext.tsx'
-// import SmoothScroll from './components/Global/SmoothScroll.tsx'
+
+import '@fontsource/space-grotesk/700.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

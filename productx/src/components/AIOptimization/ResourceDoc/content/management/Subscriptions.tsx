@@ -21,7 +21,7 @@ const Subscriptions: React.FC = () => {
 
 Azure Subscriptions can be added to CloudDIET at any time, but you must first have created at least one Credential (Service Principal). Once added, you will see the Azure Subscription(s) listed and the current status. CloudDIET will automatically begin profiling your Azure Subscription. Depending on the amount of resources in the Subscription, this can take anywhere from a few minutes to several hours  </p>
 
-<img className="pl-16" src="/AIOptimization/Service1.png" alt="Savings Plan Visualization"/>
+<img className="pl-16" src="/AI-CloudFinOps/Resources/Service1.webp" alt="Savings Plan Visualization"/>
      
 
 

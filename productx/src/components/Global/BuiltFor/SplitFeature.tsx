@@ -64,8 +64,8 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#FAFAFA]",
-    imageSrc: "/BuiltFor/EnterpriseSplit.png",
+sectionBg: "bg-[#FAFAFA]",
+    imageSrc: "/BuiltFor/EnterpriseSplit.webp",
     headingPrimaryColor: "text-[#254D70]",
     headingSecondaryColor: "text-[#254D70]",
     paragraphColor: "text-[#141414]",
@@ -87,7 +87,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       Delivers For Enterprises
     </>
   ),
-    imageSrc: "/BuiltFor/EnterpriseImage.svg",
+    imageSrc: "/BuiltFor/EnterpriseSplit.webp",
           paragraph:"CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
       bulletPoints: [
         "Cut Waste Fast",
@@ -104,7 +104,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "digital-native": {
       headingPrimary: "Impact We Deliver",
-        imageSrc: "/BuiltFor/DigitalNativeImage.svg",
+        imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -123,7 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     smb: {
       headingPrimary: "The Enterprise Impact We Deliver ",
-        imageSrc: "/BuiltFor/SMBImage.svg",
+        imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",

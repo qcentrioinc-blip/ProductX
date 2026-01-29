@@ -61,8 +61,8 @@ export default function FeatureCards() {
 
       {/* <GridScanBg />   */}
       {/* Content */}
-   <div
-  className="
+      <div
+        className="
     xl:ml-32
     max-w-8xl
     px-6
@@ -76,23 +76,28 @@ export default function FeatureCards() {
     relative
     z-10
   "
->
+      >
 
         {features.map((item, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            viewport={{ once: true }}
+            transition={{
+              duration: 0.4,
+              delay: idx * 0.05,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+            viewport={{ once: true, margin: "-50px" }}
             className="flex flex-col gap-10"
+            style={{ willChange: 'opacity, transform' }}
           >
             <div className="xl:flex-row flex flex-col gap-10">
               {/* Image */}
-             <img
-  src={item.image}
-  alt={item.title}
-  className="
+              <img
+                src={item.image}
+                alt={item.title}
+                className="
     flex-shrink-0
     rounded-sm
     object-contain
@@ -104,7 +109,7 @@ w-20
     xl:max-h-[150px]
     xl:max-w-[150px]
   "
-/>
+              />
 
 
               {/* Title and Description */}

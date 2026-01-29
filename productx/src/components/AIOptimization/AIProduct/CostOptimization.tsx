@@ -1,5 +1,6 @@
 
 import { H2, P } from '../../../styles/Typography';
+// import { useInView } from 'react-intersection-observer';
 
 const COST_LAYERS = [
   {
@@ -31,9 +32,14 @@ const COST_LAYERS = [
 
 
 const CostOptimization = () => {
+  // const { ref, inView } = useInView({
+  //   triggerOnce: true,
+  //   rootMargin: '200px',
+  // });
+
   return (
     <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:py-16 overflow-hidden">
-      
+
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <video
@@ -102,9 +108,9 @@ const CostOptimization = () => {
                 fill="none"
               />
 
-           {/* LONG CONNECTOR — Visualization → Engineering (shifted left) */}
-<path
-  d="
+              {/* LONG CONNECTOR — Visualization → Engineering (shifted left) */}
+              <path
+                d="
     M 70 170
     L 70 340
     Q 70 380, 130 380
@@ -151,8 +157,8 @@ const CostOptimization = () => {
 
         {/* CloudDIET Logo */}
         <div className="relative mt-20 flex justify-center z-20">
-          <div className=" bg-[#254D70] rouned-md backdrop-blur-2xl px-8 py-4 flex items-center gap-3 shadow-lg">
-           {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
+          <div className="bg-[#19E3A1] px-8 py-4 flex items-center gap-3 shadow-lg">
+            {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
 
             <div className="text-white text-4xl font-bricolage font-extrabold">
               Cloud<span className="text-white font-medium">DIET</span>

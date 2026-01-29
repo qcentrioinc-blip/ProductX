@@ -19,7 +19,7 @@ const Service: React.FC = () => {
 
 Create Service Principals in Azure Active Directory using the Onboarding Guide. Then add their credentials in CloudDIET settings. Most customers use one Service Principal, but multiple are supported. Each Azure Subscription must link to only one Service Principal, but different Subscriptions may use different ones.   </p>
 
-<img className="pl-16" src="/AIOptimization/Service1.png" alt="Savings Plan Visualization"/>
+<img className="pl-16" src="/AI-CloudFinOps/Resources/Service1.webp" alt="Savings Plan Visualization"/>
 
 
 

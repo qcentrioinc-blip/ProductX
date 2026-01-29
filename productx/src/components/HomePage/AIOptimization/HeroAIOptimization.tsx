@@ -7,19 +7,19 @@ import Frontier from "./Frontier"
 import LandingPageAI from "./LandingPageAI"
 // import Meta from "./Meta"
 import Statistics from "./Statistics"
-import StickyScrollSections from "../../AIOptimization/ResourceDoc/content/features/StickyScrollSections"
+import StickyScrollSections from "./StickyScrollSections"
 import ThreeCardAI from "./ThreeCardAI"
 
 const HeroAIOptimization = () => {
   return (
     <div>
-      <AINavbar/>
+      <AINavbar />
       <LandingPageAI />
       {/* <Consentur /> */}
-      <StickyScrollSections/>
-       <ThreeCardAI />
+      <StickyScrollSections />
+      <ThreeCardAI />
       <Frontier />
-     
+
       {/* <Meta /> */}
       <Statistics />
       <CloudDiet />

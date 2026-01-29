@@ -38,9 +38,9 @@ const CEO = () => {
     >
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full opacity-95"
         style={{
-          backgroundImage: "url('/LandingPageNew/House.png')",
+          backgroundImage: "url('/Global-Landing-Page/House1.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -51,12 +51,12 @@ const CEO = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32 min-h-screen flex items-center">
-        <div className="max-w-5xl">
+      <div className="relative z-10 max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-32 xl:min-h-screen flex items-center">
+        <div className="max-w-[1000px] ">
           
           {/* Main Heading */}
           <H2 
-            className="mb-12 lg:mb-16 transition-all duration-700  ease-in-out text-[#8338EC]"
+            className="lg:mb-60 transition-all duration-700  ease-in-out text-[#92278F] mt-45 lg:mt-0"
             style={{
               
               lineHeight: '100%',

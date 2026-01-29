@@ -17,7 +17,7 @@ const UserPermission: React.FC = () => {
   <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Adding Users </h3>
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">No manual user addition is needed—authentication uses your Azure Active Directory. Users are automatically added and listed when they log in with their organizational account.  </p>
 
-<img className="pl-16" src="/AIOptimization/UserPemi.png" alt="Savings Plan Visualization"/>
+<img className="pl-16" src="/AI-CloudFinOps/Resources/UserPemi.webp" alt="Savings Plan Visualization"/>
 
 <div className="overflow-x-auto pl-16 mt-6">
   <table className="min-w-full border border-gray-300 text-left font-quicksand">

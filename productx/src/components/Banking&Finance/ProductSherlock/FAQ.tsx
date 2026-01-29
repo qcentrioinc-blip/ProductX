@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { H2,   H3,   P } from "../../../styles/Typography";
+import { H2, H3, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
@@ -72,27 +72,27 @@ const faqContentByIndustry: Record<string, FaqItem[]> = {
       answer:
         "No. CloudDIET only accesses billing metadata, usage metrics, and resource configuration, never your files, databases, or application data. .",
     },
-     {
+    {
       question: " How is CloudDIET different from Azure Cost Management or AWS Cost Explorer?",
       answer:
         "CloudDIET provides engineering-led insights and AI-powered profiling that identifies misconfigurations and optimization opportunities beyond basic cost reporting. ",
     },
-     {
+    {
       question: " What cloud platforms does CloudDIET support?",
       answer:
         "CloudDIET supports Azure, AWS, and Google Cloud, with optimizations tailored to each platform's services and pricing models. ",
     },
-     {
+    {
       question: " What’s the typical timeline to see results?",
       answer:
         "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks. ",
     },
-     {
+    {
       question: "Can CloudDIET help with Reserved Instances and Savings Plans?",
       answer:
         "Yes. We analyze your usage and provide data-driven recommendations for optimal Reserved Instance and Savings Plan purchases",
     },
-     {
+    {
       question: "What kind of customer is CloudDIET best suited for?",
       answer:
         "Enterprises with mature cloud environments, dedicated cloud/FinOps teams, and significant spend on Azure, AWS, or Google Cloud. ",

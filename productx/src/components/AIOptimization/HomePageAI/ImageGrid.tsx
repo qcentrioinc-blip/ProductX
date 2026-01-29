@@ -67,6 +67,9 @@ export default function ImageGrid() {
                   <img
                     src={item.image}
                     alt={item.title}
+                    width={800}
+                    height={600}
+                    decoding="async"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

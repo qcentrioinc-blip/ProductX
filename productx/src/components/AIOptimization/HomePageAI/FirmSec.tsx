@@ -6,9 +6,24 @@ import { gsap } from 'gsap';
 const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement | null>; enabled?: boolean; spotlightRadius?: number }) => {
   const spotlightRef = useRef<HTMLDivElement | null>(null);
 
+  const isVisibleRef = useRef(false);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container || !enabled) return;
+
+    // INTERSECTION OBSERVER SETUP
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const isVisible = entries[0].isIntersecting;
+        isVisibleRef.current = isVisible;
+        if (!isVisible && spotlightRef.current) {
+          gsap.set(spotlightRef.current, { opacity: 0 });
+        }
+      },
+      { threshold: 0, rootMargin: '100px' }
+    );
+    observer.observe(container);
 
     const spotlight = document.createElement('div');
     spotlight.className = 'global-spotlight';
@@ -39,6 +54,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     const cards = container.querySelectorAll('.animated-card') as NodeListOf<HTMLElement>;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (!isVisibleRef.current) return; // SKIP IF NOT VISIBLE
       if (!spotlightRef.current) return;
 
       // Ensure visible
@@ -126,12 +142,14 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       }
     };
 
-    container.addEventListener('mousemove', handleMouseMove);
+    // Add passive listener
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     container.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      observer.disconnect();
       if (spotlightRef.current && spotlightRef.current.parentNode) {
         spotlightRef.current.parentNode.removeChild(spotlightRef.current);
       }

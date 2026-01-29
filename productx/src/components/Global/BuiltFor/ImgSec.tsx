@@ -65,8 +65,8 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    bgImage: "/BuiltFor/ImageBg2.png", 
-    cardBg: "bg-[#254D70]",
+    bgImage: "/BuiltFor/ImageBg2.webp",
+      cardBg: "bg-[#254D70]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",

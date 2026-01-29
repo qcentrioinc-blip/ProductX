@@ -87,7 +87,7 @@ const HEADING_CONTENT = {
           "Implemented 3-year Synapse RIs, achieving an 81% blended discount on runtime costs. ",
         ],
       },
-     
+
       {
         title: " Retain Savings Long-Term",
            image: "/AIOptimization/pricetag.svg",
@@ -102,7 +102,7 @@ const HEADING_CONTENT = {
           "Ensured full customer control and zero access to sensitive data or workloads. ",
         ],
       },
-       {
+      {
         title: "Multi-Cloud Waste Elimination",
          image: "/AIOptimization/Cloud.svg",
         description:
@@ -253,26 +253,26 @@ else headingContent = HEADING_CONTENT.banking; // fallback
     <section>
       {/* Top Section */}
       <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
-     <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
-  <img
-    src={image}
-    alt={title}
-    className="w-full h-full object-contain p-2"
-  />
-</div>
+        <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-contain p-2"
+          />
+        </div>
 
 
-        
-        <h4
+
+        <h3
           className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold"
           style={{ color: headingColor }}
         >
           {title}
-        </h4>
+        </h3>
 
-  <p className="balance-text" style={{ color: textcolor }}>
-  {description}
-</p>
+        <p className="balance-text" style={{ color: textcolor }}>
+          {description}
+        </p>
 
       </div>
 

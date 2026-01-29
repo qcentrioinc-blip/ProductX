@@ -1,4 +1,4 @@
-import { H4, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 
 export default function GlassyFeatures() {
   return (
@@ -18,27 +18,27 @@ export default function GlassyFeatures() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white">
 
             <div className="text-center">
-              <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+              <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                 AI-Powered Profiling
-              </H4>
+              </span>
               <P className="mx-auto font-medium text-white">
                 Analyzes resource configuration,<br /> usage, and costs.
               </P>
             </div>
 
             <div className="text-center">
-              <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+              <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                 Expert Recommendations
-              </H4>
+              </span>
               <P className="mx-auto font-medium text-white">
                 Actionable insights from <br /> cloud engineering veterans.
               </P>
             </div>
 
             <div className="text-center">
-              <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+              <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                 Guaranteed Savings
-              </H4>
+              </span>
               <P className="mx-auto font-medium text-white">
                 Pay only a share <br /> of realized savings.
               </P>

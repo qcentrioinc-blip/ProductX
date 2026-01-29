@@ -64,7 +64,7 @@ const LandingPageAI = () => {
 
             {/* Description */}
             <p
-              className="max-w-4xl mb-10 px-1 sm:px-0"
+              className="max-w-4xl mb-6 px-1 sm:px-0"
               style={{
                 fontFamily: "'Quicksand', sans-serif",
                 fontWeight: 500,

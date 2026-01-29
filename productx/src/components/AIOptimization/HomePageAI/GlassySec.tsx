@@ -1,4 +1,4 @@
-import { H4, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -50,11 +50,11 @@ export default function GlassySec() {
                 transition={{ delay: i * 0.2 }}
                 className="text-center"
               >
-                <H4 className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
+                <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                   {i === 0 && "AI-Powered Profiling"}
                   {i === 1 && "Expert Recommendations"}
                   {i === 2 && "Guaranteed Savings"}
-                </H4>
+                </span>
 
                 <P className="mx-auto font-medium text-white">
                   {i === 0 && <>Analyzes resource configuration,<br /> usage, and costs.</>}
