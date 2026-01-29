@@ -9,7 +9,7 @@ import { lazy, Suspense } from 'react';
 import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
 import Physician from './components/EHR&PMS/Physician/Physician';
-
+import HeroSection from './components/HomePage/HeroSection';
 
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
@@ -28,7 +28,6 @@ const Career = lazy(() => import('./components/Banking&Finance/Career/Career'));
 const About = lazy(() => import('./components/EHR&PMS/AboutUs/About'));
 const Clinic = lazy(() => import('./components/EHR&PMS/ClinicApp/Clinic'));
 const Connect = lazy(() => import('./components/Global/Contact/Connect'));
-const HeroSection = lazy(() => import('./components/HomePage/HeroSection'));
 const CareersPageHigh = lazy(() => import('./components/HighTech/Careers/CareersPage'));
 const ContactPage = lazy(() => import('./components/HighTech/ContactForm/ContactPage'));
 const JDPage = lazy(() => import('./components/HighTech/JobDescription/JDPage'));
@@ -58,20 +57,18 @@ const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
 const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
 const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
-const AIOptimization = lazy(() => import('./routes/industries/AIOptimization'));
-const Resource = lazy(() => import('./components/AIOptimization/Resources/Resource'));
+import AIOptimization from './routes/industries/AIOptimization';
+import Resource from './components/AIOptimization/Resources/Resource';
 const ResourceDetailAI = lazy(() => import('./components/AIOptimization/ResourceDetail/ResourceDetailAI'));
 const AboutAI = lazy(() => import('./components/AIOptimization/AboutUs/AboutAI'));
 const AINewsLetter = lazy(() => import('./components/AIOptimization/NewsLetter/AINewsLetter'));
 const AIWhitePapers = lazy(() => import('./components/AIOptimization/WhitePapers/AIWhitePapers'));
 const AIGlossary = lazy(() => import('./components/AIOptimization/Glossary/AIGlossary'));
 const HeroAIOptimization = lazy(() => import('./components/HomePage/AIOptimization/HeroAIOptimization'));
-const ResourceDoc = lazy(() => import('./components/AIOptimization/ResourceDoc/ResourceDoc'));
+import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc';
 const Pricing = lazy(() => import('./components/AIOptimization/Pricing/Pricing'));
 const ComingSoon = lazy(() => import('./components/Global/NewFooter/ComingSoon'));
 const PrivacyPolicyAI = lazy(() => import('./components/AIOptimization/AIPrivacy'));
-
-// Named exports
 const CareersPageAI = lazy(() => import('./components/AIOptimization/Careers/CareersPage').then(module => ({ default: module.CareersPageAI })));
 const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
@@ -192,8 +189,8 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
               <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
               <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
-              
-            <Route path="/industries/ehr-and-pms/physician" element={<Physician/>}/>
+
+              <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
 
               <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
               <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
