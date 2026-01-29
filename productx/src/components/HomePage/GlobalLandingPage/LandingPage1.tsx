@@ -2,17 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { H1, P } from '../../../styles/Typography';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
 
-// Prefetch function for routes - triggered on hover
-const prefetchRoutes = () => {
-  // Now that FloatingLines is statically imported in HeroCombined,
-  // we only need to prefetch the main route chunk to get everything.
-  import('../../../routes/industries/AIOptimization');
-  import('three');
-
-  // Preload hero assets
+const preloadAssets = () => {
   const dashImg = new Image();
   dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
 };
@@ -26,18 +19,16 @@ interface IndustryCardProps {
   onClick: () => void;
   url: string;
   onComingSoonClick: (title: string) => void;
-  onNavigate: (url: string) => void;
   onPrefetch?: () => void;
 }
 
 const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
-  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onNavigate, onPrefetch }, ref) => {
+  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onPrefetch }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
     const hasPrefetched = useRef(false);
 
     const handleMouseEnter = () => {
       setIsHovered(true);
-      // Prefetch on first hover for ready items
       if (isReady && onPrefetch && !hasPrefetched.current) {
         hasPrefetched.current = true;
         onPrefetch();
@@ -49,19 +40,14 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
       if (!isReady) {
         onComingSoonClick(title);
       } else {
-        // Also trigger prefetch on click in case hover didn't happen (touch devices)
         if (onPrefetch && !hasPrefetched.current) {
           hasPrefetched.current = true;
           onPrefetch();
         }
-        onNavigate(url);
+        window.open(url, '_blank', 'noopener,noreferrer');
       }
     };
 
-    // 
-    // Mobile/Tablet: Show text ALWAYS for non-ready items.
-    // Desktop: Show text ONLY on hover for non-ready items.
-    //
     const showComingSoonText = !isReady && (isHovered || isMobile);
 
     return (
@@ -74,11 +60,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         className="relative cursor-pointer group shrink-0 xl:w-full flex flex-col"
         initial={false}
         animate={{
-          // Logic: Ready always visible (1), Non-ready dimmed (0.6) unless hovered (1) or on mobile (1).
           opacity: isReady ? 1 : (isHovered || isMobile ? 1 : 0.6),
-
-          // Logic: Scale up ONLY on hover (desktop) OR always on mobile if you want touch feedback, 
-          // but keeping it scale-1 on mobile usually looks cleaner.
           scale: isHovered ? 1.05 : 1,
         }}
         transition={{
@@ -188,7 +170,6 @@ const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) 
 };
 
 export default function InteractiveHeroSection() {
-  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: '' });
   const [isMobile, setIsMobile] = useState(false);
@@ -197,10 +178,6 @@ export default function InteractiveHeroSection() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const heroRef = useRef<HTMLDivElement>(null);
   const isHeroVisible = useRef(true);
-
-  // No prefetch on mount - let landing page load fully first
-
-  // Detect Mobile/Tablet screens (< 1280px / xl breakpoint)
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
@@ -309,8 +286,7 @@ export default function InteractiveHeroSection() {
                           isMobile={isMobile}
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
-                          onNavigate={(url) => navigate(url)}
-                          onPrefetch={prefetchRoutes}
+                          onPrefetch={preloadAssets}
                         />
                       </div>
                     ))}

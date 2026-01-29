@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { ContactUsDark } from "../../../styles/Button";
-
+import MobileFeaturesDropdown from "./MobileFeaturesDropdown";
+import MobileResourcesDropdown from "./MobileResourcesDropdown";
+import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 const ContactModal = lazy(() => import("./ContactModal"));
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
-const MobileFeaturesDropdown = lazy(() => import("./MobileFeaturesDropdown"));
-const MobileResourcesDropdown = lazy(() => import("./MobileResourcesDropdown"));
-const MobileBuiltForDropdown = lazy(() => import("./MobileBuiltForDropdown"));
+
+const preloadAssets = () => {
+  const dashImg = new Image();
+  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
+};
 
 const AINavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,8 +21,18 @@ const AINavbar = () => {
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "features" | "resources" | "builtfor">(null);
-  // const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const hasPreloaded = useRef(false);
+
+  const handlePreload = () => {
+    if (!hasPreloaded.current) {
+      hasPreloaded.current = true;
+      preloadAssets();
+      // Prefetch FloatingLines component (animation background)
+      import("../../HomePage/AIOptimization/AIFooterBackground");
+    }
+  };
 
   // ---------- PREFETCH LOGIC ----------
   const prefetched = useRef<Set<string>>(new Set());
@@ -30,16 +43,16 @@ const AINavbar = () => {
     }
   };
 
+
+
   const prefetch = {
     features: () => {
       import("../../HomePage/AIOptimization/HeroAIOptimization");
       import("./MegaMenu");
-      // Preload critical sub-components of the Features page
       import("../../HomePage/AIOptimization/Statistics");
       import("../../HomePage/AIOptimization/CloudDiet");
       import("../../HomePage/AIOptimization/AIBlogs");
       import("../../HomePage/AIOptimization/AIFooter");
-      // Preload hero background image
       const img = new Image();
       img.src = "/AIOptimization/LandingBackground.png";
     },
@@ -64,7 +77,7 @@ const AINavbar = () => {
       // setMegaMenuOpen(false);
       // setResourcesMenuOpen(false);
       setMegaMenuBuiltFor(false);
-    }, 200); // 200ms delay to allow bridge crossing
+    }, 200);
   };
 
   const handleKeepOpen = () => {
@@ -74,12 +87,16 @@ const AINavbar = () => {
     }
   };
 
-  // Immediate close (for cleanups or distinct actions)
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     // setMegaMenuOpen(false);
     // setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
+  };
+
+  // Toggle mobile menu
+  const handleToggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   // ---------- AI-SPECIFIC DATA ----------
@@ -94,34 +111,6 @@ const AINavbar = () => {
     { name: "Pricing", path: `${base}/pricing` },
     { name: "Resources", path: `${base}/resources` },
   ];
-  // const industries = [
-  //   {
-  //     name: "Banking & Finance",
-  //     path: "/industries/banking-and-finance",
-  //     img: "/BNFHOME/P1.png",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-  //   },
-  //   {
-  //     name: "EHR and PMS",
-  //     path: "/industries/ehr-and-pms",
-  //     img: "/BNFHOME/P1.png",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-  //   },
-  //   {
-  //     name: "HighTech",
-  //     path: "/industries/high-tech",
-  //     img: "/BNFHOME/P1.png",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-  //   },
-  // ];
-
-  // const industryOptions = industries.filter(
-  //   (ind) => ind.name !== currentIndustry
-  // );
-
-  // ---------- EFFECTS ----------
-
-
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -165,7 +154,11 @@ const AINavbar = () => {
           <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
         </div>
 
-        <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+        <button
+          className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+          onClick={handleToggleMenu}
+          aria-label="Toggle menu"
+        >
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
@@ -190,39 +183,15 @@ const AINavbar = () => {
 
           <div className="flex items-center gap-10">
             <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
-              <Link to="/industries/cloud-finops-ai">
+              <Link to="/industries/cloud-finops-ai" onMouseEnter={handlePreload}
+                onFocus={handlePreload}>
                 <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
-                  <img src="/AILogoo.png" className="w-auto h-10" alt="" /></div></Link>
-              {/* <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
-              <img src="/down.png" className="w-4 h-4" />
-            </div> */}
-
-              {/* {logoDropdownOpen && (
-              <div className="absolute top-14 w-80 bg-white shadow-xl rounded-md z-[999] p-3">
-                {industryOptions.map((ind, index) => (
-                  <Link key={index} to={ind.path} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all">
-                    <img src={ind.img} alt={ind.name} className="w-16 h-14 object-cover" />
-                    <div className="flex flex-col">
-                      <h3 className="text-lg font-semibold font-quicksand text-gray-900">{ind.name}</h3>
-                      <p className="text-gray-600 font-quicksand text-sm">{ind.desc || "Click to explore"}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )} */}
+                  <img src="/AIProduct/QNEST.webp" className="w-auto h-10" alt="" /></div></Link>
             </div>
 
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  {/* {item.name === "Features" && (
-                  <div className="relative" onMouseEnter={() => { preloadImages(); setMegaMenuOpen(true); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false) }}>
-                    <div className="flex items-center gap-1 cursor-pointer">
-                      <button className="text-gray-800 text-[18px]">Features</button>
-                      <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </div>
-                )} */}
                   {item.name === "Features" && (
                     <Link
                       to={item.path}
@@ -286,7 +255,6 @@ const AINavbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            {/* <Link to={`${base}/careers`} onMouseEnter={closeAllMenus} className="text-gray-800 text-[18px] font-bold font-quicksand">Careers</Link> */}
             <button
               className="text-gray-800 text-[18px] font-bold font-quicksand cursor-pointer"
               onClick={() => setModalOpen(true)}
@@ -328,8 +296,11 @@ const AINavbar = () => {
             </button>
           </div>
 
-          {/* Mobile Hamburger (Dark Mode for White Nav) */}
-          <button className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <button
+            className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+            onClick={handleToggleMenu}
+            aria-label="Toggle menu"
+          >
             <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[8px]" : ""}`}></span>
             <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
             <span className={`block w-6 h-[2px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`}></span>
@@ -372,36 +343,22 @@ const AINavbar = () => {
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12 bg-[#2A2A2A] text-white flex justify-center items-center rounded-full text-xs font-semibold">LOGO</div>
+              <div className="w-12 h-12 bg-white text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                <img src="/AIProduct/QNEST.webp" className="w-auto h-10" alt="" />
+              </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
           </div>
         </div>
 
         <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
-          <Suspense fallback={<div>Loading Mobile Features...</div>}>
-            <MobileFeaturesDropdown
-              mobileDropdown={mobileDropdown}
-              setMobileDropdown={setMobileDropdown}
-              setMenuOpen={setMenuOpen}
-            />
-          </Suspense>
-
-          <Suspense fallback={<div>Loading Mobile Resources...</div>}>
-            <MobileResourcesDropdown
-              mobileDropdown={mobileDropdown}
-              setMobileDropdown={setMobileDropdown}
-              setMenuOpen={setMenuOpen}
-            />
-          </Suspense>
-
-          <Suspense fallback={<div>Loading Mobile Built For...</div>}>
-            <MobileBuiltForDropdown
-              mobileDropdown={mobileDropdown}
-              setMobileDropdown={setMobileDropdown}
-              setMenuOpen={setMenuOpen}
-            />
-          </Suspense>
+          <MobileFeaturesDropdown setMenuOpen={setMenuOpen} />
+          <MobileResourcesDropdown setMenuOpen={setMenuOpen} />
+          <MobileBuiltForDropdown
+            mobileDropdown={mobileDropdown}
+            setMobileDropdown={setMobileDropdown}
+            setMenuOpen={setMenuOpen}
+          />
 
           {navItems.map((item) =>
             item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" ? (
@@ -425,42 +382,57 @@ const AINavbar = () => {
           <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
         </div>
 
-        <div className="mt-6 flex justify-start items-center">
-
-          <button onClick={() => { setMenuOpen(false); setModalOpen(true); }}>
-            <ContactUsDark>Support</ContactUsDark>
-          </button>
-          <a href="https://clouddiet.ai/signup" target="_blank" rel="noopener noreferrer"
-
+        <div className="mt-6 flex justify-start items-center gap-4">
+          {/* Support Button */}
+          <button
+            onClick={() => { setMenuOpen(false); setModalOpen(true); }}
             className="
-          group
-          flex items-center justify-center
-          w-auto h-[48px]
-          px-[24px] py-[12px]
-          rounded-[8px]
-          font-quicksand font-bold text-[16px]
-          bg-black text-white
-          border-2 border-[#141414]
-          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-          transition-all duration-300
-          hover:bg-white hover:text-black
-         
-        "
-          > SIGN UP
-            <span className="flex items-center gap-2">
-
-              <span className="relative flex items-center w-[20px] h-[20px]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                  <path d="M7 7h10v10" />
-                  <path d="M7 17L17 7" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </span>
+              group
+              flex items-center justify-center gap-2
+              h-[48px]
+              px-[20px] py-[12px]
+              rounded-[8px]
+              font-quicksand font-bold text-[14px]
+              bg-white text-black
+              border-2 border-black
+              transition-all duration-300
+              hover:bg-black hover:text-white
+            "
+          >
+            Support
+            <span className="relative flex items-center w-[16px] h-[16px]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
             </span>
+          </button>
 
+          {/* Sign Up Button */}
+          <a
+            href="https://clouddiet.ai/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group
+              flex items-center justify-center gap-2
+              h-[48px]
+              px-[20px] py-[12px]
+              rounded-[8px]
+              font-quicksand font-bold text-[14px]
+              bg-black text-white
+              border-2 border-black
+              transition-all duration-300
+              hover:bg-white hover:text-black
+            "
+          >
+            SIGN UP
+            <span className="relative flex items-center w-[16px] h-[16px]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+            </span>
           </a>
         </div>
       </div>

@@ -1,7 +1,9 @@
-import { useRef, useState, useEffect, useMemo, memo, Suspense } from "react";
-import FloatingLines from "../../../HomePage/AIOptimization/AIFooterBackground";
+import { useRef, useState, useEffect, useMemo, memo, Suspense, lazy } from "react";
 import FinalHero from "../FinalHero";
 import ImageContainer from "../ImageContainer";
+
+// Lazy load FloatingLines (uses Three.js - heavy library)
+const FloatingLines = lazy(() => import("../../../HomePage/AIOptimization/AIFooterBackground"));
 
 const HeroCombined = () => {
     const heroSectionRef = useRef<HTMLElement>(null);
@@ -19,13 +21,12 @@ const HeroCombined = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    // Pause animation when section is not visible
                     setIsHeroVisible(entry.isIntersecting);
                 });
             },
             {
                 root: null,
-                rootMargin: '100px', // Start a bit before visible
+                rootMargin: '100px',
                 threshold: 0
             }
         );
@@ -37,15 +38,15 @@ const HeroCombined = () => {
         };
     }, []);
 
-    // Render immediately - no need to defer mounted state if we want instant feel
     return (
         <section
             ref={heroSectionRef}
             className="bg-no-repeat bg-cover z-10 relative"
             style={{ minHeight: '100vh', contain: 'layout paint' }}
         >
+            {/* FloatingLines background - lazy loaded to avoid blocking hero render */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <Suspense fallback={null}>
+                <Suspense fallback={<div className="w-full h-full bg-[#0A0A0B]" />}>
                     <FloatingLines
                         linesGradient={[
                             '#00FFCC',
@@ -65,6 +66,7 @@ const HeroCombined = () => {
                 </Suspense>
             </div>
 
+            {/* Critical hero content - renders immediately */}
             <FinalHero />
             <ImageContainer />
         </section>
