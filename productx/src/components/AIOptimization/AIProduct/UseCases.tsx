@@ -36,7 +36,7 @@ const UseCases = () => {
 
         {/* SECTION HEADING */}
         <H2 className="text-[#254D70] mb-10">
-          Lorem ipsum dolor, consectetur adipis
+          Unoptimized to Optimized Cloud Spend
         </H2>
 
         {/* TABS */}

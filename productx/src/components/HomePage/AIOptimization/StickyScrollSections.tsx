@@ -33,6 +33,7 @@ interface Feature {
   borderColor: string;
 }
 
+
 const features: Feature[] = [
   {
     id: 1,
@@ -114,42 +115,47 @@ interface FeatureVisualizationProps {
   onDotClick: (index: number) => void;
   onNavigate: (direction: 'prev' | 'next') => void;
   animate?: boolean;
+  mobileAnimKey?: number; // ✅ ADD THIS
 }
+
 
 const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   activeFeature,
   onDotClick,
   onNavigate,
-  animate = true
+  animate = true,
+  mobileAnimKey = 0, // ✅ DEFAULT SAFE VALUE
 }) => {
+
   return (
     <div className="w-full">
       {/* Image Container */}
       <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[400px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white">
         {animate ? (
           // Desktop animation - SMOOTHED SLIDE UP
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false} mode="wait">
             <motion.div
-              key={activeFeature}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: [0.25, 1, 0.5, 1]
-                }
-              }}
-              exit={{
-                opacity: 0,
-                y: -30,
-                transition: {
-                  duration: 0.3,
-                  ease: "easeIn"
-                }
-              }}
-              className="absolute inset-0 w-full h-auto"
-            >
+  key={`${activeFeature}-${mobileAnimKey}`}
+  initial={{ opacity: 0, y: 30 }}
+  animate={{
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 1, 0.5, 1]
+    }
+  }}
+  exit={{
+    opacity: 0,
+    y: -30,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn"
+    }
+  }}
+  className="absolute inset-0 w-full h-auto"
+>
+
               <HoverExpandImage
                 src={featureImages[activeFeature]}
                 className="w-full h-full"
@@ -163,7 +169,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
            <HoverExpandImage
               src={featureImages[activeFeature]}
               className="w-full h-full"
-              objectFit="cover"
+              objectFit="contain"
             />
 
             <div className="absolute top-4 left-4">
@@ -287,17 +293,17 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
       <div>
         <div className="flex items-center gap-4 mb-4">
           <span
-            className={`text-4xl font-bold transition-all duration-300 ${isActive ? `opacity-30 ${feature.highlight}` : "opacity-20 text-gray-400"
+            className={`text-4xl font-bold transition-all duration-300 ${isActive ? `opacity-70 ${feature.highlight}` : "opacity-50 text-gray-400"
               }`}
           >
             0{feature.id}
           </span>
-          <div
+          {/* <div
             className={`p-3 rounded-xl transition-all duration-300 ${feature.color} ${isActive ? "opacity-100 shadow-lg" : "opacity-70 shadow"
               }`}
           >
             <div className="w-6 h-6"></div>
-          </div>
+          </div> */}
         </div>
         <H3
           className={`mb-3 transition-all duration-300 ${isActive ? "text-gray-900" : "text-gray-700"
@@ -327,7 +333,8 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
             animate={{
               opacity: 1,
               y: 0,
-              height: 280,
+              height: 220,
+              
               marginBottom: 32
             }}
             exit={{
@@ -340,23 +347,23 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
               duration: 0.3,
               ease: "easeOut"
             }}
-            className="relative w-full rounded-xl overflow-hidden shadow-2xl mt-4"
+            className="relative w-full rounded-xl overflow-hidden shadow-md mt-4"
           >
-            <HoverExpandImage
+            <img
               src={featureImages[index]}
               alt={`Feature ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain md:object-cover"
             />
 
             {/* Feature Indicator */}
-            <div className="absolute top-4 left-4">
+            {/* <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${feature.color}`}></div>
                 <span className="text-sm font-medium text-gray-900">
                   Feature {feature.id}
                 </span>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -369,6 +376,12 @@ export default function StickyPremiumSections() {
   const [progress, setProgress] = useState<number>(0)
   const [activeFeature, setActiveFeature] = useState<number>(0)
 
+  const [mobileAnimKey, setMobileAnimKey] = useState(0);
+const hasAnimatedOnMobile = useRef(false);
+
+  const hasInitializedMobileFeature = useRef(false);
+
+
   const storyboardRef = useRef<HTMLDivElement>(null)
   const activeFeatureRef = useRef<number>(0)
 
@@ -379,6 +392,28 @@ export default function StickyPremiumSections() {
       document.getElementById(section.id)
     )
   }, [])
+
+  useEffect(() => {
+  if (window.innerWidth >= 1280) return;
+
+  const section = document.getElementById("security");
+  if (!section) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !hasAnimatedOnMobile.current) {
+        hasAnimatedOnMobile.current = true;
+        setMobileAnimKey((k) => k + 1); // 🔥 FORCE REMOUNT
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(section);
+
+  return () => observer.disconnect();
+}, []);
+
 
   // INTERSECTION OBSERVER OPTIMIZATION
   const containerRef = useRef<HTMLDivElement>(null);
@@ -469,72 +504,74 @@ export default function StickyPremiumSections() {
 
   // FIXED: Unified Scroll Handler for Mobile and Tablet
   useEffect(() => {
-    if (typeof window === 'undefined' || window.innerWidth >= 1280) return;
+  if (typeof window === 'undefined' || window.innerWidth >= 1280) return;
 
-    let ticking = false;
+  let ticking = false;
 
-    const updateActiveFeature = () => {
-      // Optimization: Skip if not visible
-      if (!isInternalIntersecting.current) return;
+  const updateActiveFeature = () => {
+    // ✅ ALLOW FIRST CALCULATION EVEN IF NOT INTERSECTING
+    if (!isInternalIntersecting.current && hasInitializedMobileFeature.current) {
+      return;
+    }
 
-      if (ticking) return;
-      ticking = true;
+    if (ticking) return;
+    ticking = true;
 
-      requestAnimationFrame(() => {
-        const viewportHeight = window.innerHeight;
-        const scrollY = window.scrollY;
-        const viewportCenter = scrollY + viewportHeight / 2;
+    requestAnimationFrame(() => {
+      const viewportHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      const viewportCenter = scrollY + viewportHeight / 2;
 
-        let bestMatchIndex = activeFeatureRef.current;
-        let closestDistance = Infinity;
+      let bestMatchIndex = activeFeatureRef.current;
+      let closestDistance = Infinity;
 
-        // Find feature block closest to viewport center
-        for (let i = 0; i < features.length; i++) {
-          const element = document.getElementById(`mobile-feature-${i}`);
-          if (!element) continue;
+      for (let i = 0; i < features.length; i++) {
+        const element = document.getElementById(`mobile-feature-${i}`);
+        if (!element) continue;
 
-          const rect = element.getBoundingClientRect();
-          const elementTop = scrollY + rect.top;
-          const elementHeight = rect.height;
-          const elementCenter = elementTop + elementHeight / 2;
+        const rect = element.getBoundingClientRect();
+        const elementTop = scrollY + rect.top;
+        const elementCenter = elementTop + rect.height / 2;
 
-          // Calculate distance from viewport center
-          const distance = Math.abs(elementCenter - viewportCenter);
+        const distance = Math.abs(elementCenter - viewportCenter);
+        const isInViewport =
+          rect.top < viewportHeight * 0.8 &&
+          rect.bottom > viewportHeight * 0.2;
 
-          // Check if element is mostly in viewport
-          const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
-
-          if (isInViewport && distance < closestDistance) {
-            closestDistance = distance;
-            bestMatchIndex = i;
-          }
+        if (isInViewport && distance < closestDistance) {
+          closestDistance = distance;
+          bestMatchIndex = i;
         }
+      }
 
-        // Only update if changed
-        if (bestMatchIndex !== activeFeatureRef.current) {
-          setActiveFeature(bestMatchIndex);
-          activeFeatureRef.current = bestMatchIndex;
-        }
+      if (bestMatchIndex !== activeFeatureRef.current) {
+        setActiveFeature(bestMatchIndex);
+        activeFeatureRef.current = bestMatchIndex;
+      }
 
-        ticking = false;
-      });
-    };
+      // ✅ MARK INITIALIZATION COMPLETE
+      hasInitializedMobileFeature.current = true;
 
-    // Add scroll listener
-    window.addEventListener("scroll", updateActiveFeature, { passive: true });
+      ticking = false;
+    });
+  };
 
-    // CRITICAL FIX: Delayed Initial Call
-    // We delay the initial call to ensure the DOM layout has settled
-    // after render, otherwise getBoundingClientRect might return incorrect values
-    const timeoutId = setTimeout(() => {
-      updateActiveFeature();
-    }, 100);
+  window.addEventListener("scroll", updateActiveFeature, { passive: true });
 
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("scroll", updateActiveFeature);
-    };
-  }, []);
+  // ✅ FORCE INITIAL CALCULATION AFTER LAYOUT
+  const timeoutId = setTimeout(() => {
+    updateActiveFeature();
+  }, 120);
+
+  return () => {
+    clearTimeout(timeoutId);
+    window.removeEventListener("scroll", updateActiveFeature);
+  };
+}, []);
+
+
+  
+
 
   // Desktop scroll handler for feature activation (Section 3)
   useEffect(() => {
@@ -734,7 +771,7 @@ export default function StickyPremiumSections() {
               <H2 className="text-[#254D70]">
                 Transform Your Cloud
                 <br className="hidden lg:block" />
-                <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
+                <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
                 Spend with AI Insights
               </H2>
 
@@ -750,16 +787,25 @@ export default function StickyPremiumSections() {
                   </P>
 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                    <HoverExpandImage
-                      src="/AI-CloudFinOps/Features/Insights1.webp"
-                      className="w-full h-full object-contain"
-                      alt=""
-                    />
+                     <img
+    src="/AI-CloudFinOps/Features/Insights1.webp"
+    className="w-full h-full object-contain lg:hidden"
+    alt=""
+  />
+
+  {/* ✅ Desktop only */}
+  <div className="hidden lg:block w-full h-full">
+    <HoverExpandImage
+      src="/AI-CloudFinOps/Features/Insights1.webp"
+      className="w-full h-full object-contain"
+      alt=""
+    />
+  </div>
                   </div>
                 </div>
 
                 {/* RIGHT BLOCK */}
-                <div className="xl:mt-6 md:mt-6 lg:mt-3 lg:p-6">
+                <div className="xl:mt-6 md:mt-6 lg:mt-3 mt-6 lg:p-6">
                   <H3 className="text-[#254D70] mb-3">
                     Advanced Cost Intelligence
                   </H3>
@@ -767,12 +813,21 @@ export default function StickyPremiumSections() {
                     Go beyond basic FinOps with deep cost attribution, granular spend breakdowns, and trend analysis. View costs at the resource, table, or SKU level—insights standard Azure billing can't provide.
                   </P>
 
-                  <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
-                    <HoverExpandImage
-                      src="/AI-CloudFinOps/Features/Insights2.webp"
-                      className="w-full h-full object-contain"
-                      alt=""
-                    />
+                  <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full  md:w-[700px] lg:w-[700px] h-[180px] sm:h-[280px] md:h-[350px] lg:h-[400px]  md:rounded-2xl bg-white overflow-hidden">
+                     <img
+    src="/AI-CloudFinOps/Features/Insights2.webp"
+    className="w-full h-full object-contain lg:hidden"
+    alt=""
+  />
+
+  {/* ✅ Desktop only */}
+  <div className="hidden lg:block w-full h-full">
+    <HoverExpandImage
+      src="/AI-CloudFinOps/Features/Insights2.webp"
+      className="w-full h-full object-contain"
+      alt=""
+    />
+    </div>
                   </div>
                 </div>
               </div>
@@ -787,7 +842,7 @@ export default function StickyPremiumSections() {
             <H2 className="text-[#254D70] mx-6">
               Engineered for Azure Cost
               <br className="hidden lg:block" />
-              <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
+              <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
               Intelligence & Savings
             </H2>
 
@@ -802,12 +857,21 @@ export default function StickyPremiumSections() {
                   Model and optimize Azure Savings Plan commitments with interactive what-if analysis. Adjust terms, commitment percentages, and forecast savings while avoiding overcommitment—all backed by real usage data.
                 </P>
 
-                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
-                  <HoverExpandImage
-                    src="/AI-CloudFinOps/Features/Optimization1.webp"
-                    className="w-full h-full object-contain"
-                    alt=""
-                  />
+                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
+                   <img
+    src="/AI-CloudFinOps/Features/Optimization1.webp"
+    className="w-full h-full object-contain lg:hidden"
+    alt=""
+  />
+
+  {/* ✅ Desktop ONLY (Hover expand enabled) */}
+  <div className="hidden lg:block w-full h-full">
+    <HoverExpandImage
+      src="/AI-CloudFinOps/Features/Optimization1.webp"
+      className="w-full h-full object-contain"
+      alt=""
+    />
+  </div>
                 </div>
               </div>
 
@@ -820,12 +884,23 @@ export default function StickyPremiumSections() {
                   Receive categorized savings opportunities with detailed implementation steps, risk assessments, and effort levels (Minimal, Moderate, Significant). CloudDIET helps you prioritize and execute optimizations with confidence.
                 </P>
 
-                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-2xl overflow-hidden">
-                  <HoverExpandImage
-                    src="/AI-CloudFinOps/Features/Optimization2.webp"
-                    className="w-full h-full object-contain"
-                    alt=""
-                  />
+                <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white overflow-hidden">
+                  
+  {/* ✅ Mobile & Tablet */}
+  <img
+    src="/AI-CloudFinOps/Features/Optimization2.webp"
+    className="w-full h-full object-contain lg:hidden"
+    alt=""
+  />
+
+  {/* ✅ Desktop */}
+  <div className="hidden lg:block w-full h-full">
+    <HoverExpandImage
+      src="/AI-CloudFinOps/Features/Optimization2.webp"
+      className="w-full h-full object-contain"
+      alt=""
+    />
+  </div>
                 </div>
               </div>
             </div>
@@ -863,11 +938,13 @@ export default function StickyPremiumSections() {
               <div className="w-2/3 h-screen sticky top-0 flex items-center justify-center p-6 bg-transparent">
                 <div className="w-full h-full flex items-center justify-center">
                   <FeatureVisualization
-                    activeFeature={activeFeature}
-                    onDotClick={handleDotClick}
-                    onNavigate={handleNavigate}
-                    animate={true}
-                  />
+  activeFeature={activeFeature}
+  onDotClick={handleDotClick}
+  onNavigate={handleNavigate}
+  animate={true}
+  mobileAnimKey={mobileAnimKey} // ✅ PASS IT
+/>
+
                 </div>
               </div>
 
@@ -892,6 +969,7 @@ export default function StickyPremiumSections() {
             </div>
 
             {/* Mobile & Tablet Layout (below xl screens - <1280px) */}
+            
             <div className="xl:hidden w-full py-8 sm:py-12">
               <div className="max-w-4xl mx-auto px-4 sm:px-6">
                 {/* Vertical Stack of Feature Blocks */}

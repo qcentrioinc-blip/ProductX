@@ -57,8 +57,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
             className="w-full h-full object-contain"
             playsInline
             muted
-            loop
-            preload="metadata"
+            preload="auto"
           />
         ) : (
           <div className="w-full h-full bg-gray-100/50" />

@@ -20,7 +20,7 @@ import NewFooter from "../../Global/NewFooter/NewFooter"
 import FlowingMenu from "./FlowingMenu"
 import Counter from "./Counter"
 import LandingPage1 from "./LandingPage1"
- 
+
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
@@ -58,23 +58,23 @@ const GlobalLandingPage = () => {
             <div className="relative z-10">
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
-              </div>
-
-              <Counter/>
-                {/* CallToAction Section */}
-                <div id="calltoaction">
-                    <CallToAction />
-                </div>
-
-                <div id="FlowingMenu">
-                <FlowingMenu/>
             </div>
 
-                {/* Footer Section */}
-                <div id="footer">
-                    <NewFooter />
-                </div>
-            
+            <Counter />
+            {/* CallToAction Section */}
+            <div id="calltoaction">
+                <CallToAction />
+            </div>
+
+            <div id="FlowingMenu"  className="hidden xl:block">
+                <FlowingMenu />
+            </div>
+
+            {/* Footer Section */}
+            <div id="footer">
+                <NewFooter />
+            </div>
+
         </div>
     )
 }

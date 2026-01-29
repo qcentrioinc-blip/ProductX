@@ -1,5 +1,4 @@
-
-
+import { Link } from "react-router-dom";
 
 interface MobileBuiltForDropdownProps {
   mobileDropdown: null | "features" | "resources" | "builtfor";
@@ -40,10 +39,10 @@ const MobileBuiltForDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
       {mobileDropdown === "builtfor" && (
         <div className="mt-3 pl-3 space-y-4">
           {builtForItemsAI.map((item, index) => (
-            <a key={index} href={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
+            <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
               <h3 className="text-base font-semibold">{item.title}</h3>
               <p className="text-gray-600 text-sm">{item.desc}</p>
-            </a>
+            </Link>
           ))}
         </div>
       )}
