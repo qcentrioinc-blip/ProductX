@@ -65,7 +65,7 @@ useEffect(() => {
       <img
         ref={imgRef}
         src="/AIProduct/Dash.png"
-        alt="Analytics dashboard"
+        alt="Analytics dashboard" 
         className="
           relative
           z-10

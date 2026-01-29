@@ -9,8 +9,8 @@ import ContactModal from "./ContactModal";
 const AINavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  // const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  // const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "features" | "resources" | "builtfor">(null);
   // const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
@@ -21,8 +21,8 @@ const AINavbar = () => {
  
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
-      setMegaMenuOpen(false);
-      setResourcesMenuOpen(false);
+      // setMegaMenuOpen(false);
+      // setResourcesMenuOpen(false);
       setMegaMenuBuiltFor(false);
     }, 200); // 200ms delay to allow bridge crossing
   };
@@ -37,8 +37,8 @@ const AINavbar = () => {
   // Immediate close (for cleanups or distinct actions)
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setMegaMenuOpen(false);
-    setResourcesMenuOpen(false);
+    // setMegaMenuOpen(false);
+    // setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
   };
  
@@ -55,43 +55,43 @@ const AINavbar = () => {
     { name: "Resources", path: `${base}/resources` },
   ];
  
-  const megaMenuItems = [
-    {
-      title: "AI Features",
-      desc: "Intelligent agents that automate complex workflows.",
-      img: "/AIOptimization/Resource1.png",
-      path: `${base}/features`,
-    },
-    // {
-    //   title: "Process Automation",
-    //   desc: "End-to-end automation for repetitive business tasks.",
-    //   img: "/AIOptimization/Resource2.png",
-    //   path: `${base}/process-automation`,
-    // },
-  ];
+  // const megaMenuItems = [
+  //   {
+  //     title: "AI Features",
+  //     desc: "Intelligent agents that automate complex workflows.",
+  //     img: "/AIOptimization/Resource1.png",
+  //     path: `${base}/features`,
+  //   },
+  //   // {
+  //   //   title: "Process Automation",
+  //   //   desc: "End-to-end automation for repetitive business tasks.",
+  //   //   img: "/AIOptimization/Resource2.png",
+  //   //   path: `${base}/process-automation`,
+  //   // },
+  // ];
  
-  const resourceItemsAI = [
-    {
-      title: "Case Studies",
-      desc: "Real-world AI Optimization success stories and ROI metrics.",
-      path: `${base}/resources`,
-    },
-    {
-      title: "Newsletters",
-      desc: "Latest trends in AI, automation, and machine learning.",
-      path: `${base}/newsletter`,
-    },
-    {
-      title: "Whitepapers",
-      desc: "Real-world AI Optimization success stories and ROI metrics.",
-      path: `${base}/whitepaper`,
-    },
-    {
-      title: "Glossary",
-      desc: "Real-world AI Optimization success stories and ROI metrics.",
-      path: `${base}/glossary`,
-    },
-  ];
+  // const resourceItemsAI = [
+  //   {
+  //     title: "Case Studies",
+  //     desc: "Real-world AI Optimization success stories and ROI metrics.",
+  //     path: `${base}/resources`,
+  //   },
+  //   {
+  //     title: "Newsletters",
+  //     desc: "Latest trends in AI, automation, and machine learning.",
+  //     path: `${base}/newsletter`,
+  //   },
+  //   {
+  //     title: "Whitepapers",
+  //     desc: "Real-world AI Optimization success stories and ROI metrics.",
+  //     path: `${base}/whitepaper`,
+  //   },
+  //   {
+  //     title: "Glossary",
+  //     desc: "Real-world AI Optimization success stories and ROI metrics.",
+  //     path: `${base}/glossary`,
+  //   },
+  // ];
  
   const builtForItemsAI = [
     {
@@ -175,7 +175,7 @@ const AINavbar = () => {
  
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2  pn rounded cursor-pointer">
  
-            <img className="h-10 w-full" src="/logo.svg" />
+            <img className="h-10 w-full" src="/QnestLogo.svg" />
           </div>
  
         </a>
@@ -209,7 +209,7 @@ const AINavbar = () => {
  
  
           <div className="flex items-center gap-10">
-            <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
+            <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => {  setMegaMenuBuiltFor(false); }}>
               <a href="/industries/cloud-finops-ai">
                 <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
                   <img src="/AILogoo.png" className="w-auto h-10" alt="" /></div></a>
@@ -269,7 +269,7 @@ const AINavbar = () => {
                   )}
  
                   {item.name === "Built for" && (
-                    <div className="relative" onMouseEnter={() => { handleKeepOpen(); setMegaMenuBuiltFor(true); setMegaMenuOpen(false); setResourcesMenuOpen(false); }}>
+                    <div className="relative" onMouseEnter={() => { handleKeepOpen(); setMegaMenuBuiltFor(true);}}>
                       <div className="flex items-center gap-1 cursor-pointer">
                         <button className="text-gray-800 text-[18px] cursor-pointer">Built For</button>
                         <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuBuiltFor ? "rotate-180" : "rotate-0"}`} />
@@ -278,7 +278,7 @@ const AINavbar = () => {
                   )}
  
                   {item.name !== "Features" && item.name !== "Resources" && item.name !== "Built for" && (
-                    <a href={item.path} onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false) }} className="text-gray-800 text-[18px]">
+                    <a href={item.path} onMouseEnter={() => { setMegaMenuBuiltFor(false) }} className="text-gray-800 text-[18px]">
                       {item.name}
                     </a>
                   )}
@@ -329,7 +329,7 @@ const AINavbar = () => {
       </nav>
  
       {/* MEGA MENUS - keeping your existing code */}
-      {megaMenuOpen && (
+      {/* {megaMenuOpen && (
         <div
           onMouseEnter={() => { handleKeepOpen(); setMegaMenuOpen(true); }}
           onMouseLeave={handleCloseMenus}
@@ -352,9 +352,9 @@ const AINavbar = () => {
             ))}
           </div>
         </div>
-      )}
+      )} */}
  
-      {resourcesMenuOpen && (
+      {/* {resourcesMenuOpen && (
         <div
           onMouseEnter={() => { handleKeepOpen(); setResourcesMenuOpen(true); }}
           onMouseLeave={handleCloseMenus}
@@ -373,7 +373,7 @@ const AINavbar = () => {
           </div>
         </div>
       )}
- 
+  */}
       {megaMenuBuiltFor && (
         <div
           onMouseEnter={() => { handleKeepOpen(); setMegaMenuBuiltFor(true); }}
@@ -417,9 +417,9 @@ ${
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setMobileDropdown(mobileDropdown === "features" ? null : "features")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
               Features
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "features" ? "rotate-180" : ""}`} />
+              {/* <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "features" ? "rotate-180" : ""}`} /> */}
             </button>
-            {mobileDropdown === "features" && (
+            {/* {mobileDropdown === "features" && (
               <div className="mt-3 pl-3 space-y-4">
                 {megaMenuItems.map((item, index) => (
                   <a key={index} href={item.path} onClick={() => setMenuOpen(false)} className="flex gap-3 items-start py-2">
@@ -431,15 +431,15 @@ ${
                   </a>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
  
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setMobileDropdown(mobileDropdown === "resources" ? null : "resources")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold">
               Resources
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "resources" ? "rotate-180" : ""}`} />
+              {/* <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "resources" ? "rotate-180" : ""}`} /> */}
             </button>
-            {mobileDropdown === "resources" && (
+            {/* {mobileDropdown === "resources" && (
               <div className="mt-3 pl-3 space-y-4">
                 {resourceItemsAI.map((item, index) => (
                   <a key={index} href={item.path} onClick={() => setMenuOpen(false)} className="block py-1">
@@ -448,7 +448,7 @@ ${
                   </a>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
  
           <div className="border-b border-gray-200 pb-3">

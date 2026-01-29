@@ -15,7 +15,7 @@ const HWD = () => {
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
-      bottomBg: "#B4E7CE",
+      bottomBg: "#E7DED0",
       headingColor: "#166D48",
       textcolor: "#000000",
       CheckColor: "#A80040"
@@ -37,20 +37,46 @@ const HWD = () => {
       CheckColor: "#A80040"
     },
     ai: {
-      topBg: "#F5F5F5",
-      bottomBg: "#F7DFB8",
+      topBg: "#FFFFFF",
+      bottomBg: "#F5F5F5",
       headingColor: "#254D70",
-      textcolor: "#254D70",
+      textcolor: "#141414",
       CheckColor: "#254D70"
 
     }
   };
+const HEADING_CONTENT = {
+  ai: {
+    eyebrow: "Your Success",
+    title: "Real-World Use Cases",
+    description:
+      "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
+  },
+  banking: {
+    eyebrow: " ",
+    title: "Real-World Use Cases",
+    description:
+      "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
+  },
+  ehr: {
+    eyebrow: " ",
+    title: "Practice Use Cases",
+    description:
+      " See how Unified Clinicapp adapts to different clinical and operational needs to support your specific practice goals."
+  },
+  hightech: {
+    eyebrow: " ",
+    title: "Real-World Use Cases",
+    description:
+      "Explore how high-tech companies scale faster, control cloud spend, and optimize complex multi-cloud environments."
+  }
+};
 
   const CARD_CONTENT = {
     ai: [
       {
         title: "Major Azure Cost Reduction",
-        image:"/UseCase1.svg",
+        image: "/AIOptimization/Saving.svg",
         description:
           "A mature cloud team saved millions annually through advanced optimization and reserved instance strategies.",
         points: [
@@ -64,7 +90,7 @@ const HWD = () => {
      
       {
         title: " Retain Savings Long-Term",
-        image:"/UseCase2.svg",
+           image: "/AIOptimization/pricetag.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -78,7 +104,7 @@ const HWD = () => {
       },
        {
         title: "Multi-Cloud Waste Elimination",
-          image:"/UseCase3.svg",
+         image: "/AIOptimization/Cloud.svg",
         description:
           "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
         points: [
@@ -94,7 +120,7 @@ const HWD = () => {
     banking: [
       {
         title: "Fraud Detection Modernization",
-        image: "/UseCase1.svg",
+        image: "/AIOptimization/Saving.svg",
         description:
           "Advanced analytics reduced fraud losses while improving customer trust.",
         points: [
@@ -106,7 +132,7 @@ const HWD = () => {
       },
       {
         title: "Cost-Efficient Core Banking",
-        image: "/UseCase2.svg",
+        image: "/AIOptimization/priceTag.svg",
         description:
           "Legacy systems optimized for modern banking workloads.",
         points: [
@@ -118,7 +144,7 @@ const HWD = () => {
       },
       {
         title: "Compliance Automation",
-        image: "/UseCase3.svg",
+        image: "/AIOptimization/Cloud.svg",
         description:
           "Automated compliance reduced risk and operational overhead.",
         points: [
@@ -129,6 +155,47 @@ const HWD = () => {
         ],
       },
     ],
+    ehr: [
+      {
+        title: "Independent Primary Care Clinic",
+        image: "/UseCase1.svg",
+        description:
+          "Manage everything from patient visits to billing efficiently with one unified, easy-to-use platform..",
+        points: [
+          "Streamline digital intake and patient self-check-in.",
+          "Document visits quickly with customizable SOAP templates.",
+          "Submit claims and track payments from the same system. ",
+          "Offer telehealth visits and a patient portal easily. ",
+          "View practice performance with unified financial dashboards. ",
+        ],
+      },
+      {
+        title: " Multi-Specialty Medical Group",
+        image: "/UseCase2.svg",
+        description:
+          "Support diverse specialties with tailored workflows while maintaining centralized operations and billing.",
+        points: [
+          "Use specialty-specific note templates for accurate documentation. ",
+          "Coordinate complex scheduling across providers and locations. ",
+          "Integrate lab orders and view results seamlessly in charts. ",
+          "Manage authorizations and track referrals within patient records. ",
+          "Generate consolidated financial reports for the entire group. ",
+        ],
+      },
+      {
+        title: "Streamlined Billing Service",
+        image: "/UseCase3.svg",
+        description:
+          "Handle client billing with greater transparency, accuracy, and efficiency using integrated tools.",
+        points: [
+          "Access clean claims data directly from clinical documentation",
+          "Monitor the entire claim lifecycle on a single dashboard. ",
+          "Track remittance advice and payment status in real time. .",
+          "Resolve denials faster with linked clinical and billing data. ",
+          "Provide clients with clear, customizable financial performance reports. ",
+        ],
+      },
+    ],
   };
 
 
@@ -136,10 +203,18 @@ const HWD = () => {
   let cards;
 
   if (isAI) cards = CARD_CONTENT.ai;
+  if (isEHR) cards = CARD_CONTENT.ehr;
   else if (isBanking) cards = CARD_CONTENT.banking;
   else cards = CARD_CONTENT.ai; // fallback
 
 
+let headingContent;
+
+if (isAI) headingContent = HEADING_CONTENT.ai;
+else if (isBanking) headingContent = HEADING_CONTENT.banking;
+else if (isEHR) headingContent = HEADING_CONTENT.ehr;
+else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
+else headingContent = HEADING_CONTENT.banking; // fallback
 
 
 
@@ -219,48 +294,47 @@ const HWD = () => {
   );
 
   return (
-    <div className="w-full relative bg-white shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
+    <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
 
         {/* HEADINGS */}
-        <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
-          <motion.h1
-            className="font-medium text-2xl text-[#2A2A2A]"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-x-2">
-              <div className="w-8 h-1 rounded-full bg-gray-400"></div>
-              {/* {"Quis autim".split(" ").map((word, wordIndex) => (
-                <span key={wordIndex}>
-                  {word.split("").map((char, charIndex) => (
-                    <motion.span key={charIndex} variants={itemVariants}>
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
-              ))} */}
-              Your Success
-            </div>
-          </motion.h1>
+        {/* HEADINGS */}
+<div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
+  <motion.h1
+    className="font-medium text-2xl text-[#2A2A2A]"
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    <div className="flex items-center gap-x-2">
+      <div className="w-8 h-1 rounded-full bg-gray-400"></div>
+      {headingContent.eyebrow}
+    </div>
+  </motion.h1>
 
-          <motion.h2
-            className="text-[#2A2A2A] font-bricolage font-semibold text-[24px] md:text-[32px] lg:text-[64px] leading-none"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* {"Real-World Customer Success Stories ".split("").map((char, i) => (
-              <motion.span key={i} variants={itemVariants}>
-                {char}
-              </motion.span>
-            ))} */}
-            Real-World  Use Cases
-          </motion.h2>
-        </div>
+  <motion.h2
+    className="text-[#2A2A2A] font-bricolage font-semibold
+               text-[24px] md:text-[32px] lg:text-[64px] leading-none"
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    {headingContent.title}
+  </motion.h2>
+
+  {/* Dynamic paragraph below H2 */}
+  <motion.p
+    className="max-w-3xl text-base md:text-lg text-[#555555]"
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    {headingContent.description}
+  </motion.p>
+</div>
 
         {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
         <div

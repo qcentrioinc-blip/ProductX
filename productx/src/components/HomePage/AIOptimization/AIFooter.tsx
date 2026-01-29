@@ -45,7 +45,7 @@ const handleSubmit = () => {
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <FloatingLines
                  linesGradient={[
-    '#00FFCC',
+    '#FFFFFF',
     '#0099FF',
     '#6600FF'
   ]}

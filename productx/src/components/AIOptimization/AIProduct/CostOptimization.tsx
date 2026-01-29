@@ -37,8 +37,8 @@ const CostOptimization = () => {
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <video
-          className="w-full h-full object-cover"
-          src="/Video/LCO.mp4"
+          className="w-full h-auto object-cover"
+          src="/Video/Waves2.mp4"
           preload="auto"
   muted
   playsInline
@@ -49,13 +49,13 @@ const CostOptimization = () => {
           
          />
         {/* Optional dark overlay for readability */}
-        <div className="absolute inset-0 bg-[#1E2440]/70" />
+        {/* <div className="absolute inset-0 bg-white/10" /> */}
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex  justify-center mb-12">
-          <H2 className="  text-white px-6 py-3 text-xl md:text-2xl">
+          <H2 className="  text-[#254D70] px-6 py-3 text-xl md:text-2xl">
             Layers of Cost Optimizations
           </H2>
         </div>
@@ -69,11 +69,11 @@ const CostOptimization = () => {
                 key={index}
                 className="flex flex-col items-center text-center"
               >
-                <h3 className="text-base font-bricolage xl:text-[24px]  font-semibold mb-4 min-h-[28px]">
+                <h3 className="text-base font-bricolage xl:text-[24px] text-[#254D70] font-semibold mb-4 min-h-[28px]">
                   {layer.title}
                 </h3>
 
-                <div className="border border-gray-300 font-medium  font-quicksand p-4 text-sm md:text-base text-[#19E3A1] bg-white/10 backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
+                <div className="border border-[#254D70]  font-medium text-[#141414] rounded-md  font-quicksand p-4 text-sm md:text-base bg-[#FAFAFA] backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
                   {layer.description}
                 </div>
               </div>
@@ -97,7 +97,7 @@ const CostOptimization = () => {
                    L 330 260
                    Q 360 260, 360 230
                    L 360 170"
-                stroke="white"
+                stroke="#254D70"
                 strokeWidth="3"
                 fill="none"
               />
@@ -112,18 +112,18 @@ const CostOptimization = () => {
     Q 1060 380, 1060 340
     L 1060 170
   "
-  stroke="white"
+  stroke="#254D70"
   strokeWidth="3"
   fill="none"
 />
 
 
               <line
-                x1="260"
+                x1="240"
                 y1="260"
-                x2="260"
+                x2="240"
                 y2="290"
-                stroke="white"
+                stroke="#254D70"
                 strokeWidth="2"
               />
 
@@ -133,7 +133,7 @@ const CostOptimization = () => {
   y1="380"
   x2="600"
   y2="450"
-  stroke="white"
+  stroke="#254D70"
   strokeWidth="3"
 />
 
@@ -143,19 +143,19 @@ const CostOptimization = () => {
           {/* Existing Tools Label */}
           <div
             className="hidden lg:block absolute"
-            style={{ top: '300px', left: '210px' }}
+            style={{ top: '300px', left: '200px' }}
           >
-            <P className="text-gray-300 font-serif text-base">Existing Tools</P>
+            <P className="text-black font-serif text-base">Existing Tools</P>
           </div>
         </div>
 
         {/* CloudDIET Logo */}
         <div className="relative mt-20 flex justify-center z-20">
-          <div className="bg-[#19E3A1] px-8 py-4 flex items-center gap-3 shadow-lg">
+          <div className=" bg-[#254D70] rouned-md backdrop-blur-2xl px-8 py-4 flex items-center gap-3 shadow-lg">
            {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-8 w-auto" /> */}
 
             <div className="text-white text-4xl font-bricolage font-extrabold">
-              Cloud<span className="text-[#1E2440] font-medium">DIET</span>
+              Cloud<span className="text-white font-medium">DIET</span>
             </div>
           </div>
         </div>

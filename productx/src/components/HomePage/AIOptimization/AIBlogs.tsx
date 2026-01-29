@@ -24,7 +24,7 @@ const AIBlogs = () => {
   ];
 
   return (
-    <section className="w-full overflow-hidden bg-[#0A0A0B] text-white py-20 sm:py-24 xl:py-28 px-4 sm:px-6 xl:px-16">
+    <section className="w-full overflow-hidden bg-white text-black py-20 sm:py-24 xl:py-28 px-4 sm:px-6 xl:px-16">
       <div className="mx-auto max-w-8xl px-0 sm:px-4 xl:px-6">
 
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
@@ -41,7 +41,7 @@ const AIBlogs = () => {
                   fontWeight: 600,
                   lineHeight: "100%",
                   letterSpacing: "0%",
-                  color: "#F5F5F5",
+                  color: "#254D70",
                 }}
               >
                 Stay Ahead with
@@ -53,26 +53,24 @@ const AIBlogs = () => {
             {/* Bottom Section */}
             <div className="space-y-6 sm:space-y-8 xl:space-y-8">
               {/* Section Title */}
-              <h2
-                className="uppercase text-[32px] sm:text-[40px] xl:text-[48px]"
-                style={{
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
-                  fontWeight: 600,
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  color: "white",
-                }}
-              >
-                Our 
-                <br className="hidden xl:block" />
-                Resources
-              </h2>
+             <h2
+  className="uppercase text-[32px] sm:text-[40px] xl:text-[48px]"
+  style={{
+    fontFamily: "'Bricolage Grotesque', sans-serif",
+    fontWeight: 600,
+    lineHeight: "110%",
+  }}
+>
+  <span className="block">Our</span>
+  <span className="block">Resources</span>
+</h2>
+
 
               {/* View All Button */}
               <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 bg-white text-[#2A2A2A] rounded-lg hover:bg-gray-100 transition-colors uppercase cursor-pointer"
+                  className="inline-flex items-center gap-2 text-white bg-black rounded-lg    uppercase cursor-pointer"
                   style={{
                     width: "157px",
                     height: "48px",
@@ -106,14 +104,14 @@ const AIBlogs = () => {
                 fontWeight: 400,
                 lineHeight: "130%",
                 letterSpacing: "0%",
-                color: "#CCCCCC",
+                color: "#141414",
               }}
             >
               Explore expert articles on Azure optimization, FinOps best practices, and real-world savings strategies. Learn how CloudDIET's AI-driven profiling and advanced cost intelligence help reduce waste and maximize your cloud ROI.
             </p>
 
             {/* Divider */}
-            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#FFE9C5]" />
+            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#0079FF]" />
 
             {/* Blog Cards */}
             <div className="mt-8 sm:mt-10 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 xl:gap-0">
@@ -166,7 +164,7 @@ const AIBlogs = () => {
                           fontFamily: "'Bricolage Grotesque', sans-serif",
                           fontWeight: 700,
                           lineHeight: "100%",
-                          color: "#CCCCCC",
+                          color: "#2A2A2A",
                         }}
                       >
                         {blog.title}

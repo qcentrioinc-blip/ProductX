@@ -254,7 +254,7 @@ function hexToVec3(hex: string): Vector3 {
 
 export default function FloatingLines({
   linesGradient,
-  enabledWaves = ['top', 'middle', 'bottom'],
+  enabledWaves = ['top', 'top', 'bottom'],
   lineCount = [6],
   lineDistance = [5],
   topWavePosition,

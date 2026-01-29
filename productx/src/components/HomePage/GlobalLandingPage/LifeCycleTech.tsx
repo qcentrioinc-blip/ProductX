@@ -188,22 +188,29 @@ const logosRow1 = [
       ))}
     </div> */}
     {/* Two-column text */}
-    <div className="grid grid-cols-1  lg:grid-cols-2 lg:gap-x-40 justify-between">
- 
-      {/* Left column */}
-      <div className="  border-t  border-[#858585]">
-        <P className='lg:pt-10'>
-        Qnest Global builds every partnership on trust, clarity, and shared goals. Our team works closely with leading technology providers and enterprises, combining proven platforms with tailored solutions that match each </P>
-      </div>
- 
-      {/* Right column */}
-      <div className="border-t border-[#858585]">
-     <P className='lg:pt-10'>
-         Working with leading platforms and enterprise clients, we combine proven tools with practical delivery experience. This collaboration helps organizations modernize safely, reduce risk, and keep their systems ready for future change.
-        </P >
-      </div>
- 
-    </div>
+   <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-40 gap-y-8">
+
+  {/* Left column */}
+  <div className="border-t border-[#858585] pt-6 lg:pt-0">
+    <P className="lg:pt-10">
+      Qnest Global builds every partnership on trust, clarity, and shared goals.
+      Our team works closely with leading technology providers and enterprises,
+      combining proven platforms with tailored solutions that match each
+    </P>
+  </div>
+
+  {/* Right column */}
+  <div className="border-t border-[#858585] pt-6 lg:pt-0">
+    <P className="lg:pt-10">
+      Working with leading platforms and enterprise clients, we combine proven
+      tools with practical delivery experience. This collaboration helps
+      organizations modernize safely, reduce risk, and keep their systems ready
+      for future change.
+    </P>
+  </div>
+
+</div>
+
  
 </section>
  

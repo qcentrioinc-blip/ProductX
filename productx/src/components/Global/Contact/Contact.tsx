@@ -205,21 +205,60 @@ const Contact: React.FC = () => {
     window.addEventListener("mousemove", throttledMouse, { passive: true });
     return () => window.removeEventListener("mousemove", throttledMouse);
 }, []);
+
+
+const [errors, setErrors] = useState<Record<string, string>>({});
+
 const [isSubmitted, setIsSubmitted] = useState(false);
+
+const validateForm = (form: HTMLFormElement) => {
+  const formData = new FormData(form);
+  const newErrors: Record<string, string> = {};
+
+  const name = formData.get("name")?.toString().trim();
+  const email = formData.get("email")?.toString().trim();
+  const interest = formData.get("interest")?.toString();
+  const message = formData.get("message")?.toString().trim();
+
+  if (!name || name.length < 2) {
+    newErrors.name = "Please enter your full name.";
+  }
+
+  if (!email) {
+    newErrors.email = "Email address is required.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    newErrors.email = "Please enter a valid email address.";
+  }
+
+  if (!interest) {
+    newErrors.interest = "Please select an interest.";
+  }
+
+  if (!message || message.length < 10) {
+    newErrors.message = "Message must be at least 10 characters.";
+  }
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  // If all validations pass
-  setIsSubmitted(true);
 
-  // Reset form
+  if (!validateForm(e.currentTarget)) {
+    return; // stop submission if validation fails
+  }
+
+  setIsSubmitted(true);
+  setErrors({});
   e.currentTarget.reset();
 
-  // Reset button after 3 seconds
   setTimeout(() => {
     setIsSubmitted(false);
   }, 3000);
 };
+
 
 return (
     <>
@@ -236,24 +275,26 @@ return (
 
       {/* FORM: Width 20%, Height 700px */}
       <div className="relative z-10 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-white/50">
-        <div className="mb-12">
-          <H1 className="text-black font-bold mb-4 text-4xl tracking-tight leading-tight">Let's talk</H1>
+        <div className="mb-5">
+          <H1 className="text-black font-bold mb-2 text-4xl tracking-tight leading-tight">Let's talk</H1>
           <P className="">Fill out the form and we'll be in touch shortly.</P>
         </div>
 
-        <form className="flex flex-col flex-grow gap-6" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-5">
+        <form className="flex flex-col flex-grow gap-3" onSubmit={handleSubmit}>
+          <div className="flex flex-col gap-6">
             <input 
               name="name"
-              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
+              className="w-full px-6 py-4 bg-white/60 border required border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
               placeholder="Full Name" 
             />
+            {errors.name && <p className="text-red-700 text-md ">{errors.name}</p>}
             <input 
               name="email"
               type="email"
               className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
               placeholder="Email Address" 
             />
+            {errors.email && <p className="text-red-700 text-md ">{errors.email}</p>}
             
             <div className="relative">
               <select 
@@ -265,10 +306,12 @@ return (
                 <option value="Healthcare">Healthcare</option>
                 <option value="Finance">Finance</option>
               </select>
+        
               <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                  <ArrowRight size={16} className="rotate-90" />
               </div>
             </div>
+            
             
             <textarea 
               name="message"
@@ -276,9 +319,10 @@ return (
               className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl resize-none focus:ring-2 focus:ring-black outline-none text-sm" 
               placeholder="Message" 
             />
+            {errors.message && <p className="text-red-700 text-md mt-1">{errors.message}</p>}
           </div>
 
-          <div className="mt-auto">
+          <div className="mt-4">
            <button
   type="submit"
   disabled={isSubmitted}

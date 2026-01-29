@@ -13,6 +13,39 @@ interface FaqItem {
 const showShape =
   location.pathname === "/industries/banking-and-finance";
 
+  const faqIntroByIndustry: Record<
+  string,
+  { heading: string; description: string ;cta:string}
+> = {
+  "/industries/ehr-and-pms": {
+    heading: "Your Queries Answered",
+    description:
+      "Find quick answers to common questions about how Unified Clinicapp works for your practice, its features, and implementation.",
+      cta:"See More"
+  },
+
+  "/industries/cloud-finops-ai": {
+    heading: "Frequently Asked Questions",
+    description:
+      "Find clear answers about how CloudDIET works, its security model, savings process, and AI-driven approach to cloud financial optimization.",
+      cta:"Learn More"
+  },
+
+  "/industries/high-tech": {
+    heading: "Frequently Asked Questions",
+    description:
+      "Learn how our platform supports innovation, scalability, and growth for high-tech organizations.",
+       cta:"Learn More"
+  },
+
+  "/industries/banking-and-finance": {
+    heading: "Your Queries Answered",
+    description:
+      "Explore common questions around security, compliance, and operational efficiency in financial services.",
+       cta:"Learn More"
+  },
+};
+
  
 const faqContentByIndustry: Record<string, FaqItem[]> = {
   "/industries/high-tech": [
@@ -68,14 +101,39 @@ const faqContentByIndustry: Record<string, FaqItem[]> = {
 
   "/industries/ehr-and-pms": [
     {
-      question: "Is the platform compliant with healthcare regulations?",
+      question: "What is Unified Clinicapp??",
       answer:
-        "Yes. We adhere to HIPAA and industry security standards to ensure patient data safety and compliance.",
+        "Unified Clinicapp is an all-in-one software that combines Electronic Health Records (EHR) and Practice Management for scheduling, billing, and patient engagement in a single platform. ",
     },
     {
-      question: "Can it integrate with existing EHR systems?",
+      question: "How does it improve clinical workflow?",
       answer:
-        "Our platform supports interoperability with leading EHR and PMS solutions through secure APIs.",
+        "It offers smart templates, integrated patient history, and e-prescribing to reduce charting time and help doctors make faster, more informed decisions during patient visits. ",
+    },
+     {
+      question: " Can patients schedule their own appointments?",
+      answer:
+        "Yes. Patients can book, reschedule, or cancel appointments 24/7 through the patient portal or mobile app, which syncs directly with your practice calendar. ",
+    },
+    {
+      question: "Is the platform HIPAA compliant?",
+      answer:
+        "Absolutely. It includes role-based access, audit trails, and secure data handling to meet all HIPAA requirements for patient privacy and security. ",
+    },
+     {
+      question: "Do you offer a patient portal?",
+      answer:
+        "Yes. Patients get a secure portal to view health records, lab results, pay bills, complete forms, and message your practice. ",
+    },
+    {
+      question: "How long does implementation take?",
+      answer:
+        "Implementation time varies by practice size, but our team provides dedicated support for data migration, training, and go-live to ensure a smooth transition. ",
+    },
+    {
+      question: "Can we use it on mobile devices?",
+      answer:
+        "Yes. The platform is fully accessible on iOS and Android for both providers and patients, with a streamlined mobile-friendly interface.  ",
     },
   ],
 
@@ -95,6 +153,10 @@ const faqContentByIndustry: Record<string, FaqItem[]> = {
 
 const FaqSection: React.FC = () => {
   const { pathname } = useLocation();
+  const introContent =
+  faqIntroByIndustry[pathname] ||
+  faqIntroByIndustry["/industries/banking-and-finance"];
+
 const faqData =
   faqContentByIndustry[pathname] ||
   faqContentByIndustry["/industries/banking-and-finance"];
@@ -105,6 +167,7 @@ const faqData =
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -126,12 +189,16 @@ const faqData =
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
               <H3> FAQ</H3>
             </div>
-            <H2 className="mb-4  "> Frequently Asked Questions</H2>
-            <P className=" mb-6 max-w-lg">
-            Find clear answers about how CloudDIET works, its security model, savings process, and AI-driven approach to cloud financial optimization.
-            </P>
+            <H2 className="mb-4">
+  {introContent.heading}
+</H2>
 
-            <ContactUs onClick={handleContactClick}>Learn More</ContactUs>
+<P className="mb-6 max-w-lg">
+  {introContent.description}
+</P>
+
+
+            <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
           </div>
 
           <div className="lg:w-1/2 relative z-20">

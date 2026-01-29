@@ -53,7 +53,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-white",
+    sectionBg: "bg-[#FAFAFA]",
     headingColor: "text-[#254D70]",
     paraColor: "text-[#141414]",
     buttonBg: "bg-white",

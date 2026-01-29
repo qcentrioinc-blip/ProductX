@@ -4,14 +4,14 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function Intro() {
   return (
-    <section className="bg-[#D7F6E9] w-full  py-10 lg:py-20  lg:px-8">
+    <section className="bg-[#EAE9FF] w-full  py-10 lg:py-20  lg:px-8">
     <div className="max-w-8xl mx-6  xl:mx-10 grid grid-cols-1 xl:grid-cols-2   items-stretch">
 
 
         {/* LEFT SIDE */}
 <div className="flex flex-col  ">
   <div>
-    <H2 className="font-bold mt-10 leading-tight  ">
+    <H2 className="font-bold mt-10  text-[#254D70] leading-tight  ">
       The  
       manufacturing <br className="xl:block hidden " />
       challenge today

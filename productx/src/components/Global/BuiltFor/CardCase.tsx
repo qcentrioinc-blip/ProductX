@@ -9,7 +9,7 @@ const CARD_CONFIG: Record<
     string,
     {
       bg: string;
-      image: string;
+      
       heading: string;
       cards: {
         id: number;
@@ -22,19 +22,19 @@ const CARD_CONFIG: Record<
 > = {
   "cloud-finops-ai": {
     enterprises: {
-      bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      bg: "#FAFAFA",
+    
       heading: " Azure Spend Issues",
       cards: [
-        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Enterprises3.svg" },
-        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Enterprises2.svg" },
-        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/Enterprises1.svg" },
+        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Recycle.svg" },
+        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Danger.svg" },
+        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/eye.svg" },
       ],
     },
 
     "digital-native": {
-      bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+    bg: "#FAFAFA",
+      
       heading: "SaaS Cost Problems",
       cards: [
         { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/BalanceScale.svg" },
@@ -44,13 +44,13 @@ const CARD_CONFIG: Record<
     },
 
     smb: {
-      bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      bg: "#FAFAFA",
+    
       heading: "Industry Struggles Today",
       cards: [
         { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/OpenEye.svg"  },
-        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Danger.svg" },
-        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Performance.svg"  },
+        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Danger2.svg" },
+        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/performanc.svg"  },
       ],
     },
   },
@@ -58,7 +58,7 @@ const CARD_CONFIG: Record<
   "banking-and-finance": {
     banks: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+ 
       heading: "Technology Challenges in Banking",
       cards: [
         { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." ,image:"/BuiltFor/Recycle.png" },
@@ -69,7 +69,7 @@ const CARD_CONFIG: Record<
 
     nbfc: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+     
       heading: "NBFC Operational Challenges",
       cards: [
         { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical.",image:"/BuiltFor/Recycle.png"  },
@@ -79,8 +79,7 @@ const CARD_CONFIG: Record<
     },
 
     "credit-union": {
-      bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      bg: "#F2F2F2", 
       heading: "Credit Union Technology Gaps",
       cards: [
         { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential.",image:"/BuiltFor/Recycle.png"  },
@@ -93,7 +92,7 @@ const CARD_CONFIG: Record<
   "ehr-and-pms": {
     hospitals: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+     
       heading: "Hospital System Challenges",
       cards: [
         { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." ,image:"/BuiltFor/Recycle.png" },
@@ -104,7 +103,7 @@ const CARD_CONFIG: Record<
 
     clinics: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+      
       heading: "Clinic Management Challenges",
       cards: [
         { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks.",image:"/BuiltFor/Recycle.png"  },
@@ -117,7 +116,7 @@ const CARD_CONFIG: Record<
   "high-tech": {
     startups: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+       
       heading: "Startup Engineering Challenges",
       cards: [
         { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt.",image:"/BuiltFor/Recycle.png"  },
@@ -128,7 +127,7 @@ const CARD_CONFIG: Record<
 
     enterprises: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+ 
       heading: "Enterprise High-Tech Challenges",
       cards: [
         { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." ,image:"/BuiltFor/Recycle.png" },
@@ -160,11 +159,11 @@ export default function Cardcase() {
       <div className=" hidden lg:block absolute top-[-5%] -right-10 h-full w-[17%] pointer-events-none">
         <div
           className="w-full h-full bg-cover bg-right bg-no-repeat animate-rotateScale"
-          style={{
-            backgroundImage: `url('${config.image}')`,
-            transform: "rotate(14deg) scale(1.5)",
-            transformOrigin: "top right",
-          }}
+          // style={{
+          //   backgroundImage: `url('${config.image}')`,
+          //   transform: "rotate(14deg) scale(1.5)",
+          //   transformOrigin: "top right",
+          // }}
         ></div>
       </div>
 

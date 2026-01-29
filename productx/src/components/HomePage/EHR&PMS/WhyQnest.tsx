@@ -17,9 +17,9 @@ export default function WhyQnest() {
   const titleOpacity = useSpring(useTransform(scrollYProgress, [0, 0.5], [1, 0]), spring);
 
   const cards = [
-    { num: "126+", title: "Countries Supported", desc: "We onboard users from 126+ countries globally." },
-    { num: "98%", title: "Success Rate", desc: "Industry-leading onboarding success performance." },
-    { num: "56", title: "Global Partners", desc: "Trusted partners across multiple regions." },
+    { num: "40%", title: "Faster Documentation", desc: "Streamlined clinical workflows and smart templates reduce charting time, allowing physicians to focus more on patient care." },
+    { num: "99%", title: "Claim Accuracy", desc: "Integrated billing and automated coding slash claim denials, ensuring faster reimbursements and improved revenue cycle health." },
+    { num: "50%", title: "Fewer No-Shows", desc: "Patient self-scheduling, reminders, and telehealth options dramatically reduce missed appointments and enhance patient engagement." },
   ];
   return (
     <>
@@ -29,18 +29,18 @@ export default function WhyQnest() {
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
             <H2 className=" text-[#166D48] mb-4">
-              Why Qnest
+              One Unified Platform
             </H2>
-            <P className="max-w-[650px] mx-auto text-white">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </P>
+            <P className=" mx-auto max-w-3xl text-black">
+              Unified Clinicapp seamlessly integrates EHR and practice management into one intuitive, cloud-based solution for modern healthcare.
+            </P>  
           </motion.div>
           {/* CARDS */}
           <motion.div style={{ y: cardsY }} className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-12 gap-8 max-w-[1400px] w-full px-6">
+            <div className="grid grid-cols-12 gap-8 max-w-8xl w-full px-20">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
-                  <div className="bg-[#EDE4CA] h-[550px] rounded-sm p-10 shadow-xl flex flex-col justify-between">
+                  <div className="bg-transparent border-4 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6 shadow-xl flex flex-col justify-between">
                     <div>
                       <H1 className="text-[#166D48]">{c.num}</H1>
                       <H3 className=" text-[#166D48]">{c.title}</H3>

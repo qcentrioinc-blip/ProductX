@@ -1,8 +1,8 @@
-import StickyBackgroundLayout from "./StickyBackgroundLayout";
+// import StickyBackgroundLayout from "./StickyBackgroundLayout";
 import LandingPageEHS from "./LandingPageEHS";
-import { Logos } from "./Logos";
-import StatsSectionEHR from "./StatsSectionEHR";
-import CTASection from "./CTASection";
+// import { Logos } from "./Logos";
+// import StatsSectionEHR from "./StatsSectionEHR";
+// import CTASection from "./CTASection";
 import WhyQnest from "./WhyQnest";
 // import GridSection from "./GridSection";
 // import ShortDesc from "./ShortDesc";
@@ -11,7 +11,13 @@ import BlogCarousel from "./BlogCarousel";
 import UserProfile from "./UserProfile";
 import EHRFooter from "./EHRFooter";
 import UnifiedFeatureSection from "./UnifiedFeatureSection";
-import Stroke from "../../EHR&PMS/AboutUs/Stroke";
+// import Stroke from "../../EHR&PMS/AboutUs/Stroke";
+
+import Testimonial from "../../EHR&PMS/ClinicApp/Testimonial";
+import HWD from "../../Banking&Finance/HWD";
+import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
+import Managment from "./Managment";
+ 
 
 const HeroSectionEHR = () => {
   return (
@@ -19,27 +25,33 @@ const HeroSectionEHR = () => {
 
       {/* NO BACKGROUND */}
       <LandingPageEHS />
+ <WhyQnest />
+
+ <Testimonial/>
 
       {/* STICKY BACKGROUND STARTS */}
-      <StickyBackgroundLayout image="/EHRandPMS/StickyImg.jpg">
+      {/* <StickyBackgroundLayout image="/EHRandPMS/StickyImg.jpg"> */}
 
-        <Logos />
+        {/* <Logos /> */}
         
-        <StatsSectionEHR />
-        <div className="relative">
+        {/* <StatsSectionEHR /> */}
+        {/* <div className="relative">
         <Stroke/>
         <CTASection />
         
-        <WhyQnest />
+       
 
-        </div>
+        </div> */}
+        <Managment/>
           <UnifiedFeatureSection/>
 
-      </StickyBackgroundLayout>
+      {/* </StickyBackgroundLayout> */}
 
       {/* NO BACKGROUND */}
       <BlogCarousel />
       <UserProfile />
+      <HWD/>
+      <FaqSection/>
       <EHRFooter />
 
     </div>

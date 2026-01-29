@@ -89,7 +89,7 @@ export default function HeroSection() {
         {/* LEFT TEXT SECTION */}
         <div className="xl:mt-44  lg:mt-28 px-2  xl:ml-4 text-white">
           <H1 className="font-bold leading-tight slide-in">
-            <span className="text-[#00ff88]">Pay Only for </span>  <br />
+            Pay Only for  <br />
             What You Save
           </H1>
  

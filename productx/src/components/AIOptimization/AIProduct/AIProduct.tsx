@@ -54,21 +54,24 @@ const LINE_DISTANCE = [8, 6, 4];
 
     <FinalHero/>  
         <ImageContainer />
-      </section>
+     
      {/* <CTA/> */}
-       <TextSec/>
-      <section
-       className="relative     "
-        style={{ backgroundImage: "url('/AIProduct/CloudBg.png')" }}
-      >
+      
+        </section>
+         <TextSec/>
+      {/* <section
+       className="relative    "
+      
+      > */}
         <Onboarding />
          <Firm/>
      {/* <Partner /> */}
       <ImageGrid/>
-       </section>
+       {/* </section> */}
       <FeatureCards />
-      <CostOptimization/>
+   
       <Timeline/>
+         <CostOptimization/>
       {/* <Testimonial /> */}
       <div id="usecases">
       <HWD />

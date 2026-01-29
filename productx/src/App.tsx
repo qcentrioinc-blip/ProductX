@@ -72,6 +72,7 @@ import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc'
 import Pricing from './components/AIOptimization/Pricing/Pricing'
 import ComingSoon from './components/Global/NewFooter/ComingSoon'
 import PrivacyPolicyAI from './components/AIOptimization/AIPrivacy'
+import Physician from './components/EHR&PMS/Physician/Physician'
 
 
 
@@ -182,6 +183,8 @@ const App = () => {
             <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
             <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
+
+            <Route path="/industries/ehr-and-pms/physician" element={<Physician/>}/>
             <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
  
  

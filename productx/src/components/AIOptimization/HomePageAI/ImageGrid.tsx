@@ -15,13 +15,13 @@ const items: Item[] = [
     description:
       " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
       cta:"Get Started",
-    image: "/AIProduct/SecureAccess.png",
+    image: "/AIProduct/ImageGrid4.webp",
   },
   {
     title: "AI Analysis",
     description:
       " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
-    image: "/AIProduct/Analysis.png",
+    image: "/AIProduct/ImageGrid2.webp",
     cta:"Learn More",
     reverse: true,
   },
@@ -30,13 +30,13 @@ const items: Item[] = [
     description:
       "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
       cta:"See Results",
-    image: "/AIProduct/AISaving.png",
+    image: "/AIProduct/ImageGrid3.webp",
   },
 ];
 
 export default function ImageGrid() {
   return (
-    <section className="relative max-w-8xl overflow-hidden">
+    <section className="relative  max-w-8xl overflow-hidden">
       {/* Sticky Background */}
 
 
@@ -53,7 +53,7 @@ export default function ImageGrid() {
         </div>
 
         {/* Content */}
-        <div className="space-y-20 max-w-7xl xl:mx-auto  mx-10 pb-32">
+        <div className="space-y-20 max-w-7xl xl:mx-auto  mx-10 pb-10">
           {items.map((item, index) => (
             <div
               key={index}
@@ -75,15 +75,15 @@ export default function ImageGrid() {
 
               {/* Text */}
               <div className={`${item.reverse ? "md:order-1 max-w-md" : "max-w-md"}`}>
-                <H3 className="mb-3">{item.title}</H3>
-                <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
-                <div className="flex mt-8 flex-row space-x-2 ">
-                  <a href="https://clouddiet.ai/signup" target="_blank">
-                  <P className=" font-bold">{item.cta}</P>
-                  </a>
-                  <span><ArrowRight /></span>
-                </div>
-              </div>
+  <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
+  <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
+  <div className="flex mt-8 flex-row items-center space-x-2">
+    <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
+      <P className="font-bold">{item.cta}</P>
+      <span><ArrowRight /></span>
+    </a>
+  </div>
+</div>
             </div>
           ))}
         </div>

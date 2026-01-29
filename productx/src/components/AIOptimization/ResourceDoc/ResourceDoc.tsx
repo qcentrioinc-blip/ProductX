@@ -326,7 +326,7 @@ const ResourceDoc: React.FC = () => {
                 className={`relative block text-md py-1 font-quicksand font-medium rounded px-3 transition-colors
                   ${
                     slug === item.slug
-                      ? "text-[#5551FF] font-medium before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
+                      ? "text-[#254D70] font-medium before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
                       : "text-gray-700 hover:bg-gray-100"
                   }
                 `}
@@ -370,7 +370,7 @@ const ResourceDoc: React.FC = () => {
                   onClick={() => setMobileNavOpen(false)}
                   className={`relative block text-md py-1 font-quicksand font-medium rounded px-3 transition-colors
               ${slug === item.slug
-                      ? "text-[#5551FF] font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
+                      ? "text-[#254D70] font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
                       : "text-gray-700 hover:bg-gray-100"
                     }
             `}
@@ -411,14 +411,14 @@ const ResourceDoc: React.FC = () => {
           </span>
         </div>
 
-        <div className="font-quicksand text-[#5551FF] mb-6">
+        <div className="font-quicksand text-[#254D70] mb-6">
           <Link to="/industries/cloud-finops-ai" className="hover:text-blue-600">
             Home
           </Link>
           {" > "}
-          <span className="text-[#5551FF]">{categoryConfig?.label}</span>
+          <span className="text-[#254D70]">{categoryConfig?.label}</span>
           {" > "}
-          <span className="text-[#5551FF] font-medium">
+          <span className="text-[#254D70] font-medium">
             {currentItem?.label}
           </span>
         </div>
@@ -510,9 +510,9 @@ const ResourceDoc: React.FC = () => {
                   >
                     <a
                       href={`#${item.id}`}
-                      className={`block py-1.5 px-3 -ml-[2px] border-l-2 transition-all duration-200 ${activeId === item.id
-                        ? "text-[#5551FF] border-[#5551FF] font-medium bg-blue-50/50"
-                        : "text-gray-600 border-transparent hover:text-[#5551FF] hover:border-gray-300"
+                      className={`block py-1.5 px-3 -ml-[2px] border-l-2 border-[#254D70] transition-all duration-200 ${activeId === item.id
+                        ? "text-[#254D70] border-[#254D70] font-medium bg-blue-50/50"
+                        : "text-gray-600 border-transparent hover:text-[#254D70] hover:border-gray-300"
                         }`}
                       onClick={(e) => {
                         e.preventDefault();
@@ -541,7 +541,7 @@ const ResourceDoc: React.FC = () => {
               <div className="flex items-center gap-3 mb-3">
                 <button
                   onClick={handleAudioToggle}
-                  className="w-10 h-10 rounded-full bg-[#5551FF] flex items-center justify-center hover:bg-[#4440EE] transition flex-shrink-0"
+                  className="w-10 h-10 rounded-full bg-[#254D70] flex items-center justify-center hover:bg-[#4440EE] transition flex-shrink-0"
                 >
                   {isPlaying ? (
                     // Pause Icon
@@ -567,10 +567,10 @@ const ResourceDoc: React.FC = () => {
                 className="w-full h-2 bg-gray-200 rounded-full cursor-pointer mb-2 group"
               >
                 <div
-                  className="h-full bg-[#5551FF] rounded-full transition-all relative"
+                  className="h-full bg-[#254D70] rounded-full transition-all relative"
                   style={{ width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%' }}
                 >
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#5551FF] rounded-full opacity-0 group-hover:opacity-100 transition" />
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#254D70] rounded-full opacity-0 group-hover:opacity-100 transition" />
                 </div>
               </div>
 

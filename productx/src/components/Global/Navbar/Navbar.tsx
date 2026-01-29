@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="/">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
             
-            <img className="h-10 w-full" src="../logo.svg"/>
+            <img className="h-10 w-full" src="/QnestLogo.svg"/>
           </div>
         </Link>
 

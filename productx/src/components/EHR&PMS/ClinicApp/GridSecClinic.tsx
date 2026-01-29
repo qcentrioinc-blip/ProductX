@@ -15,14 +15,18 @@ export default function GridSecClinic() {
         <div className="grid grid-cols-1 xl:grid-cols-2 pb-16 items-start gap-4 md:gap-12 xl:gap-20">
 
           {/* LEFT IMAGE */}
-          <div className="flex justify-end   mt-10 xl:py-10">
+          <div className="flex justify-end relative  xl:py-10">
             <img
-              src="/EHR-PMS/LandingPage/img1.jpg"
+              src="/Physician/CurveRectangle.svg"
               alt="doctor and patient"
-              className="w-full lg:h-[500px] rounded-md object-cover"
+              className="w-full h-full rounded-md object-cover"
             />
-          </div>
-
+          
+          {/* Arrow icon in the curved corner */}
+              <div className="absolute top-12 right-4 w-32 h-32 z-20 rounded-full  flex items-center justify-center  group-hover:scale-110 transition-transform duration-300">
+              <img src="/Physician/WhiteArrow.svg" alt="ehr and pms"/>
+              </div>
+              </div>
           {/* RIGHT FEATURES GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2    gap:4 xl:gap-10  ">
 
@@ -39,7 +43,7 @@ export default function GridSecClinic() {
                 title: "Duis aute irure",
                 text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su"
               },
-              {
+              { 
                 title: "Duis aute irure",
                 text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su"
               },

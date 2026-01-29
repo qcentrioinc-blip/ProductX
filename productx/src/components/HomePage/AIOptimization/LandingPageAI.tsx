@@ -13,11 +13,37 @@ const LandingPageAI = () => {
         <div
           className="relative w-full h-[71vh] md:h-[56vh] xl:h-screen bg-cover bg-center"
           style={{
-            backgroundImage: `url(${"/AIOptimization/LandingBackground.png"})`,
+            backgroundImage: `url(${"/AIProduct/FeatureBg.webp"})`,
           }}
         >
           {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/10" />
+{/* Floating Cloud Icons */}
+<div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
+  <img
+    src="/AIOptimization/cloudstorage.webp"
+    className="absolute top-[15%] left-[8%] w-16 md:w-24 animate-cloud-float-slow opacity-80"
+    alt="cloud"
+  />
+
+  <img
+    src="/AIOptimization/cloudstorage.webp"
+    className="absolute top-[35%] right-[10%] w-20 md:w-28 animate-cloud-float opacity-70"
+    alt="cloud"
+  />
+
+  <img
+    src="/AIOptimization/cloudstorage.webp"
+    className="absolute bottom-[18%] left-[25%] w-14 md:w-20 animate-cloud-float-fast opacity-60"
+    alt="cloud"
+  />
+
+   <img
+    src="/AIOptimization/cloudstorage.webp"
+    className="absolute top-[45%] right-[20%] w-20 md:w-28 animate-cloud-float opacity-70"
+    alt="cloud"
+  />
+</div>
 
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center xl:top-12">
@@ -28,12 +54,12 @@ const LandingPageAI = () => {
             >
               <span
                 style={{
-                  color: "#0AC276",
+                  color: "#254D70",
                 }}
               >
                 Smarter Azure Cost <br />
               </span>
-              <span style={{ color: "#FFFFFF" }}>Optimization With AI </span>
+              <span style={{ color: "#254D70" }}>Optimization With AI </span>
             </H1>
 
             {/* Description */}
@@ -47,7 +73,7 @@ const LandingPageAI = () => {
                 lineHeight: "130%",
                 letterSpacing: "0%",
                 textAlign: "center",
-                color: "#CCCCCC",
+                color: "#141414",
               }}
             >
               Reduce cloud spend by up to 30% using AI-powered analysis, engineering expertise, and actionable optimization insights.
@@ -59,8 +85,8 @@ const LandingPageAI = () => {
               className="inline-flex items-center gap-3 rounded-lg text-[14px] sm:text-[15px] font-semibold tracking-wide px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               style={{
                 fontFamily: "'Inter', sans-serif",
-                backgroundColor: "#10DC78",
-                color: "#000000",
+                backgroundColor: "#000000",
+                color: "#ffffff",
               }}
             >
               Start Saving

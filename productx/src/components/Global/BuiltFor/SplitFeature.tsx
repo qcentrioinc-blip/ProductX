@@ -26,10 +26,10 @@ type Theme = {
 
 /* ================= THEMES (BY INDUSTRY) ================= */
 const BULLET_ICONS = [
-  "/BuiltFor/SaveMoney.png",
-  "/BuiltFor/ExportMoney.png",
-  "/BuiltFor/WebError.png",
-  "/BuiltFor/Efficient.png",
+   "/BuiltFor/Waste.svg",
+  "/BuiltFor/money.svg",
+  "/BuiltFor/web.svg",
+  "/BuiltFor/efficiency.svg",
 ];
 
 const THEMES: Record<string, Theme> = {
@@ -39,7 +39,7 @@ const THEMES: Record<string, Theme> = {
     headingPrimaryColor: "text-[#2B68C3]",
     headingSecondaryColor: "text-[#2A2A2A]",
     paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#2B68C3]",
+    bulletColor: "bg-[#fafafa]",
     statsColor: "text-[#2A2A2A]",
   },
 
@@ -64,12 +64,12 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#FFE9C5]",
+    sectionBg: "bg-[#FAFAFA]",
     imageSrc: "/BuiltFor/EnterpriseSplit.png",
     headingPrimaryColor: "text-[#254D70]",
     headingSecondaryColor: "text-[#254D70]",
     paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#2B68C3]",
+    bulletColor: "bg-[#efefef]",
     statsColor: "text-[#2A2A2A]",
   },
 };
@@ -87,7 +87,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       Delivers For Enterprises
     </>
   ),
-    imageSrc: "/BuiltFor/EnterpriseSplit.png",
+    imageSrc: "/BuiltFor/EnterpriseImage.svg",
           paragraph:"CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
       bulletPoints: [
         "Cut Waste Fast",
@@ -104,7 +104,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "digital-native": {
       headingPrimary: "Impact We Deliver",
-        imageSrc: "/BuiltFor/DigitalBuilt.svg",
+        imageSrc: "/BuiltFor/DigitalNativeImage.svg",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -123,7 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     smb: {
       headingPrimary: "The Enterprise Impact We Deliver ",
-        imageSrc: "/BuiltFor/SMBBuilt.svg",
+        imageSrc: "/BuiltFor/SMBImage.svg",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",
@@ -195,7 +195,7 @@ export default function SplitFeature() {
       key={index}
       className="flex items-center justify-center lg:justify-start gap-3"
     >
-      <div className={`rounded-full ${theme.bulletColor} w-14 h-14  rounded-full flex items-center justify-center`}>
+      <div className={`rounded-full ${theme.bulletColor} w-14 h-14    rounded-full flex items-center justify-center`}>
       <img
         src={BULLET_ICONS[index]}
         alt=""

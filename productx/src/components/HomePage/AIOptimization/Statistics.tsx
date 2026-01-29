@@ -62,7 +62,7 @@ const Statistics = () => {
                     { value: 0, suffix: "", text: "We analyze metadata only, never your files, databases, or apps. " },
                     { value:100, suffix: "%", text: "CloudDIET never modifies resources or accesses customer data. " },
                     { value: 30, suffix: "%", text: "Enterprises reduce Azure spend without compromising performance. " },
-                    { value: 256, suffix: "-bit", text: "All data is encrypted at rest and in transit. " },
+                    { value: 256, suffix: "bit", text: "All data is encrypted at rest and in transit. " },
                 ].map((item, index) => (
                     <div
                         key={index}
@@ -76,11 +76,11 @@ const Statistics = () => {
                         {/* Counter with Icon */}
                         <div className="flex items-center gap-3 md:gap-6">
                             <img
-                                src="/AIOptimization/BlueArrow.png"
+                                src="/AIOptimization/TrendUp.svg"
                                 alt="Trend icon"
                                 className="h-4 md:h-6   lg:h-8"
                             />
-                            <h2 className="text-[#0079FF] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
+                            <h2 className="text-[#141414] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
                                 {inView && (
                                     <CountUp
                                         start={0}
