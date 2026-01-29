@@ -90,7 +90,7 @@ const HEADING_CONTENT = {
 
       {
         title: " Retain Savings Long-Term",
-           image: "/AIOptimization/pricetag.svg",
+           image: "/AIOptimization/PriceTag.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [

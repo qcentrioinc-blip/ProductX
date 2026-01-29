@@ -17,11 +17,13 @@ export default function Timeline() {
       {/* Heatmap Image */}
       <div className="relative w-full overflow-x-auto">
         <div className="min-w-[900px] max-w-7xl mx-auto">
-          <img
-            src="/AI-CloudFinOps/HomePage/Timeline.webp"
-            alt="Timeline"
+          <video
+            src="/AI-CloudFinOps/HomePage/HeatMap.mp4"
+            autoPlay
+            
+            muted 
             className="w-full h-auto object-contain"
-            loading="lazy"
+           
           />
         </div>
       </div>
