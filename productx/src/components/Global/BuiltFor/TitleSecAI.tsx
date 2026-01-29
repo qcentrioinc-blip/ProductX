@@ -12,32 +12,39 @@ const CONTENT_MAP: Record<
     heading: string | ReactNode;
     description: string;
     cta: string;
+    
+    bgImage: string;
   }
 > = {
 
  "digital-native": {
-    heading: "Scale Your SaaS Profitably \n With CloudDIET",
+    heading: (<>
+    Scale Your SaaS Profitably <br/> {" "} With CloudDIET
+    </>),
     description:
       " CloudDIET fixes Azure Functions and scale issues so SaaS teams save costs without hurting performance or customer growth.",
     cta: "Optimize Now",
+      bgImage: "/BuiltFor/DigitalNativeBG.webp",
   },
   enterprises: {
     heading: (
     <>
       Optimize Multi <br />
       Subscription{" "}
-      <span className="text-[#020059]">Azure Costs</span>
+       Azure Costs 
     </>
   ),
     description:
       "CloudDIET profiles your infrastructure usage patterns to automatically cut waste across all Azure subscriptions safely..",
     cta: "Start Your Scan",
+        bgImage: "/BuiltFor/BuiltEnter.webp",
   },
   smb: {
     heading: "Assured Azure savings for Large enterprises. ",
     description:
       " Cut multi-region Azure waste, keep compliance strong, and protect every critical workload without service risk.",
     cta: "Get Started",
+        bgImage: "/BuiltFor/SMBBG.webp",
   },
 };
 
@@ -48,7 +55,7 @@ export default function TitleSecAI() {
   return (
     <section 
       className="w-full  h-[60vh] md:h-[50vh] xl:h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/BuiltFor/BuiltEnter.png')" }}
+      style={{ backgroundImage: `url(${content.bgImage})` }}
     >
       {/* DARK OVERLAY (REMOVE IF NOT NEEDED) */}
       <div className="absolute inset-0 bg-black/40"></div>

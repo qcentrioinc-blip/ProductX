@@ -23,34 +23,34 @@ const CARD_CONFIG: Record<
   "cloud-finops-ai": {
     enterprises: {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: " Azure Spend Issues",
       cards: [
-        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Recycle.png" },
-        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Inefficient.png" },
-        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/EyeIcon.png" },
+        { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage" , image:"/BuiltFor/Enterprises3.svg" },
+        { id: 2, title: "Inefficient Planning", desc: "Wrong SKUs, licenses, and purchase options increase bills you cannot easily see. ",image:"/BuiltFor/Enterprises2.svg" },
+        { id: 3, title: "No Visibility", desc: "Multi-environment costs hide in configs and usage patterns. ",image:"/BuiltFor/Enterprises1.svg" },
       ],
     },
 
     "digital-native": {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: "SaaS Cost Problems",
       cards: [
-        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/Recycle.png" },
-        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. ", image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. ", image:"/BuiltFor/Recycle.png"   },
+        { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image:"/BuiltFor/BalanceScale.svg" },
+        { id: 2, title: "Unused Accounts", desc: "Integration accounts and registries sit idle after CI/CD deployments. ", image:"/BuiltFor/BlockUser.svg" },
+        { id: 3, title: "Event Overload", desc: "Event Hubs and messaging provisioned beyond real SaaS traffic needs. ", image:"/BuiltFor/Calender.svg"   },
       ],
     },
 
     smb: {
       bg: "#E3FFF4",
-      image: "/BuiltFor/img6.jpg",
+      image: "/BuiltFor/img6.webp",
       heading: "Industry Struggles Today",
       cards: [
-        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/Recycle.png"  },
-        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Recycle.png"  },
+        { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ",image:"/BuiltFor/OpenEye.svg"  },
+        { id: 2, title: "Risk Constraints", desc: " Tight uptime, security, and compliance rules block aggressive optimization moves.  " ,image:"/BuiltFor/Danger.svg" },
+        { id: 3, title: " Tool Overload", desc: " Too many dashboards, that show costs but no safe way to reduce spend.",image:"/BuiltFor/Performance.svg"  },
       ],
     },
   },
@@ -58,7 +58,7 @@ const CARD_CONFIG: Record<
   "banking-and-finance": {
     banks: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "Technology Challenges in Banking",
       cards: [
         { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation." ,image:"/BuiltFor/Recycle.png" },
@@ -69,7 +69,7 @@ const CARD_CONFIG: Record<
 
     nbfc: {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "NBFC Operational Challenges",
       cards: [
         { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical.",image:"/BuiltFor/Recycle.png"  },
@@ -80,7 +80,7 @@ const CARD_CONFIG: Record<
 
     "credit-union": {
       bg: "#F2F2F2",
-      image: "/BuiltFor/img1.jpg",
+      image: "/BuiltFor/img1.webp",
       heading: "Credit Union Technology Gaps",
       cards: [
         { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential.",image:"/BuiltFor/Recycle.png"  },
@@ -93,7 +93,7 @@ const CARD_CONFIG: Record<
   "ehr-and-pms": {
     hospitals: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+      image: "/BuiltFor/img4.webp",
       heading: "Hospital System Challenges",
       cards: [
         { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery." ,image:"/BuiltFor/Recycle.png" },
@@ -104,7 +104,7 @@ const CARD_CONFIG: Record<
 
     clinics: {
       bg: "#EEFDD9",
-      image: "/BuiltFor/img4.jpg",
+      image: "  /BuiltFor/img4.webp",
       heading: "Clinic Management Challenges",
       cards: [
         { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks.",image:"/BuiltFor/Recycle.png"  },
@@ -117,7 +117,7 @@ const CARD_CONFIG: Record<
   "high-tech": {
     startups: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+      image: "/BuiltFor/img5.webp",
       heading: "Startup Engineering Challenges",
       cards: [
         { id: 1, title: "Speed vs Stability", desc: "Fast shipping introduces technical debt.",image:"/BuiltFor/Recycle.png"  },
@@ -128,7 +128,7 @@ const CARD_CONFIG: Record<
 
     enterprises: {
       bg: "#EFEFEF",
-      image: "/BuiltFor/img5.jpg",
+      image: "/BuiltFor/img5.webp",
       heading: "Enterprise High-Tech Challenges",
       cards: [
         { id: 1, title: "Complex Architectures", desc: "Large systems are difficult to manage." ,image:"/BuiltFor/Recycle.png" },
@@ -170,7 +170,7 @@ export default function Cardcase() {
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-8xl mx-10 md:px-10 xl:pr-40">
-        <H2 className="mb-10">{config.heading}</H2>
+        <H2 className="mb-10 text-[#254D70]">{config.heading}</H2>
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">

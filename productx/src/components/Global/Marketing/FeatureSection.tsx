@@ -43,9 +43,7 @@ export default function FeatureSection() {
               transition: 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
             }}
           >
-            Lorem ipsum dolor 
-            , consect adipis 
-            ipsum
+            How Our Efficient AI Platform Works 
           </H1>
 
           {/* IMAGE */}
@@ -71,7 +69,7 @@ export default function FeatureSection() {
         </div>
 
         {/* RIGHT BLOCK – 40% */}
-        <div className="lg:basis-[40%] w-full flex flex-col gap-10 xl:mt-75">
+        <div className="lg:basis-[50%] w-full flex flex-col gap-10 xl:mt-75">
 
           {/* ITEM 1 */}
           <div 
@@ -83,14 +81,13 @@ export default function FeatureSection() {
               transition: 'all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s'
             }}
           >
-            <div className="w-20 h-10 bg-blue-600 rounded-full" />
+            <div className="w-23 h-10 bg-blue-600 rounded-full" />
             <div>
               <H3 className="text-xl font-semibold text-black mb-6">
-                Lorem ipsum dolor consect
+                Profiling Without Data Access 
               </H3>
               <P className="text-gray-600 mt-2">
-                Duis aute irure dolor in reprehenderit in voluptate velit Duis aute
-                irure dolor in reprehenderit in voluptate aute irure dolor in
+                CloudDIET analyzes Azure configuration, usage, and billing metadata with read-only access, ensuring no customer data is ever viewed or stored. 
               </P>
             </div>
           </div>
@@ -105,14 +102,13 @@ export default function FeatureSection() {
               transition: 'all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s'
             }}
           >
-            <div className="w-20 h-10 bg-blue-600 rounded-full" />
+            <div className="w-23 h-10 bg-blue-600 rounded-full" />
             <div>
               <H3 className="text-xl font-semibold text-black mb-6">
-                Lorem ipsum dolor consect
+                Identifying Cost Savings Opportunities 
               </H3>
               <P className="text-gray-600 mt-2">
-                Duis aute irure dolor in reprehenderit in voluptate velit Duis aute
-                irure dolor in reprehenderit in voluptate aute irure dolor in
+                It detects resource misconfigurations, over-provisioning, unused capacity, and SKU inefficiencies across hundreds of Azure services to highlight waste. 
               </P>
             </div>
           </div>
@@ -127,14 +123,13 @@ export default function FeatureSection() {
               transition: 'all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.0s'
             }}
           >
-            <div className="w-20 h-10 bg-blue-600 rounded-full" />
+            <div className="w-25 h-10 bg-blue-600 rounded-full" />
             <div>
               <H3 className="text-xl font-semibold text-black mb-6">
-                Lorem ipsum dolor consect
+                Delivering Guided Optimizations 
               </H3>
               <P className="text-gray-600 mt-2">
-                Duis aute irure dolor in reprehenderit in voluptate velit Duis aute
-                irure dolor in reprehenderit in voluptate aute irure dolor in
+                You receive categorized, actionable recommendations with effort levels, risk details, and step-by-step implementation guidance to realize savings securely. 
               </P>
             </div>
           </div>

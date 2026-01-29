@@ -1,13 +1,39 @@
 import { ArrowUpRight, Twitter, Instagram, Linkedin } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import FloatingLines from "./AIFooterBackground";
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
+ import { toast } from "react-toastify";
+ 
+ 
+
 
 const ENABLED_WAVES: Array<'top' | 'middle' | 'bottom'> = ['middle', 'bottom'];
 const LINE_COUNT = [10, 15, 20];
 const LINE_DISTANCE = [8, 6, 4];
 
 const AIFooter = () => {
+ const [email, setEmail] = useState("");
+ 
+const handleSubmit = () => {
+  if (!email.trim()) {
+    toast.error("Please enter your email");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    toast.error("Please enter a valid email address");
+    return;
+  }
+
+  toast.success("Submitted successfully");
+  setEmail("");
+};
+
+
+    const [modalOpen, setModalOpen] = useState(false);
     const base = "/industries/cloud-finops-ai";
     const footerRef = useRef(null);
     // Trigger when footer is within 400px of the viewport
@@ -18,6 +44,11 @@ const AIFooter = () => {
             {/* Conditional Background Rendering */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <FloatingLines
+                 linesGradient={[
+    '#00FFCC',
+    '#0099FF',
+    '#6600FF'
+  ]}
                     enabledWaves={ENABLED_WAVES}
                     lineCount={LINE_COUNT}
                     lineDistance={LINE_DISTANCE}
@@ -54,26 +85,28 @@ const AIFooter = () => {
                 <div className="grid xl:grid-cols-[1fr_2fr] gap-12">
                     {/* LEFT SECTION */}
                     {/* Links */}
-                    <div className="flex flex-wrap gap-16">
-                        <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-white">Products</h4>
-                            <ul className="space-y-2 text-[#F5F5F5]">
-                                <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
-                            </ul>
-                        </div>
-                        <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-white">Quick Links</h4>
-                            <ul className="space-y-2 text-[#F5F5F5]">
-                                <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
-                                <li><a href={`${base}/contactus`} className="hover:underline">• Contact</a></li>
-                                <li><a href={`${base}/privacy-policy`} className="hover:underline">• Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <div className="flex gap-4 items-start">
-                            {[Twitter, Instagram, Linkedin].map((Icon, i) => (
-                                <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
-                            ))}
-                        </div>
+                        <div className="flex flex-wrap gap-16">
+                            <div className="space-y-4">
+                                <h4 className="text-xl font-bold text-white">Products</h4>
+                                <ul className="space-y-2 text-[#F5F5F5]">
+                                    <li><a href={`${base}`} className="hover:underline">• CloudDIET</a></li>
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <h4 className="text-xl font-bold text-white">Quick Links</h4>
+                                <ul className="space-y-2 text-[#F5F5F5]">
+                                    <li><a href={`${base}/careers`} className="hover:underline">• Careers</a></li>
+                                    <li><button onClick={() => setModalOpen(true)} className="hover:underline">• Contact</button></li>
+                                    <li><a href="/industries/cloud-finops-ai/privacy-policy" className="hover:underline">• Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div className="flex gap-4 items-start">
+                                {[Twitter, Instagram, Linkedin].map((Icon, i) => (
+                                    <Icon key={i} className="w-6 h-6 text-white cursor-pointer hover:opacity-70" />
+                                ))}
+                            </div>
+                      
+                        
                     </div>
 
                     {/* RIGHT SIDE AI IMAGE */}
@@ -83,17 +116,19 @@ const AIFooter = () => {
                         </h3>
 
                         <div className="max-w-md w-full flex items-center gap-4">
-                            <input
-                                type="email"
-                                placeholder="Enter your mail"
-                                className="flex-1 px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
-                            />
+  <input
+    type="email"
+    
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+    placeholder="Enter your mail"
+    className="flex-1 px-6 py-4 rounded-full text-white bg-transparent border-2 border-white/20 focus:border-white/60 outline-none"
+  />
 
-                            <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap">
-                                SUBMIT <ArrowUpRight className="w-5 h-5" />
-                            </button>
-                        </div>
-
+  <button className="inline-flex items-center gap-3 bg-black text-white px-4 py-3 font-bricolage rounded-lg font-bold uppercase hover:bg-zinc-600 transition-all whitespace-nowrap" onClick={handleSubmit}>
+    SUBMIT <ArrowUpRight className="w-5 h-5" />
+  </button>
+</div>
 
 
                     </div>
@@ -109,6 +144,7 @@ const AIFooter = () => {
                 </div>
 
             </div>
+              <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
         </footer>
     );
 };

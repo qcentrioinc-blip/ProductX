@@ -5,7 +5,8 @@ import { Link, Route, Routes, useParams } from 'react-router-dom'
 import HighTech from './routes/industries/HighTech'
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs'
- 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AML from './components/Banking&Finance/ProductAML/AML'
 import ProductDetailthree from './components/Banking&Finance/ProductPago/ProductDetailthree'
 import ProductDetails_4_page from './components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'
@@ -70,10 +71,11 @@ import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptim
 import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc'
 import Pricing from './components/AIOptimization/Pricing/Pricing'
 import ComingSoon from './components/Global/NewFooter/ComingSoon'
- 
- 
- 
- 
+import PrivacyPolicyAI from './components/AIOptimization/AIPrivacy'
+
+
+
+
 const App = () => {
   // const location = useLocation();
   // const showNavbar = location.pathname === '/';
@@ -154,13 +156,9 @@ const App = () => {
  
       <ScrollProvider>
         <div data-scroll-container>
+       
           {/* {showNavbar && <Navbar />} */}
           <Routes>
- 
- 
- 
- 
- 
             <Route path="/landingpage" element={<HeroSlider />} />
             <Route path="/industries/:industry" element={<IndustryPage />} />
             {/* <Route path="/industries/:industry/products" element={<ProductsListPage />} /> */}
@@ -250,7 +248,7 @@ const App = () => {
             <Route path='/industries/high-tech/platform' element={<Platform />} />
             <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
             <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
- 
+            <Route path="/industries/cloud-finops-ai/privacy-policy" element={<PrivacyPolicyAI />} />
             {/* FOR RESOURCES ai */}
             <Route
               path="/industries/:industry/resources/:category/:slug"
@@ -264,7 +262,13 @@ const App = () => {
           </Routes>
         </div>
       </ScrollProvider>
+         <ToastContainer
+  position="bottom-right"
+  style={{ marginBottom: '45px' }}
+/>
+
       <ChatbotButton />
+        
     </>
   )
 }

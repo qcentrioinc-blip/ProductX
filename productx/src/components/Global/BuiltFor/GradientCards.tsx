@@ -33,7 +33,7 @@ type Theme = {
 const themes: Record<string, Theme> = {
   "/industries/banking-and-finance/built-for": {
     sectionBg: "#F5FBFF",
-    headingColor: "#2A2A2A",
+    headingColor: "#254D70",
     paraColor: "#4A4A4A",
     cardGradient: "linear-gradient(135deg, #E9F2FF, #FFEAD2)",
     circleColor: "#E0E0E0",
@@ -54,7 +54,7 @@ const themes: Record<string, Theme> = {
   },
   "/industries/cloud-finops-ai/built-for": {
     sectionBg: "#FFFFFF",
-    headingColor: "#020059",
+    headingColor: "#254D70",
     paraColor: "#141414",
     cardGradient: "linear-gradient(135deg, #EAE9FF, #EAE9FF)",
     circleColor: "#FFFFFF",
@@ -71,11 +71,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables enterprise IT teams to identify, analyze, and fix any Azure waste quickly and efficiently across complex multi-subscription environments. ",
       },
       cards: [
-        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs.", image:"/BuiltFor/Scissor.png"},
-        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. ", image:"/BuiltFor/Trend.png"},
-        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. ", image:"/BuiltFor/Budget.png"},
-        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads..", image:"/BuiltFor/Setting.png"},
-        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. ", image:"/BuiltFor/Teamwork.png"},
+        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs.", image:"/BuiltFor/Scissor.svg"},
+        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. ", image:"/BuiltFor/Trend.svg"},
+        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. ", image:"/BuiltFor/Budget.svg"},
+        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads..", image:"/BuiltFor/Setting.svg"},
+        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. ", image:"/BuiltFor/Teamwork.svg"},
       ],
     },
 
@@ -85,11 +85,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables SaaS teams to scale their apps efficiently and reliably without wasteful Azure spending or any performance compromises across workloads.  ",
       },
       cards: [
-        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. " ,image:"/BuiltFor/Recycle.png"  },
-        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.", image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete.. ", image:"/BuiltFor/Recycle.png" },
-        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day..", image:"/BuiltFor/Recycle.png" },
-        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably.", image:"/BuiltFor/Recycle.png" },
+        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. " ,image:"/BuiltFor/Digitalcon5.svg"  },
+        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.", image:"/BuiltFor/DigitalIcon4.svg" },
+        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete. ",  image:"/BuiltFor/DigitalIcon3.svg" },
+        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day..", image:"/BuiltFor/DigtialIcon2.svg" },
+        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably.", image:"/BuiltFor/DigtialIcon1.svg" },
       ],
     },
 
@@ -99,11 +99,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET fixes Azure waste in multi-region setups for safe enterprise scaling. ",
       },
       cards: [
-        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low.", image:"/BuiltFor/Recycle.png"},
-        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ", image:"/BuiltFor/Recycle.png" },
-        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale.", image:"/BuiltFor/Recycle.png" },
-        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%.", image:"/BuiltFor/Recycle.png" },
-        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. ", image:"/BuiltFor/Recycle.png" },
+        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low.", image:"/BuiltFor/DatabaseSmb.svg"},
+        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ", image:"/BuiltFor/RecycleSmb.svg" },
+        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale.", image:"/BuiltFor/MoneySmb.svg" },
+        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%.", image:"/BuiltFor/AddSmb.svg" },
+        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. ", image:"/BuiltFor/ExportSmb.svg" },
       ],
     },
   },
@@ -118,9 +118,12 @@ export default function FiveCardGradientSection() {
     builtForType: string;
   }>();
 
-  const active =
-    themes[pathname] ||
-    themes["/industries/banking-and-finance/built-for"];
+ const basePath = pathname.split("/").slice(0, 4).join("/");
+
+const active =
+  themes[basePath] ||
+  themes["/industries/banking-and-finance/built-for"];
+
 
   const sectionContent =
     CONTENT[industry ?? ""]?.[builtForType ?? ""];
@@ -187,7 +190,7 @@ export default function FiveCardGradientSection() {
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="p-4">
-              <H2 style={{ color: active.headingColor }} className="mb-4">
+              <H2 className="mb-4 text-[#254D70]">
                  {sectionContent.intro.title}
               </H2>
               <P style={{ color: active.paraColor }} className="max-w-md">
@@ -238,7 +241,7 @@ export default function FiveCardGradientSection() {
                   >
                   <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4"/>
                   </div>
-                  <H4 style={{ color: active.headingColor }} className="mb-4">
+                  <H4 className="mb-4 text-[#254D70]">
                     {card.title}
                   </H4>
                   <P style={{ color: active.paraColor }}>

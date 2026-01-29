@@ -45,7 +45,7 @@ const Frontier = () => {
                                     fontFamily: "'Inter', sans-serif",
                                     fontWeight: 700,
                                     lineHeight: "110%",
-                                    color: "#10DC78",
+                                    color: "#254D70",
                                     zIndex: 50,
                                 }}
                             >
@@ -71,14 +71,14 @@ const Frontier = () => {
                                             style={{
                                                 fontFamily: "'Bricolage Grotesque', sans-serif",
                                                 fontWeight: 700,
-                                                color: "#020059",
+                                                color: "#254D70",
                                             }}
                                         >
                                             {feature.title}
                                         </h3>
 
                                         <div className="flex items-start gap-3 sm:gap-4">
-                                            <ArrowRight className="w-6 sm:w-7 md:w-8 h-5 sm:h-6 text-[#5551FF]" />
+                                            <ArrowRight className="w-10 sm:w-7 md:w-12 h-5 sm:h-6 text-[#0079FF]" />
 
                                             <p
                                                 className="text-[15px] sm:text-[16px] md:text-[18px] leading-[150%]"

@@ -58,7 +58,7 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className={`rounded-2xl shadow-md transition-all duration-300   sm:p-6 text-start cursor-pointer border-2 border-gray-200
+      className={`rounded-xl   transition-all duration-300  p-4   sm:p-6 text-start cursor-pointer border-2 border-gray-200
         ${dark ? "bg-black text-white hover:bg-white hover:text-black" : "bg-white text-black hover:bg-black hover:text-white"}
       `}
     >
@@ -67,7 +67,7 @@ const CounterCard = ({
         {suffix}
       </h2> */}
       
-    <H2 className="text-blue-500  sm:pt-4 mb-24 sm:mb-8">
+    <H2 className="text-[#92278F]  sm:pt-4  sm:mb-8">
 
         {count}
         {suffix}
@@ -77,7 +77,7 @@ const CounterCard = ({
         {title}
       </H4> */}
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
-   <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-2 md:pb-0">
+   <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-16 md:pb-0">
 
         {description}
       </p >
@@ -103,7 +103,7 @@ const Counter = () => {
         </P> */}
       </div>
       <div className="w-full     px-6 lg:px-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 min-h-[200px] sm:min-h-[240px] md:min-h-[250px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 min-h-[200px] sm:min-h-[240px] md:min-h-[300px]">
           <CounterCard 
             number={25}
             suffix="K+"

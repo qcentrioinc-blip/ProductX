@@ -20,7 +20,6 @@ const logosRow1 = [
   "/Logo/logo11.svg",
   "/Logo/logo12.svg",
 ];
- 
 // const logosRow2 = [
 //   "/Logo/logo7.svg",
 //   "/Logo/logo8.svg",
@@ -29,7 +28,6 @@ const logosRow1 = [
 //   "/Logo/logo11.svg",
 //   "/Logo/logo12.svg",
 // ];
- 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -129,7 +127,6 @@ const logosRow1 = [
 <section className="bg-white pt-10">
  {/* Logo Marquee Container */}
 <div className="relative mb-4 overflow-hidden w-full pt-10">
- 
   {/* Row 1 */}
   <div className="flex gap-12 animate-marquee-inner">
     {[...logosRow1, ...logosRow1].map((logo, i) => (
@@ -143,9 +140,9 @@ const logosRow1 = [
       />
     ))}
   </div>
- 
+
   <div className="h-8" />
- 
+
   {/* Row 2 */}
   {/* <div className="flex gap-12 animate-marquee-inner-reverse">
     {[...logosRow2, ...logosRow2].map((logo, i) => (
@@ -159,10 +156,10 @@ const logosRow1 = [
       />
     ))}
   </div> */}
- 
+
 </div>
- 
-   
+
+    
     {/* Logos */}
     {/* <div className="flex flex-wrap items-center gap-x-8 gap-y-6 pb-10  ">
       {[
@@ -179,8 +176,8 @@ const logosRow1 = [
         "/Logo/logo11.svg",
         "/Logo/logo12.svg",
         "/Logo/logo13.svg",
-       
- 
+        
+
       ].map((logo, index) => (
         <img
           key={index}
@@ -190,7 +187,6 @@ const logosRow1 = [
         />
       ))}
     </div> */}
- 
     {/* Two-column text */}
     <div className="grid grid-cols-1  lg:grid-cols-2 lg:gap-x-40 justify-between">
  

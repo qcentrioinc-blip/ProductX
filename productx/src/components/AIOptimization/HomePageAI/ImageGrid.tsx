@@ -15,13 +15,13 @@ const items: Item[] = [
     description:
       " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
       cta:"Get Started",
-    image: "/AIProduct/SecureAccess.png",
+    image: "/AI-CloudFinOps/HomePage/SecureAccess.webp",
   },
   {
     title: "AI Analysis",
     description:
       " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
-    image: "/AIProduct/Analysis.png",
+    image: "/AI-CloudFinOps/HomePage/Analysis.webp",
     cta:"Learn More",
     reverse: true,
   },
@@ -30,7 +30,7 @@ const items: Item[] = [
     description:
       "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
       cta:"See Results",
-    image: "/AIProduct/AISaving.png",
+    image: "/AI-CloudFinOps/HomePage/AISaving.webp",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function ImageGrid() {
       <div className="relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center ">
-          <H2 className=" mb-6 text-[#020059]">
+          <H2 className=" mb-6 text-[#254D70]">
             How CloudDIET Works For You
           </H2>
           <P className="xl:mb-28 mb-10  ">
@@ -78,7 +78,9 @@ export default function ImageGrid() {
                 <H3 className="mb-3">{item.title}</H3>
                 <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
                 <div className="flex mt-8 flex-row space-x-2 ">
+                  <a href="https://clouddiet.ai/signup" target="_blank">
                   <P className=" font-bold">{item.cta}</P>
+                  </a>
                   <span><ArrowRight /></span>
                 </div>
               </div>

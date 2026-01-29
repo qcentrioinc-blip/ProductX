@@ -190,25 +190,25 @@ const sampleData: CardItem[] = [
   {
     id: "25",
     logo: "/MarketPlace/cloud1.png",
-    title: "Cloud Cost Optimization Engine",
+    title: "AI-Powered Cloud Cost Optimization",
     tags: ["FinOps", "Savings", "Cloud"],
     description:
-      "Identifies unused resources, rightsizes workloads, and auto-applies savings plans to reduce cloud spend by up to 40%.",
-    category: "AI Optimaization",
+      " CloudDIET uses AI to analyze your Azure, AWS, and Google Cloud spend. It identifies savings, eliminates waste, and ensures continuous optimization—with guaranteed ROI and no data access. ",
+    category: "Cloud Finops AI",
   },
-  {
-    id: "26",
-    logo: "/MarketPlace/cloud2.png",
-    title: "Idle Resource Auto-Cleaner",
-    tags: ["Automation", "Cleanup"],
-    description:
-      "Automatically shuts down orphaned VMs, disks, snapshots, and IPs across AWS, Azure, and GCP.",
-    category: "AI Optimaization",
-  },
+  // {
+  //   id: "26",
+  //   logo: "/MarketPlace/cloud2.png",
+  //   title: "Idle Resource Auto-Cleaner",
+  //   tags: ["Automation", "Cleanup"],
+  //   description:
+  //     "Automatically shuts down orphaned VMs, disks, snapshots, and IPs across AWS, Azure, and GCP.",
+  //   category: "Cloud Finops AI",
+  // },
 ];
 
 export const App: React.FC = () => {
-  const categories = ["Banking and Finance", "EHR and PMS", "High Tech", "AI Optimaization"];
+  const categories = ["Banking and Finance", "EHR and PMS", "High Tech", "Cloud Finops AI"];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -327,7 +327,7 @@ export const App: React.FC = () => {
                   rounded-md text-sm bg-black text-white
                 "
               >
-                START FOR FREE
+                Start Saving Now !
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-3 w-3"

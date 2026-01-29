@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 type SplitContent = {
   headingPrimary: string | ReactNode;
-  // headingSecondary: string;
+   imageSrc: string; 
   paragraph: string;
   bulletPoints: string[];
   stats: {
@@ -64,13 +64,13 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#0AC276]",
-    imageSrc: "/BuiltFor/img2.png",
-    headingPrimaryColor: "text-[#F5F5F5]",
-    headingSecondaryColor: "text-[#F5F5F5]",
-    paragraphColor: "text-[#FAFAFA]",
-    bulletColor: "bg-[#FAFAFA]/10",
-    statsColor: "text-[#F5F5F5]",
+    sectionBg: "bg-[#FFE9C5]",
+    imageSrc: "/BuiltFor/EnterpriseSplit.webp",
+    headingPrimaryColor: "text-[#254D70]",
+    headingSecondaryColor: "text-[#254D70]",
+    paragraphColor: "text-[#141414]",
+    bulletColor: "bg-[#2B68C3]",
+    statsColor: "text-[#2A2A2A]",
   },
 };
 
@@ -83,10 +83,11 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
          headingPrimary: (
     <>
       The Impact  
-      <span className="text-[#020059]"> CloudDIET </span>
+       CloudDIET 
       Delivers For Enterprises
     </>
   ),
+    imageSrc: "/BuiltFor/EnterpriseSplit.webp",
           paragraph:"CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
       bulletPoints: [
         "Cut Waste Fast",
@@ -103,6 +104,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "digital-native": {
       headingPrimary: "Impact We Deliver",
+        imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -121,6 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     smb: {
       headingPrimary: "The Enterprise Impact We Deliver ",
+        imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",
@@ -163,9 +166,9 @@ export default function SplitFeature() {
         {/* LEFT IMAGE */}
         <div className="flex justify-center lg:justify-start">
           <img
-            src={theme.imageSrc}
+              src={content.imageSrc}
             alt="Feature"
-            className="w-full max-w-xl rounded-2xl object-cover shadow-sm"
+            className="w-full max-w-xl rounded-2xl object-cover "
           />
         </div>
 

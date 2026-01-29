@@ -85,7 +85,7 @@ export default function MarketplaceHero() {
             transitionDelay: isVisible ? '0.4s' : '0s'
           }}
         >
-          Lorem ipsum dolor sit amet
+           Innovate with Qcentrio's Product Hub 
         </H1>
 
         <H4 
@@ -96,8 +96,7 @@ export default function MarketplaceHero() {
             transitionDelay: isVisible ? '0.6s' : '0s'
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          Explore Qcentrio’s suite of intelligent products designed to optimize, secure, and transform your digital ecosystem, all in one trusted platform.
         </H4>
 
         {/* Search Input */}

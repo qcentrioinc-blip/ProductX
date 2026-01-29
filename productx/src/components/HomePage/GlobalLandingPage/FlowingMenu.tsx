@@ -6,7 +6,7 @@ const FlowingMenu: React.FC = () => {
     {
       text: "Cloud Finops AI",
       hoverText: "Cloud Diet",
-      image: "../AzureLogo.png",
+      image: "/Global-Landing-Page/AzureLogo.webp",
       isLive: true,
       href: "/industries/cloud-finops-ai",
     },

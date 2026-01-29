@@ -3,17 +3,17 @@ import { H2, H3, P } from "../../../styles/Typography";
 export default function BusinessValuesSection() {
   const items = [
     {
-      img: "/LandingPage/shape1.jpg",
+      img: "/LandingPage/Circle2.png",
       title: "Driven by Outcomes",
       desc: "We focus on measurable improvements in performance, cost, and reliability. ",
     },
     {
-      img: "/LandingPage/shape2.jpg",
+      img: "/LandingPage/Polygon.png",
       title: "People‑Centric Delivery",
       desc: "We align technology with how your teams actually work. ",
     },
     {
-      img: "/LandingPage/shape3.jpg",
+      img: "/LandingPage/Squar1.png",
       title: "Accountable Partnership",
       desc: "We commit to clear expectations, honest updates, and consistent follow‑through. .",
     },

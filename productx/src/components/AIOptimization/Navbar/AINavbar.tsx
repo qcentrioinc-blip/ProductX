@@ -378,10 +378,18 @@ const AINavbar = () => {
         <div
           onMouseEnter={() => { handleKeepOpen(); setMegaMenuBuiltFor(true); }}
           onMouseLeave={handleCloseMenus}
-          className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-34"} translate-y-1 -translate-x-1/2 w-[90%] max-w-7xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}
+         className={`fixed left-1/2 ${isScrolled ? "top-[76px]" : "top-34"}
+translate-y-1 -translate-x-1/2
+bg-gray-50 px-24 py-10 shadow-xl z-[9998]
+transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+${
+  isScrolled
+    ? "w-[96%] max-w-none rounded-xl"
+    : "w-[90%] max-w-7xl rounded-xl"
+}`}
         >
-          <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-          <P className="text-gray-700 text-lg mt-2 mb-4">Tailored AI optimization solutions for different types of organizations.</P>
+          <H3>Engineered for Every Azure Environment</H3>
+          <P className="text-gray-700 text-lg mt-2 mb-4">CloudDIET is the AI optimization platform built for any organization's scale, complexity, and compliance needs.</P>
           <hr className="border-gray-300 h-1 mb-8" />
           <div className="grid grid-cols-3 gap-y-4 gap-x-1">
             {builtForItemsAI.map((item, index) => (

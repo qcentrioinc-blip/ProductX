@@ -13,7 +13,7 @@ const LandingPageAI = () => {
         <div
           className="relative w-full h-[71vh] md:h-[56vh] xl:h-screen bg-cover bg-center"
           style={{
-            backgroundImage: `url(${"/AIOptimization/LandingBackground.png"})`,
+            backgroundImage: `url(${"/AI-CloudFinOps/Features/LandingBackground.webp"})`,
           }}
         >
           {/* Dark Overlay for better text readability */}
