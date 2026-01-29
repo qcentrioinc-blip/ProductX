@@ -76,10 +76,10 @@ const ImageContainer = () => {
         <div
           ref={containerRef}
           className="flex justify-center items-center py-8 md:py-12"
-          style={{ minHeight: "400px" }}
+          style={{ minHeight: "300px" }}
         >
           {/* Frame wrapper */}
-          <div className="relative w-[70%] xl:w-[90%]">
+          <div className="relative w-[90%] xl:w-[90%]">
 
             {/* Background frame */}
 

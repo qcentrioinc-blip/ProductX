@@ -1,6 +1,7 @@
 import { Suspense, lazy, memo } from 'react';
 import HeroCombined from "./HeroComp/HeroCombined";
 import TextSec from "./CTA";
+import UseCases from './UseCases';
 
 // Lazy load below-the-fold components for faster initial render
 const Onboarding = lazy(() => import('./Onboarding'));
@@ -52,6 +53,9 @@ const AIProduct = () => {
 
       <Suspense fallback={<LoadingPlaceholder />}>
         <HWD />
+      </Suspense>
+       <Suspense fallback={<LoadingPlaceholder />}>
+         <UseCases/>
       </Suspense>
 
       <Suspense fallback={<LoadingPlaceholder />}>
