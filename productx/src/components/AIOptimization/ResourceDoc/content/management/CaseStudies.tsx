@@ -4,7 +4,7 @@ import { H1, H3} from "../../../../../styles/Typography";
 const CaseStudies: React.FC = () => {
   return (
     <div className="space-y-4">
-      <H1 className="text-[#5551FF]">Case Studies</H1>
+      <H1 className="text-[#254D70]">Case Studies</H1>
       
       <p>
         Our AI solutions leverage cutting-edge technology to transform your 

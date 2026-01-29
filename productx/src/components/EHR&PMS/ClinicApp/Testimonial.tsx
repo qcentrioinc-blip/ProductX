@@ -3,10 +3,27 @@ import { ArrowRight } from "lucide-react";
 import { H2, H4, P } from "../../../styles/Typography";
 
 const Testimonial = () => {
+  const card=[
+    {
+      title:"Unify Clinical and Administrative Data",
+      desc:" Integrate EHR documentation with scheduling and billing in a single patient record, eliminating redundant data entry and errors.",
+    },
+  {
+      title:"Automate Patient Engagement Workflows ",
+      desc:" Empower patients with self-scheduling, digital check-in, and a portal for lab results, consents, and telehealth visits.",
+    },
+    {
+      title:"Streamline Revenue Cycle Management",
+      desc:" From automated coding and claims submission to transparent payment tracking, ensure a healthy and visible financial workflow",
+    },
+    {
+      title:" Enable Data-Driven Clinical Decisions",
+      desc:"Provide clinicians with unified dashboards, decision support tools, and real-time analytics at the point of care.",
+    },
+  ]
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  // ✅ Detect when grid section comes into view
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,77 +37,98 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="w-full bg-[#EFEFEF] py-12 sm:py-20">
-      <div className="max-w-8xl lg:mx-10  px-4 lg:px-8 relative">
-        {/* --- Left Green Testimonial Card --- */}
-        <div className="flex justify-start md:justify-center lg:justify-start">
-          <div className="w-full max-w-sm py-6 md:max-w-md bg-[#166D48] text-white overflow-hidden transform -translate-y-1/2 lg:-translate-y-10 xl:translate-y-0 lg:absolute lg:top-0 lg:mt-[-10rem] mt-20">
-            <div className="p-6">
-              <P className="text-sm leading-relaxed text-white">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident.
-              </P>
-            </div>
-            <div className="flex justify-end p-4 border-t-2 border-white">
-              <button className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#166D48] hover:bg-gray-100 transition duration-300">
-                <ArrowRight size={20} />
-              </button>
-            </div>
+    <> <div className="max-w-8xl lg:mx-10 lg:my-20 mx-auto">
+                <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12 items-start px-4  ">
+                  {/* Left Heading */}
+                  <div
+                    className="space-y-4 transition-all duration-1000 ease-out"
+                    
+                  >
+                    <H2 className="font-mono">
+                     Seamlessly Integrating Care and Operations 
+                    </H2>
+                  </div>
+    
+                  {/* Right Paragraph */}
+                  <div
+                    className="space-y-4 transition-all duration-1000 ease-out"
+                    
+                  >
+                    <P className="text-black pt-10 leading-relaxed">
+                   Unified Clinicapp connects every part of your practice, from patient intake to final billing, on one intelligent platform. We unify clinical and administrative workflows to eliminate inefficiencies and enhance care delivery. 
+                    </P>
+                  </div>
+                </div>
+              </div>
+   <div className="max-w-8xl bg-[#EFEFEF] rounded-xl mx-10 my-10 py-12">
+   
+    {/* GREEN CARD + HEADING IN ONE ROW */}
+   <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] items-end gap-12">
+
+
+      {/* Green Testimonial Card */}
+      <div className="flex justify-start px-10">
+        <div className="w-full max-w-md bg-[#56644A] rounded-md text-white overflow-hidden">
+          <div className="p-4">
+            <P className="text-sm leading-relaxed text-white">
+              Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
+            </P>
+          </div>
+
+          <div className="flex justify-end p-4 border-t border-white">
+            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#166D48]">
+              <ArrowRight size={20} />
+            </button>
           </div>
         </div>
-
-        {/* --- Main Content Grid --- */}
-     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-  <div className="hidden lg:block"></div>
-
-  <div className="lg:col-span-2 flex lg:pt-6  xl:pt-0 justify-start lg:justify-end">
-    <H2 className="font-bold text-black text-left lg:text-right leading-tight max-w-4xl">
-      Sed ut perspicia tisunde <br   />
-      Seduo ut perspiciatis
-    </H2>
-  </div>
-</div>
- 
-
-        {/* --- Feature Grid Section --- */}
-       <div ref={sectionRef} className="relative  mt-10 lg:mt-32">
-  
-  <div className="relative grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 text-start z-10">
-    {[1, 2, 3, 4].map((item, index) => (
-      <div key={item} className="relative flex flex-col items-start  space-y-4    transition-all duration-300 lg:min-h-[300px]">
-        
-        <div className="w-16 h-16 rounded-full bg-[#B4E7CE] flex items-center justify-center">
-          {/* Icon/number placeholder */}
-        </div>
-
-        <H4 className="  text-gray-800">
-          Duis aute irure dolor in
-        </H4>
-
-        <P className="text-gray-600 leading-relaxed pr-1">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in
-          reprehenderit in voluptate.
-        </P>
-
-        {/* Vertical Line Between Cards   */}
-        {index !== 3 && (
-          <div
-            className="absolute top-0 right-0 w-[3px] bg-[#166D48] origin-top hidden xl:block"
-            style={{
-              height: isVisible ? "80%" : "0",
-              transition: "height 2s ease-out",
-            }}
-          ></div>
-        )}
       </div>
-    ))}
-  </div>
-</div>
 
+      {/* Right Heading */}
+      <div className="flex justify-end ">
+        <H2 className="text-[#31694E]  pr-10 font-normal text-right leading-tight ">
+        Our Four Pillars of Unified Practice Management 
+        </H2>
+      </div>
+
+    </div>
+
+    {/* FEATURE GRID */}
+    <div ref={sectionRef} className="relative mt-16 mx-10 lg:mt-32">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {card.map((item, index) => (
+          <div
+            key={index}
+            className="relative flex flex-col space-y-4 lg:min-h-[300px]"
+          >
+            <div className="w-16 h-16 rounded-full bg-[#B4E7CE]" />
+
+            <H4 className="text-gray-800">
+              {item.title}
+            </H4>
+
+            <P className=" pr-4 leading-relaxed">
+              {item.desc}
+            </P>
+
+            {index !== 3 && (
+              <div
+                className="absolute top-0 right-0 w-[2px] bg-[#166D48] hidden xl:block"
+                style={{
+                  height: isVisible ? "90%" : "0",
+                  transition: "height 2s ease-out",
+                }}
+              />
+            )}
+          </div>
+        ))}
       </div>
     </div>
+
+  </div>
+ 
+
+  
+    </>
   );
 };
 

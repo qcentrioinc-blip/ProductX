@@ -5,19 +5,19 @@ const features = [
         title: "Deep Azure Expertise",
         description:
             "Built by cloud engineers with decades of experience across AWS, Azure, and GCP. We understand Azure’s complexity so you don’t have to.",
-            image:"/AIOptimization/Star.svg",
+            image:"/AIOptimization/star.svg",
     },
     {
         title: "Advanced Savings Insights",
         description:
             "Move beyond basic FinOps. Our AI identifies hidden inefficiencies, from SKU optimizations to unused capacity and licensing waste.",
-             image:"/AIOptimization/Wallet.svg",
+             image:"/AIOptimization/wallet.svg",
     },
     {
         title: "Performance-Based Pricing",
         description:
             "You only pay a percentage of the savings we deliver. Most customers see ROI within the first month of use.",
-             image:"/AIOptimization/PriceTag.svg",
+             image:"/AIOptimization/price.svg",
     },
 ];
 
@@ -36,7 +36,7 @@ const ThreeCardAI = () => {
                     <div
                         key={index}
                         className="
-                            bg-gray-50
+                            bg-white
                             flex-shrink-0
                             w-[85vw]
                             md:w-[75vw]

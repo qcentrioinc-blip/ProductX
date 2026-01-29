@@ -61,8 +61,8 @@ const AINavbar = () => {
 
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
-      setMegaMenuOpen(false);
-      setResourcesMenuOpen(false);
+      // setMegaMenuOpen(false);
+      // setResourcesMenuOpen(false);
       setMegaMenuBuiltFor(false);
     }, 200); // 200ms delay to allow bridge crossing
   };
@@ -77,8 +77,8 @@ const AINavbar = () => {
   // Immediate close (for cleanups or distinct actions)
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setMegaMenuOpen(false);
-    setResourcesMenuOpen(false);
+    // setMegaMenuOpen(false);
+    // setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
   };
 
@@ -94,7 +94,6 @@ const AINavbar = () => {
     { name: "Pricing", path: `${base}/pricing` },
     { name: "Resources", path: `${base}/resources` },
   ];
-
   // const industries = [
   //   {
   //     name: "Banking & Finance",

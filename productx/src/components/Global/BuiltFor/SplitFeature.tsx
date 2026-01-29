@@ -26,10 +26,10 @@ type Theme = {
 
 /* ================= THEMES (BY INDUSTRY) ================= */
 const BULLET_ICONS = [
-  "/BuiltFor/SaveMoney.png",
-  "/BuiltFor/ExportMoney.png",
-  "/BuiltFor/WebError.png",
-  "/BuiltFor/Efficient.png",
+   "/BuiltFor/Waste.svg",
+  "/BuiltFor/money.svg",
+  "/BuiltFor/web.svg",
+  "/BuiltFor/efficiency.svg",
 ];
 
 const THEMES: Record<string, Theme> = {
@@ -39,7 +39,7 @@ const THEMES: Record<string, Theme> = {
     headingPrimaryColor: "text-[#2B68C3]",
     headingSecondaryColor: "text-[#2A2A2A]",
     paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#2B68C3]",
+    bulletColor: "bg-[#fafafa]",
     statsColor: "text-[#2A2A2A]",
   },
 
@@ -64,12 +64,12 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#FFE9C5]",
+sectionBg: "bg-[#FAFAFA]",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
     headingPrimaryColor: "text-[#254D70]",
     headingSecondaryColor: "text-[#254D70]",
     paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#2B68C3]",
+    bulletColor: "bg-[#efefef]",
     statsColor: "text-[#2A2A2A]",
   },
 };
@@ -195,7 +195,7 @@ export default function SplitFeature() {
       key={index}
       className="flex items-center justify-center lg:justify-start gap-3"
     >
-      <div className={`rounded-full ${theme.bulletColor} w-14 h-14  rounded-full flex items-center justify-center`}>
+      <div className={`rounded-full ${theme.bulletColor} w-14 h-14    rounded-full flex items-center justify-center`}>
       <img
         src={BULLET_ICONS[index]}
         alt=""

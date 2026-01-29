@@ -55,7 +55,7 @@ const THEMES: Record<string, Theme> = {
   "high-tech": {
     bgImage: "/BuiltFor/img3.jpg",
     cardBg: "bg-[#F99526]",
-    cardText: "text-[#F5F5F5]",
+    cardText: "text-[#CCCCCC]",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-black",
     buttonText: "text-white",
@@ -74,6 +74,14 @@ const THEMES: Record<string, Theme> = {
     buttonBg: "bg-[#FAFAFA]",
     contactAction: "modal",
   },
+};
+
+/* ================= BACKGROUND IMAGES FOR CLOUD-FINOPS-AI SUB-TYPES ================= */
+
+const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
+  enterprises: "/BuiltFor/EnterpriseBg.webp",
+  "digital-native": "/BuiltFor/DigitalNativebg.webp",
+  smb: "/BuiltFor/SmnBg.webp",
 };
 
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
@@ -155,6 +163,15 @@ export default function ImgSec() {
 
   if (!content) return null;
 
+  // Get the appropriate background image
+  const getBgImage = () => {
+    // If it's cloud-finops-ai and has a specific builtForType, use the custom bg
+    if (industry === "cloud-finops-ai" && builtForType) {
+      return CLOUD_FINOPS_BG_IMAGES[builtForType] ?? theme.bgImage;
+    }
+    return theme.bgImage;
+  };
+
   // const handleContactClick = (e: React.MouseEvent) => {
   //   e.preventDefault();
 
@@ -171,7 +188,7 @@ export default function ImgSec() {
     <>
       <section
         className="relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
-        style={{ backgroundImage: `url(${theme.bgImage})` }}
+        style={{ backgroundImage: `url(${getBgImage()})` }}
       >
         
 
@@ -179,7 +196,7 @@ export default function ImgSec() {
           {/* LEFT TEXT */}
           <div className="   h-full pt-20 pb-10  ">
             <div className="w-full  ">
-            <H2 className="leading-tight text-white max-w-5xl">
+            <H2 className="leading-tight text-[#254D70] max-w-5xl">
   {content.heroHeading}
 </H2>
 

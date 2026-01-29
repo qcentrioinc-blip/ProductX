@@ -8,6 +8,7 @@ import { ScrollProvider } from './context/ScrollContext'
 import { lazy, Suspense } from 'react';
 import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
+import Physician from './components/EHR&PMS/Physician/Physician';
 
 
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
@@ -191,6 +192,8 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
               <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
               <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
+              
+            <Route path="/industries/ehr-and-pms/physician" element={<Physician/>}/>
 
               <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
               <Route path='/industries/high-tech/contactform' element={<ContactPage />} />

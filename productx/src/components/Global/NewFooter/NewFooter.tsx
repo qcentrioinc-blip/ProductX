@@ -36,7 +36,7 @@ const handleSubmit = () => {
           {/* Logo & Description */}
           <div className="max-w-sm space-y-8">
             <div className="w-36 h-12 rounded-sm font-quickstand bg-gray-300 mb-6 flex  p-2 items-center justify-center text-black  text-sm">
-              < a href="/"><img src="../logo.svg" alt="Logo" className="w-30 h-10"/></a>
+              < a href="/"><img src="/QnestLogo.svg" alt="Logo" className="w-30 h-10"/></a>
             </div>
             <P className="  text-gray-300">
               We are more than a technology provider; we <br/> are your strategic partner in progress.

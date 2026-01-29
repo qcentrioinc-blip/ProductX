@@ -1,72 +1,72 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+// import { useRef } from 'react';
+// import { motion, useScroll, useTransform } from 'framer-motion';
 
 // WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
-const GradientLayers = () => {
-  const containerRef = useRef(null);
+// const GradientLayers = () => {
+//   const containerRef = useRef(null);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"] // Triggers across full viewport
-  });
+//   const { scrollYProgress } = useScroll({
+//     target: containerRef,
+//     offset: ["start end", "end start"] // Triggers across full viewport
+//   });
 
-  const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
+//   const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
   
-  // Increased height ranges for more dramatic effect
-  const layers = [
-    { opacity: 0.9, minHeight: 25, maxHeight: 85 },
-    { opacity: 0.8, minHeight: 30, maxHeight: 90 },
-    { opacity: 0.6, minHeight: 20, maxHeight: 80 },
-    { opacity: 0.4, minHeight: 35, maxHeight: 95 },
-    { opacity: 0.2, minHeight: 15, maxHeight: 75 },
-    { opacity: 0.05, minHeight: 10, maxHeight: 70 }
-  ];
+//   // Increased height ranges for more dramatic effect
+//   const layers = [
+//     { opacity: 0.9, minHeight: 25, maxHeight: 85 },
+//     { opacity: 0.8, minHeight: 30, maxHeight: 90 },
+//     { opacity: 0.6, minHeight: 20, maxHeight: 80 },
+//     { opacity: 0.4, minHeight: 35, maxHeight: 95 },
+//     { opacity: 0.2, minHeight: 15, maxHeight: 75 },
+//     { opacity: 0.05, minHeight: 10, maxHeight: 70 }
+//   ];
 
-  return (
-    <div ref={containerRef} className="w-full">
-      {layers.map((layer, index) => {
-        // FASTER ANIMATION - Narrower scroll progress range
-        // Each layer moves at slightly different speeds for wave effect
-        const scrollRange = [
-          0.1 + (index * 0.05), // Start earlier based on layer
-          0.5,
-          0.9 - (index * 0.05)  // End later based on layer
-        ];
+//   return (
+//     <div ref={containerRef} className="w-full">
+//       {layers.map((layer, index) => {
+//         // FASTER ANIMATION - Narrower scroll progress range
+//         // Each layer moves at slightly different speeds for wave effect
+//         const scrollRange = [
+//           0.1 + (index * 0.05), // Start earlier based on layer
+//           0.5,
+//           0.9 - (index * 0.05)  // End later based on layer
+//         ];
 
-        const height = useTransform(
-          scrollYProgress,
-          scrollRange,
-          [layer.minHeight, layer.maxHeight, layer.minHeight]
-        );
+//         const height = useTransform(
+//           scrollYProgress,
+//           scrollRange,
+//           [layer.minHeight, layer.maxHeight, layer.minHeight]
+//         );
 
-        return (
-          <motion.div
-            key={index}
-            className="relative w-full"
-            style={{
-              background: GRADIENT,
-              height
-            }}
-          >
-            <span 
-              className="absolute inset-0 block" 
-              style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
-            />
-          </motion.div>
-        );
-      })}
-    </div>
-  );
-};
+//         return (
+//           <motion.div
+//             key={index}
+//             className="relative w-full"
+//             style={{
+//               background: GRADIENT,
+//               height
+//             }}
+//           >
+//             <span 
+//               className="absolute inset-0 block" 
+//               style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
+//             />
+//           </motion.div>
+//         );
+//       })}
+//     </div>
+//   );
+// };
 
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
 
   const quickLinks = [
-    { name: 'Home', path: base },
     { name: 'Built for', path: `${base}/built-for` },
-    { name: 'About Us', path: `${base}/aboutus` },
-    { name: 'Careers', path: `${base}/careers` }
+    { name: 'Features', path: `${base}/aboutus` },
+    { name: 'Pricing', path: `${base}/careers` },
+     { name: 'Support', path: `${base}/careers` }
   ];
 
   const resources = [
@@ -80,16 +80,16 @@ const EHRFooter = () => {
   return (
     <footer className="bg-[#3B8866]">
       {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
-      <GradientLayers />
+      {/* <GradientLayers /> */}
 
       {/* Main Container */}
-      <div className="bg-[#3B8866] flex flex-col items-left max-w-8xl px-4 sm:px-6 md:px-8 py-8">
+      <div className="bg-[#56644A] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
         
         {/* TOP CARD - Newsletter */}
         <div 
           className="bg-white shadow-xl w-full"
           style={{
-            borderRadius: '20px',
+            borderRadius: '10px',
             marginBottom: '11px',
             opacity: 1
           }}
@@ -320,10 +320,7 @@ const EHRFooter = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* COPYRIGHT SECTION */}
-      <div className="bg-[#3B8866] px-4 sm:px-6 md:px-12 pb-8 pt-6">
+        <div className="  px-4 sm:px-6 md:px-12 pb-8 pt-10">
         <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
           <p
             style={{
@@ -371,6 +368,10 @@ const EHRFooter = () => {
           </div>
         </div>
       </div>
+      </div>
+
+      {/* COPYRIGHT SECTION */}
+      
     </footer>
   );
 };

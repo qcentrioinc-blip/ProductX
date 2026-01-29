@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { useRef } from "react";
 
 const text =
@@ -156,7 +156,7 @@ function Character({
   highlight,
 }: {
   children: string;
-  progress: any;
+  progress: MotionValue<number>;
   range: [number, number];
   highlight?: boolean;
 }) {

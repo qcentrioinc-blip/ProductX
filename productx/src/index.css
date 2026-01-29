@@ -133,10 +133,47 @@ video {
 [class*="hover:"] {
   transform: translateZ(0);
 }
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes cloudFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-cloud-float {
+  animation: cloudFloat 4s ease-in-out infinite;
+}
+
+.animate-cloud-float-slow {
+  animation: cloudFloat 9s ease-in-out infinite;
+}
+
+.animate-cloud-float-fast {
+  animation: cloudFloat 4.5s ease-in-out infinite;
+}
 
 
 .font-bricolage {
   font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 400;
+ 
 }
 
 .font-quicksand {

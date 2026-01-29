@@ -5,7 +5,7 @@ const SavingPlans: React.FC = () => {
  
   return (
     <div className="space-y-4">
-     <h1 className=" text-lg md:text-3xl lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg md:text-3xl  text-[#254D70] lg:text-4xl my-4 font-bricolage ">
           Saving Plans
         </h1>
 
