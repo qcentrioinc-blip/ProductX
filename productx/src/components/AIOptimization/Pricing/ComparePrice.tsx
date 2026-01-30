@@ -14,7 +14,7 @@ const ComparePrice = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white flex flex-col items-center justify-center py-8 px-4 md:py-12 gap-6 md:gap-[32px]">
+        <div className="min-h-screen bg-white flex flex-col pt-10 lg:pt-0 items-center justify-center py-4 px-4 gap-6 md:gap-[32px]">
             {/* Header Section */}
             <div className="w-full max-w-[1320px] flex flex-col items-center gap-6 md:gap-[32px] px-4">
                 <div className="text-center">

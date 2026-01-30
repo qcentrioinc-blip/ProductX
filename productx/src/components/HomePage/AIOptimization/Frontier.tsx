@@ -29,7 +29,7 @@ const Frontier = () => {
     ];
 
     return (
-        <section className="w-full bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-8 xl:px-10">
+        <section className="w-full bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-10 px-4 sm:px-8 xl:px-10">
             <div className="max-w-8xl mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 xl:px-6">
 
                 <div className="grid xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">

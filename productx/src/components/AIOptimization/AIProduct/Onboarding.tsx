@@ -127,7 +127,7 @@ export default function Onboarding() {
       <div
         ref={sectionRef}
         id="benefits"
-        className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
+        className="relative max-w-8xl   lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
         <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">

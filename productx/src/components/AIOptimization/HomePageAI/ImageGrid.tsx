@@ -47,13 +47,13 @@ export default function ImageGrid() {
           <H2 className=" mb-6 text-[#254D70]">
             How CloudDIET Works For You
           </H2>
-          <P className="xl:mb-28 mb-10  ">
+          <P className=" mb-14  ">
             A secure, four-step process to guarantee cloud savings.
           </P>
         </div>
 
         {/* Content */}
-        <div className="space-y-20 max-w-7xl xl:mx-auto  mx-10 pb-10">
+        <div className="space-y-10 max-w-7xl xl:mx-auto  mx-10 pb-10">
           {items.map((item, index) => (
             <div
               key={index}

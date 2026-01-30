@@ -160,7 +160,7 @@ export default function SplitFeature() {
   if (!content) return null;
 
   return (
-    <section className={`w-full py-16   ${theme.sectionBg}`}>
+    <section className={`w-full    ${theme.sectionBg}`}>
       <div className="max-w-8xl mx-10  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
