@@ -79,7 +79,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       ],
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       intro: {
         title: "SaaS Scenarios ",
         desc: "CloudDIET enables SaaS teams to scale their apps efficiently and reliably without wasteful Azure spending or any performance compromises across workloads.  ",
@@ -93,7 +93,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       ],
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       intro: {
         title: "Enterprise Scenarios ",
         desc: "CloudDIET fixes Azure waste in multi-region setups for safe enterprise scaling. ",
@@ -185,14 +185,18 @@ const active =
           </P>
         </div>
  
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr] gap-y-8 gap-x-4">
  
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
-            <div className="p-4">
-              <H2 className="mb-4 text-[#254D70]">
-                 {sectionContent.intro.title}
-              </H2>
+            <div className="">
+              <H2
+  className="mb-4 whitespace-nowrap overflow-hidden  "
+  style={{ color: active.headingColor }}
+>
+  {sectionContent.intro.title}
+</H2>
+
               <P style={{ color: active.paraColor }} className="max-w-md">
                        {sectionContent.intro.desc}
               </P>
@@ -229,7 +233,7 @@ const active =
                   key={card.id}
                   style={{ background: active.cardGradient }}
                   className="
-                    snap-center flex-shrink-0 w-[95%] mx-auto
+                    snap-center flex-shrink-0 w-[95%] md:w-[55%] mx-auto
                     relative rounded-xl p-8 border border-gray-100
                     shadow-sm hover:shadow-xl hover:shadow-black/5
                     transform transition-all duration-500 ease-out hover:-translate-y-2

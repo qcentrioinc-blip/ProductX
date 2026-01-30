@@ -66,9 +66,9 @@ const CounterCard = ({
         {count}
         {suffix}
       </h2> */}
-      
+     
     <H2 className="text-[#8338EC]  sm:pt-4  sm:mb-8">
-
+ 
         {count}
         {suffix}
       </H2>
@@ -78,7 +78,7 @@ const CounterCard = ({
       </H4> */}
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
    <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-16 md:pb-0">
-
+ 
         {description}
       </p >
     </div>
@@ -104,7 +104,7 @@ const Counter = () => {
       </div>
       <div className="w-full     px-6 lg:px-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 min-h-[200px] sm:min-h-[240px] md:min-h-[300px]">
-          <CounterCard 
+          <CounterCard
             number={25}
             suffix="K+"
             title="Emily"

@@ -51,13 +51,13 @@ const AddingSubscriptions: React.FC = () => {
      <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Configuration Steps  </h2>
          <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>  Log in to CloudDIET and navigate to Settings </li>
-  <img  className="pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs1.webp" alt="" />
+  <img  className="xl:pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs1.webp" alt="" />
 
   <li>  Click Add Subscription and enter the Azure Subscription ID (GUID) along with the associated credential. The subscription will be validated automatically to ensure successful authentication. </li>
-  <img   className="pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs2.webp" alt="" />
+  <img   className="xl:pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs2.webp" alt="" />
 
   <li>   Once added and validated, you will see the Azure Subscription(s) listed and the current status. CloudDIET will automatically begin profiling your Azure Subscription. Depending on the amount of resources in the Subscription, this can take anywhere from a few minutes to several hours. </li>
-  <img  className="pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs3.webp" alt="" />
+  <img  className="xl:pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs3.webp" alt="" />
 
 </ol>
 <div className="my-6">

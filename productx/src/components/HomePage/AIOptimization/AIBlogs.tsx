@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
+ 
 const AIBlogs = () => {
   const blogs = [
     {
@@ -22,14 +22,14 @@ const AIBlogs = () => {
       image: "/AI-CloudFinOps/HomePage/Blog1.webp",
     },
   ];
-
+ 
   return (
     <section className="w-full overflow-hidden bg-white text-black py-20 sm:py-24 xl:py-28 px-4 sm:px-6 xl:px-16">
       <div className="mx-auto max-w-8xl px-0 sm:px-4 xl:px-6">
-
+ 
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
         <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-12 sm:gap-16 xl:gap-24">
-
+ 
           {/* ========== LEFT COLUMN ========== */}
           <div className="flex flex-col justify-between gap-12 xl:gap-0">
             {/* Main Heading */}
@@ -49,11 +49,11 @@ const AIBlogs = () => {
                 Cloud Insights
               </h1>
             </div>
-
+ 
             {/* Bottom Section */}
             <div className="space-y-6 sm:space-y-8 xl:space-y-8">
               {/* Section Title */}
-             <h2
+        <h2
   className="uppercase text-[32px] sm:text-[40px] xl:text-[48px]"
   style={{
     fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -61,11 +61,12 @@ const AIBlogs = () => {
     lineHeight: "110%",
   }}
 >
-  <span className="block">Our</span>
-  <span className="block">Resources</span>
+  <span className="inline xl:block">Our </span>
+  <span className="inline xl:block">Resources</span>
 </h2>
-
-
+ 
+ 
+ 
               {/* View All Button */}
               <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                 <button
@@ -93,7 +94,7 @@ const AIBlogs = () => {
               </a>
             </div>
           </div>
-
+ 
           {/* ========== RIGHT COLUMN ========== */}
           <div className="flex flex-col">
             {/* Top Description */}
@@ -109,10 +110,10 @@ const AIBlogs = () => {
             >
               Explore expert articles on Azure optimization, FinOps best practices, and real-world savings strategies. Learn how CloudDIET's AI-driven profiling and advanced cost intelligence help reduce waste and maximize your cloud ROI.
             </p>
-
+ 
             {/* Divider */}
-            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#0079FF]" />
-
+            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
+ 
             {/* Blog Cards */}
             <div className="mt-8 sm:mt-10 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 xl:gap-0">
               {blogs.map((blog, index) => (
@@ -132,7 +133,7 @@ const AIBlogs = () => {
                   >
                     {blog.tag}
                   </span> */}
-
+ 
                   {/* Card */}
                   <div className="flex flex-col">
                     {/* Image */}
@@ -145,7 +146,7 @@ const AIBlogs = () => {
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-
+ 
                       {/* Overlay */}
                       <div
                         className="absolute inset-0 pointer-events-none rounded-[8px]"
@@ -155,7 +156,7 @@ const AIBlogs = () => {
                         }}
                       />
                     </div>
-
+ 
                     {/* Content */}
                     <div className="mt-4 flex flex-col justify-between min-h-[110px]">
                       <h3
@@ -169,7 +170,7 @@ const AIBlogs = () => {
                       >
                         {blog.title}
                       </h3>
-
+ 
                       <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                         <button
                           type="button"
@@ -204,12 +205,12 @@ const AIBlogs = () => {
                 </div>
               ))}
             </div>
-
+ 
           </div>
         </div>
       </div>
     </section>
   );
 };
-
+ 
 export default AIBlogs;

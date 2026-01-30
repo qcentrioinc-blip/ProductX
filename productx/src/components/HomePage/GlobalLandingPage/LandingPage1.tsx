@@ -14,7 +14,7 @@ const prefetchRoutes = () => {
 
   // Preload hero assets
   const dashImg = new Image();
-  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
+  dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
 
 interface IndustryCardProps {
@@ -294,11 +294,11 @@ export default function InteractiveHeroSection() {
 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0">
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0 touch-pan-y snap-x snap-mandatory overscroll-x-contain">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
-                      <div key={industry.title} className="flex flex-col items-center">
+                      <div key={industry.title} className="flex flex-col items-center snap-center">
                         <IndustryCard
                           ref={(el) => { cardRefs.current[index] = el; }}
                           title={industry.title}

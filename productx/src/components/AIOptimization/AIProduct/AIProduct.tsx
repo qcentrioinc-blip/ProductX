@@ -1,70 +1,33 @@
-import { Suspense, lazy, memo } from 'react';
+// NO LAZY LOADING - All components load immediately for consistent scroll restoration
+import { memo } from 'react';
 import HeroCombined from "./HeroComp/HeroCombined";
 import TextSec from "./CTA";
-
-// Lazy load below-the-fold components for faster initial render
-const Onboarding = lazy(() => import('./Onboarding'));
-const Firm = lazy(() => import('./Firm'));
-const ImageGrid = lazy(() => import('../HomePageAI/ImageGrid'));
-const FeatureCards = lazy(() => import("../HomePageAI/Features"));
-const CostOptimization = lazy(() => import("./CostOptimization"));
-const Timeline = lazy(() => import("../HomePageAI/Timeline"));
-const HWD = lazy(() => import("../../Banking&Finance/HWD"));
-const FaqSection = lazy(() => import("../../Banking&Finance/ProductSherlock/FAQ"));
-const AIBlogs = lazy(() => import("../../HomePage/AIOptimization/AIBlogs"));
-
-// Minimal loading placeholder - same background as page
-const LoadingPlaceholder = () => (
-  <div className="w-full min-h-[50vh] bg-[#0A0A0B]" />
-);
+import UseCases from './UseCases';
+import HWD from "../../Banking&Finance/HWD";
+import Onboarding from './Onboarding';
+import Firm from './Firm';
+import ImageGrid from '../HomePageAI/ImageGrid';
+import FeatureCards from "../HomePageAI/Features";
+import CostOptimization from "./CostOptimization";
+import Timeline from "../HomePageAI/Timeline";
+import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
+import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 
 const AIProduct = () => {
   return (
     <div className="relative">
-      {/* Critical above-the-fold content - loads immediately */}
       <HeroCombined />
       <TextSec />
-
-      {/* Below-the-fold content - lazy loaded */}
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Onboarding />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Firm />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <ImageGrid />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <FeatureCards />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <CostOptimization />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Timeline />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <HWD />
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <div id="faq">
-          <FaqSection />
-        </div>
-      </Suspense>
-
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <div id="blogs">
-          <AIBlogs />
-        </div>
-      </Suspense>
+      <Onboarding />
+      <Firm />
+      <ImageGrid />
+      <FeatureCards />
+      <CostOptimization />
+      <Timeline />
+      <HWD />
+      <UseCases />
+      <FaqSection />
+      <AIBlogs />
     </div>
   );
 };

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Modal, Slide, Backdrop } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { H2, H3, P } from "../../../styles/Typography";
-
+ 
 interface ContactModalProps {
   open: boolean;
   onClose: () => void;
 }
-
+ 
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,14 +16,14 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
     message: "",
     agree: false,
   });
-
+ 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-
+ 
   /* ---------------- VALIDATION ---------------- */
   const validate = () => {
     const newErrors: Record<string, string> = {};
-
+ 
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!/^\S+@\S+\.\S+$/.test(formData.email))
       newErrors.email = "Valid email required";
@@ -33,22 +33,22 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
       newErrors.message = "Message cannot be empty";
     if (!formData.agree)
       newErrors.agree = "You must agree to continue";
-
+ 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+ 
   /* ---------------- SUBMIT ---------------- */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+   
     // Clear errors before validating again for cleaner UX
     setErrors({});
-
+ 
     if (!validate()) return;
-
+ 
     setStatus("loading");
-
+ 
     // Simulate API call
     setTimeout(() => {
       setStatus("success");
@@ -59,16 +59,16 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
         message: "",
         agree: false,
       });
-
+ 
       // Reset to normal form after 3 seconds
       setTimeout(() => {
         setStatus("idle");
         setErrors({});
       }, 3000);
-      
+     
     }, 1800);
   };
-
+ 
   /* ---------------- INPUT CHANGE ---------------- */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -83,7 +83,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
-
+ 
   return (
     <Modal
       open={open}
@@ -101,7 +101,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
       <Slide direction="down" in={open} timeout={400}>
         <div className="fixed inset-0 flex items-center justify-center px-4">
           <div className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
-
+ 
             {/* CLOSE BUTTON */}
             <motion.button
                 onClick={onClose}
@@ -111,13 +111,13 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
               </motion.button>
-
+ 
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] h-full">
-
+ 
               {/* LEFT — FORM CONTAINER */}
               {/* Added min-h-[600px] to prevent height collapse when showing success message */}
               <div className="p-6 sm:p-10 overflow-y-auto min-h-[600px] relative bg-white">
-
+ 
                 <AnimatePresence mode="wait">
                   {status === "success" ? (
                     /* ---------- SUCCESS ---------- */
@@ -128,7 +128,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                       exit={{ opacity: 0, scale: 0.9 }}
                       className="h-full flex flex-col items-center justify-center text-center absolute inset-0 p-6 sm:p-10 bg-white"
                     >
-                      <motion.div 
+                      <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", delay: 0.2 }}
@@ -158,7 +158,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                         <H3 className="text-3xl font-bold mb-2 text-gray-900">Contact Us</H3>
                         <P className="text-gray-500">We'd love to hear from you.</P>
                       </div>
-
+ 
                       {/* Summary Error Banner */}
                       <AnimatePresence>
                         {Object.keys(errors).length > 0 && (
@@ -172,7 +172,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           </motion.div>
                         )}
                       </AnimatePresence>
-
+ 
                       {/* Inputs with Dynamic Border Colors */}
                       <div className="space-y-4">
                         <input
@@ -184,7 +184,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                             errors.name ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
-
+ 
                         <input
                           name="email"
                           type="email"
@@ -195,7 +195,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                             errors.email ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
-
+ 
                         <input
                           name="phone"
                           type="tel"
@@ -206,7 +206,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                             errors.phone ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
-
+ 
                         <textarea
                           name="message"
                           placeholder="Message"
@@ -218,7 +218,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           }`}
                         />
                       </div>
-
+ 
                       {/* Checkbox */}
                       <motion.label
                        
@@ -229,11 +229,11 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           name="agree"
                           checked={formData.agree}
                           onChange={handleChange}
-                          
+                         
                         />
                         I agree to the Terms & Privacy Policy
                       </motion.label>
-
+ 
                       <motion.button
                         type="submit"
                         disabled={status === "loading"}
@@ -255,7 +255,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                   )}
                 </AnimatePresence>
               </div>
-
+ 
               {/* RIGHT — INFO PANEL */}
               <div
                 className="hidden md:flex flex-col justify-center px-12 text-white relative overflow-hidden"
@@ -266,7 +266,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" />
-
+ 
                 <motion.div
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -277,7 +277,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                   <H3 className="leading-tight">
                     What Happens Next
                   </H3>
-
+ 
                   <div className="space-y-8 pt-4 font-quicksand">
                     {[
                       "We review your cloud setup",
@@ -297,7 +297,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                   </div>
                 </motion.div>
               </div>
-
+ 
             </div>
           </div>
         </div>
@@ -305,5 +305,5 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
     </Modal>
   );
 };
-
+ 
 export default ContactModal;

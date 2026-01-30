@@ -1,120 +1,38 @@
+import { useState } from "react";
 import { ContactUsAI } from "../../../styles/Button";
 import { H1, P } from "../../../styles/Typography";
- 
+import ContactModal from "../Navbar/ContactModal";
+
 export default function HeroSection() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <section className="relative w-full h-[65vh] lg:h-[70vh] xl:h-screen overflow-hidden">
- 
-      {/* Keyframe animations */}
-      <style>{`
-        @keyframes slideInLeft {
-          0% {
-            opacity: 0;
-            transform: translateX(-50px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-       
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-       
-        @keyframes glow-pulse {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.6;
-            transform: scale(1.1);
-          }
-        }
-       
-        @keyframes image-glow {
-          0%, 100% {
-            filter: drop-shadow(0 0 30px rgba(186, 121, 255, 0.5))
-                    drop-shadow(0 0 60px rgba(186, 121, 255, 0.3));
-          }
-          50% {
-            filter: drop-shadow(0 0 50px rgba(186, 121, 255, 0.8))
-                    drop-shadow(0 0 80px rgba(25, 169, 209, 0.5));
-          }
-        }
-       
-        .slide-in {
-          animation: slideInLeft 1s ease-out forwards;
-        }
-       
-        .fade-in-delay-1 {
-          opacity: 0;
-          animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-       
-        .fade-in-delay-2 {
-          opacity: 0;
-          animation: fadeInUp 1s ease-out 0.6s forwards;
-        }
-       
-        .glow-blob {
-          animation: glow-pulse 4s ease-in-out infinite;
-        }
-       
-        .image-glow {
-          animation: image-glow 3s ease-in-out infinite;
-        }
-      `}</style>
- 
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#010207] via-[#010416] to-[#1a044d]"></div>
- 
-      {/* Soft glow blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[500px]  bg-[#ba79ff] opacity-30 blur-[180px] top-[-150px] left-[-100px]"></div>
-        <div className="absolute w-[400px]    bg-[#19a9d1] opacity-30 blur-[160px] bottom-[-100px] right-[0]"></div>
-        <div className="absolute w-[300px]  bg-[#0057ff] opacity-20 blur-[200px] top-[200px] left-[40%]"></div>
+    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center  ">
+
+      {/* BACKGROUND IMAGE */}
+      <div
+        className="absolute inset-0 bg-center bg-no-repeat bg-cover  "
+        style={{ backgroundImage: "url('/AIHero.webp')" }}
+      />
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-3xl px-4 text-center text-[#254D70] flex flex-col items-center">
+        <H1 className="font-bold leading-tight">
+          Pay Only for <br />
+          What You Save
+        </H1>
+
+        <P className="text-[#141414] mt-6 max-w-xl leading-snug">
+          With CloudDIET's performance-based model, you pay a fraction of the
+          savings we deliver. Most customers see ROI in the first month.
+        </P>
+
+        <ContactUsAI className="mt-8" onClick={() => setModalOpen(true)}>
+          Start Saving
+        </ContactUsAI>
       </div>
- 
-      <div className="relative max-w-8xl lg:mx-10 px-4 py-24 flex flex-col xl:flex-row items-start   xl:justify-start gap-12">
- 
-        {/* LEFT TEXT SECTION */}
-        <div className="xl:mt-44  lg:mt-28 px-2  xl:ml-4 text-white">
-          <H1 className="font-bold leading-tight slide-in">
-            Pay Only for  <br />
-            What You Save
-          </H1>
- 
-          <P className="text-gray-300 mt-6 max-w-lg fade-in-delay-1 leading-snug">
-            With CloudDIET's performance-based model, you pay a fraction of the savings we deliver. Most customers see ROI in the first month.
-          </P>
-        
-       <ContactUsAI className="my-6">Start Saving</ContactUsAI>
-        </div>
- 
-        {/* RIGHT IMAGE SECTION with glowing background */}
-        <div className="  -right-32 xl:mt-44  -bottom-44 md:-bottom-52 lg:-bottom-96 xl:bottom-[-110px] absolute flex justify-center items-end lg:justify-end">
-          {/* Glowing background blob behind image */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="glow-blob w-[300px] h-[300px]  lg:w-[600px] lg:h-[600px] bg-gradient-to-br from-[#ba79ff] via-[#19a9d1] to-[#0057ff] opacity-30 blur-[120px] rounded-full"></div>
-          </div>
-         
-          <img
-            src="/AI-CloudFinOps/Pricing/AIHero.webp"
-            alt="Futuristic Person"
-            className="  lg:max-w-2xl  w-[350px] md:w-[550px] lg:w-full md:bottom-[-110px] lg:bottom-[70px] xl:bottom-[110px] object-contain image-glow relative z-10"
-          />
-        </div>
- 
-      </div>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

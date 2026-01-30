@@ -80,8 +80,8 @@ const THEMES: Record<string, Theme> = {
 
 const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
   enterprises: "/BuiltFor/EnterpriseBg.webp",
-  "digital-native": "/BuiltFor/DigitalNativebg.webp",
-  smb: "/BuiltFor/SmnBg.webp",
+  "saas-application-providers": "/BuiltFor/DigitalNativebg.webp",
+  "regulated-large-enterprise": "/BuiltFor/SmnBg.webp",
 };
 
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
@@ -97,7 +97,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "View Demo",
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ",
@@ -105,7 +105,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "Try Now",
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       heroHeading:(<>
       CloudDIET stops SaaS <br/> {" "}cloud waste.
       </>),
@@ -187,7 +187,7 @@ export default function ImgSec() {
   return (
     <>
       <section
-        className="relative w-full lg:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
+        className="relative w-full lg:h-[50vh] xl:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
         style={{ backgroundImage: `url(${getBgImage()})` }}
       >
         
@@ -210,7 +210,7 @@ export default function ImgSec() {
           lg:absolute lg:bottom-0 lg:right-0 lg:pb-0 lg:px-0 lg:w-auto
           lg:max-w-[90rem] lg:mx-auto pointer-events-none z-20"
         >
-          <div className="flex justify-start lg:justify-end pointer-events-auto">
+          <div className="flex justify-start xl:justify-end pointer-events-auto">
             <div
               className={`
                 ${theme.cardBg} ${theme.cardText}

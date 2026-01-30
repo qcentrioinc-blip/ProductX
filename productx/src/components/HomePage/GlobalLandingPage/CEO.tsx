@@ -56,7 +56,7 @@ const CEO = () => {
           
           {/* Main Heading */}
           <H2 
-            className="lg:mb-60 transition-all duration-700  ease-in-out text-[#92278F] mt-45 lg:mt-0"
+            className="lg:mb-60 transition-all duration-700  ease-in-out text-[#8338EC] mt-45 lg:mt-0"
             style={{
               
               lineHeight: '100%',

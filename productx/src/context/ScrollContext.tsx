@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useLayoutEffect } from 'react';
+import { createContext, useState, useEffect, useLayoutEffect, useRef, useMemo } from 'react';
 import type { ReactNode } from 'react';
 import Lenis from '@studio-freight/lenis';
 import { useLocation } from 'react-router-dom';
@@ -9,241 +9,215 @@ type ScrollProviderProps = {
     children: ReactNode;
 };
 
-const getStorageKey = (pathname: string) => `scrollPosition_${pathname}`;
+const getStorageKey = (pathname: string) => `scrollPos_${pathname}`;
 
+// Check if this is a page refresh
 const isPageRefresh = (): boolean => {
-    const navEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
-    return navEntries.length > 0 && navEntries[0].type === 'reload';
-};
-
-const getSavedScrollPosition = (): number => {
-    const pathname = window.location.pathname;
-    const storageKey = getStorageKey(pathname);
-    const savedPosition = sessionStorage.getItem(storageKey);
-    return savedPosition ? parseInt(savedPosition, 10) : 0;
-};
-
-const needsScrollRestoration = (): boolean => {
-    const targetScrollY = getSavedScrollPosition();
-    return isPageRefresh() && !isNaN(targetScrollY) && targetScrollY > 0;
-};
-
-const RESTORE_STYLE_ID = 'scroll-restore-hide';
-if (needsScrollRestoration()) {
-    const style = document.createElement('style');
-    style.id = RESTORE_STYLE_ID;
-    style.textContent = `
-        html { 
-            visibility: hidden !important; 
-        }
-    `;
-    document.head.appendChild(style);
-
-    const targetY = getSavedScrollPosition();
-    if (targetY > 0) {
-        document.documentElement.scrollTop = targetY;
-        window.scrollTo(0, targetY);
+    try {
+        const navEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+        return navEntries.length > 0 && navEntries[0].type === 'reload';
+    } catch {
+        return false;
     }
+};
+
+// Get saved scroll position for current path
+const getSavedScrollPosition = (): number => {
+    try {
+        const pathname = window.location.pathname;
+        const storageKey = getStorageKey(pathname);
+        const saved = sessionStorage.getItem(storageKey);
+        return saved ? parseInt(saved, 10) : 0;
+    } catch {
+        return 0;
+    }
+};
+
+// Check if we need to restore scroll
+const needsRestoration = (): boolean => {
+    const target = getSavedScrollPosition();
+    return isPageRefresh() && target > 0;
+};
+
+// IMMEDIATELY hide page if restoration needed (before React mounts)
+const HIDE_STYLE_ID = 'scroll-hide';
+if (typeof window !== 'undefined' && needsRestoration()) {
+    const existing = document.getElementById(HIDE_STYLE_ID);
+    if (!existing) {
+        const style = document.createElement('style');
+        style.id = HIDE_STYLE_ID;
+        style.textContent = `html{visibility:hidden!important}`;
+        document.head.appendChild(style);
+    }
+    // Also immediately try to scroll
+    const target = getSavedScrollPosition();
+    window.scrollTo(0, target);
+    document.documentElement.scrollTop = target;
 }
 
+// Show the page
 const showPage = () => {
-    const style = document.getElementById(RESTORE_STYLE_ID);
-    if (style) {
-        style.remove();
-    }
-};
-
-const restoreScrollPosition = (targetScrollY: number, onComplete?: () => void) => {
-    let attemptCount = 0;
-    const maxAttempts = 15;
-
-    const attemptRestore = () => {
-        attemptCount++;
-        const currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-        if (Math.abs(currentScroll - targetScrollY) > 50 && attemptCount < maxAttempts) {
-            window.scrollTo({
-                top: targetScrollY,
-                behavior: 'instant' as ScrollBehavior
-            });
-            document.documentElement.scrollTop = targetScrollY;
-            document.body.scrollTop = targetScrollY;
-
-            // Check again after a frame
-            requestAnimationFrame(() => {
-                const newScroll = window.scrollY || document.documentElement.scrollTop;
-                if (Math.abs(newScroll - targetScrollY) > 50) {
-                    setTimeout(attemptRestore, 20 + (attemptCount * 10));
-                } else {
-                    // Success!
-                    onComplete?.();
-                }
-            });
-        } else {
-            onComplete?.();
-        }
-    };
-
-    attemptRestore();
+    const style = document.getElementById(HIDE_STYLE_ID);
+    if (style) style.remove();
+    document.documentElement.style.visibility = '';
 };
 
 export const ScrollProvider = ({ children }: ScrollProviderProps) => {
     const [lenis, setLenis] = useState<Lenis | null>(null);
+    const { pathname } = useLocation();
+    const prevPathRef = useRef(pathname);
+    const isRestoringRef = useRef(false);
 
+    // Disable browser's scroll restoration
     useLayoutEffect(() => {
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
     }, []);
 
+    // Save scroll position continuously
     useEffect(() => {
-        const saveScrollPosition = () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-            const pathname = window.location.pathname;
-            const storageKey = getStorageKey(pathname);
+        let saveTimeout: ReturnType<typeof setTimeout>;
 
-            if (scrollY > 0) {
-                sessionStorage.setItem(storageKey, scrollY.toString());
-            }
+        const save = () => {
+            if (isRestoringRef.current) return; // Don't save during restoration
+            const y = window.scrollY || document.documentElement.scrollTop;
+            const key = getStorageKey(window.location.pathname);
+            sessionStorage.setItem(key, y.toString());
         };
 
-        window.addEventListener('beforeunload', saveScrollPosition);
-
-        let scrollTimeout: ReturnType<typeof setTimeout>;
-        const handleScroll = () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(saveScrollPosition, 150);
+        const onScroll = () => {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(save, 100); // Increased debounce
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('beforeunload', save);
 
         return () => {
-            window.removeEventListener('beforeunload', saveScrollPosition);
-            window.removeEventListener('scroll', handleScroll);
-            clearTimeout(scrollTimeout);
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('beforeunload', save);
+            clearTimeout(saveTimeout);
         };
     }, []);
 
+    // Initialize Lenis and handle restoration
     useEffect(() => {
-        document.documentElement.style.overflowX = 'clip';
-        document.body.style.overflowX = 'clip';
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        const isTouchDevice =
-            'ontouchstart' in window ||
-            navigator.maxTouchPoints > 0;
-        const targetScrollY = getSavedScrollPosition();
-        const shouldRestore = needsScrollRestoration();
-
-        if (isTouchDevice) {
-            if (shouldRestore) {
-                restoreScrollPosition(targetScrollY, showPage);
-            } else {
-                showPage();
-            }
-
-            return () => {
-                document.documentElement.style.overflowX = '';
-                document.body.style.overflowX = '';
-            };
-        }
-
-        // Ultra-smooth Lenis configuration
-        const newLenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => {
-                return -(Math.cos(Math.PI * t) - 1) / 2;
-            },
+        // Create Lenis instance
+        const lenisInstance = new Lenis({
+            duration: isTouch ? 0.5 : 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 0.6,
-            touchMultiplier: 1.0,
-            infinite: false,
-            autoResize: true,
-            lerp: 0.08,
+            smoothWheel: !isTouch,
+            wheelMultiplier: 0.8,
+            touchMultiplier: 1.5,
         });
+        setLenis(lenisInstance);
 
-        setLenis(newLenis);
+        // Animation loop
+        let rafId: number;
+        const animate = (time: number) => {
+            lenisInstance.raf(time);
+            rafId = requestAnimationFrame(animate);
+        };
+        rafId = requestAnimationFrame(animate);
 
-        if (shouldRestore) {
-            // Multiple attempts
-            let restored = false;
-            const attempts = [0, 50, 100, 200, 400];
+        // Handle scroll restoration
+        const target = getSavedScrollPosition();
+        const shouldRestore = needsRestoration();
 
-            attempts.forEach((delay, index) => {
-                setTimeout(() => {
-                    if (restored) return;
+        if (shouldRestore && target > 0) {
+            isRestoringRef.current = true;
 
-                    const currentScroll = window.scrollY || document.documentElement.scrollTop;
-                    if (Math.abs(currentScroll - targetScrollY) > 50) {
-                        newLenis.scrollTo(targetScrollY, { immediate: true });
-                        window.scrollTo({ top: targetScrollY, behavior: 'instant' as ScrollBehavior });
-                        document.documentElement.scrollTop = targetScrollY;
-                    }
+            // Force scroll function
+            const forceScroll = () => {
+                lenisInstance.scrollTo(target, { immediate: true, force: true });
+                window.scrollTo(0, target);
+                document.documentElement.scrollTop = target;
+            };
 
-                    if (index === attempts.length - 1) {
-                        requestAnimationFrame(() => {
-                            showPage();
-                        });
-                    } else {
-                        // Check if we're done early
-                        requestAnimationFrame(() => {
-                            const newScroll = window.scrollY || document.documentElement.scrollTop;
-                            if (Math.abs(newScroll - targetScrollY) <= 50) {
-                                restored = true;
-                                showPage();
-                            }
-                        });
-                    }
-                }, delay);
-            });
+            // Force scroll immediately
+            forceScroll();
+
+            // Extended restoration loop - keep forcing for longer
+            let frameCount = 0;
+            const maxFrames = 60; // ~1 second of forcing
+            let lastDocHeight = 0;
+            let stableFrames = 0;
+
+            const keepForcing = () => {
+                forceScroll();
+                frameCount++;
+
+                const current = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight;
+                const isClose = Math.abs(current - target) < 10;
+
+                // Track if document height has stabilized
+                if (docHeight === lastDocHeight) {
+                    stableFrames++;
+                } else {
+                    stableFrames = 0;
+                    lastDocHeight = docHeight;
+                }
+
+                // Show page when:
+                // 1. Document height is stable for 5+ frames AND we're close to target
+                // 2. OR we've been trying for 20+ frames
+                const shouldShow = (stableFrames >= 5 && isClose) || frameCount >= 20;
+
+                if (shouldShow && !document.getElementById(HIDE_STYLE_ID)?.dataset.shown) {
+                    showPage();
+                    const style = document.getElementById(HIDE_STYLE_ID);
+                    if (style) style.dataset.shown = 'true';
+                }
+
+                // Stop when:
+                // 1. Stable for 10+ frames and close to target
+                // 2. OR max frames reached
+                if ((stableFrames >= 10 && isClose) || frameCount >= maxFrames) {
+                    isRestoringRef.current = false;
+                    return;
+                }
+
+                requestAnimationFrame(keepForcing);
+            };
+
+            requestAnimationFrame(keepForcing);
         } else {
             showPage();
         }
 
-        let frameId: number;
-        const animate = (time: number) => {
-            newLenis.raf(time);
-            frameId = requestAnimationFrame(animate);
-        };
-
-        frameId = requestAnimationFrame(animate);
-
-        const handleVisibilityChange = () => {
-            if (document.hidden) {
-                newLenis.stop();
-            } else {
-                newLenis.start();
-            }
-        };
-
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-
         return () => {
-            cancelAnimationFrame(frameId);
-            document.removeEventListener('visibilitychange', handleVisibilityChange);
-            newLenis.destroy();
+            cancelAnimationFrame(rafId);
+            lenisInstance.destroy();
             setLenis(null);
-            document.documentElement.style.overflowX = '';
-            document.body.style.overflowX = '';
         };
     }, []);
 
-    // NEW: Reset scroll on route change
-    const { pathname } = useLocation();
-
+    // Handle route changes - scroll to top
     useEffect(() => {
-        if (!lenis) {
-            window.scrollTo(0, 0);
-        } else {
-            lenis.scrollTo(0, { immediate: true });
-            window.scrollTo(0, 0);
+        if (pathname !== prevPathRef.current) {
+            prevPathRef.current = pathname;
+
+            requestAnimationFrame(() => {
+                if (lenis) {
+                    lenis.scrollTo(0, { immediate: true, force: true });
+                }
+                window.scrollTo(0, 0);
+            });
         }
     }, [pathname, lenis]);
 
+    // Memoize children to prevent unnecessary re-renders
+    const memoizedChildren = useMemo(() => children, [children]);
+
     return (
         <ScrollContext.Provider value={lenis}>
-            {children}
+            {memoizedChildren}
         </ScrollContext.Provider>
     );
 };

@@ -5,10 +5,10 @@ const text =
   "On average, CloudDIET customers save 30% of their Azure spend beyond existing Reserved Instances.";
 
 const images = [
-  "/AI-CloudFinOps/HomePage/Img1.webp",
-  "/AI-CloudFinOps/HomePage/Img2.webp",
-  "/AI-CloudFinOps/HomePage/Img3.webp",
-  "/AI-CloudFinOps/HomePage/Img4.webp",
+  "/AI-CloudFinOps/HomePage/cost.mp4",
+  "/AI-CloudFinOps/HomePage/data-cloud.mp4",
+  "/AI-CloudFinOps/HomePage/savings.mp4",
+  "/AI-CloudFinOps/HomePage/saving-strategy.mp4",
 ];
 
 export default function CTA() {
@@ -85,20 +85,21 @@ export default function CTA() {
               rounded-xl
               overflow-hidden
               border border-black/5
-              shadow-2xl
+              
             "
           >
-            <img
+            <video
               src={src}
-              alt="Work"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
             />
           </motion.div>
         ))}
       </div>
- 
+
       {/* ================= TEXT (ALL SCREENS) ================= */}
       <div className="relative z-10 max-w-4xl text-center">
         <h2 className="
@@ -179,9 +180,8 @@ function Character({
   return (
     <motion.span
       style={{ color, scale }}
-      className={`inline-block ${
-        highlight ? "font-bold tracking-tight" : ""
-      }`}
+      className={`inline-block ${highlight ? "font-bold tracking-tight" : ""
+        }`}
     >
       {children}
     </motion.span>

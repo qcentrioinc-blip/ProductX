@@ -112,7 +112,7 @@ const toggle = (index: number) => {
       <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
 Examples of what CloudDIET can access </h2>
  <p className="font-quicksand text-base text-gray-700 leading-relaxed">These examples show what CloudDIET can and cannot access. CloudDIET does not view all metrics or configurations, and it lacks permission and the ability to access data plane content. </p>
-<div className="overflow-x-auto mt-6 pl-16">
+<div className="overflow-x-auto mt-6 xl:pl-16">
   <table className="min-w-full border border-gray-300 text-left font-quicksand">
     <thead className="bg-gray-100">
       <tr>
