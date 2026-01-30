@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal, Slide, Backdrop } from "@mui/material";
-import { ArrowUpRightIcon, XIcon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { H2, H3, P } from "../../../styles/Typography";
  
 interface ContactModalProps {
   open: boolean;
@@ -10,30 +11,77 @@ interface ContactModalProps {
 const ContactModal = ({ open, onClose }: ContactModalProps) => {
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
     email: "",
+    phone: "",
+    message: "",
+    agree: false,
   });
  
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
  
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  /* ---------------- VALIDATION ---------------- */
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+ 
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!/^\S+@\S+\.\S+$/.test(formData.email))
+      newErrors.email = "Valid email required";
+    if (!/^\d{7,15}$/.test(formData.phone))
+      newErrors.phone = "Valid phone number required";
+    if (!formData.message.trim())
+      newErrors.message = "Message cannot be empty";
+    if (!formData.agree)
+      newErrors.agree = "You must agree to continue";
+ 
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  /* ---------------- SUBMIT ---------------- */
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+   
+    // Clear errors before validating again for cleaner UX
+    setErrors({});
  
-    // Simulate submit success
-    setIsSubmitted(true);
+    if (!validate()) return;
  
-    // Reset controlled inputs
-    setFormData({ name: "", phone: "", email: "" });
+    setStatus("loading");
  
-    // Optional auto-reset after 3s
+    // Simulate API call
     setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        agree: false,
+      });
+ 
+      // Reset to normal form after 3 seconds
+      setTimeout(() => {
+        setStatus("idle");
+        setErrors({});
+      }, 3000);
+     
+    }, 1800);
+  };
+ 
+  /* ---------------- INPUT CHANGE ---------------- */
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, type, checked } = e.target as HTMLInputElement;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+    // Clear error for this specific field on change
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
  
   return (
@@ -44,148 +92,212 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
       slots={{ backdrop: Backdrop }}
       slotProps={{
         backdrop: {
-          timeout: 500,
-          sx: { backgroundColor: "rgba(0,0,0,0.55)" },
+          timeout: 400,
+          sx: { backgroundColor: "rgba(0,0,0,0.6)" },
         },
       }}
       sx={{ zIndex: 10002 }}
     >
-      <Slide direction="down" in={open} timeout={500}>
-        <div className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[83vw] h-[85vh] lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
+      <Slide direction="down" in={open} timeout={400}>
+        <div className="fixed inset-0 flex items-center justify-center px-4">
+          <div className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
  
-          {/* 🔹 BACKGROUND IMAGE */}
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: "url('/bg_image.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+            {/* CLOSE BUTTON */}
+            <motion.button
+                onClick={onClose}
+                className="absolute top-4 right-4 bg-white text-gray-900 p-2 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:bg-indigo-600 hover:text-white transition-colors duration-300 z-[101]"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </motion.button>
  
-          {/* 🔹 FOREGROUND */}
-          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] h-full">
  
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-6 right-6 md:top-6 md:right-12 p-2 rounded-full hover:bg-black/10 transition z-20"
-            >
-              <XIcon className="w-6 h-6 text-gray-800" />
-            </button>
+              {/* LEFT — FORM CONTAINER */}
+              {/* Added min-h-[600px] to prevent height collapse when showing success message */}
+              <div className="p-6 sm:p-10 overflow-y-auto min-h-[600px] relative bg-white">
  
-            {/* 🔹 FORM CARD */}
-            <div className="w-full max-w-[1200px] bg-white rounded-2xl px-6 md:px-12 lg:px-16 py-10 overflow-y-auto scrollbar-hide">
+                <AnimatePresence mode="wait">
+                  {status === "success" ? (
+                    /* ---------- SUCCESS ---------- */
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      className="h-full flex flex-col items-center justify-center text-center absolute inset-0 p-6 sm:p-10 bg-white"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", delay: 0.2 }}
+                        className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-4xl"
+                      >
+                        🎉
+                      </motion.div>
+                      <H2 className="text-3xl font-bold mb-2 text-gray-900">
+                        Submitted Successfully
+                      </H2>
+                      <P className="text-gray-500 max-w-md">
+                        Thank you for reaching out. Our team will contact you
+                        within 24 hours with next steps.
+                      </P>
+                    </motion.div>
+                  ) : (
+                    /* ---------- FORM ---------- */
+                    <motion.form
+                      key="form"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onSubmit={handleSubmit}
+                      className="space-y-6 relative z-10"
+                    >
+                      <div>
+                        <H3 className="text-3xl font-bold mb-2 text-gray-900">Contact Us</H3>
+                        <P className="text-gray-500">We'd love to hear from you.</P>
+                      </div>
  
-              {/* Header */}
-              <p
-                className="text-3xl md:text-4xl font-bold mb-12"
+                      {/* Summary Error Banner */}
+                      <AnimatePresence>
+                        {Object.keys(errors).length > 0 && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="bg-red-50 text-red-400 px-4 py-3 rounded-lg text-sm font-medium flex items-center gap-2"
+                          >
+                            <span>⚠</span> Please fix the highlighted fields below.
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+ 
+                      {/* Inputs with Dynamic Border Colors */}
+                      <div className="space-y-4">
+                        <input
+                          name="name"
+                          placeholder="Your Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                            errors.name ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
+                          }`}
+                        />
+ 
+                        <input
+                          name="email"
+                          type="email"
+                          placeholder="Your Email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                            errors.email ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
+                          }`}
+                        />
+ 
+                        <input
+                          name="phone"
+                          type="tel"
+                          placeholder="Phone Number"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                            errors.phone ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
+                          }`}
+                        />
+ 
+                        <textarea
+                          name="message"
+                          placeholder="Message"
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                            errors.message ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
+                          }`}
+                        />
+                      </div>
+ 
+                      {/* Checkbox */}
+                      <motion.label
+                       
+                        className="flex items-center gap-2 text-sm text-gray-600 font-bricolage"
+                      >
+                        <input
+                          type="checkbox"
+                          name="agree"
+                          checked={formData.agree}
+                          onChange={handleChange}
+                         
+                        />
+                        I agree to the Terms & Privacy Policy
+                      </motion.label>
+ 
+                      <motion.button
+                        type="submit"
+                        disabled={status === "loading"}
+                        className={`
+                          w-full py-3 rounded-full font-semibold text-white
+                          transition-colors duration-300
+                          ${
+                            status === "loading"
+                              ? "bg-green-600 cursor-wait"
+                              : "bg-black hover:bg-gray-900"
+                          }
+                          disabled:opacity-80
+                        `}
+                        whileTap={{ scale: 0.97 }}
+                      >
+                        {status === "loading" ? "Submitting…" : "Submit"}
+                      </motion.button>
+                    </motion.form>
+                  )}
+                </AnimatePresence>
+              </div>
+ 
+              {/* RIGHT — INFO PANEL */}
+              <div
+                className="hidden md:flex flex-col justify-center px-12 text-white relative overflow-hidden"
                 style={{
-                  color: "#0079FF",
-                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  backgroundImage: "url('/bg_image.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
-                TO: QNEST GLOBAL
-              </p>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" />
  
-              {/* FORM */}
-              <form onSubmit={handleSubmit} className="space-y-10" autoComplete="off">
- 
-                {/* INPUTS — HIDE AFTER SUBMIT */}
-                {!isSubmitted && (
-                  <>
-                    {/* LINE 1 */}
-                    <div
-                      className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
-                      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                    >
-                      <span>HEY QNEST!*</span>
-                      <span>MY NAME IS</span>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="[NAME]"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
-                      />
-                      <span className="text-[#0079FF]">*</span>
-                    </div>
- 
-                    {/* LINE 2 */}
-                    <div
-                      className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
-                      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                    >
-                      <span>MY PHONE NUMBER IS</span>
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="[PHONE]"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
-                      />
-                      <span className="text-[#0079FF]">*</span>
-                      <span>AND MY</span>
-                    </div>
- 
-                    {/* LINE 3 */}
-                    <div
-                      className="flex flex-wrap items-baseline gap-3 text-xl md:text-3xl font-bold"
-                      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                    >
-                      <span>EMAIL IS</span>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="[EMAIL]"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="flex-1 max-w-[620px] border-b-2 border-[#0079FF] bg-transparent outline-none placeholder:text-gray-300 px-2 pb-1"
-                      />
-                      <span className="text-[#0079FF]">*</span>
-                      <span>SEE YOU SOON</span>
-                    </div>
-                  </>
-                )}
- 
-                {/* SUCCESS MESSAGE */}
-                {isSubmitted && (
-                  <div className="py-14 text-center text-2xl md:text-3xl font-bold text-green-600">
-                    Thank you! <br />
-                    We’ll get back to you shortly.
-                  </div>
-                )}
- 
-                {/* BUTTON */}
-                <button
-                  type="submit"
-                  disabled={isSubmitted}
-                  className={`
-                    group flex items-center justify-center w-52 h-[64px]
-                    rounded-2xl font-bold text-lg text-white transition-all
-                    ${isSubmitted ? "bg-green-600 cursor-default" : "bg-black hover:shadow-2xl"}
-                    active:scale-[0.98]
-                  `}
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="relative z-10 space-y-8"
                 >
-                  {isSubmitted ? (
-                    <span>Submitted Successfully</span>
-                  ) : (
-                    <>
-                      <span className="mr-2">Send Message</span>
-                      <ArrowUpRightIcon
-                        size={22}
-                        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                      />
-                    </>
-                  )}
-                </button>
+                  {/* INCREASED TEXT SIZE: text-5xl instead of text-4xl */}
+                  <H3 className="leading-tight">
+                    What Happens Next
+                  </H3>
  
-              </form>
+                  <div className="space-y-8 pt-4 font-quicksand">
+                    {[
+                      "We review your cloud setup",
+                      "Schedule a 60-minute walkthrough",
+                      "Get savings and optimization roadmap",
+                      "Decide if CloudDIET fits",
+                    ].map((text, i) => (
+                      <div key={i} className="flex gap-4 items-center">
+                        {/* INCREASED SIZE: w-10 h-10 text-lg instead of w-8 h-8 text-sm */}
+                        <div className="w-10 h-10 border-2 border-white/30 rounded-full flex items-center justify-center text-lg font-bold shrink-0">
+                          {`0${i + 1}`}
+                        </div>
+                        {/* INCREASED TEXT SIZE: text-xl instead of text-lg */}
+                        <p className="text-xl font-light text-white/90 leading-relaxed">{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+ 
             </div>
           </div>
         </div>

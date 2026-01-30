@@ -108,9 +108,9 @@ body {
 }
 
 
-section,
-div[id],
-.sticky {
+
+/* Scoped optimization class */
+.gpu-optimized {
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
@@ -133,13 +133,16 @@ video {
 [class*="hover:"] {
   transform: translateZ(0);
 }
+
 @keyframes waveFloat {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-12px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -149,9 +152,11 @@ video {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-18px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -173,7 +178,7 @@ video {
 .font-bricolage {
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 400;
- 
+
 }
 
 .font-quicksand {

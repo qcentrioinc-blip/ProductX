@@ -11,7 +11,7 @@ const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
 const preloadAssets = () => {
   const dashImg = new Image();
-  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
+  dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
 
 const AINavbar = () => {

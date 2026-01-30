@@ -14,19 +14,19 @@ const BuiltForMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: BuiltFor
 
   const builtForItemsAI = [
     {
-      title: "Enterprises",
+      title: "Enterprise IT Teams",
       desc: "IT and Cloud Infrastructure Teams",
       path: `${base}/built-for/enterprises`,
     },
     {
-      title: "Digital Natives",
+      title: "SaaS Application Providers",
       desc: "SaaS and Application Providers",
-      path: `${base}/built-for/digital-native`,
+      path: `${base}/built-for/saas-application-providers`,
     },
     {
-      title: "Large, Multi-Region Enterprises",
+      title: "Regulated Large Enterprises",
       desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
-      path: `${base}/built-for/smb`,
+      path: `${base}/built-for/regulated-large-enterprise`,
     },
   ];
 

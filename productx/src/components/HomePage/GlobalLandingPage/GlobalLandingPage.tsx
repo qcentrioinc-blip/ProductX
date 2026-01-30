@@ -1,18 +1,8 @@
-// import WhatWeDo from "./WhatWeDo"
-// import Footer from "../../Global/Footer/Footer"
 import CallToAction from "./CallToAction"
-// import Counter from "./Counter"
-// import HowWeDo from "./HowWeDo"
-// import LandingPage from "./LandingPage"
-// import Partnership from "./Partnership"
-// import TargetAudience from "./TargetAudience"
-// import Testimonial from "./Testimonial"
-// import VisionImpact from "./VisionImpact"
 import FutureSection from "./FutureSection"
 import InnovationCards from "./InnovationCards"
 import BusinessValuesSection from "./BusinessValuesSection"
 import AnimatedStatement from "./AnimatedStatement"
-// import IndustrySlider from "./IndustrySlider"
 import Milestone from "./Milestone"
 import LifeCycleTech from "./LifeCycleTech"
 import CEO from "./CEO"
@@ -31,22 +21,22 @@ const GlobalLandingPage = () => {
             {/* <div>
                 <IndustrySlider/>
             </div> */}
-            <div>
+            <div className="gpu-optimized">
                 <AnimatedStatement />
             </div>
-            <div id="futuresection">
+            <div id="futuresection" className="gpu-optimized">
                 <FutureSection />
             </div>
-            <div id="innovationcards">
+            <div id="innovationcards" className="gpu-optimized">
                 <InnovationCards />
             </div>
-            <div id="businessvaluessection">
+            <div id="businessvaluessection" className="gpu-optimized">
                 <BusinessValuesSection />
             </div>
 
             {/* CEO Section - Sticky Background */}
 
-            <div>
+            <div className="gpu-optimized">
                 <Milestone />
             </div>
 
@@ -55,23 +45,25 @@ const GlobalLandingPage = () => {
             </div>
 
             {/* All sections that scroll over CEO - Wrapped together with z-10 */}
-            <div className="relative z-10">
+            <div className="relative z-10 gpu-optimized">
                 {/* LifeCycleTech Section */}
                 <LifeCycleTech />
             </div>
 
-            <Counter />
+            <div className="gpu-optimized">
+                <Counter />
+            </div>
             {/* CallToAction Section */}
-            <div id="calltoaction">
+            <div id="calltoaction" className="gpu-optimized">
                 <CallToAction />
             </div>
 
-            <div id="FlowingMenu"  className="hidden xl:block">
+            <div id="FlowingMenu" className="hidden xl:block gpu-optimized">
                 <FlowingMenu />
             </div>
 
             {/* Footer Section */}
-            <div id="footer">
+            <div id="footer" className="gpu-optimized">
                 <NewFooter />
             </div>
 
