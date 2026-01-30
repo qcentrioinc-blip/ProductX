@@ -24,7 +24,7 @@ const AIBlogs = () => {
   ];
  
   return (
-    <section className="w-full overflow-hidden bg-white text-black py-20 sm:py-24 xl:py-28 px-4 sm:px-6 xl:px-16">
+    <section className="w-full overflow-hidden bg-white text-black pt-4 pb-10 px-4 sm:px-6 xl:px-16">
       <div className="mx-auto max-w-8xl px-0 sm:px-4 xl:px-6">
  
         {/* GRID: Stacks on mobile, side-by-side on large screens */}

@@ -152,7 +152,7 @@ export default function Cardcase() {
  
   return (
     <section
-      className="relative w-full py-10 overflow-hidden"
+      className="relative w-full py-4 overflow-hidden"
       style={{ backgroundColor: config.bg }}
     >
       {/* RIGHT-SIDE DIAGONAL IMAGE */}

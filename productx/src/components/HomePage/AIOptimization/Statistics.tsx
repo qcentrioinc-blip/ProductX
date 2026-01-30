@@ -33,7 +33,7 @@ const Statistics = () => {
         <div
             ref={sectionRef}
             onMouseMove={handleMouseMove}
-            className="relative overflow-hidden py-16 md:py-24"
+            className="relative overflow-hidden py-16 md:py-10"
             style={{
                 // background: "linear-gradient(90deg, #2B68C34D, #FED6004D)",
             }}

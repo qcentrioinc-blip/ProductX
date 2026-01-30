@@ -43,8 +43,8 @@ ${isScrolled
           : "w-[90%] max-w-7xl rounded-xl"
         }`}
     >
-      <H3>Engineered for Every Azure Environment</H3>
-      <P className="text-gray-700 text-lg mt-2 mb-4">CloudDIET is the AI optimization platform built for any organization's scale, complexity, and compliance needs.</P>
+      <H3>Engineered for Every Industry Need </H3>
+      <P className="text-gray-700 text-lg mt-2 mb-4">Find the tailored CloudDIET solution built for your organization's scale, complexity, and compliance requirements</P>
       <hr className="border-gray-300 h-1 mb-8" />
       <div className="grid grid-cols-3 gap-y-4 gap-x-1">
         {builtForItemsAI.map((item, index) => (

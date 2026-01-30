@@ -128,7 +128,7 @@ video {
   content-visibility: auto;
 }
 
-/* Reduce paint on hover transitions */
+ 
 .group:hover,
 [class*="hover:"] {
   transform: translateZ(0);
@@ -161,6 +161,19 @@ video {
     transform: translateY(0);
   }
 }
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes imageFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .animate-cloud-float {
   animation: cloudFloat 4s ease-in-out infinite;

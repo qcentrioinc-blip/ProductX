@@ -194,7 +194,7 @@ export default function ImgSec() {
 
         <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
           {/* LEFT TEXT */}
-          <div className="   h-full pt-20 pb-10  ">
+          <div className="   h-full  pt-6  ">
             <div className="w-full  ">
             <H2 className="leading-tight text-[#254D70] max-w-5xl">
   {content.heroHeading}
