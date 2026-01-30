@@ -67,7 +67,7 @@ const CounterCard = ({
         {suffix}
       </h2> */}
       
-    <H2 className="text-[#5F22BE]  sm:pt-4  sm:mb-8">
+    <H2 className="text-[#8338EC]  sm:pt-4  sm:mb-8">
 
         {count}
         {suffix}

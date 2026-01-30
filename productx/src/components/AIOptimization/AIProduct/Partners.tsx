@@ -35,13 +35,19 @@ export default function Partners() {
       ref={sectionRef}
       className="w-full overflow-hidden pb-20 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-8xl mx-auto xl:px-10 flex flex-col text-center">
+      <div className="max-w-8xl mx-6 xl:px-10 flex flex-col text-center">
 
         {/* INFO CARDS (UNCHANGED) */}
-        <div className="relative mb-20">
-          <div className="mx-auto max-w-7xl rounded-3xl   border border-gray-100 shadow-xl px-6 py-8">
+        <div className="relative">
+          <div className="
+  mx-auto max-w-7xl rounded-3xl px-6 py-8
+  bg-white/10 backdrop-blur-md
+  border border-white/50
+  shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+">
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white">
-              <div className="text-center">
+              <div className="text-center py-4">
                 <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                   AI-Powered Profiling
                 </span>
@@ -50,7 +56,7 @@ export default function Partners() {
                 </P>
               </div>
 
-              <div className="text-center">
+              <div className="text-center py-4">
                 <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                   Expert Recommendations
                 </span>
@@ -59,7 +65,7 @@ export default function Partners() {
                 </P>
               </div>
 
-              <div className="text-center">
+              <div className="text-center py-4">
                 <span className="inline-block px-5 py-3 mb-3 rounded-full bg-white text-sm font-semibold text-black">
                   Guaranteed Savings
                 </span>

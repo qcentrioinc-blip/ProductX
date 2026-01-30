@@ -1,106 +1,106 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 
-/* -------------------- IMAGE TRAIL HELPERS -------------------- */
-function lerp(a: number, b: number, n: number) {
-  return (1 - n) * a + n * b;
-}
+// /* -------------------- IMAGE TRAIL HELPERS -------------------- */
+// function lerp(a: number, b: number, n: number) {
+//   return (1 - n) * a + n * b;
+// }
 
-function getMouseDistance(p1: any, p2: any) {
-  return Math.hypot(p1.x - p2.x, p1.y - p2.y);
-}
+// function getMouseDistance(p1: any, p2: any) {
+//   return Math.hypot(p1.x - p2.x, p1.y - p2.y);
+// }
 
-function getLocalPointerPos(e: MouseEvent, rect: DOMRect) {
-  return {
-    x: e.clientX - rect.left,
-    y: e.clientY - rect.top
-  };
-}
+// function getLocalPointerPos(e: MouseEvent, rect: DOMRect) {
+//   return {
+//     x: e.clientX - rect.left,
+//     y: e.clientY - rect.top
+//   };
+// }
 
-class ImageItem {
-  el: HTMLDivElement;
-  rect: DOMRect;
+// class ImageItem {
+//   el: HTMLDivElement;
+//   rect: DOMRect;
 
-  constructor(el: HTMLDivElement) {
-    this.el = el;
-    this.rect = el.getBoundingClientRect();
-    gsap.set(this.el, { opacity: 0 });
-  }
-}
+//   constructor(el: HTMLDivElement) {
+//     this.el = el;
+//     this.rect = el.getBoundingClientRect();
+//     gsap.set(this.el, { opacity: 0 });
+//   }
+// }
 
-/* -------------------- IMAGE TRAIL VARIANT 1 -------------------- */
-class ImageTrail {
-  container: HTMLDivElement;
-  images: ImageItem[];
-  mouse = { x: 0, y: 0 };
-  lastMouse = { x: 0, y: 0 };
-  cached = { x: 0, y: 0 };
-  threshold = 80;
-  index = 0;
-  z = 1;
+// /* -------------------- IMAGE TRAIL VARIANT 1 -------------------- */
+// class ImageTrail {
+//   container: HTMLDivElement;
+//   images: ImageItem[];
+//   mouse = { x: 0, y: 0 };
+//   lastMouse = { x: 0, y: 0 };
+//   cached = { x: 0, y: 0 };
+//   threshold = 80;
+//   index = 0;
+//   z = 1;
 
-  constructor(container: HTMLDivElement) {
-    this.container = container;
-    this.images = [...container.querySelectorAll(".trail-img")].map(
-      el => new ImageItem(el as HTMLDivElement)
-    );
+//   constructor(container: HTMLDivElement) {
+//     this.container = container;
+//     this.images = [...container.querySelectorAll(".trail-img")].map(
+//       el => new ImageItem(el as HTMLDivElement)
+//     );
 
-    container.addEventListener("mousemove", this.onMove);
-    requestAnimationFrame(this.render);
-  }
+//     container.addEventListener("mousemove", this.onMove);
+//     requestAnimationFrame(this.render);
+//   }
 
-  onMove = (e: MouseEvent) => {
-    const rect = this.container.getBoundingClientRect();
-    this.mouse = getLocalPointerPos(e, rect);
-  };
+//   onMove = (e: MouseEvent) => {
+//     const rect = this.container.getBoundingClientRect();
+//     this.mouse = getLocalPointerPos(e, rect);
+//   };
 
-  render = () => {
-    const dist = getMouseDistance(this.mouse, this.lastMouse);
-    this.cached.x = lerp(this.cached.x, this.mouse.x, 0.1);
-    this.cached.y = lerp(this.cached.y, this.mouse.y, 0.1);
+//   render = () => {
+//     const dist = getMouseDistance(this.mouse, this.lastMouse);
+//     this.cached.x = lerp(this.cached.x, this.mouse.x, 0.1);
+//     this.cached.y = lerp(this.cached.y, this.mouse.y, 0.1);
 
-    if (dist > this.threshold) {
-      this.show();
-      this.lastMouse = { ...this.mouse };
-    }
+//     if (dist > this.threshold) {
+//       this.show();
+//       this.lastMouse = { ...this.mouse };
+//     }
 
-    requestAnimationFrame(this.render);
-  };
+//     requestAnimationFrame(this.render);
+//   };
 
-  show() {
-    this.z++;
-    this.index = (this.index + 1) % this.images.length;
-    const img = this.images[this.index];
+//   show() {
+//     this.z++;
+//     this.index = (this.index + 1) % this.images.length;
+//     const img = this.images[this.index];
 
-    gsap.killTweensOf(img.el);
+//     gsap.killTweensOf(img.el);
 
-    gsap
-      .timeline()
-      .fromTo(
-        img.el,
-        {
-          opacity: 1,
-          scale: 1,
-          zIndex: this.z,
-          x: this.cached.x - img.rect.width / 2,
-          y: this.cached.y - img.rect.height / 2
-        },
-        {
-          duration: 0.4,
-          ease: "power1",
-          x: this.mouse.x - img.rect.width / 2,
-          y: this.mouse.y - img.rect.height / 2
-        }
-      )
-      .to(img.el, {
-        duration: 0.4,
-        ease: "power3",
-        opacity: 0,
-        scale: 0.2
-      });
-  }
-}
+//     gsap
+//       .timeline()
+//       .fromTo(
+//         img.el,
+//         {
+//           opacity: 1,
+//           scale: 1,
+//           zIndex: this.z,
+//           x: this.cached.x - img.rect.width / 2,
+//           y: this.cached.y - img.rect.height / 2
+//         },
+//         {
+//           duration: 0.4,
+//           ease: "power1",
+//           x: this.mouse.x - img.rect.width / 2,
+//           y: this.mouse.y - img.rect.height / 2
+//         }
+//       )
+//       .to(img.el, {
+//         duration: 0.4,
+//         ease: "power3",
+//         opacity: 0,
+//         scale: 0.2
+//       });
+//   }
+// }
 
 /* -------------------- MAIN COMPONENT -------------------- */
 const AnimatedStatementWithImageTrail = () => {
@@ -123,10 +123,10 @@ const AnimatedStatementWithImageTrail = () => {
     []
   );
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    new ImageTrail(containerRef.current);
-  }, []);
+  // useEffect(() => {
+  //   if (!containerRef.current) return;
+  //   new ImageTrail(containerRef.current);
+  // }, []);
 
   return (
     <div

@@ -24,7 +24,7 @@ const CONTENT_MAP: Record<
     description:
       " CloudDIET fixes Azure Functions and scale issues so SaaS teams save costs without hurting performance or customer growth.",
     cta: "Optimize Now",
-      bgImage: "BuiltFor/BuiltDigitalNative.webp",
+      bgImage: "/BuiltFor/BuiltDigitalNative.webp",
   },
   enterprises: {
     heading: (

@@ -179,7 +179,7 @@ const AIBlogs = () => {
                             fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "120%",
-                            color: "#0079FF",
+                            color: "#254D70",
                           }}
                         >
                           Read Now
