@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
-
+ 
 const preloadAssets = () => {
   const dashImg = new Image();
   dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
-
+ 
 interface IndustryCardProps {
   title: string;
   image: string;
@@ -20,13 +20,14 @@ interface IndustryCardProps {
   url: string;
   onComingSoonClick: (title: string) => void;
   onPrefetch?: () => void;
+  countdownText: string | null;
 }
-
+ 
 const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
-  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onPrefetch }, ref) => {
+  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onPrefetch, countdownText }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
     const hasPrefetched = useRef(false);
-
+ 
     const handleMouseEnter = () => {
       setIsHovered(true);
       if (isReady && onPrefetch && !hasPrefetched.current) {
@@ -34,7 +35,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         onPrefetch();
       }
     };
-
+ 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (!isReady) {
@@ -47,9 +48,9 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         window.open(url, '_blank', 'noopener,noreferrer');
       }
     };
-
+ 
     const showComingSoonText = !isReady && (isHovered || isMobile);
-
+ 
     return (
       <motion.div
         ref={ref}
@@ -83,7 +84,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               : 'brightness-75'
               } ${isHovered ? 'scale-110' : 'scale-100'}`}
           />
-
+ 
           {/* Overlay */}
           <div className={`absolute inset-0 flex flex-col justify-between p-4 transition-all duration-500 z-10 ${isReady
             ? 'bg-transparent'
@@ -91,25 +92,21 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               ? 'bg-black/75'
               : 'bg-black/20'
             }`}>
-
-            {/* 1. CENTER: Scrolling Text */}
-            {showComingSoonText && (
-              <div className="absolute inset-0 flex items-center justify-center w-full overflow-hidden pointer-events-none z-0">
-                <motion.div
-                  initial={{ x: 0 }}
-                  animate={{ x: "-100%" }}
-                  transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-                  className="flex whitespace-nowrap"
-                >
-                  <span className="text-xl lg:text-3xl font-bold font-bricolage uppercase tracking-[0.1em] text-white/90 mx-4">Coming Soon</span>
-                  <span className="text-xl lg:text-3xl font-bold font-bricolage uppercase tracking-[0.1em] text-white/30 mx-4">•</span>
-                  <span className="text-xl lg:text-3xl font-bold font-bricolage uppercase tracking-[0.1em] text-white/90 mx-4">Coming Soon</span>
-                  <span className="text-xl lg:text-3xl font-bold font-bricolage uppercase tracking-[0.1em] text-white/30 mx-4">•</span>
-                  <span className="text-xl lg:text-3xl font-bold font-bricolage uppercase tracking-[0.1em] text-white/90 mx-4">Coming Soon</span>
-                </motion.div>
+ 
+            {/* 1. CENTER: Countdown Timer */}
+            {showComingSoonText && countdownText && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0 text-center px-6">
+                <div className="space-y-1">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 font-quicksand">
+                    Launching in
+                  </div>
+                  <div className="text-xl md:text-2xl font-bold font-bricolage uppercase tracking-wider text-white drop-shadow-md whitespace-nowrap">
+                    {countdownText}
+                  </div>
+                </div>
               </div>
             )}
-
+ 
             {/* 2. BOTTOM: Title & Icon */}
             <div className="relative z-20 w-full mt-auto">
               <div className="flex justify-between items-center w-full">
@@ -119,7 +116,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
                   }`}>
                   {title}
                 </span>
-
+ 
                 <div className={`p-1.5 rounded-full backdrop-blur-md transition-all duration-300 ${isReady
                   ? 'bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.3)] text-white'
                   : 'bg-white/10 text-white'
@@ -133,7 +130,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               </div>
             </div>
           </div>
-
+ 
           {/* Border */}
           {isReady && isHovered && (
             <motion.div layoutId="activeGlowBorder"
@@ -145,7 +142,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
     )
   }
 );
-
+ 
 const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) => {
   return (
     <AnimatePresence>
@@ -168,40 +165,64 @@ const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) 
     </AnimatePresence>
   );
 };
-
+ 
 export default function InteractiveHeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: '' });
   const [isMobile, setIsMobile] = useState(false);
-
+  const [currentTime, setCurrentTime] = useState(Date.now());
+ 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const heroRef = useRef<HTMLDivElement>(null);
   const isHeroVisible = useRef(true);
+ 
+  // Update time every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+ 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
     };
-
-    checkMobile(); // Initial check
+ 
+    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
+ 
   const industries = [
-    { title: 'Cloud Finops AI', image: '/Global-Landing-Page/AI.webp', url: '/industries/cloud-finops-ai', isReady: true },
-    { title: 'Banking and Finance', image: '/Global-Landing-Page/BNF.webp', url: '/industries/banking-and-finance', isReady: false },
-    { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: false },
-    { title: 'High Tech', image: '/Global-Landing-Page/HighTech.webp', url: '/industries/high-tech', isReady: false }
+    { title: 'Cloud Finops AI', image: '/Global-Landing-Page/AI.webp', url: '/industries/cloud-finops-ai', isReady: true, deadline: null },
+    { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: false, deadline: '2026-02-06' },
+    { title: 'Banking and Finance', image: '/Global-Landing-Page/BNF.webp', url: '/industries/banking-and-finance', isReady: false, deadline: '2026-02-20' },
+    { title: 'High Tech', image: '/Global-Landing-Page/HighTech.webp', url: '/industries/high-tech', isReady: false, deadline: '2026-03-06' }
   ];
-
+ 
+  // Helper to calculate countdown string (D H M)
+  const getCountdown = (deadline: string | null) => {
+    if (!deadline) return null;
+   
+    const total = Date.parse(deadline) - currentTime;
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+   
+    if (total <= 0) return "0d 0h 0m";
+   
+    return `${days}d ${hours}h ${minutes}m`;
+  };
+ 
   const handleComingSoon = (title: string) => {
     setToast({ show: true, message: title });
     setTimeout(() => {
       setToast(prev => ({ ...prev, show: false }));
     }, 3000);
   };
-
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
@@ -210,22 +231,18 @@ export default function InteractiveHeroSection() {
     heroRef.current && observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
-
+ 
   useEffect(() => {
     if (!isHeroVisible.current) return;
-    // Only scroll if user manually clicked/updated index (logic happens in onClick)
     cardRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }, [activeIndex]);
-
+ 
   useEffect(() => {
-    // DISABLE AUTO SCROLL ON MOBILE/TABLET
     if (isMobile) return;
-
-    // ENABLE AUTO SCROLL ONLY ON DESKTOP
     const interval = setInterval(() => setActiveIndex((p) => (p + 1) % industries.length), 5000);
     return () => clearInterval(interval);
   }, [isMobile]);
-
+ 
   return (
     <>
       <Navbar />
@@ -249,7 +266,7 @@ export default function InteractiveHeroSection() {
                     </motion.button>
                   </Link>
                 </div>
-
+ 
                 <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
                   {[
                     { label: '30%', sub: 'AI-Driven Outcomes' },
@@ -266,13 +283,13 @@ export default function InteractiveHeroSection() {
                   ))}
                 </div>
               </motion.div>
-
+ 
               <div className="hidden xl:block"></div>
-
+ 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
                   className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0 touch-pan-y snap-x snap-mandatory overscroll-x-contain">
-
+ 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
                       <div key={industry.title} className="flex flex-col items-center snap-center">
@@ -287,18 +304,19 @@ export default function InteractiveHeroSection() {
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
                           onPrefetch={preloadAssets}
+                          countdownText={getCountdown(industry.deadline)}
                         />
                       </div>
                     ))}
                   </AnimatePresence>
                 </div>
-
+ 
                 <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 blur-[120px] pointer-events-none" />
               </div>
             </div>
           </div>
         </div>
-
+ 
         <Toast
           message={toast.message}
           isVisible={toast.show}

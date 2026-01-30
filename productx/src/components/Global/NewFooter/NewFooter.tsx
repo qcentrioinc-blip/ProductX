@@ -1,97 +1,69 @@
 import { useState, useRef } from "react";
 import { H4, Li, P } from "../../../styles/Typography";
-
-
+ 
+ 
 import { toast } from "react-toastify";
-
+ 
 // Preload hero assets on hover for faster visual loading
 const preloadAssets = () => {
   const dashImg = new Image();
-  dashImg.src = '/AIOptimization/dashboardfinal.webp';
+  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
 };
-
-
+ 
+ 
 export default function NewFooter() {
   const [email, setEmail] = useState("");
   const [buttonColor, setButtonColor] = useState("bg-[#8C8C8C]");
   const hasPreloaded = useRef(false);
-
+ 
   const handlePreload = () => {
     if (!hasPreloaded.current) {
       hasPreloaded.current = true;
       preloadAssets();
     }
   };
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // prevents page reload
-    handleSubmit();
-  };
-
-  const isTypingEmailValid = (value: string) => {
-    const parts = value.split('@');
-
-    // No @ yet → neutral
-    if (parts.length === 1) return null;
-
-    // More than one @ → invalid
-    if (parts.length > 2) return false;
-
-    const [, domain] = parts;
-
-    // User just typed `@` → GREEN
-    if (domain === '') return true;
-
-    // Trailing dot is invalid
-    if (domain.endsWith('com.')) return false;
-
-    // Allow partial or full domain (letters + single dot)
-    if (!/^[a-zA-Z]+(\.[a-zA-Z]*)?$/.test(domain)) return false;
-
-    return true;
-  };
-
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setEmail(value);
-
-    if (!value.trim()) {
-      setButtonColor("bg-[#8C8C8C]");
-      return;
-    }
-
-    if (isTypingEmailValid(value)) {
-      setButtonColor("bg-green-500");
-    } else if (value.includes('@')) {
-      setButtonColor("bg-red-500"); // ❌ invalid structure
-    } else {
-      setButtonColor("bg-[#8C8C8C]");
-    }
-  };
-
-
-
-
-
-  const isFullyValidEmail = (value: string) => {
-    return /^[^\s@]+@[a-zA-Z]+\.(com|in|net|org|co|io)$/.test(value);
-  };
-
-
-  const handleSubmit = () => {
-    if (!isFullyValidEmail(email)) {
-      toast.error("Please enter a valid email address");
-      setButtonColor("bg-[#8C8C8C]"); // ✅ reset to gray
-      return;
-    }
-
-    toast.success("Submitted successfully");
-    setEmail("");
-    setButtonColor("bg-[#8C8C8C]"); // ✅ reset to gray
-  };
-
-
-
+const handleFormSubmit = (e: React.FormEvent) => {
+  e.preventDefault(); // prevents page reload
+  handleSubmit();
+};
+ 
+ 
+ 
+ 
+const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value;
+  setEmail(value);
+ 
+  if (isFullyValidEmail(value)) {
+    setButtonColor("bg-green-500"); // ✅ fully valid email
+  } else {
+    setButtonColor("bg-[#8C8C8C]"); // ❌ anything else stays grey
+  }
+};
+ 
+ 
+ 
+ 
+ 
+const isFullyValidEmail = (value: string) => {
+   return /^[^\s@]+@[a-zA-Z]+\.(com|in|net|org|co|io)$/.test(value);
+};
+ 
+ 
+const handleSubmit = () => {
+  if (!isFullyValidEmail(email)) {
+    toast.error("Please enter a valid email address");
+    setButtonColor("bg-[#8C8C8C]");  
+    return;
+  }
+ 
+  toast.success("Submitted successfully");
+  setEmail("");
+  setButtonColor("bg-[#8C8C8C]");  
+};
+ 
+ 
+ 
   return (
     <footer className="bg-black text-white  py-10 lg:py-20 ">
       <div className="max-w-8xl lg:mx-10 px-4">
@@ -105,7 +77,7 @@ export default function NewFooter() {
             <P className="  text-gray-300">
               We are more than a technology provider; we <br /> are your strategic partner in progress.
             </P>
-
+ 
             {/* Social Icons */}
             <div className="flex items-center gap-4 mt-4">
               <span className="cursor-pointer"><img src="/GlobalTwitter.png" w-14 h-14 alt="" /> </span>
@@ -113,11 +85,11 @@ export default function NewFooter() {
               <span className="cursor-pointer"><img src="/GlobalLinkedIn.png" w-14 h-14 alt="" /> </span>
             </div>
           </div>
-          <form
-            onSubmit={handleFormSubmit}
-            className="flex lg:hidden flex-row items-center lg:items-center gap-4"
-          >
-
+         <form
+  onSubmit={handleFormSubmit}
+  className="flex lg:hidden flex-row items-center lg:items-center gap-4"
+>
+ 
             <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
             <P className="text-gray-300 text-sm mb-4">
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
@@ -127,12 +99,12 @@ export default function NewFooter() {
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-
+ 
                 className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-gray-500"
               />
               <button
                 type="submit"
-
+               
                 className={`${buttonColor} text-white px-6 py-3 font-quicksand text-md rounded-xl text-sm transition-colors duration-300`}
               >
                 Subscribe
@@ -160,13 +132,13 @@ export default function NewFooter() {
                 </a>
               </li>
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
-
+ 
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a>
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">EHR-PMS</Li></a>
-
+ 
             </ul>
           </div>
-
+ 
           {/* Quick Links */}
           <div>
             <H4 className="text-gray-300 mb-4">Quick Links</H4>
@@ -179,7 +151,7 @@ export default function NewFooter() {
                   Platform
                 </a>
               </li>
-
+ 
               <li>
                 <a
                   href="/comingsoon"
@@ -189,9 +161,9 @@ export default function NewFooter() {
                 </a>
               </li>
             </ul>
-
+ 
           </div>
-
+ 
           {/* Contact Sales */}
           <div>
             <H4 className="text-gray-300 mb-4">Contact Sales</H4>
@@ -208,19 +180,19 @@ export default function NewFooter() {
               </Li>
             </ul>
           </div>
-
-
+ 
+ 
           {/* Stay up to date */}
           <div className="hidden lg:flex flex-col ">
             <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
             <P className="text-gray-300 text-sm mb-4">
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
-            <form
-              onSubmit={handleFormSubmit}
-              className="flex md:hidden lg:flex lg:flex-row flex-col items-start lg:items-center gap-4"
-            >
-
+     <form
+  onSubmit={handleFormSubmit}
+  className="flex md:hidden lg:flex lg:flex-row flex-col items-start lg:items-center gap-4"
+>
+ 
               <input
                 type="email"
                 placeholder="Email"
@@ -228,28 +200,28 @@ export default function NewFooter() {
                 onChange={handleEmailChange}
                 className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-none"
               />
-
+ 
               <button
-                type="submit"
-
+              type="submit"
+               
                 className={`${buttonColor} text-white px-6 py-3 font-quicksand text-md rounded-xl text-sm transition-colors duration-300`}
               >
                 Subscribe
               </button>
-
-
+ 
+ 
             </form>
           </div>
-
-
-
+ 
+ 
+ 
         </div>
-
-
+ 
+ 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-start text-xs text-gray-300 gap-4   pt-6">
           <P className="text-gray-300">2026 Qnest Global. All rights reserved</P>
-
+ 
           {/* <div className="flex flex-none gap-4">
             <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Security Policy</span>
             <span className="font-quickstand md:text-[16px] text-[12px] hover:text-white hover:underline cursor-default">Privacy Policy</span>
@@ -261,6 +233,3 @@ export default function NewFooter() {
     </footer>
   );
 }
-
-
-

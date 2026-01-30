@@ -27,9 +27,11 @@ export default function FutureSection() {
           </H2>
 
           {/* Illustration */}
-          <img
-            src="/Global-Landing-Page/earth.webp"
-            alt="People walking on globe"
+          <video
+            src="/Global-Landing-Page/globe.mp4"
+            autoPlay
+            loop
+            muted
             className="w-full max-w-xl"
           />
         </div>

@@ -58,7 +58,6 @@ const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBan
 const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
 import AIOptimization from './routes/industries/AIOptimization';
-import Resource from './components/AIOptimization/Resources/Resource';
 const ResourceDetailAI = lazy(() => import('./components/AIOptimization/ResourceDetail/ResourceDetailAI'));
 const AboutAI = lazy(() => import('./components/AIOptimization/AboutUs/AboutAI'));
 const AINewsLetter = lazy(() => import('./components/AIOptimization/NewsLetter/AINewsLetter'));
@@ -159,7 +158,6 @@ const App = () => {
             <Routes>
               <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
               <Route path="/industries/cloud-finops-ai/about-us" element={<AboutAI />} />
-              <Route path="/industries/cloud-finops-ai/resources" element={<Resource />} />
               <Route path="/industries/cloud-finops-ai/resource-detail" element={<ResourceDetailAI />} />
               <Route path="/industries/cloud-finops-ai/careers" element={<CareersPageAI />} />
               <Route path="/industries/cloud-finops-ai/jobs" element={<JobDetails />} />

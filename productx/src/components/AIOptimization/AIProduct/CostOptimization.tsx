@@ -44,7 +44,7 @@ const CostOptimization = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex justify-center mb-8 md:mb-12">
-          <H2 className="text-[#254D70] px-6 py-3 text-xl md:text-2xl font-bold text-center">
+          <H2 className="text-white px-6 py-3 text-xl md:text-2xl font-bold text-center">
             Layers of Optimization
           </H2>
         </div>
@@ -55,7 +55,7 @@ const CostOptimization = () => {
           <div className="grid grid-cols-5 gap-4 relative z-10">
             {COST_LAYERS.map((layer, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <h3 className="text-base xl:text-[24px] text-[#254D70] font-semibold mb-4 min-h-[28px]">
+                <h3 className="text-base xl:text-[24px] text-white font-semibold mb-4 min-h-[28px]">
                   {layer.title}
                 </h3>
                 <div className="border border-[#254D70] font-medium text-[#141414] rounded-md p-4 text-sm md:text-base bg-[#FAFAFA] backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
@@ -87,7 +87,7 @@ const CostOptimization = () => {
 
           {/* Existing Tools Label */}
           <div className="absolute top-[300px] xl:left-[200px] lg:left-[150px]"   >
-            <P className="text-black text-base">Existing Tools</P>
+            <P className="text-white text-base">Existing Tools</P>
           </div>
         </div>
 
