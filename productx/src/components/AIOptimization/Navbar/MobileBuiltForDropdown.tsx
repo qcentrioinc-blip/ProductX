@@ -19,12 +19,12 @@ const MobileBuiltForDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
     {
       title: "Digital Natives",
       desc: "SaaS and Application Providers",
-      path: `${base}/built-for/digital-native`,
+      path: `${base}/built-for/regulated-large-enterprise`,
     },
     {
       title: "Large, Multi-Region Enterprises",
       desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
-      path: `${base}/built-for/smb`,
+      path: `${base}/built-for/saas-application-providers`,
     },
   ];
 

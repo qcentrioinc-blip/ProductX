@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { ContactUsAI } from "../../../styles/Button";
 import { H1, P } from "../../../styles/Typography";
+import ContactModal from "../Navbar/ContactModal";
 
 export default function HeroSection() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center  ">
+    <section className="relative w-full lg:h-[40vh]  xl:h-[80vh] overflow-hidden flex items-center justify-center  ">
 
       {/* BACKGROUND IMAGE */}
       <div
@@ -12,7 +16,7 @@ export default function HeroSection() {
       />
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-3xl px-4 text-center text-[#254D70] flex flex-col items-center">
+      <div className="relative z-10 max-w-3xl px-4  mt-12 xl:mt-14 text-center text-[#254D70] flex flex-col items-center">
         <H1 className="font-bold leading-tight">
           Pay Only for <br />
           What You Save
@@ -23,11 +27,12 @@ export default function HeroSection() {
           savings we deliver. Most customers see ROI in the first month.
         </P>
 
-        <ContactUsAI className="mt-8">
+        <ContactUsAI className="mt-8" onClick={() => setModalOpen(true)}>
           Start Saving
         </ContactUsAI>
       </div>
 
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

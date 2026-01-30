@@ -3,7 +3,7 @@ import { H2, P } from "../../../styles/Typography";
 
 export default function Timeline() {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-10 py-16">
+    <section className="w-full px-4 sm:px-6 lg:px-10 pt-12">
       {/* Heading */}
       <div className="max-w-8xl mx-auto text-center mb-10">
         <H2 className="  font-bold text-[#254D70] mb-4">
@@ -16,14 +16,14 @@ export default function Timeline() {
 
       {/* Heatmap Image */}
       <div className="relative w-full overflow-x-auto">
-        <div className="min-w-[900px] max-w-7xl mx-auto">
+        <div className="min-w-[900px] max-w-7xl mx-auto min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
           <video
             src="/AI-CloudFinOps/HomePage/HeatMap.mp4"
             autoPlay
-            
-            muted 
+
+            muted
             className="w-full h-auto object-contain"
-           
+
           />
         </div>
       </div>

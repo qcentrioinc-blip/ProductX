@@ -15,18 +15,18 @@ const BuiltForMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: BuiltFor
   const builtForItemsAI = [
     {
       title: "Enterprise IT Teams",
-      desc: "Optimize complex, multi-subscription Azure estates. ",
+      desc: "IT and Cloud Infrastructure Teams",
       path: `${base}/built-for/enterprises`,
     },
     {
-      title: "SaaS Application Providers ",
-      desc: "Scale efficiently and reduce cloud waste. ",
-      path: `${base}/built-for/digital-native`,
+      title: "SaaS Application Providers",
+      desc: "SaaS and Application Providers",
+      path: `${base}/built-for/saas-application-providers`,
     },
     {
-      title: "Regulated Large Enterprises ",
-      desc: " Secure savings while ensuring full compliance",
-      path: `${base}/built-for/smb`,
+      title: "Regulated Large Enterprises",
+      desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
+      path: `${base}/built-for/regulated-large-enterprise`,
     },
   ];
 

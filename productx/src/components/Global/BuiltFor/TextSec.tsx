@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { H2, H4, P } from "../../../styles/Typography";
-
+ 
 type TextContent = {
   h4: string;
   h2: string;
   p: string;
 };
-
+ 
 const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
   "cloud-finops-ai": {
     enterprises: {
@@ -14,18 +14,18 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
       h2: "Enterprise IT and Cloud Operations",
       p: "Enterprise cloud teams face hidden Azure costs daily across complex, multi-subscription environments.",
     },
-    "digital-native": {
+    "saas-application-providers": {
       h4: "Saas",
       h2: "Scaling Challenges ",
       p: "SaaS providers face hidden costs from always-on application scaling needs.  ",
     },
-   smb: {
+   "regulated-large-enterprise": {
       h4: "Enterprise  ",
       h2: "Cloud Challenges",
       p: "Multi-region ops waste millions on overprovisioned, unregulated Azure resources. ",
     },
   },
-
+ 
   "banking-and-finance": {
     banks: {
       h4: "Challenges",
@@ -43,7 +43,7 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
       p: "Credit unions balance member experience with limited budgets and aging infrastructure.",
     },
   },
-
+ 
   "ehr-and-pms": {
     hospitals: {
       h4: "Challenges",
@@ -56,7 +56,7 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
       p: "Clinics need scalable systems without adding administrative burden to care teams.",
     },
   },
-
+ 
   "high-tech": {
     startups: {
       h4: "Challenges",
@@ -70,34 +70,34 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
     },
   },
 };
-
+ 
 export default function TextSec() {
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
-
+ 
   const content =
     CONTENT_MAP[industry ?? ""]?.[builtForType ?? ""];
-
+ 
   if (!content) return null;
-
+ 
   return (
     <section className="w-full py-10 bg-white ">
       <div className="max-w-8xl mx-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          
+         
           {/* LEFT */}
           <div>
             <H4 className="mb-3">{content.h4}</H4>
             <H2 className="leading-snug">{content.h2}</H2>
           </div>
-
+ 
           {/* RIGHT */}
           <div>
             <P className="leading-relaxed">{content.p}</P>
           </div>
-
+ 
         </div>
       </div>
     </section>

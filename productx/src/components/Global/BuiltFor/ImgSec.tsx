@@ -80,8 +80,8 @@ const THEMES: Record<string, Theme> = {
 
 const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
   enterprises: "/BuiltFor/EnterpriseBg.webp",
-  "digital-native": "/BuiltFor/DigitalNativebg.webp",
-  smb: "/BuiltFor/SmnBg.webp",
+  "saas-application-providers": "/BuiltFor/DigitalNativebg.webp",
+  "regulated-large-enterprise": "/BuiltFor/SmnBg.webp",
 };
 
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
@@ -97,7 +97,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "View Demo",
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ",
@@ -105,7 +105,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "Try Now",
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       heroHeading:(<>
       CloudDIET stops SaaS <br/> {" "}cloud waste.
       </>),
@@ -194,7 +194,7 @@ export default function ImgSec() {
 
         <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
           {/* LEFT TEXT */}
-          <div className="   h-full pt-20 pb-10  ">
+          <div className="   h-full  pt-6  ">
             <div className="w-full  ">
             <H2 className="leading-tight text-[#254D70] max-w-5xl">
   {content.heroHeading}

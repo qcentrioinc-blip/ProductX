@@ -102,7 +102,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       ],
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       headingPrimary: "Impact We Deliver",
         imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
@@ -121,7 +121,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       ],
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       headingPrimary: "The Enterprise Impact We Deliver ",
         imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",
@@ -160,7 +160,7 @@ export default function SplitFeature() {
   if (!content) return null;
 
   return (
-    <section className={`w-full py-10   ${theme.sectionBg}`}>
+    <section className={`w-full    ${theme.sectionBg}`}>
       <div className="max-w-8xl mx-10  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}

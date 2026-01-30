@@ -1,8 +1,8 @@
 'use client';
-
+ 
 import { useState } from 'react';
 import { H2 } from '../../../styles/Typography';
-
+ 
 type Tab = {
   id: number;
   shortLabel: string;
@@ -10,7 +10,7 @@ type Tab = {
   image: string;
   alt: string;
 };
-
+ 
 const TABS: Tab[] = [
   {
     id: 1,
@@ -34,31 +34,31 @@ const TABS: Tab[] = [
     alt: 'Digital Marketing Firm cloud spend analysis',
   },
 ];
-
+ 
 const ACTIVE_WIDTH = 700;
 const INACTIVE_WIDTH = 300;
-
+ 
 const UseCases = () => {
   const [activeTab, setActiveTab] = useState<number>(1);
-
+ 
   // ALWAYS safe (never undefined)
  
-
+ 
   return (
     <section className="w-full bg-[#F5F5F5] py-10 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-
+ 
         {/* SECTION HEADING */}
         <H2 className="text-[#254D70] mb-10">
           Unoptimized to Optimized Cloud Spend
         </H2>
-
+ 
         {/* TABS */}
         <div className=" hidden lg:block sticky top-16 z-30 bg-[#F5F5F5] py-4">
           <div className="flex justify-center gap-4">
             {TABS.map(tab => {
               const isActive = activeTab === tab.id;
-
+ 
               return (
                 <button
                   key={tab.id}
@@ -81,7 +81,7 @@ const UseCases = () => {
                       {tab.shortLabel}
                     </span>
                   )}
-
+ 
                   {isActive && (
                     <span className="absolute left-6 whitespace-nowrap">
                       {tab.fullLabel}
@@ -92,11 +92,11 @@ const UseCases = () => {
             })}
           </div>
         </div>
-
+ 
         {/* IMAGE CONTAINER */}
         <div className="  rounded-xl  hidden lg:block overflow-hidden  ">
           <div className="relative w-full h-[800px]  overflow-hidden">
-
+ 
             {/* Cross-fade images (no white flash) */}
             {TABS.map(tab => (
               <img
@@ -114,14 +114,14 @@ const UseCases = () => {
           </div>
         </div>
       </div>
-
-
-
+ 
+ 
+ 
        <div className="flex lg:hidden space-y-10 flex-col">
-
+ 
           {TABS.map(tab => (
             <div key={tab.id} className="flex flex-col">
-
+ 
               {/* TAB */}
               <div
                 className="
@@ -133,7 +133,7 @@ const UseCases = () => {
               >
                 {tab.fullLabel}
               </div>
-
+ 
               {/* IMAGE */}
               <div className="w-full mt-10 h-[300px] overflow-hidden">
                 <img
@@ -143,13 +143,13 @@ const UseCases = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-
+ 
             </div>
           ))}
-
+ 
         </div>
     </section>
   );
 };
-
+ 
 export default UseCases;

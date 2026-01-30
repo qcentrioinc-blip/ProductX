@@ -1,6 +1,5 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { Easing } from 'framer-motion';
 import { useLocation } from "react-router-dom";
 
 
@@ -45,32 +44,32 @@ const HWD = () => {
 
     }
   };
-const HEADING_CONTENT = {
-  ai: {
-    eyebrow: "Your Success",
-    title: "Real-World Use Cases",
-    description:
-      "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
-  },
-  banking: {
-    eyebrow: " ",
-    title: "Real-World Use Cases",
-    description:
-      "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
-  },
-  ehr: {
-    eyebrow: " ",
-    title: "Practice Use Cases",
-    description:
-      " See how Unified Clinicapp adapts to different clinical and operational needs to support your specific practice goals."
-  },
-  hightech: {
-    eyebrow: " ",
-    title: "Real-World Use Cases",
-    description:
-      "Explore how high-tech companies scale faster, control cloud spend, and optimize complex multi-cloud environments."
-  }
-};
+  const HEADING_CONTENT = {
+    ai: {
+      eyebrow: "Your Success",
+      title: "Real-World Use Cases",
+      description:
+        "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
+    },
+    banking: {
+      eyebrow: " ",
+      title: "Real-World Use Cases",
+      description:
+        "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
+    },
+    ehr: {
+      eyebrow: " ",
+      title: "Practice Use Cases",
+      description:
+        " See how Unified Clinicapp adapts to different clinical and operational needs to support your specific practice goals."
+    },
+    hightech: {
+      eyebrow: " ",
+      title: "Real-World Use Cases",
+      description:
+        "Explore how high-tech companies scale faster, control cloud spend, and optimize complex multi-cloud environments."
+    }
+  };
 
   const CARD_CONTENT = {
     ai: [
@@ -90,7 +89,7 @@ const HEADING_CONTENT = {
 
       {
         title: " Retain Savings Long-Term",
-           image: "/AIOptimization/PriceTag.svg",
+        image: "/AIOptimization/PriceTag.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
@@ -104,7 +103,7 @@ const HEADING_CONTENT = {
       },
       {
         title: "Multi-Cloud Waste Elimination",
-         image: "/AIOptimization/Cloud.svg",
+        image: "/AIOptimization/Cloud.svg",
         description:
           "An enterprise reduced cloud waste by 30% without compromising project outcomes or performance.",
         points: [
@@ -208,13 +207,13 @@ const HEADING_CONTENT = {
   else cards = CARD_CONTENT.ai; // fallback
 
 
-let headingContent;
+  let headingContent;
 
-if (isAI) headingContent = HEADING_CONTENT.ai;
-else if (isBanking) headingContent = HEADING_CONTENT.banking;
-else if (isEHR) headingContent = HEADING_CONTENT.ehr;
-else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
-else headingContent = HEADING_CONTENT.banking; // fallback
+  if (isAI) headingContent = HEADING_CONTENT.ai;
+  else if (isBanking) headingContent = HEADING_CONTENT.banking;
+  else if (isEHR) headingContent = HEADING_CONTENT.ehr;
+  else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
+  else headingContent = HEADING_CONTENT.banking; // fallback
 
 
 
@@ -230,19 +229,8 @@ else headingContent = HEADING_CONTENT.banking; // fallback
   const bottomTextColor = isAI ? "#254D70" : textcolor;
 
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' as Easing },
-    },
-  };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
-  };
+
 
   // const itemVariants = {
   //   hidden: { opacity: 0, y: 20 },
@@ -299,42 +287,26 @@ else headingContent = HEADING_CONTENT.banking; // fallback
 
         {/* HEADINGS */}
         {/* HEADINGS */}
-<div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
-  <motion.h1
-    className="font-medium text-2xl text-[#2A2A2A]"
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-  >
-    <div className="flex items-center gap-x-2">
-      <div className="w-8 h-1 rounded-full bg-gray-400"></div>
-      {headingContent.eyebrow}
-    </div>
-  </motion.h1>
+        <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
+          <h1 className="font-medium text-2xl text-[#2A2A2A]">
+            <div className="flex items-center gap-x-2">
+              <div className="w-8 h-1 rounded-full bg-gray-400"></div>
+              {headingContent.eyebrow}
+            </div>
+          </h1>
 
-  <motion.h2
-    className="text-[#2A2A2A] font-bricolage font-semibold
+          <h2
+            className="text-[#2A2A2A] font-bricolage font-semibold
                text-[24px] md:text-[32px] lg:text-[64px] leading-none"
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-  >
-    {headingContent.title}
-  </motion.h2>
+          >
+            {headingContent.title}
+          </h2>
 
-  {/* Dynamic paragraph below H2 */}
-  <motion.p
-    className="max-w-3xl text-base md:text-lg text-[#555555]"
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-  >
-    {headingContent.description}
-  </motion.p>
-</div>
+          {/* Dynamic paragraph below H2 */}
+          <p className="max-w-3xl text-base md:text-lg text-[#555555]">
+            {headingContent.description}
+          </p>
+        </div>
 
         {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
         <div
@@ -354,10 +326,9 @@ else headingContent = HEADING_CONTENT.banking; // fallback
               className="relative rounded-md overflow-hidden shadow-lg snap-center flex-shrink-0
                w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
               style={{ backgroundColor: bottomBg }}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
             >
               <CardContent {...card} />
             </motion.div>

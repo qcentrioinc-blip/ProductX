@@ -64,13 +64,13 @@ const AboutAI = lazy(() => import('./components/AIOptimization/AboutUs/AboutAI')
 const AINewsLetter = lazy(() => import('./components/AIOptimization/NewsLetter/AINewsLetter'));
 const AIWhitePapers = lazy(() => import('./components/AIOptimization/WhitePapers/AIWhitePapers'));
 const AIGlossary = lazy(() => import('./components/AIOptimization/Glossary/AIGlossary'));
-const HeroAIOptimization = lazy(() => import('./components/HomePage/AIOptimization/HeroAIOptimization'));
+import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptimization';
 import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc';
-const Pricing = lazy(() => import('./components/AIOptimization/Pricing/Pricing'));
+import Pricing from './components/AIOptimization/Pricing/Pricing';
 const ComingSoon = lazy(() => import('./components/Global/NewFooter/ComingSoon'));
 const PrivacyPolicyAI = lazy(() => import('./components/AIOptimization/AIPrivacy'));
 const CareersPageAI = lazy(() => import('./components/AIOptimization/Careers/CareersPage').then(module => ({ default: module.CareersPageAI })));
-const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
+import { BuiltFor } from './components/Global/BuiltFor/BuiltFor';
 
 
 const App = () => {

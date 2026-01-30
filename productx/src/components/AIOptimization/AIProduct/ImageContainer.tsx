@@ -87,7 +87,7 @@ const ImageContainer = () => {
             {/* Animated image */}
             <img
               ref={imgRef}
-              src="/AIOptimization/Hero_DashBoard.webp"
+              src="/AIOptimization/dashboardfinal.webp"
               alt="Analytics dashboard"
               fetchPriority="high"
               className="

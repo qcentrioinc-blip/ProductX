@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 // Preload hero assets on hover for faster visual loading
 const preloadAssets = () => {
   const dashImg = new Image();
-  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
+  dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
 
 
@@ -61,6 +61,7 @@ const handleSubmit = () => {
   setEmail("");
   setButtonColor("bg-[#8C8C8C]");  
 };
+
 
 
 

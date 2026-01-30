@@ -79,7 +79,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       ],
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       intro: {
         title: "SaaS Scenarios ",
         desc: "CloudDIET enables SaaS teams to scale their apps efficiently and reliably without wasteful Azure spending or any performance compromises across workloads.  ",
@@ -93,7 +93,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       ],
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       intro: {
         title: "Enterprise Scenarios ",
         desc: "CloudDIET fixes Azure waste in multi-region setups for safe enterprise scaling. ",

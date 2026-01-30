@@ -2,10 +2,10 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import { H1 } from "../../../styles/Typography";
-
+ 
 const LandingPageAI = () => {
   const [modalOpen, setModalOpen] = useState(false);
-
+ 
   return (
     <>
       <div className="relative w-full">
@@ -25,32 +25,32 @@ const LandingPageAI = () => {
     className="absolute top-[45%] left-[8%] w-16 md:w-20 animate-cloud-float-slow  "
     alt="cloud"
   />
-
+ 
   <img
     src="/cloud.webp"
     className="absolute bottom-[20%] right-[10%] w-20 md:w-24 animate-cloud-float  "
     alt="cloud"
   />
-
+ 
   <img
     src="/cloud.webp"
     className="absolute bottom-[18%] left-[25%] w-14 md:w-20 animate-cloud-float-fast "
     alt="cloud"
   />
-
+ 
    <img
     src="/cloud.webp"
     className="absolute bottom-[15%] right-[30%] w-20 md:w-20 animate-cloud-float "
     alt="cloud"
   />
 </div>
-
+ 
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center xl:top-12">
             {/* Main Heading */}
             <H1
               className="max-w-6xl mb-6"
-
+ 
             >
               <span
                 style={{
@@ -61,7 +61,7 @@ const LandingPageAI = () => {
               </span>
               <span style={{ color: "#254D70" }}>Optimization With AI </span>
             </H1>
-
+ 
             {/* Description */}
             <p
               className="max-w-4xl mb-6 px-1 sm:px-0"
@@ -78,7 +78,7 @@ const LandingPageAI = () => {
             >
               Reduce cloud spend by up to 30% using AI-powered analysis, engineering expertise, and actionable optimization insights.
             </p>
-
+ 
             {/* CTA Button */}
             <button
               onClick={() => setModalOpen(true)}
@@ -95,10 +95,10 @@ const LandingPageAI = () => {
           </div>
         </div>
       </div>
-
+ 
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 };
-
+ 
 export default LandingPageAI;
