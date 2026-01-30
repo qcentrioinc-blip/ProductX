@@ -14,7 +14,11 @@ const HeroAIOptimization = () => {
   return (
     <div>
       <AINavbar />
+      <div id="landingpage">
       <LandingPageAI />
+
+      </div>
+      
       {/* <Consentur /> */}
       <StickyScrollSections />
       <ThreeCardAI />

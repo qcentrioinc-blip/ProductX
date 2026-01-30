@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, Send, Trash2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import GoToTopButton from '../GoToTopButton';
 
 interface Message {
     id: string;
@@ -554,6 +555,9 @@ const ChatbotButton: React.FC = () => {
             <AnimatePresence>
                 {/* {((!showBottomChat && !showModal && !showExpandedChat) || (isScrolled && !showExpandedChat && !showModal)) && ( */}
                 {!showModal && !showExpandedChat && (
+                    <>
+                    <GoToTopButton />
+
                     <motion.button
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -595,6 +599,9 @@ const ChatbotButton: React.FC = () => {
                             Ask Agentforce
                         </span> */}
                     </motion.button>
+
+                    </>
+                    
                 )}
             </AnimatePresence>
 
@@ -822,6 +829,8 @@ const ChatbotButton: React.FC = () => {
             </AnimatePresence>
         </>,
         document.body
+
+    
     );
 };
 

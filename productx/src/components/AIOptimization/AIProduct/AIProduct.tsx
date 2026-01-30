@@ -16,7 +16,10 @@ import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 const AIProduct = () => {
   return (
     <div className="relative">
-      <HeroCombined />
+      <div id='landingpage'>
+        <HeroCombined />
+      </div>
+      
       <TextSec />
       <Onboarding />
       <Firm />
