@@ -21,26 +21,26 @@ const LandingPageAI = () => {
 {/* Floating Cloud Icons */}
 <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
   <img
-    src="/AIOptimization/cloudstorage.webp"
-    className="absolute top-[15%] left-[8%] w-16 md:w-24 animate-cloud-float-slow opacity-80"
+    src="/cloud.webp"
+    className="absolute top-[45%] left-[8%] w-16 md:w-20 animate-cloud-float-slow  "
     alt="cloud"
   />
 
   <img
-    src="/AIOptimization/cloudstorage.webp"
-    className="absolute top-[35%] right-[10%] w-20 md:w-28 animate-cloud-float opacity-70"
+    src="/cloud.webp"
+    className="absolute bottom-[20%] right-[10%] w-20 md:w-24 animate-cloud-float  "
     alt="cloud"
   />
 
   <img
-    src="/AIOptimization/cloudstorage.webp"
-    className="absolute bottom-[18%] left-[25%] w-14 md:w-20 animate-cloud-float-fast opacity-60"
+    src="/cloud.webp"
+    className="absolute bottom-[18%] left-[25%] w-14 md:w-20 animate-cloud-float-fast "
     alt="cloud"
   />
 
    <img
-    src="/AIOptimization/cloudstorage.webp"
-    className="absolute top-[45%] right-[20%] w-20 md:w-28 animate-cloud-float opacity-70"
+    src="/cloud.webp"
+    className="absolute bottom-[15%] right-[30%] w-20 md:w-20 animate-cloud-float "
     alt="cloud"
   />
 </div>

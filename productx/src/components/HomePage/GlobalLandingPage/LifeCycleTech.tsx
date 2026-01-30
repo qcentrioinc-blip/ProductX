@@ -69,10 +69,10 @@ const logosRow1 = [
                     top: 200,
                     left: 0,
                     right: 0,
-                    bottom: '-500px', // Extends 200px below the section
-                    height: 'calc(100% + 500px)', // Increases total height
+                   // Extends 200px below the section
+                    height: 'calc(30% + 100px)', // Increases total height
                     backgroundImage: "url('/LandingPageNew/LifeCycleBack.png')",
-                    backgroundSize: 'cover',
+                    backgroundSize: 'contain',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'repeat',
                     opacity: 0.52,

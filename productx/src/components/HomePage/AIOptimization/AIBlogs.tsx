@@ -112,7 +112,7 @@ const AIBlogs = () => {
             </p>
 
             {/* Divider */}
-            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#0079FF]" />
+            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
 
             {/* Blog Cards */}
             <div className="mt-8 sm:mt-10 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 xl:gap-0">
@@ -180,7 +180,7 @@ const AIBlogs = () => {
                             fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "120%",
-                            color: "#0079FF",
+                            color: "#254D70",
                           }}
                         >
                           Read Now

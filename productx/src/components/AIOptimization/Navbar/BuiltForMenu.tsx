@@ -14,18 +14,18 @@ const BuiltForMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: BuiltFor
 
   const builtForItemsAI = [
     {
-      title: "Enterprises",
-      desc: "IT and Cloud Infrastructure Teams",
+      title: "Enterprise IT Teams",
+      desc: "Optimize complex, multi-subscription Azure estates. ",
       path: `${base}/built-for/enterprises`,
     },
     {
-      title: "Digital Natives",
-      desc: "SaaS and Application Providers",
+      title: "SaaS Application Providers ",
+      desc: "Scale efficiently and reduce cloud waste. ",
       path: `${base}/built-for/digital-native`,
     },
     {
-      title: "Large, Multi-Region Enterprises",
-      desc: " Multi-Region Enterprises with Regulated or Mission-Critical Systems",
+      title: "Regulated Large Enterprises ",
+      desc: " Secure savings while ensuring full compliance",
       path: `${base}/built-for/smb`,
     },
   ];
@@ -43,8 +43,8 @@ ${isScrolled
           : "w-[90%] max-w-7xl rounded-xl"
         }`}
     >
-      <H3>Engineered for Every Azure Environment</H3>
-      <P className="text-gray-700 text-lg mt-2 mb-4">CloudDIET is the AI optimization platform built for any organization's scale, complexity, and compliance needs.</P>
+      <H3>Engineered for Every Industry Need </H3>
+      <P className="text-gray-700 text-lg mt-2 mb-4">Find the tailored CloudDIET solution built for your organization's scale, complexity, and compliance requirements</P>
       <hr className="border-gray-300 h-1 mb-8" />
       <div className="grid grid-cols-3 gap-y-4 gap-x-1">
         {builtForItemsAI.map((item, index) => (

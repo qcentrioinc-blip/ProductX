@@ -83,7 +83,7 @@ export default function TextSec() {
   if (!content) return null;
 
   return (
-    <section className="w-full py-16 bg-white ">
+    <section className="w-full py-10 bg-white ">
       <div className="max-w-8xl mx-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
