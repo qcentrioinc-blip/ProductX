@@ -34,9 +34,7 @@ export const useScrollRestoration = (key?: string) => {
     useEffect(() => {
         const saveScrollPosition = () => {
             const scrollY = window.scrollY || document.documentElement.scrollTop;
-            if (scrollY > 0) {
-                sessionStorage.setItem(storageKey, scrollY.toString());
-            }
+            sessionStorage.setItem(storageKey, scrollY.toString());
         };
 
         // Save on beforeunload (page refresh/close)

@@ -77,47 +77,49 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
 });
 
 export default function Onboarding() {
-  const triggerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Observer 1: Trigger video LOAD once (sentinel at top)
-  useEffect(() => {
-    if (!triggerRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasLoaded) {
-          setHasLoaded(true);
-          observer.disconnect(); // Stop observing after first trigger
-        }
-      },
-      {
-        threshold: 1.0, // Fully visible
-        rootMargin: "-100px 0px 0px 0px" // Only trigger when 100px into viewport
-      }
-    );
-
-    observer.observe(triggerRef.current);
-    return () => observer.disconnect();
-  }, [hasLoaded]);
-
-  // Observer 2: Control PLAY/PAUSE based on section visibility
+  // Optimized Loading Logic
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const observer = new IntersectionObserver(
+    // 1. Immediate check for refresh/direct navigation
+    const rect = sectionRef.current.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight + 200 && rect.bottom > -200;
+
+    if (isInViewport) {
+      setHasLoaded(true);
+    }
+
+    // 2. Observer for scrolling towards the section
+    const loadObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setHasLoaded(true);
+          loadObserver.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Start loading 200px before
+    );
+
+    loadObserver.observe(sectionRef.current);
+
+    // 3. Observer for Play/Pause (Strict visibility)
+    const playObserver = new IntersectionObserver(
       (entries) => {
         setIsPlaying(entries[0].isIntersecting);
       },
-      {
-        threshold: 0.1
-      }
+      { threshold: 0.2 }
     );
 
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
+    playObserver.observe(sectionRef.current);
+
+    return () => {
+      loadObserver.disconnect();
+      playObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -127,9 +129,6 @@ export default function Onboarding() {
         id="benefits"
         className="relative max-w-8xl pt-20 lg:px-10 mx-6 lg:mx-10"
       >
-        {/* Invisible trigger sentinel at the TOP of section */}
-        <div ref={triggerRef} className="absolute top-0 left-0 w-full h-1" aria-hidden="true" />
-
         {/* Heading */}
         <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">
           Cloud Optimization Features That Deliver Results

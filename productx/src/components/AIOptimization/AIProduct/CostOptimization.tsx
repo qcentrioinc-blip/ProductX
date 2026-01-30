@@ -1,4 +1,3 @@
- 
 import { H2, P } from '../../../styles/Typography';
 
 const COST_LAYERS = [
@@ -26,12 +25,12 @@ const COST_LAYERS = [
 
 const CostOptimization = () => {
   return (
-    <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:py-16 overflow-hidden">
+    <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:pb-16  md:pt-10 overflow-hidden">
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <video
-          className="w-full  block   h-full object-cover"
-          src="/Video/Waves2.mp4"
+          className="w-full block h-full object-cover"
+          src="/Video/optimization.mp4"
           preload="auto"
           muted
           playsInline
@@ -87,187 +86,251 @@ const CostOptimization = () => {
           </div>
 
           {/* Existing Tools Label */}
-          <div className="absolute" style={{ top: '300px', left: '150px' }}>
+          <div className="absolute top-[300px] xl:left-[200px] lg:left-[150px]"   >
             <P className="text-black text-base">Existing Tools</P>
           </div>
         </div>
 
         {/* TABLET VIEW (md to lg) */}
-        <div className="hidden   relative pb-20">
-          <div className="max-w-2xl mx-auto">
-            {/* Right Column with Connection Line */}
-            <div className="relative">
-              {/* Vertical Connection Line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#254D70] transform -translate-x-1/2" 
-                   style={{ height: 'calc(100% - 80px)' }}
-              />
-              
-              {/* Horizontal line to CloudDIET */}
-              <div className="absolute left-1/2 w-32 h-0.5 bg-[#254D70]" 
-                   style={{ top: 'calc(100% - 80px)' }}
-              />
+        <div className="hidden md:block lg:hidden relative pb-20">
+          <div className="max-w-xl mx-auto px-6">
+            <div className="relative ">
+              {/* SVG Container for Connection Lines */}
+              <div className="absolute right-0 top-0 bottom-0 pointer-events-none" style={{ width: '180px', height: '100%', marginLeft: '0px' }}>
+                <svg
+                  className="w-full h-full"
+                  viewBox="0 0 180 1000"
+                  preserveAspectRatio="none"
+                >
+                  {/* Horizontal line from first box (Visualization) */}
+                  <line
+                    x1="0"
+                    y1="80"
+                    x2="100"
+                    y2="80"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
 
-              {/* Cards - Stacked vertically on right */}
-              <div className="relative z-10 flex flex-col items-end gap-4 pr-4">
-                <div className="w-full max-w-xs">
-                  <p className="text-xs text-gray-600 mb-2 text-right">Visualization</p>
-                  <div className="border border-[#254D70] rounded-md p-3 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[0].description}
-                  </div>
-                </div>
+                  {/* Curve from first horizontal line */}
+                  {/* <path
+                    d="M 30 80 Q 50 80, 50 100"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                    fill="none"
+                  />
+                   */}
+                  <line
+                    x1="0"
+                    y1="60"
+                    x2="150"
+                    y2="60"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
 
-                <div className="w-full max-w-xs">
-                  <p className="text-xs text-gray-600 mb-2 text-right">Utilization</p>
-                  <div className="border border-[#254D70] rounded-md p-3 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[1].description}
-                  </div>
-                </div>
+                  <line
+                    x1="100"
+                    y1="230"
+                    x2="100"
+                    y2="80"
+                    stroke="#254D70"
+                    strokeWidth="1.5"
+                  />
+                  {/* Horizontal line from second box (Utilization) */}
+                  <line
+                    x1=""
+                    y1="230"
+                    x2="100"
+                    y2="230"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
 
-                <div className="w-full max-w-xs">
-                  <p className="text-xs text-gray-600 mb-2 text-right">Configuration</p>
-                  <div className="border border-[#254D70] rounded-md p-3 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[2].description}
-                  </div>
-                </div>
+                  {/* Curve from second horizontal line */}
+                  {/* <path
+                    d="M 30 230 Q 50 230, 50 210"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                    fill="none"
+                  /> */}
 
-                <div className="w-full max-w-xs">
-                  <p className="text-xs text-gray-600 mb-2 text-right">Commercial</p>
-                  <div className="border border-[#254D70] rounded-md p-3 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[3].description}
-                  </div>
-                </div>
+                  {/* Main vertical line from top to bottom */}
+                  <line
+                    x1="150"
+                    y1="55"
+                    x2="150"
+                    y2="880"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
 
-                <div className="w-full max-w-xs">
-                  <p className="text-xs text-gray-600 mb-2 text-right">Engineering</p>
-                  <div className="border border-[#254D70] rounded-md p-3 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[4].description}
-                  </div>
-                </div>
+                  {/* Horizontal line from bottom to last card (Engineering) */}
+                  <line
+                    x1="0"
+                    y1="880"
+                    x2="150"
+                    y2="880"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
+                </svg>
               </div>
 
-              <div className="absolute left-0 transform -rotate-90 origin-center" 
-                   style={{ top: '40%', left: '-60px' }}>
-                <P className="text-[#254D70] whitespace-nowrap">Existing Tool</P>
+              {/* "Existing Tools" Label - Rotated on RIGHT side */}
+              <div className="absolute transform rotate-90 origin-center"
+                style={{ top: '14%', left: 'calc(65% + 70px)' }}>
+                <p className="text-[#254D70] text-sm font-quicksand font-medium whitespace-nowrap">
+                  Existing Tools
+                </p>
+              </div>
+
+              {/* CloudDIET Label - on RIGHT side */}
+              <div className="absolute"
+                style={{ top: '48%', left: 'calc(82% + 70px)' }}>
+                <p className="text-[#254D70] text-lg font-semibold whitespace-nowrap">
+                  CLOUDDIET
+                </p>
+              </div>
+
+              {/* Cards Column - LEFT aligned with reduced width */}
+              <div className="relative z-10 flex flex-col gap-5 w-full max-w-sm">
+                {COST_LAYERS.map((layer, index) => (
+                  <div key={index} className="w-full">
+                    <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] min-h-[90px] flex flex-col justify-center">
+                      <p className="text-sm text-[#254D70] mb-2 font-semibold">
+                        {layer.title}
+                      </p>
+                      <p className="text-xs">
+                        {layer.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-     
-        <div className="lg:hidden relative pb-20">
-          <div className="max-w-md mx-auto px-4">
-            <div className="relative flex justify-center">
-              {/* SVG Container for Connection Line - Positioned on the LEFT */}
-              <div className="absolute left-0 top-0 w-20 h-full pointer-events-none">
-                <svg 
-                  className="w-full h-full" 
-                  viewBox="0 0 80 600" 
+        {/* MOBILE VIEW (sm and below) */}
+        <div className="md:hidden relative pb-20">
+          <div className="max-w-sm mx-auto px-4">
+            <div className="relative flex justify-start">
+
+              {/* SVG CONNECTOR */}
+              <div className="absolute right-[20%] top-0 pointer-events-none h-full w-[60px]">
+                <svg
+                  className="w-full h-full"
+                  viewBox="0 0 60 800"
                   preserveAspectRatio="none"
-                  style={{ position: 'absolute', left: 0, top: 0 }}
                 >
-                  {/* Vertical line from left edge */}
-                  <line 
-                    x1="20" 
-                    y1="40" 
-                    x2="20" 
-                    y2="200" 
-                    stroke="#254D70" 
-                    strokeWidth="2" 
+                  {/* Vertical spine */}
+                  <line
+                    x1="30"
+                    y1="40"
+                    x2="30"
+                    y2="190"
+                    stroke="#254D70"
+                    strokeWidth="2"
                   />
-                  
-                  {/* Horizontal line connecting to first card (Visualization) */}
-                  <line 
-                    x1="20" 
-                    y1="40" 
-                    x2="80" 
-                    y2="40" 
-                    stroke="#254D70" 
-                    strokeWidth="2" 
+                  <line
+
+                    x1="-20"
+                    y1="100"
+                    x2="250"
+                    y2="100"
+                    stroke="#254D70"
+                    strokeWidth="2"
                   />
-                  
-                  {/* Horizontal line connecting to second card (Utilization) */}
-                  <line 
-                    x1="20" 
-                    y1="200" 
-                    x2="80" 
-                    y2="200" 
-                    stroke="#254D70" 
-                    strokeWidth="2" 
+
+                  <line
+                    x1="200"
+                    y1="720"
+                    x2="0"
+                    y2="720"
+                    stroke="#254D70"
+                    strokeWidth="2"
                   />
+                  <line
+                    x1="60"
+                    y1="100"
+                    x2="60"
+                    y2="720"
+                    stroke="#254D70"
+                    strokeWidth="2.5"
+                  />
+
+                  {/* Horizontal connectors (aligned to card centers) */}
+                  {[40, 190].map((y, i) => (
+                    <line
+                      key={i}
+                      x1="0"
+                      y1={y}
+                      x2="30"
+                      y2={y}
+                      stroke="#254D70"
+                      strokeWidth="2"
+                    />
+                  ))}
+
+                  {/* Final horizontal to right */}
+                  {/* <line
+            x1="30"
+            y1="700"
+            x2="55"
+            y2="720"
+            stroke="#254D70"
+            strokeWidth="2"
+          /> */}
                 </svg>
               </div>
 
-              {/* "Existing Tool" Label - Rotated on LEFT side */}
-              <div className="absolute left-0 transform -rotate-90 origin-center" 
-                   style={{ top: '20%', left: '-40px' }}>
-                <p className="text-[#254D70] text-sm font-medium whitespace-nowrap">
+              {/* ROTATED LABEL */}
+              <div
+                className="absolute right-[60px] top-14 rotate-90"
+              >
+                <p className="text-[#254D70] text-xs font-quicksand font-medium whitespace-nowrap">
                   Existing Tool
                 </p>
               </div>
-
-              {/* Cards Column - CENTERED */}
-              <div className="relative z-10 flex flex-col gap-6 w-full max-w-xs">
-                {/* Card 1 - Visualization */}
-                <div className="w-full">
-                  <p className="text-xs text-[#254D70] mb-2 font-medium text-right">
-                    Visualization
-                  </p>
-                  <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[0].description}
-                  </div>
-                </div>
-
-                {/* Card 2 - Utilization */}
-                <div className="w-full">
-                  <p className="text-xs text-[#254D70] mb-2 font-medium text-right">
-                    Utilization
-                  </p>
-                  <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[1].description}
-                  </div>
-                </div>
-
-                {/* Card 3 - Configuration */}
-                <div className="w-full">
-                  <p className="text-xs text-[#254D70] mb-2 font-medium text-right">
-                    Configuration
-                  </p>
-                  <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[2].description}
-                  </div>
-                </div>
-
-                {/* Card 4 - Commercial */}
-                <div className="w-full">
-                  <p className="text-xs text-[#254D70] mb-2 font-medium text-right">
-                    Commercial
-                  </p>
-                  <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[3].description}
-                  </div>
-                </div>
-
-                {/* Card 5 - Engineering */}
-                <div className="w-full">
-                  <p className="text-xs text-[#254D70] mb-2 font-medium text-right">
-                    Engineering
-                  </p>
-                  <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] text-sm min-h-[70px] flex items-center">
-                    {COST_LAYERS[4].description}
-                  </div>
+              <div
+                className="absolute right-0 bottom-[50%]"
+              >
+                <div className="text-[#254D70]  text-sm font-bricolage font-extrabold">
+                  Cloud<span className="font-normal">DIET</span>
                 </div>
               </div>
+
+              {/* CARDS COLUMN */}
+              <div className="relative z-10 flex flex-col gap-6 w-[220px]">
+                {COST_LAYERS.map((layer, index) => (
+                  <div
+                    key={index}
+                    className="border border-[#254D70] rounded-md bg-[#FAFAFA] p-3"
+                  >
+                    {/* Heading INSIDE box */}
+                    <p className="text-sm font-semibold text-[#254D70] mb-1">
+                      {layer.title}
+                    </p>
+
+                    <p className="text-xs text-[#141414] leading-snug">
+                      {layer.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
 
         {/* CloudDIET Logo - All Views */}
-        <div className="relative  md:mt-12 lg:mt-44 xl:mt-20 flex justify-center z-20">
+        <div className="relative   mt-8 md:mt-12 lg:mt-44 xl:mt-20 hidden lg:flex justify-center z-20">
           <div className="bg-[#254D70] px-6 md:px-8 py-3 md:py-4 flex items-center gap-3 shadow-lg">
             <div className="text-white text-2xl md:text-4xl font-extrabold">
               CLOUD<span className="font-normal">DIET</span>
             </div>
-          </div>  
+          </div>
         </div>
       </div>
     </section>

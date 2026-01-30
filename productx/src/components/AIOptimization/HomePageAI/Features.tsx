@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 // import  { useEffect, useRef} from 'react';
 // import { EffectComposer, RenderPass, EffectPass, BloomEffect, ChromaticAberrationEffect } from 'postprocessing';
 // import * as THREE from 'three';
-import {  H3 } from "../../../styles/Typography";
+import { H3 } from "../../../styles/Typography";
 
 const features = [
   {

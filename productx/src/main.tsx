@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       {/* <SmoothScroll/> */}
-      <ScrollProvider >
+      <ScrollProvider>
         <App />
       </ScrollProvider>
     </BrowserRouter>

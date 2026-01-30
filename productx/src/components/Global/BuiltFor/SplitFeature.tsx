@@ -102,7 +102,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       ],
     },
 
-    "digital-native": {
+    "saas-application-providers": {
       headingPrimary: "Impact We Deliver",
         imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
@@ -121,7 +121,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       ],
     },
 
-    smb: {
+    "regulated-large-enterprise": {
       headingPrimary: "The Enterprise Impact We Deliver ",
         imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",

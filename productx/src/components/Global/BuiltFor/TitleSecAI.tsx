@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
-type BuiltForKey = "digital-native" | "enterprises" | "smb"
+type BuiltForKey = "saas-application-providers" | "enterprises" | "regulated-large-enterprise"
 
 const CONTENT_MAP: Record<
   BuiltForKey,
@@ -19,7 +19,7 @@ const CONTENT_MAP: Record<
   }
 > = {
 
-  "digital-native": {
+  "saas-application-providers": {
     heading: (<>
       Scale Your SaaS Profitably <br /> {" "} With CloudDIET
     </>),
@@ -41,7 +41,7 @@ const CONTENT_MAP: Record<
     cta: "Start Your Scan",
     bgImage: "/BuiltFor/BuiltEnter.webp",
   },
-  smb: {
+  "regulated-large-enterprise": {
     heading: "Assured Azure savings for Large enterprises. ",
     description:
       " Cut multi-region Azure waste, keep compliance strong, and protect every critical workload without service risk.",
