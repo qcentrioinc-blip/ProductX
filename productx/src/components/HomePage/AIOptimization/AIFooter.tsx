@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, lazy, Suspense } from "react";
 // const FloatingLines = lazy(() => import("./AIFooterBackground"));
 const ContactModal = lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
 import { toast } from "react-toastify";
+import { H2, H3 } from "../../../styles/Typography";
  
 // Simple inline SVG icons to avoid importing entire lucide-react library
 const ArrowUpRightIcon = () => (
@@ -100,10 +101,12 @@ const AIFooter = () => {
           </svg>
         </div>
 
-        <div className="relative z-20 mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 lg:px-4 py-2 md:py-14 text-center">
-          <h2 className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[55px] font-bold text-[#F5F5F5] leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
+        <div className="relative z-20   sm:mx-8 md:mx-10 px-2 sm:px-4 lg:px-4 py-2 md:py-14 text-center">
+
+<H2 className="text-white">Trust Qnest CloudDiet for guaranteed cloud savings</H2>
+          {/* <h2 className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[55px] font-bold text-[#F5F5F5] leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
             Trust Qnest CloudDiet for guaranteed cloud savings
-          </h2>
+          </h2> */}
         </div>
       </div>
 
@@ -116,7 +119,7 @@ const AIFooter = () => {
             className="
         grid grid-cols-3
         sm:grid-cols-[1fr_1.2fr_1.4fr_1fr] md:mx-20 xl:gap-3
-       
+        mt-10 sm:mt-0
         text-center
         xl:place-items-start xl:text-left
       "
@@ -151,7 +154,7 @@ const AIFooter = () => {
             </div>
 
             {/* Social Icons – full row */}
-            <div className="flex gap-6 justify-center xl:justify-start mt-8 md:mt-0 pl-70 md:pl-0">
+            <div className="flex gap-6 justify-center xl:justify-start mt-8 md:mt-0 pl-52 md:pl-0">
               {socialIcons.map((Icon, i) => (
                 <span
                   key={i}
@@ -165,7 +168,7 @@ const AIFooter = () => {
 
           {/* RIGHT SECTION */}
           <div className="flex flex-col items-center xl:items-start space-y-6 xl:pl-40">
-            <h3
+            {/* <h3
               className="
           text-[26px]
           sm:text-[30px]
@@ -179,8 +182,9 @@ const AIFooter = () => {
               style={{ fontFamily: "'quicksand', sans-serif" }}
             >
               Get Azure optimization tips and savings updates monthly.
-            </h3>
+            </h3> */}
 
+<H3 className="text-white text-center"> Get Azure optimization tips and savings updates monthly.</H3>
             <div className="w-full max-w-md flex flex-col sm:flex-row items-center gap-4">
               <input
                 type="email"

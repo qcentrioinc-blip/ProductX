@@ -228,7 +228,9 @@ export default function InteractiveHeroSection() {
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
       { threshold: 0.3 }
     );
-    heroRef.current && observer.observe(heroRef.current);
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 
@@ -288,7 +290,7 @@ export default function InteractiveHeroSection() {
 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0 touch-pan-y snap-x snap-mandatory overscroll-x-contain">
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0   snap-x snap-mandatory overscroll-x-contain">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
