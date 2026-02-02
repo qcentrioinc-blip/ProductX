@@ -62,8 +62,10 @@ export const BuiltFor = () => {
     <div>
       {/* Navbar */}
       {getNavbar()}
-
-    <TitleSectionSwitcher />
+    <div id="landingpage">
+      <TitleSectionSwitcher />
+    </div>
+    
 <TextSec />
 <Cardcase />
 <BuiltForIntro />

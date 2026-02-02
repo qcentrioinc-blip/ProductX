@@ -232,4 +232,6 @@ const AIFooter = () => {
   );
 };
  
+
 export default AIFooter;
+
