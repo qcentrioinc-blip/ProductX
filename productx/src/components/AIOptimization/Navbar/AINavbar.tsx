@@ -145,7 +145,7 @@ const AINavbar = () => {
       <div className="absolute top-0 z-50 left-0 w-full bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-2 pb-1 flex justify-between transition-all duration-300">
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2  pn rounded cursor-pointer">
-            <img className="h-10 w-full" src="/logo.svg" alt="Company Logo" />
+            <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
           </div>
         </Link>
 

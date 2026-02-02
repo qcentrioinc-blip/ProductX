@@ -1,92 +1,44 @@
-import { ArrowRight } from "lucide-react";
 import { H2, H3, P } from "../../../styles/Typography";
 
-type Item = {
-  title: string;
-  description: string;
-  image: string;
-  reverse?: boolean;
-  cta: string;
-};
+// Inline SVG for ArrowRight
+const ArrowRightIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+);
+
+type Item = { title: string; description: string; image: string; reverse?: boolean; cta: string; };
 
 const items: Item[] = [
-  {
-    title: " Secure Access",
-    description:
-      " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
-      cta:"Get Started",
-    image: "/AIProduct/ImageGrid4.webp",
-  },
-  {
-    title: "AI Analysis",
-    description:
-      " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
-    image: "/AIProduct/ImageGrid2.webp",
-    cta:"Learn More",
-    reverse: true,
-  },
-  {
-    title: "Realize Savings",
-    description:
-      "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
-      cta:"See Results",
-    image: "/AIProduct/ImageGrid3.webp",
-  },
+  { title: "Secure Access", description: "Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.", cta: "Get Started", image: "/AIProduct/ImageGrid4.webp" },
+  { title: "AI Analysis", description: "Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.", cta: "Learn More", image: "/AIProduct/ImageGrid2.webp", reverse: true },
+  { title: "Realize Savings", description: "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.", cta: "See Results", image: "/AIProduct/ImageGrid3.webp" },
 ];
 
 export default function ImageGrid() {
   return (
-    <section className="relative  max-w-8xl overflow-hidden">
-      {/* Sticky Background */}
-
-
-      {/* ForegrouInd Content */}
+    <section className="relative max-w-8xl overflow-hidden">
       <div className="relative z-10">
-        {/* Header */}
-        <div className="flex flex-col items-center justify-center text-center ">
-          <H2 className=" mb-6 text-[#254D70]">
-            How CloudDIET Works For You
-          </H2>
-          <P className=" mb-14  ">
-            A secure, four-step process to guarantee cloud savings.
-          </P>
+        <div className="flex flex-col items-center justify-center text-center">
+          <H2 className="mb-6 text-[#254D70]">How CloudDIET Works For You</H2>
+          <P className="mb-14">A secure, four-step process to guarantee cloud savings.</P>
         </div>
-
-        {/* Content */}
-        <div className="space-y-10 max-w-7xl xl:mx-auto  mx-10 pb-10">
+        <div className="space-y-10 max-w-7xl xl:mx-auto mx-10 pb-10">
           {items.map((item, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 gap-x-20"
-            >
-              {/* Image */}
-              <div
-                className={`${item.reverse ? "md:order-2" : ""}`}
-              >
+            <div key={index} className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 gap-x-20">
+              <div className={`${item.reverse ? "md:order-2" : ""}`}>
                 <div className="w-full aspect-[4/3] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    width={800}
-                    height={600}
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <img src={item.image} alt={item.title} width={800} height={600} decoding="async" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>
-
-              {/* Text */}
               <div className={`${item.reverse ? "md:order-1 max-w-md" : "max-w-md"}`}>
-  <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
-  <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
-  <div className="flex mt-8 flex-row items-center space-x-2">
-    <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
-      <P className="font-bold">{item.cta}</P>
-      <span><ArrowRight /></span>
-    </a>
-  </div>
-</div>
+                <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
+                <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
+                <div className="flex mt-8 flex-row items-center space-x-2">
+                  <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
+                    <P className="font-bold">{item.cta}</P>
+                    <span><ArrowRightIcon /></span>
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>

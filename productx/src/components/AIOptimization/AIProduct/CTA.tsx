@@ -1,19 +1,19 @@
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { useRef } from "react";
-
+ 
 const text =
   "On average, CloudDIET customers save 30% of their Azure spend beyond existing Reserved Instances.";
-
+ 
 const images = [
   "/AI-CloudFinOps/HomePage/cost.mp4",
   "/AI-CloudFinOps/HomePage/data-cloud.mp4",
   "/AI-CloudFinOps/HomePage/savings.mp4",
   "/AI-CloudFinOps/HomePage/saving-strategy.mp4",
 ];
-
+ 
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
-
+ 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "start 0.15"],
@@ -48,11 +48,11 @@ export default function CTA() {
       r: -8,
     },
   ];
-
+ 
   const words = text.split(" ");
   const highlightStart = text.indexOf("30%");
   const highlightEnd = highlightStart + 3;
-
+ 
   return (
     <section
       ref={sectionRef}
@@ -85,7 +85,7 @@ export default function CTA() {
               rounded-xl
               overflow-hidden
               border border-black/5
-              
+             
             "
           >
             <video
@@ -99,7 +99,7 @@ export default function CTA() {
           </motion.div>
         ))}
       </div>
-
+ 
       {/* ================= TEXT (ALL SCREENS) ================= */}
       <div className="relative z-10 max-w-4xl text-center">
         <h2 className="
@@ -120,14 +120,14 @@ export default function CTA() {
               {word.split("").map((char, charIndex) => {
                 const globalIndex =
                   text.indexOf(word) + charIndex;
-
+ 
                 const start = globalIndex / text.length;
                 const end = start + 1 / text.length;
-
+ 
                 const isHighlight =
                   globalIndex >= highlightStart &&
                   globalIndex < highlightEnd;
-
+ 
                 return (
                   <Character
                     key={charIndex}
@@ -146,7 +146,7 @@ export default function CTA() {
     </section>
   );
 }
-
+ 
 /* ------------------------------
    Character component
 -------------------------------- */
@@ -170,13 +170,13 @@ function Character({
       ? ["#9ca3af", "#000000", "#2563eb"]
       : ["#9ca3af", "#000000"]
   );
-
+ 
   const scale = useTransform(
     progress,
     [0.9, 1],
     highlight ? [1, 1.15] : [1, 1]
   );
-
+ 
   return (
     <motion.span
       style={{ color, scale }}
