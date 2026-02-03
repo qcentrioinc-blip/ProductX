@@ -3,9 +3,9 @@ import { H1, P } from "../../../styles/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
- 
+
 import { ArrowRight, ArrowUpRight } from "lucide-react";
- 
+
 type IntroStyle = {
   sectionBg: string;
   headingColor: string;
@@ -15,13 +15,13 @@ type IntroStyle = {
   contactAction: "route" | "drawer" | "modal";
   contactRoute?: string;
 };
- 
+
 type IntroContent = {
   heading: string;
   para1: string;
   para2: string;
 };
- 
+
 const STYLE_CONFIG: Record<string, IntroStyle> = {
   "ehr-and-pms": {
     sectionBg: "bg-[#F4F8FF]",
@@ -31,7 +31,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
     buttonText: "text-[#166D48]",
     contactAction: "drawer",
   },
- 
+
   "banking-and-finance": {
     sectionBg: "bg-[#F2F2F2]",
     headingColor: "text-[#2A2A2A]",
@@ -41,7 +41,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
     contactAction: "route",
     contactRoute: "/industries/banking-and-finance/contactform",
   },
- 
+
   "high-tech": {
     sectionBg: "bg-black",
     headingColor: "text-[#F99526]",
@@ -51,7 +51,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
     contactAction: "route",
     contactRoute: "/industries/high-tech/contactform",
   },
- 
+
   "cloud-finops-ai": {
     sectionBg: "bg-[#FAFAFA]",
     headingColor: "text-[#254D70]",
@@ -61,7 +61,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
     contactAction: "modal",
   },
 };
- 
+
 const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
   "cloud-finops-ai": {
     enterprises: {
@@ -71,7 +71,7 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
       para2:
         "CloudDIET changes this and uses engineering expertise to find waste that other tools ignore. From overprovisioned VMs to bad licensing, you get clear steps to cut costs and keep services running. ",
     },
- 
+
     "saas-application-providers": {
       heading: "Why Tools Fail SaaS",
       para1:
@@ -79,7 +79,7 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
       para2:
         "CloudDIET solves this. It checks failed triggers, unused registries, and messaging configs. Engineering teams get fixes that scale with customer growth. ",
     },
- 
+
     "regulated-large-enterprise": {
       heading: "Why Traditional Tools Fail",
       para1:
@@ -88,7 +88,7 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
         "Teams stay stuck with 10M+ spend risks and no safe path to 30% cuts. ",
     },
   },
- 
+
   "banking-and-finance": {
     banks: {
       heading: "Why Legacy Banking Systems Hold You Back",
@@ -97,7 +97,7 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
       para2:
         "Modern optimization requires intelligent automation and real-time insights.",
     },
- 
+
     nbfc: {
       heading: "Why NBFCs Struggle to Scale Efficiently",
       para1:
@@ -105,7 +105,7 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
       para2:
         "Smart systems enable controlled, compliant growth.",
     },
- 
+
     "credit-union": {
       heading: "Why Credit Unions Need Smarter Technology",
       para1:
@@ -115,23 +115,23 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
     },
   },
 };
- 
+
 export default function BuiltForIntro() {
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
- 
+
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
- 
+
   const style = STYLE_CONFIG[industry ?? "banking-and-finance"];
   const content =
     CONTENT_CONFIG[industry ?? ""]?.[builtForType ?? ""];
- 
+
   if (!content) return null;
- 
+
   const handleContactClick = () => {
     if (style.contactAction === "route" && style.contactRoute) {
       navigate(style.contactRoute);
@@ -141,22 +141,22 @@ export default function BuiltForIntro() {
       setModalOpen(true);
     }
   };
- 
+
   return (
     <>
       <section
-        className={`relative w-full py-4  ${style.sectionBg}`}
+        className={`relative w-full py-10  ${style.sectionBg}`}
       >
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-4xl">
             <H1 className={`mb-6 ${style.headingColor}`}>
               {content.heading}
             </H1>
- 
+
             <P className={`mb-4 ${style.paraColor}`}>
               {content.para1}
             </P>
- 
+
             <P className={`mb-8 ${style.paraColor}`}>
               {content.para2}
             </P>
@@ -179,18 +179,18 @@ export default function BuiltForIntro() {
             >
               Learn More
               <span className="flex items-center gap-2">
- 
+
                 <span className="relative flex items-center w-[20px] h-[20px]">
                   <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                   <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
             </button>
- 
+
           </div>
         </div>
       </section>
- 
+
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>

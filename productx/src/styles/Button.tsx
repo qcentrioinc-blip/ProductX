@@ -41,8 +41,7 @@ const useClickSpark = (options: {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Spark[]>([]);
-
-  // const startTimeRef = useRef<number | null>(null);
+  const reqIdRef = useRef<number | null>(null);
 
   const easeFunc = useCallback(
     (t: number) => {
@@ -74,7 +73,6 @@ const useClickSpark = (options: {
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        // Use contentRect to avoid getBoundingClientRect()
         const { width, height } = entry.contentRect;
         updateCanvasSize(width, height);
       }
@@ -82,52 +80,52 @@ const useClickSpark = (options: {
 
     resizeObserver.observe(parent);
 
-    resizeObserver.observe(parent);
-
-    const ctx = canvas?.getContext("2d");
-    let frame: number;
-
-    const draw = (timestamp: number) => {
-      // Ensure canvas and ctx are valid before drawing
-      if (!canvas || !ctx) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      sparksRef.current = sparksRef.current.filter((spark) => {
-        const elapsed = timestamp - spark.startTime;
-        if (elapsed >= duration) return false;
-
-        const t = easeFunc(elapsed / duration);
-        const distance = t * sparkRadius * extraScale;
-        const lineLength = sparkSize * (1 - t);
-
-        const x1 = spark.x + distance * Math.cos(spark.angle);
-        const y1 = spark.y + distance * Math.sin(spark.angle);
-        const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
-        const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
-
-        ctx.strokeStyle = sparkColor;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-
-        return true;
-      });
-
-      frame = requestAnimationFrame(draw);
-    };
-
-    if (ctx) {
-      frame = requestAnimationFrame(draw);
-    }
-
     return () => {
       resizeObserver.disconnect();
-      if (frame) cancelAnimationFrame(frame);
+      if (reqIdRef.current) {
+        cancelAnimationFrame(reqIdRef.current);
+        reqIdRef.current = null;
+      }
     };
-  }, [sparkRadius, sparkSize, sparkColor, duration, extraScale, easeFunc]);
+  }, []);
+
+  const draw = useCallback((timestamp: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    sparksRef.current = sparksRef.current.filter((spark) => {
+      const elapsed = timestamp - spark.startTime;
+      if (elapsed >= duration) return false;
+
+      const t = easeFunc(elapsed / duration);
+      const distance = t * sparkRadius * extraScale;
+      const lineLength = sparkSize * (1 - t);
+
+      const x1 = spark.x + distance * Math.cos(spark.angle);
+      const y1 = spark.y + distance * Math.sin(spark.angle);
+      const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
+      const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
+
+      ctx.strokeStyle = sparkColor;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+
+      return true;
+    });
+
+    if (sparksRef.current.length > 0) {
+      reqIdRef.current = requestAnimationFrame(draw);
+    } else {
+      reqIdRef.current = null;
+    }
+  }, [duration, easeFunc, extraScale, sparkColor, sparkRadius, sparkSize]);
 
   const triggerSpark = (e: React.MouseEvent) => {
     const canvas = canvasRef.current;
@@ -136,17 +134,20 @@ const useClickSpark = (options: {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     const now = performance.now();
 
-    const sparks = Array.from({ length: sparkCount }, (_, i) => ({
+    const newSparks = Array.from({ length: sparkCount }, (_, i) => ({
       x,
       y,
       angle: (2 * Math.PI * i) / sparkCount,
       startTime: now
     }));
 
-    sparksRef.current.push(...sparks);
+    sparksRef.current.push(...newSparks);
+
+    if (!reqIdRef.current) {
+      reqIdRef.current = requestAnimationFrame(draw);
+    }
   };
 
   return { canvasRef, triggerSpark };

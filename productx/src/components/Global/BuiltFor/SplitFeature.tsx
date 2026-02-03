@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 type SplitContent = {
   headingPrimary: string | ReactNode;
-   imageSrc: string; 
+  imageSrc: string;
   paragraph: string;
   bulletPoints: string[];
   stats: {
@@ -26,7 +26,7 @@ type Theme = {
 
 /* ================= THEMES (BY INDUSTRY) ================= */
 const BULLET_ICONS = [
-   "/BuiltFor/Waste.svg",
+  "/BuiltFor/Waste.svg",
   "/BuiltFor/money.svg",
   "/BuiltFor/web.svg",
   "/BuiltFor/efficiency.svg",
@@ -64,7 +64,7 @@ const THEMES: Record<string, Theme> = {
   },
 
   "cloud-finops-ai": {
-sectionBg: "bg-[#FAFAFA]",
+    sectionBg: "bg-[#FAFAFA]",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
     headingPrimaryColor: "text-[#254D70]",
     headingSecondaryColor: "text-[#254D70]",
@@ -80,15 +80,15 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
   "cloud-finops-ai": {
     enterprises: {
       // headingPrimary: "The Impact CloudDIET Delivers For Enterprises",
-         headingPrimary: (
-    <>
-      The Impact  
-       CloudDIET 
-      Delivers For Enterprises
-    </>
-  ),
-    imageSrc: "/BuiltFor/EnterpriseSplit.webp",
-          paragraph:"CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
+      headingPrimary: (
+        <>
+          The Impact
+          CloudDIET
+          Delivers For Enterprises
+        </>
+      ),
+      imageSrc: "/BuiltFor/EnterpriseSplit.webp",
+      paragraph: "CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
       bulletPoints: [
         "Cut Waste Fast",
         "Fix Config Errors",
@@ -104,7 +104,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "saas-application-providers": {
       headingPrimary: "Impact We Deliver",
-        imageSrc: "/BuiltFor/DigitalBuilt.webp",
+      imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -123,7 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "regulated-large-enterprise": {
       headingPrimary: "The Enterprise Impact We Deliver ",
-        imageSrc: "/BuiltFor/SMBBuilt.webp",
+      imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",
@@ -161,12 +161,12 @@ export default function SplitFeature() {
 
   return (
     <section className={`w-full    ${theme.sectionBg}`}>
-      <div className="max-w-8xl mx-10  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl mx-10 pb-6  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
         <div className="flex  justify-start   lg:justify-center xl:justify-start">
           <img
-              src={content.imageSrc}
+            src={content.imageSrc}
             alt="Feature"
             className="w-full  rounded-2xl object-cover "
           />
@@ -180,7 +180,7 @@ export default function SplitFeature() {
             <span className={theme.headingPrimaryColor}>
               {content.headingPrimary}{" "}
             </span>
-           
+
           </H2>
 
           {/* PARAGRAPH */}
@@ -189,27 +189,27 @@ export default function SplitFeature() {
           </P>
 
           {/* BULLETS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-2 gap-2 mt-8">
-  {content.bulletPoints.map((text, index) => (
-    <div
-      key={index}
-      className="flex items-center gap-3 w-full"
-    >
-      <div
-        className={`rounded-full ${theme.bulletColor} w-14 h-14 flex items-center justify-center flex-shrink-0`}
-      >
-        <img
-          src={BULLET_ICONS[index]}
-          alt=""
-          className="w-full h-full p-3 object-contain"
-        />
-      </div>
-      <P className={`${theme.paragraphColor} text-left`}>
-        {text}
-      </P>
-    </div>
-  ))}
-</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-2 gap-2 mt-8">
+            {content.bulletPoints.map((text, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 w-full"
+              >
+                <div
+                  className={`rounded-full ${theme.bulletColor} w-14 h-14 flex items-center justify-center flex-shrink-0`}
+                >
+                  <img
+                    src={BULLET_ICONS[index]}
+                    alt=""
+                    className="w-full h-full p-3 object-contain"
+                  />
+                </div>
+                <P className={`${theme.paragraphColor} text-left`}>
+                  {text}
+                </P>
+              </div>
+            ))}
+          </div>
 
 
 

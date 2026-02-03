@@ -3,7 +3,7 @@ import { H1 } from "../../../styles/Typography";
 
 export default function TitleSecBnF() {
   return (
-    <section 
+    <section
       className="w-full h-screen bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url('/BuiltFor/bg_img.jpg')" }}
     >
@@ -13,11 +13,11 @@ export default function TitleSecBnF() {
       {/* CONTENT */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-8xl mx-10 ">
-          
+
           <div className="w-full md:w-[60%] space-y-6">
             <H1 className="text-white leading-tight">
-              Shaping the 
-              Future Across 
+              Shaping the
+              Future Across
               B and F.
             </H1>
 

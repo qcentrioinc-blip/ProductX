@@ -14,23 +14,23 @@ const items: Item[] = [
     title: " Secure Access",
     description:
       " Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications.",
-      cta:"Get Started",
+    cta: "Get Started",
     image: "/AIProduct/ImageGrid4.webp",
   },
   {
     title: "AI Analysis",
     description:
       " Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate.",
-    image: "/AIProduct/ImageGrid2.webp",
-    cta:"Learn More",
+    image: "/AIProduct/ImageGrid2-transformed.webp",
+    cta: "Learn More",
     reverse: true,
   },
   {
     title: "Realize Savings",
     description:
       "We provide an assured savings estimate, help implement recommendations, and charge only a percentage of the savings you realize.",
-      cta:"See Results",
-    image: "/AIProduct/ImageGrid3.webp",
+    cta: "See Results",
+    image: "/AIProduct/ImageGrid3-transformed.webp",
   },
 ];
 
@@ -78,15 +78,15 @@ export default function ImageGrid() {
 
               {/* Text */}
               <div className={`${item.reverse ? "md:order-1 max-w-md" : "max-w-md"}`}>
-  <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
-  <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
-  <div className="flex mt-8 flex-row items-center space-x-2">
-    <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
-      <P className="font-bold">{item.cta}</P>
-      <span><ArrowRight /></span>
-    </a>
-  </div>
-</div>
+                <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
+                <P className="mb-4 pt-6 tracking-wide leading-snug">{item.description}</P>
+                <div className="flex mt-8 flex-row items-center space-x-2">
+                  <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
+                    <P className="font-bold">{item.cta}</P>
+                    <span><ArrowRight /></span>
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>

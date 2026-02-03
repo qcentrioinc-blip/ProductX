@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 // Preload hero assets on hover for faster visual loading
 const preloadAssets = () => {
   const dashImg = new Image();
-  dashImg.src = '/AIOptimization/dashboardfinal.webp';
+  dashImg.src = '/AIOptimization/Hero_DashBoard.webp';
 };
 
 
@@ -22,45 +22,44 @@ export default function NewFooter() {
       preloadAssets();
     }
   };
-const handleFormSubmit = (e: React.FormEvent) => {
-  e.preventDefault(); // prevents page reload
-  handleSubmit();
-};
-
- 
-
-
-const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const value = e.target.value;
-  setEmail(value);
-
-  if (isFullyValidEmail(value)) {
-    setButtonColor("bg-green-500"); // ✅ fully valid email
-  } else {
-    setButtonColor("bg-[#8C8C8C]"); // ❌ anything else stays grey
-  }
-};
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // prevents page reload
+    handleSubmit();
+  };
 
 
 
- 
 
-const isFullyValidEmail = (value: string) => {
-   return /^[^\s@]+@[a-zA-Z]+\.(com|in|net|org|co|io)$/.test(value);
-};
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (isFullyValidEmail(value)) {
+      setButtonColor("bg-green-500"); // ✅ fully valid email
+    } else {
+      setButtonColor("bg-[#8C8C8C]"); // ❌ anything else stays grey
+    }
+  };
 
 
-const handleSubmit = () => {
-  if (!isFullyValidEmail(email)) {
-    toast.error("Please enter a valid email address");
-    setButtonColor("bg-[#8C8C8C]");  
-    return;
-  }
 
-  toast.success("Submitted successfully");
-  setEmail("");
-  setButtonColor("bg-[#8C8C8C]");  
-};
+
+
+  const isFullyValidEmail = (value: string) => {
+    return /^[^\s@]+@[a-zA-Z]+\.(com|in|net|org|co|io)$/.test(value);
+  };
+
+
+  const handleSubmit = () => {
+    if (!isFullyValidEmail(email)) {
+      toast.error("Please enter a valid email address");
+      setButtonColor("bg-[#8C8C8C]");
+      return;
+    }
+    toast.success("Submitted successfully");
+    setEmail("");
+    setButtonColor("bg-[#8C8C8C]");
+  };
 
 
 
@@ -89,34 +88,34 @@ const handleSubmit = () => {
             </div>
           </div>
           {/* Stay Up to date (md only, top-right) */}
-<div className="hidden  md:flex xl:hidden flex-col">
-  <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
-  <P className="text-gray-300 text-sm mb-4">
-    Subscribe to our insights, our monthly look at the critical issues facing global businesses.
-  </P>
+          <div className="hidden  md:flex xl:hidden flex-col">
+            <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
+            <P className="text-gray-300 text-sm mb-4">
+              Subscribe to our insights, our monthly look at the critical issues facing global businesses.
+            </P>
 
-  <form
-    onSubmit={handleFormSubmit}
-    className="flex flex-col gap-4"
-  >
-    <input
-      type="email"
-      placeholder="Email"
-      value={email}
-      onChange={handleEmailChange}
-      className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-none"
-    />
+            <form
+              onSubmit={handleFormSubmit}
+              className="flex flex-col gap-4"
+            >
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+                className="w-full px-4 py-4 font-quickstand text-[16px] rounded-lg bg-transparent border border-gray-500 text-sm focus:outline-none"
+              />
 
-    <button
-      type="submit"
-      className={`${buttonColor} text-white px-6 py-3 w-52 font-quicksand rounded-xl text-sm transition-colors duration-300`}
-    >
-      Subscribe
-    </button>
-  </form>
-</div>
+              <button
+                type="submit"
+                className={`${buttonColor} text-white px-6 py-3 w-52 font-quicksand rounded-xl text-sm transition-colors duration-300`}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
 
-       
+
         </div>
         <hr className="my-4 md:my-10 bg-[#858585] w-full"></hr>
         {/* Middle Columns */}
@@ -188,18 +187,18 @@ const handleSubmit = () => {
           </div>
 
 
-         {/* only for md it will be hidden  */}
-           <div className="flex flex-col  md:hidden xl:flex">
+          {/* only for md it will be hidden  */}
+          <div className="flex flex-col  md:hidden xl:flex">
 
             <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
             <P className="text-gray-300 text-sm mb-4">
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
-     
-<form
-  onSubmit={handleFormSubmit}
-  className="flex flex-col lg:flex-row items-start lg:items-center gap-4"
->
+
+            <form
+              onSubmit={handleFormSubmit}
+              className="flex flex-col lg:flex-row items-start lg:items-center gap-4"
+            >
 
               <input
                 type="email"
@@ -210,8 +209,8 @@ const handleSubmit = () => {
               />
 
               <button
-              type="submit" 
-                
+                type="submit"
+
                 className={`${buttonColor} text-white px-6 py-3 font-quicksand text-md rounded-xl text-sm transition-colors duration-300`}
               >
                 Subscribe
@@ -223,16 +222,16 @@ const handleSubmit = () => {
 
 
 
-        </div>
+        </div >
 
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start text-xs text-gray-300 gap-4   pt-6">
+        < div className="flex flex-col md:flex-row justify-between items-start text-xs text-gray-300 gap-4   pt-6" >
           <P className="text-gray-300">2026 Qnest. All rights reserved</P>
 
-        
-        </div>
-      </div>
-    </footer>
+
+        </div >
+      </div >
+    </footer >
   );
 }

@@ -19,12 +19,13 @@ interface IndustryCardProps {
   onClick: () => void;
   url: string;
   onComingSoonClick: (title: string) => void;
+  onNavigate?: (url: string) => Window | null;
   onPrefetch?: () => void;
   countdownText: string | null;
 }
 
 const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
-  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onPrefetch, countdownText }, ref) => {
+  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onNavigate, onPrefetch, countdownText, isActive }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
     const hasPrefetched = useRef(false);
 
@@ -45,7 +46,11 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
           hasPrefetched.current = true;
           onPrefetch();
         }
-        window.open(url, '_blank', 'noopener,noreferrer');
+        if (onNavigate) {
+          onNavigate(url);
+        } else {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
       }
     };
 
@@ -54,7 +59,6 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
     return (
       <motion.div
         ref={ref}
-        layout
         onClick={onClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsHovered(false)}
@@ -67,12 +71,12 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         transition={{
           duration: 0.8,
           ease: [0.22, 1, 0.36, 1],
-          layout: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
         }}
       >
         <div
           onClick={handleClick}
-          className="block relative overflow-hidden rounded-xl transition-all duration-700 cursor-pointer"
+          className={`block relative overflow-hidden rounded-xl transition-all duration-700 cursor-pointer ${isActive ? 'ring-2 ring-white/50 ring-offset-2 ring-offset-black' : ''
+            }`}
           style={{ height: '140px', width: '260px' }}
         >
           {/* Image */}
@@ -131,11 +135,11 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
             </div>
           </div>
 
-          {/* Border */}
+          {/* Border (Hover state) */}
           {isReady && isHovered && (
-            <motion.div layoutId="activeGlowBorder"
+            <div
               className="absolute inset-0 border-2 border-white/70 rounded-xl z-30 pointer-events-none"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
+            />
           )}
         </div>
       </motion.div>
@@ -167,6 +171,7 @@ const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) 
 };
 
 export default function InteractiveHeroSection() {
+  // const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: '' });
   const [isMobile, setIsMobile] = useState(false);
@@ -205,14 +210,13 @@ export default function InteractiveHeroSection() {
   // Helper to calculate countdown string (D H M)
   const getCountdown = (deadline: string | null) => {
     if (!deadline) return null;
-    
     const total = Date.parse(deadline) - currentTime;
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((total / 1000 / 60) % 60);
-    
+
     if (total <= 0) return "0d 0h 0m";
-    
+
     return `${days}d ${hours}h ${minutes}m`;
   };
 
@@ -290,7 +294,9 @@ export default function InteractiveHeroSection() {
 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0   snap-x snap-mandatory overscroll-x-contain">
+                  data-lenis-prevent
+                  style={{ touchAction: 'pan-y', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0 snap-x snap-mandatory overscroll-x-contain">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
@@ -305,6 +311,7 @@ export default function InteractiveHeroSection() {
                           isMobile={isMobile}
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
+                          onNavigate={(url) => window.open(url, '_blank')}
                           onPrefetch={preloadAssets}
                           countdownText={getCountdown(industry.deadline)}
                         />

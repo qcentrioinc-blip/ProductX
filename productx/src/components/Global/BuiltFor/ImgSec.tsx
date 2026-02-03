@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { ContactUs, ContactUsAI } from "../../../styles/Button";
 import { H2, H3, P } from "../../../styles/Typography";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
@@ -66,7 +66,7 @@ const THEMES: Record<string, Theme> = {
 
   "cloud-finops-ai": {
     bgImage: "/BuiltFor/ImageBg2.webp",
-      cardBg: "bg-[#254D70]",
+    cardBg: "bg-[#254D70]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",
@@ -79,8 +79,8 @@ const THEMES: Record<string, Theme> = {
 /* ================= BACKGROUND IMAGES FOR CLOUD-FINOPS-AI SUB-TYPES ================= */
 
 const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
-  enterprises: "/BuiltFor/EnterpriseBg.webp",
-  "saas-application-providers": "/BuiltFor/DigitalNativebg.webp",
+  enterprises: "/BuiltFor/enterprisenewbg.webp",
+  "saas-application-providers": "/BuiltFor/digitalnativenewbg.webp",
   "regulated-large-enterprise": "/BuiltFor/SmnBg.webp",
 };
 
@@ -89,8 +89,8 @@ const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
-      heroHeading:(<>
-      CloudDIET cuts enterprise <br/> {" "} Azure waste.
+      heroHeading: (<>
+        CloudDIET cuts enterprise <br /> {" "} Azure waste.
       </>),
       cardTitle: "Our Platform",
       cardPara: "Check our solution for large-scale Azure environments.",
@@ -106,10 +106,10 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "regulated-large-enterprise": {
-      heroHeading:(<>
-      CloudDIET stops SaaS <br/> {" "}cloud waste.
+      heroHeading: (<>
+        CloudDIET stops SaaS <br /> {" "}cloud waste.
       </>),
-     
+
       cardTitle: "Start Optimizing ",
       cardPara: "Check CloudDIET platform to cut Azure costs safely in regulated setups",
       buttonLabel: " Try Platform",
@@ -143,7 +143,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
   },
 };
 
- 
+
 export default function ImgSec() {
   const { industry, builtForType } = useParams<{
     industry: string;
@@ -190,15 +190,15 @@ export default function ImgSec() {
         className="relative w-full lg:h-[50vh] xl:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
         style={{ backgroundImage: `url(${getBgImage()})` }}
       >
-        
 
-        <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 h-full">
+
+        <div className="relative z-10 w-full max-w-[90rem] mx-auto h-full xl:pt-4">
           {/* LEFT TEXT */}
-          <div className="   h-full  pt-6  ">
+          <div className="absolute h-full pt-6 xl:left-[-3%]">
             <div className="w-full  ">
-            <H2 className="leading-tight text-[#254D70] max-w-5xl">
-  {content.heroHeading}
-</H2>
+              <H2 className="leading-tight text-[#254D70] max-w-5xl">
+                {content.heroHeading}
+              </H2>
 
             </div>
           </div>
@@ -224,11 +224,11 @@ export default function ImgSec() {
               <P className={`mb-6 ${theme.paraColor}`}>
                 {content.cardPara}
               </P>
-             
 
-                <a href="/comingsoon">
-              <button
-                className={` gap-2 group
+
+              <a href="/comingsoon">
+                <button
+                  className={` gap-2 group
             flex items-center justify-center
             w-auto h-[44px] sm:h-[48px]
             px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
@@ -242,10 +242,10 @@ export default function ImgSec() {
             hover:border-b-[4px]
             hover:-translate-y-[2px]
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] ${theme.buttonBg} ${theme.buttonText} cursor-pointer`}
-               
-              >
-                {content.buttonLabel}
-              </button>
+
+                >
+                  {content.buttonLabel}
+                </button>
               </a>
             </div>
           </div>

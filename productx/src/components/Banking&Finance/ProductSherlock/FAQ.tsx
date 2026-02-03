@@ -2,164 +2,164 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { H2, H3, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
-import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
-import ContactModal from "../../AIOptimization/Navbar/ContactModal";
+const ContactDrawer = React.lazy(() => import("../../EHR&PMS/Navbar/ContactDrawer"));
+const ContactModal = React.lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
 
 interface FaqItem {
   question: string;
   answer: string;
 }
 
-const showShape =
-  location.pathname === "/industries/banking-and-finance";
-
-  const faqIntroByIndustry: Record<
-  string,
-  { heading: string; description: string ;cta:string}
-> = {
-  "/industries/ehr-and-pms": {
-    heading: "Your Queries Answered",
-    description:
-      "Find quick answers to common questions about how Unified Clinicapp works for your practice, its features, and implementation.",
-      cta:"See More"
-  },
-
-  "/industries/cloud-finops-ai": {
-    heading: "Frequently Asked Questions",
-    description:
-      "Find clear answers about how CloudDIET works, its security model, savings process, and AI-driven approach to cloud financial optimization.",
-      cta:"Learn More"
-  },
-
-  "/industries/high-tech": {
-    heading: "Frequently Asked Questions",
-    description:
-      "Learn how our platform supports innovation, scalability, and growth for high-tech organizations.",
-       cta:"Learn More"
-  },
-
-  "/industries/banking-and-finance": {
-    heading: "Your Queries Answered",
-    description:
-      "Explore common questions around security, compliance, and operational efficiency in financial services.",
-       cta:"Learn More"
-  },
-};
-
- 
-const faqContentByIndustry: Record<string, FaqItem[]> = {
-  "/industries/high-tech": [
-    {
-      question: "How does our platform support high-tech innovation?",
-      answer:
-        "Our solution accelerates product development cycles, enhances R&D collaboration, and enables data-driven innovation across high-tech organizations.",
-    },
-    {
-      question: "Is the platform scalable for rapid growth?",
-      answer:
-        "Yes. It is built on cloud-native architecture designed to scale with evolving high-tech business demands.",
-    },
-  ],
-
-  "/industries/cloud-finops-ai": [
-    {
-      question: "What exactly does CloudDIET do?",
-      answer:
-        "CloudDIET uses AI to profile, analyze, and optimize cloud resource configuration, utilization, and commercial terms to reduce waste and guarantee savings. ",
-    },
-    {
-      question: "Does CloudDIET access my company's data?",
-      answer:
-        "No. CloudDIET only accesses billing metadata, usage metrics, and resource configuration, never your files, databases, or application data. .",
-    },
-    {
-      question: " How is CloudDIET different from Azure Cost Management or AWS Cost Explorer?",
-      answer:
-        "CloudDIET provides engineering-led insights and AI-powered profiling that identifies misconfigurations and optimization opportunities beyond basic cost reporting. ",
-    },
-    {
-      question: " What cloud platforms does CloudDIET support?",
-      answer:
-        "CloudDIET supports Azure, AWS, and Google Cloud, with optimizations tailored to each platform's services and pricing models. ",
-    },
-    {
-      question: " What’s the typical timeline to see results?",
-      answer:
-        "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks. ",
-    },
-    {
-      question: "Can CloudDIET help with Reserved Instances and Savings Plans?",
-      answer:
-        "Yes. We analyze your usage and provide data-driven recommendations for optimal Reserved Instance and Savings Plan purchases",
-    },
-    {
-      question: "What kind of customer is CloudDIET best suited for?",
-      answer:
-        "Enterprises with mature cloud environments, dedicated cloud/FinOps teams, and significant spend on Azure, AWS, or Google Cloud. ",
-    },
-  ],
-
-  "/industries/ehr-and-pms": [
-    {
-      question: "What is Unified Clinicapp??",
-      answer:
-        "Unified Clinicapp is an all-in-one software that combines Electronic Health Records (EHR) and Practice Management for scheduling, billing, and patient engagement in a single platform. ",
-    },
-    {
-      question: "How does it improve clinical workflow?",
-      answer:
-        "It offers smart templates, integrated patient history, and e-prescribing to reduce charting time and help doctors make faster, more informed decisions during patient visits. ",
-    },
-     {
-      question: " Can patients schedule their own appointments?",
-      answer:
-        "Yes. Patients can book, reschedule, or cancel appointments 24/7 through the patient portal or mobile app, which syncs directly with your practice calendar. ",
-    },
-    {
-      question: "Is the platform HIPAA compliant?",
-      answer:
-        "Absolutely. It includes role-based access, audit trails, and secure data handling to meet all HIPAA requirements for patient privacy and security. ",
-    },
-     {
-      question: "Do you offer a patient portal?",
-      answer:
-        "Yes. Patients get a secure portal to view health records, lab results, pay bills, complete forms, and message your practice. ",
-    },
-    {
-      question: "How long does implementation take?",
-      answer:
-        "Implementation time varies by practice size, but our team provides dedicated support for data migration, training, and go-live to ensure a smooth transition. ",
-    },
-    {
-      question: "Can we use it on mobile devices?",
-      answer:
-        "Yes. The platform is fully accessible on iOS and Android for both providers and patients, with a streamlined mobile-friendly interface.  ",
-    },
-  ],
-
-  "/industries/banking-and-finance": [
-    {
-      question: "How does the platform enhance financial security?",
-      answer:
-        "We provide enterprise-grade security, fraud detection, and compliance monitoring tailored for financial institutions.",
-    },
-    {
-      question: "Does it support regulatory compliance?",
-      answer:
-        "Yes. Our solution is designed to meet global banking and financial regulatory requirements.",
-    },
-  ],
-};
-
 const FaqSection: React.FC = () => {
   const { pathname } = useLocation();
-  const introContent =
-  faqIntroByIndustry[pathname] ||
-  faqIntroByIndustry["/industries/banking-and-finance"];
 
-const faqData =
-  faqContentByIndustry[pathname] ||
-  faqContentByIndustry["/industries/banking-and-finance"];
+  const showShape = pathname === "/industries/banking-and-finance";
+
+  const faqIntroByIndustry: Record<
+    string,
+    { heading: string; description: string; cta: string }
+  > = {
+    "/industries/ehr-and-pms": {
+      heading: "Your Queries Answered",
+      description:
+        "Find quick answers to common questions about how Unified Clinicapp works for your practice, its features, and implementation.",
+      cta: "See More"
+    },
+
+    "/industries/cloud-finops-ai": {
+      heading: "Frequently Asked Questions",
+      description:
+        "Find clear answers about how CloudDIET works, its security model, savings process, and AI-driven approach to cloud financial optimization.",
+      cta: "Learn More"
+    },
+
+    "/industries/high-tech": {
+      heading: "Frequently Asked Questions",
+      description:
+        "Learn how our platform supports innovation, scalability, and growth for high-tech organizations.",
+      cta: "Learn More"
+    },
+
+    "/industries/banking-and-finance": {
+      heading: "Your Queries Answered",
+      description:
+        "Explore common questions around security, compliance, and operational efficiency in financial services.",
+      cta: "Learn More"
+    },
+  };
+
+
+  const faqContentByIndustry: Record<string, FaqItem[]> = {
+    "/industries/high-tech": [
+      {
+        question: "How does our platform support high-tech innovation?",
+        answer:
+          "Our solution accelerates product development cycles, enhances R&D collaboration, and enables data-driven innovation across high-tech organizations.",
+      },
+      {
+        question: "Is the platform scalable for rapid growth?",
+        answer:
+          "Yes. It is built on cloud-native architecture designed to scale with evolving high-tech business demands.",
+      },
+    ],
+
+    "/industries/cloud-finops-ai": [
+      {
+        question: "What exactly does CloudDIET do?",
+        answer:
+          "CloudDIET uses AI to profile, analyze, and optimize cloud resource configuration, utilization, and commercial terms to reduce waste and guarantee savings. ",
+      },
+      {
+        question: "Does CloudDIET access my company's data?",
+        answer:
+          "No. CloudDIET only accesses billing metadata, usage metrics, and resource configuration, never your files, databases, or application data. .",
+      },
+      {
+        question: " How is CloudDIET different from Azure Cost Management or AWS Cost Explorer?",
+        answer:
+          "CloudDIET provides engineering-led insights and AI-powered profiling that identifies misconfigurations and optimization opportunities beyond basic cost reporting. ",
+      },
+      {
+        question: " What cloud platforms does CloudDIET support?",
+        answer:
+          "CloudDIET supports Azure, AWS, and Google Cloud, with optimizations tailored to each platform's services and pricing models. ",
+      },
+      {
+        question: " What’s the typical timeline to see results?",
+        answer:
+          "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks. ",
+      },
+      {
+        question: "Can CloudDIET help with Reserved Instances and Savings Plans?",
+        answer:
+          "Yes. We analyze your usage and provide data-driven recommendations for optimal Reserved Instance and Savings Plan purchases",
+      },
+      {
+        question: "What kind of customer is CloudDIET best suited for?",
+        answer:
+          "Enterprises with mature cloud environments, dedicated cloud/FinOps teams, and significant spend on Azure, AWS, or Google Cloud. ",
+      },
+    ],
+
+    "/industries/ehr-and-pms": [
+      {
+        question: "What is Unified Clinicapp??",
+        answer:
+          "Unified Clinicapp is an all-in-one software that combines Electronic Health Records (EHR) and Practice Management for scheduling, billing, and patient engagement in a single platform. ",
+      },
+      {
+        question: "How does it improve clinical workflow?",
+        answer:
+          "It offers smart templates, integrated patient history, and e-prescribing to reduce charting time and help doctors make faster, more informed decisions during patient visits. ",
+      },
+      {
+        question: " Can patients schedule their own appointments?",
+        answer:
+          "Yes. Patients can book, reschedule, or cancel appointments 24/7 through the patient portal or mobile app, which syncs directly with your practice calendar. ",
+      },
+      {
+        question: "Is the platform HIPAA compliant?",
+        answer:
+          "Absolutely. It includes role-based access, audit trails, and secure data handling to meet all HIPAA requirements for patient privacy and security. ",
+      },
+      {
+        question: "Do you offer a patient portal?",
+        answer:
+          "Yes. Patients get a secure portal to view health records, lab results, pay bills, complete forms, and message your practice. ",
+      },
+      {
+        question: "How long does implementation take?",
+        answer:
+          "Implementation time varies by practice size, but our team provides dedicated support for data migration, training, and go-live to ensure a smooth transition. ",
+      },
+      {
+        question: "Can we use it on mobile devices?",
+        answer:
+          "Yes. The platform is fully accessible on iOS and Android for both providers and patients, with a streamlined mobile-friendly interface.  ",
+      },
+    ],
+
+    "/industries/banking-and-finance": [
+      {
+        question: "How does the platform enhance financial security?",
+        answer:
+          "We provide enterprise-grade security, fraud detection, and compliance monitoring tailored for financial institutions.",
+      },
+      {
+        question: "Does it support regulatory compliance?",
+        answer:
+          "Yes. Our solution is designed to meet global banking and financial regulatory requirements.",
+      },
+    ],
+  };
+
+  const introContent =
+    faqIntroByIndustry[pathname] ||
+    faqIntroByIndustry["/industries/banking-and-finance"];
+
+  const faqData =
+    faqContentByIndustry[pathname] ||
+    faqContentByIndustry["/industries/banking-and-finance"];
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/cloud-finops-ai");
@@ -190,12 +190,12 @@ const faqData =
               <H3> FAQ</H3>
             </div>
             <H2 className="mb-4">
-  {introContent.heading}
-</H2>
+              {introContent.heading}
+            </H2>
 
-<P className="mb-6 max-w-lg">
-  {introContent.description}
-</P>
+            <P className="mb-6 max-w-lg">
+              {introContent.description}
+            </P>
 
 
             <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
@@ -231,10 +231,13 @@ const faqData =
         )}
       </section>
 
-      {isEHR && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-      {isAI && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
+      <React.Suspense fallback={null}>
+        {isEHR && drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+        {isAI && modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
+      </React.Suspense>
     </>
   );
 };
+
 
 export default FaqSection;
