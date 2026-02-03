@@ -26,7 +26,7 @@ const CONTENT_MAP: Record<
     description:
       " CloudDIET fixes Azure Functions and scale issues so SaaS teams save costs without hurting performance or customer growth.",
     cta: "Optimize Now",
-    bgImage: "/BuiltFor/digitalnative.webp",
+    bgImage: "/BuiltFor/DigitalNativebg.webp",
   },
   enterprises: {
     heading: (
@@ -39,7 +39,7 @@ const CONTENT_MAP: Record<
     description:
       "CloudDIET profiles your infrastructure usage patterns to automatically cut waste across all Azure subscriptions safely..",
     cta: "Start Your Scan",
-    bgImage: "/BuiltFor/enterprise.webp",
+    bgImage: "/BuiltFor/Enterprisenew.webp",
   },
   "regulated-large-enterprise": {
     heading: "Assured Azure savings for Large enterprises. ",

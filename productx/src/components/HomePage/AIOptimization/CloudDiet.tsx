@@ -6,7 +6,7 @@ const CloudDiet = () => {
     const [modalOpen, setModalOpen] = useState(false);
     return (
         <>
-            <section className="relative w-full min-h-[480px] overflow-hidden bg-[#fafafa] px-6 sm:px-8 xl:px-16 py-12 sm:py-16 xl:py-24">
+            <section className="relative w-full  overflow-hidden bg-[#fafafa] px-6 sm:px-8 xl:px-16 py-12 sm:py-16 xl:py-10">
                 <div className="mx-auto max-w-8xl px-2 sm:px-4 xl:px-6 relative">
  
                     <div className="grid xl:grid-cols-2 gap-10 xl:gap-12 items-center">

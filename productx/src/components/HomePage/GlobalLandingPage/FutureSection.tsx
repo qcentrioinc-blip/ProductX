@@ -1,8 +1,9 @@
 import { H2, P } from "../../../styles/Typography";
+import LazyVideo from "../../Global/LazyVideo";
 
 export default function FutureSection() {
   return (
-    <section className="relative w-full bg-[#F5F5F5] py-10 lg:py-0 lg:pt-14 ">
+    <section className="relative w-full bg-white py-10 lg:py-0 lg:pt-14 ">
 
       {/* TOP-RIGHT SHAPE (SECTION LEVEL) */}
       <img
@@ -23,16 +24,16 @@ export default function FutureSection() {
 
           {/* Heading */}
           <H2 className="leading-tight">
-           Digital Growth for All Sectors
+            Digital Growth for All Sectors
           </H2>
 
           {/* Illustration */}
-          <video
-            src="/Global-Landing-Page/globe.mp4"
+          <LazyVideo
+            src="/Global-Landing-Page/Globe.mp4"
             autoPlay
             loop
             muted
-            className="w-full max-w-xl"
+            className="w-full max-w-3xl"
           />
         </div>
 
@@ -41,12 +42,12 @@ export default function FutureSection() {
 
           {/* Description */}
           <P className="max-w-xl xl:ml-[-90px]">
-           Qnest Global supports companies across banking, manufacturing, healthcare, retail, and services. Our teams design AI, CRM, HRM, and cloud solutions that match industry needs and meet compliance requirements.
+            Qnest Global supports companies across banking, manufacturing, healthcare, retail, and services. Our teams design AI, CRM, HRM, and cloud solutions that match industry needs and meet compliance requirements.
           </P>
 
           {/* Second Text Block */}
           <P className="max-w-2xl xl:ml-20">
-            From fast‑growing startups to global enterprises, Qnest Global builds stable, scalable systems. We connect data, automate work, and modernize core platforms so each client can operate with better speed, control, and insight. 
+            From fast‑growing startups to global enterprises, Qnest Global builds stable, scalable systems. We connect data, automate work, and modernize core platforms so each client can operate with better speed, control, and insight.
           </P>
 
         </div>

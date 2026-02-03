@@ -288,7 +288,7 @@ export default function Firm() {
         enabled={!isMobile}
         spotlightRadius={590}
       />
-      <section className="w-full pt-16 px-4 sm:px-6 lg:px-8" ref={containerRef}>
+      <section className="w-full pt-4 px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center">

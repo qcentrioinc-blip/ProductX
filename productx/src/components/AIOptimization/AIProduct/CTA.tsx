@@ -11,6 +11,8 @@ const images = [
   "/AI-CloudFinOps/HomePage/saving-strategy.mp4",
 ];
 
+import LazyVideo from "../../Global/LazyVideo";
+
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -88,7 +90,7 @@ export default function CTA() {
               
             "
           >
-            <video
+            <LazyVideo
               src={src}
               autoPlay
               loop

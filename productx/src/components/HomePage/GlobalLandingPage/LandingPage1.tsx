@@ -4,12 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
- 
-const preloadAssets = () => {
+
+// Prefetch function for routes - triggered on hover
+const prefetchRoutes = () => {
+  // Now that FloatingLines is statically imported in HeroCombined,
+  // we only need to prefetch the main route chunk to get everything.
+  import('../../../routes/industries/AIOptimization');
+  import('three');
+
+  // Preload hero assets
   const dashImg = new Image();
   dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
- 
+
 interface IndustryCardProps {
   title: string;
   image: string;
@@ -19,38 +26,41 @@ interface IndustryCardProps {
   onClick: () => void;
   url: string;
   onComingSoonClick: (title: string) => void;
+  onNavigate: (url: string) => void;
   onPrefetch?: () => void;
   countdownText: string | null;
 }
- 
+
 const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
-  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onPrefetch, countdownText }, ref) => {
+  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onNavigate, onPrefetch, countdownText }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
     const hasPrefetched = useRef(false);
- 
+
     const handleMouseEnter = () => {
       setIsHovered(true);
+      // Prefetch on first hover for ready items
       if (isReady && onPrefetch && !hasPrefetched.current) {
         hasPrefetched.current = true;
         onPrefetch();
       }
     };
- 
+
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (!isReady) {
         onComingSoonClick(title);
       } else {
+        // Also trigger prefetch on click in case hover didn't happen (touch devices)
         if (onPrefetch && !hasPrefetched.current) {
           hasPrefetched.current = true;
           onPrefetch();
         }
-        window.open(url, '_blank', 'noopener,noreferrer');
+        onNavigate(url);
       }
     };
- 
+
     const showComingSoonText = !isReady && (isHovered || isMobile);
- 
+
     return (
       <motion.div
         ref={ref}
@@ -61,7 +71,11 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
         className="relative cursor-pointer group shrink-0 xl:w-full flex flex-col"
         initial={false}
         animate={{
+          // Logic: Ready always visible (1), Non-ready dimmed (0.6) unless hovered (1) or on mobile (1).
           opacity: isReady ? 1 : (isHovered || isMobile ? 1 : 0.6),
+
+          // Logic: Scale up ONLY on hover (desktop) OR always on mobile if you want touch feedback, 
+          // but keeping it scale-1 on mobile usually looks cleaner.
           scale: isHovered ? 1.05 : 1,
         }}
         transition={{
@@ -84,7 +98,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               : 'brightness-75'
               } ${isHovered ? 'scale-110' : 'scale-100'}`}
           />
- 
+
           {/* Overlay */}
           <div className={`absolute inset-0 flex flex-col justify-between p-4 transition-all duration-500 z-10 ${isReady
             ? 'bg-transparent'
@@ -92,7 +106,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               ? 'bg-black/75'
               : 'bg-black/20'
             }`}>
- 
+
             {/* 1. CENTER: Countdown Timer */}
             {showComingSoonText && countdownText && (
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0 text-center px-6">
@@ -106,7 +120,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
                 </div>
               </div>
             )}
- 
+
             {/* 2. BOTTOM: Title & Icon */}
             <div className="relative z-20 w-full mt-auto">
               <div className="flex justify-between items-center w-full">
@@ -116,7 +130,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
                   }`}>
                   {title}
                 </span>
- 
+
                 <div className={`p-1.5 rounded-full backdrop-blur-md transition-all duration-300 ${isReady
                   ? 'bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.3)] text-white'
                   : 'bg-white/10 text-white'
@@ -130,7 +144,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
               </div>
             </div>
           </div>
- 
+
           {/* Border */}
           {isReady && isHovered && (
             <motion.div layoutId="activeGlowBorder"
@@ -142,7 +156,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
     )
   }
 );
- 
+
 const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) => {
   return (
     <AnimatePresence>
@@ -165,18 +179,19 @@ const Toast = ({ message, isVisible }: { message: string, isVisible: boolean }) 
     </AnimatePresence>
   );
 };
- 
+
 export default function InteractiveHeroSection() {
+  // const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: '' });
   const [isMobile, setIsMobile] = useState(false);
   const [currentTime, setCurrentTime] = useState(Date.now());
- 
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const heroRef = useRef<HTMLDivElement>(null);
   const isHeroVisible = useRef(true);
- 
+
   // Update time every second
   useEffect(() => {
     const interval = setInterval(() => {
@@ -184,45 +199,46 @@ export default function InteractiveHeroSection() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
- 
+
+  // Detect Mobile/Tablet screens (< 1280px / xl breakpoint)
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
     };
- 
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
- 
+
   const industries = [
     { title: 'Cloud Finops AI', image: '/Global-Landing-Page/AI.webp', url: '/industries/cloud-finops-ai', isReady: true, deadline: null },
     { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: false, deadline: '2026-02-06' },
     { title: 'Banking and Finance', image: '/Global-Landing-Page/BNF.webp', url: '/industries/banking-and-finance', isReady: false, deadline: '2026-02-20' },
     { title: 'High Tech', image: '/Global-Landing-Page/HighTech.webp', url: '/industries/high-tech', isReady: false, deadline: '2026-03-06' }
   ];
- 
+
   // Helper to calculate countdown string (D H M)
   const getCountdown = (deadline: string | null) => {
     if (!deadline) return null;
-   
+
     const total = Date.parse(deadline) - currentTime;
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((total / 1000 / 60) % 60);
-   
+
     if (total <= 0) return "0d 0h 0m";
-   
+
     return `${days}d ${hours}h ${minutes}m`;
   };
- 
+
   const handleComingSoon = (title: string) => {
     setToast({ show: true, message: title });
     setTimeout(() => {
       setToast(prev => ({ ...prev, show: false }));
     }, 3000);
   };
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
@@ -231,18 +247,18 @@ export default function InteractiveHeroSection() {
     heroRef.current && observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
- 
+
   useEffect(() => {
     if (!isHeroVisible.current) return;
     cardRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }, [activeIndex]);
- 
+
   useEffect(() => {
     if (isMobile) return;
     const interval = setInterval(() => setActiveIndex((p) => (p + 1) % industries.length), 5000);
     return () => clearInterval(interval);
   }, [isMobile]);
- 
+
   return (
     <>
       <Navbar />
@@ -266,7 +282,7 @@ export default function InteractiveHeroSection() {
                     </motion.button>
                   </Link>
                 </div>
- 
+
                 <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
                   {[
                     { label: '30%', sub: 'AI-Driven Outcomes' },
@@ -283,13 +299,13 @@ export default function InteractiveHeroSection() {
                   ))}
                 </div>
               </motion.div>
- 
+
               <div className="hidden xl:block"></div>
- 
+
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
                   className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0 touch-pan-y snap-x snap-mandatory overscroll-x-contain">
- 
+
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
                       <div key={industry.title} className="flex flex-col items-center snap-center">
@@ -303,20 +319,21 @@ export default function InteractiveHeroSection() {
                           isMobile={isMobile}
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
-                          onPrefetch={preloadAssets}
+                          onNavigate={(url) => window.open(url, '_blank')}
+                          onPrefetch={prefetchRoutes}
                           countdownText={getCountdown(industry.deadline)}
                         />
                       </div>
                     ))}
                   </AnimatePresence>
                 </div>
- 
+
                 <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 blur-[120px] pointer-events-none" />
               </div>
             </div>
           </div>
         </div>
- 
+
         <Toast
           message={toast.message}
           isVisible={toast.show}

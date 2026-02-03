@@ -145,7 +145,7 @@ export default function BuiltForIntro() {
   return (
     <>
       <section
-        className={`relative w-full py-10  ${style.sectionBg}`}
+        className={`relative w-full py-4  ${style.sectionBg}`}
       >
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-4xl">

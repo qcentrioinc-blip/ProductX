@@ -1,4 +1,5 @@
 import { H2, P } from '../../../styles/Typography';
+import LazyVideo from '../../Global/LazyVideo';
 
 const COST_LAYERS = [
   {
@@ -28,10 +29,9 @@ const CostOptimization = () => {
     <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:pb-16  md:pt-10 overflow-hidden">
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <video
+        <LazyVideo
           className="w-full block h-full object-cover"
           src="/Video/optimization.mp4"
-          preload="auto"
           muted
           playsInline
           disablePictureInPicture
@@ -44,7 +44,7 @@ const CostOptimization = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex justify-center mb-8 md:mb-12">
-          <H2 className="text-white px-6 py-3 text-xl md:text-2xl font-bold text-center">
+          <H2 className="text-white  px-6 py-3 text-xl md:text-2xl font-bold text-center">
             Layers of Optimization
           </H2>
         </div>
@@ -55,10 +55,10 @@ const CostOptimization = () => {
           <div className="grid grid-cols-5 gap-4 relative z-10">
             {COST_LAYERS.map((layer, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <h3 className="text-base xl:text-[24px] text-white font-semibold mb-4 min-h-[28px]">
+                <h3 className="text-base xl:text-[24px] text-white  font-semibold mb-4 min-h-[28px]">
                   {layer.title}
                 </h3>
-                <div className="border border-[#254D70] font-medium text-[#141414] rounded-md p-4 text-sm md:text-base bg-[#FAFAFA] backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
+                <div className="border border-white  font-medium text-[#141414] rounded-md p-4 text-sm md:text-base bg-[#FAFAFA] backdrop-blur-sm w-full min-h-[120px] flex items-center justify-center">
                   {layer.description}
                 </div>
               </div>
@@ -70,18 +70,18 @@ const CostOptimization = () => {
             <svg className="w-full h-full" viewBox="0 0 1200 500" preserveAspectRatio="none">
               <path
                 d="M 120 170 L 120 220 Q 120 260, 160 260 L 330 260 Q 360 260, 360 230 L 360 170"
-                stroke="#254D70"
+                stroke="white"
                 strokeWidth="3"
                 fill="none"
               />
               <path
                 d="M 70 170 L 70 340 Q 70 380, 130 380 L 1000 380 Q 1060 380, 1060 340 L 1060 170"
-                stroke="#254D70"
+                stroke="white"
                 strokeWidth="3"
                 fill="none"
               />
-              <line x1="240" y1="260" x2="240" y2="290" stroke="#254D70" strokeWidth="2" />
-              <line x1="600" y1="380" x2="600" y2="450" stroke="#254D70" strokeWidth="3" />
+              <line x1="240" y1="260" x2="240" y2="290" stroke="white" strokeWidth="2" />
+              <line x1="600" y1="380" x2="600" y2="450" stroke="white" strokeWidth="3" />
             </svg>
           </div>
 
@@ -108,14 +108,14 @@ const CostOptimization = () => {
                     y1="80"
                     x2="100"
                     y2="80"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
 
                   {/* Curve from first horizontal line */}
                   {/* <path
                     d="M 30 80 Q 50 80, 50 100"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                     fill="none"
                   />
@@ -125,7 +125,7 @@ const CostOptimization = () => {
                     y1="60"
                     x2="150"
                     y2="60"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
 
@@ -134,7 +134,7 @@ const CostOptimization = () => {
                     y1="230"
                     x2="100"
                     y2="80"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="1.5"
                   />
                   {/* Horizontal line from second box (Utilization) */}
@@ -143,14 +143,14 @@ const CostOptimization = () => {
                     y1="230"
                     x2="100"
                     y2="230"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
 
                   {/* Curve from second horizontal line */}
                   {/* <path
                     d="M 30 230 Q 50 230, 50 210"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                     fill="none"
                   /> */}
@@ -161,7 +161,7 @@ const CostOptimization = () => {
                     y1="55"
                     x2="150"
                     y2="880"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
 
@@ -171,7 +171,7 @@ const CostOptimization = () => {
                     y1="880"
                     x2="150"
                     y2="880"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
                 </svg>
@@ -180,7 +180,7 @@ const CostOptimization = () => {
               {/* "Existing Tools" Label - Rotated on RIGHT side */}
               <div className="absolute transform rotate-90 origin-center"
                 style={{ top: '14%', left: 'calc(65% + 70px)' }}>
-                <p className="text-[#254D70] text-sm font-quicksand font-medium whitespace-nowrap">
+                <p className="text-white  text-sm font-quicksand font-medium whitespace-nowrap">
                   Existing Tools
                 </p>
               </div>
@@ -188,7 +188,7 @@ const CostOptimization = () => {
               {/* CloudDIET Label - on RIGHT side */}
               <div className="absolute"
                 style={{ top: '48%', left: 'calc(82% + 70px)' }}>
-                <p className="text-[#254D70] text-lg font-semibold whitespace-nowrap">
+                <p className="text-[#254D70]  text-lg font-semibold whitespace-nowrap">
                   CLOUDDIET
                 </p>
               </div>
@@ -197,8 +197,8 @@ const CostOptimization = () => {
               <div className="relative z-10 flex flex-col gap-5 w-full max-w-sm">
                 {COST_LAYERS.map((layer, index) => (
                   <div key={index} className="w-full">
-                    <div className="border border-[#254D70] rounded-md p-4 bg-[#FAFAFA] text-[#141414] min-h-[90px] flex flex-col justify-center">
-                      <p className="text-sm text-[#254D70] mb-2 font-semibold">
+                    <div className="border border-white  rounded-md p-4 bg-[#FAFAFA] text-[#141414] min-h-[90px] flex flex-col justify-center">
+                      <p className="text-sm text-white  mb-2 font-semibold">
                         {layer.title}
                       </p>
                       <p className="text-xs">
@@ -230,7 +230,7 @@ const CostOptimization = () => {
                     y1="40"
                     x2="30"
                     y2="190"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2"
                   />
                   <line
@@ -239,7 +239,7 @@ const CostOptimization = () => {
                     y1="100"
                     x2="250"
                     y2="100"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2"
                   />
 
@@ -248,7 +248,7 @@ const CostOptimization = () => {
                     y1="720"
                     x2="0"
                     y2="720"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2"
                   />
                   <line
@@ -256,7 +256,7 @@ const CostOptimization = () => {
                     y1="100"
                     x2="60"
                     y2="720"
-                    stroke="#254D70"
+                    stroke="white"
                     strokeWidth="2.5"
                   />
 
@@ -268,7 +268,7 @@ const CostOptimization = () => {
                       y1={y}
                       x2="30"
                       y2={y}
-                      stroke="#254D70"
+                      stroke="white"
                       strokeWidth="2"
                     />
                   ))}
@@ -279,7 +279,7 @@ const CostOptimization = () => {
             y1="700"
             x2="55"
             y2="720"
-            stroke="#254D70"
+            stroke="white"
             strokeWidth="2"
           /> */}
                 </svg>
@@ -289,14 +289,14 @@ const CostOptimization = () => {
               <div
                 className="absolute right-[60px] top-14 rotate-90"
               >
-                <p className="text-[#254D70] text-xs font-quicksand font-medium whitespace-nowrap">
+                <p className="text-white  text-xs font-quicksand font-medium whitespace-nowrap">
                   Existing Tool
                 </p>
               </div>
               <div
                 className="absolute right-0 bottom-[50%]"
               >
-                <div className="text-[#254D70]  text-sm font-bricolage font-extrabold">
+                <div className="text-white   text-sm font-bricolage font-extrabold">
                   Cloud<span className="font-normal">DIET</span>
                 </div>
               </div>
@@ -306,10 +306,122 @@ const CostOptimization = () => {
                 {COST_LAYERS.map((layer, index) => (
                   <div
                     key={index}
-                    className="border border-[#254D70] rounded-md bg-[#FAFAFA] p-3"
+                    className="border border-white  rounded-md bg-[#FAFAFA] p-3"
                   >
                     {/* Heading INSIDE box */}
-                    <p className="text-sm font-semibold text-[#254D70] mb-1">
+                    <p className="text-sm font-semibold text-white  mb-1">
+                      {layer.title}
+                    </p>
+
+                    <p className="text-xs text-[#141414] leading-snug">
+                      {layer.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE VIEW (sm and below) */}
+        <div className="md:hidden relative pb-20">
+          <div className="max-w-sm mx-auto px-4">
+            <div className="relative flex justify-start">
+
+              {/* SVG CONNECTOR */}
+              <div className="absolute right-[20%] top-0 pointer-events-none h-full w-[60px]">
+                <svg
+                  className="w-full h-full"
+                  viewBox="0 0 60 800"
+                  preserveAspectRatio="none"
+                >
+                  {/* Vertical spine */}
+                  <line
+                    x1="30"
+                    y1="40"
+                    x2="30"
+                    y2="190"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <line
+
+                    x1="-20"
+                    y1="100"
+                    x2="250"
+                    y2="100"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+
+                  <line
+                    x1="200"
+                    y1="720"
+                    x2="0"
+                    y2="720"
+                    stroke="white"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="60"
+                    y1="100"
+                    x2="60"
+                    y2="720"
+                    stroke="white"
+                    strokeWidth="2.5"
+                  />
+
+                  {/* Horizontal connectors (aligned to card centers) */}
+                  {[40, 190].map((y, i) => (
+                    <line
+                      key={i}
+                      x1="0"
+                      y1={y}
+                      x2="30"
+                      y2={y}
+                      stroke="white"
+                      strokeWidth="2"
+                    />
+                  ))}
+
+                  {/* Final horizontal to right */}
+                  {/* <line
+            x1="30"
+            y1="700"
+            x2="55"
+            y2="720"
+            stroke="white"
+            strokeWidth="2"
+          /> */}
+                </svg>
+              </div>
+
+              {/* ROTATED LABEL */}
+              <div
+                className="absolute right-[60px] top-14 rotate-90"
+              >
+                <p className="text-white  text-xs font-quicksand font-medium whitespace-nowrap">
+                  Existing Tool
+                </p>
+              </div>
+              <div
+                className="absolute right-0 bottom-[50%]"
+              >
+                <div className="text-white   text-sm font-bricolage font-extrabold">
+                  Cloud<span className="font-normal">DIET</span>
+                </div>
+              </div>
+
+              {/* CARDS COLUMN */}
+              <div className="relative z-10 flex flex-col gap-6 w-[220px]">
+                {COST_LAYERS.map((layer, index) => (
+                  <div
+                    key={index}
+                    className="border border-white  rounded-md bg-[#FAFAFA] p-3"
+                  >
+                    {/* Heading INSIDE box */}
+                    <p className="text-sm font-semibold text-white  mb-1">
                       {layer.title}
                     </p>
 
@@ -326,8 +438,8 @@ const CostOptimization = () => {
 
         {/* CloudDIET Logo - All Views */}
         <div className="relative   mt-8 md:mt-12 lg:mt-44 xl:mt-20 hidden lg:flex justify-center z-20">
-          <div className="bg-[#254D70] px-6 md:px-8 py-3 md:py-4 flex items-center gap-3 shadow-lg">
-            <div className="text-white text-2xl md:text-4xl font-extrabold">
+          <div className="bg-white  px-6 md:px-8 py-3 md:py-4 flex items-center gap-3 shadow-lg">
+            <div className="text-[#254D70] text-2xl md:text-4xl font-extrabold">
               CLOUD<span className="font-normal">DIET</span>
             </div>
           </div>

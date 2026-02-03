@@ -23,7 +23,7 @@ export default function InnovationCards() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 sm:px-6 bg-white">
+    <section className="w-full py-16 px-4 sm:px-6 bg-[#F5F5F5]">
       <div className="max-w-8xl mx-10">
 
         {/* Heading */}
