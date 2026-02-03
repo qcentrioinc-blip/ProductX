@@ -312,7 +312,7 @@ const ResourceDoc: React.FC = () => {
      Render
   --------------------------------------------- */
   return (
-    <div className="flex min-h-screen bg-[#FAFAFA]">
+    <div id="landingpage" className="flex min-h-screen bg-[#FAFAFA]">
       {/* LEFT NAV */}
       {/* <aside className="w-64 bg-[#FAFAFA]/25 px-6 py-8 sticky top-0 h-screen overflow-y-auto  scrollbar-hide border-r border-gray-200 shadow-[4px_0_10px_-2px_rgba(0,0,0,0.08)]">
         {Object.entries(resourceConfig).map(([key, cat]) => (

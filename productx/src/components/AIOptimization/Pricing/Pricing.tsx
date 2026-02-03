@@ -8,7 +8,9 @@ const Pricing = () => {
     return (
         <div>
             <AINavbar/>
-            <HeroSection />
+            <div id="landingpage">
+              <HeroSection />   
+            </div>
             <ComparePrice />
             <Intro/>
             <AIFooter />

@@ -39,9 +39,10 @@ const ImageContainer = () => {
       rafId = requestAnimationFrame(() => {
         if (!imgRef.current) return;
 
-        const maxScroll =
-          window.innerWidth >= 1280 ? 400 :
-            window.innerWidth >= 768 ? 300 : 250;
+        // Optimization: Disable animation on mobile to save GPU/CPU
+        if (window.innerWidth < 768) return;
+
+        const maxScroll = window.innerWidth >= 1280 ? 400 : 300;
 
         const progress = Math.min(window.scrollY / maxScroll, 1);
         const translateY = -progress * 10;
@@ -88,6 +89,8 @@ const ImageContainer = () => {
             <img
               ref={imgRef}
               src="/AIOptimization/dashboardfinal-transformed.webp"
+              srcSet="/AIOptimization/dashboardfinal-mobile.webp 768w, /AIOptimization/dashboardfinal-transformed.webp 2400w"
+              sizes="(max-width: 768px) 90vw, 90vw"
               alt="Analytics dashboard"
               fetchPriority="high"
               className="
@@ -96,7 +99,7 @@ const ImageContainer = () => {
           w-full
         
         
-          will-change-transform
+          md:will-change-transform
           transform-gpu
         "
             />

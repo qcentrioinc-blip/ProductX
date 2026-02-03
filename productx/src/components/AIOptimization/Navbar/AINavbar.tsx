@@ -4,6 +4,7 @@ import MobileFeaturesDropdown from "./MobileFeaturesDropdown";
 import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
+import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
 const ContactModal = lazy(() => import("./ContactModal"));
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -53,6 +54,7 @@ const AINavbar = () => {
       import("../../HomePage/AIOptimization/CloudDiet");
       import("../../HomePage/AIOptimization/AIBlogs");
       import("../../HomePage/AIOptimization/AIFooter");
+      prefetchLandingPageAIImages();
       const img = new Image();
       img.src = "/AIOptimization/LandingBackground.png";
     },
@@ -327,6 +329,7 @@ const AINavbar = () => {
         {megaMenuOpen && (
           <MegaMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />
@@ -337,6 +340,7 @@ const AINavbar = () => {
         {resourcesMenuOpen && (
           <ResourcesMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />
@@ -347,6 +351,7 @@ const AINavbar = () => {
         {megaMenuBuiltFor && (
           <BuiltForMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />

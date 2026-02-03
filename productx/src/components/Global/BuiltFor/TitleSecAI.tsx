@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { H1, P } from "../../../styles/Typography";
 import { ContactUsAI } from "../../../styles/Button";
@@ -26,7 +26,7 @@ const CONTENT_MAP: Record<
     description:
       " CloudDIET fixes Azure Functions and scale issues so SaaS teams save costs without hurting performance or customer growth.",
     cta: "Optimize Now",
-    bgImage: "/BuiltFor/DigitalNativebg.webp",
+    bgImage: "/BuiltFor/digitalnative-transformed.png",
   },
   enterprises: {
     heading: (
@@ -42,12 +42,21 @@ const CONTENT_MAP: Record<
     bgImage: "/BuiltFor/Enterprisenew.webp",
   },
   "regulated-large-enterprise": {
-    heading: "Assured Azure savings for Large enterprises. ",
+    heading: (<>
+      Assured Azure savings for <br /> Large enterprises.
+    </>),
     description:
       " Cut multi-region Azure waste, keep compliance strong, and protect every critical workload without service risk.",
     cta: "Get Started",
-    bgImage: "/BuiltFor/54.webp",
+    bgImage: "/BuiltFor/Rectangle.webp",
   },
+};
+
+export const prefetchBuiltForAIImages = () => {
+  Object.values(CONTENT_MAP).forEach((content) => {
+    const img = new Image();
+    img.src = content.bgImage;
+  });
 };
 
 export default function TitleSecAI() {
@@ -57,6 +66,10 @@ export default function TitleSecAI() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const content = CONTENT_MAP[builtForType ?? "enterprises"];
+
+  useEffect(() => {
+    prefetchBuiltForAIImages();
+  }, []);
 
   const handleContactClick = () => {
     // Logic mirrored from BuiltForIntro
@@ -74,9 +87,14 @@ export default function TitleSecAI() {
 
   return (
     <section
-      className="w-full  h-[60vh] md:h-[50vh] xl:h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: `url(${content.bgImage})` }}
+      className="w-full h-[60vh] md:h-[50vh] xl:h-screen relative z-10 overflow-hidden"
     >
+      {/* BACKGROUND IMAGE WITH ZOOM */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${content.bgImage})` }}
+      ></div>
+
       {/* DARK OVERLAY (REMOVE IF NOT NEEDED) */}
       <div className="absolute inset-0 bg-black/40"></div>
 
@@ -88,7 +106,7 @@ export default function TitleSecAI() {
             <H1 className="text-white leading-tight">
               {content.heading}
             </H1>
-            <P className="text-[#CCCCCC] max-w-xl leading-tight">
+            <P className="text-white max-w-xl leading-tight">
               {content.description}
             </P>
 

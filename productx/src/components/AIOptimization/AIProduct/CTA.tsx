@@ -30,22 +30,22 @@ export default function CTA() {
   ------------------------------- */
   const transforms = [
     {
-      x: useTransform(smoothProgress, [0, 1], [0, -490]),
+      x: useTransform(smoothProgress, [0, 1], [0, -600]),
       y: useTransform(smoothProgress, [0, 1], [0, -200]),
       r: -10,
     },
     {
-      x: useTransform(smoothProgress, [0, 1], [0, 490]),
+      x: useTransform(smoothProgress, [0, 1], [0, 600]),
       y: useTransform(smoothProgress, [0, 1], [0, -200]),
       r: 10,
     },
     {
-      x: useTransform(smoothProgress, [0, 1], [0, -450]),
+      x: useTransform(smoothProgress, [0, 1], [0, -600]),
       y: useTransform(smoothProgress, [0, 1], [0, 180]),
       r: 8,
     },
     {
-      x: useTransform(smoothProgress, [0, 1], [0, 450]),
+      x: useTransform(smoothProgress, [0, 1], [0, 600]),
       y: useTransform(smoothProgress, [0, 1], [0, 180]),
       r: -8,
     },
@@ -69,6 +69,7 @@ export default function CTA() {
         items-center
         justify-center
       "
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '100vh' }}
     >
       {/* ================= IMAGES (DESKTOP ONLY) ================= */}
       <div className="absolute inset-0 hidden lg:flex items-center justify-center pointer-events-none">
@@ -83,11 +84,11 @@ export default function CTA() {
             className="
               absolute
               w-32 h-32
-              xl:w-48 xl:h-48
+              xl:w-40 xl:h-40
               rounded-xl
               overflow-hidden
               border border-black/5
-              
+              will-change-transform
             "
           >
             <LazyVideo
@@ -114,35 +115,35 @@ export default function CTA() {
           leading-[115%]
           tracking-tight
         ">
-          {words.map((word, wordIndex) => (
-            <span
-              key={wordIndex}
-              className="inline-flex whitespace-nowrap mr-[0.25em]"
-            >
-              {word.split("").map((char, charIndex) => {
-                const globalIndex =
-                  text.indexOf(word) + charIndex;
+          {words.map((word, wordIndex) => {
+            return (
+              <span
+                key={wordIndex}
+                className="inline-flex whitespace-nowrap mr-[0.25em]"
+              >
+                {word.split("").map((char, charIndex) => {
+                  const globalIndex = text.indexOf(word) + charIndex; // Keeping original logic
+                  const start = globalIndex / text.length;
+                  const end = start + 1 / text.length;
 
-                const start = globalIndex / text.length;
-                const end = start + 1 / text.length;
+                  const isHighlight =
+                    globalIndex >= highlightStart &&
+                    globalIndex < highlightEnd;
 
-                const isHighlight =
-                  globalIndex >= highlightStart &&
-                  globalIndex < highlightEnd;
-
-                return (
-                  <Character
-                    key={charIndex}
-                    progress={smoothProgress}
-                    range={[start, end]}
-                    highlight={isHighlight}
-                  >
-                    {char}
-                  </Character>
-                );
-              })}
-            </span>
-          ))}
+                  return (
+                    <Character
+                      key={charIndex}
+                      progress={smoothProgress}
+                      range={[start, end]}
+                      highlight={isHighlight}
+                    >
+                      {char}
+                    </Character>
+                  );
+                })}
+              </span>
+            )
+          })}
         </h2>
       </div>
     </section>
@@ -152,7 +153,9 @@ export default function CTA() {
 /* ------------------------------
    Character component
 -------------------------------- */
-function Character({
+import { memo } from 'react';
+
+const Character = memo(function Character({
   children,
   progress,
   range,
@@ -182,10 +185,9 @@ function Character({
   return (
     <motion.span
       style={{ color, scale }}
-      className={`inline-block ${highlight ? "font-bold tracking-tight" : ""
-        }`}
+      className={`inline-block ${highlight ? "font-bold tracking-tight" : ""} will-change-[color,transform]`}
     >
       {children}
     </motion.span>
   );
-}
+});

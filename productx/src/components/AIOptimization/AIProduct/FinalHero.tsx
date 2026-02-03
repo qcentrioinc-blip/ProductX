@@ -53,7 +53,7 @@ const FinalHero = () => {
     <section ref={sectionRef} className="relative overflow-hidden">
 
 
-      <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-10 max-w-8xl xl:px-10 pt-20
+      <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-4 max-w-8xl xl:px-10 pt-20
                 flex flex-col items-center justify-center  ">
 
 
@@ -79,7 +79,16 @@ const FinalHero = () => {
             CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver, with most customers seeing returns within the first month.
           </P>
 
-          <div className="mt-8    flex flex-flex-row  item-center gap-4 justify-center">
+       <div className="
+  mt-8
+  flex
+  flex-col
+  sm:flex-row
+  items-center
+  gap-4
+  justify-center
+">
+
             <button className=" group
           flex items-center justify-center
           w-52 h-[48px]

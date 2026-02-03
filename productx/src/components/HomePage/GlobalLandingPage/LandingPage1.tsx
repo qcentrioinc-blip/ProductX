@@ -5,14 +5,7 @@ import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
 
-// Prefetch function for routes - triggered on hover
-const prefetchRoutes = () => {
-  // Now that FloatingLines is statically imported in HeroCombined,
-  // we only need to prefetch the main route chunk to get everything.
-  import('../../../routes/industries/AIOptimization');
-  import('three');
-
-  // Preload hero assets
+const preloadAssets = () => {
   const dashImg = new Image();
   dashImg.src = '/AIOptimization/dashboardfinal.webp';
 };
@@ -26,19 +19,18 @@ interface IndustryCardProps {
   onClick: () => void;
   url: string;
   onComingSoonClick: (title: string) => void;
-  onNavigate: (url: string) => void;
+  onNavigate?: (url: string) => Window | null;
   onPrefetch?: () => void;
   countdownText: string | null;
 }
 
 const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
-  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onNavigate, onPrefetch, countdownText }, ref) => {
+  ({ title, image, isReady, isMobile, onClick, url, onComingSoonClick, onNavigate, onPrefetch, countdownText, isActive }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
     const hasPrefetched = useRef(false);
 
     const handleMouseEnter = () => {
       setIsHovered(true);
-      // Prefetch on first hover for ready items
       if (isReady && onPrefetch && !hasPrefetched.current) {
         hasPrefetched.current = true;
         onPrefetch();
@@ -50,12 +42,15 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
       if (!isReady) {
         onComingSoonClick(title);
       } else {
-        // Also trigger prefetch on click in case hover didn't happen (touch devices)
         if (onPrefetch && !hasPrefetched.current) {
           hasPrefetched.current = true;
           onPrefetch();
         }
-        onNavigate(url);
+        if (onNavigate) {
+          onNavigate(url);
+        } else {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
       }
     };
 
@@ -64,29 +59,24 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
     return (
       <motion.div
         ref={ref}
-        layout
         onClick={onClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsHovered(false)}
         className="relative cursor-pointer group shrink-0 xl:w-full flex flex-col"
         initial={false}
         animate={{
-          // Logic: Ready always visible (1), Non-ready dimmed (0.6) unless hovered (1) or on mobile (1).
           opacity: isReady ? 1 : (isHovered || isMobile ? 1 : 0.6),
-
-          // Logic: Scale up ONLY on hover (desktop) OR always on mobile if you want touch feedback, 
-          // but keeping it scale-1 on mobile usually looks cleaner.
           scale: isHovered ? 1.05 : 1,
         }}
         transition={{
           duration: 0.8,
           ease: [0.22, 1, 0.36, 1],
-          layout: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
         }}
       >
         <div
           onClick={handleClick}
-          className="block relative overflow-hidden rounded-xl transition-all duration-700 cursor-pointer"
+          className={`block relative overflow-hidden rounded-xl transition-all duration-700 cursor-pointer ${isActive ? 'ring-2 ring-white/50 ring-offset-2 ring-offset-black' : ''
+            }`}
           style={{ height: '140px', width: '260px' }}
         >
           {/* Image */}
@@ -145,11 +135,11 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
             </div>
           </div>
 
-          {/* Border */}
+          {/* Border (Hover state) */}
           {isReady && isHovered && (
-            <motion.div layoutId="activeGlowBorder"
+            <div
               className="absolute inset-0 border-2 border-white/70 rounded-xl z-30 pointer-events-none"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
+            />
           )}
         </div>
       </motion.div>
@@ -200,7 +190,6 @@ export default function InteractiveHeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  // Detect Mobile/Tablet screens (< 1280px / xl breakpoint)
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
@@ -221,7 +210,6 @@ export default function InteractiveHeroSection() {
   // Helper to calculate countdown string (D H M)
   const getCountdown = (deadline: string | null) => {
     if (!deadline) return null;
-
     const total = Date.parse(deadline) - currentTime;
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
@@ -244,7 +232,9 @@ export default function InteractiveHeroSection() {
       ([entry]) => (isHeroVisible.current = entry.isIntersecting),
       { threshold: 0.3 }
     );
-    heroRef.current && observer.observe(heroRef.current);
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 
@@ -304,7 +294,9 @@ export default function InteractiveHeroSection() {
 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scroll-smooth no-scrollbar justify-start xl:justify-end px-6 xl:px-0 touch-pan-y snap-x snap-mandatory overscroll-x-contain">
+                  data-lenis-prevent
+                  style={{ touchAction: 'pan-y', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0 snap-x snap-mandatory overscroll-x-contain">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
@@ -320,7 +312,7 @@ export default function InteractiveHeroSection() {
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
                           onNavigate={(url) => window.open(url, '_blank')}
-                          onPrefetch={prefetchRoutes}
+                          onPrefetch={preloadAssets}
                           countdownText={getCountdown(industry.deadline)}
                         />
                       </div>

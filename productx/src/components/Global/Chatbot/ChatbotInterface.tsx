@@ -72,12 +72,32 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
         localStorage.removeItem(STORAGE_KEY);
     };
 
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    // Cleanup active streams on unmount
+    useEffect(() => {
+        return () => {
+            if (abortControllerRef.current) {
+                abortControllerRef.current.abort();
+            }
+        };
+    }, []);
+
     const handleSendMessage = async (e?: React.FormEvent | undefined, question?: string) => {
         e?.preventDefault();
 
         const content = question || inputValue;
 
         if (!content.trim() || isLoading) return;
+
+        // Cancel previous request if any
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort();
+        }
+
+        // Create new controller for this request
+        const abortController = new AbortController();
+        abortControllerRef.current = abortController;
 
         const userMsg: Message = {
             id: Date.now().toString(),
@@ -106,6 +126,7 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ prompt: userMsg.content }),
+                signal: abortController.signal
             });
 
             if (!response.ok) {
@@ -156,6 +177,10 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
                 throw new Error('No response received from server');
             }
         } catch (error: any) {
+            if (error.name === 'AbortError') {
+                console.log('Request aborted');
+                return;
+            }
             console.error('Failed to send message:', error);
             setMessages((prev) =>
                 prev.map((msg) =>
@@ -168,7 +193,10 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
                 )
             );
         } finally {
-            setIsLoading(false);
+            if (abortControllerRef.current === abortController) {
+                setIsLoading(false);
+                abortControllerRef.current = null;
+            }
         }
     };
 

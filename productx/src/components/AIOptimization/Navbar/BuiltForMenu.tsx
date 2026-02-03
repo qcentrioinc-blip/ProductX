@@ -1,14 +1,15 @@
-
 import { Link } from "react-router-dom";
 import { H3, P } from "../../../styles/Typography";
+import { prefetchBuiltForAIImages } from "../../Global/BuiltFor/TitleSecAI";
 
 interface BuiltForMenuProps {
   isScrolled: boolean;
+  showTopBar: boolean;
   handleKeepOpen: () => void;
   handleCloseMenus: () => void;
 }
 
-const BuiltForMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: BuiltForMenuProps) => {
+const BuiltForMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: BuiltForMenuProps) => {
   const industry = "cloud-finops-ai";
   const base = `/industries/${industry}`;
 
@@ -32,9 +33,12 @@ const BuiltForMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: BuiltFor
 
   return (
     <div
-      onMouseEnter={() => { handleKeepOpen(); }}
+      onMouseEnter={() => {
+        handleKeepOpen();
+        prefetchBuiltForAIImages();
+      }}
       onMouseLeave={handleCloseMenus}
-      className={`fixed left-1/2 ${isScrolled ? "top-[76px]" : "top-34"}
+      className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[132px]" : "top-[76px]") : "top-34"}
 translate-y-1 -translate-x-1/2
 bg-gray-50 px-24 py-10 shadow-xl z-[9998]
 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]

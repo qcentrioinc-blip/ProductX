@@ -256,7 +256,7 @@ const App = () => {
 
       <DeferredLoader
         loader={() => import('./components/Global/Chatbot/ChatbotButton')}
-        delay={2000}
+        delay={2500}
       />
       <FontLoader />
 

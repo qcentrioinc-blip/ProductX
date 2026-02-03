@@ -188,7 +188,7 @@ const CostOptimization = () => {
               {/* CloudDIET Label - on RIGHT side */}
               <div className="absolute"
                 style={{ top: '48%', left: 'calc(82% + 70px)' }}>
-                <p className="text-[#254D70]  text-lg font-semibold whitespace-nowrap">
+                <p className="text-white  text-lg font-semibold whitespace-nowrap">
                   CLOUDDIET
                 </p>
               </div>
@@ -198,7 +198,7 @@ const CostOptimization = () => {
                 {COST_LAYERS.map((layer, index) => (
                   <div key={index} className="w-full">
                     <div className="border border-white  rounded-md p-4 bg-[#FAFAFA] text-[#141414] min-h-[90px] flex flex-col justify-center">
-                      <p className="text-sm text-white  mb-2 font-semibold">
+                      <p className="text-sm text-[#254D70]  mb-2 font-semibold">
                         {layer.title}
                       </p>
                       <p className="text-xs">
@@ -309,7 +309,7 @@ const CostOptimization = () => {
                     className="border border-white  rounded-md bg-[#FAFAFA] p-3"
                   >
                     {/* Heading INSIDE box */}
-                    <p className="text-sm font-semibold text-white  mb-1">
+                    <p className="text-sm font-semibold text-[#254D70]  mb-1">
                       {layer.title}
                     </p>
 
@@ -324,118 +324,7 @@ const CostOptimization = () => {
           </div>
         </div>
 
-        {/* MOBILE VIEW (sm and below) */}
-        <div className="md:hidden relative pb-20">
-          <div className="max-w-sm mx-auto px-4">
-            <div className="relative flex justify-start">
-
-              {/* SVG CONNECTOR */}
-              <div className="absolute right-[20%] top-0 pointer-events-none h-full w-[60px]">
-                <svg
-                  className="w-full h-full"
-                  viewBox="0 0 60 800"
-                  preserveAspectRatio="none"
-                >
-                  {/* Vertical spine */}
-                  <line
-                    x1="30"
-                    y1="40"
-                    x2="30"
-                    y2="190"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                  <line
-
-                    x1="-20"
-                    y1="100"
-                    x2="250"
-                    y2="100"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-
-                  <line
-                    x1="200"
-                    y1="720"
-                    x2="0"
-                    y2="720"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                  <line
-                    x1="60"
-                    y1="100"
-                    x2="60"
-                    y2="720"
-                    stroke="white"
-                    strokeWidth="2.5"
-                  />
-
-                  {/* Horizontal connectors (aligned to card centers) */}
-                  {[40, 190].map((y, i) => (
-                    <line
-                      key={i}
-                      x1="0"
-                      y1={y}
-                      x2="30"
-                      y2={y}
-                      stroke="white"
-                      strokeWidth="2"
-                    />
-                  ))}
-
-                  {/* Final horizontal to right */}
-                  {/* <line
-            x1="30"
-            y1="700"
-            x2="55"
-            y2="720"
-            stroke="white"
-            strokeWidth="2"
-          /> */}
-                </svg>
-              </div>
-
-              {/* ROTATED LABEL */}
-              <div
-                className="absolute right-[60px] top-14 rotate-90"
-              >
-                <p className="text-white  text-xs font-quicksand font-medium whitespace-nowrap">
-                  Existing Tool
-                </p>
-              </div>
-              <div
-                className="absolute right-0 bottom-[50%]"
-              >
-                <div className="text-white   text-sm font-bricolage font-extrabold">
-                  Cloud<span className="font-normal">DIET</span>
-                </div>
-              </div>
-
-              {/* CARDS COLUMN */}
-              <div className="relative z-10 flex flex-col gap-6 w-[220px]">
-                {COST_LAYERS.map((layer, index) => (
-                  <div
-                    key={index}
-                    className="border border-white  rounded-md bg-[#FAFAFA] p-3"
-                  >
-                    {/* Heading INSIDE box */}
-                    <p className="text-sm font-semibold text-white  mb-1">
-                      {layer.title}
-                    </p>
-
-                    <p className="text-xs text-[#141414] leading-snug">
-                      {layer.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-          </div>
-        </div>
-
+       
         {/* CloudDIET Logo - All Views */}
         <div className="relative   mt-8 md:mt-12 lg:mt-44 xl:mt-20 hidden lg:flex justify-center z-20">
           <div className="bg-white  px-6 md:px-8 py-3 md:py-4 flex items-center gap-3 shadow-lg">
