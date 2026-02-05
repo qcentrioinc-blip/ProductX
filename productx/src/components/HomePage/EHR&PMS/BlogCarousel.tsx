@@ -88,28 +88,28 @@ export default function BlogCarousel() {
       date: "8 Sep 2025",
       title: "Sed ut perspiciatis Unde Seduo ut perspiciatis ut perspiciatis",
       text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-      img: "/EHRandPMS/Docter1.png",
+      img: "/EHRIcons/ImageDoctor.webp",
     },
     {
       id: 2,
       date: "8 Sep 2025",
       title: "Sed ut perspiciatis Unde Seduo ut perspiciatis ut perspiciatis",
       text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-      img: "/EHRandPMS/Docter2.png",
+      img: "/EHRIcons/ImageDoctor.webp",
     },
     {
       id: 3,
       date: "8 Sep 2025",
       title: "Sed ut perspiciatis Unde Seduo ut perspiciatis ut perspiciatis",
       text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-      img: "/EHRandPMS/Docter1.png",
+      img: "/EHRIcons/ImageDoctor.webp",
     },
     {
       id: 4,
       date: "8 Sep 2025",
       title: "Sed ut perspiciatis Unde Seduo ut perspiciatis ut perspiciatis",
       text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat",
-      img: "/EHRandPMS/Docter2.png",
+      img: "/EHRIcons/ImageDoctor.webp",
     },
   ];
 

@@ -1,41 +1,45 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
+// SMOOTH WAVE BREATHING EFFECT - Reduced heights + Smooth scroll
 const GradientLayers = () => {
   const containerRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"] // Triggers across full viewport
+    offset: ["start end", "end start"] // Removed smooth - doesn't exist
   });
 
   const GRADIENT = 'linear-gradient(90deg, #0E5756 0%, #116D6B 25%, #218281 50%, #41A09E 75%, #51B4B3 100%)';
-  
-  // Increased height ranges for more dramatic effect
+
+  // REDUCED heights (about 40% smaller)
   const layers = [
-    { opacity: 0.9, minHeight: 25, maxHeight: 85 },
-    { opacity: 0.8, minHeight: 30, maxHeight: 90 },
-    { opacity: 0.6, minHeight: 20, maxHeight: 80 },
-    { opacity: 0.4, minHeight: 35, maxHeight: 95 },
-    { opacity: 0.2, minHeight: 15, maxHeight: 75 },
-    { opacity: 0.05, minHeight: 10, maxHeight: 70 }
-  ];
+  { opacity: 0.9, minHeight: 10, maxHeight: 28 },
+  { opacity: 0.8, minHeight: 12, maxHeight: 30 },
+  { opacity: 0.6, minHeight: 8, maxHeight: 25 },
+  { opacity: 0.4, minHeight: 12, maxHeight: 32 },
+  { opacity: 0.2, minHeight: 6, maxHeight: 22 },
+  { opacity: 0.05, minHeight: 5, maxHeight: 20 }
+];
+
+
   return (
     <div ref={containerRef} className="w-full">
       {layers.map((layer, index) => {
-        // FASTER ANIMATION - Narrower scroll progress range
-        // Each layer moves at slightly different speeds for wave effect
+        // WIDER scroll ranges for SMOOTHER transitions
         const scrollRange = [
-          0.1 + (index * 0.05), // Start earlier based on layer
+          0.0 + (index * 0.03),
           0.5,
-          0.9 - (index * 0.05)  // End later based on layer
+          1.0 - (index * 0.03)
         ];
+
         const height = useTransform(
           scrollYProgress,
           scrollRange,
           [layer.minHeight, layer.maxHeight, layer.minHeight]
+          // Removed ease option - not valid in useTransform
         );
+
         return (
           <motion.div
             key={index}
@@ -45,8 +49,8 @@ const GradientLayers = () => {
               height
             }}
           >
-            <span 
-              className="absolute inset-0 block" 
+            <span
+              className="absolute inset-0 block"
               style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
             />
           </motion.div>
@@ -55,29 +59,33 @@ const GradientLayers = () => {
     </div>
   );
 };
+
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
- 
+
   const quickLinks = [
-    
+    { name: 'Physician', path: `${base}/physician` },
+    { name: 'Admin', path: `${base}/admin` },
+    { name: 'Nurse', path: `${base}/nurse` },
+    { name: 'Receptionist', path: `${base}/receptionist` },
     { name: 'Pricing', path: `${base}/pricing` },
-    
+    { name: 'Insurance Coordinator', path: `${base}/insurance-coordinator` },
   ];
 
   const builtfor = [
-    { name: 'Long Term Care' ,path:`${base}/built-for/long-term-care` },
-    { name: 'Home Healthcare',path:`${base}/built-for/home-healthcare`   },
-    { name: 'Clinics & Hospitals' ,path:`${base}/built-for/clinics-and-hospitals`  },
+    { name: 'Long Term Care', path: `${base}/built-for/long-term-care` },
+    { name: 'Home Healthcare', path: `${base}/built-for/home-healthcare` },
+    { name: 'Clinics & Hospitals', path: `${base}/built-for/clinics-and-hospitals` },
   ];
- 
+
   return (
     <footer className="bg-[#008280]">
       {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
       <GradientLayers />
 
       {/* Main Container */}
-      <div className="bg-[#008280] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
-        
+      <div className="bg-[#008280] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
+
         {/* TOP CARD - Newsletter */}
         <div
           className="bg-white shadow-xl w-full"
@@ -87,13 +95,13 @@ const EHRFooter = () => {
             opacity: 1
           }}
         >
-          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-16 lg:py-20">
+          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-8 lg:py-10">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
-             
+
               <div className="flex-shrink-0">
-                <img src="/QnestLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
+                <img src="/EHRQnest.png" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
               </div>
- 
+
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
                 <h2
                   className="mb-8 text-left lg:text-left"
@@ -107,7 +115,7 @@ const EHRFooter = () => {
                 >
                   Subscribe to our<br />newsletter.
                 </h2>
- 
+
                 <div className="flex flex-col sm:flex-row gap-4 w-full lg:justify-end items-stretch">
                   <input
                     type="email"
@@ -139,7 +147,7 @@ const EHRFooter = () => {
             </div>
           </div>
         </div>
- 
+
         {/* BOTTOM CARD - Links */}
         <div
           className="bg-white shadow-xl w-full relative"
@@ -149,9 +157,9 @@ const EHRFooter = () => {
           }}
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
-           
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.5fr_0.5fr_1.5fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0">
-             
+
               {/* QUICK LINKS */}
               <div>
                 <h3
@@ -188,7 +196,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
- 
+
               {/* RESOURCES */}
               <div>
                 <h3
@@ -225,7 +233,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
- 
+
               {/* PRODUCTS */}
               <div>
                 <h3
@@ -261,7 +269,7 @@ const EHRFooter = () => {
                 </ul>
               </div>
             </div>
- 
+
             {/* SOCIAL ICONS */}
             <div className="absolute bottom-12 right-12 md:bottom-14 md:right-16 lg:right-20 flex items-center gap-3">
               <a
@@ -275,7 +283,7 @@ const EHRFooter = () => {
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
- 
+
               <a
                 href="https://x.com"
                 target="_blank"
@@ -287,7 +295,7 @@ const EHRFooter = () => {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
- 
+
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -303,59 +311,59 @@ const EHRFooter = () => {
           </div>
         </div>
         <div className="  px-4 sm:px-6 md:px-12 pb-8 pt-10">
-        <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
-          <p
-            style={{
-              fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px',
-              fontWeight: 400
-            }}
-          >
-            © 2025 Qnest. All rights reserved.
-          </p>
-          <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
-            <a
-              href={`${base}/privacy-policy`}
-              className="hover:underline"
+          <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
+            <p
               style={{
                 fontFamily: "'Quicksand', sans-serif",
                 fontSize: '14px',
                 fontWeight: 400
               }}
             >
-              Privacy Policy
-            </a>
-            <a
-              href={`${base}/cookie-policy`}
-              className="hover:underline"
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontSize: '14px',
-                fontWeight: 400
-              }}
-            >
-              Cookie Policy
-            </a>
-            <a
-              href={`${base}/terms-and-conditions`}
-              className="hover:underline"
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontSize: '14px',
-                fontWeight: 400
-              }}
-            >
-              Terms and Conditions
-            </a>
+              © 2025 Qnest. All rights reserved.
+            </p>
+            <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
+              <a
+                href={`${base}/privacy-policy`}
+                className="hover:underline"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '14px',
+                  fontWeight: 400
+                }}
+              >
+                Privacy Policy
+              </a>
+              <a
+                href={`${base}/cookie-policy`}
+                className="hover:underline"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '14px',
+                  fontWeight: 400
+                }}
+              >
+                Cookie Policy
+              </a>
+              <a
+                href={`${base}/terms-and-conditions`}
+                className="hover:underline"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontSize: '14px',
+                  fontWeight: 400
+                }}
+              >
+                Terms and Conditions
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      </div>
- 
+
       {/* COPYRIGHT SECTION */}
-     
+
     </footer>
   );
 };
- 
+
 export default EHRFooter;

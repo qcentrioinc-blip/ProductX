@@ -187,15 +187,15 @@ export default function Cardcase() {
               key={card.id}
               style={{
                 width: "100%",
-                maxWidth: "348px",
-                height: "396px",
+                maxWidth: "450px",
+                height: "330px",
                 borderRadius: "8px",
                 padding: "32px 20px"
               }}
               className="bg-white shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white hover:shadow-lg mx-auto xl:mx-0"
             >
               {/* Placeholder Circle */}
-              <div className="w-20 h-20">
+              <div className="w-16 h-16">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
 
