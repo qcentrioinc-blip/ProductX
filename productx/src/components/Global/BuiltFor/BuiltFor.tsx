@@ -1,4 +1,4 @@
-import { useLocation  } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import InsightThought from "../../Banking&Finance/InsightThought";
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
@@ -25,8 +25,8 @@ import ContactSecHT from "../../HighTech/ContactSecHT";
 
 export const BuiltFor = () => {
   const { pathname } = useLocation();
- 
- 
+
+
   const getNavbar = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <BNFNav />;
     if (pathname.startsWith("/industries/cloud-finops-ai")) return <AINavbar />;
@@ -35,7 +35,7 @@ export const BuiltFor = () => {
     return null;
   };
 
- 
+
   const getFooter = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <NewOneFooter />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <EHRFooter />;
@@ -43,12 +43,12 @@ export const BuiltFor = () => {
     if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIFooter />;
     return null;
   };
- 
+
   const getInsightandThoughts = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
     if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
     if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
-    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIBlogs  />;
+    if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIBlogs />;
     return null;
   };
 
@@ -62,17 +62,17 @@ export const BuiltFor = () => {
     <div>
       {/* Navbar */}
       {getNavbar()}
-    <div id="landingpage">
-      <TitleSectionSwitcher />
-    </div>
-    
-<TextSec />
-<Cardcase />
-<BuiltForIntro />
+      <div id="landingpage">
+        <TitleSectionSwitcher />
+      </div>
 
-<SplitFeature />
-<GradientCardsSection />
-<ImgSec />
+      <TextSec />
+      <Cardcase />
+      <BuiltForIntro />
+
+      <GradientCardsSection />
+      <SplitFeature />
+      <ImgSec />
 
       {getInsightandThoughts()}
       {getContactForm()}

@@ -294,8 +294,7 @@ export default function InteractiveHeroSection() {
 
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
-                  data-lenis-prevent
-                  style={{ touchAction: 'pan-y', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
+                  style={{ touchAction: 'auto', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
                   className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0 snap-x snap-mandatory overscroll-x-contain">
 
                   <AnimatePresence mode="popLayout">

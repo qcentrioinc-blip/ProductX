@@ -1,74 +1,74 @@
-// import { useRef } from 'react';
-// import { motion, useScroll, useTransform } from 'framer-motion';
-
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+ 
 // WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
-// const GradientLayers = () => {
-//   const containerRef = useRef(null);
-  
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start end", "end start"] // Triggers across full viewport
-//   });
-
-//   const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
-  
-//   // Increased height ranges for more dramatic effect
-//   const layers = [
-//     { opacity: 0.9, minHeight: 25, maxHeight: 85 },
-//     { opacity: 0.8, minHeight: 30, maxHeight: 90 },
-//     { opacity: 0.6, minHeight: 20, maxHeight: 80 },
-//     { opacity: 0.4, minHeight: 35, maxHeight: 95 },
-//     { opacity: 0.2, minHeight: 15, maxHeight: 75 },
-//     { opacity: 0.05, minHeight: 10, maxHeight: 70 }
-//   ];
-
-//   return (
-//     <div ref={containerRef} className="w-full">
-//       {layers.map((layer, index) => {
-//         // FASTER ANIMATION - Narrower scroll progress range
-//         // Each layer moves at slightly different speeds for wave effect
-//         const scrollRange = [
-//           0.1 + (index * 0.05), // Start earlier based on layer
-//           0.5,
-//           0.9 - (index * 0.05)  // End later based on layer
-//         ];
-
-//         const height = useTransform(
-//           scrollYProgress,
-//           scrollRange,
-//           [layer.minHeight, layer.maxHeight, layer.minHeight]
-//         );
-
-//         return (
-//           <motion.div
-//             key={index}
-//             className="relative w-full"
-//             style={{
-//               background: GRADIENT,
-//               height
-//             }}
-//           >
-//             <span 
-//               className="absolute inset-0 block" 
-//               style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
-//             />
-//           </motion.div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-
+const GradientLayers = () => {
+  const containerRef = useRef(null);
+ 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"] // Triggers across full viewport
+  });
+ 
+  const GRADIENT = 'linear-gradient(90deg, #0E5756 0%, #116D6B 25%, #218281 50%, #41A09E 75%, #51B4B3 100%)';
+ 
+  // Increased height ranges for more dramatic effect
+  const layers = [
+    { opacity: 0.9, minHeight: 25, maxHeight: 85 },
+    { opacity: 0.8, minHeight: 30, maxHeight: 90 },
+    { opacity: 0.6, minHeight: 20, maxHeight: 80 },
+    { opacity: 0.4, minHeight: 35, maxHeight: 95 },
+    { opacity: 0.2, minHeight: 15, maxHeight: 75 },
+    { opacity: 0.05, minHeight: 10, maxHeight: 70 }
+  ];
+ 
+  return (
+    <div ref={containerRef} className="w-full">
+      {layers.map((layer, index) => {
+        // FASTER ANIMATION - Narrower scroll progress range
+        // Each layer moves at slightly different speeds for wave effect
+        const scrollRange = [
+          0.1 + (index * 0.05), // Start earlier based on layer
+          0.5,
+          0.9 - (index * 0.05)  // End later based on layer
+        ];
+ 
+        const height = useTransform(
+          scrollYProgress,
+          scrollRange,
+          [layer.minHeight, layer.maxHeight, layer.minHeight]
+        );
+ 
+        return (
+          <motion.div
+            key={index}
+            className="relative w-full"
+            style={{
+              background: GRADIENT,
+              height
+            }}
+          >
+            <span
+              className="absolute inset-0 block"
+              style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
+ 
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
-
+ 
   const quickLinks = [
     { name: 'Built for', path: `${base}/built-for` },
     { name: 'Features', path: `${base}/aboutus` },
     { name: 'Pricing', path: `${base}/careers` },
      { name: 'Support', path: `${base}/careers` }
   ];
-
+ 
   const resources = [
     { name: 'Blogs', path: `${base}/blogs` },
     { name: 'Glossary', path: `${base}/glossary` },
@@ -76,17 +76,17 @@ const EHRFooter = () => {
     { name: 'Case Studies', path: `${base}/case-studies` },
     { name: 'White papers', path: `${base}/white-papers` }
   ];
-
+ 
   return (
-    <footer className="bg-[#3B8866]">
+    <footer className="bg-[#008280]">
       {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
-      {/* <GradientLayers /> */}
-
+      <GradientLayers />
+ 
       {/* Main Container */}
-      <div className="bg-[#56644A] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
-        
+      <div className="bg-[#008280] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
+       
         {/* TOP CARD - Newsletter */}
-        <div 
+        <div
           className="bg-white shadow-xl w-full"
           style={{
             borderRadius: '10px',
@@ -96,7 +96,7 @@ const EHRFooter = () => {
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-16 lg:py-20">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
-              
+             
               <div className="flex-shrink-0">
                 <h1
                   style={{
@@ -105,13 +105,13 @@ const EHRFooter = () => {
                     fontSize: 'clamp(60px, 8vw, 124.56px)',
                     lineHeight: '100%',
                     letterSpacing: '0%',
-                    color: '#166D48'
+                    color: '#008280'
                   }}
                 >
                   QNEST
                 </h1>
               </div>
-
+ 
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
                 <h2
                   className="mb-8 text-left lg:text-left"
@@ -120,17 +120,17 @@ const EHRFooter = () => {
                     fontWeight: 600,
                     fontSize: 'clamp(32px, 4vw, 48px)',
                     lineHeight: '120%',
-                    color: '#166D48'
+                    color: '#008280'
                   }}
                 >
                   Subscribe to our<br />newsletter.
                 </h2>
-
+ 
                 <div className="flex flex-col sm:flex-row gap-4 w-full lg:justify-end items-stretch">
                   <input
                     type="email"
                     placeholder="Enter your mail"
-                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#166D48] transition-colors"
+                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#008280] transition-colors"
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
                       fontSize: '16px',
@@ -157,9 +157,9 @@ const EHRFooter = () => {
             </div>
           </div>
         </div>
-
+ 
         {/* BOTTOM CARD - Links */}
-        <div 
+        <div
           className="bg-white shadow-xl w-full relative"
           style={{
             borderRadius: '8px',
@@ -167,9 +167,9 @@ const EHRFooter = () => {
           }}
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
-            
+           
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.5fr_0.5fr_1.5fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0">
-              
+             
               {/* QUICK LINKS */}
               <div>
                 <h3
@@ -197,7 +197,7 @@ const EHRFooter = () => {
                           fontSize: '24px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
-                          color: '#166D48'
+                          color: '#008280'
                         }}
                       >
                         {link.name}
@@ -206,7 +206,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
-
+ 
               {/* RESOURCES */}
               <div>
                 <h3
@@ -234,7 +234,7 @@ const EHRFooter = () => {
                           fontSize: '24px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
-                          color: '#166D48'
+                          color: '#008280'
                         }}
                       >
                         {link.name}
@@ -243,7 +243,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
-
+ 
               {/* PRODUCTS */}
               <div>
                 <h3
@@ -270,7 +270,7 @@ const EHRFooter = () => {
                         fontSize: '24px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
-                        color: '#166D48'
+                        color: '#008280'
                       }}
                     >
                       Clinic App
@@ -279,38 +279,38 @@ const EHRFooter = () => {
                 </ul>
               </div>
             </div>
-
+ 
             {/* SOCIAL ICONS */}
             <div className="absolute bottom-12 right-12 md:bottom-14 md:right-16 lg:right-20 flex items-center gap-3">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
-
+ 
               <a
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="X"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-
+ 
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -369,11 +369,11 @@ const EHRFooter = () => {
         </div>
       </div>
       </div>
-
+ 
       {/* COPYRIGHT SECTION */}
-      
+     
     </footer>
   );
 };
-
+ 
 export default EHRFooter;

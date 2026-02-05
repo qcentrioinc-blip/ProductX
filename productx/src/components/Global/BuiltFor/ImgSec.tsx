@@ -21,6 +21,7 @@ type Theme = {
 
 type Content = {
   heroHeading: string | React.ReactNode;
+  headingColor: string| React.ReactNode;
   cardTitle: string;
   cardPara: string;
   buttonLabel: string;
@@ -42,13 +43,13 @@ const THEMES: Record<string, Theme> = {
   },
 
   "ehr-and-pms": {
-    bgImage: "/BuiltFor/img3.jpg",
+    bgImage: "/BuiltFor/.webp",
     cardBg: "bg-[#166D48]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-white",
     buttonText: "text-black",
-    buttonBg: "bg-black",
+    buttonBg: "bg-white",
     contactAction: "drawer",
   },
 
@@ -84,11 +85,18 @@ const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
   "regulated-large-enterprise": "/BuiltFor/SmnBg.webp",
 };
 
+const EHR_AND_PMS_BG_IMAGES: Record<string, string> = {
+  "long-term-care": "/BuiltFor/ContactLong.webp",
+  "home-healthcare": "/BuiltFor/HomeContact.webp",
+  "clinics-and-hospitals": "/BuiltFor/ClinicsContact.webp",
+};
+
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
+      headingColor: "text-[#254D70]",
       heroHeading: (<>
         CloudDIET cuts enterprise <br /> {" "} Azure waste.
       </>),
@@ -98,6 +106,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "saas-application-providers": {
+      headingColor: "text-[#254D70]",
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ",
@@ -106,6 +115,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "regulated-large-enterprise": {
+      headingColor: "text-[#254D70]",
       heroHeading: (<>
         CloudDIET stops SaaS <br /> {" "}cloud waste.
       </>),
@@ -118,6 +128,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
 
   "banking-and-finance": {
     banks: {
+      headingColor: "text-[#254D70]",
       heroHeading:
         "Secure, compliant Azure optimization for modern banks.",
       cardTitle: "Trusted Platform",
@@ -126,6 +137,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     nbfc: {
+      headingColor: "text-[#254D70]",
       heroHeading:
         "Lower cloud costs without slowing financial innovation.",
       cardTitle: "Cost Control",
@@ -134,11 +146,41 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "credit-union": {
+      headingColor: "text-[#254D70]",
       heroHeading:
         "Smarter Azure spend management for credit unions.",
       cardTitle: "Cost Visibility",
       cardPara: "Gain insight into every dollar spent on Azure.",
       buttonLabel: "Explore",
+    },
+  },
+  "ehr-and-pms": {
+    "long-term-care": {
+      headingColor: "text-[#008280]",
+      heroHeading: (<>
+        Unified Care for <br /> {" "} Long Term Facilities.
+      </>),
+      cardTitle: "Ready to Transform?",
+      cardPara: "See how Unified Clinicapp is built for the unique needs of long-term care.",
+      buttonLabel: "Schedule Demo",
+    },
+    "home-healthcare": {
+      headingColor: "text-[#008280]",
+      heroHeading: (<>
+        Home Healthcare <br /> {" "} Modernized.
+      </>),
+      cardTitle: "Remote Care",
+      cardPara: "Bring the hospital experience to the patient's home.",
+      buttonLabel: "Learn More",
+    },
+    "clinics-and-hospitals": {
+      headingColor: "text-[#008280]",
+      heroHeading: (<>
+        Connected <br /> {" "} Healthcare Systems.
+      </>),
+      cardTitle: "Ready for Unity?",
+      cardPara: "Discover how Unified Clinicapp connects your entire health system on one platform.",
+      buttonLabel: "Request Demo",
     },
   },
 };
@@ -158,16 +200,20 @@ export default function ImgSec() {
     THEMES[industry ?? "banking-and-finance"] ??
     THEMES["banking-and-finance"];
 
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const content =
-    CONTENT[industry ?? ""]?.[builtForType ?? ""];
+    CONTENT[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!content) return null;
 
-  // Get the appropriate background image
   const getBgImage = () => {
-    // If it's cloud-finops-ai and has a specific builtForType, use the custom bg
     if (industry === "cloud-finops-ai" && builtForType) {
       return CLOUD_FINOPS_BG_IMAGES[builtForType] ?? theme.bgImage;
+    }
+
+    if(industry === "ehr-and-pms" && builtForType) {
+      return EHR_AND_PMS_BG_IMAGES[builtForType] ?? theme.bgImage;
     }
     return theme.bgImage;
   };
@@ -194,9 +240,9 @@ export default function ImgSec() {
 
         <div className="relative z-10 w-full max-w-[90rem] mx-auto h-full xl:pt-4">
           {/* LEFT TEXT */}
-          <div className="absolute h-full pt-6 xl:left-[-3%]">
+          <div className="absolute h-full xl:pt-6 xl:px-6">
             <div className="w-full  ">
-              <H2 className="leading-tight text-[#254D70] max-w-5xl">
+              <H2 className={`leading-tight ${content.headingColor} max-w-5xl`}>
                 {content.heroHeading}
               </H2>
 

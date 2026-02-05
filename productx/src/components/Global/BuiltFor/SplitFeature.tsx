@@ -9,7 +9,7 @@ type SplitContent = {
   paragraph: string;
   bulletPoints: string[];
   stats: {
-    value: string;
+    value: string | ReactNode;
     label: string;
   }[];
 };
@@ -26,10 +26,10 @@ type Theme = {
 
 /* ================= THEMES (BY INDUSTRY) ================= */
 const BULLET_ICONS = [
-  "/BuiltFor/Waste.svg",
-  "/BuiltFor/money.svg",
-  "/BuiltFor/web.svg",
-  "/BuiltFor/efficiency.svg",
+  "/BuiltFor/user.png",
+  "/BuiltFor/arrow-down.png",
+  "/BuiltFor/arrow-up.png",
+  "/BuiltFor/rotate-square.png",
 ];
 
 const THEMES: Record<string, Theme> = {
@@ -44,13 +44,13 @@ const THEMES: Record<string, Theme> = {
   },
 
   "ehr-and-pms": {
-    sectionBg: "bg-[#166D48]",
-    imageSrc: "/BuiltFor/img2.png",
-    headingPrimaryColor: "text-[#F5F5F5]",
+    sectionBg: "",
+    imageSrc: "/BuiltFor/ModernCare-Image.webp",
+    headingPrimaryColor: "text-[#008280]",
     headingSecondaryColor: "text-[#F5F5F5]",
-    paragraphColor: "text-[#CCCCCC]",
-    bulletColor: "bg-[#2B68C3]",
-    statsColor: "text-[#F5F5F5]",
+    paragraphColor: "text-[#141414]",
+    bulletColor: "",
+    statsColor: "text-[#008280]",
   },
 
   "high-tech": {
@@ -140,6 +140,56 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
       ],
     },
   },
+  "ehr-and-pms": {
+    "long-term-care": {
+      headingPrimary: "Measurable Outcomes for Long-Term Care",
+      imageSrc: "/BuiltFor/Mesurable.webp",
+      paragraph: "Unified Clinicapp transforms daily operations, leading to tangible improvements in care quality and efficiency.",
+      bulletPoints: [
+        "Improved Resident Care Coordination",
+        "Reduced Administrative Burden",
+        "Enhanced Regulatory Compliance",
+        "Accelerated Reimbursement Cycles",
+      ],
+      stats: [
+        { value: <>4X <br /> Faster</>, label: "Audit Preparation Time" },
+        { value: <>200+ <br /> Facilities</>, label: "Trust Our Platform" },
+        { value: <>50% <br /> less</>, label: "Medication Charting Errors" },
+      ],
+    },
+    "home-healthcare": {
+      headingPrimary: "Measurable Outcomes for Home Care",
+      imageSrc: "/BuiltFor/HomeCareEHR.webp",
+      paragraph: "Improve care quality, streamline operations, and ensure financial health for your agency.",
+      bulletPoints: [
+        "Accelerated Visit Documentation",
+        "Improved Care Coordination",
+        "Enhanced Regulatory Compliance",
+        "Faster Claim Submission",
+      ],
+      stats: [
+        { value: <>4X <br /> Faster</>, label: "Visit-to-Billing Cycle" },
+        { value: <>200+ <br /> Agencies</>, label: "Trust Our Platform" },
+        { value: <>40% <br /> Reduction</>, label: "Charting Backlog" },
+      ],
+    },
+    "clinics-and-hospitals": {
+      headingPrimary: "Measurable Outcomes for Healthcare Systems",
+      imageSrc: "/BuiltFor/ClinicsNewEHR.webp",
+      paragraph: "Drive operational excellence and financial health with a platform built for scale and coordination.",
+      bulletPoints: [
+        "Streamlined Interdepartmental Coordination",
+        "Reduced Claim Denial Rates",
+        "Enhanced Patient Data Accessibility",
+        "Improved Staff Productivity",
+      ],
+      stats: [
+        { value: <>40% <br /> Faster</>, label: "Care Coordination Handoffs" },
+        { value: <>200+ <br /> Facilities</>, label: "Trust Our Platform" },
+        { value: <>99% <br /> Accuracy</>, label: "Integrated Clinical Documentation" },
+      ],
+    },
+  },
 };
 
 /* ================= COMPONENT ================= */
@@ -154,21 +204,23 @@ export default function SplitFeature() {
     THEMES[industry ?? "banking-and-finance"] ??
     THEMES["banking-and-finance"];
 
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const content =
-    CONTENT[industry ?? ""]?.[builtForType ?? ""];
+    CONTENT[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!content) return null;
 
   return (
     <section className={`w-full    ${theme.sectionBg}`}>
-      <div className="max-w-8xl mx-10 pb-6  grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl mx-10 pb-6 grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
-        <div className="flex  justify-start   lg:justify-center xl:justify-start">
+        <div className="flex justify-start lg:justify-center xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full  rounded-2xl object-cover "
+            className="w-full h-[550px] rounded-2xl object-cover "
           />
         </div>
 
@@ -210,8 +262,6 @@ export default function SplitFeature() {
               </div>
             ))}
           </div>
-
-
 
           {/* STATS */}
           <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">

@@ -23,23 +23,24 @@ export default function FutureSection() {
         {/* TEXT BLOCK */}
         <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 flex flex-col gap-10 lg:mt-80 ">
           {/* Description */}
-          <P className="max-w-xl xl:ml-[-60px]">
+          <P className="max-w-xl xl:ml-8">
             Qnest Global supports companies across banking, manufacturing, healthcare, retail, and services. Our teams design AI, CRM, HRM, and cloud solutions that match industry needs and meet compliance requirements.
           </P>
 
           {/* Second Text Block */}
-          <P className="max-w-2xl xl:ml-20">
+          <P className="max-w-2xl xl:ml-28">
             From fast‑growing startups to global enterprises, Qnest Global builds stable, scalable systems. We connect data, automate work, and modernize core platforms so each client can operate with better speed, control, and insight.
           </P>
         </div>
 
         {/* ILLUSTRATION BLOCK */}
-        <div className="order-3 lg:col-start-1 lg:row-start-2">
+        <div className="order-3 lg:col-start-1 lg:row-start-2 xl:-ml-12">
           <LazyVideo
-            src="/Global-Landing-Page/Globe.mp4"
+            src="/Global1.mp4"
             autoPlay
             loop
             muted
+            playsInline
             className="w-full max-w-3xl"
           />
         </div>

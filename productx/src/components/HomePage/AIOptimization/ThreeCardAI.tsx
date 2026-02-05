@@ -2,7 +2,7 @@ import { H2, H4, P } from "../../../styles/Typography";
  
 const features = [
     {
-        title: "Deep Azure Expertise",
+        title: "Deep Cloud Expertise",
         description:
             "Built by cloud engineers with decades of experience across AWS, Azure, and GCP. We understand Azure’s complexity so you don’t have to.",
             image:"/AIOptimization/Star.svg",

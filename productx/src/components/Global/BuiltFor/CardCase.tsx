@@ -1,15 +1,13 @@
 import { H2, H4, P } from "../../../styles/Typography";
 import { useParams } from "react-router-dom";
 
-;
-
 const CARD_CONFIG: Record<
   string,
   Record<
     string,
     {
       bg: string;
-
+      headingColor?: string;
       heading: string;
       cards: {
         id: number;
@@ -23,7 +21,7 @@ const CARD_CONFIG: Record<
   "cloud-finops-ai": {
     enterprises: {
       bg: "#FAFAFA",
-
+      headingColor: "#254D70",
       heading: " Azure Spend Issues",
       cards: [
         { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage", image: "/BuiltFor/Recycle.svg" },
@@ -34,7 +32,7 @@ const CARD_CONFIG: Record<
 
     "saas-application-providers": {
       bg: "#FAFAFA",
-
+      headingColor: "#254D70",
       heading: "SaaS Cost Problems",
       cards: [
         { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image: "/BuiltFor/BalanceScale.svg" },
@@ -45,7 +43,7 @@ const CARD_CONFIG: Record<
 
     "regulated-large-enterprise": {
       bg: "#FAFAFA",
-
+      headingColor: "#254D70",
       heading: "Industry Struggles Today",
       cards: [
         { id: 1, title: " Cost Visibility", desc: "Fragmented views hide waste across regions, services, and business units. ", image: "/BuiltFor/OpenEye.svg" },
@@ -90,25 +88,34 @@ const CARD_CONFIG: Record<
   },
 
   "ehr-and-pms": {
-    hospitals: {
-      bg: "#EEFDD9",
-
-      heading: "Hospital System Challenges",
+    "long-term-care": {
+      bg: "#ffffff",
+      headingColor: "#008280",
+      heading: "Critical Pain Points",
       cards: [
-        { id: 1, title: "Fragmented Systems", desc: "Disconnected platforms slow care delivery.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Data Interoperability", desc: "Clinical data is siloed.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Operational Inefficiency", desc: "Manual workflows increase cost.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Fragmented Care Coordination", desc: "Disconnected teams lead to inconsistent care plans and communication gaps for residents.", image: "/BuiltFor/hand-holding-medical.webp" },
+        { id: 2, title: "Regulatory Compliance Burden", desc: "Manual tracking and reporting for MDS and audits increase errors and staff workload.", image: "/BuiltFor/briefcase.png" },
+        { id: 3, title: "Complex Billing Management", desc: "Navigating Medicare, Medicaid, and private insurance billing is time-consuming and prone to delays.", image: "/BuiltFor/receipt.png" },
       ],
     },
-
-    clinics: {
-      bg: "#EEFDD9",
-
-      heading: "Clinic Management Challenges",
+    "home-healthcare": {
+      bg: "#ffffff",
+      headingColor: "#008280",
+      heading: "Critical Operational Hurdles",
       cards: [
-        { id: 1, title: "Administrative Overload", desc: "Staff spend too much time on admin tasks.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Limited Scalability", desc: "Systems don’t grow with clinics.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Patient Experience", desc: "Slow processes impact satisfaction.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Inefficient Visit Coordination", desc: "Manual scheduling and route planning for field clinicians wastes time and resources.", image: "/BuiltFor/visit.png" },
+        { id: 2, title: "Delayed Visit Documentation", desc: "Paper charts or post-visit data entry create backlogs and billing delays.", image: "/BuiltFor/snail.png" },
+        { id: 3, title: "Complex Compliance Reporting", desc: "Manually tracking care plans and outcomes for regulatory audits is error-prone.", image: "/BuiltFor/file-medical.png" },
+      ],
+    },
+    "clinics-and-hospitals": {
+      bg: "#ffffff",
+      headingColor: "#008280",
+      heading: "Critical Operational Hurdles",
+      cards: [
+        { id: 1, title: "Fragmented Patient Data", desc: "Disconnected systems create information silos, hindering coordinated inpatient and outpatient care.", image: "/BuiltFor/portfolio.png" },
+        { id: 2, title: "Inefficient Care Coordination", desc: "Manual handoffs between departments lead to delays, errors, and communication gaps.", image: "/BuiltFor/hand-holding-medical.webp" },
+        { id: 3, title: "Complex Revenue Cycles", desc: "Managing high-volume, multi-department billing and claims increases denials and delays payment.", image: "/BuiltFor/money-transfer.png" },
       ],
     },
   },
@@ -144,8 +151,10 @@ export default function Cardcase() {
     builtForType: string;
   }>();
 
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const config =
-    CARD_CONFIG[industry ?? ""]?.[builtForType ?? ""];
+    CARD_CONFIG[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!config) return null;
 
@@ -168,19 +177,25 @@ export default function Cardcase() {
       </div>
 
       {/* CONTENT WRAPPER */}
-      <div className="relative max-w-8xl mx-10 md:px-10 xl:pr-40">
-        <H2 className="mb-10 text-[#254D70]">{config.heading}</H2>
+      <div className="relative max-w-8xl mx-10 md:px-10">
+        <H2 className="mb-10 font-weight-400" style={{ color: config.headingColor || "#254D70" }}>{config.heading}</H2>
 
         {/* CARDS GRID */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-start">
           {config.cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-md shadow-sm border border-gray-200 px-8 xl:p-8 flex flex-col min-h-[300px] transition-all duration-300 hover:bg-white hover:shadow-lg"
-
+              style={{
+                width: "100%",
+                maxWidth: "348px",
+                height: "396px",
+                borderRadius: "8px",
+                padding: "32px 20px"
+              }}
+              className="bg-white shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white hover:shadow-lg mx-auto xl:mx-0"
             >
               {/* Placeholder Circle */}
-              <div className="w-20 h-20    mt-10">
+              <div className="w-20 h-20">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
 
