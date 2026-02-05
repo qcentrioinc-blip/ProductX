@@ -1,14 +1,17 @@
 import React from "react";
- 
+
 import { H2, H3, H4, P } from "../../../styles/Typography";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const WhyUnifiedHealth: React.FC = () => {
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-8xl px-4 py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
-          
+
           {/* LEFT IMAGE (top only) */}
           <div>
             <img
@@ -21,19 +24,20 @@ const WhyUnifiedHealth: React.FC = () => {
           {/* CENTER CONTENT (top) */}
           <div className="flex flex-col   justify-center items-start xl:pl-16">
             <span className="mb-3 font-quicksand text-md">
-             Why Unified Health Net 
+              Why Unified Health Net
             </span>
 
             <H2 className="mb-6 leading-snug text-[#008280]">
-             Built for Modern Healthcare’s Demands
+              Built for Modern Healthcare’s Demands
             </H2>
 
             <P className="mb-6 max-w-xl leading-relaxed">
-             We unify the entire patient and practice journey on one intelligent platform, delivering the simplicity, efficiency, and clarity that today’s providers need to succeed.
+              We unify the entire patient and practice journey on one intelligent platform, delivering the simplicity, efficiency, and clarity that today’s providers need to succeed.
             </P>
 
             <button
-        className="
+              onClick={() => setDrawerOpen(true)}
+              className="
           group mt-10
           flex items-center justify-center
           w-auto h-[48px]
@@ -47,22 +51,22 @@ const WhyUnifiedHealth: React.FC = () => {
           transition-all duration-300
           hover:bg-white hover:text-black
          "
-      >
-        LEARN MORE
-        <span className="flex items-center gap-2">
-         
-          <span className="relative flex items-center w-[20px] h-[20px]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-              <path d="M7 7h10v10" />
-              <path d="M7 17L17 7" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </span>
-        </span>
-      </button>
+            >
+              LEARN MORE
+              <span className="flex items-center gap-2">
+
+                <span className="relative flex items-center w-[20px] h-[20px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </span>
+            </button>
           </div>
 
           {/* RIGHT IMAGE (spans top + bottom) */}
@@ -80,7 +84,7 @@ const WhyUnifiedHealth: React.FC = () => {
           {/* BOTTOM FEATURES (center column only) */}
           <div className="xl:-ml-72 ">
             <H3 className="mb-4 text-[#008280]">
-             Our Core Promise
+              Our Core Promise
             </H3>
 
             <div className="mb-8 h-px w-full bg-[#008280]" />
@@ -89,26 +93,26 @@ const WhyUnifiedHealth: React.FC = () => {
               {/* Feature 1 */}
               <div>
                 <H4 className="mb-2 text-[#008280]">
-              Uncompromising Simplicity
+                  Uncompromising Simplicity
                 </H4>
                 <div className="flex  flex-col-reverse   xl:flex-row">
-                <P className="max-w-sm">
-                   A single, intuitive platform for all clinical, financial, and patient engagement tasks.
-                </P>
-                <div className="h-12 w-12 bg-[#D9D9D9] my-4 xl:my-0  rounded-full"/>
+                  <P className="max-w-sm">
+                    A single, intuitive platform for all clinical, financial, and patient engagement tasks.
+                  </P>
+                  <div className="h-12 w-12 bg-[#D9D9D9] my-4 xl:my-0  rounded-full" />
                 </div>
               </div>
 
               {/* Feature 2 */}
               <div>
                 <H4 className="mb-2 text-[#008280]">
-                Unmatched Efficiency
+                  Unmatched Efficiency
                 </H4>
-                 <div className="flex  flex-col-reverse    xl:flex-row">
-                <P className="max-w-sm">
-                 Automates workflows to speed up documentation, billing, and daily operations.
-                </P>
-                <div className="h-12 w-12 bg-[#D9D9D9]  my-4 xl:my-0 rounded-full"/>
+                <div className="flex  flex-col-reverse    xl:flex-row">
+                  <P className="max-w-sm">
+                    Automates workflows to speed up documentation, billing, and daily operations.
+                  </P>
+                  <div className="h-12 w-12 bg-[#D9D9D9]  my-4 xl:my-0 rounded-full" />
                 </div>
               </div>
             </div>
@@ -116,6 +120,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
         </div>
       </div>
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </section>
   );
 };
