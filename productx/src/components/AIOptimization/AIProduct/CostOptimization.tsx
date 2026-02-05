@@ -1,4 +1,5 @@
 import { H2, P } from '../../../styles/Typography';
+import LazyVideo from '../../Global/LazyVideo';
 
 const COST_LAYERS = [
   {
@@ -28,10 +29,9 @@ const CostOptimization = () => {
     <section className="w-full relative z-20 text-white px-4 sm:px-6 md:px-10 py-12 md:pb-16  md:pt-10 overflow-hidden">
       {/* VIDEO BACKGROUND */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <video
+        <LazyVideo
           className="w-full block h-full object-cover"
           src="/Video/optimization.mp4"
-          preload="auto"
           muted
           playsInline
           disablePictureInPicture

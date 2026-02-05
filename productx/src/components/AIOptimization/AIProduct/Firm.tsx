@@ -1,26 +1,26 @@
 import { H2, H3, H4, P } from "../../../styles/Typography";
 import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-
-
+ 
+ 
 const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }: { containerRef: React.RefObject<HTMLDivElement | null>; enabled?: boolean; spotlightRadius?: number }) => {
   const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
   const isVisibleRef = useRef(false);
-
+ 
   // Cache layout measurements to avoid thrashing
   const layoutRef = useRef<{
     container: DOMRect;
     cards: { el: HTMLElement; rect: DOMRect }[];
   } | null>(null);
-
+ 
   const updateLayout = () => {
     if (!containerRef.current) return;
     // We use viewport-relative rects so we must re-measure on scroll.
     // Ideally we'd use page-relative, but this is simpler to drop-in.
     // To minimize cost, we ONLY measure if we are visible.
     if (!isVisibleRef.current) return;
-
+ 
     layoutRef.current = {
       container: containerRef.current.getBoundingClientRect(),
       cards: Array.from(containerRef.current.querySelectorAll('.animated-card')).map(el => ({
@@ -29,10 +29,10 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       }))
     };
   };
-
+ 
   useEffect(() => {
     if (!containerRef?.current || !enabled) return;
-
+ 
     // INTERSECTION OBSERVER
     const observer = new IntersectionObserver(
       (entries) => {
@@ -47,7 +47,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       { threshold: 0, rootMargin: '100px' }
     );
     observer.observe(containerRef.current);
-
+ 
     const spotlight = document.createElement('div');
     spotlight.className = 'global-spotlight';
     spotlight.style.cssText = `
@@ -71,9 +71,9 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     `;
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
-
+ 
     let ticking = false;
-
+ 
     // Update layout cache on scroll/resize (throttled)
     const handleLayoutUpdate = () => {
       if (!ticking) {
@@ -86,25 +86,25 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
     };
     window.addEventListener('scroll', handleLayoutUpdate, { passive: true });
     window.addEventListener('resize', handleLayoutUpdate, { passive: true });
-
+ 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isVisibleRef.current) return;
-
+ 
       // Use cached layout if available, else fall back (safety)
       // Note: Layout is updated on scroll, so this cache is fresh enough for 60fps
       if (!layoutRef.current) updateLayout();
       if (!layoutRef.current || !spotlightRef.current) return;
-
+ 
       const { container, cards } = layoutRef.current;
       const mouseX = e.clientX;
       const mouseY = e.clientY;
-
+ 
       const mouseInside =
         mouseX >= container.left && mouseX <= container.right &&
         mouseY >= container.top && mouseY <= container.bottom;
-
+ 
       isInsideSection.current = mouseInside;
-
+ 
       if (!mouseInside) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
@@ -117,48 +117,48 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         });
         return;
       }
-
+ 
       const proximity = spotlightRadius * 0.5;
       const fadeDistance = spotlightRadius * 0.75;
       let minDistance = Infinity;
-
+ 
       // Heavy loop - Optimized by using cached rects
       for (let i = 0; i < cards.length; i++) {
         const { el, rect } = cards[i];
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
-
+ 
         const distance = Math.hypot(mouseX - centerX, mouseY - centerY) -
           Math.max(rect.width, rect.height) / 2;
         const effectiveDistance = Math.max(0, distance);
-
+ 
         minDistance = Math.min(minDistance, effectiveDistance);
-
+ 
         let glowIntensity = 0;
         if (effectiveDistance <= proximity) {
           glowIntensity = 1;
         } else if (effectiveDistance <= fadeDistance) {
           glowIntensity = (fadeDistance - effectiveDistance) / (fadeDistance - proximity);
         }
-
+ 
         const relativeX = ((mouseX - rect.left) / rect.width) * 100;
         const relativeY = ((mouseY - rect.top) / rect.height) * 100;
-
+ 
         el.style.setProperty('--glow-x', `${relativeX}%`);
         el.style.setProperty('--glow-y', `${relativeY}%`);
         el.style.setProperty('--glow-intensity', glowIntensity.toString());
         el.style.setProperty('--glow-radius', `${spotlightRadius}px`);
       }
-
+ 
       gsap.set(spotlightRef.current, {
         left: mouseX,
         top: mouseY
       });
-
+ 
       const targetOpacity =
         minDistance <= proximity ? 0.8 :
           minDistance <= fadeDistance ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8 : 0;
-
+ 
       gsap.to(spotlightRef.current, {
         opacity: targetOpacity,
         duration: targetOpacity > 0 ? 0.15 : 0.3,
@@ -166,7 +166,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         overwrite: 'auto'
       });
     };
-
+ 
     const handleMouseLeave = () => {
       isInsideSection.current = false;
       // Clear glow on leave
@@ -175,10 +175,10 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
         gsap.to(spotlightRef.current, { opacity: 0, duration: 0.3, ease: 'power2.out' });
       }
     };
-
+ 
     document.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
-
+ 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
@@ -187,24 +187,24 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       observer.disconnect();
       spotlightRef.current?.parentNode?.removeChild(spotlightRef.current);
     };
-  },  );
-
+  }, [containerRef, enabled, spotlightRadius]);
+ 
   return null;
 };
-
-
+ 
+ 
 export default function Firm() {
-
+ 
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-
+ 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
+ 
   const cloudDietFeatures = [
     {
       id: 1,
@@ -222,7 +222,7 @@ export default function Firm() {
       desc: "Supports Microsoft Fabric workloads completely for comprehensive Azure cost management across all modern data platforms reliably",
     },
   ];
-
+ 
   const withoutCloudDietFeatures = [
     {
       id: 1,
@@ -240,7 +240,7 @@ export default function Firm() {
       desc: "Lacks proper Microsoft Fabric support causing incomplete cost optimization across Azure's modern data and analytics platforms. ",
     },
   ];
-
+ 
   return (
     <>
       <style>
@@ -253,7 +253,7 @@ export default function Firm() {
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
           }
-          
+         
           .animated-card::after {
             content: '';
             position: absolute;
@@ -275,14 +275,14 @@ export default function Firm() {
             transition: opacity 0.3s ease;
             z-index: 1;
           }
-          
+         
           .animated-card:hover {
              
             box-shadow: 0 8px 30px rgba(132, 0, 255, 0.2);
           }
         `}
       </style>
-
+ 
       <GlobalSpotlight
         containerRef={containerRef}
         enabled={!isMobile}
@@ -295,16 +295,16 @@ export default function Firm() {
             <H2 className="text-[#254D70]">
               How CloudDIET Compares Better To Other Tools & Platforms
             </H2>
-
+ 
             <P className="my-4 max-w-3xl mx-auto">
               See why CloudDIET delivers better Azure savings and functionality reliably
             </P>
           </div>
-
+ 
           {/* Outer White Container */}
           <div className="bg-white  rounded-3xl my-14 p-4 sm:p-6 md:p-8">
             <div className="grid bg-gray-100 rounded-4xl grid-cols-1 lg:grid-cols-2 gap-6">
-
+ 
               {/* Other Firms */}
               <div className="rounded-4xl animated-card my-10 p-6 ml-4 sm:p-8 text-left">
                 <H3>Other Platforms </H3>
@@ -323,9 +323,9 @@ export default function Firm() {
                     </li>
                   ))}
                 </ul>
-
+ 
               </div>
-
+ 
               {/* With CloudDiet */}
               <div
                 className="
@@ -336,7 +336,7 @@ export default function Firm() {
               "
               >
                 <H3 className="">CloudDiet</H3>
-
+ 
                 <ul className="mt-8 space-y-12">
                   {cloudDietFeatures.map((item) => (
                     <li key={item.id} className="flex items-start gap-4">
@@ -352,9 +352,9 @@ export default function Firm() {
                     </li>
                   ))}
                 </ul>
-
+ 
               </div>
-
+ 
             </div>
           </div>
         </div>

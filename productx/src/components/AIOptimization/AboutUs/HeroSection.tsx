@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ContactUsAI } from "../../../styles/Button";
 import { H1, P } from "../../../styles/Typography";
 import ContactModal from "../Navbar/ContactModal";
 
+export const prefetchAboutUsHeroImage = () => {
+  const img = new Image();
+  img.src = '/AIHero.webp';
+};
+
 export default function HeroSection() {
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    prefetchAboutUsHeroImage();
+  }, []);
 
   return (
     <section className="relative w-full lg:h-[40vh]  xl:h-[80vh] overflow-hidden flex items-center justify-center  ">

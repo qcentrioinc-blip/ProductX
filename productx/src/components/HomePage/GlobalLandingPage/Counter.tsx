@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { H2 } from "../../../styles/Typography";
- 
-const CounterCard = ({
+
+const CounterCard = React.memo(({
   number,
   suffix = "",
   // title,
@@ -17,7 +17,7 @@ const CounterCard = ({
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
- 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,13 +31,13 @@ const CounterCard = ({
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
- 
+
   useEffect(() => {
     if (!isVisible) return;
     let start = 0;
     const duration = 2000;
     const increment = number / (duration / 16);
- 
+
     const counter = setInterval(() => {
       start += increment;
       if (start >= number) {
@@ -51,10 +51,10 @@ const CounterCard = ({
         }
       }
     }, 16);
- 
+
     return () => clearInterval(counter);
   }, [isVisible, number]);
- 
+
   return (
     <div
       ref={ref}
@@ -66,9 +66,9 @@ const CounterCard = ({
         {count}
         {suffix}
       </h2> */}
-     
-    <H2 className="text-[#8338EC]  sm:pt-4  sm:mb-8">
- 
+
+      <H2 className="text-[#8338EC]  sm:pt-4  sm:mb-8">
+
         {count}
         {suffix}
       </H2>
@@ -77,21 +77,21 @@ const CounterCard = ({
         {title}
       </H4> */}
       {/* <p className="text-xs sm:text-sm">{description}</p> */}
-   <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-16 md:pb-0">
- 
+      <p className="max-w-[90%] font-quicksand text-[16px] font-bold  md:pt-16 md:pb-0">
+
         {description}
       </p >
     </div>
   );
-};
- 
+});
+
 const Counter = () => {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white">
       <div className="max-w-8xl lg:mx-10 text-center mb-8 sm:mb-12 px-4 ">
         {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Lorem ipsum dolor sit amet consectetur</h2> */}
         <H2>
-         Results That Prove Our Impact
+          Results That Prove Our Impact
         </H2>
         {/* <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
           Behind every number is a team achieving more — see how high-performing workflows,
@@ -130,5 +130,5 @@ const Counter = () => {
     </section>
   );
 };
- 
+
 export default Counter;

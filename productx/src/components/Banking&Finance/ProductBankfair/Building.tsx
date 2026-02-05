@@ -132,7 +132,7 @@ const Building = () => {
               flexWrap: 'wrap',
               alignItems: 'flex-start'
             }}>
-              
+
               {/* Left Image */}
               <div
                 className="left-image"

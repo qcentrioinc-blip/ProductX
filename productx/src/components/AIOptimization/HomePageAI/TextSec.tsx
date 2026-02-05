@@ -36,7 +36,7 @@ const TextSec = () => {
             }}
           >
             <H3>
-              On average, CloudDIET customers save{" "}
+              On average, CloudDIET customers sav{" "}
               <motion.span
                 className="inline-block font-bold text-indigo-900 relative"
                 initial={{ scale: 0.9, opacity: 0 }}

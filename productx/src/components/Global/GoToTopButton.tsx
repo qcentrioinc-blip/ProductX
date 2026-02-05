@@ -1,9 +1,25 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const GoToTopButton = () => {
   const [showLabel, setShowLabel] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Show button immediately on mount for consistency, or add scroll listener if desired
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // check initial
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleClick = () => {
     const el = document.getElementById("landingpage");
@@ -14,54 +30,47 @@ const GoToTopButton = () => {
     }
   };
 
+  // If not visible, render nothing or hidden class
+  // using opacity/scale for transition
+  const baseClasses = `
+    fixed 
+    bottom-20 sm:bottom-24 
+    right-4 sm:right-6 
+    z-[10000]
+    flex items-center
+    transition-all duration-300 ease-out
+    ${isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-85 translate-y-4 pointer-events-none'}
+  `;
+
   return (
-    <motion.div
-      className="
-        fixed 
-        bottom-20 sm:bottom-24 
-        right-4 sm:right-6 
-        z-[10000]
-        flex items-center
-      "
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.85 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+    <div
+      className={baseClasses}
       onMouseEnter={() => setShowLabel(true)}
       onMouseLeave={() => setShowLabel(false)}
     >
       {/* Hover Label */}
-      <AnimatePresence>
-        {showLabel && (
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 10 }}
-            className="
-              mr-3
-              px-4 py-1.5
-              rounded-full
-              text-xs font-semibold
-              text-white
-              backdrop-blur-xl
-              bg-black/60
-              border border-white/20
-              shadow-lg
-              whitespace-nowrap
-            "
-          >
-            Go to top
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className={`
+          mr-3
+          px-4 py-1.5
+          rounded-full
+          text-xs font-semibold
+          text-white
+          backdrop-blur-xl
+          bg-black/60
+          border border-white/20
+          shadow-lg
+          whitespace-nowrap
+          transition-all duration-300 origin-right
+          ${showLabel && isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-4 scale-95'}
+      `}>
+        Go to top
+      </div>
 
       {/* Button */}
-      <motion.button
+      <button
         onClick={handleClick}
-        whileHover={{ scale: 1.08, y: -2 }}
-        whileTap={{ scale: 0.95 }}
         aria-label="Go to top"
-        className="
+        className={`
           relative
           w-12 h-12 sm:w-14 sm:h-14
           rounded-full
@@ -79,8 +88,10 @@ const GoToTopButton = () => {
           shadow-[0_12px_35px_rgba(0,0,0,0.45)]
 
           hover:bg-black/55
-          transition-all
-        "
+          hover:scale-105 hover:-translate-y-0.5
+          active:scale-95
+          transition-all duration-300
+        `}
       >
         <ArrowUp
           className="w-5 h-5 sm:w-6 sm:h-6 text-white"
@@ -94,8 +105,8 @@ const GoToTopButton = () => {
           bg-gradient-to-br from-white/20 to-transparent
           pointer-events-none
         " />
-      </motion.button>
-    </motion.div>
+      </button>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { H2, H4, P } from "../../../styles/Typography";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 /* ================= TYPES ================= */
@@ -14,7 +15,7 @@ type Card = {
 
 type SectionContent = {
   intro: {
-    title: string;
+    title: string | ReactNode;
     desc: string;
   };
   cards: Card[];
@@ -39,10 +40,10 @@ const themes: Record<string, Theme> = {
     circleColor: "#E0E0E0",
   },
   "/industries/ehr-and-pms/built-for": {
-    sectionBg: "#F5FBFF",
+    sectionBg: "#ffffff",
     headingColor: "#2A2A2A",
     paraColor: "#2A2A2A",
-    cardGradient: "linear-gradient(135deg, #EDE4CA, #FFEAD2)",
+    cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
   },
   "/industries/high-tech/built-for": {
@@ -71,11 +72,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables enterprise IT teams to identify, analyze, and fix any Azure waste quickly and efficiently across complex multi-subscription environments. ",
       },
       cards: [
-        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs.", image:"/BuiltFor/Scissor.svg"},
-        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. ", image:"/BuiltFor/data.svg"},
-        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. ", image:"/BuiltFor/Budget.svg"},
-        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads..", image:"/BuiltFor/Discount.svg"},
-        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. ", image:"/BuiltFor/Teamwork.svg"},
+        { id: 1, title: "VM Rightsizing", desc: "CloudDIET finds oversized VMs across subscriptions to cut compute costs.", image: "/BuiltFor/Scissor.svg" },
+        { id: 2, title: "Storage Optimization", desc: "Identifies unused storage and wrong tiers draining your Azure budget. ", image: "/BuiltFor/data.svg" },
+        { id: 3, title: "SKU Changes", desc: "Spots bad SKUs and plans costing extra in PaaS services. ", image: "/BuiltFor/Budget.svg" },
+        { id: 4, title: "License Savings", desc: "Recommends better reservations and discounts for database workloads..", image: "/BuiltFor/Discount.svg" },
+        { id: 5, title: "Usage Fixes", desc: "Reveals low-utilization resources wasting money across environments. ", image: "/BuiltFor/Teamwork.svg" },
       ],
     },
 
@@ -85,11 +86,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET enables SaaS teams to scale their apps efficiently and reliably without wasteful Azure spending or any performance compromises across workloads.  ",
       },
       cards: [
-        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. " ,image:"/BuiltFor/Window.svg"  },
-        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.", image:"/BuiltFor/optimization.svg" },
-        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete. ",  image:"/BuiltFor/clean-up.svg" },
-        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day..", image:"/BuiltFor/integration.svg" },
-        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably.", image:"/BuiltFor/speedometer.svg" },
+        { id: 1, title: "App Scaling", desc: " CloudDIET converts Azure Functions from fixed costly plans to flexible usage-based pricing automatically. ", image: "/BuiltFor/Window.svg" },
+        { id: 2, title: "Event Optimization", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day.", image: "/BuiltFor/optimization.svg" },
+        { id: 3, title: "Registry Cleanup", desc: "CloudDIET finds unused container registries automatically after CI/CD deployments complete. ", image: "/BuiltFor/clean-up.svg" },
+        { id: 4, title: "Integration Savings", desc: "CloudDIET automatically spots unused accounts and broken triggers wasting money every single day..", image: "/BuiltFor/integration.svg" },
+        { id: 5, title: "Multi-Region Fixs", desc: "CloudDIET optimizes App Services across multiple regions for global apps efficiently and reliably.", image: "/BuiltFor/speedometer.svg" },
       ],
     },
 
@@ -99,11 +100,64 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "CloudDIET fixes Azure waste in multi-region setups for safe enterprise scaling. ",
       },
       cards: [
-        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low.", image:"/BuiltFor/Database.svg"},
-        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ", image:"/BuiltFor/Recycle2.svg" },
-        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale.", image:"/BuiltFor/Money2.svg" },
-        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%.", image:"/BuiltFor/Add.svg" },
-        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. ", image:"/BuiltFor/CloudCompute.svg" },
+        { id: 1, title: "Cosmos Overprovision", desc: "Switches costly multi-master Cosmos DB to read replicas where writes stay low.", image: "/BuiltFor/Database.svg" },
+        { id: 2, title: " RI Waste", desc: "Finds unused reserved instances across regions and replaces with active ones. ", image: "/BuiltFor/Recycle2.svg" },
+        { id: 3, title: "App Services", desc: "Rightsizes Elastic App Service plans stuck in dedicated compute without auto-scale.", image: "/BuiltFor/Money2.svg" },
+        { id: 4, title: "Synapse Savings", desc: " Applies 3-year reserved instances to Synapse workloads, cutting the untime costs by 81%.", image: "/BuiltFor/Add.svg" },
+        { id: 5, title: " Storage Defender", desc: "Disables expensive Defender for Storage on backup accounts with high transactions. ", image: "/BuiltFor/CloudCompute.svg" },
+      ],
+    },
+  },
+  "ehr-and-pms": {
+    "long-term-care": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how Unified Clinicapp solves daily challenges in your long-term care facility.",
+      },
+      cards: [
+        { id: 1, title: "MDS Submission", desc: "Complete and submit accurate Minimum Data Set reports seamlessly.", image: "/BuiltFor/analytics.png" },
+        { id: 2, title: "Interdisciplinary Coordination", desc: "Coordinate care plans across nurses, therapists, and dietary staff instantly.", image: "/BuiltFor/team.png" },
+        { id: 3, title: "Medication Administration", desc: "Manage and document medication schedules with a unified MAR.", image: "/BuiltFor/database-management.png" },
+        { id: 4, title: "Family Engagement", desc: "Provide families secure portal access to updates and documents.", image: "/BuiltFor/house-hands.png" },
+        { id: 5, title: "Complex Billing", desc: "Accurately process Medicare, Medicaid, and private payor claims together.", image: "/BuiltFor/file-invoice.png" },
+      ],
+    },
+    "home-healthcare": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how Unified Clinicapp connects your field clinicians, office, and patients seamlessly.",
+      },
+      cards: [
+        { id: 1, title: "Mobile Documentation", desc: "Clinicians chart visits, vitals, and notes directly on mobile devices.", image: "/BuiltFor/mobile-hand.png" },
+        { id: 2, title: "Real-Time Scheduling", desc: "Coordinate caregiver visits, routes, and patient assignments from anywhere.", image: "/BuiltFor/calendar-clock.png" },
+        { id: 3, title: "Family Portal", desc: "Provide families secure access to care plans and visit updates.", image: "/BuiltFor/team.png" },
+        { id: 4, title: "Visit-Based Billing", desc: "Accurately capture and submit charges per completed in-home visit.", image: "/BuiltFor/marker.png" },
+        { id: 5, title: "Compliance Tracking", desc: "Document and report on care plan adherence and outcomes.", image: "/BuiltFor/file-invoice.png" },
+      ],
+    },
+    "clinics-and-hospitals": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how we streamline complex workflows across your hospital or clinic network.",
+      },
+      cards: [
+        { id: 1, title: "Multi-Department Scheduling", desc: "Coordinate appointments, surgeries, and provider time across all locations seamlessly.", image: "/BuiltFor/analytics.png" },
+        { id: 2, title: "Unified Patient Records", desc: "Access complete clinical history and documents from any department instantly.", image: "/BuiltFor/member-list.png" },
+        { id: 3, title: "Coordinated Care Handoffs", desc: "Manage safe patient transitions from ED to inpatient to outpatient care.", image: "/BuiltFor/database-management.png" },
+        { id: 4, title: "Integrated Lab Management", desc: "Order, track, and view results directly within the patient's unified timeline.", image: "/BuiltFor/house-hands.png" },
+        { id: 5, title: "Enterprise Revenue Cycle", desc: "Manage high-volume billing, claims, and financial reporting from one dashboard.", image: "/BuiltFor/money-transfer.png" },
       ],
     },
   },
@@ -118,15 +172,17 @@ export default function FiveCardGradientSection() {
     builtForType: string;
   }>();
 
- const basePath = pathname.split("/").slice(0, 4).join("/");
+  const basePath = pathname.split("/").slice(0, 4).join("/");
 
-const active =
-  themes[basePath] ||
-  themes["/industries/banking-and-finance/built-for"];
+  const active =
+    themes[basePath] ||
+    themes["/industries/banking-and-finance/built-for"];
 
+
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
 
   const sectionContent =
-    CONTENT[industry ?? ""]?.[builtForType ?? ""];
+    CONTENT[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!sectionContent) return null;
 
@@ -167,42 +223,42 @@ const active =
   /* ================= RENDER (UNCHANGED UI) ================= */
 
   return (
-   <section
+    <section
       className="w-full py-10 xl:py-16"
       style={{ backgroundColor: active.sectionBg }}
     >
-      
- 
+
+
       <div className="max-w-8xl mx-10 xl:px-10">
- 
+
         {/* ---------- MOBILE / TABLET INTRO ---------- */}
         <div className="mb-8 lg:hidden">
           <H2 style={{ color: active.headingColor }} className="mb-4">
-             {sectionContent.intro.title}
+            {sectionContent.intro.title}
           </H2>
           <P style={{ color: active.paraColor }} className="max-w-md">
-                    {sectionContent.intro.desc}
+            {sectionContent.intro.desc}
           </P>
         </div>
- 
+
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr] gap-y-8 gap-x-4">
- 
+
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="">
               <H2
-  className="mb-4 whitespace-nowrap overflow-hidden  "
-  style={{ color: active.headingColor }}
->
-  {sectionContent.intro.title}
-</H2>
+                className="mb-4 whitespace-nowrap overflow-hidden  "
+                style={{ color: active.headingColor }}
+              >
+                {sectionContent.intro.title}
+              </H2>
 
               <P style={{ color: active.paraColor }} className="max-w-md">
-                       {sectionContent.intro.desc}
+                {sectionContent.intro.desc}
               </P>
             </div>
           </div>
- 
+
           {/* ---------- CAROUSEL (MOBILE / TABLET / iPad Pro) ---------- */}
           <div className="relative col-span-1 sm:col-span-2 xl:hidden">
             <button
@@ -211,21 +267,21 @@ const active =
             >
               <ChevronLeft />
             </button>
- 
+
             <button
               onClick={() => scrollByOne("right")}
               className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-2"
             >
               <ChevronRight />
             </button>
- 
+
             <div
               ref={scrollRef}
               onScroll={handleScroll}
               className="hide-scrollbar flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6"
               style={{
-                scrollbarWidth: "none",    
-                msOverflowStyle: "none",  
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               {contentCards.map((card) => (
@@ -241,9 +297,9 @@ const active =
                 >
                   <div
                     className="w-20 h-20 rounded-full mb-6"
-                   
+
                   >
-                  <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4"/>
+                    <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
                   </div>
                   <H4 className="mb-4 text-[#254D70]">
                     {card.title}
@@ -254,7 +310,7 @@ const active =
                 </div>
               ))}
             </div>
- 
+
             {/* ---------- DOTS ---------- */}
             <div className="flex justify-center gap-2 mt-4">
               {contentCards.map((_, i) => (
@@ -263,16 +319,15 @@ const active =
                   onClick={() =>
                     scrollByOne(i > activeIndex ? "right" : "left")
                   }
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    activeIndex === i
-                      ? "bg-black scale-125"
-                      : "bg-gray-300"
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i
+                    ? "bg-black scale-125"
+                    : "bg-gray-300"
+                    }`}
                 />
               ))}
             </div>
           </div>
- 
+
           {/* ---------- DESKTOP CARDS (UNCHANGED) ---------- */}
           {contentCards.map((card) => (
             <div
@@ -287,8 +342,8 @@ const active =
             >
               <div
                 className="w-20 h-20 rounded-full mb-6">
-                  <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4"/>
-                </div>
+                <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
+              </div>
               <H4 style={{ color: active.headingColor }} className="mb-4">
                 {card.title}
               </H4>
@@ -297,7 +352,7 @@ const active =
               </P>
             </div>
           ))}
- 
+
         </div>
       </div>
     </section>

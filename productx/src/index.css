@@ -82,7 +82,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 100%;
 }
 
@@ -92,7 +93,8 @@ html {
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 100%;
 }
 
@@ -144,7 +146,7 @@ video {
   content-visibility: auto;
 }
 
- 
+
 .group:hover,
 [class*="hover:"] {
   transform: translateZ(0);
@@ -177,12 +179,14 @@ video {
     transform: translateY(0);
   }
 }
+
 @keyframes fadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 @keyframes imageFadeIn {
   to {
     opacity: 1;

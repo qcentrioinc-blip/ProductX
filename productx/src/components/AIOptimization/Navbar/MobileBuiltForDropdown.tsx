@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { prefetchBuiltForAIImages } from "../../Global/BuiltFor/TitleSecAI";
 
 interface MobileBuiltForDropdownProps {
   mobileDropdown: null | "features" | "resources" | "builtfor";
@@ -30,7 +31,10 @@ const MobileBuiltForDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
 
   return (
     <div className="border-b border-gray-200 pb-3">
-      <button onClick={() => setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor")} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold cursor-pointer">
+      <button onClick={() => {
+        if (mobileDropdown !== "builtfor") prefetchBuiltForAIImages();
+        setMobileDropdown(mobileDropdown === "builtfor" ? null : "builtfor");
+      }} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold cursor-pointer">
         Built For
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "builtfor" ? "rotate-180" : ""}`}>
           <path d="m6 9 6 6 6-6" />

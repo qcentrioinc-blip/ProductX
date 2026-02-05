@@ -1,17 +1,17 @@
 import { H2, H4, P } from "../../../styles/Typography";
-
+ 
 const features = [
     {
-        title: "Deep Azure Expertise",
+        title: "Deep Cloud Expertise",
         description:
             "Built by cloud engineers with decades of experience across AWS, Azure, and GCP. We understand Azure’s complexity so you don’t have to.",
-            image:"/AIOptimization/star.svg",
+            image:"/AIOptimization/Star.svg",
     },
     {
         title: "Advanced Savings Insights",
         description:
             "Move beyond basic FinOps. Our AI identifies hidden inefficiencies, from SKU optimizations to unused capacity and licensing waste.",
-             image:"/AIOptimization/wallet.svg",
+             image:"/AIOptimization/Wallet.svg",
     },
     {
         title: "Performance-Based Pricing",
@@ -20,7 +20,7 @@ const features = [
              image:"/AIOptimization/price.svg",
     },
 ];
-
+ 
 const ThreeCardAI = () => {
     return (
         <section className="w-full bg-[#F5F5F5] py-16 px-6 md:px-12 lg:px-20">
@@ -28,7 +28,7 @@ const ThreeCardAI = () => {
             <div className="max-w-8xl mx-10 text-center mb-12">
                 <H2 className="text-[#254D70]">Why You Should Choose CloudDIET</H2>
             </div>
-
+ 
             {/* Cards Grid */}
             {/* Cards Row */}
             <div className=" flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory ">
@@ -62,7 +62,7 @@ const ThreeCardAI = () => {
                                 className="w-12 h-12 "
                             />
                             </div>
-
+ 
                         {/* Title */}
                         <H4
                             className="text-gray-900"
@@ -78,8 +78,8 @@ const ThreeCardAI = () => {
                         >
                             {item.title}
                         </H4>
-
-
+ 
+ 
                         {/* Description */}
                         <P
                             className="flex-1"
@@ -96,13 +96,13 @@ const ThreeCardAI = () => {
                         >
                             {item.description}
                         </P>
-
+ 
                     </div>
                 ))}
             </div>
-
+ 
         </section>
     );
 };
-
+ 
 export default ThreeCardAI;

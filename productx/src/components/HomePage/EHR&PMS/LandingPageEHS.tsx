@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
- 
+import LazyVideo from "../../Global/LazyVideo";
+
 const LandingPageEHS = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   //   if (!videoRef.current) return;
@@ -30,7 +31,7 @@ const LandingPageEHS = () => {
             videoEl.muted = true;
           } else {
             // section back in view -> play
-            videoEl.play().catch(() => {});
+            videoEl.play().catch(() => { });
           }
         });
       },
@@ -48,7 +49,7 @@ const LandingPageEHS = () => {
  
   return (
     <div className="w-full">
-      <video
+      <LazyVideo
         ref={videoRef}
         className="w-full h-auto max-h-screen object-cover"
         src="/Video/EHRVideo.mp4"
@@ -59,7 +60,7 @@ const LandingPageEHS = () => {
         controls={false}
       >
         Your browser does not support the video tag.
-      </video>
+      </LazyVideo>
     </div>
   );
 };

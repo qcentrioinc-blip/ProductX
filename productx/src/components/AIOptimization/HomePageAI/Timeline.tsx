@@ -1,5 +1,6 @@
 
 import { H2, P } from "../../../styles/Typography";
+import LazyVideo from "../../Global/LazyVideo";
 
 export default function Timeline() {
   return (
@@ -17,13 +18,11 @@ export default function Timeline() {
       {/* Heatmap Image */}
       <div className="relative w-full overflow-x-auto">
         <div className="min-w-[900px] max-w-7xl mx-auto min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
-          <video
+          <LazyVideo
             src="/AI-CloudFinOps/HomePage/HeatMap.mp4"
             autoPlay
-
             muted
             className="w-full h-auto object-contain"
-
           />
         </div>
       </div>

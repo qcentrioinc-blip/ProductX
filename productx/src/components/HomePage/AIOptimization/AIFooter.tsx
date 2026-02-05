@@ -78,7 +78,7 @@ const AIFooter = () => {
       className="relative w-full overflow-hidden"
       // CHANGE THE URL BELOW TO YOUR IMAGE PATH
       style={{
-        backgroundImage: "url('/AI-CloudFinOps/Features/Footer_img.webp')",
+        backgroundImage: "url('/AI-CloudFinOps/Features/Footer_img-transformed.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"

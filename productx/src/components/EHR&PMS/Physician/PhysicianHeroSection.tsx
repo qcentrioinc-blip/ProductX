@@ -5,7 +5,7 @@ const PhysicianHeroSection = () => {
     <section className="relative w-full bg-white py-10 overflow-hidden">
       <div className="  max-w-8xl px-4 xl:mx-10">
         {/* Top Content */}
-        <div className="grid grid-cols-1   mt-20 xl:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1   mt-28 xl:grid-cols-2 gap-10 items-center">
           {/* Left Text */}
           <div>
             <H2 className="text-4xl font-semibold text-teal-700 leading-tight">

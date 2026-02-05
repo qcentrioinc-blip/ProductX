@@ -1,17 +1,17 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
- 
+
 // WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
 const GradientLayers = () => {
   const containerRef = useRef(null);
- 
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"] // Triggers across full viewport
   });
- 
+
   const GRADIENT = 'linear-gradient(90deg, #0E5756 0%, #116D6B 25%, #218281 50%, #41A09E 75%, #51B4B3 100%)';
- 
+  
   // Increased height ranges for more dramatic effect
   const layers = [
     { opacity: 0.9, minHeight: 25, maxHeight: 85 },
@@ -21,7 +21,6 @@ const GradientLayers = () => {
     { opacity: 0.2, minHeight: 15, maxHeight: 75 },
     { opacity: 0.05, minHeight: 10, maxHeight: 70 }
   ];
- 
   return (
     <div ref={containerRef} className="w-full">
       {layers.map((layer, index) => {
@@ -32,13 +31,11 @@ const GradientLayers = () => {
           0.5,
           0.9 - (index * 0.05)  // End later based on layer
         ];
- 
         const height = useTransform(
           scrollYProgress,
           scrollRange,
           [layer.minHeight, layer.maxHeight, layer.minHeight]
         );
- 
         return (
           <motion.div
             key={index}
@@ -48,8 +45,8 @@ const GradientLayers = () => {
               height
             }}
           >
-            <span
-              className="absolute inset-0 block"
+            <span 
+              className="absolute inset-0 block" 
               style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
             />
           </motion.div>
@@ -58,33 +55,29 @@ const GradientLayers = () => {
     </div>
   );
 };
- 
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
  
   const quickLinks = [
-    { name: 'Built for', path: `${base}/built-for` },
-    { name: 'Features', path: `${base}/aboutus` },
-    { name: 'Pricing', path: `${base}/careers` },
-     { name: 'Support', path: `${base}/careers` }
+    
+    { name: 'Pricing', path: `${base}/pricing` },
+    
   ];
- 
-  const resources = [
-    { name: 'Blogs', path: `${base}/blogs` },
-    { name: 'Glossary', path: `${base}/glossary` },
-    { name: 'News', path: `${base}/news` },
-    { name: 'Case Studies', path: `${base}/case-studies` },
-    { name: 'White papers', path: `${base}/white-papers` }
+
+  const builtfor = [
+    { name: 'Long Term Care' ,path:`${base}/built-for/long-term-care` },
+    { name: 'Home Healthcare',path:`${base}/built-for/home-healthcare`   },
+    { name: 'Clinics & Hospitals' ,path:`${base}/built-for/clinics-and-hospitals`  },
   ];
  
   return (
     <footer className="bg-[#008280]">
       {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
       <GradientLayers />
- 
+
       {/* Main Container */}
       <div className="bg-[#008280] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
-       
+        
         {/* TOP CARD - Newsletter */}
         <div
           className="bg-white shadow-xl w-full"
@@ -98,18 +91,7 @@ const EHRFooter = () => {
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
              
               <div className="flex-shrink-0">
-                <h1
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(60px, 8vw, 124.56px)',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    color: '#008280'
-                  }}
-                >
-                  QNEST
-                </h1>
+                <img src="/QnestLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
               </div>
  
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
@@ -220,10 +202,10 @@ const EHRFooter = () => {
                     color: '#2A2A2A'
                   }}
                 >
-                  Resources
+                  Built For
                 </h3>
                 <ul className="space-y-5">
-                  {resources.map((link) => (
+                  {builtfor.map((link) => (
                     <li key={link.name}>
                       <a
                         href={link.path}
@@ -257,7 +239,7 @@ const EHRFooter = () => {
                     color: '#2A2A2A'
                   }}
                 >
-                  Products
+                  Resources
                 </h3>
                 <ul className="space-y-5">
                   <li>
@@ -273,7 +255,7 @@ const EHRFooter = () => {
                         color: '#008280'
                       }}
                     >
-                      Clinic App
+                      Blogs
                     </a>
                   </li>
                 </ul>

@@ -1,0 +1,135 @@
+import { motion } from "framer-motion";
+import { H2, H4, P } from "../../../styles/Typography";
+
+const InfoWithImage = () => {
+  const easeOut = [0.4, 0, 0.2, 1] as const;
+
+  return (
+    <section className="relative overflow-hidden bg-[#f4fbfa]">
+      
+      {/* Decorative circles */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: easeOut }}
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute -top-50 -right-10 w-[550px] h-[550px] rounded-full border border-[#008280] opacity-40 hidden sm:block" />
+        <div className="absolute -top-50 right-0 w-[450px] h-[450px] rounded-full border border-[#008280] opacity-40 hidden sm:block" />
+        <div className="absolute -top-50 right-10 w-[350px] h-[350px] rounded-full border border-[#008280] opacity-40 hidden sm:block" />
+      </motion.div>
+
+      <div className="relative max-w-8xl xl:mx-14 px-4 py-20 sm:px-6 lg:px-8">
+        
+        {/* GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-12 gap-y-10">
+
+          {/* TOP LEFT — Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: easeOut }}
+            className="lg:col-span-1 lg:row-start-1"
+          >
+            <H2 className="text-[#008280] mb-4">
+              Sed ut perspiciatis
+            </H2>
+
+            <P className="text-[#141414] max-w-md">
+              reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, su
+            </P>
+          </motion.div>
+
+          {/* EMPTY TOP RIGHT */}
+          <div className="hidden lg:block lg:row-start-1" />
+
+          {/* BOTTOM LEFT — CARDS */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.15 },
+              },
+            }}
+            className="lg:row-start-2 flex flex-col justify-between gap-6 h-full"
+          >
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: easeOut },
+                },
+              }}
+              className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
+            >
+              <div className="p-6">
+                <H4 className="text-gray-900 mb-4">
+                  Duis aute irure
+                </H4>
+                <P className="text-sm text-[#141414] max-w-sm">
+                  reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                </P>
+              </div>
+              <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: easeOut },
+                },
+              }}
+              className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
+            >
+              <div className="p-6">
+                <H4 className="text-gray-900 mb-4">
+                  Duis aute irure
+                </H4>
+                <P className="text-sm text-[#141414] max-w-sm">
+                  reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                </P>
+              </div>
+              <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
+            </motion.div>
+          </motion.div>
+
+          {/* BOTTOM RIGHT — IMAGE */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: easeOut, delay: 0.2 }}
+            className="lg:row-start-2 h-full flex"
+          >
+            <div className="rounded-3xl overflow-hidden w-full h-full">
+              <img
+                src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&q=80&w=1400"
+                alt="Office workspace"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InfoWithImage;

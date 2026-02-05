@@ -28,7 +28,7 @@ export default function WhyQnest() {
         <div className="sticky top-0 h-screen overflow-hidden bg-transparent">
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
-            <H2 className=" text-[#166D48] mb-4">
+            <H2 className=" text-[#008280] mb-4">
               One Unified Platform
             </H2>
             <P className=" mx-auto max-w-3xl text-black">
@@ -42,8 +42,8 @@ export default function WhyQnest() {
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
                   <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6 shadow-xl flex flex-col justify-between">
                     <div>
-                      <H1 className="text-[#166D48]">{c.num}</H1>
-                      <H3 className=" text-[#166D48]">{c.title}</H3>
+                      <H1 className="text-[#008280]">{c.num}</H1>
+                      <H3 className=" text-[#008280]">{c.title}</H3>
                     </div>
                     <H4 className="text-[#2A2A2A]">{c.desc}</H4>
                   </div>
@@ -55,7 +55,7 @@ export default function WhyQnest() {
       </div>
       {/* MOBILE */}
       <div className="xl:hidden py-16 px-10 space-y-8">
-        <H2 className="text-center  text-[#166D48]">
+        <H2 className="text-center  text-[#008280]">
           Why Qnest
         </H2>
         {cards.map((c, i) => (
@@ -67,8 +67,8 @@ export default function WhyQnest() {
             transition={{ duration: 0.6, delay: i * 0.2 }}
             viewport={{ once: true }}
           >
-            <H1 className=" text-[#166D48]">{c.num}</H1>
-            <H3 className="text-[#166D48]">{c.title}</H3>
+            <H1 className=" text-[#008280]">{c.num}</H1>
+            <H3 className="text-[#008280]">{c.title}</H3>
             <H4 className="mt-4 text-[#2A2A2A]">{c.desc}</H4>
           </motion.div>
         ))}
