@@ -61,6 +61,11 @@ const EHRFooter = () => {
   const quickLinks = [
     
     { name: 'Pricing', path: `${base}/pricing` },
+    { name: 'Physician', path: `${base}/physician` },
+    { name: 'Admin', path: `${base}/admin` },
+    { name: 'Insurance Coordinator', path: `${base}/insurance-coordinator` },
+    { name: 'Receptionist', path: `${base}/receptionist` },
+    { name: 'Nurse', path: `${base}/pricing` },
     
   ];
 
@@ -91,7 +96,7 @@ const EHRFooter = () => {
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
              
               <div className="flex-shrink-0">
-                <img src="/QnestLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
+                <img src="/QnestEHRLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
               </div>
  
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">

@@ -19,10 +19,10 @@ const CTAEHRUnifi: React.FC = () => {
           </H2>
 
           <P className="mb-8 max-w-xl leading-relaxed text-white/80">
-            Generate any kind of website — business, portfolio, blog, or
-            store — using Readdy’s AI website builder. Start with text,
-            Generate any kind of website — business, portfolio, blog, or
-            store — using Readdy’s AI website builder. Start with text.
+            Generate any kind of website business, portfolio, blog, or
+            store using Readdy’s AI website builder. Start with text,
+            Generate any kind of website business, portfolio, blog, or
+            store using Readdy’s AI website builder. Start with text.
           </P>
 
           <button
