@@ -4,10 +4,10 @@ import { H1} from "../../../styles/Typography";
 
 export default function TitleSecEHR() {
   return (
-    <section className="w-full h-screen flex items-center justify-center py-24 px-6 relative overflow-hidden">
+    <section className="w-full h-screen bg-black flex items-center justify-center py-24 px-6 relative overflow-hidden">
 
       {/* Radial Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)]">
+      <div className="absolute  bg-[radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)]">
         <img
           src="/EHR-PMS/Careers/bg_img1.png"
           alt="Radial Background"

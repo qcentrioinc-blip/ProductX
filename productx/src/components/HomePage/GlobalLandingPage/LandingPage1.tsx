@@ -197,7 +197,7 @@ export default function InteractiveHeroSection() {
 
   const industries = [
     { title: 'Cloud Finops AI', image: '/Global-Landing-Page/AI.webp', url: '/industries/cloud-finops-ai', isReady: true, deadline: null },
-    { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: false, deadline: '2026-02-06' },
+    { title: 'EHR and PMS', image: '/Global-Landing-Page/EHR.webp', url: '/industries/ehr-and-pms', isReady: true, deadline: '2026-02-06' },
     { title: 'Banking and Finance', image: '/Global-Landing-Page/BNF.webp', url: '/industries/banking-and-finance', isReady: false, deadline: '2026-02-20' },
     { title: 'High Tech', image: '/Global-Landing-Page/HighTech.webp', url: '/industries/high-tech', isReady: false, deadline: '2026-03-06' }
   ];

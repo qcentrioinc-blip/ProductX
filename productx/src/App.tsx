@@ -71,6 +71,10 @@ const ComingSoon = lazy(() => import('./components/Global/NewFooter/ComingSoon')
 const PrivacyPolicyAI = lazy(() => import('./components/AIOptimization/AIPrivacy'));
 const CareersPageAI = lazy(() => import('./components/AIOptimization/Careers/CareersPage').then(module => ({ default: module.CareersPageAI })));
 import { BuiltFor } from './components/Global/BuiltFor/BuiltFor';
+import { EHRPricing } from './components/EHR&PMS/EHRPricing/EHRPricing';
+import { EHRNursing } from './components/EHR&PMS/EHRNurse/EHRNursing';
+import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRReceptionist';
+import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
 
 
 const App = () => {
@@ -191,6 +195,10 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
 
               <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
+              <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
+              <Route path="/industries/ehr-and-pms/nursing" element={<EHRNursing />} />
+              <Route path="/industries/ehr-and-pms/receptionist" element={<EHRReceptionist />} />
+              <Route path="/industries/ehr-and-pms/insurance-coordinator" element={<EHRInsuranceCoordinator />} />
 
               <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
               <Route path='/industries/high-tech/contactform' element={<ContactPage />} />

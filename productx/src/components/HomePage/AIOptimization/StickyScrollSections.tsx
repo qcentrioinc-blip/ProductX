@@ -255,7 +255,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
       ref={ref}
       data-feature-index={index}
       className={`
-        min-h-[70vh] sm:min-h-[75vh] lg:min-h-[80vh] flex flex-col justify-center px-2 sm:px-8 py-12 sm:py-16 transition-all duration-500
+        min-h-[40vh] sm:min-h-[40vh] xl:min-h-[80vh] flex flex-col justify-center px-2 sm:px-8 py-12 sm:py-16 transition-all duration-500
         ${isInView ? "opacity-100 scale-100" : "opacity-30 scale-95"}
       `}
     >
@@ -765,7 +765,7 @@ const hasAnimatedOnMobile = useRef(false);
           {/* Section 1 */}
           <section
             id="optimizations"
-            className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
+            className="min-h-[30vh] sm:min-h-[30vh] xl:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
           >
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
               <H2 className="text-[#254D70]">
@@ -837,7 +837,7 @@ const hasAnimatedOnMobile = useRef(false);
           {/* Section 2 */}
           <section
             id="cloud"
-            className="min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] scroll-mt-20 lg:scroll-mt-32"
+            className="min-h-[40vh] sm:min-h-[40vh] xl:min-h-[90vh] scroll-mt-20 lg:scroll-mt-32"
           >
             <H2 className="text-[#254D70] mx-6">
               Engineered for Azure Cost

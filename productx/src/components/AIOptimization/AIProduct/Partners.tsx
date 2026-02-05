@@ -2,17 +2,10 @@ import { useMotionValue, useAnimationFrame, useInView } from "framer-motion";
 import { useRef } from "react";
 import { P } from "../../../styles/Typography";
  
-// const logos = [
-//   "/CompanyLogo/Dell.png",
-//   "/CompanyLogo/GoogleCloud.png",
-//   "/CompanyLogo/Infosys.png",
-//   "/CompanyLogo/Oracle.png",
-//   "/CompanyLogo/AWS.png",
-//   "/CompanyLogo/Deloitte.png",
-// ];
+ 
  
 export default function Partners() {
-  // const trackRef = useRef<HTMLDivElement>(null);
+ 
   const sectionRef = useRef<HTMLElement>(null);
  
   const x = useMotionValue(0);
@@ -77,34 +70,9 @@ export default function Partners() {
           </div>
         </div>
  
-        {/* <H2 className="font-semibold text-[#F5F5F5]">
-          We partnered with
-        </H2> */}
- 
-        {/* AUTO SLIDER (SAME UI) */}
-        {/* <div className="relative mt-10 overflow-hidden">
-          <motion.div
-            ref={trackRef}
-            style={{ x }}
-            className="flex gap-8 will-change-transform"
-          >
-            {logos.concat(logos, logos).map((logo, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center min-w-[220px] h-[100px] bg-gray-200 rounded-md"
-              >
-                <img
-                  src={logo}
-                  alt="Partner logo"
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </motion.div>
-        </div> */}
- 
+       
       </div>
     </section>
   );
 }
+ 

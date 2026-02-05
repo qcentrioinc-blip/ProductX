@@ -1,89 +1,86 @@
-// import { useRef } from 'react';
-// import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 // WAVE BREATHING EFFECT - Height changes on scroll (FASTER VERSION)
-// const GradientLayers = () => {
-//   const containerRef = useRef(null);
+const GradientLayers = () => {
+  const containerRef = useRef(null);
   
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start end", "end start"] // Triggers across full viewport
-//   });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"] // Triggers across full viewport
+  });
 
-//   const GRADIENT = 'linear-gradient(90deg, #86D9BE 0%, #6DC9A8 25%, #54B892 50%, #3BA77C 75%, #2D9669 100%)';
+  const GRADIENT = 'linear-gradient(90deg, #0E5756 0%, #116D6B 25%, #218281 50%, #41A09E 75%, #51B4B3 100%)';
   
-//   // Increased height ranges for more dramatic effect
-//   const layers = [
-//     { opacity: 0.9, minHeight: 25, maxHeight: 85 },
-//     { opacity: 0.8, minHeight: 30, maxHeight: 90 },
-//     { opacity: 0.6, minHeight: 20, maxHeight: 80 },
-//     { opacity: 0.4, minHeight: 35, maxHeight: 95 },
-//     { opacity: 0.2, minHeight: 15, maxHeight: 75 },
-//     { opacity: 0.05, minHeight: 10, maxHeight: 70 }
-//   ];
+  // Increased height ranges for more dramatic effect
+  const layers = [
+    { opacity: 0.9, minHeight: 25, maxHeight: 85 },
+    { opacity: 0.8, minHeight: 30, maxHeight: 90 },
+    { opacity: 0.6, minHeight: 20, maxHeight: 80 },
+    { opacity: 0.4, minHeight: 35, maxHeight: 95 },
+    { opacity: 0.2, minHeight: 15, maxHeight: 75 },
+    { opacity: 0.05, minHeight: 10, maxHeight: 70 }
+  ];
 
-//   return (
-//     <div ref={containerRef} className="w-full">
-//       {layers.map((layer, index) => {
-//         // FASTER ANIMATION - Narrower scroll progress range
-//         // Each layer moves at slightly different speeds for wave effect
-//         const scrollRange = [
-//           0.1 + (index * 0.05), // Start earlier based on layer
-//           0.5,
-//           0.9 - (index * 0.05)  // End later based on layer
-//         ];
+  return (
+    <div ref={containerRef} className="w-full">
+      {layers.map((layer, index) => {
+        // FASTER ANIMATION - Narrower scroll progress range
+        // Each layer moves at slightly different speeds for wave effect
+        const scrollRange = [
+          0.1 + (index * 0.05), // Start earlier based on layer
+          0.5,
+          0.9 - (index * 0.05)  // End later based on layer
+        ];
 
-//         const height = useTransform(
-//           scrollYProgress,
-//           scrollRange,
-//           [layer.minHeight, layer.maxHeight, layer.minHeight]
-//         );
+        const height = useTransform(
+          scrollYProgress,
+          scrollRange,
+          [layer.minHeight, layer.maxHeight, layer.minHeight]
+        );
 
-//         return (
-//           <motion.div
-//             key={index}
-//             className="relative w-full"
-//             style={{
-//               background: GRADIENT,
-//               height
-//             }}
-//           >
-//             <span 
-//               className="absolute inset-0 block" 
-//               style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
-//             />
-//           </motion.div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
+        return (
+          <motion.div
+            key={index}
+            className="relative w-full"
+            style={{
+              background: GRADIENT,
+              height
+            }}
+          >
+            <span 
+              className="absolute inset-0 block" 
+              style={{ background: `rgba(1, 29, 33, ${1 - layer.opacity})` }}
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
 
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
 
   const quickLinks = [
-    { name: 'Built for', path: `${base}/built-for` },
-    { name: 'Features', path: `${base}/aboutus` },
-    { name: 'Pricing', path: `${base}/careers` },
-     { name: 'Support', path: `${base}/careers` }
+    { name: 'Solutions', path: `${base}/built-for` },
+    { name: 'Pricing', path: `${base}/aboutus` },
+    
   ];
 
-  const resources = [
-    { name: 'Blogs', path: `${base}/blogs` },
-    { name: 'Glossary', path: `${base}/glossary` },
-    { name: 'News', path: `${base}/news` },
-    { name: 'Case Studies', path: `${base}/case-studies` },
-    { name: 'White papers', path: `${base}/white-papers` }
+  const builtfor = [
+    { name: 'Clinics & Hospitals', path: `${base}/blogs` },
+    { name: 'Home Healthcare Agencies', path: `${base}/glossary` },
+    { name: 'Long Term Care', path: `${base}/physician` },
   ];
 
   return (
-    <footer className="bg-[#3B8866]">
+    <footer className="bg-[#008280]">
       {/* Green Gradient Layers - NOW WITH FASTER ANIMATION */}
-      {/* <GradientLayers /> */}
+      <GradientLayers />
 
       {/* Main Container */}
-      <div className="bg-[#56644A] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
+      <div className="bg-[#008280] flex flex-col pt-44 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
         
         {/* TOP CARD - Newsletter */}
         <div 
@@ -98,18 +95,7 @@ const EHRFooter = () => {
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
               
               <div className="flex-shrink-0">
-                <h1
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 'clamp(60px, 8vw, 124.56px)',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    color: '#166D48'
-                  }}
-                >
-                  QNEST
-                </h1>
+                <img src="/QnestLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
               </div>
 
               <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
@@ -120,7 +106,7 @@ const EHRFooter = () => {
                     fontWeight: 600,
                     fontSize: 'clamp(32px, 4vw, 48px)',
                     lineHeight: '120%',
-                    color: '#166D48'
+                    color: '#008280'
                   }}
                 >
                   Subscribe to our<br />newsletter.
@@ -130,7 +116,7 @@ const EHRFooter = () => {
                   <input
                     type="email"
                     placeholder="Enter your mail"
-                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#166D48] transition-colors"
+                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#008280] transition-colors"
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
                       fontSize: '16px',
@@ -197,7 +183,7 @@ const EHRFooter = () => {
                           fontSize: '24px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
-                          color: '#166D48'
+                          color: '#008280'
                         }}
                       >
                         {link.name}
@@ -220,10 +206,10 @@ const EHRFooter = () => {
                     color: '#2A2A2A'
                   }}
                 >
-                  Resources
+                  Built For
                 </h3>
                 <ul className="space-y-5">
-                  {resources.map((link) => (
+                  {builtfor.map((link) => (
                     <li key={link.name}>
                       <a
                         href={link.path}
@@ -234,7 +220,7 @@ const EHRFooter = () => {
                           fontSize: '24px',
                           lineHeight: '100%',
                           letterSpacing: '0%',
-                          color: '#166D48'
+                          color: '#008280'
                         }}
                       >
                         {link.name}
@@ -257,7 +243,7 @@ const EHRFooter = () => {
                     color: '#2A2A2A'
                   }}
                 >
-                  Products
+                  Resources
                 </h3>
                 <ul className="space-y-5">
                   <li>
@@ -270,10 +256,10 @@ const EHRFooter = () => {
                         fontSize: '24px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
-                        color: '#166D48'
+                        color: '#008280'
                       }}
                     >
-                      Clinic App
+                      Blogs
                     </a>
                   </li>
                 </ul>
@@ -286,7 +272,7 @@ const EHRFooter = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -298,7 +284,7 @@ const EHRFooter = () => {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="X"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -310,7 +296,7 @@ const EHRFooter = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 border-2 border-[#166D48] rounded-lg flex items-center justify-center hover:bg-[#166D48] hover:text-white transition-all text-[#166D48]"
+                className="w-12 h-12 border-2 border-[#008280] rounded-lg flex items-center justify-center hover:bg-[#008280] hover:text-white transition-all text-[#008280]"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
