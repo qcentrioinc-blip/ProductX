@@ -2,19 +2,19 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
 import MobileProductsDropdown from "./MobileProductsDropdown";
-import MobileResourcesDropdown from "./MobileResourcesDropdown";
+// import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 const ContactDrawer = lazy(() => import("./ContactDrawer"));
 const MegaMenu = lazy(() => import("./MegaMenu"));
-const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
+// const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
 const EHRNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  // const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -26,7 +26,7 @@ const EHRNavbar = () => {
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
       setMegaMenuOpen(false);
-      setResourcesMenuOpen(false);
+      // setResourcesMenuOpen(false);
       setMegaMenuBuiltFor(false);
       setLogoDropdownOpen(false);
     }, 200);
@@ -42,7 +42,7 @@ const EHRNavbar = () => {
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setMegaMenuOpen(false);
-    setResourcesMenuOpen(false);
+    // setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
     setLogoDropdownOpen(false);
   };
@@ -91,7 +91,7 @@ const EHRNavbar = () => {
     { name: "Solutions", path: `${base}` },
     { name: "Pricing", path: `${base}/pricing` },
     { name: "Built for", path: base },
-    { name: "Resources", path: `${base}/resources` },
+    // { name: "Resources", path: `${base}/resources` },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -140,7 +140,7 @@ const EHRNavbar = () => {
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="   px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-              <img className="h-10 w-full" src="/EHRQnest.png" alt="Company Logo" />
+               <img className="h-10 w-full" src="/QnestEHRLogo.svg" alt="Company Logo" />
             </span>
           </div>
         </Link>
@@ -184,7 +184,7 @@ const EHRNavbar = () => {
                 handleKeepOpen();
                 setLogoDropdownOpen(true);
                 setMegaMenuOpen(false);
-                setResourcesMenuOpen(false);
+                // setResourcesMenuOpen(false);
                 setMegaMenuBuiltFor(false);
               }}
               onMouseLeave={handleCloseMenus}
@@ -197,7 +197,7 @@ const EHRNavbar = () => {
                 }}
               >
                 <div className="w-10 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/EHRLogo.png" alt="Company Logo" />
+                  <img className="h-full w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
@@ -248,7 +248,7 @@ const EHRNavbar = () => {
                       onMouseEnter={() => {
                         handleKeepOpen();
                         setMegaMenuOpen(true);
-                        setResourcesMenuOpen(false);
+                        // setResourcesMenuOpen(false);
                         setMegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                       }}
@@ -265,7 +265,7 @@ const EHRNavbar = () => {
                       className="relative"
                       onMouseEnter={() => {
                         handleKeepOpen();
-                        setResourcesMenuOpen(true);
+                        // setResourcesMenuOpen(true);
                         setMegaMenuOpen(false);
                         setMegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
@@ -273,7 +273,7 @@ const EHRNavbar = () => {
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
                         <button className="text-gray-800 text-[18px] cursor-pointer">Resources</button>
-                        <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
+                        {/* <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} /> */}
                       </div>
                     </div>
                   )}
@@ -285,7 +285,7 @@ const EHRNavbar = () => {
                         handleKeepOpen();
                         setMegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
-                        setResourcesMenuOpen(false);
+                        // setResourcesMenuOpen(false);
                         setLogoDropdownOpen(false);
                       }}
                     >
@@ -374,7 +374,7 @@ const EHRNavbar = () => {
         )}
       </Suspense>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         {resourcesMenuOpen && (
           <ResourcesMenu
             isScrolled={isScrolled}
@@ -383,7 +383,7 @@ const EHRNavbar = () => {
             handleCloseMenus={handleCloseMenus}
           />
         )}
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<div>Loading...</div>}>
         {megaMenuBuiltFor && (
@@ -401,8 +401,8 @@ const EHRNavbar = () => {
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
+              <div className="w-12 h-12  text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                 <img className="h-10 w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
@@ -431,11 +431,11 @@ const EHRNavbar = () => {
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
           />
-          <MobileResourcesDropdown
+          {/* <MobileResourcesDropdown
             mobileDropdown={mobileDropdown}
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
-          />
+          /> */}
 
           <div className="border-b border-gray-200 pb-3">
             <button onClick={() => setDrawerOpen(true)} className="text-gray-800 text-lg font-semibold block">
