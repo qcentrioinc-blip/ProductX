@@ -160,9 +160,7 @@ const AINavbar = () => {
       {/* TOP TRANSPARENT BAR - Scrolls away */}
       <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
-          <div className="text-[#010101] font-bricolage font-light text-xl  px-2  pn rounded cursor-pointer">
-            <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
-          </div>
+            <img className="h-10 w-full" src="/QnestCloudLogo.svg" alt="Company Logo" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
@@ -202,7 +200,7 @@ const AINavbar = () => {
               <Link to="/industries/cloud-finops-ai" onMouseEnter={handlePreload}
                 onFocus={handlePreload}>
                 <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
-                  <img src="/AIProduct/QNEST.webp" className="w-auto h-10" alt="" /></div></Link>
+                  <img src="/QCloudLogo.png" className="w-auto h-10" alt="" /></div></Link>
             </div>
 
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">

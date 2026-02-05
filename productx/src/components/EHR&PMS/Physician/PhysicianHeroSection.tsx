@@ -1,5 +1,5 @@
 import { H2, H3, H4, P } from "../../../styles/Typography";
-
+ 
 const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white py-10 overflow-hidden">
@@ -10,7 +10,7 @@ const PhysicianHeroSection = () => {
           <div>
             <H2 className="text-4xl font-semibold text-teal-700 leading-tight">
               Practice Medicine,
-              
+             
               Not Paperwork.
             </H2>
           </div>
@@ -26,7 +26,7 @@ const PhysicianHeroSection = () => {
         <div className="relative mt-16">
           {/* IMAGE WRAPPER */}
       <div className="relative w-full max-w-[745px] flex flex-col gap-4 xl:block">
-
+ 
             {/* Image 1 */}
            <img
   src="/EHRIcons/PhysicianHero1.webp"
@@ -38,7 +38,7 @@ const PhysicianHeroSection = () => {
     object-cover
   "
 />
-
+ 
  
             {/* Image 2 */}
         <img
@@ -50,7 +50,7 @@ const PhysicianHeroSection = () => {
     rounded-[16px]
     object-cover
     shadow-lg
-
+ 
     xl:absolute
     xl:left-full
     xl:top-full
@@ -59,7 +59,7 @@ const PhysicianHeroSection = () => {
     xl:h-[212px]
   "
 />
-
+ 
  
           </div>
  

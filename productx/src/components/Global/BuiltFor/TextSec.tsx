@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H3, P } from "../../../styles/Typography";
 
 type TextContent = {
   h4: string;
@@ -96,8 +96,11 @@ export default function TextSec() {
 
           {/* LEFT */}
           <div>
-            <H4 className="mb-3">{content.h4}</H4>
-            <H2 className="leading-snug whitespace-nowrap">{content.h2}</H2>
+            <h5 className="mb-3 text-[14px] md:text-[16px] lg:text-[20px]
+        font-bricolage
+        font-Regular
+        leading-[120%]">{content.h4}</h5>
+            <H3 className="leading-snug">{content.h2}</H3>
           </div>
 
           {/* RIGHT */}

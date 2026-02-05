@@ -10,7 +10,7 @@ import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
 import AIOptimization from './routes/industries/AIOptimization';
 import HeroSection from './components/HomePage/HeroSection';
-
+import EHRAndPMS from './routes/industries/EHRandPMS'
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
@@ -49,7 +49,6 @@ const AboutHighTech = lazy(() => import('./components/HighTech/AboutHightTech/Ab
 const Resources = lazy(() => import('./components/HighTech/Resources/Resources'));
 const ResourcesDetail = lazy(() => import('./components/HighTech/ResourcesDetail/ResourcesDetail'));
 const GlossaryPage = lazy(() => import('./components/Banking&Finance/Glossary/GlossaryPage'));
-const EHRAndPMS = lazy(() => import('./routes/industries/EHRandPMS'));
 const CareersPage = lazy(() => import('./components/EHR&PMS/Careers/CareersPage'));
 const WhitePapersPAge = lazy(() => import('./components/Banking&Finance/WhitePapers/WhitePapersPage'));
 const NewsPage = lazy(() => import('./components/Banking&Finance/News/NewsPage'));

@@ -341,7 +341,7 @@ export default function FiveCardGradientSection() {
               "
             >
               <div
-                className="w-20 h-20 rounded-full mb-6">
+                className="w-16 h-16 rounded-full mb-6">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
               <H4 style={{ color: active.headingColor }} className="mb-4">
