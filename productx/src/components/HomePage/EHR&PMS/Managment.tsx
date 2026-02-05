@@ -193,17 +193,21 @@ export default function Management() {
             <div
               key={card.id}
               ref={i === 0 ? firstCardRef : null}
-              className={`sticky z-10 top-16 ${i === DATA.length - 1 ? '' : 'min-h-screen'}`}
+            className="sticky z-10 top-16 min-h-screen"
+
             >
               <div
-               className="bg-white rounded-t-[6rem] transition-all duration-700 ease-out mx-auto
-             shadow-[0_-20px_40px_-20px_rgba(0,0,0,0.25)]"
-                style={
-                  i === 0 
-                    ? { maxWidth: `${firstCardWidth}vw` } 
-                    : { maxWidth: '100vw' }
-                }
-              >
+  className={`${
+    i % 2 === 0 ? "bg-white" : "bg-[#FBF7EF]"
+  } rounded-t-[6rem] transition-all duration-700 ease-out mx-auto
+  shadow-[0_-2px_10px_-2px_rgba(0,0,0,0.25)]`}
+  style={
+    i === 0
+      ? { maxWidth: `${firstCardWidth}vw` }
+      : { maxWidth: "100vw" }
+  }
+>
+
                 <div className="flex flex-col lg:flex-row gap-12 p-8 lg:p-16">
                   {/* IMAGE + TITLE */}
                   <div
@@ -233,7 +237,7 @@ export default function Management() {
                   {/* ACCORDION */}
                   <div
                     className={`w-full lg:w-1/2 flex items-start pt-20 ${
-                      imageOnRight ? "lg:order-1" : "lg:order-2"
+                      imageOnRight ? "lg:order-1 " : "lg:order-2"
                     }`}
                   >
                     <div className="w-full max-w-xl mx-auto flex flex-col gap-4">

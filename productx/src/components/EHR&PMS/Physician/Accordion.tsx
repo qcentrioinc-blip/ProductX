@@ -1,27 +1,28 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
-import {   H4,   } from "../../../styles/Typography";
+import {   H3 } from "../../../styles/Typography";
+import { ArrowRight } from "lucide-react";
  
 const TABS = [
   {
     id: "tab1",
-    title: "Duis aute irure",
+    title: " Intelligent Clinical Documentation",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+      " Speed up charting with customizable SOAP templates and smart fields that pull in patient history. Our system suggests E/M codes and auto-saves, cutting documentation time in half.",
     image: "/EHR_IMG.png",
   },
   {
     id: "tab2",
-    title: "Duis aute irure",
+    title: " Integrated Decision Support",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+      "Access real-time clinical alerts, drug interactions, and patient insights right at the point of care. This helps you make safer, more informed decisions during every patient visit. ",
     image: "/EHR-PMS/EHRFIX.png",
   },
   {
     id: "tab3",
-    title: "Duis aute irure",
+    title: " Seamless Care Coordination",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+      "Manage your entire patient list, view live schedules, and track tasks from a unified dashboard. It connects your clinical work with billing and follow-ups effortlessly.",
       image: "/EHR_IMG.png",
   },
 ];
@@ -46,9 +47,9 @@ const Accordion = () => {
  
   return (
     <section className="bg-white py-10">
-      <div className="mx-10 max-w-8xl px-6">
+      <div className="xl:mx-10 max-w-8xl px-6">
         {/* Header */}
-        
+      
  
         {/* Content */}
         <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-14 items-start">
@@ -56,7 +57,7 @@ const Accordion = () => {
           <motion.ul
             ref={leftRef}
             layout
-            className="space-y-2"
+            className="space-y-4 xl:space-y-20"
           >
             {TABS.map((tab, index) => {
               const isActive = activeTab.id === tab.id;
@@ -80,15 +81,15 @@ const Accordion = () => {
                       <div className="flex-1">
                         {/* Title */}
                         <div className="flex items-center gap-2">
-                          <H4
+                          <H3
                             className={`font-semibold leading-tight transition ${
                               isActive
-                                ? "text-teal-700"
+                                ? "text-[#008280]"
                                 : "text-gray-900"
                             }`}
                           >
                             {tab.title}
-                          </H4>
+                          </H3>
  
                           <span
                             className={`transition ${
@@ -97,7 +98,7 @@ const Accordion = () => {
                                 : "text-gray-400"
                             }`}
                           >
-                            →
+                            <ArrowRight/>
                           </span>
                         </div>
  
@@ -107,7 +108,7 @@ const Accordion = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="mt-3 text-md font-quicksand  text-[#141414] max-w-2xl"
+                            className="mt-3 text-md font-quicksand text-[#141414] max-w-2xl"
                           >
                             {tab.description}
                           </motion.p>
@@ -154,7 +155,7 @@ const Accordion = () => {
               key={activeTab.id}
               src={activeTab.image}
               alt="Clinical feature preview"
-              initial={{ opacity: 0, scale: 1.02 }}
+              initial={{ opacity: 0, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="h-full w-full object-cover"
@@ -167,5 +168,3 @@ const Accordion = () => {
 };
  
 export default Accordion;
- 
- 

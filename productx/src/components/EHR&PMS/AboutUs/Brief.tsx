@@ -17,7 +17,7 @@ const Brief = () => {
  
           <div className="space-y-4  xl:pr-10">
             <P className="  text-black    xl:px-14  leading-normal">
-          Unified Clinicapp provides the essential tools you need every day: intelligent documentation, integrated decision support, and seamless workflow management—all in one place.   
+          Unified Clinicapp provides the essential tools you need every day: intelligent documentation, integrated decision support, and seamless workflow management all in one place.   
             </P>
           </div>
         </div>

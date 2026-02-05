@@ -61,16 +61,16 @@ const Benefits = () => {
       <div className="xl:sticky max-w-8xl mx-10 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
-        <div className="w-full max-w-2xl mb-10 xl:mb-12">
+        <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">
           <H2 className="text-left  text-[#008280]">
             Essential Tools for Clinic Administration
           </H2>
         </div>
  
         {/* --- DESKTOP VIEW (xl and up) --- */}
-        <div className="hidden xl:flex w-[100%] max-w-7xl items-center gap-12">
+        <div className="hidden xl:flex w-[100%] max-w-8xl items-center gap-12">
           {/* Interactive Cards */}
-          <div className="flex flex-col w-[40%] gap-4">
+          <div className="flex flex-col w-[40%] gap-1">
             {points.map((point, i) => {
               const isActive = activeIndex === i;
               return (

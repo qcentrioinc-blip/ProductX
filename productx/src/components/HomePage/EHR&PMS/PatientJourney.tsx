@@ -17,6 +17,19 @@ const steps = [
 export default function PatientJourney() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+const stepThresholds = [
+  0.00, // 1
+  0.10, // 2
+  0.20, // 3
+  0.30, // 4
+  0.40, // 5
+  0.55, // 6 (AFTER curve)
+  0.65, // 7
+  0.75, // 8
+  0.85, // 9
+  0.95, // 10
+];
+// const isActive = scrollProgress >= stepThresholds[index];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +52,17 @@ export default function PatientJourney() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const currentStep = scrollProgress * 10;
+  // const currentStep = scrollProgress * 10;
 
   return (
     <> 
    <section
   ref={sectionRef}
   className="relative hidden xl:block bg-white z-30"
-  style={{ height: "300vh" }}
+  style={{ height: "420vh" }}
 >
 
-      <div className="sticky top-0 h-[190vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
+      <div className="sticky top-0 h-[200vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
           <H2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
@@ -67,12 +80,14 @@ export default function PatientJourney() {
             >
               {/* Background Path - INCREASED VERTICAL GAP */}
               <path
-              
-  d="M 0 100 
-     L 960 100 
-     Q 1120 100 1120 200 
-     Q 1120 300 960 300 
-     L 80 300"
+d="
+M 0 100
+L 960 100
+Q 1120 100 1120 200
+Q 1120 300 960 300
+L 250 300
+"
+
   stroke="#E5E7EB"
   strokeWidth="2"
   fill="none"
@@ -85,11 +100,14 @@ export default function PatientJourney() {
 
               {/* Yellow Progress Path - INCREASED VERTICAL GAP */}
               <path
-                d="M 0 100 
-     L 960 100 
-     Q 1120 100 1120 200 
-     Q 1120 300 960 300 
-     L 80 300"
+             d="
+M 0 100
+L 960 100
+Q 1120 100 1120 200
+Q 1120 300 960 300
+L 250 300
+"
+
                 stroke="#141414"
                 strokeWidth="2"
                 fill="none"
@@ -101,105 +119,104 @@ export default function PatientJourney() {
               />
 
               {/* Top Row Steps (1-5) */}
-              {[0, 1, 2, 3, 4].map((index) => {
-                const x = 80 + (index * 220);
-                const y = 100;
-                const isActive = currentStep >= index;
-                
-                return (
-                  <g key={index}>
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="26"
-                      fill={isActive ? "#EEDA68" : "#FFFFFF"}
-                      stroke={isActive ? "#EEDA68" : "#D1D5DB"}
-                      strokeWidth="4"
-                    />
-                    
-                    <text
-                      x={x}
-                      y={y + 8}
-                      textAnchor="middle"
-                      fontSize="20"
-                      fontWeight="700"
-                      fill={isActive ? "#000000" : "#9CA3AF"}
-                    >
-                      {index + 1}
-                    </text>
-                    
-                    {/* TOP ROW - Text BELOW circle */}
-                    <foreignObject
-                      x={x - 85}
-                      y={y + 40}
-                      width="170"
-                      height="80"
-                    >
-                      <div className="flex items-start justify-center w-full h-full">
-                        <P
-                          className="text-center text-sm font-semibold leading-tight"
-                          style={{
-                            color: isActive ? "#111827" : "#9CA3AF"
-                          }}
-                        >
-                          {steps[index]}
-                        </P>
-                      </div>
-                    </foreignObject>
-                  </g>
-                );
-              })}
+    {[0, 1, 2, 3, 4].map((index) => {
+  const x = 80 + index * 220;
+  const y = 100;
+  const isActive = scrollProgress >= stepThresholds[index];
+
+  return (
+    <g key={index}>
+      <circle
+        cx={x}
+        cy={y}
+        r="26"
+        fill={isActive ? "#EEDA68" : "#FFFFFF"}
+        stroke={isActive ? "#EEDA68" : "#D1D5DB"}
+        strokeWidth="4"
+      />
+
+      <text
+        x={x}
+        y={y + 8}
+        textAnchor="middle"
+        fontSize="20"
+        fontWeight="700"
+        fill={isActive ? "#000" : "#9CA3AF"}
+      >
+        {index + 1}
+      </text>
+
+      {/* ✅ TEXT BELOW STEP */}
+      <foreignObject
+        x={x - 90}
+        y={y + 40}
+        width="180"
+        height="80"
+      >
+        <div className="flex justify-center">
+          <P
+            className="text-center text-sm font-semibold leading-tight"
+            style={{ color: isActive ? "#111827" : "#9CA3AF" }}
+          >
+            {steps[index]}
+          </P>
+        </div>
+      </foreignObject>
+    </g>
+  );
+})}
+
 
               {/* Bottom Row Steps (6-10) - Text BELOW circles like top row */}
-              {[5, 6, 7, 8, 9].map((index) => {
-                const reverseIndex = 9 - index;
-                const x = 80 + (reverseIndex * 180);
-                const y = 300; // Bottom row position
-                const isActive = currentStep >= index;
-                
-                return (
-                  <g key={index}>
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="26"
-                      fill={isActive ? "#EEDA68" : "#FFFFFF"}
-                      stroke={isActive ? "#EEDA68" : "#D1D5DB"}
-                      strokeWidth="4"
-                    />
-                    
-                    <text
-                      x={x}
-                      y={y + 8}
-                      textAnchor="middle"
-                      fontSize="20"
-                      fontWeight="700"
-                      fill={isActive ? "#000000" : "#9CA3AF"}
-                    >
-                      {index + 1}
-                    </text>
-                    
-                    {/* BOTTOM ROW - Text BELOW circle (same as top row) */}
-                    <foreignObject
-                      x={x - 85}
-                      y={y + 40}
-                      width="170"
-                      height="80"
-                    >
-                      <div className="flex items-start justify-center w-full h-full">
-                        <P
-                          className="text-center text-sm font-semibold leading-tight"
-                          style={{
-                            color: isActive ? "#111827" : "#9CA3AF"
-                          }}
-                        >
-                          {steps[index]}
-                        </P>
-                      </div>
-                    </foreignObject>
-                  </g>
-                );
-              })}
+       {[5, 6, 7, 8, 9].map((index) => {
+  const reverseIndex = 9 - index;
+  const x = 250 + reverseIndex * 180;
+  const y = 300;
+  const isActive = scrollProgress >= stepThresholds[index];
+
+  return (
+    <g key={index}>
+      <circle
+        cx={x}
+        cy={y}
+        r="26"
+        fill={isActive ? "#EEDA68" : "#FFFFFF"}
+        stroke={isActive ? "#EEDA68" : "#D1D5DB"}
+        strokeWidth="4"
+      />
+
+      <text
+        x={x}
+        y={y + 8}
+        textAnchor="middle"
+        fontSize="20"
+        fontWeight="700"
+        fill={isActive ? "#000" : "#9CA3AF"}
+      >
+        {index + 1}
+      </text>
+
+      {/* ✅ TEXT BELOW STEP */}
+      <foreignObject
+        x={x - 90}
+        y={y + 40}
+        width="180"
+        height="80"
+      >
+        <div className="flex justify-center">
+          <P
+            className="text-center text-sm font-semibold leading-tight"
+            style={{ color: isActive ? "#111827" : "#9CA3AF" }}
+          >
+            {steps[index]}
+          </P>
+        </div>
+      </foreignObject>
+    </g>
+  );
+})}
+
+
             </svg>
           </div>
         </div>
