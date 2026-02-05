@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, memo } from "react";
 import { H2, H4, P } from "../../../styles/Typography";
-
+ 
 const cards = [
   {
     title: " Potential Savings",
@@ -18,7 +18,7 @@ const cards = [
     video: "/Video/3.mp4",
   },
 ];
-
+ 
 // Video card - loads once triggered, plays when section visible
 const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
   card: typeof cards[0];
@@ -26,17 +26,17 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
   isPlaying: boolean;
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-
+ 
   useEffect(() => {
     if (!videoRef.current) return;
-
+ 
     if (isPlaying) {
       videoRef.current.play().catch(() => { });
     } else {
       videoRef.current.pause();
     }
   }, [isPlaying]);
-
+ 
   return (
     <div
       className="
@@ -44,7 +44,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
         border-2 border-slate-100
         hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
         [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
-      
+     
         md:w-[450px] md:flex-shrink-0
         xl:w-auto xl:flex-shrink xl:flex-1
       "
@@ -63,7 +63,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
           <div className="w-full h-full bg-gray-100/50" />
         )}
       </div>
-
+ 
       <div className="relative p-6 lg:px-10">
         <H4 className="mb-2 text-lg font-semibold text-slate-900">
           {card.title}
@@ -75,24 +75,24 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
     </div>
   );
 });
-
+ 
 export default function Onboarding() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-
+ 
   // Optimized Loading Logic
   useEffect(() => {
     if (!sectionRef.current) return;
-
+ 
     // 1. Immediate check for refresh/direct navigation
     const rect = sectionRef.current.getBoundingClientRect();
     const isInViewport = rect.top < window.innerHeight + 200 && rect.bottom > -200;
-
+ 
     if (isInViewport) {
       setHasLoaded(true);
     }
-
+ 
     // 2. Observer for scrolling towards the section
     const loadObserver = new IntersectionObserver(
       (entries) => {
@@ -103,9 +103,9 @@ export default function Onboarding() {
       },
       { rootMargin: "200px" } // Start loading 200px before
     );
-
+ 
     loadObserver.observe(sectionRef.current);
-
+ 
     // 3. Observer for Play/Pause (Strict visibility)
     const playObserver = new IntersectionObserver(
       (entries) => {
@@ -113,15 +113,15 @@ export default function Onboarding() {
       },
       { threshold: 0.2 }
     );
-
+ 
     playObserver.observe(sectionRef.current);
-
+ 
     return () => {
       loadObserver.disconnect();
       playObserver.disconnect();
     };
   }, []);
-
+ 
   return (
     <section>
       <div
@@ -133,7 +133,7 @@ export default function Onboarding() {
         <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">
           Cloud Optimization Features That Deliver Results
         </H2>
-
+ 
         {/* WHITE CONTAINER */}
         <div className="rounded-3xl">
           {/* Cards */}
@@ -142,7 +142,7 @@ export default function Onboarding() {
               grid grid-cols-1 gap-8
               sm:grid-cols-2
               xl:grid-cols-3
-
+ 
               md:flex md:gap-6 md:overflow-x-auto
               md:-mx-6 md:px-6 md:pb-4
               md:overscroll-x-contain
@@ -163,6 +163,3 @@ export default function Onboarding() {
     </section>
   );
 }
-
-
-

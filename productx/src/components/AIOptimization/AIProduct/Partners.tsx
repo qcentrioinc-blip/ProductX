@@ -12,7 +12,7 @@ import { P } from "../../../styles/Typography";
 // ];
 
 export default function Partners() {
-  // const trackRef = useRef<HTMLDivElement>(null);
+ 
   const sectionRef = useRef<HTMLElement>(null);
 
   // const x = useMotionValue(0);
@@ -108,3 +108,4 @@ export default function Partners() {
     </section>
   );
 }
+ 

@@ -3,7 +3,6 @@ import { H1, P } from "../../../styles/Typography";
 
 const ContactModal = lazy(() => import("../Navbar/ContactModal"));
 
-// Inline SVG icons to avoid importing lucide-react
 const ArrowUpRightIcon = ({ className = "" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M7 7h10v10" /><path d="M7 17L17 7" />
@@ -16,7 +15,6 @@ const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-
 const FinalHero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,11 +24,8 @@ const FinalHero = () => {
     let lastScrollY = -1;
 
     const handleScroll = () => {
-      // Skip if scroll position hasn't changed
       if (window.scrollY === lastScrollY) return;
       lastScrollY = window.scrollY;
-
-      // Cancel any pending frame to avoid stacking
       if (rafId) cancelAnimationFrame(rafId);
 
       rafId = requestAnimationFrame(() => {
@@ -48,104 +43,41 @@ const FinalHero = () => {
     };
   }, []);
 
-
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
-
-
-      <div className="relative  lg:pt-36 xl:pt-32 z-10 mx-4 max-w-8xl xl:px-10 pt-20
-                flex flex-col items-center justify-center  ">
-
-
-        <div className=" text-center ">
-          <H1
-            className="
-    text-center
-    pt-10
-    
-    leading-tight
-    bg-gradient-to-b
-    from-[#8DC1FB]
-    to-[#FFFFFF]
-    bg-clip-text
-    text-transparent
-  "
-          >
+      <div className="relative lg:pt-36 xl:pt-32 z-10 mx-4 max-w-8xl xl:px-10 pt-20 flex flex-col items-center justify-center">
+        <div className="text-center animate-fade-in">
+          <H1 className="text-center pt-10 leading-tight bg-gradient-to-b from-[#8DC1FB] to-[#FFFFFF] bg-clip-text text-transparent">
             AI-Powered Cloud Cost <br /> Optimization Platform
           </H1>
-
-
-          <P className="mt-6 mx-auto md:max-w-4xl  text-center text-white/90">
-            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver, with most customers seeing returns within the first month.
+          <P className="mt-6 mx-auto md:max-w-4xl text-center text-white/90">
+            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver.
           </P>
-
-       <div className="
-  mt-8
-  flex
-  flex-col
-  sm:flex-row
-  items-center
-  gap-4
-  justify-center
-">
-
-            <button className=" group
-          flex items-center justify-center
-          w-52 h-[48px]
-          px-[24px] py-[12px]
-          rounded-[8px]
-          font-quicksand   text-[16px]
-          bg-transparent text-white
-        border-white border-2
-          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-          transition-all duration-300
-          hover:bg-white hover:text-black" onClick={() => setModalOpen(true)}>
+          <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center">
+            <button className="group flex items-center justify-center w-52 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand text-[16px] bg-transparent text-white border-white border-2 shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-black" onClick={() => setModalOpen(true)}>
               Request A Demo
-              <span className="flex items-center gap-4">
-
+              <span className="flex items-center gap-4 ml-2">
                 <span className="relative flex items-center w-[20px] h-[20px]">
                   <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                   <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
             </button>
-
-            <a
-              href="https://login.clouddiet.app/clouddiet.app/b2c_1a_signup_signin/oauth2/v2.0/authorize?response_type=code+id_token&redirect_uri=https%3A%2F%2Fclouddiet.app%2F.auth%2Flogin%2Faad%2Fcallback&client_id=b72bae63-25f0-4f12-ad69-e7460b1e2e39&scope=openid+offline_access+https%3A%2F%2Fclouddiet.app%2F0a443360-f8c7-4662-9872-51296650b772%2Fuser_impersonation&response_mode=form_post&nonce=425c124478134932abe392d72d55c611_20260120063213&state=redir%3D%252F"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group
-            flex items-center justify-center
-            w-44 h-[48px]
-            px-[24px] py-[12px]
-            rounded-[8px]
-            font-quicksand font-bold text-[16px]
-            bg-white text-black
-          
-            shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-            transition-all duration-300
-            hover:bg-white hover:text-[#254D70]
-          "
-            >Login
-              <span className="flex items-center gap-2">
-
+            <a href="https://login.clouddiet.app/..." target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-44 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#254D70]">
+              Login
+              <span className="flex items-center gap-2 ml-2">
                 <span className="relative flex items-center w-[20px] h-[20px]">
                   <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
                   <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </span>
               </span>
-
             </a>
           </div>
         </div>
-
-
       </div>
       <Suspense fallback={null}>
         {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
       </Suspense>
-
-
     </section>
   );
 };
