@@ -26,6 +26,38 @@ export default function WhyQnest() {
       {/* DESKTOP */}
       <div ref={ref} className="hidden xl:block relative h-[200vh]">
         <div className="sticky top-0 h-screen overflow-hidden bg-transparent">
+          {/* DECORATIVE STARS – DESKTOP ONLY */}
+<div className="hidden xl:block absolute inset-0 pointer-events-none z-0">
+  {/* Top center star */}
+<img
+  src="/EHRIcons/StarEHR.svg"
+  className="absolute top-10 left-1/2 -translate-x-1/2 w-8 scale-110"
+  alt=""
+/>
+
+
+  {/* Left floating star */}
+  <img
+    src="/EHRIcons/StarEHR.svg"
+className="absolute top-40 left-20 w-7 scale-110"
+    alt=""
+  />
+
+  {/* Right floating star */}
+  <img
+    src="/EHRIcons/StarEHR.svg"
+ className="absolute top-48 right-24 w-8 scale-110"
+    alt=""
+  />
+
+  {/* Bottom center star */}
+  <img
+    src="/EHRIcons/StarEHR.svg"
+    className="absolute bottom-20 left-1/2 -translate-x-1/2 w-7 scale-110"
+    alt=""
+  />
+</div>
+
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
             <H2 className=" text-[#008280] mb-4">
@@ -40,7 +72,7 @@ export default function WhyQnest() {
             <div className="grid grid-cols-12 gap-8 max-w-8xl w-full px-20">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
-                  <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6 shadow-xl flex flex-col justify-between">
+                  <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">
                     <div>
                       <H1 className="text-[#008280]">{c.num}</H1>
                       <H3 className=" text-[#008280]">{c.title}</H3>
@@ -60,13 +92,14 @@ export default function WhyQnest() {
         </H2>
         {cards.map((c, i) => (
           <motion.div
-            key={i}
-            className="bg-[#EDE4CA] p-6 rounded-sm shadow-lg"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            viewport={{ once: true }}
-          >
+  key={i}
+  className="bg-white border-5 border-[#EEDA68] rounded-br-[3rem] rounded-tl-[3rem] p-6"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: i * 0.2 }}
+  viewport={{ once: true }}
+>
+
             <H1 className=" text-[#008280]">{c.num}</H1>
             <H3 className="text-[#008280]">{c.title}</H3>
             <H4 className="mt-4 text-[#2A2A2A]">{c.desc}</H4>

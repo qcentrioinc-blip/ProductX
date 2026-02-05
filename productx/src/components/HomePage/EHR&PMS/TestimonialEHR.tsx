@@ -78,23 +78,23 @@ const TestimonialEHR = () => {
                    <div className="relative  w-full ">
                      
               <img
-  src="/Physician/TealRect.webp"
-  className="w-full h-auto    rounded-xl"
+  src="/EHRIcons/arrow.webp"
+  className="w-full h-auto   "
   alt="ehr and pms"
 />
 
                      {/* Arrow icon in the curved corner */}
-                     <div className="absolute top-2 right-2 w-28 h-28   rounded-full  flex items-center justify-center  xl:hover:scale-110 transition-transform duration-300">
+                     {/* <div className="absolute top-2 right-2 w-28 h-28   rounded-full  flex items-center justify-center  xl:hover:scale-110 transition-transform duration-300">
                        <img src="/Physician/CircleArrow.svg"  alt="arrow"/>
                       
-                     </div>
+                     </div> */}
      
                      {/* Card Content */}
                      <div className=" absolute top-8 z-10 px-2">
                       <H3 className="text-white mb-10 -ml-44  lg:-ml-0 inline-block border-b-2 border-white pb-2">
        Duis aute irure
      </H3>
-                       <P className="text-white px-2 md:pt-8 xl:py-2 leading-relaxed ">
+                       <P className="text-white sm:mt-8 px-4 ">
                         Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
                        </P>
                      </div>

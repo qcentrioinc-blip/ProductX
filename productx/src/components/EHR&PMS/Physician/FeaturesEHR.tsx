@@ -68,7 +68,7 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
 
               <div key={feature.id} className="flex flex-col">
                 {/* Icon Circle */}
-                <img className="w-12 h-12 md:w-16 md:h-16 overflow-visible  rounded-full mb-4  " src={feature.image}/>
+                <img className="w-12 h-12 md:w-16 md:h-16 overflow-visible   mb-4  " src={feature.image}/>
                 
                 {/* Title */}
                 <H4  className="  mb-2">

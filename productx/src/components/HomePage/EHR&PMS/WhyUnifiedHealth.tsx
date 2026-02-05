@@ -34,16 +34,16 @@ const WhyUnifiedHealth: React.FC = () => {
 
             <button
         className="
-          group mt-10
+          group mt-4
           flex items-center justify-center
           w-auto h-[48px]
           px-[32px] py-[4px]
-          rounded-[24px]
-          border border-black
+          rounded-[10px]
+           
           font-quicksand font-bold text-[16px]
-          bg-[#166D48] text-white
+          bg-[#008280] text-white
         
-          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]  
           transition-all duration-300
           hover:bg-white hover:text-black
          "

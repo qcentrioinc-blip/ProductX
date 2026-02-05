@@ -6,13 +6,13 @@ import { H1, P } from '../../../styles/Typography';
 
 const AdminHeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
+    <section className="relative  bg-white overflow-hidden">
       {/* Decorative floating elements */}
      
       
       {/* Main content container */}
-      <div className="container mx-10 px-6 py-12 lg:pt-20 ">
-        <div className="grid lg:grid-cols-2 gap-4 items-center min-h-[80vh]">
+      <div className="container xl:mx-10 px-6 py-12 pt-16 lg:pt-28 ">
+        <div className="grid lg:grid-cols-2 gap-4 items-center ">
           
           {/* Left content */}
           <div className="space-y-8 z-10 max-w-3xl">
@@ -73,11 +73,11 @@ const AdminHeroSection: React.FC = () => {
           <div className="relative z-10">
           
               {/* Image container - leave space for the actual image */}
-              <div className="relative w-full  pt-10 rounded-3xl overflow-hidden  flex items-center justify-center">
+              <div className="relative w-[80%]   pt-10   overflow-hidden  flex items-center justify-center">
                 <img
-                  src="/EHR-PMS/Admin/AdminImage.png"
+                  src="/EHRIcons/AdminHero.svg"
                   alt="Admin Hero"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   loading="eager"
                 />
               
@@ -92,35 +92,7 @@ const AdminHeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Custom animations */}
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-
-        @keyframes float-delayed {
-          0%, 100% {
-            transform: translateY(0px) translateX(0px);
-          }
-          50% {
-            transform: translateY(-15px) translateX(10px);
-          }
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-          animation-delay: 1s;
-        }
-      `}</style>
+       
     </section>
   );
 };
