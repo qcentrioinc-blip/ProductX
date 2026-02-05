@@ -7,16 +7,22 @@ import WhyQnest from "./WhyQnest";
 // import GridSection from "./GridSection";
 // import ShortDesc from "./ShortDesc";
 // import SplitSection from "./SplitSection";
-import BlogCarousel from "./BlogCarousel";
-import UserProfile from "./UserProfile";
+// import BlogCarousel from "./BlogCarousel";
+// import UserProfile from "./UserProfile";
 import EHRFooter from "./EHRFooter";
-import UnifiedFeatureSection from "./UnifiedFeatureSection";
+// import UnifiedFeatureSection from "./UnifiedFeatureSection";
 // import Stroke from "../../EHR&PMS/AboutUs/Stroke";
 
-import Testimonial from "../../EHR&PMS/ClinicApp/Testimonial";
+ 
 import HWD from "../../Banking&Finance/HWD";
 import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
 import Managment from "./Managment";
+import HeroSplitMasked from "./HeroSplitMasked";
+import Overview from "./Overview";
+import WhyUnifiedHealth from "./WhyUnifiedHealth";
+import CTAEHRUnifi from "./CTAEHRUnifi";
+import PatientJourney from "./PatientJourney";
+import TestimonialEHR from "./TestimonialEHR";
  
 
 const HeroSectionEHR = () => {
@@ -25,10 +31,10 @@ const HeroSectionEHR = () => {
 
       {/* NO BACKGROUND */}
       <LandingPageEHS />
- <WhyQnest />
+ <WhyQnest /> 
 
- <Testimonial/>
-
+ <TestimonialEHR/>
+<HeroSplitMasked/>
       {/* STICKY BACKGROUND STARTS */}
       {/* <StickyBackgroundLayout image="/EHRandPMS/StickyImg.jpg"> */}
 
@@ -42,14 +48,18 @@ const HeroSectionEHR = () => {
        
 
         </div> */}
+        <PatientJourney/>
         <Managment/>
-          <UnifiedFeatureSection/>
+        <Overview/>
+        <WhyUnifiedHealth/>
+        <CTAEHRUnifi/>
+          {/* <UnifiedFeatureSection/> */}
 
       {/* </StickyBackgroundLayout> */}
 
       {/* NO BACKGROUND */}
-      <BlogCarousel />
-      <UserProfile />
+      {/* <BlogCarousel />
+      <UserProfile /> */}
       <HWD/>
       <FaqSection/>
       <EHRFooter />

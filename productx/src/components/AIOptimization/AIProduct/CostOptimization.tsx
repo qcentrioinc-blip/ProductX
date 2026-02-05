@@ -139,7 +139,7 @@ const CostOptimization = () => {
                   />
                   {/* Horizontal line from second box (Utilization) */}
                   <line
-                    x1=""
+                    x1="0"
                     y1="230"
                     x2="100"
                     y2="230"

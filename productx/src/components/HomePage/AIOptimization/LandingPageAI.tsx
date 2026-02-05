@@ -11,7 +11,7 @@ const LandingPageAI = () => {
       <div className="relative w-full">
         {/* ========== HERO SECTION WITH BACKGROUND IMAGE ========== */}
         <div
-          className="relative w-full h-[71vh] md:h-[56vh] xl:h-screen bg-cover bg-center "
+          className="relative w-full h-[60vh] md:h-[56vh] xl:h-screen bg-cover bg-center "
           style={{
             backgroundImage: `url(${"/AI-CloudFinOps/Features/LandingBackground.webp"})`,
           }}
@@ -22,25 +22,25 @@ const LandingPageAI = () => {
 <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
   <img
     src="/cloud.webp"
-    className="absolute top-[45%] left-[8%] w-16 md:w-20 animate-cloud-float-slow  "
+    className="absolute top-[30%] left-0 md:top-[45%] md:left-[8%] w-16 md:w-20 animate-cloud-float-slow  "
     alt="cloud"
   />
  
   <img
     src="/cloud.webp"
-    className="absolute bottom-[20%] right-[10%] w-20 md:w-24 animate-cloud-float  "
+    className="absolute bottom-[25%] md:bottom-[20%] right-[10%] w-20 md:w-24 animate-cloud-float  "
     alt="cloud"
   />
  
   <img
     src="/cloud.webp"
-    className="absolute bottom-[18%] left-[25%] w-14 md:w-20 animate-cloud-float-fast "
+    className="absolute bottom-[18%] left-[10%] md:left-[25%] w-14 md:w-20 animate-cloud-float-fast "
     alt="cloud"
   />
  
    <img
     src="/cloud.webp"
-    className="absolute bottom-[15%] right-[30%] w-20 md:w-20 animate-cloud-float "
+    className="absolute bottom-[10%] md:bottom-[15%] right-[30%] w-20 md:w-20 animate-cloud-float "
     alt="cloud"
   />
 </div>

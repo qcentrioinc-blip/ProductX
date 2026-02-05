@@ -40,7 +40,7 @@ export default function WhyQnest() {
             <div className="grid grid-cols-12 gap-8 max-w-8xl w-full px-20">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
-                  <div className="bg-transparent border-4 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6 shadow-xl flex flex-col justify-between">
+                  <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6 shadow-xl flex flex-col justify-between">
                     <div>
                       <H1 className="text-[#166D48]">{c.num}</H1>
                       <H3 className=" text-[#166D48]">{c.title}</H3>

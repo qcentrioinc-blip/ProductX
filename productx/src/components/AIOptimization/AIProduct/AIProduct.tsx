@@ -14,10 +14,11 @@ import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 
 const AIProduct = () => {
+  
   return (
     <div className="relative">
       <div id='landingpage'>
-        <HeroCombined />
+        <HeroCombined />  
       </div>
       
       <TextSec />

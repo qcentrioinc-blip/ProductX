@@ -1,88 +1,295 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { H2, H4, P } from "../../../styles/Typography";
 
-const cards = [
+const DATA = [
   {
-    title: "Sed ut perspiciatis",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    id: 1,
+    title: "Streamline Care with Intelligent Documentation ",
+    description: " Unified Clinicapp puts clinical efficiency first. Our EHR is designed around the physician’s workflow with smart templates, integrated decision support, and seamless access to patient history, all to reduce charting time and support better, faster clinical decisions at the point of care.",
+    items: [
+      {
+        title: "Simplify Clinical Management- From Patient Encounter to Complete Note ",
+        content:
+          " We connect every part of the visit into one intuitive flow, from vitals and history to assessment and coding, ensuring nothing is missed.",
+        image: "/images/sample-1.png",
+      },
+      {
+        title: "Integrate Point-of-Care Tools for Smarter, Faster Diagnoses",
+        content:
+          "Access e-prescribing, lab orders, and clinical alerts directly within the patient’s chart to support accurate and timely care decisions without switching screens.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: "Enable Seamless Care Coordination with a Unified Patient Timeline",
+        content:
+          "View the patient’s full history—medications, labs, and past visits—in one chronological view, providing complete context for every clinical decision and note.",
+        image: "/images/sample-2.png",
+      },
+    ]
   },
   {
-    title: "Unde Seduo ut",
-    description:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    id: 2,
+    title: "Simplify Every Patient Interaction Digitally",
+    description: "From first contact to follow-up, manage the entire patient lifecycle on one platform. Reduce front-desk tasks and empower patients with self-service tools.",
+    items: [
+      {
+        title: " Digital Intake & Registration Before the Visit",
+        content:
+          "Allow new and existing patients to complete forms, provide history, and submit digital consents securely online before they arrive",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: "Streamlined Check-In & Status Tracking",
+        content:
+          "Patients can check themselves in via kiosk or phone. Staff gets real-time updates on room status and patient flow to reduce wait times.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: "Centralize Communication and Task Management",
+        content:
+          " Assign, track, and complete patient follow-ups, reminders, and staff messages from one unified dashboard to ensure nothing gets missed.",
+        image: "/images/sample-2.png",
+      },
+    ]
   },
   {
-    title: "Management Excellence",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7",
+    id: 3,
+    title: "Billing & Insurance ",
+    description: "Streamline your entire revenue cycle with integrated billing tools. Submit clean claims, track payments in real time, and reduce denials for a healthier bottom line.",
+    items: [
+      {
+        title: "Turn Claims into Revenue, Faster",
+        content:
+          "Streamline your entire revenue cycle with integrated billing tools. Submit clean claims, track payments in real time, and reduce denials for a healthier bottom line.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: "Automated Claims Submission & Payment Tracking",
+        content:
+          " Submit electronic claims directly, monitor their status on a dashboard, and track remittances to simplify your financial workflow.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: "Transparent Patient Billing Portal",
+        content:
+          "Patients can view balances, payment history, and detailed invoices online, reducing front-desk calls and speeding up collections.",
+        image: "/images/sample-2.png",
+      },
+    ]
   },
   {
-    title: "Operational Clarity",
-    description:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    id: 4,
+    title: "Optimize Your Team and Schedule",
+    description: " Efficiently manage provider schedules, staff tasks, and resource allocation from a single, dynamic dashboard to maximize productivity.",
+    items: [
+      {
+        title: "Leverage Smart, Color-Coded Calendar Scheduling for Providers",
+        content:
+          "Visualize and manage daily appointments with drag-and-drop rescheduling and status indicators to optimize provider time and reduce conflicts.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: " Enable Real-Time Staff Coordination with Role-Based Task Lists",
+        content:
+          "Assign and track clinical and administrative tasks with alerts and due dates, ensuring smooth handoffs and accountability across your team.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: " Streamline Patient Flow with Live Room and Status Tracking",
+        content:
+          " Monitor patient movement from check-in to discharge in real-time, allowing for instant room reassignments and reduced patient wait times.",
+        image: "/images/sample-2.png",
+      },
+    ]
   },
   {
-    title: "Strategic Insight",
-    description:
-      "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    id: 5,
+    title: "Make Confident, Data-Driven Decisions",
+    description: "Gain clear insights into your practice’s clinical and financial performance with unified dashboards and customizable reports for smarter planning.",
+    items: [
+      {
+        title: "   Unified Clinical & Financial Dashboards",
+        content:
+          "View key metrics on appointments, billing, and patient care together in one central, easy-to-read visual dashboard.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: " Customizable Reporting for Any Need",
+        content:
+          " Easily create, filter, and export reports on appointments, revenue, or clinical outcomes with just a few clicks.",
+        image: "/images/sample-2.png",
+      },
+      {
+        title: " Live Performance & Health Analytics",
+        content:
+          "Monitor practice health with real-time dashboards tracking KPIs like patient volume, revenue, and provider efficiency.",
+        image: "/images/sample-2.png",
+      },
+    ]
   },
 ];
 
-export default function Managment() {
+export default function Management() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const firstCardRef = useRef<HTMLDivElement>(null);
+  const [firstCardWidth, setFirstCardWidth] = useState(85);
+  const [activeItem, setActiveItem] = useState<Record<number, number | null>>(
+    Object.fromEntries(DATA.map(card => [card.id, 0]))
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // Start expanding as soon as the section enters viewport from bottom
+      // Complete expansion before the first card reaches its sticky position
+      const sectionTop = sectionRect.top;
+      
+      // When sectionTop is at viewportHeight, section just entering (progress = 0)
+      // When sectionTop is at viewportHeight * 0.3, expansion complete (progress = 1)
+      const startPoint = viewportHeight; // Section bottom touches viewport bottom
+      const endPoint = viewportHeight * 0.3; // Section well into view
+      
+      let scrollProgress = 0;
+      
+      if (sectionTop <= startPoint && sectionTop >= endPoint) {
+        // Calculate progress as section moves from bottom to top
+        scrollProgress = (startPoint - sectionTop) / (startPoint - endPoint);
+        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+      } else if (sectionTop < endPoint) {
+        // Section is past the expansion point
+        scrollProgress = 1;
+      }
+      
+      // Interpolate width from 85 to 100
+      const newWidth = 85 + (scrollProgress * 15);
+      setFirstCardWidth(newWidth);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleAccordion = (cardId: number, index: number) => {
+    setActiveItem((prev) => ({
+      ...prev,
+      [cardId]: prev[cardId] === index ? null : index,
+    }));
+  };
+
   return (
-    <div className="relative bg-gray-50">
-      <div className="h-[200vh]" />
+    <section ref={sectionRef} className="relative ">
+      <div className="w-full">
+        {DATA.map((card, i) => {
+          const imageOnRight = i % 2 === 0;
+          const activeIndex = activeItem[card.id];
 
-      {cards.map((card, index) => {
-        const isReversed = index % 2 !== 0;
-
-        return (
-          <section
-            key={index}
-            className="sticky top-0 h-screen flex items-center justify-center"
-            style={{ zIndex: index + 1 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-[90%] max-w-6xl bg-white rounded-2xl shadow-xl p-10"
+          return (
+            <div
+              key={card.id}
+              ref={i === 0 ? firstCardRef : null}
+              className={`sticky z-10 top-16 ${i === DATA.length - 1 ? '' : 'min-h-screen'}`}
             >
               <div
-                className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
-                  isReversed ? "md:flex-row-reverse" : ""
-                }`}
+               className="bg-white rounded-t-[6rem] transition-all duration-700 ease-out mx-auto
+             shadow-[0_-20px_40px_-20px_rgba(0,0,0,0.25)]"
+                style={
+                  i === 0 
+                    ? { maxWidth: `${firstCardWidth}vw` } 
+                    : { maxWidth: '100vw' }
+                }
               >
-                {/* Text */}
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-semibold text-emerald-700">
-                    {card.title}
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
+                <div className="flex flex-col lg:flex-row gap-12 p-8 lg:p-16">
+                  {/* IMAGE + TITLE */}
+                  <div
+                    className={`w-full lg:w-1/2 flex flex-col gap-6 ${
+                      imageOnRight ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    <H2 className="text-3xl lg:text-4xl font-light text-[#008280]">
+                      {card.title}
+                    </H2>
 
-                {/* Image */}
-                <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                    <P>{card.description}</P>
+
+                    <div className="relative bg-gray-100 border-14 border-[#008280] rounded-2xl aspect-video flex items-center justify-center overflow-hidden">
+                      {typeof activeIndex === "number" ? (
+                        <img
+                          src={card.items[activeIndex].image}
+                          alt=""  
+                          className="w-full h-full object-cover transition-opacity duration-300"
+                        />
+                      ) : (
+                        <span className="text-gray-400 text-sm">Select an item</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* ACCORDION */}
+                  <div
+                    className={`w-full lg:w-1/2 flex items-start pt-20 ${
+                      imageOnRight ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
+                    <div className="w-full max-w-xl mx-auto flex flex-col gap-4">
+                      {card.items.map((item, index) => {
+                        const isOpen = activeIndex === index;
+
+                        return (
+                          <div
+                            key={index}
+                            className="border-b space-y-4 my-6 border-[#3D8D7A] pb-4"
+                          >
+                            <button
+                              onClick={() => toggleAccordion(card.id, index)}
+                              className="w-full flex items-start gap-4 text-left"
+                            >
+                              <H4 className="text-lg font-semibold text-teal-700 flex-1">
+                                {item.title}
+                              </H4>
+
+                              <svg
+                                className={`w-6 h-6 text-teal-700 transition-transform duration-300 ${
+                                  isOpen ? "rotate-180" : ""
+                                }`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M19 9l-7 7-7-7"
+                                />
+                              </svg>
+                            </button>
+
+                            <div
+                              className={`overflow-hidden transition-all duration-300 ${
+                                isOpen ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
+                              }`}
+                            >
+                              <P>{item.content}</P>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </section>
-        );
-      })}
+            </div>
+          );
+        })}
 
-      <div className="h-[200vh]" />
-    </div>
+        <div className="h-[50vh]" />
+      </div>
+    </section>
   );
 }

@@ -450,6 +450,55 @@ export const ContactUsAI = ({ children, className = "", onClick }: ButtonProps) 
   );
 };
 
+
+export const ContactUsEHR = ({ children, className = "", onClick }: ButtonProps) => {
+  const { canvasRef, triggerSpark } = useClickSpark({});
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    triggerSpark(e);
+    if (onClick) onClick(e);
+  };
+
+  return (
+    <div className="relative inline-block w-fit" onClick={handleClick}>
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none"></canvas>
+
+      <button
+        className={`
+          group
+          flex items-center justify-center
+          w-auto h-[48px]
+          px-[24px] py-[12px]
+          rounded-[8px]
+          border border-black
+          font-quicksand font-bold text-[16px]
+          bg-[#008280] text-white
+        
+          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+          transition-all duration-300
+          hover:bg-white hover:text-black
+          ${className}
+        `}
+      >
+        <span className="flex items-center gap-2">
+          {children}
+          <span className="relative flex items-center w-[20px] h-[20px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <path d="M7 7h10v10" />
+              <path d="M7 17L17 7" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+};
+
+
 /* =========================================================
    3) SUBMIT BUTTON
    ========================================================= */

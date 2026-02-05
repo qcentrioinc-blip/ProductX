@@ -1,219 +1,171 @@
-import { useState, useEffect, useRef } from 'react';
-import { H3, P } from '../../../styles/Typography';
-
-interface AccordionItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-}
-
+import { useState, useRef, useLayoutEffect } from "react";
+import { motion } from "framer-motion";
+import {   H4,   } from "../../../styles/Typography";
+ 
+const TABS = [
+  {
+    id: "tab1",
+    title: "Duis aute irure",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+    image: "/EHR_IMG.png",
+  },
+  {
+    id: "tab2",
+    title: "Duis aute irure",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+    image: "/EHR-PMS/EHRFIX.png",
+  },
+  {
+    id: "tab3",
+    title: "Duis aute irure",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in.Duis aute irure dolor in reprehenderissn.",
+      image: "/EHR_IMG.png",
+  },
+];
+ 
 const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const accordionData: AccordionItem[] = [
-    {
-      id: 1,
-      title: "Duis aute irure",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in ",
-      image: "/Physician/AccordionImage1.svg"
-    },
-    {
-      id: 2,
-      title: "Duis aute irure",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in ",
-      image: "/Physician/AccordionImage2.svg"
-    },
-    {
-      id: 3,
-      title: "Duis aute irure",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Duis aute irure dolor in ",
-      image: "/Physician/AccordionImage3.svg"
-    },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const windowHeight = window.innerHeight;
-      const scrollTriggerPoint = windowHeight / 2;
-
-      // Only activate scroll behavior on desktop/tablet
-      if (window.innerWidth >= 768) {
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        itemRefs.current.forEach((item, index) => {
-          if (item) {
-            const rect = item.getBoundingClientRect();
-            const itemCenter = rect.top + rect.height / 2;
-            const distance = Math.abs(itemCenter - scrollTriggerPoint);
-
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              closestIndex = index;
-            }
-          }
-        });
-
-        setActiveIndex(closestIndex);
-      }
-    };
-
-    // Use requestAnimationFrame for smoother performance
-    let ticking = false;
-    const smoothScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', smoothScroll, { passive: true });
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', smoothScroll);
+  const [activeTab, setActiveTab] = useState(TABS[0]);
+  const leftRef = useRef<HTMLUListElement | null>(null);
+  const [leftHeight, setLeftHeight] = useState<number | null>(null);
+ 
+  // Sync right image height with left tabs height
+  useLayoutEffect(() => {
+    if (!leftRef.current) return;
+ 
+    const observer = new ResizeObserver(() => {
+      setLeftHeight(leftRef.current!.offsetHeight);
+    });
+ 
+    observer.observe(leftRef.current);
+ 
+    return () => observer.disconnect();
   }, []);
-
+ 
   return (
-    <div className="bg-gradient-to-br from-slate-50 to-stone-100 py-16 px-4 sm:px-6">
-      <div className="max-w-8xl xl:mx-10"> 
+    <section className="bg-white py-10">
+      <div className="mx-10 max-w-8xl px-6">
+        {/* Header */}
         
-        {/* Desktop & Tablet Layout - Sticky Scroll Wrapper */}
-        <div
-          className="relative h-auto md:h-[calc(var(--accordion-height))] hidden md:block"
-          style={
-            {
-              "--accordion-height": `${accordionData.length * 100}vh`,
-            } as React.CSSProperties
-          }
-        >
-          {/* STICKY CONTENT */}
-          <div className="md:sticky md:top-0 md:h-screen flex items-center">
-            <div ref={containerRef} className="grid md:grid-cols-[1fr_2fr] md:gap-12 lg:gap-16 w-full">
-        
-              {/* Left Side - Scrollable Content */}
-              <div className="space-y-20 lg:space-y-20 py-12">
-                {accordionData.map((item, index) => (
-                  <div
-                    key={item.id}
-                    ref={(el) => {
-                      if (el) itemRefs.current[index] = el;
-                    }}
-                    className={`transition-all duration-700 ease-out ${
-                      activeIndex === index 
-                        ? 'opacity-100 translate-y-0 scale-100' 
-                        : 'opacity-30 translate-y-4 scale-95'
-                    }`}
+ 
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-14 items-start">
+          {/* Tabs */}
+          <motion.ul
+            ref={leftRef}
+            layout
+            className="space-y-2"
+          >
+            {TABS.map((tab, index) => {
+              const isActive = activeTab.id === tab.id;
+ 
+              return (
+                <li key={tab.id} className="rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab(tab)}
+                    className="
+                      w-full
+                      text-left
+                      cursor-pointer
+                      rounded-xl
+                      p-4
+                      transition-colors
+                      hover:bg-gray-100
+                    "
                   >
-                    <div className="space-y-6">
-                      {/* Title with Arrow */}
-                      <div className="flex items-center gap-3 group cursor-pointer">
-                        <H3 className={`text-2xl lg:text-3xl font-semibold transition-colors duration-500 ${
-                          activeIndex === index ? 'text-gray-900' : 'text-gray-500'
-                        }`}>
-                          {item.title}
-                        </H3>
-                        <span className={`text-2xl transition-all duration-500 ${
-                          activeIndex === index 
-                            ? 'text-gray-900 opacity-100 group-hover:translate-x-2' 
-                            : 'text-gray-500 opacity-0'
-                        }`}>
-                          →
-                        </span>
-                      </div>
-
-                      {/* Description */}
-                      <div className={`transition-all duration-700 ease-in-out ${
-                        activeIndex === index 
-                          ? 'max-h-96 opacity-100 translate-y-0' 
-                          : 'max-h-0 opacity-0 translate-y-4 overflow-hidden'
-                      }`}>
-                        <P className="text-gray-700 leading-relaxed mb-4 transition-all duration-500">
-                          {item.description}
-                        </P>
-                        <P className="text-gray-600 leading-relaxed transition-all duration-500">
-                          {item.description}
-                        </P>
+                    <div className="flex items-start gap-4">
+                      <div className="flex-1">
+                        {/* Title */}
+                        <div className="flex items-center gap-2">
+                          <H4
+                            className={`font-semibold leading-tight transition ${
+                              isActive
+                                ? "text-teal-700"
+                                : "text-gray-900"
+                            }`}
+                          >
+                            {tab.title}
+                          </H4>
+ 
+                          <span
+                            className={`transition ${
+                              isActive
+                                ? "text-teal-600"
+                                : "text-gray-400"
+                            }`}
+                          >
+                            →
+                          </span>
+                        </div>
+ 
+                        {/* Description */}
+                        {isActive && (
+                          <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            className="mt-3 text-md font-quicksand  text-[#141414] max-w-2xl"
+                          >
+                            {tab.description}
+                          </motion.p>
+                        )}
+ 
+                        {/* Mobile Image */}
+                        {isActive && (
+                          <motion.img
+                            src={tab.image}
+                            alt="Clinical feature preview"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="
+                              mt-5
+                              w-full
+                             
+                              border
+                              border-gray-200
+                              shadow-lg
+                              object-contain
+                              lg:hidden
+                            "
+                          />
+                        )}
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-        
-              {/* Right Side - Image Container (stays in place) */}
-              <div className="relative flex items-center justify-center">
-                <div className="relative w-full h-[400px] xl:h-[600px]">
-                  <div className="relative w-full h-full bg-gray-200 rounded-2xl overflow-hidden shadow-xl">
-                    {accordionData.map((item) => (
-                      <img
-                        key={item.id}
-                        src={item.image}
-                        alt={item.title}
-                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                          accordionData.indexOf(item) === activeIndex 
-                            ? 'opacity-100 scale-100' 
-                            : 'opacity-0 scale-105'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-        
-            </div>
+                  </button>
+ 
+                  {index !== TABS.length - 1 && (
+                    <div className="mt-4 h-px w-full bg-gray-200" />
+                  )}
+                </li>
+              );
+            })}
+          </motion.ul>
+ 
+          {/* Desktop Image */}
+          <div
+            className="relative hidden lg:block w-full overflow-hidden rounded-xl border border-gray-200 shadow-lg"
+            style={{ height: leftHeight ?? "auto" }}
+          >
+            <motion.img
+              key={activeTab.id}
+              src={activeTab.image}
+              alt="Clinical feature preview"
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
-
-        {/* Mobile Layout */}
-        <div className="md:hidden space-y-8">
-          {accordionData.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg"
-            >
-              {/* Image */}
-              <div className="relative w-full h-64 bg-gray-200">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-6 space-y-4">
-                {/* Title with Arrow */}
-                <div className="flex items-center gap-3">
-                  <H3 className="text-xl font-semibold">
-                    {item.title}
-                  </H3>
-                  <span className="text-xl">→</span>
-                </div>
-
-                {/* Description */}
-                <div className="space-y-3">
-                  <P className="text-gray-700 text-sm leading-relaxed">
-                    {item.description}
-                  </P>
-                  <P className="text-gray-600 text-sm leading-relaxed">
-                    {item.description}
-                  </P>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 };
-
+ 
 export default Accordion;
+ 
+ 

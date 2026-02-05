@@ -189,9 +189,14 @@ const faqData =
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
               <H3> FAQ</H3>
             </div>
-            <H2 className="mb-4">
+            <H2
+  className={`mb-4 ${
+    isEHR ? "text-[#008280]" : "text-black"
+  }`}
+>
   {introContent.heading}
 </H2>
+
 
 <P className="mb-6 max-w-lg">
   {introContent.description}
@@ -210,8 +215,8 @@ const faqData =
                     className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
                     onClick={() => handleToggle(index)}
                   >
-                    <span className="text-gray-900 font-medium">{item.question}</span>
-                    <span className={`text-2xl text-gray-500 transition-all ${isOpen ? "rotate-180 text-blue-600" : ""}`}>
+                    <span className="text-gray-900  font-quicksand font-bold">{item.question}</span>
+                    <span className={`text-2xl text-gray-500 font-quicksand  transition-all ${isOpen ? "rotate-180 text-blue-600" : ""}`}>
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>

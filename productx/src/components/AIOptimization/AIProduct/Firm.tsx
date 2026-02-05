@@ -187,7 +187,7 @@ const GlobalSpotlight = ({ containerRef, enabled = true, spotlightRadius = 590 }
       observer.disconnect();
       spotlightRef.current?.parentNode?.removeChild(spotlightRef.current);
     };
-  }, [containerRef, enabled, spotlightRadius]);
+  },  );
 
   return null;
 };
