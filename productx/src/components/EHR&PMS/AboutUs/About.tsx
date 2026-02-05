@@ -6,7 +6,7 @@ import Brief from "./Brief"
 import Counter from "../EHRNurse/Counter"
 import Headquarters from "./Headquaters"
 import HeroSection from "./HeroSection"
-import OurWork from "./OurWork"
+import OurWork from "../Admin/OurWork"
  
  
 

@@ -4,66 +4,66 @@ const Comparison = () => {
   const leftItems = [
     {
       number: 1,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "Pre-built, customizable SOAP templates auto-populate with patient data for faster note completion. "
     },
     {
       number: 2,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "Integrated coding suggestions and one-click billing eliminate separate billing software steps. "
     },
     {
       number: 3,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "To-do lists and reminders are linked directly to patient charts, organizing follow-ups automatically. "
     }
   ];
 
   const rightItems = [
     {
       number: 1,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "Real-time alerts for drug interactions and allergies appear as you prescribe within the workflow. "
     },
     {
       number: 2,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "A unified patient profile provides immediate access to full history, labs, and medications during the visit. "
     },
     {
       number: 3,
-      title: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute"
+      title: "Clinical decision support tools offer evidence-based guidance and reminders based on patient-specific data. "
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white py-12 ">
+    <div className="min-h-screen bg-white pt-12 ">
       <div className="max-w-8xl xl:mx-10 px-6">
         {/* Header */}
-        <div className="text-center mb-12">
-          <H2 className="text-[#166D48] mb-2">
-            Sed ut perspiciatis Unde Seduo ut
+        <div className="text-center mb-8">
+          <H2 className="text-[#008280] mb-2">
+          Key Benefits for Physicians Like You
           </H2>
         </div>
 
         {/* Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-y-20">
           {/* Left Column */}
-          <div className="bg-[#EEDCC1] rounded-xl p-8 md:p-10  lg:p-12 shadow-sm">
+          <div className=" rounded-xl p-8 md:p-10  lg:p-12">
             {/* Icon Circle */}
-            <div className="w-12 h-12 md:w-14 md:h-14 mt-16 bg-white rounded-full mb-6"></div>
+            <div className="w-full h-48 md:h-56 lg:h-72 bg-[#D9D9D9] rounded-xl mb-6"></div>
 
             {/* Main Title */}
             <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
-              Duis aute irure dolor in reprehenderit Duis aute irure dolor in reprehenderit
+               Dramatically Reduce Time Spent on Documentation and Administrative Tasks
             </H4 >
 
             {/* Subtitle */}
-            <P className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute
+            <P className=" text-sm md:text-base mb-2 leading-relaxed">
+             Smart tools and automation handle the paperwork, giving you more face-to-face time with your patients.
             </P>
 
             {/* Numbered List */}
-            <div className="space-y-14 py-10">
+            <div className="space-y-8 py-10">
               {leftItems.map((item) => (
                 <div key={item.number} className="flex gap-4">
                   {/* Number Badge */}
-                  <div className="flex-shrink-0 w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#FFEFDD] border border-[#166D48] rounded-full flex items-center justify-center">
                     <span className="text-gray-800 font-semibold text-sm">
                       {item.number}
                     </span>
@@ -79,26 +79,26 @@ const Comparison = () => {
           </div>
 
           {/* Right Column */}
-          <div className="bg-[#EEDCC1] rounded-xl p-8 md:p-10 lg:p-12 shadow-sm">
+          <div className=" rounded-xl p-8 md:p-10 lg:p-12  ">
             {/* Icon Circle */}
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-white mt-16 rounded-full mb-6"></div>
+            <div className="w-full h-48 md:h-56 lg:h-72 bg-[#D9D9D9] rounded-xl mb-6"></div>
 
             {/* Main Title */}
             <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
-              Duis aute irure dolor in reprehenderit Duis aute irure dolor in reprehenderit
+    Enhance Clinical Accuracy and Patient Outcomes with Informed Decision Support
             </H4        >
 
             {/* Subtitle */}
-            <P className="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute
+            <P className=" text-sm md:text-base mb-2 leading-relaxed">
+          Access critical patient insights and alerts instantly to support safer, more effective care decisions.
             </P>
 
             {/* Numbered List */}
-            <div className="space-y-14 py-10">
+            <div className="space-y-8 py-10">
               {rightItems.map((item) => (
                 <div key={item.number} className="flex gap-4">
                   {/* Number Badge */}
-                  <div className="flex-shrink-0 w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#FFEFDD] border border-[#166D48] rounded-full flex items-center justify-center">
                     <span className="text-gray-800 font-semibold text-sm">
                       {item.number}
                     </span>

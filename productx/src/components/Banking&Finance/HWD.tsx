@@ -14,9 +14,9 @@ const HWD = () => {
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
-      bottomBg: "#E7DED0",
-      headingColor: "#166D48",
-      textcolor: "#000000",
+      bottomBg: "#FFFFFF",
+      headingColor: "#008280",
+      textcolor: "#141414",
       CheckColor: "#A80040"
 
 
@@ -156,8 +156,8 @@ const HWD = () => {
     ],
     ehr: [
       {
-        title: "Independent Primary Care Clinic",
-        image: "/UseCase1.svg",
+        title: "Unified Primary Care Clinic",
+         image: "/EHRIcons/Treatment.svg",
         description:
           "Manage everything from patient visits to billing efficiently with one unified, easy-to-use platform..",
         points: [
@@ -170,7 +170,7 @@ const HWD = () => {
       },
       {
         title: " Multi-Specialty Medical Group",
-        image: "/UseCase2.svg",
+        image: "/EHRIcons/Team.svg",
         description:
           "Support diverse specialties with tailored workflows while maintaining centralized operations and billing.",
         points: [
@@ -183,7 +183,7 @@ const HWD = () => {
       },
       {
         title: "Streamlined Billing Service",
-        image: "/UseCase3.svg",
+       image: "/EHRIcons/Dollar.svg",
         description:
           "Handle client billing with greater transparency, accuracy, and efficiency using integrated tools.",
         points: [
@@ -290,7 +290,7 @@ const HWD = () => {
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
           <h1 className="font-medium text-2xl text-[#2A2A2A]">
             <div className="flex items-center gap-x-2">
-              <div className="w-8 h-1 rounded-full bg-gray-400"></div>
+              {/* <div className="w-8 h-1 rounded-full bg-gray-400"></div> */}
               {headingContent.eyebrow}
             </div>
           </h1>

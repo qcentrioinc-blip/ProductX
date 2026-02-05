@@ -5,6 +5,15 @@
   font-weight: 600;
   src: url('/fonts/bricolage-grotesque-latin-600-normal.woff2') format('woff2');
 }
+/* 
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/bricolage-grotesque-latin-400-normal.woff2')
+       format('woff2');
+} */
 
 @font-face {
   font-family: 'Quicksand';
@@ -13,6 +22,13 @@
   font-weight: 400;
   src: url('/fonts/quicksand-latin-400-normal.woff2') format('woff2');
 }
+
+.ehr-pms,
+.ehr-pms * {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 400;
+}
+
 
 :root {
   --primary-color: #2B68C3;

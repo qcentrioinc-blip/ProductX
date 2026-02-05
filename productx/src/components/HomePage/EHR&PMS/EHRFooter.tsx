@@ -59,15 +59,15 @@ const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
  
   const quickLinks = [
-    { name: 'Solutions', path: `${base}/built-for` },
-    { name: 'Pricing', path: `${base}/aboutus` },
+    
+    { name: 'Pricing', path: `${base}/pricing` },
     
   ];
 
   const builtfor = [
-    { name: 'Clinics & Hospitals', path: `${base}/blogs` },
-    { name: 'Home Healthcare Agencies', path: `${base}/glossary` },
-    { name: 'Long Term Care', path: `${base}/physician` },
+    { name: 'Long Term Care' ,path:`${base}/built-for/long-term-care` },
+    { name: 'Home Healthcare',path:`${base}/built-for/home-healthcare`   },
+    { name: 'Clinics & Hospitals' ,path:`${base}/built-for/clinics-and-hospitals`  },
   ];
  
   return (

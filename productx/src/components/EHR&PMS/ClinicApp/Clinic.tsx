@@ -4,10 +4,10 @@ import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Advantage from "./Advantage"
-import Benefits from "./Benefits"
+import Benefits from "../Admin/Benefits"
 import HeroSection from "./HeroSection"
 
-import Testimonial from "./Testimonial"
+import Testimonial from "../../HomePage/EHR&PMS/TestimonialEHR"
 import GridSecClinic from "./GridSecClinic"
 
 

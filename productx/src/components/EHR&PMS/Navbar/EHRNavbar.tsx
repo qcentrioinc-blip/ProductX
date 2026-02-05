@@ -103,9 +103,9 @@ const EHRNavbar = () => {
       {/* TOP TRANSPARENT BAR - Scrolls away */}
       <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
+          <div className="   px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-              LOGO
+               <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
             </span>
           </div>
         </Link>
@@ -311,7 +311,7 @@ const EHRNavbar = () => {
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
               <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                LOGO
+                 <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>

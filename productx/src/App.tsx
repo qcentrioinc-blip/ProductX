@@ -74,6 +74,8 @@ import { EHRPricing } from './components/EHR&PMS/EHRPricing/EHRPricing';
 import { EHRNursing } from './components/EHR&PMS/EHRNurse/EHRNursing';
 import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRReceptionist';
 import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
+ 
+import Admin from './components/EHR&PMS/Admin/Admin';
 const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
 
@@ -192,7 +194,7 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
               <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
               <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
-
+               <Route path="/industries/ehr-and-pms/admin" element={<Admin />} />
               <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
               <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
               <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
@@ -229,6 +231,7 @@ const App = () => {
                 path="/industries/:industry/built-for/:builtForType"
                 element={<BuiltFor />}
               />
+              
               {/* Marketplace Routes */}
               <Route path='/marketplace' element={<Marketing />} />
               <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
@@ -256,7 +259,7 @@ const App = () => {
             </Routes>
           </Suspense>
         </div>
-      </ScrollProvider>
+      </ScrollProvider> 
       <ToastContainer
         position="bottom-right"
         style={{ marginBottom: '45px' }}

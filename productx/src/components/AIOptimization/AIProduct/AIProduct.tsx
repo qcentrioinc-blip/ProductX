@@ -11,10 +11,11 @@ const FeatureCards = lazy(() => import("../HomePageAI/Features"));
 
 
 const AIProduct = () => {
+  
   return (
     <div className="relative">
       <div id='landingpage'>
-        <HeroCombined />
+        <HeroCombined />  
       </div>
 
       <Suspense fallback={null}>

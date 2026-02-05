@@ -136,10 +136,11 @@ export default function NewFooter() {
                   Cloud FinOps AI
                 </a>
               </li>
-              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
-
+             
+           <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3 hover:text-white ">EHR-PMS</Li></a>
               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a>
-              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">EHR-PMS</Li></a>
+               <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
+             
 
             </ul>
           </div>
