@@ -33,9 +33,13 @@ const ImageContainer = () => {
  
       rafId = requestAnimationFrame(() => {
         if (!imgRef.current) return;
- 
-        const maxScroll = window.innerWidth >= 1280 ? 400 : window.innerWidth >= 768 ? 300 : 250;
-        const progress = Math.min(currentScrollY / maxScroll, 1);
+
+        // Optimization: Disable animation on mobile to save GPU/CPU
+        if (window.innerWidth < 768) return;
+
+        const maxScroll = window.innerWidth >= 1280 ? 400 : 300;
+
+        const progress = Math.min(window.scrollY / maxScroll, 1);
         const translateY = -progress * 10;
  
         imgRef.current.style.transform = `translateY(${translateY}px)`;
@@ -64,18 +68,20 @@ const ImageContainer = () => {
           <div className="relative w-[80%] xl:w-[80%]">
             <img
               ref={imgRef}
-              src="/AIOptimization/dashboardfinal.webp"
-              alt="Analytics dashboard showing cloud cost optimization metrics"
+              src="/AIOptimization/dashboardfinal-transformed.webp"
+              srcSet="/AIOptimization/dashboardfinal-mobile.webp 768w, /AIOptimization/dashboardfinal-transformed.webp 2400w"
+              sizes="(max-width: 768px) 90vw, 90vw"
+              alt="Analytics dashboard"
               fetchPriority="high"
-              loading="eager"
-              decoding="sync"
-              width="1920"
-              height="1080"
-              className="relative z-10 w-full h-auto will-change-transform"
-              style={{
-                transform: 'translateY(0)',
-                imageRendering: 'crisp-edges'
-              }}
+              className="
+          relative
+          z-10
+          w-full
+        
+        
+          md:will-change-transform
+          transform-gpu
+        "
             />
           </div>
         </div>

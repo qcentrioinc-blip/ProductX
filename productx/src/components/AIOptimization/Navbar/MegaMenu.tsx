@@ -3,11 +3,12 @@ import { H3, P } from "../../../styles/Typography";
 
 interface MegaMenuProps {
   isScrolled: boolean;
+  showTopBar: boolean;
   handleKeepOpen: () => void;
   handleCloseMenus: () => void;
 }
 
-const MegaMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: MegaMenuProps) => {
+const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: MegaMenuProps) => {
   const industry = "cloud-finops-ai";
   const base = `/industries/${industry}`;
 
@@ -30,7 +31,7 @@ const MegaMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: MegaMenuProp
     <div
       onMouseEnter={() => { handleKeepOpen(); }}
       onMouseLeave={handleCloseMenus}
-      className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}
+      className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[141px]" : "top-[85px]") : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}
     >
       <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
       <P className="text-gray-700 text-lg mt-2 mb-4">Intelligent automation solutions to transform your business operations.</P>

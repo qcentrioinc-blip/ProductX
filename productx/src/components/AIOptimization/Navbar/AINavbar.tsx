@@ -4,6 +4,7 @@ import MobileFeaturesDropdown from "./MobileFeaturesDropdown";
 import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
+import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
 const ContactModal = lazy(() => import("./ContactModal"));
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -53,6 +54,7 @@ const AINavbar = () => {
       import("../../HomePage/AIOptimization/CloudDiet");
       import("../../HomePage/AIOptimization/AIBlogs");
       import("../../HomePage/AIOptimization/AIFooter");
+      prefetchLandingPageAIImages();
       const img = new Image();
       img.src = "/AIOptimization/LandingBackground.png";
     },
@@ -62,7 +64,7 @@ const AINavbar = () => {
     },
     pricing: () => import("../Pricing/Pricing"),
     resources: () => {
-      import("../Resources/Resource");
+      // import("../Resources/Resource");
       import("../ResourceDoc/ResourceDoc");
       import("./ResourcesMenu");
     },
@@ -113,10 +115,24 @@ const AINavbar = () => {
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const currentY = Math.max(0, window.scrollY);
+      const isUp = currentY < lastScrollY.current;
+
+      setIsScrolled(currentY > 30);
+
+      // Hide when scrolling down (> 50px), Show when scrolling up
+      if (currentY > 50 && !isUp) {
+        setShowTopBar(false);
+      } else {
+        setShowTopBar(true);
+      }
+
+      lastScrollY.current = currentY;
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -142,7 +158,7 @@ const AINavbar = () => {
   return createPortal(
     <>
       {/* TOP TRANSPARENT BAR - Scrolls away */}
-      <div className="absolute top-0 z-50 left-0 w-full bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 pt-2 pb-1 flex justify-between transition-all duration-300">
+      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2  pn rounded cursor-pointer">
             <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
@@ -150,8 +166,8 @@ const AINavbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link to={`${base}/platform`} className="text-white font-medium">Platform</Link>
-          <Link to={`${base}/marketplace`} className="text-white font-medium">Marketplace</Link>
+          <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link>
+          <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Marketplace</Link>
         </div>
 
         <button
@@ -175,7 +191,7 @@ const AINavbar = () => {
           className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${isScrolled
-              ? "w-full rounded-none scale-100"
+              ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14' : ''}`
               : "w-[90%] max-w-8xl rounded-full scale-[0.98] translate-y-15"
             }`}
         >
@@ -313,6 +329,7 @@ const AINavbar = () => {
         {megaMenuOpen && (
           <MegaMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />
@@ -323,6 +340,7 @@ const AINavbar = () => {
         {resourcesMenuOpen && (
           <ResourcesMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />
@@ -333,6 +351,7 @@ const AINavbar = () => {
         {megaMenuBuiltFor && (
           <BuiltForMenu
             isScrolled={isScrolled}
+            showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
           />

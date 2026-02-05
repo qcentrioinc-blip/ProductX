@@ -8,9 +8,10 @@ import { ScrollProvider } from './context/ScrollContext'
 import { lazy, Suspense } from 'react';
 import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
-import Physician from './components/EHR&PMS/Physician/Physician';
+import AIOptimization from './routes/industries/AIOptimization';
 import HeroSection from './components/HomePage/HeroSection';
 
+const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -57,24 +58,23 @@ const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
 const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
 const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
-import AIOptimization from './routes/industries/AIOptimization';
-import Resource from './components/AIOptimization/Resources/Resource';
+
 const ResourceDetailAI = lazy(() => import('./components/AIOptimization/ResourceDetail/ResourceDetailAI'));
 const AboutAI = lazy(() => import('./components/AIOptimization/AboutUs/AboutAI'));
 const AINewsLetter = lazy(() => import('./components/AIOptimization/NewsLetter/AINewsLetter'));
 const AIWhitePapers = lazy(() => import('./components/AIOptimization/WhitePapers/AIWhitePapers'));
 const AIGlossary = lazy(() => import('./components/AIOptimization/Glossary/AIGlossary'));
-import HeroAIOptimization from './components/HomePage/AIOptimization/HeroAIOptimization';
-import ResourceDoc from './components/AIOptimization/ResourceDoc/ResourceDoc';
-import Pricing from './components/AIOptimization/Pricing/Pricing';
+const HeroAIOptimization = lazy(() => import('./components/HomePage/AIOptimization/HeroAIOptimization'));
+const ResourceDoc = lazy(() => import('./components/AIOptimization/ResourceDoc/ResourceDoc'));
+const Pricing = lazy(() => import('./components/AIOptimization/Pricing/Pricing'));
 const ComingSoon = lazy(() => import('./components/Global/NewFooter/ComingSoon'));
 const PrivacyPolicyAI = lazy(() => import('./components/AIOptimization/AIPrivacy'));
 const CareersPageAI = lazy(() => import('./components/AIOptimization/Careers/CareersPage').then(module => ({ default: module.CareersPageAI })));
-import { BuiltFor } from './components/Global/BuiltFor/BuiltFor';
 import { EHRPricing } from './components/EHR&PMS/EHRPricing/EHRPricing';
 import { EHRNursing } from './components/EHR&PMS/EHRNurse/EHRNursing';
 import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRReceptionist';
 import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
+const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
 
 const App = () => {
@@ -163,7 +163,6 @@ const App = () => {
             <Routes>
               <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
               <Route path="/industries/cloud-finops-ai/about-us" element={<AboutAI />} />
-              <Route path="/industries/cloud-finops-ai/resources" element={<Resource />} />
               <Route path="/industries/cloud-finops-ai/resource-detail" element={<ResourceDetailAI />} />
               <Route path="/industries/cloud-finops-ai/careers" element={<CareersPageAI />} />
               <Route path="/industries/cloud-finops-ai/jobs" element={<JobDetails />} />
@@ -196,7 +195,7 @@ const App = () => {
 
               <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
               <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
-              <Route path="/industries/ehr-and-pms/nursing" element={<EHRNursing />} />
+              <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
               <Route path="/industries/ehr-and-pms/receptionist" element={<EHRReceptionist />} />
               <Route path="/industries/ehr-and-pms/insurance-coordinator" element={<EHRInsuranceCoordinator />} />
 
@@ -265,7 +264,7 @@ const App = () => {
 
       <DeferredLoader
         loader={() => import('./components/Global/Chatbot/ChatbotButton')}
-        delay={2000}
+        delay={2500}
       />
       <FontLoader />
 

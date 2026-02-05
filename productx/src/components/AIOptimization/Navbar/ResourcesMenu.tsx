@@ -1,13 +1,13 @@
-
 import { H3, P } from "../../../styles/Typography";
 
 interface ResourcesMenuProps {
   isScrolled: boolean;
+  showTopBar: boolean;
   handleKeepOpen: () => void;
   handleCloseMenus: () => void;
 }
 
-const ResourcesMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: ResourcesMenuProps) => {
+const ResourcesMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: ResourcesMenuProps) => {
   const industry = "cloud-finops-ai";
   const base = `/industries/${industry}`;
 
@@ -38,7 +38,7 @@ const ResourcesMenu = ({ isScrolled, handleKeepOpen, handleCloseMenus }: Resourc
     <div
       onMouseEnter={() => { handleKeepOpen(); }}
       onMouseLeave={handleCloseMenus}
-      className={`fixed left-1/2 ${isScrolled ? "top-[85px]" : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}
+      className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[141px]" : "top-[85px]") : "top-32"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[9998]`}
     >
       <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
       <P className="text-gray-700 text-lg mt-2 mb-4">Knowledge hub for AI optimization implementation and best practices.</P>

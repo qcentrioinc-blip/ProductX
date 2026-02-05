@@ -1,31 +1,31 @@
 import { useParams } from "react-router-dom";
 import { H2, H4, P } from "../../../styles/Typography";
- 
+
 type TextContent = {
   h4: string;
   h2: string;
   p: string;
 };
- 
+
 const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
   "cloud-finops-ai": {
     enterprises: {
       h4: "Challenges",
       h2: "Enterprise IT and Cloud Operations",
-      p: "Enterprise cloud teams face hidden Azure costs daily across complex, multi-subscription environments.",
+      p: "Multi-region Azure setups often overprovision resources to ensure availability. Without consistent governance and visibility, idle and oversized resources go unmanaged. This leads to millions in avoidable cloud waste over time.",
     },
     "saas-application-providers": {
       h4: "Saas",
       h2: "Scaling Challenges ",
-      p: "SaaS providers face hidden costs from always-on application scaling needs.  ",
+      p: "SaaS providers incur hidden costs by keeping applications always scaled for peak demand. Always-on resources drive up compute and infrastructure spend even during low usage. Without dynamic scaling controls, these costs quietly erode margins.",
     },
-   "regulated-large-enterprise": {
+    "regulated-large-enterprise": {
       h4: "Enterprise  ",
       h2: "Cloud Challenges",
-      p: "Multi-region ops waste millions on overprovisioned, unregulated Azure resources. ",
+      p: "Multi-region Azure setups overprovision resources for resilience. Without unified governance, idle assets drive massive, avoidable cloud waste.",
     },
   },
- 
+
   "banking-and-finance": {
     banks: {
       h4: "Challenges",
@@ -43,20 +43,25 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
       p: "Credit unions balance member experience with limited budgets and aging infrastructure.",
     },
   },
- 
+
   "ehr-and-pms": {
-    hospitals: {
-      h4: "Challenges",
-      h2: "Clinical Workflow Efficiency",
-      p: "Healthcare providers struggle with fragmented systems and inefficient patient workflows.",
+    "long-term-care": {
+      h4: "Challenges faced by industry",
+      h2: "Key Industry Challenges",
+      p: "Coordinating complex care while meeting strict regulatory demands.",
     },
-    clinics: {
-      h4: "Challenges",
-      h2: "Smaller Practices, Bigger Demands",
-      p: "Clinics need scalable systems without adding administrative burden to care teams.",
+    "home-healthcare": {
+      h4: "Challenges faced by industry",
+      h2: "Key Industry Challenges",
+      p: "Coordinating mobile care teams while ensuring compliance and timely billing.",
+    },
+    "clinics-and-hospitals": {
+      h4: "Challenges faced by industry",
+      h2: "Main Industry Challenges",
+      p: "Coordinating complex care across departments and revenue streams.",
     },
   },
- 
+
   "high-tech": {
     startups: {
       h4: "Challenges",
@@ -70,34 +75,36 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
     },
   },
 };
- 
+
 export default function TextSec() {
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
- 
+
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const content =
-    CONTENT_MAP[industry ?? ""]?.[builtForType ?? ""];
- 
+    CONTENT_MAP[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
+
   if (!content) return null;
- 
+
   return (
     <section className="w-full py-10 bg-white ">
       <div className="max-w-8xl mx-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-         
+
           {/* LEFT */}
           <div>
             <H4 className="mb-3">{content.h4}</H4>
-            <H2 className="leading-snug">{content.h2}</H2>
+            <H2 className="leading-snug whitespace-nowrap">{content.h2}</H2>
           </div>
- 
+
           {/* RIGHT */}
           <div>
             <P className="leading-relaxed">{content.p}</P>
           </div>
- 
+
         </div>
       </div>
     </section>

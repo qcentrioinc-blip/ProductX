@@ -1,37 +1,60 @@
-"use client";
+import type { ReactNode } from "react";
+import { useParams } from "react-router-dom";
 
-import { H1} from "../../../styles/Typography";
+const CONTENT_MAP: Record<string, { heading: ReactNode; image: string; altText: string }> = {
+  "long-term-care": {
+    heading: (
+      <>
+        Unified Care for <br /> Resident Wellbeing
+      </>
+    ),
+    image: "/BuiltFor/LongTermEHR.webp",
+    altText: "Unified Care for Resident Wellbeing",
+  },
+  "home-healthcare": {
+    heading: (
+      <>
+        Care That Follows <br /> Patients Home
+      </>
+    ),
+    image: "/BuiltFor/HomeHealthcareEHR.webp",
+    altText: "Care That Follows Patients Home",
+  },
+  "clinics-and-hospitals": {
+    heading: "Unified Care for Complex Health Systems",
+    image: "/BuiltFor/ClinicsEHR.webp",
+    altText: "Unified Care for Complex Health Systems",
+  },
+};
 
 export default function TitleSecEHR() {
+  const { builtForType } = useParams<{ builtForType: string }>();
+  const content = CONTENT_MAP[builtForType ?? "long-term-care"] || CONTENT_MAP["long-term-care"];
+
   return (
-    <section className="w-full h-screen bg-black flex items-center justify-center py-24 px-6 relative overflow-hidden">
+    <section className="w-full min-h-screen flex items-center justify-center py-12 px-6 relative overflow-hidden">
 
-      {/* Radial Background */}
-      <div className="absolute  bg-[radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 243, 0.5) 0%, rgba(200, 255, 215, 0.5) 100%)]">
-        <img
-          src="/EHR-PMS/Careers/bg_img1.png"
-          alt="Radial Background"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {/* Main Content Container - Based on design specs */}
+      <div className="relative max-w-[1540px] w-full mx-auto flex flex-col items-center gap-[58px] pt-[200px]">
 
-      <div className="relative text-center max-w-3xl mx-auto">
-        
-        {/* Small Top Text */}
-        {/* <P className=" mb-3">
-          Careers
-        </P> */}
+        {/* Title Section */}
+        <div className="text-center max-w-5xl w-full">
+          <h1 className="text-[72px] leading-[100%] font-normal text-[#008280]" style={{ fontFamily: "Bricolage Grotesque" }}>
+            {content.heading}
+          </h1>
+        </div>
 
-        {/* Main Heading */}
-        <H1 className="leading-snug text-[#116A43]">
-          Shaping the Future <br className="hidden sm:block" />
-          Across Every Sector.
-        </H1>
+        {/* Image Section */}
+        <div className="w-full max-w-8xl">
+          <img
+            src={content.image}
+            alt={content.altText}
+            className="w-full h-auto max-h-[486px] object-cover rounded-[20px]"
+            width="1311"
+            height="486"
+          />
+        </div>
 
-        {/* Description */}
-        {/* <P className="mt-4">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        </P> */}
       </div>
 
     </section>

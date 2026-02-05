@@ -2,13 +2,13 @@ import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { H2, H3, P } from "../../../styles/Typography"
 import { HoverExpandImage } from "./HoverExpandImage"
-
+ 
 const sections = [
   { id: "optimizations", label: "Insights " },
   { id: "cloud", label: " Optimization " },
   { id: "security", label: "Security" },
 ]
-
+ 
 // --- Image URLs for each feature ---
 const featureImages = [
   "/AI-CloudFinOps/Features/Feature1.webp",
@@ -21,8 +21,8 @@ const featureImages = [
   "/AI-CloudFinOps/Features/Feature8.webp",
   "/AI-CloudFinOps/Features/Feature9.webp",
 ]
-
-
+ 
+ 
 // --- Configuration Data & Mockups ---
 interface Feature {
   id: number;
@@ -32,8 +32,8 @@ interface Feature {
   highlight: string;
   borderColor: string;
 }
-
-
+ 
+ 
 const features: Feature[] = [
   {
     id: 1,
@@ -108,7 +108,7 @@ const features: Feature[] = [
     borderColor: "border-orange-500",
   },
 ];
-
+ 
 // --- Sub-Component: Feature Visualization (Image & Pagination) ---
 interface FeatureVisualizationProps {
   activeFeature: number;
@@ -117,8 +117,8 @@ interface FeatureVisualizationProps {
   animate?: boolean;
   mobileAnimKey?: number; // ✅ ADD THIS
 }
-
-
+ 
+ 
 const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   activeFeature,
   onDotClick,
@@ -126,7 +126,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   animate = true,
   mobileAnimKey = 0, // ✅ DEFAULT SAFE VALUE
 }) => {
-
+ 
   return (
     <div className="w-full">
       {/* Image Container */}
@@ -155,7 +155,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   }}
   className="absolute inset-0 w-full h-auto"
 >
-
+ 
               <HoverExpandImage
                 src={featureImages[activeFeature]}
                 className="w-full h-full"
@@ -171,7 +171,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
               className="w-full h-full"
               objectFit="contain"
             />
-
+ 
             <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
@@ -183,7 +183,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
           </div>
         )}
       </div>
-
+ 
       {/* Pagination Controls - Desktop Only */}
       <div className="mt-6 hidden xl:flex justify-center items-center gap-4">
         {/* Prev Button (<) - Hidden if at first feature */}
@@ -195,7 +195,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
           </button>
         )}
-
+ 
         {/* Dots */}
         <div className="flex items-center gap-2">
           {features.map((_, idx) => (
@@ -214,7 +214,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             />
           ))}
         </div>
-
+ 
         {/* Next Button (>) - Hidden if at last feature */}
         {activeFeature < features.length - 1 && (
           <button
@@ -228,14 +228,14 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
     </div>
   );
 };
-
+ 
 // --- Sub-Component: Text Item (Right Side) ---
 interface FeatureItemProps {
   feature: Feature;
   index: number;
   setInView: (i: number) => void;
 }
-
+ 
 const FeatureItem: React.FC<FeatureItemProps> = ({
   feature,
   index,
@@ -245,11 +245,11 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
   const isInView = useInView(ref, {
     margin: "-50% 0px -50% 0px"
   });
-
+ 
   useEffect(() => {
     if (isInView) setInView(index);
   }, [isInView, index, setInView]);
-
+ 
   return (
     <div
       ref={ref}
@@ -271,14 +271,14 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     </div>
   );
 };
-
+ 
 // --- Sub-Component: Mobile/Tablet Feature Block ---
 interface MobileFeatureBlockProps {
   feature: Feature;
   index: number;
   isActive: boolean;
 }
-
+ 
 const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
   feature,
   index,
@@ -318,7 +318,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
           {feature.description}
         </P>
       </div>
-
+ 
       {/* Image Block */}
       <AnimatePresence mode="wait">
         {isActive && (
@@ -334,7 +334,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
               opacity: 1,
               y: 0,
               height: 220,
-              
+             
               marginBottom: 32
             }}
             exit={{
@@ -354,7 +354,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
               alt={`Feature ${index + 1}`}
               className="w-full h-full object-contain md:object-cover"
             />
-
+ 
             {/* Feature Indicator */}
             {/* <div className="absolute top-4 left-4">
               <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
@@ -370,21 +370,21 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
     </div>
   );
 };
-
+ 
 export default function StickyPremiumSections() {
   const [active, setActive] = useState<number>(0)
   const [progress, setProgress] = useState<number>(0)
   const [activeFeature, setActiveFeature] = useState<number>(0)
-
+ 
   const [mobileAnimKey, setMobileAnimKey] = useState(0);
 const hasAnimatedOnMobile = useRef(false);
-
+ 
   const hasInitializedMobileFeature = useRef(false);
-
-
+ 
+ 
   const storyboardRef = useRef<HTMLDivElement>(null)
   const activeFeatureRef = useRef<number>(0)
-
+ 
   // Store refs for each section
   const sectionRefs = useRef<(HTMLElement | null)[]>([])
   useEffect(() => {
@@ -392,13 +392,13 @@ const hasAnimatedOnMobile = useRef(false);
       document.getElementById(section.id)
     )
   }, [])
-
+ 
   useEffect(() => {
   if (window.innerWidth >= 1280) return;
-
+ 
   const section = document.getElementById("security");
   if (!section) return;
-
+ 
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting && !hasAnimatedOnMobile.current) {
@@ -408,229 +408,229 @@ const hasAnimatedOnMobile = useRef(false);
     },
     { threshold: 0.3 }
   );
-
+ 
   observer.observe(section);
-
+ 
   return () => observer.disconnect();
 }, []);
-
-
+ 
+ 
   // INTERSECTION OBSERVER OPTIMIZATION
   const containerRef = useRef<HTMLDivElement>(null);
   const isInternalIntersecting = useRef(false);
-
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       isInternalIntersecting.current = entry.isIntersecting;
     }, { rootMargin: "200px" }); // Buffer to start slightly before view
-
+ 
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
     return () => observer.disconnect();
   }, []);
-
+ 
   // Main scroll handler for section detection (Sections 1 & 2)
   useEffect(() => {
     let ticking = false
-
+ 
     const onScroll = () => {
       // Optimization: Skip if not visible
       if (!isInternalIntersecting.current) return;
-
+ 
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY
           const windowHeight = window.innerHeight
-
+ 
           let currentActive = 0
           let currentProgress = 0
-
+ 
           sections.forEach((section, index) => {
             const element = document.getElementById(section.id)
             if (!element) return
-
+ 
             const rect = element.getBoundingClientRect()
             const elementTop = rect.top + scrollY
             const elementBottom = elementTop + element.offsetHeight
-
+ 
             if (scrollY + windowHeight * 0.2 >= elementTop &&
               scrollY + windowHeight * 0.2 < elementBottom) {
               currentActive = index
-
+ 
               const sectionStart = elementTop - windowHeight * 0.5
               const sectionEnd = elementBottom - windowHeight * 0.5
               const sectionLength = sectionEnd - sectionStart
-
+ 
               if (sectionLength > 0) {
                 currentProgress = (scrollY - sectionStart) / sectionLength
                 currentProgress = Math.max(0, Math.min(1, currentProgress))
               }
             }
           })
-
+ 
           if (currentProgress === 0) {
             sections.forEach((section, index) => {
               const element = document.getElementById(section.id)
               if (!element) return
-
+ 
               const rect = element.getBoundingClientRect()
               const elementTop = rect.top + scrollY
-
+ 
               if (scrollY >= elementTop) {
                 currentActive = index
                 currentProgress = 1
               }
             })
           }
-
+ 
           setActive(currentActive)
           setProgress(currentProgress)
-
+ 
           ticking = false
         })
-
+ 
         ticking = true
       }
     }
-
+ 
     window.addEventListener("scroll", onScroll, { passive: true })
     onScroll()
-
+ 
     return () => {
       window.removeEventListener("scroll", onScroll)
     }
   }, [])
-
+ 
   // FIXED: Unified Scroll Handler for Mobile and Tablet
   useEffect(() => {
   if (typeof window === 'undefined' || window.innerWidth >= 1280) return;
-
+ 
   let ticking = false;
-
+ 
   const updateActiveFeature = () => {
     // ✅ ALLOW FIRST CALCULATION EVEN IF NOT INTERSECTING
     if (!isInternalIntersecting.current && hasInitializedMobileFeature.current) {
       return;
     }
-
+ 
     if (ticking) return;
     ticking = true;
-
+ 
     requestAnimationFrame(() => {
       const viewportHeight = window.innerHeight;
       const scrollY = window.scrollY;
       const viewportCenter = scrollY + viewportHeight / 2;
-
+ 
       let bestMatchIndex = activeFeatureRef.current;
       let closestDistance = Infinity;
-
+ 
       for (let i = 0; i < features.length; i++) {
         const element = document.getElementById(`mobile-feature-${i}`);
         if (!element) continue;
-
+ 
         const rect = element.getBoundingClientRect();
         const elementTop = scrollY + rect.top;
         const elementCenter = elementTop + rect.height / 2;
-
+ 
         const distance = Math.abs(elementCenter - viewportCenter);
         const isInViewport =
           rect.top < viewportHeight * 0.8 &&
           rect.bottom > viewportHeight * 0.2;
-
+ 
         if (isInViewport && distance < closestDistance) {
           closestDistance = distance;
           bestMatchIndex = i;
         }
       }
-
+ 
       if (bestMatchIndex !== activeFeatureRef.current) {
         setActiveFeature(bestMatchIndex);
         activeFeatureRef.current = bestMatchIndex;
       }
-
+ 
       // ✅ MARK INITIALIZATION COMPLETE
       hasInitializedMobileFeature.current = true;
-
+ 
       ticking = false;
     });
   };
-
+ 
   window.addEventListener("scroll", updateActiveFeature, { passive: true });
-
+ 
   // ✅ FORCE INITIAL CALCULATION AFTER LAYOUT
   const timeoutId = setTimeout(() => {
     updateActiveFeature();
   }, 120);
-
+ 
   return () => {
     clearTimeout(timeoutId);
     window.removeEventListener("scroll", updateActiveFeature);
   };
 }, []);
-
-
-  
-
-
+ 
+ 
+ 
+ 
+ 
   // Desktop scroll handler for feature activation (Section 3)
   useEffect(() => {
     if (typeof window === 'undefined' || window.innerWidth < 1280) return;
-
+ 
     const handleDesktopScroll = () => {
       // Optimization: Skip if not visible
       if (!isInternalIntersecting.current) return;
-
+ 
       const viewportHeight = window.innerHeight;
       const scrollY = window.scrollY;
       const viewportCenter = scrollY + viewportHeight / 2;
-
+ 
       let bestMatchIndex = activeFeatureRef.current;
       let closestDistance = Infinity;
-
+ 
       // Find the feature text element closest to viewport center
       features.forEach((_, index) => {
         const element = document.querySelector(`[data-feature-index="${index}"]`);
         if (!element) return;
-
+ 
         const rect = element.getBoundingClientRect();
         const elementTop = scrollY + rect.top;
         const elementHeight = rect.height;
         const elementCenter = elementTop + elementHeight / 2;
-
+ 
         const distance = Math.abs(elementCenter - viewportCenter);
-
+ 
         // Check if element is mostly in viewport
         const isInViewport = rect.top < viewportHeight * 0.8 && rect.bottom > viewportHeight * 0.2;
-
+ 
         if (isInViewport && distance < closestDistance) {
           closestDistance = distance;
           bestMatchIndex = index;
         }
       });
-
+ 
       if (bestMatchIndex !== activeFeatureRef.current) {
         setActiveFeature(bestMatchIndex);
         activeFeatureRef.current = bestMatchIndex;
       }
     };
-
+ 
     // Throttle desktop scroll
     let desktopScrollTimeout: number | null = null;
     const throttledDesktopScroll = () => {
       if (desktopScrollTimeout) return;
-
+ 
       desktopScrollTimeout = window.setTimeout(() => {
         handleDesktopScroll();
         desktopScrollTimeout = null;
       }, 16);
     };
-
+ 
     window.addEventListener("scroll", throttledDesktopScroll, { passive: true });
-
+ 
     // Initial calculation
     handleDesktopScroll();
-
+ 
     return () => {
       window.removeEventListener("scroll", throttledDesktopScroll);
       if (desktopScrollTimeout) {
@@ -638,7 +638,7 @@ const hasAnimatedOnMobile = useRef(false);
       }
     };
   }, []);
-
+ 
   // Scroll to section handler
   const scrollToSection = (index: number) => {
     const element = document.getElementById(sections[index].id)
@@ -648,7 +648,7 @@ const hasAnimatedOnMobile = useRef(false);
       window.scrollTo({ top: y, behavior: "smooth" })
     }
   }
-
+ 
   // Handle dot click for desktop
   const handleDotClick = (index: number) => {
     setActiveFeature(index)
@@ -658,11 +658,11 @@ const hasAnimatedOnMobile = useRef(false);
       element.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
-
+ 
   // Handle Navigation buttons for desktop (Start, End, Prev, Next)
   const handleNavigate = (direction: "prev" | "next") => {
     const isDesktop = window.innerWidth >= 1280;
-
+ 
     // NEXT
     if (direction === "next") {
       // Note: We removed the scroll-to-bottom logic here since the button is now hidden at the end.
@@ -671,7 +671,7 @@ const hasAnimatedOnMobile = useRef(false);
       }
       setActiveFeature(prev => prev + 1)
     }
-
+ 
     // PREV
     if (direction === "prev") {
       // Note: We removed the scroll-to-section logic here since the button is now hidden at the start.
@@ -680,11 +680,11 @@ const hasAnimatedOnMobile = useRef(false);
       }
       setActiveFeature(prev => prev - 1)
     }
-
+ 
     // Scroll corresponding feature text (desktop)
     const nextIndex =
       direction === "next" ? activeFeature + 1 : activeFeature - 1
-
+ 
     if (isDesktop) {
       const el = document.querySelector(
         `[data-feature-index="${nextIndex}"]`
@@ -692,7 +692,7 @@ const hasAnimatedOnMobile = useRef(false);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "center" })
     }
   }
-
+ 
   return (
     <div ref={containerRef} className="relative w-full overflow-visible">
       {/* Mobile Navigation */}
@@ -715,7 +715,7 @@ const hasAnimatedOnMobile = useRef(false);
               ))}
             </div>
           </div>
-
+ 
           {/* Progress Bar */}
           <div className="h-1 w-full bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <motion.div
@@ -725,9 +725,9 @@ const hasAnimatedOnMobile = useRef(false);
           </div>
         </div>
       </div>
-
+ 
       <div className="max-w-8xl mx-4 sm:mx-6 lg:mx-6 flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
-
+ 
         {/* LEFT NAV (Desktop and iPad Pro - lg screens and above) */}
         <div className="hidden lg:block w-56 sticky top-32 space-y-4 lg:mt-14 xl:mt-20">
           {sections.map((s, i) => (
@@ -735,14 +735,14 @@ const hasAnimatedOnMobile = useRef(false);
               <button
                 onClick={() => scrollToSection(i)}
                 className={`w-full flex items-center gap-2 uppercase text-[16px] md:text-[20px] lg:text-[24px]
-                  font-bricolage leading-[120%] transition-all duration-300 
+                  font-bricolage leading-[120%] transition-all duration-300
                   ${active === i ? "text-[#254D70] font-semibold" : "text-gray-400 hover:text-gray-600"}`}
               >
-                <span className={`h-2 w-2 rounded-full transition-all duration-300 flex-shrink-0 
+                <span className={`h-2 w-2 rounded-full transition-all duration-300 flex-shrink-0
                   ${active === i ? "bg-[#254D70] shadow" : "bg-gray-300"}`} />
                 <span className="text-left">{s.label}</span>
               </button>
-
+ 
               {/* Progress bar container */}
               {active === i && (
                 <div className="relative mt-2 h-[2px] w-full overflow-hidden">
@@ -754,14 +754,14 @@ const hasAnimatedOnMobile = useRef(false);
                   />
                 </div>
               )}
-
+ 
             </div>
           ))}
         </div>
-
+ 
         {/* RIGHT CONTENT */}
         <div className="flex-1 space-y-24 md:space-y-40 lg:space-y-48">
-
+ 
           {/* Section 1 */}
           <section
             id="optimizations"
@@ -774,9 +774,9 @@ const hasAnimatedOnMobile = useRef(false);
                 <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
                 Spend with AI Insights
               </H2>
-
+ 
               <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:mt-4">
-
+ 
                 {/* LEFT BLOCK */}
                 <div className="mt-3 md:mt-4 lg:mt-6 lg:p-6">
                   <H3 className="text-[#254D70] mb-3">
@@ -785,14 +785,14 @@ const hasAnimatedOnMobile = useRef(false);
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
                     CloudDIET’s AI-powered profiler analyzes Azure configuration, usage, and billing metadata without accessing your data. It identifies misconfigurations, over-provisioning, and optimization opportunities across IaaS, PaaS, and Azure services.
                   </P>
-
+ 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
                      <img
     src="/AI-CloudFinOps/Features/Insights1.webp"
     className="w-full h-full object-contain lg:hidden"
     alt=""
   />
-
+ 
   {/* ✅ Desktop only */}
   <div className="hidden lg:block w-full h-full">
     <HoverExpandImage
@@ -803,7 +803,7 @@ const hasAnimatedOnMobile = useRef(false);
   </div>
                   </div>
                 </div>
-
+ 
                 {/* RIGHT BLOCK */}
                 <div className="xl:mt-6 md:mt-6 lg:mt-3 mt-6 lg:p-6">
                   <H3 className="text-[#254D70] mb-3">
@@ -812,14 +812,14 @@ const hasAnimatedOnMobile = useRef(false);
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
                     Go beyond basic FinOps with deep cost attribution, granular spend breakdowns, and trend analysis. View costs at the resource, table, or SKU level—insights standard Azure billing can't provide.
                   </P>
-
+ 
                   <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full  md:w-[700px] lg:w-[700px] h-[180px] sm:h-[280px] md:h-[350px] lg:h-[400px]  md:rounded-2xl bg-white overflow-hidden">
                      <img
     src="/AI-CloudFinOps/Features/Insights2.webp"
     className="w-full h-full object-contain lg:hidden"
     alt=""
   />
-
+ 
   {/* ✅ Desktop only */}
   <div className="hidden lg:block w-full h-full">
     <HoverExpandImage
@@ -833,7 +833,7 @@ const hasAnimatedOnMobile = useRef(false);
               </div>
             </div>
           </section>
-
+ 
           {/* Section 2 */}
           <section
             id="cloud"
@@ -845,9 +845,9 @@ const hasAnimatedOnMobile = useRef(false);
               <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
               Intelligence & Savings
             </H2>
-
+ 
             <div className="grid grid-cols-1 lg:grid-cols-2 items-start lg:mt-6">
-
+ 
               {/* LEFT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-[#254D70] mb-3">
@@ -856,14 +856,14 @@ const hasAnimatedOnMobile = useRef(false);
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
                   Model and optimize Azure Savings Plan commitments with interactive what-if analysis. Adjust terms, commitment percentages, and forecast savings while avoiding overcommitment—all backed by real usage data.
                 </P>
-
+ 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white shadow-md overflow-hidden">
                    <img
     src="/AI-CloudFinOps/Features/Optimization1.webp"
     className="w-full h-full object-contain lg:hidden"
     alt=""
   />
-
+ 
   {/* ✅ Desktop ONLY (Hover expand enabled) */}
   <div className="hidden lg:block w-full h-full">
     <HoverExpandImage
@@ -874,7 +874,7 @@ const hasAnimatedOnMobile = useRef(false);
   </div>
                 </div>
               </div>
-
+ 
               {/* RIGHT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
                 <H3 className="text-[#254D70] mb-3">
@@ -883,16 +883,16 @@ const hasAnimatedOnMobile = useRef(false);
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
                   Receive categorized savings opportunities with detailed implementation steps, risk assessments, and effort levels (Minimal, Moderate, Significant). CloudDIET helps you prioritize and execute optimizations with confidence.
                 </P>
-
+ 
                 <div className="mt-4 md:mt-8 lg:mt-12 w-full max-w-full md:w-[700px] lg:w-[700px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl md:rounded-2xl bg-white overflow-hidden">
-                  
+                 
   {/* ✅ Mobile & Tablet */}
   <img
     src="/AI-CloudFinOps/Features/Optimization2.webp"
     className="w-full h-full object-contain lg:hidden"
     alt=""
   />
-
+ 
   {/* ✅ Desktop */}
   <div className="hidden lg:block w-full h-full">
     <HoverExpandImage
@@ -905,7 +905,7 @@ const hasAnimatedOnMobile = useRef(false);
               </div>
             </div>
           </section>
-
+ 
           {/* Section 3 - RESPONSIVE STICKY SCROLL SECTION */}
           <section
             ref={storyboardRef}
@@ -918,12 +918,12 @@ const hasAnimatedOnMobile = useRef(false);
               <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
               Cost Views
             </H2>
-
+ 
             <P className="mt-6 md:mt-8 xl:mt-10 max-w-full md:max-w-3xl xl:max-w-5xl leading-relaxed">
               See Azure costs by service, resource, or tag. Zoom from trends to details, better than basic Azure tools. Identify cost drivers at table or SKU level with granular breakdowns. Pinpoint waste and accelerate decisions with clarity.
             </P>
-
-
+ 
+ 
             <div className="mt-10 md:mt-10 xl:mt-12 w-full lg:w-[750px] xl:w-[1000px] h-[300px] sm:h-[400px] lg:h-[450px] xl:h-[550px] rounded-xl lg:rounded-2xl overflow-hidden bg-white">
               <img
                 src="/AI-CloudFinOps/Features/outbound1.webp"
@@ -933,7 +933,7 @@ const hasAnimatedOnMobile = useRef(false);
             </div>
             {/* Desktop Layout (xl screens and above - 1280px+) */}
             <div className="hidden xl:flex relative w-full max-w-[1400px] mx-auto flex-row">
-
+ 
               {/* LEFT COLUMN: Sticky Image Display (Increased Width - 2/3rds) */}
               <div className="w-2/3 h-screen sticky top-0 flex items-center justify-center p-6 bg-transparent">
                 <div className="w-full h-full flex items-center justify-center">
@@ -944,14 +944,14 @@ const hasAnimatedOnMobile = useRef(false);
   animate={true}
   mobileAnimKey={mobileAnimKey} // ✅ PASS IT
 />
-
+ 
                 </div>
               </div>
-
+ 
               {/* RIGHT COLUMN: Scrollable Feature List (Decreased Width - 1/3rd) */}
               <div className="w-1/3 relative z-10">
                 <div className="h-[15vh]" />
-
+ 
                 <div className="flex flex-col pb-20">
                   {features.map((feature, index) => (
                     <div key={feature.id} data-feature-index={index}>
@@ -963,13 +963,13 @@ const hasAnimatedOnMobile = useRef(false);
                     </div>
                   ))}
                 </div>
-
+ 
                 <div className="h-[15vh]" />
               </div>
             </div>
-
+ 
             {/* Mobile & Tablet Layout (below xl screens - <1280px) */}
-            
+           
             <div className="xl:hidden w-full py-8 sm:py-12">
               <div className="max-w-4xl mx-auto px-4 sm:px-6">
                 {/* Vertical Stack of Feature Blocks */}
@@ -986,12 +986,12 @@ const hasAnimatedOnMobile = useRef(false);
                 </div>
               </div>
             </div>
-
-
+ 
+ 
           </section>
         </div>
       </div>
-
+ 
       <style>{`
         .hide-scrollbar {
           -ms-overflow-style: none;
@@ -1000,27 +1000,27 @@ const hasAnimatedOnMobile = useRef(false);
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
-        
+       
         @media (max-width: 768px) {
           .max-w-8xl {
             max-width: 100%;
           }
         }
-        
+       
         * {
           scroll-behavior: smooth;
         }
-        
+       
         /* Glow effect for active text blocks */
         .glow-effect {
           box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3), 0 0 20px -5px currentColor;
         }
-        
+       
         /* Smooth transitions for mobile features */
         #mobile-feature-* {
           transition: all 0.3s ease-out;
         }
-        
+       
         /* Better scroll performance */
         .scroll-smooth {
           scroll-behavior: smooth;
