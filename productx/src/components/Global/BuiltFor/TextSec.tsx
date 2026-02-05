@@ -45,15 +45,20 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
   },
 
   "ehr-and-pms": {
-    hospitals: {
-      h4: "Challenges",
-      h2: "Clinical Workflow Efficiency",
-      p: "Healthcare providers struggle with fragmented systems and inefficient patient workflows.",
+    "long-term-care": {
+      h4: "Challenges faced by industry",
+      h2: "Key Industry Challenges",
+      p: "Coordinating complex care while meeting strict regulatory demands.",
     },
-    clinics: {
-      h4: "Challenges",
-      h2: "Smaller Practices, Bigger Demands",
-      p: "Clinics need scalable systems without adding administrative burden to care teams.",
+    "home-healthcare": {
+      h4: "Challenges faced by industry",
+      h2: "Key Industry Challenges",
+      p: "Coordinating mobile care teams while ensuring compliance and timely billing.",
+    },
+    "clinics-and-hospitals": {
+      h4: "Challenges faced by industry",
+      h2: "Main Industry Challenges",
+      p: "Coordinating complex care across departments and revenue streams.",
     },
   },
 
@@ -77,8 +82,10 @@ export default function TextSec() {
     builtForType: string;
   }>();
 
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const content =
-    CONTENT_MAP[industry ?? ""]?.[builtForType ?? ""];
+    CONTENT_MAP[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!content) return null;
 
@@ -90,7 +97,7 @@ export default function TextSec() {
           {/* LEFT */}
           <div>
             <H4 className="mb-3">{content.h4}</H4>
-            <H2 className="leading-snug">{content.h2}</H2>
+            <H2 className="leading-snug whitespace-nowrap">{content.h2}</H2>
           </div>
 
           {/* RIGHT */}

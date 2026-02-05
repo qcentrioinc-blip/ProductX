@@ -66,6 +66,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
       anchor="right"
       open={open}
       onClose={onClose}
+      sx={{ zIndex: 10005 }}
       PaperProps={{
         sx: {
           width: { xs: "100%", sm: 480, md: 560 },
@@ -104,36 +105,36 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
             </label>
 
             <button
-  type="button"
-  onClick={() => setInterestOpen(!interestOpen)}
-  className="chip-input"
->
-  <div className="flex flex-wrap gap-2">
-    {formData.interest.length === 0 && (
-      <span className="placeholder">Select services</span>
-    )}
+              type="button"
+              onClick={() => setInterestOpen(!interestOpen)}
+              className="chip-input"
+            >
+              <div className="flex flex-wrap gap-2">
+                {formData.interest.length === 0 && (
+                  <span className="placeholder">Select services</span>
+                )}
 
-    {formData.interest.map(item => (
-      <span key={item} className="chip">
-        {item}
-        <span
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleInterest(item);
-          }}
-          className="chip-x"
-        >×</span>
-      </span>
-    ))}
-  </div>
+                {formData.interest.map(item => (
+                  <span key={item} className="chip">
+                    {item}
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleInterest(item);
+                      }}
+                      className="chip-x"
+                    >×</span>
+                  </span>
+                ))}
+              </div>
 
-  <svg
-    className={`arrow ${interestOpen ? "rotate" : ""}`}
-    viewBox="0 0 24 24"
-  >
-    <path d="M19 9l-7 7-7-7" />
-  </svg>
-</button>
+              <svg
+                className={`arrow ${interestOpen ? "rotate" : ""}`}
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
 
             {interestOpen && (

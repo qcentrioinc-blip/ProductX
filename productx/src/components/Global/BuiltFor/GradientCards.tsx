@@ -1,6 +1,7 @@
 import { H2, H4, P } from "../../../styles/Typography";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 /* ================= TYPES ================= */
@@ -14,7 +15,7 @@ type Card = {
 
 type SectionContent = {
   intro: {
-    title: string;
+    title: string | ReactNode;
     desc: string;
   };
   cards: Card[];
@@ -39,10 +40,10 @@ const themes: Record<string, Theme> = {
     circleColor: "#E0E0E0",
   },
   "/industries/ehr-and-pms/built-for": {
-    sectionBg: "#F5FBFF",
+    sectionBg: "#ffffff",
     headingColor: "#2A2A2A",
     paraColor: "#2A2A2A",
-    cardGradient: "linear-gradient(135deg, #EDE4CA, #FFEAD2)",
+    cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
   },
   "/industries/high-tech/built-for": {
@@ -107,6 +108,59 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       ],
     },
   },
+  "ehr-and-pms": {
+    "long-term-care": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how Unified Clinicapp solves daily challenges in your long-term care facility.",
+      },
+      cards: [
+        { id: 1, title: "MDS Submission", desc: "Complete and submit accurate Minimum Data Set reports seamlessly.", image: "/BuiltFor/analytics.png" },
+        { id: 2, title: "Interdisciplinary Coordination", desc: "Coordinate care plans across nurses, therapists, and dietary staff instantly.", image: "/BuiltFor/team.png" },
+        { id: 3, title: "Medication Administration", desc: "Manage and document medication schedules with a unified MAR.", image: "/BuiltFor/database-management.png" },
+        { id: 4, title: "Family Engagement", desc: "Provide families secure portal access to updates and documents.", image: "/BuiltFor/house-hands.png" },
+        { id: 5, title: "Complex Billing", desc: "Accurately process Medicare, Medicaid, and private payor claims together.", image: "/BuiltFor/file-invoice.png" },
+      ],
+    },
+    "home-healthcare": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how Unified Clinicapp connects your field clinicians, office, and patients seamlessly.",
+      },
+      cards: [
+        { id: 1, title: "Mobile Documentation", desc: "Clinicians chart visits, vitals, and notes directly on mobile devices.", image: "/BuiltFor/mobile-hand.png" },
+        { id: 2, title: "Real-Time Scheduling", desc: "Coordinate caregiver visits, routes, and patient assignments from anywhere.", image: "/BuiltFor/calendar-clock.png" },
+        { id: 3, title: "Family Portal", desc: "Provide families secure access to care plans and visit updates.", image: "/BuiltFor/team.png" },
+        { id: 4, title: "Visit-Based Billing", desc: "Accurately capture and submit charges per completed in-home visit.", image: "/BuiltFor/marker.png" },
+        { id: 5, title: "Compliance Tracking", desc: "Document and report on care plan adherence and outcomes.", image: "/BuiltFor/file-invoice.png" },
+      ],
+    },
+    "clinics-and-hospitals": {
+      intro: {
+        title: (
+          <>
+            Scenarios <br /> We Enable
+          </>
+        ),
+        desc: "See how we streamline complex workflows across your hospital or clinic network.",
+      },
+      cards: [
+        { id: 1, title: "Multi-Department Scheduling", desc: "Coordinate appointments, surgeries, and provider time across all locations seamlessly.", image: "/BuiltFor/analytics.png" },
+        { id: 2, title: "Unified Patient Records", desc: "Access complete clinical history and documents from any department instantly.", image: "/BuiltFor/member-list.png" },
+        { id: 3, title: "Coordinated Care Handoffs", desc: "Manage safe patient transitions from ED to inpatient to outpatient care.", image: "/BuiltFor/database-management.png" },
+        { id: 4, title: "Integrated Lab Management", desc: "Order, track, and view results directly within the patient's unified timeline.", image: "/BuiltFor/house-hands.png" },
+        { id: 5, title: "Enterprise Revenue Cycle", desc: "Manage high-volume billing, claims, and financial reporting from one dashboard.", image: "/BuiltFor/money-transfer.png" },
+      ],
+    },
+  },
 };
 
 /* ================= COMPONENT ================= */
@@ -125,8 +179,10 @@ export default function FiveCardGradientSection() {
     themes["/industries/banking-and-finance/built-for"];
 
 
+  const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
+
   const sectionContent =
-    CONTENT[industry ?? ""]?.[builtForType ?? ""];
+    CONTENT[industry ?? ""]?.[builtForType ?? defaultBuiltForType];
 
   if (!sectionContent) return null;
 
@@ -264,8 +320,8 @@ export default function FiveCardGradientSection() {
                     scrollByOne(i > activeIndex ? "right" : "left")
                   }
                   className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i
-                      ? "bg-black scale-125"
-                      : "bg-gray-300"
+                    ? "bg-black scale-125"
+                    : "bg-gray-300"
                     }`}
                 />
               ))}

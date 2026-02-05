@@ -31,8 +31,8 @@ const CONTENT_MAP: Record<
   enterprises: {
     heading: (
       <>
-        Optimize Multi <br />
-        Subscription{" "}
+        Optimize Multi Subscription<br />
+        {" "}
         Azure Costs
       </>
     ),
