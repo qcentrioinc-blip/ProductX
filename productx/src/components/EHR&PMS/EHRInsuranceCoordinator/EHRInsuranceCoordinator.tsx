@@ -5,7 +5,7 @@ import EHRNavbar from "../Navbar/EHRNavbar"
 import Benefits from "./Benefits"
 import FeatureShowcase from "./FeatureGrid"
 import HeroSec from "./HeroSec"
-import PointsSec from "./PointsSec"
+// import PointsSec from "./PointsSec"
 
 export const EHRInsuranceCoordinator = () => {
   return (
@@ -15,7 +15,7 @@ export const EHRInsuranceCoordinator = () => {
         <FeatureHighlights />
         <Benefits />
         <FeatureShowcase />
-        <PointsSec/>
+        {/* <PointsSec/> */}
         <InformationGrid/>
         <EHRFooter />
     </div>

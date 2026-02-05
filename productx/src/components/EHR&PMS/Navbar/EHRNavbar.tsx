@@ -18,6 +18,7 @@ const EHRNavbar = () => {
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
 
   // ---------- HOVER TIMEOUT LOGIC ----------
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -27,6 +28,7 @@ const EHRNavbar = () => {
       setMegaMenuOpen(false);
       setResourcesMenuOpen(false);
       setMegaMenuBuiltFor(false);
+      setLogoDropdownOpen(false);
     }, 200);
   };
 
@@ -42,6 +44,7 @@ const EHRNavbar = () => {
     setMegaMenuOpen(false);
     setResourcesMenuOpen(false);
     setMegaMenuBuiltFor(false);
+    setLogoDropdownOpen(false);
   };
 
   const handleToggleMenu = () => {
@@ -50,6 +53,38 @@ const EHRNavbar = () => {
 
   const industry = "ehr-and-pms";
   const currentIndustry = "EHR and PMS";
+  const industries = [
+    // {
+    //   name: "Banking & Finance",
+    //   path: "/industries/banking-and-finance",
+    //   img: "/BNFHOME/P1.png",
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
+
+    // {
+    //   name: "EHR and PMS", path:
+    //     "/industries/ehr-and-pms",
+    //   img: "/BNFHOME/P1.png",
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
+
+    // {
+    //   name: "HighTech",
+    //   path: "/industries/high-tech",
+    //   img: "/BNFHOME/P1.png"
+    //   ,
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
+
+    {
+      name: "AI Automation",
+      path: "/industries/cloud-finops-ai",
+      img: "/BNFHOME/P1.png",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+  ];
+  const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
 
   const navItems = [
@@ -105,7 +140,7 @@ const EHRNavbar = () => {
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="   px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-               <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
+              <img className="h-10 w-full" src="/EHRQnest.png" alt="Company Logo" />
             </span>
           </div>
         </Link>
@@ -143,12 +178,65 @@ const EHRNavbar = () => {
 
 
           <div className="flex items-center gap-10">
-            <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={closeAllMenus}>
-              <Link to={base}>
-                <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  LOGO
+            <div
+              className="relative flex items-center gap-1 cursor-pointer"
+              onMouseEnter={() => {
+                handleKeepOpen();
+                setLogoDropdownOpen(true);
+                setMegaMenuOpen(false);
+                setResourcesMenuOpen(false);
+                setMegaMenuBuiltFor(false);
+              }}
+              onMouseLeave={handleCloseMenus}
+            >
+              <Link
+                to={base}
+                className="flex items-center gap-1"
+                onClick={() => {
+                  closeAllMenus();
+                }}
+              >
+                <div className="w-10 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  <img className="h-full w-full" src="/EHRLogo.png" alt="Company Logo" />
+                </div>
+                {/* ROTATING X ICON */}
+                <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
+                  <img src="/down.png" className="w-4 h-4" />
                 </div>
               </Link>
+              {logoDropdownOpen && (
+                <div
+                  className="absolute top-18 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  onMouseLeave={handleCloseMenus}
+                >
+                  {industryOptions.map((ind, index) => (
+                    <Link
+                      key={index}
+                      to={ind.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                    >
+                      {/* ICON */}
+                      <img
+                        src={ind.img}
+                        alt={ind.name}
+                        className="w-16 h-14 object-cover"
+                      />
+
+                      {/* TEXT */}
+                      <div className="flex flex-col">
+                        <h3 className="text-lg font-semibold font-quicksand text-gray-900">
+                          {ind.name}
+                        </h3>
+                        <p className="text-gray-600 font-quicksand text-sm">
+                          {ind.desc || "Click to explore"}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
@@ -162,6 +250,7 @@ const EHRNavbar = () => {
                         setMegaMenuOpen(true);
                         setResourcesMenuOpen(false);
                         setMegaMenuBuiltFor(false);
+                        setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -179,6 +268,7 @@ const EHRNavbar = () => {
                         setResourcesMenuOpen(true);
                         setMegaMenuOpen(false);
                         setMegaMenuBuiltFor(false);
+                        setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -196,6 +286,7 @@ const EHRNavbar = () => {
                         setMegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
                         setResourcesMenuOpen(false);
+                        setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -311,7 +402,7 @@ const EHRNavbar = () => {
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
               <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                 <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
+                <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
