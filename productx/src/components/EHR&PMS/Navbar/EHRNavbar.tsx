@@ -140,7 +140,7 @@ const EHRNavbar = () => {
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="   px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-               <img className="h-10 w-full" src="/QnestEHRLogo.svg" alt="Company Logo" />
+              <img className="h-10 w-full" src="/QnestEHRLogo.svg" alt="Company Logo" />
             </span>
           </div>
         </Link>
@@ -205,36 +205,38 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-18 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  className="absolute top-18 w-80 z-[999] p-3"
                   onMouseEnter={handleKeepOpen}     
                   onMouseLeave={handleCloseMenus}
                 >
-                  {industryOptions.map((ind, index) => (
-                    <Link
-                      key={index}
-                      to={ind.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
-                    >
-                      {/* ICON */}
-                      <img
-                        src={ind.img}
-                        alt={ind.name}
-                        className="w-16 h-14 object-cover"
-                      />
+                  <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
+                    {industryOptions.map((ind, index) => (
+                      <Link
+                        key={index}
+                        to={ind.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                      >
+                        {/* ICON */}
+                        <img
+                          src={ind.img}
+                          alt={ind.name}
+                          className="w-16 h-14 object-cover rounded-md"
+                        />
 
-                      {/* TEXT */}
-                      <div className="flex flex-col">
-                        <h3 className="text-lg font-semibold font-quicksand text-gray-900">
-                          {ind.name}
-                        </h3>
-                        <p className="text-gray-600 font-quicksand text-sm">
-                          {ind.desc || "Click to explore"}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
+                        {/* TEXT */}
+                        <div className="flex flex-col">
+                          <h3 className="text-lg font-semibold font-quicksand text-gray-900">
+                            {ind.name}
+                          </h3>
+                          <p className="text-gray-600 font-quicksand text-sm">
+                            {ind.desc || "Click to explore"}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -402,7 +404,7 @@ const EHRNavbar = () => {
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
               <div className="w-12 h-12  text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                 <img className="h-10 w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
+                <img className="h-10 w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>

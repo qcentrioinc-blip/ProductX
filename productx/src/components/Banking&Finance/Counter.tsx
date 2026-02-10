@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import { H2, P} from "../../styles/Typography";
- 
+import { H2, P } from "../../styles/Typography";
+
 const Counter = () => {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef(null);
- 
+
   // Trigger counters on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,17 +18,17 @@ const Counter = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
- 
+
   // Mouse glow movement
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e:React.MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
   };
- 
+
   return (
     <div
       ref={sectionRef}
@@ -47,57 +47,57 @@ const Counter = () => {
         }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
       />
- 
+
       {/* Content Container */}
-      <div className="max-w-8xl md:mx-10 mx-4 lg:mx-10 sm:mx-16">
+      <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
         {/* Heading */}
         <H2 className="  font-bold mb-12  lg:mx-6 md:mb-28">
           <span className="text-[#2B68C3]">Lorem ipsum dolor sit amet,</span>
           <br />
           <span className="text-[#333333]">consectetur adipiscing elit</span>
         </H2>
- 
+
         {/* Counter Grid - Left Aligned */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
-            { value: 80, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-            { value: 10, suffix: "X", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-            { value: 3.5, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-            { value: 125, suffix: "", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0   lg:px-8"
-            >
-              {/* Text above */}
-              <P className="text-[#141414] mb-[30px]  lg:mb-[84px] max-w-[240px]">
-                {item.text}
-              </P>
-             
-              {/* Counter with Icon */}
-              <div className="flex items-center  gap-3 md:gap-4">
-                <img
-                  src="/TrendUp.png"
-                  alt="Trend icon"
-                  className="h-12 md:h-14 lg:h-18"
-                />
-                <h2 className="   text-[#141414] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
-                  {inView && (
-                    <CountUp
-                      start={0}
-                      end={item.value}
-                      duration={2}
-                      decimals={item.value % 1 !== 0 ? 1 : 0}
-                      suffix={item.suffix}
-                    />
-                  )}
-                </h2>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
+          { value: 80, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+          { value: 10, suffix: "X", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+          { value: 3.5, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+          { value: 125, suffix: "", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0   lg:px-8"
+          >
+            {/* Text above */}
+            <P className="text-[#141414] mb-[30px]  lg:mb-[84px] max-w-[240px]">
+              {item.text}
+            </P>
+
+            {/* Counter with Icon */}
+            <div className="flex items-center  gap-3 md:gap-4">
+              <img
+                src="/TrendUp.png"
+                alt="Trend icon"
+                className="h-12 md:h-14 lg:h-18"
+              />
+              <h2 className="   text-[#141414] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
+                {inView && (
+                  <CountUp
+                    start={0}
+                    end={item.value}
+                    duration={2}
+                    decimals={item.value % 1 !== 0 ? 1 : 0}
+                    suffix={item.suffix}
+                  />
+                )}
+              </h2>
             </div>
-          ))}
+          </div>
+        ))}
         </div>
       </div>
     </div>
   );
 };
- 
+
 export default Counter;

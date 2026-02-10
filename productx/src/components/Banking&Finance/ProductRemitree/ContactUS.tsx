@@ -63,14 +63,14 @@ const ContactUS = () => {
             borderRadius: smoothBorderRadius,
             clipPath: smoothClip,
           }}
-          className="relative w-full max-w-[1400px] overflow-hidden md:h-[95vh]"
+          className="relative w-full max-w-[1400px] mx-auto overflow-hidden md:h-[95vh]"
         >
           {/* MOBILE LAYOUT */}
           <div className="md:hidden flex flex-col  h-screen">
             {/* Blue Header Section with Curve */}
             <div className="relative bg-[#2B68C3] h-[50%] pt-12 pb-32 px-6">
               {/* Yellow Curve - SVG */}
-               <img
+              <img
                 src="/ContactSection/yellowCurve.png"
                 alt="Background curve graphic"
                 className=" absolute h-[180px]  -rotate-20 left-0 object-cover"

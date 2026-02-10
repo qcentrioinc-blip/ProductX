@@ -15,7 +15,17 @@ import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOn
 import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
 // import ContactFooterReveal from "../../components/Banking&Finance/BNFFooter/ContactForm"
 
+import { useEffect } from "react";
+
 const BankingAndFinance = () => {
+  useEffect(() => {
+    const originalStyle = document.body.style.overflowX;
+    document.body.style.overflowX = "hidden";
+    return () => {
+      document.body.style.overflowX = originalStyle;
+    };
+  }, []);
+
   return (
     <>
 
@@ -26,7 +36,7 @@ const BankingAndFinance = () => {
       <WhatWeDoIn />
       <Counter />
       <AuditAnimation />
-      {/* <Audit/> */}
+      {/* <Audit /> */}
       <Process />
       <Testimonial />
       <InsightThought />
@@ -45,13 +55,13 @@ const BankingAndFinance = () => {
           className="absolute inset-0 z-40 pointer-events-none"
 
         >
-    <ContactUS />
-   
+          <ContactUS />
+
         </div>
 
       </div>
 
-{/* <ContactFooterReveal/> */}
+      {/* <ContactFooterReveal/> */}
 
     </>
   )
