@@ -6,9 +6,20 @@ interface BuiltForMenuProps {
     showTopBar: boolean;
     handleKeepOpen: () => void;
     handleCloseMenus: () => void;
+    prefetchLongTermCareImages: () => void;
+    prefetchHomeHealthcareImages: () => void;
+    prefetchClinicsAndHospitalsImages: () => void;
 }
 
-const BuiltForMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: BuiltForMenuProps) => {
+const BuiltForMenu = ({
+    isScrolled,
+    showTopBar,
+    handleKeepOpen,
+    handleCloseMenus,
+    prefetchLongTermCareImages,
+    prefetchHomeHealthcareImages,
+    prefetchClinicsAndHospitalsImages
+}: BuiltForMenuProps) => {
     const industry = "ehr-and-pms";
     const base = `/industries/${industry}`;
 
@@ -50,7 +61,16 @@ ${isScrolled
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-3 gap-y-4 gap-x-1">
                 {BuiltForItems.map((item, index) => (
-                    <Link key={index} to={item.path} className="block cursor-pointer pointer-events-auto hover:bg-gray-100 p-2 rounded-lg transition-colors">
+                    <Link
+                        key={index}
+                        to={item.path}
+                        onMouseEnter={() => {
+                            if (item.title === "Long Term Care") prefetchLongTermCareImages();
+                            if (item.title === "Home Healthcare") prefetchHomeHealthcareImages();
+                            if (item.title === "Clinics and Hospitals") prefetchClinicsAndHospitalsImages();
+                        }}
+                        className="block cursor-pointer pointer-events-auto hover:bg-gray-100 p-2 rounded-lg transition-colors"
+                    >
                         <h3 className="text-lg font-quicksand font-semibold text-gray-900 mb-1">{item.title}</h3>
                         <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
                     </Link>

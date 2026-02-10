@@ -47,6 +47,76 @@ const EHRNavbar = () => {
     setLogoDropdownOpen(false);
   };
 
+  const prefetchPhysicianImages = () => {
+    const images = [
+      "/EHRIcons/PhysicianHero1.webp",
+      "/EHRIcons/PhysicianHero2.webp",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  const prefetchAdminImages = () => {
+    const images = [
+      "/EHRIcons/admin.webp",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  const prefetchInsuranceCoordinatorImages = () => {
+    const images = [
+      "/EHR-PMS/InsuranceCoordinator/Img1.png",
+      "/EHR-PMS/InsuranceCoordinator/Img2.png",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  const prefetchReceptionistImages = () => {
+    const images = [
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  const prefetchNurseImages = () => {
+    const images = [
+      "/EHR-PMS/Nurse/img1.webp",
+      "/EHR-PMS/Nurse/img2.webp",
+      "/EHR-PMS/Nurse/img3.webp",
+      "/EHR-PMS/Nurse/img4.webp",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  };
+
+  const prefetchLongTermCareImages = () => {
+    const img = new Image();
+    img.src = "/BuiltFor/LongTermEHR.webp";
+  };
+
+  const prefetchHomeHealthcareImages = () => {
+    const img = new Image();
+    img.src = "/BuiltFor/HomeHealthcareEHR.webp";
+  };
+
+  const prefetchClinicsAndHospitalsImages = () => {
+    const img = new Image();
+    img.src = "/BuiltFor/ClinicsEHR.webp";
+  };
+
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -206,7 +276,7 @@ const EHRNavbar = () => {
               {logoDropdownOpen && (
                 <div
                   className="absolute top-18 w-80 z-[999] p-3"
-                  onMouseEnter={handleKeepOpen}     
+                  onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
                   <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
@@ -253,6 +323,11 @@ const EHRNavbar = () => {
                         // setResourcesMenuOpen(false);
                         setMegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
+                        prefetchPhysicianImages();
+                        prefetchAdminImages();
+                        prefetchInsuranceCoordinatorImages();
+                        prefetchReceptionistImages();
+                        prefetchNurseImages();
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -289,6 +364,9 @@ const EHRNavbar = () => {
                         setMegaMenuOpen(false);
                         // setResourcesMenuOpen(false);
                         setLogoDropdownOpen(false);
+                        prefetchLongTermCareImages();
+                        prefetchHomeHealthcareImages();
+                        prefetchClinicsAndHospitalsImages();
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -372,6 +450,11 @@ const EHRNavbar = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
+            prefetchPhysicianImages={prefetchPhysicianImages}
+            prefetchAdminImages={prefetchAdminImages}
+            prefetchInsuranceCoordinatorImages={prefetchInsuranceCoordinatorImages}
+            prefetchReceptionistImages={prefetchReceptionistImages}
+            prefetchNurseImages={prefetchNurseImages}
           />
         )}
       </Suspense>
@@ -394,6 +477,9 @@ const EHRNavbar = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
+            prefetchLongTermCareImages={prefetchLongTermCareImages}
+            prefetchHomeHealthcareImages={prefetchHomeHealthcareImages}
+            prefetchClinicsAndHospitalsImages={prefetchClinicsAndHospitalsImages}
           />
         )}
       </Suspense>

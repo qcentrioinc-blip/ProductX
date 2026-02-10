@@ -187,10 +187,10 @@ export default function Cardcase() {
               key={card.id}
               style={{
                 width: "100%",
-                maxWidth: "450px",
+                maxWidth: "400px",
                 height: "330px",
                 borderRadius: "8px",
-                padding: "32px 20px"
+                padding: "30px 20px"
               }}
               className="bg-white shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white hover:shadow-lg mx-auto xl:mx-0"
             >
