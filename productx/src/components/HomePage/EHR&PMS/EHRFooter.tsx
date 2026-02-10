@@ -68,8 +68,9 @@ const EHRFooter = () => {
     { name: 'Admin', path: `${base}/admin` },
     { name: 'Nurse', path: `${base}/nurse` },
     { name: 'Receptionist', path: `${base}/receptionist` },
-    { name: 'Pricing', path: `${base}/pricing` },
+    
     { name: 'Insurance Coordinator', path: `${base}/insurance-coordinator` },
+    { name: 'Pricing', path: `${base}/pricing` },
   ];
 
   const builtfor = [

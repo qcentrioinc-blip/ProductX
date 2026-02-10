@@ -22,12 +22,9 @@ const ImageShowcaseSection = () => {
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 px-6 sm:px-10">
-            <H2 className="text-[#008280] mb-4">Sed ut perspiciatis</H2>
+            <H2 className="text-[#008280] mb-4">Ready to Transform? </H2>
             <P className="text-[#141414] leading-relaxed mb-40">
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, su
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
+              Join the nurses who have streamlined their workflow with Unified Clinicapp. See firsthand how our tools reduce documentation time, improve coordination, and support safer patient care. Schedule your personalized demo today. 
             </P>
           </div>
 

@@ -77,9 +77,9 @@ const EHRNavbar = () => {
     // },
 
     {
-      name: "AI Automation",
+      name: "Cloud FinOps & AI",
       path: "/industries/cloud-finops-ai",
-      img: "/BNFHOME/P1.png",
+      img: "/QCloudLogo2.svg",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
 
@@ -187,7 +187,6 @@ const EHRNavbar = () => {
                 // setResourcesMenuOpen(false);
                 setMegaMenuBuiltFor(false);
               }}
-              onMouseLeave={handleCloseMenus}
             >
               <Link
                 to={base}
@@ -196,8 +195,8 @@ const EHRNavbar = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-10 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
+                <div className="w-24 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
@@ -207,6 +206,7 @@ const EHRNavbar = () => {
               {logoDropdownOpen && (
                 <div
                   className="absolute top-18 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}     
                   onMouseLeave={handleCloseMenus}
                 >
                   {industryOptions.map((ind, index) => (

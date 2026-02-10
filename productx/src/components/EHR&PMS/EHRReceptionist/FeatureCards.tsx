@@ -7,10 +7,9 @@ const FeatureCards = () => {
        
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-6">
-          <H2 className="text-[#007976] mb-4">Sed ut perspiciatis</H2>
+          <H2 className="text-[#007976] mb-4">Your Command Center</H2>
           <P className="text-gray-600 text-sm">
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, su
+            One unified dashboard gives you full control over patient scheduling, communication, and daily clinic operations. 
           </P>
         </div>
  
@@ -21,10 +20,9 @@ const FeatureCards = () => {
           <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
             <div className="p-8 pb-10">
               <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4 className="mb-3 text-black">Duis aute irure</H4>
+              <H4 className="mb-3 text-black">Live Schedule Management </H4>
               <P className="text-gray-600 leading-relaxed">
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, su
+                View, book, and adjust all appointments in real-time with a clear, color-coded calendar for any provider.
               </P>
             </div>
             {/* Image Section */}
@@ -58,10 +56,9 @@ const FeatureCards = () => {
               {/* Text Content on top of image */}
               <div className="relative z-10">
                 <div className="text-white text-4xl mb-6">＋</div>
-                <H4 className="text-xl mb-3 text-white">Duis aute irure</H4>
+                <H4 className="text-xl mb-3 text-white"> Patient Flow Tracking </H4>
                 <P className="text-teal-50 leading-relaxed">
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Excepteur sint occaecat cupidatat non proident, su
+                  See exactly who has checked in, is in triage, or is waiting for the provider to reduce delays. 
                 </P>
               </div>
             </div>
@@ -80,10 +77,9 @@ const FeatureCards = () => {
           <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
             <div className="p-8 pb-10">
               <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4 className="font-bold text-xl mb-3 text-black">Duis aute irure</H4>
+              <H4 className="font-bold text-xl mb-3 text-black">Streamlined Patient Intake </H4>
               <P className="text-xs text-gray-600 leading-relaxed">
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, su
+                 Use digital forms for new patient registration and check-in to eliminate paper and speed up the process. 
               </P>
             </div>
             {/* Image Section */}
