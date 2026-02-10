@@ -34,13 +34,11 @@ const InfoWithImage = () => {
             className="lg:col-span-1 lg:row-start-1"
           >
             <H2 className="text-[#008280] mb-4">
-              Sed ut perspiciatis
+              Essential Front-Desk Tools 
             </H2>
 
             <P className="text-[#141414] max-w-md">
-              reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, su
+              Access the integrated tools you need daily to manage patient interactions and support clinical staff efficiently. 
             </P>
           </motion.div>
 
@@ -73,11 +71,10 @@ const InfoWithImage = () => {
             >
               <div className="p-6">
                 <H4 className="text-gray-900 mb-4">
-                  Duis aute irure
+                 Self Check-In Kiosk 
                 </H4>
                 <P className="text-sm text-[#141414] max-w-sm">
-                  reprehenderit in voluptate velit esse cillum dolore eu
-                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                  Enable patients to check themselves in via a tablet or kiosk, reducing front desk queues and manual work. 
                 </P>
               </div>
               <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
@@ -96,11 +93,10 @@ const InfoWithImage = () => {
             >
               <div className="p-6">
                 <H4 className="text-gray-900 mb-4">
-                  Duis aute irure
+                  Digital Consent Capture 
                 </H4>
                 <P className="text-sm text-[#141414] max-w-sm">
-                  reprehenderit in voluptate velit esse cillum dolore eu
-                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                  Collect patient signatures and forms electronically with timestamps, ensuring compliance and eliminating lost paperwork. 
                 </P>
               </div>
               <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
@@ -117,7 +113,7 @@ const InfoWithImage = () => {
           >
             <div className="rounded-3xl overflow-hidden w-full h-full">
               <img
-                src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&q=80&w=1400"
+                src="/EHR-PMS/Receptionist/img1.webp"
                 alt="Office workspace"
                 className="w-full h-full object-cover"
                 loading="lazy"

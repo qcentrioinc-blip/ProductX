@@ -30,10 +30,10 @@ const FeatureGrid = () => {
             "
           >
             <H2 className="mb-6 leading-tight text-[#008280]">
-              Sed ut perspiciatis <br /> Unde Seduo ut
+              Solve Core Revenue Cycle Challenges
             </H2>
             <P className="text-[#141414] leading-relaxed max-w-xl">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute
+              Our platform directly targets the major inefficiencies that delay payments and increase administrative costs for insurance teams. 
             </P>
           </motion.div>
 
@@ -55,8 +55,8 @@ const FeatureGrid = () => {
               "
             >
               <span className="text-2xl font-bold">1</span>
-              <H4>Duis aute</H4>
-              <P>Duis aute irure dolor in reprehenderit in voluptate</P>
+              <H4>Reduced Denials</H4>
+              <P>Automated claim scrubbing and accurate coding cut denial rates dramatically.</P>
             </motion.div>
 
             {/* Card 2 */}
@@ -74,8 +74,8 @@ const FeatureGrid = () => {
               "
             >
               <span className="text-2xl font-bold">2</span>
-              <H4>Duis aute</H4>
-              <P>Duis aute irure dolor in reprehenderit in voluptate</P>
+              <H4>Faster Payments</H4>
+              <P>Streamlined submission and real-time tracking accelerate reimbursement cycles. </P>
             </motion.div>
 
           </div>
@@ -116,8 +116,7 @@ const FeatureGrid = () => {
             "
           >
             <P className="text-lg font-bold leading-snug text-gray-900 md:text-xl">
-              Duis aute irure dolor in reprehenderit <br />
-              Duis aute irure dolor in reprehenderit
+              See how our integrated system transforms <br/> your claims workflow. 
             </P>
 
             <button
@@ -134,7 +133,7 @@ const FeatureGrid = () => {
                 hover:bg-[#007976] hover:text-white hover:scale-105
               "
             >
-              CONTACT US
+              Get Demo 
               <span className="text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                 ↗
               </span>

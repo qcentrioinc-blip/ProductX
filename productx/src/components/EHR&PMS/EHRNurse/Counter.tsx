@@ -37,7 +37,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
     {/* Heading */}
     <H2 className="font-semibold  text-left lg:text-center   mb-10 lg:mb-16 text-gray-800 leading-snug">
-      Sed ut perspiciatis Unde <br className="hidden lg:block" />Seduo   ut perspiciatis
+      Eliminating the Top Nursing <br className="hidden lg:block" />Workflow Challenges 
     </H2>
 
     {/* Main Container */}
@@ -60,11 +60,11 @@ const StarIcon = ({ className }: { className?: string }) => (
   {/* Left */}
   <div className="flex flex-col items-center">
     <h2 className="text-4xl font-bricolage font-bold text-black">
-      {isInView && <CountUp end={56} duration={2} suffix="%" />}
+      {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
+    <H4>Fewer Communication Gaps</H4>
     <P className="text-gray-600 mt-3 max-w-3xl  ">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
   </div>
   </div>
@@ -83,15 +83,15 @@ const StarIcon = ({ className }: { className?: string }) => (
           <div className="absolute top-0 lg:left-20 left-18 transform -translate-x-1/2  w-16  h-16 bg-[#E5E5E5] rounded-full " />
           <div className="pt-22 space-y-10 p-6">
             <div>
-              <H4 className="mb-3 text-[#2A2A2A]">Sed ut perspiciatis</H4>
+              <H4 className="mb-3 text-[#2A2A2A]">Scattered Patient Information </H4>
               <P className="  text-[#141414]">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat .
+                No more searching through multiple systems. All patient history, meds, and orders are unified in one secure, accessible profile. 
               </P>
             </div>
             <div>
-              <H4 className=" mb-3 text-[#2A2A2A]">Sed ut perspiciatis</H4>
+              <H4 className=" mb-3 text-[#2A2A2A]"> Manual Task Tracking </H4>
               <P   className="text-sm text-[#141414]">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat .
+                Eliminate sticky notes and missed follow-ups. A dynamic digital task list organizes and tracks all your clinical responsibilities. 
               </P>
             </div>
            
@@ -103,9 +103,10 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="text-4xl font-bricolage font-bold text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
+    <H4>Faster Documentation</H4>
+    
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
     </P>
   </div>
 
@@ -129,9 +130,9 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="text-4xl font-bricolage font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
+    <H4> More Organized Shifts</H4>
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>
   </div>
       </div>
@@ -143,11 +144,11 @@ const StarIcon = ({ className }: { className?: string }) => (
   {/* Counter 1 */}
   <div className="mr-38">
     <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold text-black">
-      {isInView && <CountUp end={56} duration={2} suffix="%" />}
+      {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
+    <H4>Fewer Communication Gaps</H4>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
   </div>  
 
@@ -156,9 +157,9 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="lg:text-6xl text-4xl font-bricolage text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
+    <H4>Faster Documentation</H4>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
     </P>
   </div>
 
@@ -167,9 +168,9 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
+    <H4> More Organized Shifts</H4>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur.
+      Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>
   </div>
 

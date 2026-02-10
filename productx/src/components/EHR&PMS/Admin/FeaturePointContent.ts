@@ -52,21 +52,21 @@ export const FEATURE_POINT_CONTENT: Record<UserRole, FeatureSectionContent> = {
         title: ' Reduce Claim Denials',
         description:
           'Automated coding and built-in error checks drastically lower claim rejection rates, protecting your practice’s earned revenue.',
-       image:"/EHRIcons/Slider.svg",
+       image:"/EHR-PMS/InsuranceCoordinator/icon1.svg",
       },
       {
         id: 2,
         title: ' Accelerate Reimbursement Cycles',
         description:
           'Faster electronic submissions and real-time tracking of payer responses lead to significantly shorter days in accounts receivable',
-    image:"/EHRIcons/TimeFast.svg",
+    image:"/EHR-PMS/InsuranceCoordinator/icon2.svg",
       },
       {
         id: 3,
         title: 'Lower Administrative Costs ',
         description:
           'Eliminate manual data entry and status chasing, allowing your team to manage more claims with greater efficiency.',
-      image:"/EHRIcons/Assign.svg",
+      image:"/EHR-PMS/InsuranceCoordinator/icon3.svg",
       },
     ],
   },

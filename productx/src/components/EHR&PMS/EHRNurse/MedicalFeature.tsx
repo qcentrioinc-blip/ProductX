@@ -52,11 +52,10 @@ const MedicalFeature = () => {
             className="space-y-4"
           >
             <H2 className="text-[#008280]">
-              Sed ut perspiciatis
+              Essential Nursing Tools 
             </H2>
             <P className="text-[#141414] leading-relaxed max-w-lg xl:mb-6">
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat.
+             Our platform provides the integrated clinical features you need for efficient, accurate, and coordinated daily patient care. 
             </P>
           </motion.div>
 
@@ -72,15 +71,22 @@ const MedicalFeature = () => {
             }}
             className="flex items-start gap-4"
           >
-            <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-[#ebe7e4] rounded-full" />
+           <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-white border-gray-800 shadow-2xl flex items-center justify-center overflow-hidden">
+  <img
+    src="/EHR-PMS/Nurse/icon1.svg"
+    alt="Feature icon"
+    loading="lazy"
+    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+  />
+</div>
+
             
             <div className="space-y-2">
               <H3 className="text-gray-900">
-                Duis aute irure
+                Smart Triage Module
               </H3>
               <P className="text-[#141414] leading-relaxed xl:mb-6">
-                reprehenderit in voluptate velit esse cillum dolore 
-                eu fugiat nulla pariatur. Excepteur sint occaecat
+                 Log patient vitals, chief complaints, and acuity levels upon check-in to prioritize care and inform the provider. 
               </P>
             </div>
           </motion.div>
@@ -98,8 +104,7 @@ const MedicalFeature = () => {
             className="bg-[#008080] rounded-2xl p-6 md:p-8"
           >
             <P className="text-white/80 leading-relaxed">
-              reprehenderit in voluptate velit esse cillum dolore 
-              eu fugiat nulla pariatur. Excepteur sint occaecat
+              This data flows directly into the patient's active chart, giving the physician immediate context for a faster, more informed visit. 
             </P>
           </motion.div>
 

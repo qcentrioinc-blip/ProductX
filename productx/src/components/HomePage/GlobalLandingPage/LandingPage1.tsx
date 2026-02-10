@@ -5,10 +5,7 @@ import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Global/Navbar/Navbar';
 
-const preloadAssets = () => {
-  const dashImg = new Image();
-  dashImg.src = '/AIOptimization/dashboardfinal.webp';
-};
+
 
 interface IndustryCardProps {
   title: string;
@@ -311,7 +308,7 @@ export default function InteractiveHeroSection() {
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
                           onNavigate={(url) => window.open(url, '_blank')}
-                          onPrefetch={preloadAssets}
+
                           countdownText={getCountdown(industry.deadline)}
                         />
                       </div>

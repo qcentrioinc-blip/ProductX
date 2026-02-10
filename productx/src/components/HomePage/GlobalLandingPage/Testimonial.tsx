@@ -12,22 +12,22 @@ const testimonials = [
   {
     id: 2,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-        name: "Emily",
+    name: "Emily",
     title: "Freelance Designer",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 3,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-       name: "Emily",
-title: "Freelance Designer",
+    name: "Emily",
+    title: "Freelance Designer",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 4,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-        name: "Emily",
-  title: "Freelance Designer",
+    name: "Emily",
+    title: "Freelance Designer",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
@@ -40,18 +40,18 @@ title: "Freelance Designer",
   {
     id: 6,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-        name: "Emily",
-   title: "Freelance Designer",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22" 
+    name: "Emily",
+    title: "Freelance Designer",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22"
   }
 ];
- 
+
 const Testimonial = () => {
   const location = useLocation();
-const isBankingPage = location.pathname === "/industries/banking-and-finance";
+  const isBankingPage = location.pathname === "/industries/banking-and-finance";
 
-const cardBg = isBankingPage ? "#ACCAEF" : "#000"; 
-const textColor = isBankingPage ? "#000" : "#fff";
+  const cardBg = isBankingPage ? "#ACCAEF" : "#000";
+  const textColor = isBankingPage ? "#000" : "#fff";
 
 
   const [currentIndex, setCurrentIndex] = useState(1); // start at first real slide
@@ -61,9 +61,9 @@ const textColor = isBankingPage ? "#000" : "#fff";
   const [gap, setGap] = useState(24);
   // const [gradientWidth, setGradientWidth] = useState(72);
   const trackRef = useRef<HTMLDivElement>(null);
- 
+
   const clonedSlides = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
- 
+
   const updateResponsive = () => {
     if (window.innerWidth < 640) {
       setVisibleCards(1);
@@ -82,30 +82,30 @@ const textColor = isBankingPage ? "#000" : "#fff";
       // setGradientWidth(50);
     }
   };
- 
+
   useEffect(() => {
     updateResponsive();
     window.addEventListener('resize', updateResponsive);
     return () => window.removeEventListener('resize', updateResponsive);
   }, []);
- 
+
   const totalCardWidth = cardWidth + gap;
- 
+
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex(prev => prev + 1);
   };
- 
+
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex(prev => prev - 1);
   };
- 
+
   useEffect(() => {
     if (!isAnimating) return;
- 
+
     const timer = setTimeout(() => {
       setIsAnimating(false);
       if (currentIndex === clonedSlides.length - 1) {
@@ -126,12 +126,12 @@ const textColor = isBankingPage ? "#000" : "#fff";
         }
       }
     }, 300);
- 
+
     return () => clearTimeout(timer);
   }, [currentIndex, totalCardWidth, clonedSlides.length, isAnimating]);
- 
+
   const translateX = -currentIndex * totalCardWidth;
- 
+
   return (
     <div className="w-full relative py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 sm:px-6">
@@ -147,49 +147,49 @@ const textColor = isBankingPage ? "#000" : "#fff";
           ></div> */}
           {/* Left Chevron */}
           <button
-  onClick={prevSlide}
-  disabled={isAnimating}
-  className="absolute top-22 transform -translate-y-1  z-20 
+            onClick={prevSlide}
+            disabled={isAnimating}
+            className="absolute top-22 transform -translate-y-1  z-20 
              rounded-full flex items-center justify-start 
              shadow-md hover:shadow-lg transition-shadow 
              border border-gray-400 bg-[#F5F5F5]"
-  style={{
-    width: "44px",
-    height: "44px",
-    left: "-4px",
-    padding: "6px",
-  }}
->
- <img src="/Testimonial/LeftChev.png"
-  className="w-6 h-5 items-center absolute  right-1/4"
-  loading="eager"
-  />
-</button>
+            style={{
+              width: "44px",
+              height: "44px",
+              left: "-4px",
+              padding: "6px",
+            }}
+          >
+            <img src="/Testimonial/LeftChev.png"
+              className="w-6 h-5 items-center absolute  right-1/4"
+              loading="eager"
+            />
+          </button>
 
 
           {/* Right Chevron */}
           <button
-  onClick={nextSlide}
-  disabled={isAnimating}
-  className="absolute  top-22 transform -translate-y-1  z-20 
+            onClick={nextSlide}
+            disabled={isAnimating}
+            className="absolute  top-22 transform -translate-y-1  z-20 
              rounded-full flex items-center justify-center 
              shadow-md hover:shadow-lg transition-shadow 
              border border-gray-400 bg-[#F5F5F5]"
-  style={{
-    width: "44px",
-    height: "44px",
-    right: "-4px",
-    padding: "6px",
-  }}
->
-  {/* <svg
+            style={{
+              width: "44px",
+              height: "44px",
+              right: "-4px",
+              padding: "6px",
+            }}
+          >
+            {/* <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
     className="text-black"
   > */}
-    {/* <path
+            {/* <path
       d="M9 6L15 12L9 18"
       stroke="currentColor"
       strokeWidth="2"
@@ -198,11 +198,11 @@ const textColor = isBankingPage ? "#000" : "#fff";
     />
   </svg> */}
 
-  <img src="/Testimonial/RightChev.png"
-  className="w-6 h-5 items-center absolute  left-1/4"
-  loading="eager"
-  />
-</button>
+            <img src="/Testimonial/RightChev.png"
+              className="w-6 h-5 items-center absolute  left-1/4"
+              loading="eager"
+            />
+          </button>
 
 
           {/* Carousel Track */}
@@ -222,11 +222,11 @@ const textColor = isBankingPage ? "#000" : "#fff";
                   color: textColor,
                 }}>
                   <div className="flex flex-col justify-between h-full">
-                    <P  style={{ color: textColor }} className="  text-lg leading-relaxed flex-1">{testimonial.text}</P>
+                    <P style={{ color: textColor }} className="  text-lg leading-relaxed flex-1">{testimonial.text}</P>
                     <div className="flex items-center gap-3">
-                      <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover"/>
+                      <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover" />
                       <div className=' flex flex-col gap-1'>
-                         <div style={{ color: textColor }} className="text-md font-quicksand ">{testimonial.name}</div>
+                        <div style={{ color: textColor }} className="text-md font-quicksand ">{testimonial.name}</div>
                         <div style={{ color: textColor }} className="text-md font-quicksand ">{testimonial.title}</div>
                       </div>
                     </div>
@@ -235,11 +235,11 @@ const textColor = isBankingPage ? "#000" : "#fff";
               ))}
             </div>
           </div>
- 
+
         </div>
       </div>
     </div>
   );
 };
- 
+
 export default Testimonial;

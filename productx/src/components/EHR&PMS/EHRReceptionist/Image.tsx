@@ -2,7 +2,9 @@
 export const Image = () => {
   return (
     <div>
-        <img src="/EHR-PMS/EHRFIX.png" alt="EHR Receptionist" />
+        <img
+        className="w-full h-screen"
+        src="/EHR-PMS/Receptionist/img2.webp" alt="EHR Receptionist" />
     </div>
   )
 }

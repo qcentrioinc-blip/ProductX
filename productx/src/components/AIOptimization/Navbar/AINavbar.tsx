@@ -10,10 +10,10 @@ const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
-const preloadAssets = () => {
-  const dashImg = new Image();
-  dashImg.src = '/AIOptimization/dashboardfinal.webp';
-};
+// const preloadAssets = () => {
+//   const dashImg = new Image();
+//   dashImg.src = '/AIOptimization/dashboardfinal.webp';
+// };
 
 const AINavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,17 +23,19 @@ const AINavbar = () => {
   const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "features" | "resources" | "builtfor">(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
 
-  const hasPreloaded = useRef(false);
 
-  const handlePreload = () => {
-    if (!hasPreloaded.current) {
-      hasPreloaded.current = true;
-      preloadAssets();
-      // Prefetch FloatingLines component (animation background)
-      import("../../HomePage/AIOptimization/AIFooterBackground");
-    }
-  };
+  // const hasPreloaded = useRef(false);
+
+  // const handlePreload = () => {
+  //   if (!hasPreloaded.current) {
+  //     hasPreloaded.current = true;
+  //     preloadAssets();
+  //     // Prefetch FloatingLines component (animation background)
+  //     import("../../HomePage/AIOptimization/AIFooterBackground");
+  //   }
+  // };
 
   // ---------- PREFETCH LOGIC ----------
   const prefetched = useRef<Set<string>>(new Set());
@@ -78,6 +80,7 @@ const AINavbar = () => {
     timeoutRef.current = setTimeout(() => {
       // setMegaMenuOpen(false);
       // setResourcesMenuOpen(false);
+      setLogoDropdownOpen(false);
       setMegaMenuBuiltFor(false);
     }, 200);
   };
@@ -93,6 +96,7 @@ const AINavbar = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     // setMegaMenuOpen(false);
     // setResourcesMenuOpen(false);
+    setLogoDropdownOpen(false);
     setMegaMenuBuiltFor(false);
   };
 
@@ -100,6 +104,8 @@ const AINavbar = () => {
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  
 
   // ---------- AI-SPECIFIC DATA ----------
 
@@ -160,7 +166,7 @@ const AINavbar = () => {
       {/* TOP TRANSPARENT BAR - Scrolls away */}
       <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
-            <img className="h-10 w-full" src="/QnestCloudLogo.svg" alt="Company Logo" />
+          <img className="h-10 w-full" src="/QnestCloudLogo.svg" alt="Company Logo" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
@@ -196,12 +202,64 @@ const AINavbar = () => {
 
 
           <div className="flex items-center gap-10">
-            <div className="relative flex items-center gap-1 cursor-pointer" onMouseEnter={() => { setMegaMenuOpen(false); setResourcesMenuOpen(false); setMegaMenuBuiltFor(false); }}>
-              <Link to="/industries/cloud-finops-ai" onMouseEnter={handlePreload}
-                onFocus={handlePreload}>
-                <div className="w-full h-12 flex justify-center items-center rounded-md   transition-all duration-300">
-                  <img src="/QCloudLogo.png" className="w-auto h-10" alt="" /></div></Link>
-            </div>
+            <div
+  className="relative flex items-center gap-1 cursor-pointer"
+  onMouseEnter={() => {
+    handleKeepOpen();
+    setLogoDropdownOpen(true);
+    setMegaMenuBuiltFor(false);
+  }}
+>
+  <Link
+    to="/industries/cloud-finops-ai"
+    onClick={closeAllMenus}
+    className="flex items-center gap-1"
+  >
+    <div className="w-full h-12 flex justify-center items-center">
+      <img src="/QCloudLogo.png" className="w-auto h-10" alt="Cloud FinOps AI" />
+    </div>
+
+    {/* Chevron */}
+    <img
+      src="/down.png"
+      className={`w-4 h-4 transition-transform duration-300 ${
+        logoDropdownOpen ? "rotate-180" : "rotate-0"
+      }`}
+    />
+  </Link>
+
+  {/* 🔽 LOGO DROPDOWN */}
+  {logoDropdownOpen && (
+    <div
+      className="absolute top-17 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+      onMouseEnter={handleKeepOpen}
+      onMouseLeave={handleCloseMenus}
+    >
+      <Link
+        to="/industries/ehr-and-pms"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+      >
+        <img
+          src="/QEHRLogo2.svg"
+          alt="EHR and PMS"
+          className="w-14 h-14 object-contain"
+        />
+
+        <div className="flex flex-col">
+          <h3 className="text-lg font-semibold text-gray-900">
+            EHR & PMS
+          </h3>
+          <p className="text-sm text-gray-600">
+            Electronic Health Records & Practice Management
+          </p>
+        </div>
+      </Link>
+    </div>
+  )}
+</div>
+
 
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
               {navItems.map((item) => (
