@@ -12,21 +12,17 @@ const CTAEHRUnifi: React.FC = () => {
 
           {/* Left Content */}
           <div className="flex flex-col justify-center bg-[#008280] px-6 py-16 text-white sm:px-10 lg:px-16">
-            <span className="mb-4 font-quicksand text-md">
+            {/* <span className="mb-4 font-quicksand text-md">
               Generate any kind of
-            </span>
+            </span> */}
 
             <H2 className="mb-6 leading-tight">
-              Sed ut perspiciatis
-              <br />
-              Unde Seduo utSed
+               Ready to Transform Your Practice?
+             
             </H2>
 
             <P className="mb-8 max-w-xl leading-relaxed text-white/80">
-              Generate any kind of website — business, portfolio, blog, or
-              store — using Readdy’s AI website builder. Start with text,
-              Generate any kind of website — business, portfolio, blog, or
-              store — using Readdy’s AI website builder. Start with text.
+         See how a unified platform simplifies everything for your business. Focus on patient care while we handle the complexity.  
             </P>
 
             <button
@@ -42,7 +38,7 @@ const CTAEHRUnifi: React.FC = () => {
                 hover:bg-white hover:text-black
               "
             >
-              CONTACT US
+             Get Demo
               <span className="ml-3 relative w-[20px] h-[20px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

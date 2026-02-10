@@ -28,7 +28,7 @@ export default function FutureSection() {
           </P>
 
           {/* Second Text Block */}
-          <P className="max-w-2xl xl:ml-28">
+          <P className="max-w-2xl xl:ml-28 lg:pb-10 xl:pb-0">
             From fast‑growing startups to global enterprises, Qnest Global builds stable, scalable systems. We connect data, automate work, and modernize core platforms so each client can operate with better speed, control, and insight.
           </P>
         </div>
@@ -36,7 +36,7 @@ export default function FutureSection() {
         {/* ILLUSTRATION BLOCK */}
         <div className="order-3 lg:col-start-1 lg:row-start-2 xl:-ml-12">
           <LazyVideo
-            src="/Global1.mp4"
+            src="/Video/GlobeVideo.mp4"
             autoPlay
             loop
             muted

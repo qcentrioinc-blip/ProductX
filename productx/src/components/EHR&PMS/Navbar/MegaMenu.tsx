@@ -15,27 +15,27 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: 
     const megaMenuItems = [
         {
             title: "Physician",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Tools for faster, smarter clinical decisions. ",
             path: `${base}/physician`,
         },
         {
             title: "Admin",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Complete control over operations and revenue. ",
             path: `${base}/admin`,
         },
         {
             title: "Insurance Coordinator",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Accelerate claims and maximize reimbursements. ",
             path: `${base}/insurance-coordinator`,
         },
         {
             title: "Receptionist",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Streamline front desk and patient flow. ",
             path: `${base}/receptionist`,
         },
         {
             title: "Nurse",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Efficient documentation and care coordination",
             path: `${base}/nurse`,
         },
     ];
@@ -46,8 +46,8 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: 
             onMouseLeave={handleCloseMenus}
             className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[145px]" : "top-[90px]") : "top-36"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-white px-24 py-10 shadow-xl rounded-lg z-[9998]`}
         >
-            <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-            <P className="text-gray-700 text-lg mt-2 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit</P>
+            <H3>Unified EHR & Practice Management</H3>
+            <P className="text-gray-700 text-lg mt-2 mb-4">One platform for clinical and administrative excellence.</P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-3 gap-y-8 gap-x-4">
                 {megaMenuItems.map((item, index) => (

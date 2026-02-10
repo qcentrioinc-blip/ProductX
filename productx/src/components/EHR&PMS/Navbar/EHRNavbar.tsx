@@ -77,10 +77,10 @@ const EHRNavbar = () => {
     // },
 
     {
-      name: "AI Automation",
+      name: "Cloud Finops Ai",
       path: "/industries/cloud-finops-ai",
       img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      desc: "Leverage intelligent automation to streamline clinical documentation"
     },
 
   ];

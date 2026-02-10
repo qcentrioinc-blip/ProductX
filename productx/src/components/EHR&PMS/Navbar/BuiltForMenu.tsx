@@ -15,17 +15,17 @@ const BuiltForMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus
     const BuiltForItems = [
         {
             title: "Long Term Care",
-            desc: "Praesent eget laoreet arcu, nec iaculis.",
+            desc: "Streamline resident care, compliance, and billing for nursing facilities and senior living. ",
             path: `${base}/built-for/long-term-care`,
         },
         {
             title: "Home Healthcare",
-            desc: "Praesent eget laoreet arcu, nec iaculis.",
+            desc: "Empower field clinicians with mobile tools for documentation, scheduling, and visit-based billing. ",
             path: `${base}/built-for/home-healthcare`,
         },
         {
             title: "Clinics and Hospitals",
-            desc: "Praesent eget laoreet arcu, nec iaculis.",
+            desc: "Unify inpatient and outpatient workflows with scalable tools for any practice size. ",
             path: `${base}/built-for/clinics-and-hospitals`,
         },
     ];
@@ -45,8 +45,8 @@ ${isScrolled
                     : "w-[90%] max-w-7xl rounded-xl"
                 }`}
         >
-            <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
-            <P className="text-gray-700 text-lg mt-2 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
+            <H3>Built for Your Specialty</H3>
+            <P className="text-gray-700 text-lg mt-2 mb-4">Discover how our unified platform adapts to your specific clinical and administrative workflows.</P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-3 gap-y-4 gap-x-1">
                 {BuiltForItems.map((item, index) => (

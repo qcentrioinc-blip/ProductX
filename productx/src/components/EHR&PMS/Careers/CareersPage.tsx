@@ -1,6 +1,6 @@
 import TitleSec from "./TitleSec"
 import ContactSection from "./ContactSection"
-import FeaturePoint from "../Admin/FeaturePoint"
+// import FeaturePoint from "../Admin/FeaturePoint"
 import JobCard from "./JobCard"
 // import FeatureBlock from "../Admin/FeatureBlock"
 import CareerCallToAction from "./CareerCTA"
@@ -18,7 +18,7 @@ const CareersPage = () => (
     {/* <FeatureBlock/> */}
     <JobCard/>
     <CareerCallToAction/>
-    <FeaturePoint/>
+    {/* <FeaturePoint/> */}
     <EHRFooter/>
 
     

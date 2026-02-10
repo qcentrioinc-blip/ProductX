@@ -92,9 +92,9 @@ const TestimonialEHR = () => {
                      {/* Card Content */}
                      <div className=" absolute top-8 z-10 px-2">
                       <H3 className="text-white mb-10 -ml-44  lg:-ml-0 inline-block border-b-2 border-white pb-2">
-       Duis aute irure
+       How We Function
      </H3>
-                       <P className="text-white sm:mt-8 px-4 ">
+                       <P className="text-white sm:mt-8 px-4 xl:px-0 ">
                         Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
                        </P>
                      </div>
