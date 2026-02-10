@@ -40,7 +40,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
                         className="text-gray-600 leading-relaxed max-w-full pr-2 sm:pr-4 md:max-w-lg lg:ml-64 lg:max-w-md"
                         style={{
                             fontSize: 'clamp(13px, 1.5vw, 15px)',
-                            lineHeight: '1.5'
+                            lineHeight: '1.2'
                         }}
                     >
                         {description}
@@ -95,7 +95,7 @@ const Process = () => {
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[70vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
+                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[85vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
 
                     {/* Header section - Responsive positioning */}
                     <div className="absolute top-6 sm:top-10 md:top-14 lg:top-20 left-0 right-0 flex-none z-20">

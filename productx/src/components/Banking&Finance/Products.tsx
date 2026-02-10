@@ -8,15 +8,47 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const Products = () => {
   const navigate = useNavigate();
   const sliderRef = useRef<HTMLDivElement>(null);
- 
-  const scrollLeft = () => {
-    sliderRef.current?.scrollBy({ left: -350, behavior: "smooth" });
+
+  const animationRef = useRef<number | null>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+
+    if (animationRef.current !== null) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    const scrollAmount = window.innerWidth < 1024 ? 300 : 450;
+    const start = container.scrollLeft;
+    const target = start + (direction === 'right' ? scrollAmount : -scrollAmount);
+    const change = target - start;
+    let startTime: number | null = null;
+    const duration = 500;
+
+    const step = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // Quartic Ease-Out for a smoother, more responsive feel
+      const ease = 1 - Math.pow(1 - progress, 4);
+
+      container.scrollLeft = start + change * ease;
+
+      if (timeElapsed < duration) {
+        animationRef.current = requestAnimationFrame(step);
+      } else {
+        animationRef.current = null;
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(step);
   };
- 
-  const scrollRight = () => {
-    sliderRef.current?.scrollBy({ left: 350, behavior: "smooth" });
-  };
- 
+
+  const scrollLeft = () => scroll('left');
+  const scrollRight = () => scroll('right');
+
   const products = [
     {
       id: 1,
@@ -101,9 +133,9 @@ const Products = () => {
       route: "/industries/banking-and-finance/products/sherlock"
     }
   ];
- 
+
   const location = useLocation();
- 
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get("scroll") === "products") {
@@ -131,7 +163,7 @@ const Products = () => {
 
   return (
     <section className="w-full bg-[#FFFAAF] py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="max-w-8xl md:px-10   px-4 sm:px-8 ">
+      <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
         <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
@@ -159,7 +191,7 @@ const Products = () => {
             </button>
           </div>
         </div>
- 
+
         {/* Slider Wrapper */}
         <div className="relative lg:pl-10">
 
@@ -169,51 +201,60 @@ const Products = () => {
           <div
             id="productsSection"
             ref={sliderRef}
-            className="flex gap-6 md:gap-10 h-[300px] md:h-[350px] xl:h-[405px] overflow-x-auto scroll-smooth scrollbar-hide scrollbar-hide::-webkit-scrollbar no-scrollbar pb-4"
+            className="flex gap-6 md:gap-10 h-[300px] md:h-[350px] xl:h-[405px] overflow-x-auto scrollbar-hide no-scrollbar pb-4 overscroll-x-contain"
+            style={{
+              scrollBehavior: 'auto',
+              willChange: 'scroll-position'
+            }}
           >
             {products.map((product) => (
               <div
                 key={product.id}
-                className="relative  w-[280px] sm:w-[330px] md:w-[360px] lg:w-[384px]
+                className="relative w-[280px] sm:w-[330px] md:w-[360px] lg:w-[384px]
                            flex-shrink-0 rounded-sm overflow-hidden shadow-md
-                           hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
+                           hover:shadow-xl transition-shadow duration-300 group cursor-pointer
+                           gpu-optimized"
+                style={{
+                  transform: 'translateZ(0)',
+                  willChange: 'transform'
+                }}
                 onClick={() => handleProductClick(product.route)}
               >
                 {/* Product Image */}
                 <img
-  src={product.image}
-  alt={product.title}
-  className="w-full h-full object-cover"
-/>
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover"
+                />
 
- 
-<div
-  className="absolute inset-0 pointer-events-none opacity-70"
-  style={{
-    background: "radial-gradient(circle at top, rgba(43,200,255,0.55) 90%, rgba(249,149,38,0.45) 100%)",
-    mixBlendMode: "overlay"
-  }}
-></div>
+
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-70"
+                  style={{
+                    background: "radial-gradient(circle at top, rgba(43,200,255,0.55) 90%, rgba(249,149,38,0.45) 100%)",
+                    mixBlendMode: "overlay"
+                  }}
+                ></div>
 
                 {product.hasContent && (
                   <>
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b  from-transparent to-black/60 
                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
- 
+
                     {/* Title */}
                     <div className="absolute top-4 left-4 sm:top-6 md:left-6 md:pr-10 opacity-100
                                     group-hover:opacity-0 transition-opacity duration-300">
                       <P className="text-white">{product.title}</P>
                     </div>
- 
+
                     {/* Logo sliding */}
                     <div className="absolute left-4 sm:left-6 bottom-6 w-[200px] rounded-md py-3
                                     transition-all duration-700 ease-in-out transform
                                     group-hover:-translate-y-62">
                       <img src={product.logo} className=" h-20  rounded-md w-full" />
                     </div>
- 
+
                     {/* Hover Description */}
                     <div className="absolute bottom-[-100%] left-0 w-full px-6 text-white
                                     opacity-0 group-hover:bottom-12 group-hover:opacity-100
@@ -226,10 +267,10 @@ const Products = () => {
             ))}
           </div>
         </div>
- 
+
       </div>
     </section>
   );
 };
- 
+
 export default Products;
