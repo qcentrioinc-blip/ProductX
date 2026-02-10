@@ -45,12 +45,12 @@ export default function TitleSecEHR() {
         </div>
 
         {/* Image Section */}
-        <div className="w-full max-w-8xl">
+        <div className="w-full max-w-7xl">
           <img
             src={content.image}
             alt={content.altText}
             className="w-full h-auto max-h-[486px] object-cover rounded-[20px]"
-            width="1311"
+            width="1012"
             height="486"
           />
         </div>
