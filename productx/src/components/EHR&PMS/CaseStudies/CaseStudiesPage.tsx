@@ -1,5 +1,5 @@
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
-import FeaturePoint from "../Admin/FeaturePoint"
+// import FeaturePoint from "../Admin/FeaturePoint"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import ArticleGrid from "./ArticleGrid"
 import ImageCard from "./ImageCard"
@@ -14,7 +14,7 @@ const CaseStudiesPage = () => (
     <ImageCard/>
     </div>
     <ArticleGrid/>
-    <FeaturePoint/>
+    {/* <FeaturePoint/> */}
     <EHRFooter/>
   </div>
 )

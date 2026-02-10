@@ -56,9 +56,9 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] xl:min-h-[350vh] py-10 px-6 "
+      className="relative w-full min-h-[150vh] xl:min-h-[350vh] xl:pt-10 pb-20 px-6 "
     >
-      <div className="xl:sticky max-w-8xl mx-10 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
+      <div className="xl:sticky max-w-8xl xl:mx-10 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
         <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">
@@ -115,7 +115,7 @@ const Benefits = () => {
         </div>
  
         {/* --- MOBILE/TABLET VIEW (Below xl) --- */}
-        <div className="xl:hidden flex flex-col gap-12 w-full max-w-2xl">
+        <div className="xl:hidden flex flex-col gap-12 w-full max-w-2xl lg:max-w-full">
           {points.map((point, i) => (
             <div key={i} className="flex flex-col gap-6">
               {/* Text Top */}

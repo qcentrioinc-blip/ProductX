@@ -180,7 +180,7 @@ const InformationGrid = () => {
   })();
 
   return (
-    <section className="max-w-7xl mx-auto px-6 pb-16 bg-white overflow-hidden">
+    <section className="max-w-7xl mx-auto px-6  py-16 bg-white overflow-hidden">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}

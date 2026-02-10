@@ -1,11 +1,15 @@
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
+import FeaturePoint from "../Admin/FeaturePoint"
 import FeatureHighlights from "../EHRNurse/FeatureHighlights"
 import InformationGrid from "../EHRNurse/InformationGrid"
+ 
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Benefits from "./Benefits"
 import FeatureGrid from "./FeatureGrid"
-import FeaturePointInsuranceCoordinator from "./FeaturePointInsuranceCoordinator"
+ 
+
 import HeroSec from "./HeroSec"
+import Keywords from "./Keywords"
 // import PointsSec from "./PointsSec"
 
 export const EHRInsuranceCoordinator = () => {
@@ -15,10 +19,15 @@ export const EHRInsuranceCoordinator = () => {
         <HeroSec />
         <FeatureHighlights />
         <Benefits />
-        <FeatureGrid />
+        {/* <FeatureShowcase /> */}
+        
         {/* <PointsSec/> */}
-        <InformationGrid/>
-        <FeaturePointInsuranceCoordinator />
+      <FeatureGrid/>
+      <Keywords/>
+      <InformationGrid/>
+       <FeaturePoint role="insuranceCoordinator" />
+
+        {/* <FeaturePointInsuranceCoordinator /> */}
         <EHRFooter />
     </div>
   )

@@ -1,14 +1,14 @@
-import { H2, H3, H4, P } from "../../../styles/Typography";
+import { H2,   H3,   H4, P } from "../../../styles/Typography";
  
 const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white py-10 overflow-hidden">
       <div className="  max-w-8xl px-4 xl:mx-10">
         {/* Top Content */}
-        <div className="grid grid-cols-1   mt-28 xl:grid-cols-[2fr_1fr] gap-10 items-center">
+        <div className="grid grid-cols-1 mt-10  xl:mt-28 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
-            <H2 className="text-4xl font-semibold text-teal-700 leading-tight">
+            <H2 className="text-4xl font-semibold text-[#008280] leading-tight">
               Practice Medicine,
              
               Not Paperwork.
@@ -17,8 +17,7 @@ const PhysicianHeroSection = () => {
  
           {/* Right Description */}
           <P className=" max-w-xl">
-            Unified Clinicapp is the physician-friendly EHR that reduces clicks
-            and charting time so you can focus on patient care.
+   Unified Clinicapp is the physician-friendly EHR that reduces clicks and charting time so you can focus on patient care, while its integrated practice management tools streamline scheduling, billing, and patient communication. 
           </P>
         </div>
  
@@ -67,7 +66,7 @@ const PhysicianHeroSection = () => {
           <div className=" mt-10 xl:mt-28  grid grid-cols-3 gap-10 max-w-3xl">
             <div className="xl:mt-10">
               <H3 className=" font-bold">
-                Duis aute irure
+               Achieve Best Results  
               </H3>
             </div>
  

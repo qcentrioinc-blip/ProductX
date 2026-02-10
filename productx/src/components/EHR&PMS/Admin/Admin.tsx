@@ -16,8 +16,9 @@ const Admin = () => {
         <EHRNavbar/>
       <AdminHeroSection/>
       <FeaturesEHR content={featuresEHRContent.admin} />
-       <Benefits/>
-       <FeaturePoint/>
+       <Benefits />
+        <FeaturePoint role="admin" />
+
         <OurWork/>
         <FeatureBlockSec content={featureblockContent.admin} />
        <EHRFooter/>

@@ -16,19 +16,20 @@ const steps = [
 
 export default function PatientJourney() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0.02);
 const stepThresholds = [
   0.00, // 1
-  0.10, // 2
+  0.10, // 2s
   0.20, // 3
   0.30, // 4
   0.40, // 5
-  0.55, // 6 (AFTER curve)
+  0.55, // 6
   0.65, // 7
-  0.75, // 8
-  0.85, // 9
-  0.95, // 10
+  0.70, // 8
+  0.78, // 9 
+  0.86, // 10 
 ];
+
 // const isActive = scrollProgress >= stepThresholds[index];
 
   useEffect(() => {
@@ -53,6 +54,13 @@ const stepThresholds = [
   }, []);
 
   // const currentStep = scrollProgress * 10;
+  const strokeSpeed = 1.2;  
+const strokeProgress = Math.max(
+  Math.min(scrollProgress * strokeSpeed, 1),
+  0.04
+);
+
+
 
   return (
     <> 
@@ -62,7 +70,7 @@ const stepThresholds = [
   style={{ height: "420vh" }}
 >
 
-      <div className="sticky top-0 h-[200vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
+      <div className="sticky top-0 h-[180vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
           <H2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
@@ -88,8 +96,8 @@ Q 1120 300 960 300
 L 250 300
 "
 
-  stroke="#E5E7EB"
-  strokeWidth="2"
+  stroke="#D1D5DB"
+  strokeWidth="1"
   fill="none"
   strokeLinecap="round"
   strokeLinejoin="round"
@@ -115,7 +123,8 @@ L 250 300
                 strokeLinejoin="round"
                 pathLength="1"
                 strokeDasharray="1"
-                strokeDashoffset={1 - scrollProgress}
+               strokeDashoffset={1 - strokeProgress}
+
               />
 
               {/* Top Row Steps (1-5) */}
@@ -129,17 +138,18 @@ L 250 300
       <circle
         cx={x}
         cy={y}
-        r="26"
+        r="14"
         fill={isActive ? "#EEDA68" : "#FFFFFF"}
         stroke={isActive ? "#EEDA68" : "#D1D5DB"}
-        strokeWidth="4"
+        strokeWidth="2"
       />
 
       <text
         x={x}
-        y={y + 8}
+        y={y + 6}
         textAnchor="middle"
-        fontSize="20"
+        fontSize="16"
+        fontFamily="'Quicksand', sans-serif"
         fontWeight="700"
         fill={isActive ? "#000" : "#9CA3AF"}
       >
@@ -148,8 +158,8 @@ L 250 300
 
       {/* ✅ TEXT BELOW STEP */}
       <foreignObject
-        x={x - 90}
-        y={y + 40}
+        x={x - 80}
+        y={y + 30}
         width="180"
         height="80"
       >
@@ -179,17 +189,18 @@ L 250 300
       <circle
         cx={x}
         cy={y}
-        r="26"
+        r="16"
         fill={isActive ? "#EEDA68" : "#FFFFFF"}
         stroke={isActive ? "#EEDA68" : "#D1D5DB"}
-        strokeWidth="4"
+        strokeWidth="2"
       />
 
       <text
         x={x}
-        y={y + 8}
+        y={y + 6}
         textAnchor="middle"
-        fontSize="20"
+        fontSize="16"
+        fontFamily="'Quicksand', sans-serif"
         fontWeight="700"
         fill={isActive ? "#000" : "#9CA3AF"}
       >
@@ -199,7 +210,7 @@ L 250 300
       {/* ✅ TEXT BELOW STEP */}
       <foreignObject
         x={x - 90}
-        y={y + 40}
+        y={y + 30}
         width="180"
         height="80"
       >

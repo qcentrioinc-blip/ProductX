@@ -4,7 +4,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 const DATA = [
   {
     id: 1,
-    title: "Streamline Care with Intelligent Documentation ",
+    title: "Streamline Care & Management ",
     description: " Unified Clinicapp puts clinical efficiency first. Our EHR is designed around the physician’s workflow with smart templates, integrated decision support, and seamless access to patient history, all to reduce charting time and support better, faster clinical decisions at the point of care.",
     items: [
       {
@@ -29,7 +29,7 @@ const DATA = [
   },
   {
     id: 2,
-    title: "Simplify Every Patient Interaction Digitally",
+    title: "Simplify Patient Interaction",
     description: "From first contact to follow-up, manage the entire patient lifecycle on one platform. Reduce front-desk tasks and empower patients with self-service tools.",
     items: [
       {
@@ -79,7 +79,7 @@ const DATA = [
   },
   {
     id: 4,
-    title: "Optimize Your Team and Schedule",
+    title: "Optimize Team and Schedule",
     description: " Efficiently manage provider schedules, staff tasks, and resource allocation from a single, dynamic dashboard to maximize productivity.",
     items: [
       {
@@ -104,7 +104,7 @@ const DATA = [
   },
   {
     id: 5,
-    title: "Make Confident, Data-Driven Decisions",
+    title: "Reports & Analytics ",
     description: "Gain clear insights into your practice’s clinical and financial performance with unified dashboards and customizable reports for smarter planning.",
     items: [
       {
@@ -200,7 +200,7 @@ export default function Management() {
   className={`${
     i % 2 === 0 ? "bg-white" : "bg-[#FBF7EF]"
   } rounded-t-[6rem] transition-all duration-700 ease-out mx-auto
-  shadow-[0_-2px_10px_-2px_rgba(0,0,0,0.25)]`}
+  shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
   style={
     i === 0
       ? { maxWidth: `${firstCardWidth}vw` }
@@ -215,7 +215,7 @@ export default function Management() {
                       imageOnRight ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <H2 className="text-3xl lg:text-4xl font-light text-[#008280]">
+                    <H2 className=" font-light text-[#008280]">
                       {card.title}
                     </H2>
 
