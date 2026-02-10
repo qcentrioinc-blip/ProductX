@@ -8,18 +8,18 @@ import { H2, H4, P } from "../../../styles/Typography";
 const Benefits = () => {
   const points = [
     {
-      title: "Duis aute irure dolor in reprehenderit",
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute.",
+      title: "Consolidated Insurance and Benefits Overview",
+      desc: "View patient coverage, copays, deductibles, and active authorizations in one clean, scrollable profile to verify eligibility quickly.",
       image: img1,
     },
     {
-      title: "Duis aute irure dolor in reprehenderit",
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute.",
+      title: "End-to-End Claims Submission and Tracking ",
+      desc: "Submit electronic claims directly and monitor their real-time status from sent to paid or denied on a single dashboard. ",
       image: img2,
     },
     {
-      title: "Duis aute irure dolor in reprehenderit",
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute.",
+      title: "Integrated Prior Authorization Request Management ",
+      desc: "Initiate, document, and track the complete authorization workflow with built-in status updates and provider alerts for timely approvals. ",
       image: img3,
     },
   ];
@@ -63,8 +63,8 @@ const Benefits = () => {
         {/* Section Heading */}
         <div className="w-full max-w-8xl mb-10 xl:mb-12">
           <H2 className="text-center  text-[#008280]">
-            Sed ut perspiciatis Unde <br className="hidden lg:block" />
-            Seduo ut perspiciatis
+            Access All Payer Data Instantly
+            
           </H2>
         </div>
 

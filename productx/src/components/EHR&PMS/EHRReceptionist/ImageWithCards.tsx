@@ -37,12 +37,11 @@ const ImageWithCards = () => {
               transition={{ duration: 0.6, ease: easeOut }}
             >
               <H2 className="text-teal-700 mb-4">
-                Sed ut perspiciatis
+                 Measurable Front-Desk Improvements 
               </H2>
 
               <P className="text-gray-600 max-w-lg mb-6">
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, su
+                Our platform delivers clear, tangible results that make your daily work smoother and your clinic run better. 
               </P>
 
               <hr className="border-[#010101]" />
@@ -63,24 +62,32 @@ const ImageWithCards = () => {
             >
 
               {/* Card 1 */}
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 24 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.5, ease: easeOut },
-                  },
-                }}
-                className="bg-gray-100 rounded-2xl p-6"
-              >
-                <div className="w-8 h-8 rounded-full bg-gray-300 mb-4" />
-                <H4 className="font-semibold mb-2">Duis aute irure</H4>
-                <P className="text-sm text-gray-600">
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Excepteur sint occaecat
-                </P>
-              </motion.div>
+             <motion.div
+  variants={{
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: easeOut },
+    },
+  }}
+  className="bg-[#F1F1F1] rounded-2xl p-6"
+>
+  {/* Icon */}
+  <img
+    src="/EHR-PMS/Receptionist/icon1.svg"
+    alt="Faster Patient Intake"
+    loading="lazy"
+    className="w-8 h-8 mb-4 object-contain"
+  />
+
+  <H4 className="font-semibold mb-2">Faster Patient Intake</H4>
+
+  <P className="text-sm text-gray-600">
+    Digital forms and self check-in cut registration time significantly, reducing front-desk congestion.
+  </P>
+</motion.div>
+
 
               {/* Card 2 */}
               <motion.div
@@ -92,13 +99,18 @@ const ImageWithCards = () => {
                     transition: { duration: 0.5, ease: easeOut },
                   },
                 }}
-                className="bg-gray-100 rounded-2xl p-6"
+                className="bg-[#F1F1F1] rounded-2xl p-6"
               >
-                <div className="w-8 h-8 rounded-full bg-gray-300 mb-4" />
-                <H4 className="font-semibold mb-2">Duis aute irure</H4>
+                {/* Icon */}
+  <img
+    src="/EHR-PMS/Receptionist/icon2.svg"
+    alt="Faster Patient Intake"
+    loading="lazy"
+    className="w-8 h-8 mb-4 object-contain"
+  />
+                <H4 className="font-semibold mb-2">Reduced Wait Times </H4>
                 <P className="text-sm text-gray-600">
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Excepteur sint occaecat
+                  Live tracking of patient flow and room status allows for better coordination and shorter delays. 
                 </P>
               </motion.div>
 
@@ -112,13 +124,18 @@ const ImageWithCards = () => {
                     transition: { duration: 0.5, ease: easeOut },
                   },
                 }}
-                className="bg-gray-100 rounded-2xl p-6"
+                className="bg-[#F1F1F1] rounded-2xl p-6"
               >
-                <div className="w-8 h-8 rounded-full bg-gray-300 mb-4" />
-                <H4 className="font-semibold mb-2">Duis aute irure</H4>
+                {/* Icon */}
+  <img
+    src="/EHR-PMS/Receptionist/icon3.svg"
+    alt="Faster Patient Intake"
+    loading="lazy"
+    className="w-8 h-8 mb-4 object-contain"
+  />
+                <H4 className="font-semibold mb-2">Fewer Missed Calls </H4>
                 <P className="text-sm text-gray-600">
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Excepteur sint occaecat
+                  The unified communication hub ensures all patient calls and messages are logged and managed. 
                 </P>
               </motion.div>
 
@@ -132,7 +149,7 @@ const ImageWithCards = () => {
       transition: { duration: 0.5, ease: easeOut },
     },
   }}
-  className="bg-gray-100 rounded-2xl p-6 flex items-center gap-6"
+  className="bg-[#F1F1F1] rounded-2xl p-6 flex items-center gap-6"
 >
   {/* CIRCLE */}
   <div className="relative w-36 h-36 shrink-0">
@@ -153,8 +170,8 @@ const ImageWithCards = () => {
 
     {/* Center Content */}
     <div className="absolute inset-0 flex flex-col items-center justify-center font-bricolage">
-      <span className="text-5xl font-semibold leading-none">22</span>
-      <span className="text-xl text-gray-500">Duis</span>
+      <span className="text-3xl font-semibold leading-none">40% </span>
+      <span className="text-xs text-gray-500">Fewer Manual Tasks</span>
     </div>
   </div>
 

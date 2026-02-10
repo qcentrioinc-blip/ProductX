@@ -3,7 +3,7 @@ import { H2, H3, P } from "../../../styles/Typography";
 
 const Content: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4 md:px-16 lg:px-32">
+    <div className="min-h-screen bg-gray-50 py-16 px-4 md:px-16 lg:px-32 mt-4 lg:mt-24">
       {/* Page Heading */}
       <H2 className=" text-gray-900 mb-8">
         Terms And Conditions

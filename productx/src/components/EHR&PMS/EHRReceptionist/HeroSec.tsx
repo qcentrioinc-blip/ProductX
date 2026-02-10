@@ -74,7 +74,7 @@ const HeroSec = () => {
                   transition: { staggerChildren: 0.12 },
                 },
               }}
-              className="text-left max-w-xl"
+              className="text-left max-w-2xl"
             >
               <motion.div
                 variants={{
@@ -87,8 +87,8 @@ const HeroSec = () => {
                 }}
               >
                 <H2 className="text-[#008280] leading-[1.15] mb-6">
-                  Sed ut perspiciatis <br />
-                  Sed ut perspiciatis
+                  Simplify Front Desk,
+                  Engage Patients
                 </H2>
               </motion.div>
 
@@ -103,8 +103,7 @@ const HeroSec = () => {
                 }}
               >
                 <P className="text-[#141414] mb-8">
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Excepteur sint occaecat cupidatat non proident, su
+                  Manage patient flow, check-ins, and communication from one intuitive dashboard. Reduce wait times and streamline every front desk task. 
                 </P>
               </motion.div>
 
@@ -137,7 +136,7 @@ const HeroSec = () => {
                     cursor-pointer
                   "
                 >
-                  CONTACT US
+                  See How
                   <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
                   </span>

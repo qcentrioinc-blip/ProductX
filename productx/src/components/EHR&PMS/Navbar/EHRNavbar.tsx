@@ -77,9 +77,9 @@ const EHRNavbar = () => {
     // },
 
     {
-      name: "AI Automation",
+      name: "Cloud FinOps & AI",
       path: "/industries/cloud-finops-ai",
-      img: "/BNFHOME/P1.png",
+      img: "/QCloudLogo2.svg",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
 
@@ -187,7 +187,6 @@ const EHRNavbar = () => {
                 // setResourcesMenuOpen(false);
                 setMegaMenuBuiltFor(false);
               }}
-              onMouseLeave={handleCloseMenus}
             >
               <Link
                 to={base}
@@ -196,8 +195,8 @@ const EHRNavbar = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-10 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
+                <div className="w-24 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
@@ -206,8 +205,8 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 w-80 pt-4 z-[999]"
-                  onMouseEnter={handleKeepOpen}
+                  className="absolute top-18 w-80 z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}     
                   onMouseLeave={handleCloseMenus}
                 >
                   <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">

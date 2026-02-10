@@ -49,7 +49,7 @@ const HeroSec = () => {
         className="text-center"
       >
         <H1 className="mb-8 text-4xl md:text-6xl xl:text-8xl font-bold">
-          Shaping the Future <br /> Across Tech.
+          Streamline Claims, <br />  Maximize Revenue
         </H1>
 
         <button
@@ -67,7 +67,7 @@ const HeroSec = () => {
             cursor-pointer mb-4
           "
         >
-          CONTACT US
+          Contact Us
           <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
             ↗
           </span>
@@ -89,7 +89,7 @@ const HeroSec = () => {
         >
           <div className="mb-4 xl:mb-12 text-5xl text-[#008280]">⟶</div>
           <P className="text-base leading-relaxed font-medium">
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            Submit clean claims, track every status, and resolve denials faster. Start Today. 
           </P>
         </motion.div>
 
@@ -98,9 +98,9 @@ const HeroSec = () => {
           variants={itemVariants}
           className={`${cardBaseMobile} bg-[#f0f0f0] xl:w-[171.4px] xl:h-[284.1px] xl:justify-end`}
         >
-          <H3 className="mb-2 text-black text-3xl font-bold">126+</H3>
+          <H3 className="mb-2 text-black text-3xl font-bold">99%</H3>
           <P className="text-black text-sm">
-            reprehenderit in voluptate velit
+            Claim Submission Accuracy Rate
           </P>
         </motion.div>
 
@@ -117,9 +117,9 @@ const HeroSec = () => {
           variants={itemVariants}
           className={`${cardBaseMobile} bg-[#00796b] text-white xl:w-[171.4px] xl:h-[284.1px] xl:justify-end`}
         >
-          <H3 className="mb-2 text-white text-3xl font-bold">126+</H3>
+          <H3 className="mb-2 text-white text-3xl font-bold">60%</H3>
           <P className="text-white text-sm">
-            reprehenderit in voluptate velit
+            Faster Denial Resolution
           </P>
         </motion.div>
 

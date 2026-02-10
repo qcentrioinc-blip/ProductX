@@ -16,13 +16,10 @@ const HeroSec = () => {
         className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8"
       >
         <H2 className="text-[#2A2A2A] leading-tight max-w-xl">
-          Sed ut perspiciatis<br />
-          Sed ut perspiciatis
+           Clinical Efficiency at Your Fingertips
         </H2>
-        <P className="max-w-md text-[#141414] leading-relaxed md:pt-2">
-          reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat
-          cupidatat non proident, su
+        <P className="max-w-md text-[#141414] leading-relaxed md:pt-2 xl:pt-8">
+          Access unified patient records, document care, and coordinate tasks seamlessly from any device to support better outcomes. 
         </P>
       </motion.div>
 
@@ -51,7 +48,7 @@ const HeroSec = () => {
           className="lg:row-span-3 overflow-hidden rounded-3xl bg-gray-100"
         >
           <img 
-            src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800" 
+            src="/EHR-PMS/Nurse/img1.webp" 
             alt="Medical professional"
             className="w-full h-full object-cover"
           />
@@ -72,7 +69,7 @@ const HeroSec = () => {
           <span className="text-4xl lg:text-5xl font-medium font-bricolage text-black mb-1">
             5x
           </span>
-          <P className="text-[#141414]">Duis aute irure</P>
+          <P className="text-[#141414]"> Faster Charting</P>
         </motion.div>
 
         {/* 3. Tall Abstract Image */}
@@ -88,7 +85,7 @@ const HeroSec = () => {
           className="lg:row-span-3 overflow-hidden rounded-3xl bg-gray-100"
         >
           <img 
-            src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800" 
+            src="/EHR-PMS/Nurse/img3.webp" 
             alt="Abstract waves"
             className="w-full h-full object-cover"
           />
@@ -107,7 +104,7 @@ const HeroSec = () => {
           className="lg:row-span-2 overflow-hidden rounded-3xl bg-gray-100"
         >
           <img 
-            src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800" 
+            src="/EHR-PMS/Nurse/img4.webp" 
             alt="Supportive hands"
             className="w-full h-full object-cover"
           />
@@ -126,7 +123,7 @@ const HeroSec = () => {
           className="lg:row-span-2 overflow-hidden rounded-3xl bg-gray-100"
         >
           <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" 
+            src="/EHR-PMS/Nurse/img2.webp" 
             alt="Medical workspace"
             className="w-full h-full object-cover"
           />
@@ -148,7 +145,7 @@ const HeroSec = () => {
             30+
           </span>
           <P className="text-[#141414] text-xs lg:text-sm">
-            Duis aute irure
+            Integrated Clinical Tools
           </P>
         </motion.div>
 
