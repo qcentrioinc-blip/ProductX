@@ -8,9 +8,9 @@ import { ScrollProvider } from './context/ScrollContext'
 import { lazy, Suspense } from 'react';
 import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
-const HeroSection = lazy(() => import('./components/HomePage/HeroSection'));
-const AIOptimization = lazy(() => import('./routes/industries/AIOptimization'));
-const EHRAndPMS = lazy(() => import('./routes/industries/EHRandPMS'));
+import HeroSection from './components/HomePage/HeroSection'
+import AIOptimization from './routes/industries/AIOptimization'
+import EHRAndPMS from './routes/industries/EHRandPMS'
 
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));

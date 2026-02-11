@@ -246,6 +246,14 @@ export default function InteractiveHeroSection() {
     return () => clearInterval(interval);
   }, [isMobile]);
 
+  const prefetchEHRVideo = () => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'video';
+    link.href = '/Video/EHRVideo.mp4';
+    document.head.appendChild(link);
+  };
+
   return (
     <>
       <Navbar />
@@ -308,6 +316,7 @@ export default function InteractiveHeroSection() {
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
                           onNavigate={(url) => window.open(url, '_blank')}
+                          onPrefetch={industry.title === 'EHR and PMS' ? prefetchEHRVideo : undefined}
 
                           countdownText={getCountdown(industry.deadline)}
                         />

@@ -151,22 +151,22 @@ const BNFNav = () => {
     {
       name: "EHR and PMS", path:
         "/industries/ehr-and-pms",
-      img: "/BNFHOME/P1.png",
+      img: "/QEHRLogo2.svg",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
 
-    {
-      name: "HighTech",
-      path: "/industries/high-tech",
-      img: "/BNFHOME/P1.png"
-      ,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
+    // {
+    //   name: "HighTech",
+    //   path: "/industries/high-tech",
+    //   img: "/BNFHOME/P1.png"
+    //   ,
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
 
     {
-      name: "AI Automation",
+      name: "Cloud Finops AI",
       path: "/industries/cloud-finops-ai",
-      img: "/BNFHOME/P1.png",
+      img: "/QCloudLogo2.svg",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
 
@@ -215,16 +215,15 @@ const BNFNav = () => {
 
       <div
         className=" fixed top-0 z-50 left-0 w-full
-        bg-white/10 backdrop-blur-lg font-bricolage
+        bg-white/20 backdrop-blur-sm font-bricolage
           
          px-4 sm:px-6 md:px-8 pt-3 pb-1
         flex justify-between transition-all duration-300"
       >
         <Link to="/" className="flex items-center">
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-              LOGO
-            </span>
+          <div className="rounded-lg">
+            <img
+            src="/QnestLogo.svg"/>
           </div>
         </Link>
 
