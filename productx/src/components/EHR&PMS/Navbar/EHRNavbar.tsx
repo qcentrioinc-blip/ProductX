@@ -275,8 +275,8 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-18 w-80 z-[999] p-3"
-                  onMouseEnter={handleKeepOpen}
+                  className="absolute top-14 w-80 z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}     
                   onMouseLeave={handleCloseMenus}
                 >
                   <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">

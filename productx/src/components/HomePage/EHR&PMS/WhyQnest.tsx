@@ -69,12 +69,12 @@ className="absolute top-40 left-20 w-7 scale-110"
           </motion.div>
           {/* CARDS */}
           <motion.div style={{ y: cardsY }} className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-12 gap-8 max-w-8xl w-full px-20">
+            <div className="grid grid-cols-12 gap-8 max-w-7xl w-full px-6">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
                   <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">
                     <div>
-                      <H1 className="text-[#008280]">{c.num}</H1>
+                      <H2 className="text-[#008280]">{c.num}</H2>
                       <H3 className=" text-[#008280]">{c.title}</H3>
                     </div>
                     <H4 className="text-[#2A2A2A]">{c.desc}</H4>

@@ -8,8 +8,8 @@ const HeroSplitMasked = () => {
 
   return (
     <>
-      <section className="w-full bg-white  py-10 px-4 ">
-        <div className="max-w-8xl xl:mx-10 grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
+      <section className="w-full bg-[#F5F5F5]  py-10 px-4 xl:px-0 ">
+        <div className="max-w-7xl xl:mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
 
           {/* LEFT CONTENT */}
           <div className="space-y-6">
@@ -33,7 +33,7 @@ const HeroSplitMasked = () => {
 
             {/* MASKED IMAGE */}
             <img
-              src="/EHRIcons/SplitMasked.webp"
+              src="/EHRIcons/SplitMaskedImage.webp"
               alt="Hero visual"
               className="w-[280px] sm:w-[340px] md:w-[380px] lg:w-[550px]"
               loading="lazy"

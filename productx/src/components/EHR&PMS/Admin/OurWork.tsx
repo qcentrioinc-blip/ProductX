@@ -51,12 +51,12 @@ export default function OurWork() {
       className="bg-white   px-4 hidden xl:block"
       style={{ height: "300vh" }}
     >
-      <div className="flex items-center justify-start xl:mx-10">
+      <div className="flex items-center  max-w-7xl justify-start xl:mx-auto">
           <H2 className="text-[#008280] mt-6 xl:mt-10">
             Eliminate These Common <br /> Administrative Headaches
           </H2>
       </div>
-      <div className="sticky top-0 h-screen flex max-w-8xl xl:mx-10 px-4 gap-16">
+      <div className="sticky top-0 h-screen flex max-w-7xl xl:mx-auto xl:px-0 px-4 gap-16">
         {/* LEFT CONTENT — STACKS */}
         <div className="w-[45%] pt-24 space-y-16">
         

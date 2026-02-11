@@ -21,8 +21,8 @@ type FeaturesEHRProps = {
 const FeaturesEHR = ({content}:FeaturesEHRProps) => {
  
   return (
-    <div className="min-h-screen bg-white py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-8xl xl:mx-10 ">
+    <div className="min-h-screen bg-white py-10 px-4 sm:px-8 lg:px-8">
+      <div className="max-w-7xl xl:mx-auto ">
         {/* Main Container with Border */}
         <div className="border-2 border-[#166D48] rounded-3xl p-6 md:p-10 lg:p-10 xl:p-12">
          
@@ -68,7 +68,7 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
  
               <div key={feature.id} className="flex flex-col">
                 {/* Icon Circle */}
-                <img className="w-12 h-12 md:w-16 md:h-16 overflow-visible   mb-4  " src={feature.image}/>
+                <img className="w-10 h-10 overflow-visible   mb-4  " src={feature.image}/>
                 
                 {/* Title */}
                 <H4  className="  mb-2">

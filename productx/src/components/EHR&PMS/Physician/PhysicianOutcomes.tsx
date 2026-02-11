@@ -44,7 +44,7 @@ const PhysicianOutcomes = () => {
  
   return (
     <section className="w-full bg-white py-16 px-4">
-      <div className="max-w-8xl xl:mx-10">
+      <div className="max-w-7xl xl:mx-auto">
         {/* Section Heading */}
         <div className="flex justify-center mb-12 text-[#008280]">
           <H2>Physician Pain Points Solved</H2>
