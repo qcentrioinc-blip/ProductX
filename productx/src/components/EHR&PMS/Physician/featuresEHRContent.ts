@@ -1,7 +1,7 @@
 // featuresEHRContent.ts
 export const featuresEHRContent = {
   physician: {
-    cardTitle: "Intuitive Daily Use",
+    cardTitle: "Intuitive Daily \n Use",
     cardDescription:
       "Log in once to access everything, patient charts, schedule, and tasks, in one clean, unified dashboard.",
 
@@ -37,13 +37,13 @@ export const featuresEHRContent = {
           " Your work auto-saves and syncs. Log out knowing all data is secure, updated, and ready for billing.",
              image:"/EHRIcons/Streamlined.svg"
       },
-    ],
+    ], 
   },
 
   admin: {
     cardTitle: "See It Live",
     cardDescription:
-      "Experience how one dashboard gives you instant control over appointments, staff, and finances",
+      "Experience how one dashboard \n gives you instant control over appointments, staff, and finances",
 
     heading:
       "Your Central Command Center Dashboard",
@@ -54,28 +54,28 @@ export const featuresEHRContent = {
         title: "Real-Time Appointment Tracking",
         description:
           "Monitor every appointment’s status—pending, checked-in, or missed—in real time to manage patient flow and reduce wait times.",
-             image:"/EHRIcons/DailyCalender.svg"
+             image:"/EHRIcons/RealTime.svg"
       },
       {
         id: 2,
         title: "Automated Patient Task Lists",
         description:
           "View and assign pending follow-ups, consents, and billing tasks in one centralized to-do list for your entire team.",
-             image:"/EHRIcons/userTrust.svg"
+             image:"/EHRIcons/ToDo.svg"
       },
       {
         id: 3,
         title: "Dynamic Schedule Management",
         description:
           "Filter and manage schedules by provider, room, or status with a click to optimize daily clinic operations.",
-             image:"/EHRIcons/List.svg"
+             image:"/EHRIcons/Replace.svg"
       },
       {
         id: 4,
         title: "Instant Financial Overview",
         description:
           "Track completed appointments, invoices, and revenue directly from the dashboard for clear, up-to-date financial insight.",
-             image:"/EHRIcons/Streamlined.svg"
+             image:"/EHRIcons/PieChart.svg"
       },
     ],
   },
