@@ -20,7 +20,7 @@ const InfoWithImage = () => {
         <div className="absolute -top-50 right-10 w-[350px] h-[350px] rounded-full border border-[#008280] opacity-40 hidden sm:block" />
       </motion.div>
 
-      <div className="relative max-w-8xl xl:mx-14 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 py-20 ">
         
         {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-12 gap-y-10">
@@ -33,11 +33,11 @@ const InfoWithImage = () => {
             transition={{ duration: 0.6, ease: easeOut }}
             className="lg:col-span-1 lg:row-start-1"
           >
-            <H2 className="text-[#008280] mb-4">
+            <H2 className="text-[#008280] mb-4 lg:whitespace-nowrap">
               Essential Front-Desk Tools 
             </H2>
 
-            <P className="text-[#141414] max-w-md">
+            <P className="text-[#141414] max-w-lg">
               Access the integrated tools you need daily to manage patient interactions and support clinical staff efficiently. 
             </P>
           </motion.div>

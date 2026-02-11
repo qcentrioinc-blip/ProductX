@@ -58,8 +58,8 @@ const HeroSec = () => {
             setDrawerOpen(true);
           }}
           className="
-            group inline-flex items-center justify-center gap-3
-            px-8 h-14 rounded-lg
+            group inline-flex items-center justify-center gap-3 font-bricolage
+            px-6 h-12 rounded-lg
             bg-white border-2 border-[#008280]
             text-[#008280] font-bold text-sm tracking-widest
             transition-all duration-500
@@ -68,9 +68,9 @@ const HeroSec = () => {
           "
         >
           Contact Us
-          <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+          {/* <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
             ↗
-          </span>
+          </span> */}
         </button>
       </motion.header>
 
@@ -82,16 +82,29 @@ const HeroSec = () => {
         viewport={{ once: true, margin: "-50px" }} // Triggers slightly before it hits the view
         className="mx-auto max-w-[1400px] grid grid-cols-1 gap-6 xl:flex xl:flex-row xl:items-end xl:justify-center xl:gap-5"
       >
-        {/* Card 1 */}
-        <motion.div
-          variants={itemVariants}
-          className={`${cardBaseMobile} bg-[#e0fcf4] xl:w-[277.4px] xl:h-[420.6px] xl:justify-end`}
-        >
-          <div className="mb-4 xl:mb-12 text-5xl text-[#008280]">⟶</div>
-          <P className="text-base leading-relaxed font-medium">
-            Submit clean claims, track every status, and resolve denials faster. Start Today. 
-          </P>
-        </motion.div>
+       {/* Card 1 */}
+<motion.div
+  variants={itemVariants}
+  className={`${cardBaseMobile} 
+    bg-[#e0fcf4] 
+    xl:w-[277.4px] 
+    xl:h-[420.6px] 
+    xl:justify-end
+    relative 
+    overflow-hidden
+  `}
+  style={{
+    backgroundImage: "url('/EHR-PMS/InsuranceCoordinator/img1.webp')", // add your image path
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="mb-4 xl:mb-12 text-5xl text-[#008280]">⟶</div>
+  <P className="text-base leading-relaxed font-medium">
+    Submit clean claims, track every status, and resolve denials faster. Start Today.
+  </P>
+</motion.div>
+
 
         {/* Card 2 */}
         <motion.div
@@ -107,7 +120,7 @@ const HeroSec = () => {
         {/* Image 1 - Hidden on iPad Pro/Mobile */}
         <motion.img
           variants={itemVariants}
-          src="/EHR-PMS/InsuranceCoordinator/Img2.png"
+          src="/EHR-PMS/InsuranceCoordinator/img2.webp"
           alt="Team"
           className="hidden xl:block rounded-[33.83px] object-cover xl:w-[266.1px] xl:h-[284.1px]"
         />
@@ -126,7 +139,7 @@ const HeroSec = () => {
         {/* Image 2 - Hidden on iPad Pro/Mobile */}
         <motion.img
           variants={itemVariants}
-          src="/EHR-PMS/InsuranceCoordinator/Img1.png"
+          src="/EHR-PMS/InsuranceCoordinator/img3.webp"
           alt="Office"
           className="hidden xl:block rounded-[33.83px] object-cover xl:w-[266.1px] xl:h-[389.6px]"
         />

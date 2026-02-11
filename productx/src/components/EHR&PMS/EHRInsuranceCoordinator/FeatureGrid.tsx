@@ -125,7 +125,7 @@ const FeatureGrid = () => {
                 setDrawerOpen(true);
               }}
               className="
-                group inline-flex items-center justify-center gap-3
+                group inline-flex items-center justify-center gap-3 font-bricolage
                 px-8 h-14 rounded-lg
                 bg-white border-2 border-[#007976]
                 text-[#007976] font-bold text-sm tracking-widest
@@ -134,9 +134,9 @@ const FeatureGrid = () => {
               "
             >
               Get Demo 
-              <span className="text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+              {/* <span className="text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                 ↗
-              </span>
+              </span> */}
             </button>
           </motion.div>
         </motion.div>

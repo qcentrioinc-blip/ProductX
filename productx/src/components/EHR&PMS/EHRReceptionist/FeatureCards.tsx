@@ -3,10 +3,10 @@ import { H2, H4, P } from "../../../styles/Typography";
 const FeatureCards = () => {
   return (
     <section className="bg-white pb-16">
-      <div className="max-w-8xl mx-10 px-4 sm:px-6 lg:px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
        
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <H2 className="text-[#007976] mb-4">Your Command Center</H2>
           <P className="text-gray-600 text-sm">
             One unified dashboard gives you full control over patient scheduling, communication, and daily clinic operations. 
@@ -36,7 +36,7 @@ const FeatureCards = () => {
           </div>
  
           {/* Card 2 - Center (Highlighted with Teal Image) */}
-          <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2] relative">
+          <div className="flex flex-col rounded-[2rem] overflow-hidden  relative">
             {/* Arrow icon in top right corner */}
             <div className="absolute top-2 right-2 w-28 h-28 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 z-10">
               <img src="/Physician/CircleArrow.svg" alt="arrow"/>
