@@ -44,7 +44,14 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus }: 
         <div
             onMouseEnter={() => { handleKeepOpen(); }}
             onMouseLeave={handleCloseMenus}
-            className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[145px]" : "top-[90px]") : "top-36"} translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-white px-24 py-10 shadow-xl rounded-lg z-[9998]`}
+            className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[120px]" : "top-[85px]") : "top-34"}
+translate-y-1 -translate-x-1/2
+bg-white px-24 py-10 shadow-xl z-[9998]
+transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+${isScrolled
+                    ? "w-[96%] max-w-none rounded-xl"
+                    : "w-[90%] max-w-7xl rounded-xl"
+                }`}
         >
             <H3>Unified EHR & Practice Management</H3>
             <P className="text-gray-700 text-lg mt-2 mb-4">One platform for clinical and administrative excellence.</P>

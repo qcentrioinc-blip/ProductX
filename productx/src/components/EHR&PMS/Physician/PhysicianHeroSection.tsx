@@ -3,7 +3,7 @@ import { H2,   H3,   H4, P } from "../../../styles/Typography";
 const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white py-10 overflow-hidden">
-      <div className="  max-w-8xl px-4 xl:mx-10">
+      <div className="  max-w-7xl px-4 xl:mx-auto">
         {/* Top Content */}
         <div className="grid grid-cols-1 mt-10  xl:mt-28 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
@@ -54,7 +54,7 @@ const PhysicianHeroSection = () => {
     xl:left-full
     xl:top-full
     xl:-translate-y-4
-    xl:w-[650px]
+    xl:w-[500px]
     xl:h-[212px]
   "
 />

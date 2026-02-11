@@ -47,7 +47,7 @@ const Accordion = () => {
  
   return (
     <section className="bg-white py-10">
-      <div className="xl:mx-10 max-w-8xl px-6">
+      <div className="xl:mx-auto max-w-7xl xl:px-0 px-4">
         {/* Header */}
       
  

@@ -3,8 +3,8 @@ import {   H3, H4, P } from "../../../styles/Typography";
 
 const ImageGridEHR = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-8xl   mx-6 xl:mx-10">
+    <div className="h-full xl:min-h-screen bg-gradient-to-br from-slate-50 to-stone-100 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl   mx-6 xl:mx-auto">
         {/* Header Section */}
         {/* <div className="text-center mb-12">
           <H2 className="mb-4 text-[#166D48]">
@@ -17,9 +17,9 @@ const ImageGridEHR = () => {
 
         {/* Grid Container */}
       
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4">
+<div className="grid grid-cols-1 lg:grid-cols-13 gap-3 lg:gap-4">
   {/* First Row */}
-  <div className="lg:col-span-7">
+  <div className="lg:col-span-8">
     {/* Box 1 - Doctor with laptop (larger) */}
     <div className="relative h-64 md:h-80 lg:h-[450px] rounded-2xl overflow-hidden shadow-lg group">
       <img
@@ -31,37 +31,59 @@ const ImageGridEHR = () => {
     </div>
   </div>
 
-  <div className="lg:col-span-5">
-  <div className="relative rounded-2xl overflow-hidden min-h-[256px] md:min-h-[320px] lg:min-h-[450px]">
-    
+<div className="lg:col-span-5">
+  <div className="relative rounded-2xl overflow-hidden 
+                  min-h-[350px] 
+                  md:min-h-[650px] 
+                  lg:min-h-[450px] 
+                  xl:min-h-[460px]">
+
     {/* SVG background */}
     <img
       src="/Physician/PinkRectangle.svg"
       alt=""
-      className="absolute inset-0  w-full h-full object-cover"
+      className="absolute inset-0 w-full h-full object-cover"
     />
 
     {/* Arrow */}
-    <div className="absolute top-4 right-6 w-18 h-18 md:w-32 md:h-32 z-10">
+    <div className="absolute 
+                    top-6 right-6 
+                    sm:top-10 sm:right-10 
+                    w-20 h-20 
+                    sm:w-28 sm:h-28 
+                    md:w-36 md:h-36
+                    lg:top-6   lg:right-0
+                    lg:w-24 lg:h-24 
+                    xl:w-32 xl:h-32 
+                    z-10">
       <img
-        src="/Physician/CircleArrow.svg"
+        src="/EHRIcons/GreenArrow.svg"
         alt="arrow"
-        className="w-full h-full"
+        className="w-full h-full object-contain"
       />
     </div>
 
     {/* Content */}
-    <div className="relative z-10 h-full p-8 md:p-10 lg:p-12 flex flex-col justify-between">
-      <H3 className="  pb-3 inline-block">
-       Built For Clinicians
+    <div className="relative z-10 h-full 
+                    p-6 
+                    sm:p-8 
+                    md:p-10 
+                    lg:p-12 
+                    flex flex-col justify-between">
+
+      <H3 className="max-w-xs mt-10">
+        Built For Clinicians
       </H3>
 
-      <P className="max-w-md leading-relaxed mt-20">
-       Designed with physician input to streamline your daily workflow, reduce documentation burden, and support clinical excellence.
+      <P className="max-w-md  mt-24  xl:mt-20 leading-relaxed">
+        Designed with physician input to streamline your daily workflow,
+        reduce documentation burden, and support clinical excellence.
       </P>
+
     </div>
   </div>
 </div>
+
 
 
   {/* Second Row */}
@@ -77,7 +99,7 @@ const ImageGridEHR = () => {
     </div>
   </div>
 
-  <div className="lg:col-span-7">
+  <div className="lg:col-span-8">
     {/* Box 4 - Doctor with laptop on teal background (larger) */}
     <div className="relative h-64 md:h-80 lg:h-96 bg-[#008280] flex flex-row rounded-2xl overflow-hidden shadow-lg group">
       {/* Text overlay */} 

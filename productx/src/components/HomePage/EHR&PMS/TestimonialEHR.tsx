@@ -42,8 +42,8 @@ const TestimonialEHR = () => {
 
   return (
     <> 
-    <div className="max-w-8xl lg:mx-10 lg:my-20 mx-auto">
-                <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12 items-start px-4  ">
+    <div className="max-w-7xl   lg:my-20 mx-auto ">
+                <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12 items-start px-6  ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
@@ -65,10 +65,10 @@ const TestimonialEHR = () => {
                   </div>
                 </div>
               </div>
-   <div className="max-w-8xl border border-[#166D48] rounded-2xl mx-4 p-4 xl:p-16  xl:mx-10 my-10 ">
+   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 my-10  mx-auto ">
    
     {/* GREEN CARD + HEADING IN ONE ROW */}
-  <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] items-center gap-8 lg:gap-12 text-center lg:text-left">
+  <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
 
 
 
@@ -90,11 +90,11 @@ const TestimonialEHR = () => {
                      </div> */}
      
                      {/* Card Content */}
-                     <div className=" absolute top-8 z-10 px-2">
-                      <H3 className="text-white mb-10 -ml-44  lg:-ml-0 inline-block border-b-2 border-white pb-2">
+                    <div className="absolute   top-4 xl:top-8 z-10  xl:px-4">
+                      <H3 className="text-white mb-6 md:mt-4 -ml-24 md:-ml-44 lg:-ml-2 xl:-ml-4 p-4  inline-block border-b-2 border-white pb-2">
        How We Function
      </H3>
-                       <P className="text-white sm:mt-8 px-4 xl:px-0 ">
+                       <P className="text-white max-w-sm md:max-w-lg md:-ml-2 mt-4 lg:-ml-0 md:mt-10 lg:mt-10 xl:mt-2 px-4 md:px-4 xl:px-0 ">
                         Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
                        </P>
                      </div>

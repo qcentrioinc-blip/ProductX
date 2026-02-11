@@ -205,7 +205,7 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-18 w-80 z-[999] p-3"
+                  className="absolute top-14 w-80 z-[999] p-3"
                   onMouseEnter={handleKeepOpen}     
                   onMouseLeave={handleCloseMenus}
                 >
