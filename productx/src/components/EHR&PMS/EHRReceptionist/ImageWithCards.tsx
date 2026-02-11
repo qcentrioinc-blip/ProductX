@@ -6,7 +6,7 @@ const ImageWithCards = () => {
 
   return (
     <section className="bg-white overflow-hidden">
-      <div className="max-w-8xl xl:mx-14 px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+      <div className="max-w-7xl  px-4 pb-20 pt-10 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
           {/* LEFT IMAGE */}
@@ -15,7 +15,7 @@ const ImageWithCards = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: easeOut }}
-            className="rounded-sm overflow-hidden"
+            className="rounded-sm overflow-hidden order-2 lg:order-1"
           >
             <img
               src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1400"
@@ -27,7 +27,7 @@ const ImageWithCards = () => {
           </motion.div>
 
           {/* RIGHT CONTENT */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between order-1 lg:order-2">
 
             {/* TOP TEXT */}
             <motion.div
@@ -36,7 +36,7 @@ const ImageWithCards = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: easeOut }}
             >
-              <H2 className="text-teal-700 mb-4">
+              <H2 className="text-teal-700 mb-4 ">
                  Measurable Front-Desk Improvements 
               </H2>
 

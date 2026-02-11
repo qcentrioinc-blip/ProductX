@@ -11,7 +11,7 @@ const HeroSec = () => {
 
   return (
     <section className="bg-white overflow-hidden">
-      <div className="relative max-w-8xl mx-auto lg:mx-16 px-6 py-16 lg:pt-40">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 lg:pt-40">
 
         {/* Image container */}
         <motion.div
@@ -22,7 +22,7 @@ const HeroSec = () => {
           className="relative rounded-[28px] overflow-hidden"
         >
           <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
+            src="/EHR-PMS/Receptionist/img.webp"
             alt="Professional workspace"
             className="
               w-full
@@ -125,8 +125,8 @@ const HeroSec = () => {
                   }}
                   className="
                     group
-                    inline-flex items-center justify-center gap-3
-                    px-8 h-14 
+                    inline-flex items-center justify-center gap-3 font-bricolage
+                    px-6 h-12 
                     rounded-lg 
                     bg-white 
                     border-2 border-[#007976] 
@@ -137,9 +137,9 @@ const HeroSec = () => {
                   "
                 >
                   See How
-                  <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  {/* <span className="text-2xl font-light transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
-                  </span>
+                  </span> */}
                 </button>
               </motion.div>
             </motion.div>
