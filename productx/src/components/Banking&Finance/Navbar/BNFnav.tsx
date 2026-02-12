@@ -119,17 +119,13 @@ const BNFNav = () => {
       const heroNavExists = !!heroBottomNav;
       if (heroNavExists !== hasHeroNav) setHasHeroNav(heroNavExists);
 
-      // --- TOP BAR: Logic ---
-      // Always hide on scroll down (EHR Style), regardless of page.
       if (currentY > 50 && !isUp) {
         setShowTopBar(false);
       } else {
         setShowTopBar(true);
       }
 
-      // --- MAIN NAV: Handle collision with HeroBottomNav ---
       if (heroBottomNav) {
-        // Calculate document offset to avoid feedback loop
         let docOffset = 0;
         let el: HTMLElement | null = heroBottomNav;
         while (el) {
@@ -137,19 +133,15 @@ const BNFNav = () => {
           el = el.offsetParent as HTMLElement | null;
         }
 
-        // Check if we are in the zone where HeroBottomNav should be sticky
         const isInStickyZone = currentY + 80 > docOffset;
 
         if (isInStickyZone) {
           if (isUp) {
-            // Scroll Up: Show Main Nav (Sequential reveal via CSS delay)
             setShowMainNav(true);
           } else {
-            // Scroll Down: Hide Main Nav (HeroBottomNav takes top)
             setShowMainNav(false);
           }
         } else {
-          // Not in sticky zone: Main Nav always visible
           setShowMainNav(true);
         }
       } else {
@@ -360,7 +352,7 @@ const BNFNav = () => {
               Careers
             </Link>
 
-            <Link to={`${base}/contactform`}>
+            <Link to={`${base}#contact-us`}>
               <ContactUsDark>Contact Us</ContactUsDark>
             </Link>
           </div>
@@ -466,7 +458,7 @@ const BNFNav = () => {
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
-          <Link to={`${base}/contactform`} onClick={() => setMenuOpen(false)}>
+          <Link to={`${base}#contact-us`} onClick={() => setMenuOpen(false)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>
