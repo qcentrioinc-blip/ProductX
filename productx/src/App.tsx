@@ -36,7 +36,7 @@ const JDPage = lazy(() => import('./components/HighTech/JobDescription/JDPage'))
 const PolicyPage = lazy(() => import('./components/HighTech/Policy/PolicyPage'));
 const PDPage = lazy(() => import('./components/HighTech/ProductDetails/PDPage'));
 const JobDescription = lazy(() => import('./components/Banking&Finance/JobDescription/JobDescription'));
-const Contact = lazy(() => import('./components/Banking&Finance/BNFContact/Contact'));
+
 const Applicationform = lazy(() => import('./components/Banking&Finance/ApplicationForm/Applicationform'));
 const CookiePolicyPage = lazy(() => import('./components/EHR&PMS/CookiePolicy/CookiePolicyPage'));
 const PrivacyPolicyPage = lazy(() => import('./components/EHR&PMS/PrivacyPolicy/PrivacyPolicyPage'));
@@ -74,7 +74,7 @@ import { EHRPricing } from './components/EHR&PMS/EHRPricing/EHRPricing';
 import { EHRNursing } from './components/EHR&PMS/EHRNurse/EHRNursing';
 import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRReceptionist';
 import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
- 
+
 import Admin from './components/EHR&PMS/Admin/Admin';
 const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
@@ -194,7 +194,7 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
               <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
               <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
-               <Route path="/industries/ehr-and-pms/admin" element={<Admin />} />
+              <Route path="/industries/ehr-and-pms/admin" element={<Admin />} />
               <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
               <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
               <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
@@ -212,7 +212,7 @@ const App = () => {
               <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
               <Route path='/aboutus' element={<AboutUs />} />
 
-              <Route path="/industries/banking-and-finance/contactform" element={<Contact />} />
+
               <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge />} />
               <Route path="/industries/banking-and-finance/news" element={<NewsPage />} />
               <Route path="/industries/banking-and-finance/events" element={<EventssPage />} />
@@ -231,7 +231,7 @@ const App = () => {
                 path="/industries/:industry/built-for/:builtForType"
                 element={<BuiltFor />}
               />
-              
+
               {/* Marketplace Routes */}
               <Route path='/marketplace' element={<Marketing />} />
               <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
@@ -259,7 +259,7 @@ const App = () => {
             </Routes>
           </Suspense>
         </div>
-      </ScrollProvider> 
+      </ScrollProvider>
       <ToastContainer
         position="bottom-right"
         style={{ marginBottom: '45px' }}

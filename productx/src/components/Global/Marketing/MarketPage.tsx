@@ -13,7 +13,7 @@ import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter";
 import FooterHT from "../../HighTech/FooterHT";
 import AIFooter from "../../HomePage/AIOptimization/AIFooter";
 
-import BNFNav from "../../Banking&Finance/BNFnav";
+import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar";
 import AINavbar from "../../AIOptimization/Navbar/AINavbar";

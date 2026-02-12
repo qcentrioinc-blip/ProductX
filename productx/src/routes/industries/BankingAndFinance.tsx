@@ -10,14 +10,32 @@ import Products from "../../components/Banking&Finance/Products"
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
 import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
 import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactUS"
-import BNFNav from "../../components/Banking&Finance/BNFnav"
+import BNFNav from "../../components/Banking&Finance/Navbar/BNFnav"
 import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOneFooter"
 import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
 // import ContactFooterReveal from "../../components/Banking&Finance/BNFFooter/ContactForm"
 
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
+import { ScrollContext } from "../../context/ScrollContext";
 
 const BankingAndFinance = () => {
+  const location = useLocation();
+  const lenis = useContext(ScrollContext);
+
+  useEffect(() => {
+    if (location.hash === '#contact-us') {
+      setTimeout(() => {
+        if (lenis) {
+          lenis.scrollTo('#contact-us', { offset: 0, duration: 1.5 });
+        } else {
+          const element = document.getElementById('contact-us');
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location, lenis]);
+
   useEffect(() => {
     const originalStyle = document.body.style.overflowX;
     document.body.style.overflowX = "hidden";
@@ -52,11 +70,10 @@ const BankingAndFinance = () => {
 
 
         <div
+          id="contact-us"
           className="absolute inset-0 z-40 pointer-events-none"
-
         >
           <ContactUS />
-
         </div>
 
       </div>
