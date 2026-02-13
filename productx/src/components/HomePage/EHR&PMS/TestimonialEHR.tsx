@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
  
 import { H2, H3, H4, P } from "../../../styles/Typography";
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const TestimonialEHR = () => {
+ const [drawerOpen, setDrawerOpen] = useState(false);
+
   const card=[
     {
       title:"Unify Clinical and Administrative Data",
@@ -42,8 +45,8 @@ const TestimonialEHR = () => {
 
   return (
     <> 
-    <div className="max-w-7xl   lg:my-20 mx-auto ">
-                <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12 items-start px-6  ">
+    <div className="max-w-7xl   lg:my-20 xl:mx-auto   ">
+                <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12 items-start  xl:px-6  ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
@@ -78,23 +81,39 @@ const TestimonialEHR = () => {
                    <div className="relative  w-full ">
                      
               <img
-  src="/EHRIcons/arrow.webp"
+  src="/EHRIcons/GreenRec.webp"
   className="w-full h-auto   "
   alt="ehr and pms"
 />
 
                      {/* Arrow icon in the curved corner */}
-                     {/* <div className="absolute top-2 right-2 w-28 h-28   rounded-full  flex items-center justify-center  xl:hover:scale-110 transition-transform duration-300">
-                       <img src="/Physician/CircleArrow.svg"  alt="arrow"/>
-                      
-                     </div> */}
+                  <button
+  type="button"
+  onClick={() => setDrawerOpen(true)}
+  className="
+    absolute top-2 right-2
+    w-28 h-28
+    z-30
+    flex items-center justify-center
+    transition-transform duration-300
+    hover:scale-110
+    cursor-pointer
+  "
+>
+  <img
+    src="/EHRIcons/GreenArrow.svg"
+    alt="arrow"
+    className="w-full h-full object-contain pointer-events-none"
+  />
+</button>
+
      
                      {/* Card Content */}
                     <div className="absolute   top-4 xl:top-8 z-10  xl:px-4">
-                      <H3 className="text-white mb-6 md:mt-4 -ml-24 md:-ml-44 lg:-ml-2 xl:-ml-4 p-4  inline-block border-b-2 border-white pb-2">
+                      <H3 className="text-white mb-6 md:mt-4 xl:mt-0 -ml-24 md:-ml-44 lg:-ml-2 xl:-ml-4 p-4  inline-block border-b-2 border-white pb-2">
        How We Function
      </H3>
-                       <P className="text-white max-w-sm md:max-w-lg md:-ml-2 mt-4 lg:-ml-0 md:mt-10 lg:mt-10 xl:mt-2 px-4 md:px-4 xl:px-0 ">
+                       <P className="text-white max-w-sm md:max-w-lg xl:max-w-xl md:-ml-2 mt-4 lg:-ml-0 md:mt-10 lg:mt-10 xl:mt-0 px-4 md:px-4  xl:px-0  ">
                         Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
                        </P>
                      </div>
@@ -103,7 +122,7 @@ const TestimonialEHR = () => {
      
 
       {/* Right Heading */}
-      <div className="order-1 xl:order-2 flex justify-center xl:justify-end">
+      <div className="order-1 xl:order-2 flex justify-cente xl:justify-end">
   <H2 className="text-[#008280] font-normal leading-tight text-center xl:text-right xl:pr-10">
     Our Four Pillars of Unified Practice Management
   </H2>
@@ -148,7 +167,7 @@ const TestimonialEHR = () => {
         ))}
       </div>
     </div>
-
+ <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
   </div>
  
 

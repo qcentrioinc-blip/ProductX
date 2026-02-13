@@ -178,13 +178,13 @@ const ImageWithCards = () => {
   {/* LIST */}
   <ul className="text-sm text-gray-600 space-y-2 font-bricolage">
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0" /> velit
+      <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0" /> Reduced
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-green-400 shrink-0" /> velit
+      <span className="w-2 h-2 rounded-full bg-green-400 shrink-0" /> Manual
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0" /> velit
+      <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0" /> Tasks
     </li>
   </ul>
 </motion.div>

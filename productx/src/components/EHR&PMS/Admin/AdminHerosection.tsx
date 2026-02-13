@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { H1, P } from '../../../styles/Typography';
+import ContactDrawer from '../Navbar/ContactDrawer';
  
 
 const AdminHeroSection: React.FC = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <section className="relative  bg-white overflow-hidden">
       {/* Decorative floating elements */}
@@ -124,6 +126,7 @@ const AdminHeroSection: React.FC = () => {
         </div>
       </div>
 
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
        
     </section>
   );

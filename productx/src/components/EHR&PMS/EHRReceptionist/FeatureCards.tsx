@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { H2, H4, P } from "../../../styles/Typography";
+import ContactDrawer from "../Navbar/ContactDrawer";
  
 const FeatureCards = () => {
+     const [drawerOpen, setDrawerOpen] = useState(false);
+   
   return (
     <section className="bg-white pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
@@ -14,7 +18,7 @@ const FeatureCards = () => {
         </div>
  
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
          
           {/* Card 1 - Left */}
           <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
@@ -36,32 +40,49 @@ const FeatureCards = () => {
           </div>
  
           {/* Card 2 - Center (Highlighted with Teal Image) */}
-          <div className="flex flex-col rounded-[2rem] overflow-hidden  relative">
+          <div className="flex flex-col rounded-[2rem] overflow-hidden relative">
             {/* Arrow icon in top right corner */}
-            <div className="absolute top-2 right-2 w-28 h-28 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 z-10">
-              <img src="/Physician/CircleArrow.svg" alt="arrow"/>
-            </div>
- 
-            {/* Teal Rectangle Image with text overlay */}
-            <div className="relative p-8 pb-10">
-              {/* Background Image */}
-              <div className="absolute inset-0 rounded-t-[2rem] overflow-hidden">
-                <img
-                  src="/Physician/TealRect.webp"
-                  alt="Teal Background"
-                  className="w-full h-full object-cover"
-                />
-              </div>
- 
-              {/* Text Content on top of image */}
-              <div className="relative z-10">
-                <div className="text-white text-4xl mb-6">＋</div>
-                <H4 className="text-xl mb-3 text-white"> Patient Flow Tracking </H4>
-                <P className="text-teal-50 leading-relaxed">
-                  See exactly who has checked in, is in triage, or is waiting for the provider to reduce delays. 
-                </P>
-              </div>
-            </div>
+           
+             <button
+  type="button"
+   onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setDrawerOpen(true);
+    }}
+  className="absolute   top-4 right-4 h-24 w-24 md:top-6 md:right-6 md:h-32 md:w-32 lg:top-6 lg:right-20 lg:w-44 lg:h-44 xl:top-2 xl:right-0 xl:w-28 xl:h-28 flex items-center justify-center z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
+>
+  <img
+    src="/EHRIcons/GreenArrow.svg"
+    alt="arrow"
+    className="w-full h-full object-contain pointer-events-none"
+  />
+</button>
+
+            
+  
+           {/* Teal Rectangle Image with text overlay */}
+<div className="relative  md:h-[350px] lg:h-[400px] xl:h-[260px] p-8 pb-10">
+  
+  {/* Background Image */}
+  <img
+    src="/EHRIcons/GreenRec.webp"
+    alt="Teal Background"
+    className="absolute inset-0 w-full h-full "
+  />
+
+  {/* Text Content */}
+  <div className="relative z-10">
+    <div className="text-white text-4xl mb-6">＋</div>
+    <H4 className="text-xl mb-3 text-white">
+      Patient Flow Tracking
+    </H4>
+    <P className="text-teal-50  md:max-w-md xl:max-w-full leading-relaxed">
+      See exactly who has checked in, is in triage, or is waiting for the provider to reduce delays and improve efficiency.
+    </P>
+  </div>
+</div>
+
            
             {/* Bottom Image Section */}
             <div className="mt-auto h-72">
@@ -94,6 +115,7 @@ const FeatureCards = () => {
  
         </div>
       </div>
+              <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </section>
   );
 };

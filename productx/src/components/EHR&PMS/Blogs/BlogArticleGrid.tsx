@@ -15,16 +15,16 @@ interface Article {
 const MOCK_ARTICLES: Article[] = [
   {
     id: 1,
-    date: '8 Sep 2025',
+    date: '12 Feb 2026',
     imageSrc: '/EHR-PMS/Blogs/img1.png',
-    title: 'Sed ut perspiciat Unde Sedvo ut',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
+    title: 'How Modern PMS Can Boost Patient Referrals and Retention ',
+    description: 'A steady stream of both is useful to a healthy practice.',
   },
   {
     id: 2,
     date: '8 Sep 2025', 
     imageSrc: '/EHR-PMS/Blogs/img2.png',
-    title: 'Sed ut perspiciat Unde Sedvo ut',
+    title: 'Sed ut perspiciat Unde Sedvo ut', 
     description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat reprehenderit in voluptate velit .',
   },
   {

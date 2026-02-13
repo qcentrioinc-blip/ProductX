@@ -1,7 +1,10 @@
+import { useState } from "react";
 import {   H3, H4, P } from "../../../styles/Typography";
+import ContactDrawer from "../Navbar/ContactDrawer";
 
 
 const ImageGridEHR = () => {
+       const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <div className="h-full xl:min-h-screen bg-gradient-to-br from-slate-50 to-stone-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl   mx-6 xl:mx-auto">
@@ -46,22 +49,33 @@ const ImageGridEHR = () => {
     />
 
     {/* Arrow */}
-    <div className="absolute 
-                    top-6 right-6 
-                    sm:top-10 sm:right-10 
-                    w-20 h-20 
-                    sm:w-28 sm:h-28 
-                    md:w-36 md:h-36
-                    lg:top-6   lg:right-0
-                    lg:w-24 lg:h-24 
-                    xl:w-32 xl:h-32 
-                    z-10">
-      <img
-        src="/EHRIcons/GreenArrow.svg"
-        alt="arrow"
-        className="w-full h-full object-contain"
-      />
-    </div>
+    <button
+  type="button"
+  onClick={() => setDrawerOpen(true)}
+  className="
+    absolute 
+    top-6 right-6 
+    sm:top-10 sm:right-10 
+    lg:top-6 lg:right-0
+    w-20 h-20 
+    sm:w-28 sm:h-28 
+    md:w-36 md:h-36
+    lg:w-24 lg:h-24 
+    xl:w-32 xl:h-32 
+    z-30
+    flex items-center justify-center
+    transition-transform duration-300
+    hover:scale-110
+    cursor-pointer
+  "
+>
+  <img
+    src="/EHRIcons/GreenArrow.svg"
+    alt="arrow"
+    className="w-full h-full object-contain pointer-events-none"
+  />
+</button>
+
 
     {/* Content */}
     <div className="relative z-10 h-full 
@@ -69,11 +83,14 @@ const ImageGridEHR = () => {
                     sm:p-8 
                     md:p-10 
                     lg:p-12 
+                    xl:p-8
                     flex flex-col justify-between">
 
-      <H3 className="max-w-xs mt-10">
-        Built For Clinicians
-      </H3>
+    <H3 className="mt-10 inline-block relative">
+  Built For Clinicians
+  <span className="absolute left-0 -bottom-2 w-44 md:w-56 lg:40 xl:w-72 h-[2px] bg-[#141414]" />
+</H3>
+
 
       <P className="max-w-md  mt-24  xl:mt-20 leading-relaxed">
         Designed with physician input to streamline your daily workflow,
@@ -103,7 +120,7 @@ const ImageGridEHR = () => {
     {/* Box 4 - Doctor with laptop on teal background (larger) */}
     <div className="relative h-64 md:h-80 lg:h-96 bg-[#008280] flex flex-row rounded-2xl overflow-hidden shadow-lg group">
       {/* Text overlay */} 
-      <div className="absolute bottom-8 left-6 md:left-8 z-10">
+      <div className="absolute bottom-12 left-6 md:left-8 z-10">
         <H4 className="text-2xl md:text-3xl text-white mb-3">
            Supports Smarter Decisions
         </H4>
@@ -113,14 +130,15 @@ const ImageGridEHR = () => {
       </div>
       
       <img
-        src="/Physician/PhysicianImage2.svg"
+        src="/EHRIcons/LadyDoctor.webp"
         alt="Female doctor with laptop"
-        className="w-full h-full absolute left-32 md:left-44 object-contain transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-full absolute -bottom-10 right-0 md:-right-20 lg:-right-28 object-contain transition-transform duration-500 group-hover:scale-105"
       /> 
     </div>
   </div>
 </div>
       </div>
+       <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </div>
   );
 };

@@ -94,7 +94,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
                     e.stopPropagation();
                     setDrawerOpen(true);
                   }}
-                  className="w-fit transition-transform hover:scale-105 active:scale-95"
+                  className="w-fit mt-4 transition-transform hover:scale-105 active:scale-95"
                 >
                {content.cta}
                 </ContactUs>

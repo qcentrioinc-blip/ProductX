@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { H2 } from '../../styles/Typography';
-
+ 
 const InsightThought = () => {
     // Data for cards
     const insights = [
@@ -26,10 +26,10 @@ const InsightThought = () => {
             date: "AUGUST 19, 2025"
         }
     ];
-
+ 
     return (
-        <div className="bg-[#E7E7E7] py-8" id='blogs'>
-            <div className="max-w-7xl mx-auto ">
+        <div className="bg-[#E7E7E7] py-8 sm:py-12 lg:py-16" id='blogs'>
+            <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
                 {/* Header Section */}
                 <div className="flex justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
                     <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
@@ -44,7 +44,7 @@ const InsightThought = () => {
                         </button>
                     </a>
                 </div>
-
+ 
                 {/* Cards Grid */}
                 {/* Horizontal Scrolling Row */}
                 <div className="flex overflow-x-auto gap-4 sm:gap-5 lg:gap-6 pb-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
@@ -117,5 +117,5 @@ const InsightThought = () => {
         </div>
     );
 };
-
+ 
 export default InsightThought;

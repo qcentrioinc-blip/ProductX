@@ -7,7 +7,7 @@ export const featureblockContent = {
       {
         title: "Intelligent Clinical Documentation",
         content:
-          " Smart SOAP templates, integrated history, and auto-coding speed up your notes so you finish charting in minutes, not hours.",
+          " Smart SOAP templates, integrated history, and auto coding speed up your notes so you finish charting in minutes, not hours.",
       },
       {
         title: "Real-Time Decision Support",

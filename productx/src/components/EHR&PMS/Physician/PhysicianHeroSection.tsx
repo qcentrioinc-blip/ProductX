@@ -3,9 +3,9 @@ import { H2,   H3,   H4, P } from "../../../styles/Typography";
 const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white py-10 overflow-hidden">
-      <div className="  max-w-7xl px-4 xl:mx-auto">
+      <div className="  max-w-7xl  px-4 xl:mx-auto">
         {/* Top Content */}
-        <div className="grid grid-cols-1 mt-10  xl:mt-28 xl:grid-cols-[2fr_1fr] gap-10 items-center">
+        <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
             <H2 className="text-4xl font-semibold text-[#008280] leading-tight">
@@ -53,7 +53,7 @@ const PhysicianHeroSection = () => {
     xl:absolute
     xl:left-full
     xl:top-full
-    xl:-translate-y-4
+    xl:-translate-y-2
     xl:w-[500px]
     xl:h-[212px]
   "
@@ -64,7 +64,7 @@ const PhysicianHeroSection = () => {
  
           {/* Stats */}
           <div className=" mt-10 xl:mt-28  grid grid-cols-3 gap-10 max-w-3xl">
-            <div className="xl:mt-10">
+            <div className="xl:mt-4">
               <H3 className=" font-bold">
                Achieve Best Results  
               </H3>

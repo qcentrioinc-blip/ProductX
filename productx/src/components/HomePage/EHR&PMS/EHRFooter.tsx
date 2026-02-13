@@ -253,7 +253,7 @@ const EHRFooter = () => {
                 <ul className="space-y-5">
                   <li>
                     <a
-                      href={`${base}/clinic-app`}
+                      href={`${base}/blogs`}
                       className="hover:opacity-80 transition-opacity inline-block"
                       style={{
                         fontFamily: "'Bricolage Grotesque', sans-serif",
