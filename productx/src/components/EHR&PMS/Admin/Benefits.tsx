@@ -58,7 +58,7 @@ const Benefits = () => {
       ref={containerRef}
       className="relative w-full min-h-[150vh] xl:min-h-[350vh] xl:pt-10 pb-20 px-6 "
     >
-      <div className="xl:sticky max-w-8xl xl:mx-10 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
+      <div className="xl:sticky max-w-7xl xl:mx-auto xl:px-0 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
         <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">

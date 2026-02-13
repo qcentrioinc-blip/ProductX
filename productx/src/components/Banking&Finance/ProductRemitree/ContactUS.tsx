@@ -54,9 +54,9 @@ const ContactUS = () => {
   return (
     <div
       ref={targetRef}
-      className="relative z-30 h-screen pointer-events-auto bg-white overflow-hidden" id='ContactUs'
+      className="relative z-30 min-h-screen lg:h-screen pointer-events-auto bg-white overflow-visible lg:overflow-hidden" id='ContactUs'
     >
-      <div className="sticky top-0 flex items-center justify-center h-screen w-full">
+      <div className="lg:sticky lg:top-0 flex items-center justify-center min-h-screen lg:h-screen w-full">
         <motion.div
           style={{
             scale: smoothScale,
@@ -66,7 +66,7 @@ const ContactUS = () => {
           className="relative w-full max-w-[1400px] mx-auto overflow-hidden md:h-[95vh]"
         >
           {/* MOBILE LAYOUT */}
-          <div className="md:hidden flex flex-col  h-screen">
+          <div className="md:hidden flex flex-col min-h-screen relative">
             {/* Blue Header Section with Curve */}
             <div className="relative bg-[#2B68C3] h-[50%] pt-12 pb-32 px-6">
               {/* Yellow Curve - SVG */}

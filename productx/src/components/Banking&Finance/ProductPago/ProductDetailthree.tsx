@@ -7,11 +7,11 @@ import ImageGrid from "./ImageGrid"
 import Workflow from "./Workflow"
 import Cards from "./Cards"
 // import PagoNavbar from "./PagoNavbar"
- 
+
 import InsightThought from "../InsightThought"
 import ContactUS from "../ProductRemitree/ContactUS"
- 
-import BNFNav from "../BNFnav"
+
+import BNFNav from "../Navbar/BNFnav"
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "./HeroBottomNav";
 import FaqSection from "../ProductSherlock/FAQ";
@@ -21,58 +21,58 @@ const ProductDetailthree = () => {
     <div>
 
       <BNFNav />
- 
+
       <HeroSection />
 
-    <HeroBottomNavbar/>
+      <HeroBottomNavbar />
 
-       
+
       <div id="overview">
         <CTA />
       </div>
- <div id="benefits" >
+      <div id="benefits" >
         <Cards />
       </div>
- 
+
       <div id="process">
         <Workflow />
       </div>
- 
-      
+
+
       <div >
         <ImageGrid />
       </div>
- 
+
       <div id="usecases">
         <HWD />
       </div>
-   <div id="faq">
-     <FaqSection />
-     </div>
+      <div id="faq">
+        <FaqSection />
+      </div>
       <div id="blogs">
         <InsightThought />
       </div>
-    
-  
-     
+
+
+
       <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
         <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+          <NewOneFooter />
         </div>
- 
-         
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
+
       </div>
 
     </div>

@@ -17,7 +17,7 @@ const HWD = () => {
       bottomBg: "#FFFFFF",
       headingColor: "#008280",
       textcolor: "#141414",
-      CheckColor: "#A80040"
+      CheckColor: "#008280"
 
 
     },
@@ -240,8 +240,8 @@ const HWD = () => {
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
-      <div className="py-6 px-4 pb-8 md:p-8" style={{ backgroundColor: topBg }}>
-        <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
+      <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
+        <div className="w-14 h-14 rounded-full mb-2 overflow-hidden">
           <img
             src={image}
             alt={title}

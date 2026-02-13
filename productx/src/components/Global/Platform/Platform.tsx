@@ -1,4 +1,4 @@
-import BNFNav from "../../Banking&Finance/BNFnav"
+import BNFNav from "../../Banking&Finance/Navbar/BNFnav"
 // import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS"
 // import NewFooter from "../../Banking&Finance/ProductRemitree/NewFooter"
 import Testimonial from "../../Banking&Finance/Career/Testimonial"
@@ -89,7 +89,7 @@ const Platform = () => {
       {/* Footer */}
       {getFooter()}
 
-      
+
     </div>
   )
 }

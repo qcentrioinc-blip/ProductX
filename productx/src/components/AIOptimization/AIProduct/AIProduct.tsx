@@ -13,7 +13,7 @@ const FeatureCards = lazy(() => import("../HomePageAI/Features"));
 const AIProduct = () => {
   
   return (
-    <div className="relative">
+    <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
         <HeroCombined />  
       </div>

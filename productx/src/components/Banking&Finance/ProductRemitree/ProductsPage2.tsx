@@ -9,7 +9,7 @@ import ThirdCards from "./ThirdCards";
 import ThreeTab from "./ThreeTab";
 // import { ScrollProvider } from "../../../context/ScrollContext"; 
 import NewOneFooter from "./NewOneFooter";
-import BNFNav from "../BNFnav";
+import BNFNav from "../Navbar/BNFnav";
 import TwoPart from "./TwoPart";
 import HWD from "../HWD";
 import FaqSection from "../ProductSherlock/FAQ";

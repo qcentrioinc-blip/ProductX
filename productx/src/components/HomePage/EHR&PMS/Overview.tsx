@@ -30,8 +30,8 @@ const items: OverviewItem[] = [
 
 const Overview: React.FC = () => {
   return (
-    <section className="w-full bg-[#EEEEEE] py-10 px-4">
-      <div className="xl:mx-10 max-w-8xl">
+    <section className="w-full bg-[#EEEEEE] py-10 px-4 xl:px-0">
+      <div className="xl:mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {items.map((item, index) => (
             <div

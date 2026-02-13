@@ -11,14 +11,14 @@ const AdminHeroSection: React.FC = () => {
      
       
       {/* Main content container */}
-      <div className="container mx-4 xl:mx-10 px-6 py-12 pt-16 lg:pt-28 ">
+      <div className="max-w-7xl mx-auto    xl:px-0 px-6 py-12 pt-16 lg:pt-28 ">
         <div className="grid xl:grid-cols-2 gap-4   items-center ">
           
           {/* Left content */}
           <div className="space-y-8 z-10 max-w-3xl">
             {/* Main heading with blue accent circle */}
             <div className="relative ">
-<H1 className="text-[#008280] mt-8 xl:mt-0 max-w-none w-full">
+<H1 className="text-[#008280] mt-8 xl:mt-0   w-full">
   Complete Control Over Clinic Operations
 </H1>
 
@@ -102,10 +102,10 @@ const AdminHeroSection: React.FC = () => {
           </div>
 
           {/* Right side - Image placeholder */}
-          <div className="relative z-10">
+          <div className="relative z-10">s
           
               {/* Image container - leave space for the actual image */}
-              <div className="relative w-[80%]   pt-10   overflow-hidden  flex items-center justify-center">
+              <div className="relative w-[100%]   pt-10   overflow-hidden  flex items-center justify-center">
                 <img
                   src="/EHRIcons/admin.webp"
                   alt="Admin Hero"

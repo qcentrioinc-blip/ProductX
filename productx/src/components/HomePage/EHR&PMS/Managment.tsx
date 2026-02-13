@@ -184,7 +184,7 @@ export default function Management() {
 
   return (
     <section ref={sectionRef} className="relative ">
-      <div className="w-full">
+      <div className="max-w-full ">
         {DATA.map((card, i) => {
           const imageOnRight = i % 2 === 0;
           const activeIndex = activeItem[card.id];
@@ -193,13 +193,15 @@ export default function Management() {
             <div
               key={card.id}
               ref={i === 0 ? firstCardRef : null}
-            className="sticky z-10 top-16 min-h-screen"
+           className="sticky top-16"
+ 
+
 
             >
               <div
   className={`${
     i % 2 === 0 ? "bg-white" : "bg-[#FBF7EF]"
-  } rounded-t-[6rem] transition-all duration-700 ease-out mx-auto
+  } rounded-t-[6rem] transition-all duration-700 ease-out 
   shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
   style={
     i === 0
@@ -208,11 +210,11 @@ export default function Management() {
   }
 >
 
-                <div className="flex flex-col lg:flex-row gap-12 p-8 lg:p-16">
+                <div className="flex flex-col lg:flex-row gap-12 p-8 lg:px-16">
                   {/* IMAGE + TITLE */}
                   <div
                     className={`w-full lg:w-1/2 flex flex-col gap-6 ${
-                      imageOnRight ? "lg:order-2" : "lg:order-1"
+                      imageOnRight ? "lg:order-2 lg:pr-20" : "lg:order-1 lg:pl-20"
                     }`}
                   >
                     <H2 className=" font-light text-[#008280]">
@@ -226,7 +228,7 @@ export default function Management() {
                         <img
                           src={card.items[activeIndex].image}
                           alt=""  
-                          className="w-full h-full object-cover transition-opacity duration-300"
+                          className="w-full h-full  object-cover transition-opacity duration-300"
                         />
                       ) : (
                         <span className="text-gray-400 text-sm">Select an item</span>
@@ -292,7 +294,9 @@ export default function Management() {
           );
         })}
 
-        <div className="h-[50vh]" />
+        {/* <div className="h-[50vh]" /> */}
+        
+
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-8xl px-4 py-16">
+      <div className="mx-auto max-w-8xl  py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
 
@@ -23,9 +23,9 @@ const WhyUnifiedHealth: React.FC = () => {
 
           {/* CENTER CONTENT (top) */}
           <div className="flex flex-col   justify-center items-start xl:pl-16">
-            <span className="mb-3 font-quicksand text-md">
+            {/* <span className="mb-3 font-quicksand text-md">
               Why Unified Health Net
-            </span>
+            </span> */}
 
             <H2 className="mb-6 leading-snug text-[#008280]">
               Built for Modern Healthcare’s Demands
@@ -38,7 +38,7 @@ const WhyUnifiedHealth: React.FC = () => {
             <button
               onClick={() => setDrawerOpen(true)}
               className="
-          group mt-10
+          group 
           flex items-center justify-center
           w-auto h-[48px]
           px-[32px] py-[4px]

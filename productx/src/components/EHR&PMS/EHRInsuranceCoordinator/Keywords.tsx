@@ -67,16 +67,16 @@ export default function Keywords() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#F8F8F8] h-[60vh] xl:h-[150vh]"
+      className="relative bg-[#F8F8F8] h-auto xl:h-[150vh]"
     >
       {/* STICKY AREA */}
-      <div className="sticky top-0 h-[60vh] xl:h-screen flex items-end justify-center overflow-hidden">
+      <div className="sticky top-0 h-auto xl:h-screen flex items-end justify-center overflow-hidden">
         <div className="relative w-full max-w-7xl mx-auto items-center flex xl:items-end justify-center pb-0">
 
           {/* SVG - arcs touch bottom - responsive sizing */}
           <svg 
             viewBox="0 0 1000 500" 
-            className="w-full h-auto"
+            className="w-full h-auto max-h-[40vh] xl:max-h-none"
             preserveAspectRatio="xMidYMax meet"
           >
             {/* OUTER ARC */}
@@ -129,7 +129,7 @@ export default function Keywords() {
                   fontSize="16"
                   fill="#141414"
                   fontFamily="Quicksand,sans-serif"
-                  className="font-bold hidden xl:block"
+                  className="font-bold  xl:block"
                   textAnchor="middle"
                 >
                   {p.label}
@@ -141,7 +141,7 @@ export default function Keywords() {
           {/* SEMI-CIRCLE GRADIENT BACKGROUND - responsive sizing */}
           <div
             className="absolute bottom-0 left-1/2 transform -translate-x-1/2 
-                       w-[300px] h-[150px] sm:w-[400px] sm:h-[200px] xl:w-[500px] xl:h-[250px]"
+                       w-[200px] h-[100px] sm:w-[400px] sm:h-[200px] xl:w-[500px] xl:h-[250px]"
             style={{
               borderRadius: "300px 300px 0 0",
               background:
@@ -163,7 +163,7 @@ export default function Keywords() {
             <img
               src="/EHRIcons/InsuranceKeywords.webp"
               alt="Person"
-              className="w-[200px] sm:w-[260px] md:w-[300px] xl:w-[320px] object-cover"
+              className="w-[150px] sm:w-[200px] md:w-[260px] lg::w-[300px] xl:w-[320px] object-cover"
             />
           </div>
         </div>

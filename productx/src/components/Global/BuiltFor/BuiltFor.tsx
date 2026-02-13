@@ -9,7 +9,7 @@ import ImgSec from "./ImgSec";
 import SplitFeature from "./SplitFeature";
 import TextSec from "./TextSec";
 
-import BNFNav from "../../Banking&Finance/BNFnav";
+import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 import AINavbar from "../../AIOptimization/Navbar/AINavbar";
 import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar";
