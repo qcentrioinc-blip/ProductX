@@ -10,7 +10,7 @@ import Image4 from "/Enterprise/Enterprise4.png";
 
 const Enterprises = () => {
   return (
-    <section className="bg-black h-full w-full text-white py-10 px-4 md:px-8">
+    <section className="bg-[#F5F5F5] h-full w-full text-black py-10 px-4 md:px-8">
 
       {/* Heading */}
       <div className="max-w-4xl mx-4 lg:mx-10 text-left mb-16">

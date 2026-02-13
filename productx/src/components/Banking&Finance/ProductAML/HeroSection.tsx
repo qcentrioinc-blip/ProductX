@@ -95,8 +95,8 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
-
+    // <div className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
+ <div className="w-full bg-[#F5F5F5] mb-12">
       <div className=" px-8 sm:px-12 md:px-16 pt-12 md:pt-36 lg:pt-44 lg:px-16 xl:px-20 flex flex-col xl:flex-row justify-between    items-center gap-8">
         <motion.div
           className="w-full text-(--primary-color) text-center lg:text-center xl:text-left xl:w-full"

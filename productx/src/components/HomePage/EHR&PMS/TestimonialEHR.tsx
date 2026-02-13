@@ -91,7 +91,7 @@ const TestimonialEHR = () => {
   type="button"
   onClick={() => setDrawerOpen(true)}
   className="
-    absolute top-2 right-2
+    absolute top-2 right-0
     w-28 h-28
     z-30
     flex items-center justify-center

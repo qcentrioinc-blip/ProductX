@@ -128,19 +128,19 @@ const HeroSection = () => {
           variants={backgroundCoverVariants}
           initial="hidden"
           animate="visible"
-          className="absolute inset-0 bg-blue-600 z-0"
+          className="absolute inset-0 bg-white z-0"
         />
 
         {/* Top Section Content - Use motion.div for text staggering */}
         <motion.div 
-          className="relative pt-10 md:pt-30 lg:pt-20 pb-10   px-4 text-white z-10"
+          className="relative pt-10 md:pt-30 lg:pt-20 pb-10   px-4 text-[#2B68C3] z-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <div className="max-w-5xl mx-auto flex flex-col items-center">
             <motion.div variants={itemVariants}>
-              <H1 className="font-bold text-white pt-24">
+              <H1 className="font-bold text-[#2B68C3] pt-24">
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
               </H1>
             </motion.div>
@@ -183,7 +183,7 @@ const HeroSection = () => {
       </div>
       
       {/* --- Bottom Image Section (Animations focused here) --- */}
-      <div className="w-full  bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20 lg:pb-24">
+      <div className="w-full  bg-white pb-10 md:pb-20 lg:pb-24">
         
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
         <div className="xl:hidden lg:pt-10 mt-6 px-4">
