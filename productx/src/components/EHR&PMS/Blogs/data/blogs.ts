@@ -225,8 +225,8 @@ keyTakeaways: [
         id: "What is an EMR?",
         heading: "What is an EMR?",
         paragraphs: [
-          `Innovating from the old traditional ways of keeping paper charts, EMR stands for Electronic Medical Record. It is a digital version of a patient’s paper chart. Providers use it to document diagnosis, treatment, and visit notes inside one practice. The scope is limited. It does not travel with the patient to other clinics or hospitals.   `,
-          `Though here, the most common complaints from users include poor usability and lack of integration with other systems. Many providers feel EMR software slows them down instead of helping them work faster. The focus stays inside one office. `
+          "Innovating from the old traditional ways of keeping paper charts, EMR stands for Electronic Medical Record. It is a digital version of a patient’s paper chart. Providers use it to document diagnosis, treatment, and visit notes inside one practice. The scope is limited. It does not travel with the patient to other clinics or hospitals.   ",
+          // `Though here, the most common complaints from users include poor usability and lack of integration with other systems. Many providers feel EMR software slows them down instead of helping them work faster. The focus stays inside one office. `
         ]
       },
       {
