@@ -7,19 +7,19 @@ import HWD from "../HWD";
 import FaqSection from "../ProductSherlock/FAQ";
 import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import BNFNav from "../BNFnav";
+import BNFNav from "../Navbar/BNFnav";
 // import KeytomStickyScroll from "./KeytomStickyScroll";
- 
+
 import ContactUS from "../ProductRemitree/ContactUS";
 
 const PDPage9 = () => {
   return (
     <>
-    <BNFNav/>
+      <BNFNav />
       <HeroSection />
       <FeatureGridSection />
       <StatsSection />
-            
+
 
       <Cards />
       {/* <KeytomStickyScroll/> */}
@@ -28,25 +28,25 @@ const PDPage9 = () => {
       <FaqSection />
       <InsightThought />
       <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
         <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+          <NewOneFooter />
         </div>
- 
-         
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
+
       </div>
-        
+
     </>
   );
 };

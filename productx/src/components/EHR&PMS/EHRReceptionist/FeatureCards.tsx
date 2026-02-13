@@ -50,7 +50,7 @@ const FeatureCards = () => {
       e.stopPropagation();
       setDrawerOpen(true);
     }}
-  className="absolute   top-4 right-4 h-24 w-24 md:top-6 md:right-6 md:h-32 md:w-32 lg:top-6 lg:right-20 lg:w-44 lg:h-44 xl:top-2 xl:right-4 xl:w-28 xl:h-28 flex items-center justify-center z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
+  className="absolute   top-4 right-4 h-24 w-24 md:top-6 md:right-6 md:h-32 md:w-32 lg:top-6 lg:right-20 lg:w-44 lg:h-44 xl:top-2 xl:right-0 xl:w-28 xl:h-28 flex items-center justify-center z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
 >
   <img
     src="/EHRIcons/GreenArrow.svg"

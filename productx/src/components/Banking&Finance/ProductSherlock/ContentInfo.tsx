@@ -3,7 +3,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function Sec_4() {
   return (
-    <section className="relative w-full xl:h-auto flex max-w-8xl bg-[#E4E4E4] py-20 px-5 overflow-hidden">
+    <section className="relative w-full xl:h-auto flex max-w-8xl bg-[#E4E4E4] py-10 px-5 overflow-hidden">
       {/* Vertical line (desktop only) */}
       <div
         className="hidden xl:block absolute top-0 right-0 h-full z-[50]"

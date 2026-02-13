@@ -4,48 +4,48 @@ import Testimonial from "./Testimonial"
 import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
- 
+
 import FaqSection from "../ProductSherlock/FAQ"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
-import BNFNav from "../BNFnav"
+import BNFNav from "../Navbar/BNFnav"
 // import ContactSection from "../ProductBankfair/ContactSection"
 import ContactUS from "../ProductRemitree/ContactUS"
- 
- 
+
+
 
 const AML = () => {
   return (
     <div>
-      
-      <BNFNav/>
+
+      <BNFNav />
       <HeroSection />
       <Testimonial />
       <Description />
       <Banks />
       <HWD />
-      
-      <FaqSection/>
-      <InsightThought/>
-     <div className="relative">
-      
-      <div className=" lg:h-[200vh]"></div>
-     
-     
-       
+
+      <FaqSection />
+      <InsightThought />
+      <div className="relative">
+
+        <div className=" lg:h-[200vh]"></div>
+
+
+
         <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter/>
+          <NewOneFooter />
         </div>
- 
-         
+
+
         <div
           className="absolute inset-0 z-40 pointer-events-none"
-         
+
         >
-          <ContactUS/>
+          <ContactUS />
         </div>
- 
+
       </div>
-    
+
     </div>
   )
 }

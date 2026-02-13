@@ -85,7 +85,7 @@ const EHRFooter = () => {
       <GradientLayers />
 
       {/* Main Container */}
-      <div className="bg-[#008280] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8  ">
+      <div className="bg-[#008280] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
 
         {/* TOP CARD - Newsletter */}
         <div
@@ -100,21 +100,21 @@ const EHRFooter = () => {
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
 
               <div className="flex-shrink-0">
-                <img src="/QnestEHRLogo.svg" alt="QNEST Logo" className="w-50 lg:w-70 h-auto" />
+                <img src="/QnestEHRLogo.svg" alt="QNEST Logo" className="w-50 lg:w-68 h-auto" />
               </div>
 
-              <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-center">
+              <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-end">
                 <h2
-                  className="mb-8 text-left lg:text-left"
+                  className="mb-8 text-left lg:text-center"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
                     fontWeight: 600,
-                    fontSize: 'clamp(32px, 4vw, 48px)',
+                    fontSize: 'clamp(28px, 5vw, 40px)',
                     lineHeight: '120%',
                     color: '#008280'
                   }}
                 >
-                  Subscribe to our<br />newsletter.
+                  Subscribe to our newsletter.
                 </h2>
 
                 <div className="flex flex-col sm:flex-row gap-4 w-full lg:justify-end items-stretch">

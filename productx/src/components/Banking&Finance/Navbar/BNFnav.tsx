@@ -2,22 +2,22 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
 import MobileProductsDropdown from "./MobileProductsDropdown";
-// import MobileResourcesDropdown from "./MobileResourcesDropdown";
+import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
-const ContactDrawer = lazy(() => import("./ContactDrawer"));
+import { ContactUsDark } from "../../../styles/Button";
+
 const MegaMenu = lazy(() => import("./MegaMenu"));
-// const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
+const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
-const EHRNavbar = () => {
+const BNFNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  // const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
-  const [megaMenuBuiltFor, setMegaMenuBuiltFor] = useState(false);
+  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
 
   // ---------- HOVER TIMEOUT LOGIC ----------
@@ -26,8 +26,8 @@ const EHRNavbar = () => {
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
       setMegaMenuOpen(false);
-      // setResourcesMenuOpen(false);
-      setMegaMenuBuiltFor(false);
+      setResourcesMenuOpen(false);
+      setmegaMenuBuiltFor(false);
       setLogoDropdownOpen(false);
     }, 200);
   };
@@ -42,130 +42,70 @@ const EHRNavbar = () => {
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setMegaMenuOpen(false);
-    // setResourcesMenuOpen(false);
-    setMegaMenuBuiltFor(false);
+    setResourcesMenuOpen(false);
+    setmegaMenuBuiltFor(false);
     setLogoDropdownOpen(false);
   };
 
-  const prefetchPhysicianImages = () => {
+  const preloadImages = () => {
     const images = [
-      "/EHRIcons/PhysicianHero1.webp",
-      "/EHRIcons/PhysicianHero2.webp",
+      "/BNFHOME/P1.png",
+      "/BNFHOME/P2.jpg",
+      "/BNFHOME/P3.jpg",
+      "/BNFHOME/P4.png",
+      "/BNFHOME/P5.jpg",
+      "/BNFHOME/P6.jpg",
+      "/BNFHOME/P7.jpg",
+      "/BNFHOME/P8.jpg",
+      "/BNFHOME/P9.jpg",
     ];
     images.forEach((src) => {
       const img = new Image();
       img.src = src;
     });
-  };
-
-  const prefetchAdminImages = () => {
-    const images = [
-      "/EHRIcons/admin.webp",
-    ];
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  };
-
-  const prefetchInsuranceCoordinatorImages = () => {
-    const images = [
-      "/EHR-PMS/InsuranceCoordinator/Img1.png",
-      "/EHR-PMS/InsuranceCoordinator/Img2.png",
-    ];
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  };
-
-  const prefetchReceptionistImages = () => {
-    const images = [
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000",
-    ];
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  };
-
-  const prefetchNurseImages = () => {
-    const images = [
-      "/EHR-PMS/Nurse/img1.webp",
-      "/EHR-PMS/Nurse/img2.webp",
-      "/EHR-PMS/Nurse/img3.webp",
-      "/EHR-PMS/Nurse/img4.webp",
-    ];
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  };
-
-  const prefetchLongTermCareImages = () => {
-    const img = new Image();
-    img.src = "/BuiltFor/LongTermEHR.webp";
-  };
-
-  const prefetchHomeHealthcareImages = () => {
-    const img = new Image();
-    img.src = "/BuiltFor/HomeHealthcareEHR.webp";
-  };
-
-  const prefetchClinicsAndHospitalsImages = () => {
-    const img = new Image();
-    img.src = "/BuiltFor/ClinicsEHR.webp";
   };
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const industry = "ehr-and-pms";
-  const currentIndustry = "EHR and PMS";
+  const industry = "banking-and-finance";
+  const currentIndustry = "Banking & Finance";
   const industries = [
-    // {
-    //   name: "Banking & Finance",
-    //   path: "/industries/banking-and-finance",
-    //   img: "/BNFHOME/P1.png",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    // },
-
-    // {
-    //   name: "EHR and PMS", path:
-    //     "/industries/ehr-and-pms",
-    //   img: "/BNFHOME/P1.png",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    // },
-
-    // {
-    //   name: "HighTech",
-    //   path: "/industries/high-tech",
-    //   img: "/BNFHOME/P1.png"
-    //   ,
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    // },
-
     {
-      name: "Cloud Finops Ai",
-      path: "/industries/cloud-finops-ai",
+      name: "Banking & Finance",
+      path: "/industries/banking-and-finance",
       img: "/BNFHOME/P1.png",
-      desc: "Leverage intelligent automation to streamline clinical documentation"
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
-
+    {
+      name: "EHR and PMS",
+      path: "/industries/ehr-and-pms",
+      img: "/QEHRLogo2.svg",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      name: "Cloud Finops AI",
+      path: "/industries/cloud-finops-ai",
+      img: "/QCloudLogo2.svg",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
   ];
+
   const industryOptions = industries.filter((ind) => ind.name !== currentIndustry);
   const base = `/industries/${industry}`;
 
   const navItems = [
-    { name: "Solutions", path: `${base}` },
-    { name: "Pricing", path: `${base}/pricing` },
+    { name: "Products", path: `${base}?scroll=products` },
     { name: "Built for", path: base },
-    // { name: "Resources", path: `${base}/resources` },
+    { name: "About Us", path: `${base}/about-us` },
+    { name: "Resources", path: base },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [showTopBar, setShowTopBar] = useState(true);
+  const [showMainNav, setShowMainNav] = useState(true);
+  const [hasHeroNav, setHasHeroNav] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -175,11 +115,37 @@ const EHRNavbar = () => {
 
       setIsScrolled(currentY > 30);
 
-      // Hide when scrolling down (> 50px), Show when scrolling up
+      const heroBottomNav = document.getElementById("hero-bottom-nav");
+      const heroNavExists = !!heroBottomNav;
+      if (heroNavExists !== hasHeroNav) setHasHeroNav(heroNavExists);
+
       if (currentY > 50 && !isUp) {
         setShowTopBar(false);
       } else {
         setShowTopBar(true);
+      }
+
+      if (heroBottomNav) {
+        let docOffset = 0;
+        let el: HTMLElement | null = heroBottomNav;
+        while (el) {
+          docOffset += el.offsetTop;
+          el = el.offsetParent as HTMLElement | null;
+        }
+
+        const isInStickyZone = currentY + 80 > docOffset;
+
+        if (isInStickyZone) {
+          if (isUp) {
+            setShowMainNav(true);
+          } else {
+            setShowMainNav(false);
+          }
+        } else {
+          setShowMainNav(true);
+        }
+      } else {
+        setShowMainNav(true);
       }
 
       lastScrollY.current = currentY;
@@ -187,6 +153,7 @@ const EHRNavbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -201,16 +168,14 @@ const EHRNavbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
-  // ---------- RENDER ----------
-
   return createPortal(
     <>
-      {/* TOP TRANSPARENT BAR - Scrolls away */}
-      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* TOP TRANSPARENT BAR */}
+      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
-          <div className="   px-4 py-1 rounded-lg">
+          <div className="px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
-              <img className="h-10 w-full" src="/QnestEHRLogo.svg" alt="Company Logo" />
+              <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
             </span>
           </div>
         </Link>
@@ -225,13 +190,13 @@ const EHRNavbar = () => {
           onClick={handleToggleMenu}
           aria-label="Toggle menu"
         >
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
         </button>
       </div>
 
-      {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
+      {/* MAIN NAV */}
       <nav
         onMouseLeave={handleCloseMenus}
         onMouseEnter={handleKeepOpen}
@@ -240,13 +205,13 @@ const EHRNavbar = () => {
         <div
           className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
-    ${isScrolled
-              ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14' : ''}`
-              : "w-[90%] max-w-8xl rounded-full scale-[0.98] translate-y-15"
+    ${!showMainNav || (!showTopBar && isScrolled && hasHeroNav)
+              ? 'w-full rounded-none scale-100 -translate-y-full delay-0'
+              : isScrolled
+                ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14 delay-200' : 'delay-0'}`
+                : `w-[90%] max-w-8xl rounded-full scale-[0.98] ${showTopBar ? 'translate-y-15 delay-200' : 'delay-0'}`
             }`}
         >
-
-
           <div className="flex items-center gap-10">
             <div
               className="relative flex items-center gap-1 cursor-pointer"
@@ -254,8 +219,8 @@ const EHRNavbar = () => {
                 handleKeepOpen();
                 setLogoDropdownOpen(true);
                 setMegaMenuOpen(false);
-                // setResourcesMenuOpen(false);
-                setMegaMenuBuiltFor(false);
+                setResourcesMenuOpen(false);
+                setmegaMenuBuiltFor(false);
               }}
             >
               <Link
@@ -265,18 +230,17 @@ const EHRNavbar = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-24 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
+                <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  LOGO
                 </div>
-                {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
                   <img src="/down.png" className="w-4 h-4" />
                 </div>
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-14 w-80 z-[999] p-3"
-                  onMouseEnter={handleKeepOpen}     
+                  className="absolute top-14 w-[450px] z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
                   <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
@@ -288,14 +252,11 @@ const EHRNavbar = () => {
                         rel="noopener noreferrer"
                         className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
                       >
-                        {/* ICON */}
                         <img
                           src={ind.img}
                           alt={ind.name}
                           className="w-16 h-14 object-cover rounded-md"
                         />
-
-                        {/* TEXT */}
                         <div className="flex flex-col">
                           <h3 className="text-lg font-semibold font-quicksand text-gray-900">
                             {ind.name}
@@ -314,24 +275,20 @@ const EHRNavbar = () => {
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  {item.name === "Solutions" && (
+                  {item.name === "Products" && (
                     <div
                       className="relative"
                       onMouseEnter={() => {
                         handleKeepOpen();
                         setMegaMenuOpen(true);
-                        // setResourcesMenuOpen(false);
-                        setMegaMenuBuiltFor(false);
+                        setResourcesMenuOpen(false);
+                        setmegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
-                        prefetchPhysicianImages();
-                        prefetchAdminImages();
-                        prefetchInsuranceCoordinatorImages();
-                        prefetchReceptionistImages();
-                        prefetchNurseImages();
+                        preloadImages();
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
-                        <button className="text-gray-800 text-[18px] cursor-pointer">Solutions</button>
+                        <button className="text-gray-800 text-[18px] cursor-pointer">Products</button>
                         <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : "rotate-0"}`} />
                       </div>
                     </div>
@@ -342,15 +299,15 @@ const EHRNavbar = () => {
                       className="relative"
                       onMouseEnter={() => {
                         handleKeepOpen();
-                        // setResourcesMenuOpen(true);
+                        setResourcesMenuOpen(true);
                         setMegaMenuOpen(false);
-                        setMegaMenuBuiltFor(false);
+                        setmegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
                         <button className="text-gray-800 text-[18px] cursor-pointer">Resources</button>
-                        {/* <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} /> */}
+                        <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
                       </div>
                     </div>
                   )}
@@ -360,13 +317,10 @@ const EHRNavbar = () => {
                       className="relative"
                       onMouseEnter={() => {
                         handleKeepOpen();
-                        setMegaMenuBuiltFor(true);
+                        setmegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
-                        // setResourcesMenuOpen(false);
+                        setResourcesMenuOpen(false);
                         setLogoDropdownOpen(false);
-                        prefetchLongTermCareImages();
-                        prefetchHomeHealthcareImages();
-                        prefetchClinicsAndHospitalsImages();
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -376,7 +330,7 @@ const EHRNavbar = () => {
                     </div>
                   )}
 
-                  {item.name !== "Solutions" && item.name !== "Resources" && item.name !== "Built for" && (
+                  {item.name !== "Products" && item.name !== "Resources" && item.name !== "Built for" && (
                     <Link
                       to={item.path}
                       onMouseEnter={closeAllMenus}
@@ -391,75 +345,16 @@ const EHRNavbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            <button
-              onClick={() => setDrawerOpen(true)}
+            <Link
+              to={`${base}/careers`}
               className="text-gray-800 text-[18px] font-bold font-quicksand cursor-pointer"
             >
-              Support
-            </button>
-            <button
-  onClick={() => {
-    setMenuOpen(false);
-    setDrawerOpen(true);
-  }}
-  className="
-    group
-    inline-flex items-center justify-center
-    px-6 h-12
-    rounded-lg
-    font-bricolage font-bold text-sm tracking-widest
-    bg-white text-[#008280]
-    border-2 border-[#008280]
-    transition-all duration-300 ease-in-out
-    hover:border-b-[4px]
-    hover:-translate-y-[2px]
-    shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-    cursor-pointer
-  "
->
-  <span className="flex items-center gap-2">
-    Contact Us
+              Careers
+            </Link>
 
-    <span className="relative flex items-center justify-center w-[20px] h-[20px]">
-      
-      {/* Default Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-      >
-        <path d="M7 7h10v10" />
-        <path d="M7 17L17 7" />
-      </svg>
-
-      {/* Hover Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
-
-    </span>
-  </span>
-</button>
-
+            <Link to={`${base}#contact-us`}>
+              <ContactUsDark>Contact Us</ContactUsDark>
+            </Link>
           </div>
 
           <button
@@ -482,16 +377,12 @@ const EHRNavbar = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
-            prefetchPhysicianImages={prefetchPhysicianImages}
-            prefetchAdminImages={prefetchAdminImages}
-            prefetchInsuranceCoordinatorImages={prefetchInsuranceCoordinatorImages}
-            prefetchReceptionistImages={prefetchReceptionistImages}
-            prefetchNurseImages={prefetchNurseImages}
+            preloadImages={preloadImages}
           />
         )}
       </Suspense>
 
-      {/* <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         {resourcesMenuOpen && (
           <ResourcesMenu
             isScrolled={isScrolled}
@@ -500,7 +391,7 @@ const EHRNavbar = () => {
             handleCloseMenus={handleCloseMenus}
           />
         )}
-      </Suspense> */}
+      </Suspense>
 
       <Suspense fallback={<div>Loading...</div>}>
         {megaMenuBuiltFor && (
@@ -509,9 +400,6 @@ const EHRNavbar = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
-            prefetchLongTermCareImages={prefetchLongTermCareImages}
-            prefetchHomeHealthcareImages={prefetchHomeHealthcareImages}
-            prefetchClinicsAndHospitalsImages={prefetchClinicsAndHospitalsImages}
           />
         )}
       </Suspense>
@@ -521,8 +409,8 @@ const EHRNavbar = () => {
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12  text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                <img className="h-10 w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
+              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
+                LOGO
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
@@ -537,7 +425,7 @@ const EHRNavbar = () => {
           />
 
           {navItems.map((item) =>
-            item.name !== "Solutions" && item.name !== "Built for" && item.name !== "Resources" ? (
+            item.name !== "Products" && item.name !== "Built for" && item.name !== "Resources" ? (
               <div key={item.name} className="border-b border-gray-200 pb-3">
                 <Link to={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
                   {item.name}
@@ -551,16 +439,16 @@ const EHRNavbar = () => {
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
           />
-          {/* <MobileResourcesDropdown
+          <MobileResourcesDropdown
             mobileDropdown={mobileDropdown}
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
-          /> */}
+          />
 
           <div className="border-b border-gray-200 pb-3">
-            <button onClick={() => setDrawerOpen(true)} className="text-gray-800 text-lg font-semibold block">
-              Support
-            </button>
+            <Link to={`${base}/careers`} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
+              Careers
+            </Link>
           </div>
         </div>
 
@@ -570,40 +458,17 @@ const EHRNavbar = () => {
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
-          <button
-            onClick={() => { setMenuOpen(false); setDrawerOpen(true); }}
-            className="
-              group
-              flex items-center justify-center gap-2
-              h-[48px]
-              px-[20px] py-[12px]
-              rounded-[8px]
-              font-quicksand font-bold text-[14px]
-              bg-black text-white
-              border-2 border-black
-              transition-all duration-300
-              hover:bg-white hover:text-black
-              w-full
-            "
-          >
-            Contact Us
-            <span className="relative flex items-center w-[16px] h-[16px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 7h10v10" />
-                <path d="M7 17L17 7" />
-              </svg>
-            </span>
-          </button>
+          <Link to={`${base}#contact-us`} onClick={() => setMenuOpen(false)}>
+            <ContactUsDark>Contact Us</ContactUsDark>
+          </Link>
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading Contact...</div>}>
-        {drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-      </Suspense>
+
 
     </>,
     document.body
   );
 };
 
-export default EHRNavbar;
+export default BNFNav;

@@ -1,12 +1,12 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLocation } from "react-router-dom";
-
-
+ 
+ 
 const HWD = () => {
   const location = useLocation();
   const path = location.pathname;
-
+ 
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
@@ -18,8 +18,8 @@ const HWD = () => {
       headingColor: "#008280",
       textcolor: "#141414",
       CheckColor: "#008280"
-
-
+ 
+ 
     },
     banking: {
       topBg: "#F5F5F5",
@@ -41,7 +41,7 @@ const HWD = () => {
       headingColor: "#254D70",
       textcolor: "#141414",
       CheckColor: "#254D70"
-
+ 
     }
   };
   const HEADING_CONTENT = {
@@ -70,7 +70,7 @@ const HWD = () => {
         "Explore how high-tech companies scale faster, control cloud spend, and optimize complex multi-cloud environments."
     }
   };
-
+ 
   const CARD_CONTENT = {
     ai: [
       {
@@ -86,14 +86,14 @@ const HWD = () => {
           "Implemented 3-year Synapse RIs, achieving an 81% blended discount on runtime costs. ",
         ],
       },
-
+ 
       {
         title: " Retain Savings Long-Term",
         image: "/AIOptimization/PriceTag.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
-
+ 
           "Used read-only access to analyze billing metadata and resource configurations only. ",
           "Targeted 60-70% savings in under six weeks using effort-based categorization. ",
           "Leveraged AI to identify unused messaging buses and unlinked integration accounts. ",
@@ -115,7 +115,7 @@ const HWD = () => {
         ],
       },
     ],
-
+ 
     banking: [
       {
         title: "Fraud Detection Modernization",
@@ -156,7 +156,7 @@ const HWD = () => {
     ],
     ehr: [
       {
-        title: "Unified Primary Care Clinic",
+        title: "Unified Primary Care Clinic",
          image: "/EHRIcons/Treatment.svg",
         description:
           "Manage everything from patient visits to billing efficiently with one unified, easy-to-use platform..",
@@ -196,47 +196,47 @@ const HWD = () => {
       },
     ],
   };
-
-
-
+ 
+ 
+ 
   let cards;
-
+ 
   if (isAI) cards = CARD_CONTENT.ai;
   if (isEHR) cards = CARD_CONTENT.ehr;
   else if (isBanking) cards = CARD_CONTENT.banking;
   else cards = CARD_CONTENT.ai; // fallback
-
-
+ 
+ 
   let headingContent;
-
+ 
   if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isBanking) headingContent = HEADING_CONTENT.banking;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
   else headingContent = HEADING_CONTENT.banking; // fallback
-
-
-
+ 
+ 
+ 
   let palette;
   if (isEHR) palette = COLORS.ehr;
   else if (isBanking) palette = COLORS.banking;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;
   else palette = COLORS.banking;
-
+ 
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
-
+ 
   const bottomTextColor = isAI ? "#254D70" : textcolor;
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
   // const itemVariants = {
   //   hidden: { opacity: 0, y: 20 },
   //   visible: { opacity: 1, y: 0 },
   // };
-
+ 
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
@@ -248,22 +248,22 @@ const HWD = () => {
             className="w-full h-full object-contain p-2"
           />
         </div>
-
-
-
+ 
+ 
+ 
         <h3
           className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold"
           style={{ color: headingColor }}
         >
           {title}
         </h3>
-
+ 
         <p className="balance-text" style={{ color: textcolor }}>
           {description}
         </p>
-
+ 
       </div>
-
+ 
       {/* Bottom Section */}
       <div
         className="pl-6 pr-10 py-10 xl:py-18"
@@ -280,11 +280,11 @@ const HWD = () => {
       </div>
     </section>
   );
-
+ 
   return (
     <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
       <div className="max-w-[1360px] w-full">
-
+ 
         {/* HEADINGS */}
         {/* HEADINGS */}
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
@@ -294,20 +294,20 @@ const HWD = () => {
               {headingContent.eyebrow}
             </div>
           </h1>
-
+ 
           <h2
             className="text-[#2A2A2A] font-bricolage font-semibold
                text-[24px] md:text-[32px] lg:text-[64px] leading-none"
           >
             {headingContent.title}
           </h2>
-
+ 
           {/* Dynamic paragraph below H2 */}
           <p className="max-w-3xl text-base md:text-lg text-[#555555]">
             {headingContent.description}
           </p>
         </div>
-
+ 
         {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
         <div
           className="
@@ -319,7 +319,7 @@ const HWD = () => {
     scrollbar-hide
   "
         >
-
+ 
           {cards.map((card, i) => (
             <motion.div
               key={i}
@@ -333,10 +333,10 @@ const HWD = () => {
               <CardContent {...card} />
             </motion.div>
           ))}
-
+ 
         </div>
       </div>
-
+ 
       {/* Hide scrollbar */}
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -350,5 +350,5 @@ const HWD = () => {
     </div>
   );
 };
-
+ 
 export default HWD;
