@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useParams } from "react-router-dom";
+import { H1 } from "../../../styles/Typography";
 
 const CONTENT_MAP: Record<string, { heading: ReactNode; image: string; altText: string }> = {
   "long-term-care": {
@@ -39,9 +40,9 @@ export default function TitleSecEHR() {
 
         {/* Title Section */}
         <div className="text-center max-w-5xl w-full">
-          <h1 className="text-[72px] leading-[100%] font-normal text-[#008280]" style={{ fontFamily: "Bricolage Grotesque" }}>
+          <H1 className="text-[72px] leading-[100%] font-normal text-[#008280]" style={{ fontFamily: "Bricolage Grotesque" }}>
             {content.heading}
-          </h1>
+          </H1>
         </div>
 
         {/* Image Section */}

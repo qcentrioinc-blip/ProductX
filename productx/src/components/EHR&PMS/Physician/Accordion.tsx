@@ -9,21 +9,21 @@ const TABS = [
     title: " Intelligent Clinical Documentation",
     description:
       " Speed up charting with customizable SOAP templates and smart fields that pull in patient history. Our system suggests E/M codes and auto-saves, cutting documentation time in half.",
-    image: "/EHR_IMG.png",
+    image: "/EHR-PMS/Physician/img6.webp",
   },
   {
     id: "tab2",
     title: " Integrated Decision Support",
     description:
       "Access real-time clinical alerts, drug interactions, and patient insights right at the point of care. This helps you make safer, more informed decisions during every patient visit. ",
-    image: "/EHR-PMS/EHRFIX.png",
+    image: "/EHR-PMS/Physician/img7.webp",
   },
   {
     id: "tab3",
     title: " Seamless Care Coordination",
     description:
       "Manage your entire patient list, view live schedules, and track tasks from a unified dashboard. It connects your clinical work with billing and follow-ups effortlessly.",
-      image: "/EHR_IMG.png",
+      image: "/EHR-PMS/Physician/img8.webp",
   },
 ];
  
@@ -148,7 +148,7 @@ const Accordion = () => {
  
           {/* Desktop Image */}
           <div
-            className="relative hidden lg:block w-full overflow-hidden rounded-xl border border-gray-200 shadow-lg"
+            className="relative hidden lg:block w-full overflow-hidden rounded-xl"
             style={{ height: leftHeight ?? "auto" }}
           >
             <motion.img
@@ -158,7 +158,7 @@ const Accordion = () => {
               initial={{ opacity: 0, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           </div>
         </div>
