@@ -30,12 +30,18 @@ const CTAEHRUnifi: React.FC = () => {
               className="
                 group flex items-center justify-center
                 w-52 h-[48px]
-                rounded-[8px]
-                border border-white
-                font-quicksand font-bold text-[16px]
-                bg-[#008280] text-white
-                transition-all duration-300
-                hover:bg-white hover:text-black
+                group
+    px-6
+    rounded-lg
+    font-bricolage font-bold text-sm tracking-widest
+    bg-white text-[#008280]
+    border-2 border-[#008280]
+    transition-all duration-300 ease-in-out
+    
+    hover:border-b-[4px]
+    hover:-translate-y-[2px]
+    shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+    cursor-pointer
               "
             >
              Get Demo

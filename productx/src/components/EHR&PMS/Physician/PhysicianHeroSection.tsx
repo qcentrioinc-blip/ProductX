@@ -3,6 +3,22 @@ import { H2,   H3,   H4, P } from "../../../styles/Typography";
 const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white py-10 overflow-hidden">
+       {/* Wave Shape */}
+  <img
+    src="/EHR-PMS/Physician/shape1.svg"
+    alt="decorative wave"
+    className="
+      pointer-events-none
+      hidden xl:block
+      absolute
+      right-0
+      top-140
+      -translate-y-1/2
+      w-[700px]
+      opacity-100
+      z-0
+    "
+  />
       <div className="  max-w-7xl  px-4 xl:mx-auto">
         {/* Top Content */}
         <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">

@@ -275,8 +275,8 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-14 w-80 z-[999] p-3"
-                  onMouseEnter={handleKeepOpen}     
+                  className="absolute top-18 w-80 z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
                   <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
@@ -408,7 +408,8 @@ const EHRNavbar = () => {
     px-6 h-12
     rounded-lg
     font-bricolage font-bold text-sm tracking-widest
-    bg-white text-[#008280]
+    bg-[#008280] text-white
+    hover:bg-white hover:text-[#008280]
     border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]

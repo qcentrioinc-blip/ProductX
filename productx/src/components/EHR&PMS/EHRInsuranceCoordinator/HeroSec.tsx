@@ -67,7 +67,6 @@ const HeroSec = () => {
     bg-white text-[#008280]
     border-2 border-[#008280]
     transition-all duration-300 ease-in-out
-    
     hover:border-b-[4px]
     hover:-translate-y-[2px]
     shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
@@ -76,7 +75,7 @@ const HeroSec = () => {
   "
 >
   <span className="flex items-center gap-2">
-    Contact Us
+    Explore
 
     <span className="relative flex items-center justify-center w-[20px] h-[20px]">
       

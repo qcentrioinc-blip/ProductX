@@ -46,7 +46,12 @@ const Comparison = () => {
           {/* Left Column */}
           <div className=" rounded-xl p-8 md:p-10  lg:p-12">
             {/* Icon Circle */}
-            <div className="w-full h-48 md:h-56 lg:h-72 bg-[#D9D9D9] rounded-xl mb-6"></div>
+            <div className="w-full rounded-xl mb-6">
+              <img 
+              src="/EHR-PMS/Physician/img1.webp"
+              className="h-48 md:h-56 lg:h-72"
+              />
+            </div>
 
             {/* Main Title */}
             <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
@@ -81,7 +86,12 @@ const Comparison = () => {
           {/* Right Column */}
           <div className=" rounded-xl p-8 md:p-10 lg:p-12  ">
             {/* Icon Circle */}
-            <div className="w-full h-48 md:h-56 lg:h-72 bg-[#D9D9D9] rounded-xl mb-6"></div>
+            <div className="w-full rounded-xl mb-6">
+              <img 
+              src="/EHR-PMS/Physician/img2.webp"
+              className="h-48 md:h-56 lg:h-72"
+              />
+            </div>
 
             {/* Main Title */}
             <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
