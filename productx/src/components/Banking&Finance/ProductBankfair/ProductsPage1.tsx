@@ -13,11 +13,27 @@ import FirstProduct from "./FirstProduct"
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav"
 import Capabilities from "./Capabilities"
 import { useContext, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { ScrollContext } from "../../../context/ScrollContext"
 // import Pricing from "./Pricing"
 
 const ProductsPage1 = () => {
   const scrollableContainerRef = useContext(ScrollContext);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contact-us') {
+      setTimeout(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (scrollableContainerRef) {
+          (scrollableContainerRef as any).scrollTo('#contact-us', { offset: 0, duration: 1.5 });
+        } else {
+          const element = document.getElementById('contact-us');
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location, scrollableContainerRef]);
 
   useEffect(() => {
     // Scroll the ScrollContext container to top
@@ -56,20 +72,17 @@ const ProductsPage1 = () => {
 
       <div className="relative">
 
-        <div className=" lg:h-[200vh]"></div>
-
-
-
-        <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter />
-        </div>
-
+        <div className="hidden lg:block lg:h-[200vh]"></div>
 
         <div
-          className="absolute inset-0 z-40 pointer-events-none"
-
+          id="contact-us"
+          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
         >
           <ContactUS />
+        </div>
+
+        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
+          <NewOneFooter />
         </div>
 
       </div>
