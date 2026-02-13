@@ -573,7 +573,7 @@ const HeroSec = () => {
       : 'md:grid-cols-1 max-w-3xl mx-auto';
 
   return (
-    <div className="relative min-h-screen bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
+    <div className="relative min-h-screen bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* Tab Navigation */}
       <div className="max-w-7xl mx-auto mb-12">
@@ -687,7 +687,7 @@ const HeroSec = () => {
                       <div key={i}>
                         <H4 className="font-bold text-gray-900 mb-1 flex items-center"><RightChevron className="mr-2 text-[#008280]" /> {sec.head}</H4>
                         {/* {sec.sub && <p className="text-[11px] text-gray-500 mb-2 ml-5">{sec.sub}</p>} */}
-                        <ul className="ml-5 space-y-1">
+                        <ul className="ml-5 space-y-1 font-quicksand">
                           {sec.items.map((item: string) => <li key={item} className="before:content-['•'] before:mr-2 before:text-gray-400">{item}</li>)}
                         </ul>
                       </div>
