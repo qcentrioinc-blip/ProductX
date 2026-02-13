@@ -20,7 +20,7 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     {
         id: 5,
         slug: "how-modern-pms-boost-patient-referrals",
-        date: '8 Sep 2025',
+        date: '13 Feb 2026',
         imageSrc: '/EHR-PMS/Blogs/img5.png',
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'How Modern PMS Can Boost Patient Referrals and Retention',
@@ -29,7 +29,7 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     {
         id: 6,
         slug: "what-do-these-terms-actually-mean-for-care-providers",
-        date: '8 Sep 2025',
+        date: '10 Feb 2026',
         imageSrc: '/EHR-PMS/Blogs/img6.png',
         title: 'Sed ut perspiciatis Unde',
         subtitle: "What Do These Terms Actually Mean for Care Providers?",
@@ -37,12 +37,12 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     },
     {
         id: 7,
-        slug: "pms-referrals-retention-advanced",
-        date: '8 Sep 2025',
+        slug: "why-cloud-based-ehr-is-the-gold-standard-for-data-security",
+        date: '8 Feb 2026',
         imageSrc: '/EHR-PMS/Blogs/img7.png',
         title: 'Sed ut perspiciatis Unde',
-        subtitle: 'How Modern PMS Can Boost Patient Referrals and Retention',
-        description: 'For your healthcare providers and businesses, implementing a suitable, efficient software system can be beneficial. But the technical terms used to describe these systems often create confusion.',
+        subtitle: 'Why Cloud-Based EHR Is the Gold Standard for Data Security',
+        description: 'But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough? Many providers worry that digital data is easier to steal than paper files locked in a room.on.',
     }
 ];
 

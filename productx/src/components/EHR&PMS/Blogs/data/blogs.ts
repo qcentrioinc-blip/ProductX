@@ -1,3 +1,5 @@
+
+
 export interface BlogListItem {
   title: string;          // H3
   paragraphs: string[];
@@ -53,7 +55,7 @@ export const BLOGS: Blog[] = [
     slug: "how-modern-pms-boost-patient-referrals",
     subtitle: "How Modern PMS Can Boost Patient Referrals and Retention",
     author: "Dr. John Carter",
-    date: "8 Sep 2025",
+    date: "13 Feb 2026",
     readTime: "6 min read",
     heroImage: "/EHR-PMS/Blogs/img5.png",
 
@@ -142,8 +144,8 @@ export const BLOGS: Blog[] = [
   ]
 },
    {
-        id: "Conclusion  ",
-        heading: "Conclusion  ",
+        id: "Conclusion",
+        heading: "Conclusion",
         paragraphs: [
           "A modern PMS is a powerful tool for growth. It does much more than handle daily tasks. It helps you build stronger referral partnerships and create a smoother, more satisfying experience for patients and families. This directly leads to higher patient retention and a steady stream of new patient referrals. ",
           "For LTC and home care providers, Unified Health Net offers a PMS built specifically for these needs. Our platform includes the essential tools discussed here, like referral tracking, automated communication, and feedback systems, all in one integrated solution to help your business grow. "
@@ -210,7 +212,7 @@ keyTakeaways: [
     slug: "what-do-these-terms-actually-mean-for-care-providers",
     subtitle: "What Do These Terms Actually Mean for Care Providers?",
     author: "Dr. John Carter",
-    date: "8 Sep 2025",
+    date: "10 Feb 2026",
     readTime: "6 min read",
     heroImage: "/EHR-PMS/Blogs/img5.png",
 
@@ -224,7 +226,7 @@ keyTakeaways: [
         heading: "What is an EMR?",
         paragraphs: [
           "Innovating from the old traditional ways of keeping paper charts, EMR stands for Electronic Medical Record. It is a digital version of a patient’s paper chart. Providers use it to document diagnosis, treatment, and visit notes inside one practice. The scope is limited. It does not travel with the patient to other clinics or hospitals.   ",
-          "Though here, the most common complaints from users include poor usability and lack of integration with other systems. Many providers feel EMR software slows them down instead of helping them work faster. The focus stays inside one office.  "
+          // `Though here, the most common complaints from users include poor usability and lack of integration with other systems. Many providers feel EMR software slows them down instead of helping them work faster. The focus stays inside one office. `
         ]
       },
       {
@@ -338,6 +340,123 @@ keyTakeaways: [
   "PMS handles scheduling, billing, and claims ",
   "Separate systems create extra work and errors ",
   "All-in-one platforms combine all three functions "
+]
+
+  },
+   {
+    slug: "why-cloud-based-ehr-is-the-gold-standard-for-data-security",
+    subtitle: "Why Cloud-Based EHR Is the Gold Standard for Data Security",
+    author: "Dr. John Carter",
+    date: "8 Feb 2026",
+    readTime: "6 min read",
+    heroImage: "/EHR-PMS/Blogs/img5.png",
+
+    intro: [
+      "Businesses who want to grow and scale their efficiency and profits should consider moving to cloud based systems. But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough? Many providers worry that digital data is easier to steal than paper files locked in a room. In this blog post, we explain exactly how cloud-based EHR security works, and cover topics like encryption, access controls, and backups. We also look at HIPAA compliance and audit logs. "
+    ],
+
+    sections: [
+      {
+        id: "Paper Records vs. Cloud Records: Why Views on Security Need to Update",
+        heading: "Paper Records vs. Cloud Records: Why Views on Security Need to Update",
+        paragraphs: [
+          `With cloud technology, businesses can now store data in ways that were not possible before. But many healthcare providers still trust paper records more than digital files. This trust is based on habit, not facts. Paper records have clear physical risks. They can be lost, damaged in a fire, or misfiled in a cabinet. Once a paper chart is gone, it cannot be recovered. There is no backup.  `,
+          `Digital records on a secure cloud platform have different risks. But these risks are manageable. Unlike paper, cloud data is encrypted and stored in multiple locations. If one server fails, the data exists elsewhere. Unified Health Net helps long-term care providers move from manual paperwork to a secure electronic system.   `,
+          `This transition removes the dangers of misfiled or destroyed physical files. It also introduces strict patient data protection measures that paper simply cannot offer. The shift is not just about convenience. It is about better HIPAA compliant cloud software controls that actually reduce overall risk. `
+        ]
+      },
+      {
+        id: "Is Cloud-Based EHR Actually HIPAA Compliant?",
+        heading: "Is Cloud-Based EHR Actually HIPAA Compliant?",
+        paragraphs: [
+          "Since the healthcare industry is heavily regulated, it is important that any software handling patient records meets federal rules. Yes, cloud-based EHR can be fully HIPAA compliant. But this depends on the vendor signing a specific legal document called a Business Associate Agreement or BAA. This contract states that the vendor takes legal responsibility for protecting patient data.  ",
+          "Unified Health Net signs a BAA with every client. By signing this agreement, we legally commit to meet the same privacy and security rules that hospitals and clinics must follow. This makes Unified Health Net a business associate. We handle the technical safeguards so your facility stays compliant. This agreement is the foundation of trusted cloud-based EHR security and ensures patient data protection is not just a promise but a legal requirement.   "
+        ]
+      },
+        {
+        id: "Where Data Is Stored and How It Is Encrypted",
+        heading: "Where Data Is Stored and How It Is Encrypted",
+        paragraphs: [
+          "To make sure that the patient information you enter stays private, we use two specific encryption methods. When data sits on our servers, it is scrambled using AES-256. This is the same standard banks use. When data moves from our servers to your device, we use TLS. This secures the transmission so no one can intercept it during transfer.  ",
+          "Your data is stored in secure cloud data centers. Only authorized staff from your facility can access it. Being able to view records from home or on mobile does not mean outsiders have that ability. Strict EHR data encryption standards and login controls ensure secure healthcare cloud hosting keeps your information visible only to you and your team.  "
+        ]
+      },
+      {
+        id: "Data Backups and Physical Security of Servers",
+        heading: "Data Backups and Physical Security of Servers",
+        paragraphs: [
+          "It is very common to experience internet outages or hardware failures. With a paper system or an old server kept in a closet, this creates real danger. If that single machine breaks or gets damaged, records can be lost forever.  ",
+          "Unified Health Net prevents this through automated backups. Your data is copied every few minutes and stored in multiple separate geographic locations. If one data center loses power, another takes over instantly. You do not lose access, and you do not lose data.   ",
+          "You also asked where the cloud is physically located. Our servers are kept in Tier 4 data centers. These buildings require biometric scans like fingerprints, to enter. Security cameras record every hallway. ",
+          "The power systems have multiple backups. This level of protection is far stronger than a locked file room. The combination of automated backups and strict physical controls ensures secure healthcare cloud hosting that most individual facilities cannot build on their own ",
+       
+        ]
+      },
+      
+     
+{
+  id: "Final Word",
+  heading: "Final Word",
+  paragraphs: [
+    "Moving patient records to the cloud is a big decision. Security concerns are valid and should be addressed openly. Cloud software does not remove security responsibilities. But it does provide tools and infrastructure that paper and old servers cannot match. Unified Health Net builds these protections directly into its platform. When you use our solutions, you get enterprise-grade security without needing to build it yourself. Your patient data stays protected, compliant, and available exactly when and where your team needs it. "
+  ],
+   
+},
+  
+    ],
+
+    cta: {
+  title: " Get Your Cloud EHR Security Checklist",
+  description:
+    " Evaluate cloud-based EHR security for your facility. Learn what questions to ask vendors about encryption, audits, and HIPAA compliance. Built for LTC and home care providers."
+},
+
+faqs: [
+ 
+  {
+    question: "Can cloud EHR get hacked like other software?",
+    answer:
+      "No system is impossible to hack. But cloud EHR uses bank-level encryption and continuous monitoring to make unauthorized access extremely difficult.  "
+  },
+   {
+    question: "Who owns the patient data once we put it in your cloud? ",
+    answer:
+      "You own your data completely. We never claim ownership. You can export and move your full patient record anytime you want. "
+  },
+  {
+    question: "Is internet downtime a risk for accessing records?",
+    answer:
+      "Most cloud EHR platforms allow limited offline access. Once the internet restores, data syncs automatically. For full functionality, a stable internet is needed.  "
+  },
+ 
+  {
+    question: " Do employees need training to use security features? ",
+    answer:
+      "Yes. We provide basic training on login security, password rules, and recognizing phishing attempts. Security works best when staff follow procedures.  "
+  },
+   {
+    question: "Can patients request copies of their records from the cloud? ",
+    answer:
+      "Yes. The same HIPAA rules apply. Your facility remains responsible for providing records to patients within the required timeframes.  "
+  },
+],
+
+metaTitle:
+  "Cloud-Based EHR Security: Is Your Patient Data Safe? | Unified Health Net  ",
+
+metaDescription:
+  "Learn how cloud-based EHR security protects patient data with encryption, access controls, and audit logs. HIPAA compliant. Used by LTC and home care providers.  ",
+
+quickSummary:
+
+  "This blog post explains cloud-based EHR security in simple terms. We cover encryption, access controls, audit logs, backups, and data center safety. You will understand why cloud software with proper safeguards protects patient data better than paper records or old servers. Written for healthcare providers considering digital transformation.  ",
+
+keyTakeaways: [
+  "Cloud EHR uses AES-256 and TLS encryption to protect patient data  ",
+  "Role-based access controls ensure only authorized staff view records ",
+  "Audit logs record every access and cannot be deleted or edited  ",
+  "Automated backups store data in multiple locations to prevent loss  ",
+  "Tier 4 data centers provide stronger physical security than locked file rooms  "
 ]
 
   }
