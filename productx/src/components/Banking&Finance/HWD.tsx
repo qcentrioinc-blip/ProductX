@@ -240,7 +240,7 @@ const HWD = () => {
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
-      <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
+      <div className="py-6 px-4 pb-8 md:p-8" style={{ backgroundColor: topBg }}>
         <div className="w-18 h-18 rounded-full mb-2 overflow-hidden">
           <img
             src={image}
@@ -266,7 +266,7 @@ const HWD = () => {
 
       {/* Bottom Section */}
       <div
-        className="pl-6 pr-10 py-10 xl:py-18"
+        className="px-6 py-8 xl:py-18"
         style={{ backgroundColor: bottomBg }}
       >
         <ul className="space-y-4">
@@ -282,8 +282,8 @@ const HWD = () => {
   );
 
   return (
-    <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
-      <div className="max-w-[1360px] w-full">
+    <div className="w-full relative  shadow-md flex flex-col items-center py-6 px-4 sm:px-6 md:px-10">
+      <div className="max-w-7xl mx-auto">
 
         {/* HEADINGS */}
         {/* HEADINGS */}
@@ -312,6 +312,9 @@ const HWD = () => {
         <div
           className="
     flex gap-6 overflow-x-auto snap-x snap-mandatory
+px-4 -mx-4
+scroll-smooth
+
     xl:overflow-visible xl:grid
     xl:grid-cols-3
     sm:gap-14
@@ -322,14 +325,17 @@ const HWD = () => {
 
           {cards.map((card, i) => (
             <motion.div
-              key={i}
-              className="relative rounded-md overflow-hidden shadow-lg snap-center flex-shrink-0
-               w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
-              style={{ backgroundColor: bottomBg }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
-            >
+  key={i}
+  className="relative rounded-md overflow-hidden shadow-lg snap-center 
+  flex-shrink-0 flex flex-col
+  w-[85vw] sm:w-[70vw] md:w-[50%] xl:w-auto
+  xl:min-h-[600px]"
+  style={{ backgroundColor: bottomBg }}
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+>
+
               <CardContent {...card} />
             </motion.div>
           ))}

@@ -29,8 +29,8 @@ export default function CardsSection() {
   };
 
   return (
-    <section className="w-full bg-white px-4 sm:px-6 lg:px-20 py-16">
-      <div className="max-w-8xl mx-10 flex flex-col items-center">
+    <section className="w-full bg-white py-10">
+      <div className="max-w-7xl mx-auto px-5 flex flex-col items-center">
         <H2 className="text-center mb-12">
           Lorem ipsum dolor, consectetur adipis
         </H2>

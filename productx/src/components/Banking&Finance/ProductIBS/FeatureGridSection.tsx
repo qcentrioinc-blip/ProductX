@@ -26,7 +26,7 @@ const cards = [
 
 const FeatureGridSection: React.FC = () => {
   return (
-    <section className="w-full h-screen bg-white py-20 px-5 sm:px-5 md:px-8 lg:px-10 xl:px-32 overflow-hidden">
+    <section className="w-full bg-white py-10 px-5 md:px-8 lg:px-10 xl:px-32 overflow-hidden">
       <div
         className="
           max-w-7xl mx-auto 
@@ -83,7 +83,7 @@ const FeatureGridSection: React.FC = () => {
       </div>
 
 
-      <div
+      {/* <div
         className="
           relative bottom-[250px]
           left-[-250px] rotate-10
@@ -93,9 +93,9 @@ const FeatureGridSection: React.FC = () => {
         <img
           src="/ProductDetails4/faq_img1.png"
           alt="FAQ Decorative Shape"
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain "
         />
-      </div>
+      </div> */}
 
 
     </section>

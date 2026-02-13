@@ -101,7 +101,7 @@ const FeatureHighlights = () => {
   })();
 
   return (
-    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 pb-20 bg-white">
+    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 py-10 bg-white">
       {/* Heading */}
       <div className="text-center mb-2">
         <H2 className="text-[#008280]">{title}</H2>

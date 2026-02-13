@@ -14,6 +14,9 @@ const features: FeatureItem[] = [
   { title: "Duis aute irure dolor in", description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore" },
 ];
 
+const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+
 // Card entry/exit from 4 screen corners
 const cornerVariants: Variants = {
   hidden: (index: number) => {
@@ -32,19 +35,17 @@ const cornerVariants: Variants = {
   },
 
   visible: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 55,     // ↓ lower = smoother
-      damping: 18,       // ↑ higher = less bounce
-      mass: 1.4,         // ↑ heavier = slower movement
-      duration: 1.9,     // ↑ slower
-      ease: [0.22, 1, 0.36, 1] // premium iOS-like curve
-    }
-  },
+  x: 0,
+  y: 0,
+  opacity: 1,
+  scale: 1,
+  transition: {
+    type: "spring",
+    stiffness: 60,   // ↑ faster snap
+    damping: 14,      // keeps it smooth
+    mass: 0.8,        // lighter feel
+  }
+},
 
   exit: (index: number) => {
     const cornerOffsets = [
@@ -72,7 +73,7 @@ const BorderZoomCards: React.FC = () => {
 
   const inView = useInView(containerRef, {
     margin: "-40% 0px -40% 0px",
-    once: false,
+    once: true,
   });
 
   const controls = useAnimation();
@@ -101,11 +102,12 @@ const BorderZoomCards: React.FC = () => {
       <div className="relative z-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
         {features.map((item, index) => (
           <motion.div
-            key={index}
-            custom={index}
-            variants={cornerVariants}
-            initial="hidden"
-            animate={controls}
+  key={index}
+  custom={index}
+  variants={!isMobile ? cornerVariants : undefined}
+  initial={!isMobile ? "hidden" : false}
+  animate={!isMobile ? controls : false}
+
             className="
               bg-white p-6 sm:p-7 md:p-8 rounded-xl shadow-lg
               w-full max-w-[560px]
