@@ -98,7 +98,7 @@ const Process = () => {
                 <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[85vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
 
                     {/* Header section - Responsive positioning */}
-                    <div className="absolute top-6 sm:top-10 md:top-14 lg:top-20 left-0 right-0 flex-none z-20">
+                    <div className="absolute top-6 sm:top-10 md:top-14 lg:top-24 left-0 right-0 flex-none z-20">
                         <div className="container mx-auto px-4 sm:px-6">
                             <div className="text-center">
                                 <H2
@@ -115,7 +115,7 @@ const Process = () => {
                     </div>
 
                     {/* Horizontal scroll section */}
-                    <div className="flex-1 flex items-center justify-start overflow-hidden w-full mt-12 sm:mt-16 md:mt-20 lg:mt-0">
+                    <div className="flex-1 flex items-start justify-start overflow-hidden w-full pt-10 sm:pt-16 md:pt-6 lg:mt-[-200px] xl:mt-0">
                         <motion.div
                             style={{ x }}
                             className="relative flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-16 pl-4 sm:pl-6 md:pl-8"

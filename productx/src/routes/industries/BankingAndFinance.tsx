@@ -60,20 +60,18 @@ const BankingAndFinance = () => {
       <InsightThought />
       <div className="relative">
 
-        <div className=" lg:h-[200vh]"></div>
 
-
-
-        <div className="sticky bottom-0 inset-0 z-30">
-          <NewOneFooter />
-        </div>
-
+        <div className="hidden lg:block lg:h-[200vh]"></div>
 
         <div
           id="contact-us"
-          className="absolute inset-0 z-40 pointer-events-none"
+          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
         >
           <ContactUS />
+        </div>
+
+        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
+          <NewOneFooter />
         </div>
 
       </div>
