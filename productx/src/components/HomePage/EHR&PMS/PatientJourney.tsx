@@ -247,7 +247,7 @@ L 250 300
     </section>
 
 
-    <div className="xl:hidden bg-white px-4 py-16">
+    <div className="xl:hidden bg-white px-6 py-16">
   {/* Header */}
   <H2 className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
     End to End Patient Journey,<br />Unified in One Platform

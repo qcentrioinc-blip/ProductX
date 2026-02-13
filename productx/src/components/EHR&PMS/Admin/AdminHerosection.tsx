@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { H1, P } from '../../../styles/Typography';
+import ContactDrawer from '../Navbar/ContactDrawer';
  
 
 const AdminHeroSection: React.FC = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <section className="relative  bg-white overflow-hidden">
       {/* Decorative floating elements */}
@@ -36,6 +38,11 @@ const AdminHeroSection: React.FC = () => {
             {/* CTA Button */}
             <div>
               <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setDrawerOpen(true);
+                  }}
         className="
           group
           flex items-center justify-center
@@ -92,6 +99,7 @@ const AdminHeroSection: React.FC = () => {
         </div>
       </div>
 
+      <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
        
     </section>
   );

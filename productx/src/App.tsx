@@ -76,6 +76,8 @@ import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRRecepti
 import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
  
 import Admin from './components/EHR&PMS/Admin/Admin';
+import BlogDetail from './components/EHR&PMS/Blogs/BlogDetail';
+import ImageCard from './components/EHR&PMS/Blogs/ImageCard';
 const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
 
@@ -200,6 +202,13 @@ const App = () => {
               <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
               <Route path="/industries/ehr-and-pms/receptionist" element={<EHRReceptionist />} />
               <Route path="/industries/ehr-and-pms/insurance-coordinator" element={<EHRInsuranceCoordinator />} />
+              <Route path="/industries/ehr-and-pms/blogdetail" element={<BlogDetail />} />
+
+
+   <Route path="/blogs" element={<ImageCard />} />
+        <Route path="/blogs/:slug" element={<BlogDetail />} />
+
+
 
               <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
               <Route path='/industries/high-tech/contactform' element={<ContactPage />} />

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { H2, H3, H4, P,  } from "../../../styles/Typography";
+import ContactDrawer from "../Navbar/ContactDrawer";
  
 type FeatureItem = {
   id: number;
@@ -19,7 +21,7 @@ type FeaturesEHRProps = {
 };
  
 const FeaturesEHR = ({content}:FeaturesEHRProps) => {
- 
+ const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white py-10 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl xl:mx-auto ">
@@ -33,19 +35,44 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
             <div className="relative w-full lg:w-auto lg:flex-shrink-0">
               <div className="relative  w-full ">
                
-                  <img src="/EHRIcons/arrow.webp" alt="ehr and pms" className="xl:h-66"/>
+                  <img src="/EHRIcons/GreenRec.webp" alt="ehr and pms" className="xl:h-66"/>
                 {/* Arrow icon in the curved corner */}
-                {/* <div className="absolute top-2 right-2 w-28 h-28   rounded-full  flex items-center justify-center  hover:scale-110 transition-transform duration-300">
-                  <img src="/Physician/CircleArrow.svg" alt="arrow"/>
-                </div> */}
+            <button
+  type="button"
+  onClick={() => setDrawerOpen(true)}
+  className="
+    absolute 
+    top-6 right-6
+    md:top-6 md:right-6
+    lg:top-10 lg:right-10
+    xl:top-2 xl:right-2
+
+    w-16 h-16
+    xs:w-20 xs:h-20
+    lg:w-48 lg:h-48
+    xl:w-32 xl:h-32
+    z-30
+    flex items-center justify-center
+    transition-transform duration-300
+    hover:scale-110
+    cursor-pointer
+  "
+>
+  <img
+    src="/EHRIcons/GreenArrow.svg"
+    alt="arrow"
+    className="w-full h-full object-contain pointer-events-none"
+  />
+</button>
+
  
                 {/* Card Content */}
                 <div className="p-2 absolute top-8 z-10 md:p-6">
-                 <H3 className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-line border-white "> 
+                 <H3 className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-normal border-white "> 
   {content.cardTitle}
 </H3>
  
-                 <P className="text-white max-w-xs md:max-w-sm lg:max-w-lg xl:whitespace-pre-line leading-relaxed">
+                 <P className="text-white max-w-xs md:max-w-sm lg:max-w-lg xl:whitespace-pre-line xl:mt-5 leading-relaxed">
   {content.cardDescription}
 </P>
  
@@ -63,12 +90,12 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
           </div>
  
           {/* Bottom Section - Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-6 lg:gap-10">
            {content.features.map((feature) => (
  
               <div key={feature.id} className="flex flex-col">
                 {/* Icon Circle */}
-                <img className="w-10 h-10 overflow-visible   mb-4  " src={feature.image}/>
+                <img className="w-10 h-10 overflow-visible   my-8  " src={feature.image}/>
                 
                 {/* Title */}
                 <H4  className="  mb-2">
@@ -84,6 +111,7 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
           </div>
         </div>
       </div>
+         <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import TitleSec from "./TitleSec"
-import BlogArticleGrid from "./BlogArticleGrid"
+// import BlogArticleGrid from "./BlogArticleGrid"
 import ImageCard from "./ImageCard"
-import FeaturePoint from "./FeaturePoint"
+// import FeaturePoint from "./FeaturePoint"
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import EHRNavbar from "../Navbar/EHRNavbar"
 
@@ -10,10 +10,10 @@ const BlogsPage = () => (
   <div>
     <EHRNavbar />
     <TitleSec />
-    <BlogArticleGrid />
+    {/* <BlogArticleGrid /> */}
     <div className="relative overflow-x-hidden">
       <ImageCard />
-      <FeaturePoint />
+      {/* <FeaturePoint /> */}
       <EHRFooter />
     </div>
 

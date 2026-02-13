@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { H2, P } from "../../../styles/Typography";
+import ContactDrawer from "../Navbar/ContactDrawer";
+import { ContactUs } from "../../../styles/Button";
  
 type Outcome = {
   id: number;
@@ -41,6 +43,7 @@ const PhysicianOutcomes = () => {
  
   const activeOutcome =
     outcomes.find((item) => item.id === activeId) || outcomes[0];
+   const [drawerOpen, setDrawerOpen] = useState(false);
  
   return (
     <section className="w-full bg-white py-16 px-4">
@@ -63,6 +66,11 @@ const PhysicianOutcomes = () => {
               </P>
  
               <button
+               onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setDrawerOpen(true);
+                  }}
                 className="
                   w-fit
                   px-6 py-3
@@ -99,19 +107,16 @@ const PhysicianOutcomes = () => {
               {activeOutcome.description}
             </P>
  
-            <button
-              className="
-                group flex items-center gap-3
-                px-6 py-3
-                rounded-lg
-                bg-black text-white
-                font-bold
-                transition-all duration-300
-                hover:bg-[#008280]
-              "
-            >
-              {activeOutcome.cta}
-            </button>
+         <ContactUs
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setDrawerOpen(true);
+                          }}
+                          className="w-fit mt-4 transition-transform hover:scale-105 active:scale-95"
+                        >
+                       {activeOutcome.cta}
+                        </ContactUs>
           </div>
  
           {/* Right Images */}
@@ -147,6 +152,7 @@ const PhysicianOutcomes = () => {
           </div>
         </div>
       </div>
+            <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </section>
   );
 };

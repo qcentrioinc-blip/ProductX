@@ -6,9 +6,9 @@ import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 const HeroSplitMasked = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  return (
+  return (  
     <>
-      <section className="w-full bg-[#F5F5F5]  py-10 px-4 xl:px-0 ">
+      <section className="w-full bg-[#F5F5F5]  py-10 px-8 xl:px-0 ">
         <div className="max-w-7xl xl:mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
 
           {/* LEFT CONTENT */}

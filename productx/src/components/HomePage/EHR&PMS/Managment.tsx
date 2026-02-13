@@ -193,16 +193,18 @@ export default function Management() {
             <div
               key={card.id}
               ref={i === 0 ? firstCardRef : null}
-           className="sticky top-16"
+           className="sticky top-0 h-[100svh]"
+
  
 
 
             >
-              <div
+      <div
   className={`${
     i % 2 === 0 ? "bg-white" : "bg-[#FBF7EF]"
-  } rounded-t-[6rem] transition-all duration-700 ease-out 
+  } h-full rounded-t-[6rem] transition-all duration-700 ease-out 
   shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
+
   style={
     i === 0
       ? { maxWidth: `${firstCardWidth}vw` }

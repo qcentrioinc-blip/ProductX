@@ -70,7 +70,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
       PaperProps={{
         sx: {
           width: { xs: "100%", sm: 480, md: 560 },
-          backgroundColor: "#F0F9F4",
+          backgroundColor: "#FFFFFF",
           p: { xs: 3, sm: 4, md: 5 },
         },
       }}
@@ -83,11 +83,11 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
           <X />
         </button>
 
-        <H3 className=" text-[#166D48] mb-6">
+        <H3 className=" text-[#008280] mb-6">
           Let’s Connect With Us
         </H3>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col font-quicksand gap-5">
 
           <input name="name" placeholder="Full Name" onChange={handleInputChange}
             className="input" required />
@@ -100,7 +100,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 
           {/* Dropdown Multi Select */}
           <div ref={interestRef} className="relative">
-            <label className="text-sm font-semibold text-[#166D48] ml-1 mb-2 block">
+            <label className="text-md font-semibold text-[#008280] font-quicksand ml-1 mb-2 block">
               What services are you interested in?
             </label>
 
@@ -160,7 +160,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
           <textarea name="message" rows={3} placeholder="Tell us about your requirements"
             onChange={handleInputChange} className="textarea" />
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn font-quicksand">
             Submit
           </button>
         </form>
@@ -168,9 +168,9 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 
       <style>{`
         .input{padding:16px 22px;border-radius:9999px;border:2px solid #d1d5db;outline:none;}
-        .input:focus{border-color:#166D48;}
+        .input:focus{border-color:#008280;}
         .textarea{padding:16px 22px;border-radius:24px;border:2px solid #d1d5db;outline:none;resize:none;}
-        .textarea:focus{border-color:#166D48;}
+        .textarea:focus{border-color:#008280;}
         .dropdown-head{
           width:100%;padding:16px 22px;border-radius:18px;
           background:rgba(255,255,255,.85);border:1px solid rgba(22,109,72,.3);
@@ -189,11 +189,11 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
           display:flex;align-items:center;gap:10px;font-weight:600;transition:.3s;
         }
         .dropdown-item:hover{box-shadow:0 8px 18px rgba(22,109,72,.15);}
-        .active{background:#166D48;color:white;}
-        .dot{width:16px;height:16px;border-radius:50%;border:2px solid #166D48;}
+        .active{background:#008280;color:white;}
+        .dot{width:16px;height:16px;border-radius:50%;border:2px solid #008280;}
         .dot-active{background:white;}
         .submit-btn{
-          background:#166D48;color:white;padding:14px;border-radius:14px;font-weight:700;
+          background:#008280;color:white;padding:14px;border-radius:14px;font-weight:700;
         }
 
         .chip-input{
@@ -206,12 +206,12 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 .chip-input:hover{box-shadow:0 12px 25px rgba(22,109,72,.15);}
 .placeholder{color:#888;font-size:14px;}
 .chip{
-  background:#166D48;color:white;padding:6px 12px;border-radius:999px;
+  background:#008280;color:white;padding:6px 12px;border-radius:999px;
   display:flex;align-items:center;gap:6px;font-size:13px;
 }
 .chip-x{cursor:pointer;font-weight:700;opacity:.7;}
 .chip-x:hover{opacity:1;}
-.arrow{width:18px;height:18px;fill:none;stroke:#166D48;stroke-width:2;}
+.arrow{width:18px;height:18px;fill:none;stroke:#008280;stroke-width:2;}
 .rotate{transform:rotate(180deg);}
 
         .submit-btn:hover{background:#125a3a;}
