@@ -13,8 +13,8 @@ export default function GridLayout() {
   };
 
   return (
-    <section className="w-full bg-gray-50 py-12 sm:py-16">
-      <div className="max-w-8xl mx-10 flex flex-col gap-10">
+    <section className="w-full bg-gray-50 py-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
         {/* ================= HEADING ================= */}
         <div className="text-center max-w-4xl mx-auto">

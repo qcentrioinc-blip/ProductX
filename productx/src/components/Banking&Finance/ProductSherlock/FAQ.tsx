@@ -181,8 +181,8 @@ const FaqSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative w-full py-16 bg-white overflow-hidden">
-        <div className="max-w-8xl xl:px-10 mx-10 flex flex-col lg:flex-row gap-12 relative z-10">
+      <section className="relative w-full py-6 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-8 md:px-10 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
             <div className="mb-4 text-sm text-gray-700 flex items-center">

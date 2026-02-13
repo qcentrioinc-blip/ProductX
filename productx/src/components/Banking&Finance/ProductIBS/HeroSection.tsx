@@ -132,7 +132,7 @@ const HeroSec = () => {
         }
       `}</style>
 
-      <div className="max-w-8xl mx-10 px-6 lg:px-12 flex flex-col items-center lg:items-center xl:items-start gap-4">
+      <div className="max-w-7xl mx-auto flex flex-col items-center lg:items-center xl:items-start gap-4 px-5 md:px-8">
 
         {/* === TOP ROW: Heading + Avatars + Paragraph === */}
         <div className="w-full flex flex-col lg:pt-16 xl:pt-24 lg:flex-col xl:flex-row justify-between items-center lg:items-center xl:items-start gap-8">

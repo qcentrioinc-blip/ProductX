@@ -28,8 +28,8 @@ const InsightThought = () => {
     ];
 
     return (
-        <div className="bg-[#E7E7E7] py-8 sm:py-12 lg:py-16" id='blogs'>
-            <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="bg-[#E7E7E7] py-8" id='blogs'>
+            <div className="max-w-7xl mx-auto ">
                 {/* Header Section */}
                 <div className="flex justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
                     <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">

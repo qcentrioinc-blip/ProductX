@@ -33,8 +33,8 @@ export default function Sec_Grid() {
   ];
 
   return (
-    <section className="w-full flex flex-col items-center justify-start bg-white py-10 md:py-16">
-      <div className="w-full px-6 xl:px-16">
+    <section className="w-full flex flex-col items-center justify-start bg-white py-10">
+      <div className="max-w-7xl mx-auto">
         <H2 className="text-center mb-10 mt-2">
           Lorem ipsum dolor, consectetur adipis
         </H2>
