@@ -1,8 +1,9 @@
 import { ContactUs } from "../../../styles/Button";
+import { H1 } from "../../../styles/Typography";
 
 const Overview = () => {
     return (
-        <div className="w-full h-auto bg-[#FFD700] relative overflow-hidden font-sans">
+        <div className="w-full h-auto bg-[#0C4BA8] relative overflow-hidden font-sans">
             {/* Hero Section */}
             <section className="relative max-w-8xl py-28 lg:py-40 xl:py-44 mx-10 px-4 sm:px-6 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 xl:gap-20 items-center">
@@ -11,13 +12,13 @@ const Overview = () => {
                     <div className="relative z-10 text-center lg:text-left">
 
                         {/* Heading */}
-                        <h1 className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[48px] xl:text-[64px] 
-                                     font-bold text-[#2B68C3] mb-4 sm:mb-6 leading-[110%] tracking-[-0.5px] font-['Space_Grotesk']">
+                        <H1 className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[48px] xl:text-[64px] 
+                                     font-bold text-white mb-4 sm:mb-6 leading-[110%] tracking-[-0.5px] font-['Space_Grotesk']">
                             Smarter Banking, Simplified with AI
-                        </h1>
+                        </H1>
 
                         {/* Description */}
-                        <p className="text-[14px] sm:text-[16px] text-[#2A2A2A] 
+                        <p className="text-[14px] sm:text-[16px] text-white 
                                     max-w-full lg:max-w-[480px] xl:max-w-[520px] mx-auto lg:mx-0 
                                     mb-6 sm:mb-8 lg:mb-10 font-['Quicksand'] leading-[160%]">
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
@@ -27,7 +28,7 @@ const Overview = () => {
                         <div className="flex flex-row flex-wrap  justify-center lg:justify-start">
                             <ContactUs>Contact Sales</ContactUs>
 
-                            <button className="bg-transparent text-[#2B68C3] h-[48px] px-6 sm:px-8 
+                            <button className="bg-transparent text-white h-[48px] px-6 sm:px-8 
                                              rounded-[8px] font-semibold flex items-center justify-center gap-2 
                                              hover:bg-blue-50 transition-colors duration-300 font-['Quicksand'] text-[14px] tracking-[0.5px]">
                                 WATCH OVERVIEW

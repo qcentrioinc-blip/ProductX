@@ -1,7 +1,9 @@
 // NO LAZY LOADING - All components load immediately for consistent scroll restoration
-import { memo, Suspense, lazy } from 'react';
+import { memo, Suspense, lazy, useState, useEffect } from 'react';
 import HeroCombined from "./HeroComp/HeroCombined";
 import DeferredLoader from "../../Global/DeferredLoader";
+import HWD from "../../Banking&Finance/HWD";
+import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
 // Lazy load middle components
 const CTA = lazy(() => import("./CTA"));
 const Onboarding = lazy(() => import('./Onboarding'));
@@ -9,13 +11,25 @@ const Firm = lazy(() => import('./Firm'));
 const ImageGrid = lazy(() => import('../HomePageAI/ImageGrid'));
 const FeatureCards = lazy(() => import("../HomePageAI/Features"));
 
+// Simple deferred render hook - delays rendering to keep critical path clear
+function useDeferredRender(delay: number) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setShow(true), delay);
+    return () => clearTimeout(t);
+  }, [delay]);
+  return show;
+}
+
 
 const AIProduct = () => {
-  
+  const showHWD = useDeferredRender(3000);
+  const showFAQ = useDeferredRender(4000);
+
   return (
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
-        <HeroCombined />  
+        <HeroCombined />
       </div>
 
       <Suspense fallback={null}>
@@ -37,18 +51,13 @@ const AIProduct = () => {
         loader={() => import("../HomePageAI/Timeline")}
         delay={2500}
       />
-      <DeferredLoader
-        loader={() => import("../../Banking&Finance/HWD")}
-        delay={3000}
-      />
+      {/* HWD and FAQ are statically imported (used in 12+ files), so use deferred render instead */}
+      {showHWD && <HWD />}
       <DeferredLoader
         loader={() => import('./UseCases')}
         delay={3500}
       />
-      <DeferredLoader
-        loader={() => import("../../Banking&Finance/ProductSherlock/FAQ")}
-        delay={4000}
-      />
+      {showFAQ && <FaqSection />}
       <DeferredLoader
         loader={() => import("../../HomePage/AIOptimization/AIBlogs")}
         delay={4500}

@@ -137,7 +137,7 @@ const FirstPage = () => {
 
       {/* Yellow Title Band - Fully Responsive */}
       <div
-        className="w-full bg-[#FED600] relative z-5"
+        className="w-full relative z-5"
         style={{
           minHeight: 'auto',
           height: 'auto'
@@ -147,7 +147,7 @@ const FirstPage = () => {
 
           {/* Left: Title */}
           <h1
-            className="max-w-full md:max-w-[620px] lg:max-w-[500px] xl:max-w-[750px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[48px] xl:text-[66px] leading-[110%] sm:leading-[120%] text-[#2A2A2A] m-0"
+            className="max-w-full md:max-w-[620px] lg:max-w-[500px] xl:max-w-[750px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[48px] xl:text-[66px] leading-[110%] sm:leading-[120%] text-white m-0"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               letterSpacing: '-0.5px',
@@ -162,7 +162,7 @@ const FirstPage = () => {
               className="text-[14px] xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-xl leading-[140%] sm:leading-[150%]"
               style={{
                 fontFamily: "'Schibsted Grotesk', sans-serif",
-                color: "#141414"
+                color: "#fff"
               }}
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia

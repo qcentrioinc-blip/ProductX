@@ -57,32 +57,31 @@ const CARD_CONFIG: Record<
     banks: {
       bg: "#F2F2F2",
 
-      heading: "Technology Challenges in Banking",
+      heading: "Key Pain Points",
       cards: [
-        { id: 1, title: "Legacy Infrastructure", desc: "Aging systems slow innovation.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Regulatory Complexity", desc: "Compliance increases operational cost.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Fraud Risk", desc: "Real-time detection requires advanced systems.", image: "/BuiltFor/Recycle.png" },
-      ],
-    },
-
-    nbfc: {
-      bg: "#F2F2F2",
-
-      heading: "NBFC Operational Challenges",
-      cards: [
-        { id: 1, title: "Rapid Scaling Needs", desc: "Growth without cost overruns is critical.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Risk Management", desc: "Credit risk requires precision.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Data Visibility", desc: "Fragmented data reduces insight.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Legacy Infrastructure", desc: "Rigid core systems hinder innovation, slow updates, and increase maintenance costs.", image: "/BuiltFor/Recycle.png" },
+        { id: 2, title: "Compliance Burden", desc: "Manual AML and KYC processes create errors and struggle to meet regulations.", image: "/BuiltFor/Recycle.png" },
+        { id: 3, title: "Siloed Data", desc: "Disconnected systems prevent a unified customer view and accurate reporting.", image: "/BuiltFor/Recycle.png" },
       ],
     },
 
     "credit-union": {
       bg: "#F2F2F2",
-      heading: "Credit Union Technology Gaps",
+      heading: "Key Pain Points",
       cards: [
-        { id: 1, title: "Limited IT Budgets", desc: "Cost efficiency is essential.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Member Experience", desc: "Digital expectations are rising.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Security Concerns", desc: "Protecting member data is critical.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Member Expectations", desc: "Members demand digital experiences like large banks provide seamlessly.", image: "/BuiltFor/Recycle.png" },
+        { id: 2, title: "Manual Processes", desc: "Staff spends too much time on paperwork and data entry.", image: "/BuiltFor/Recycle.png" },
+        { id: 3, title: "Compliance Complexity", desc: "Keeping up with regulations strains small teams and budgets.", image: "/BuiltFor/Recycle.png" },
+      ],
+    },
+
+    "financial-unions": {
+      bg: "#F2F2F2",
+      heading: "Key Pain Points",
+      cards: [
+        { id: 1, title: "Legacy Modernization", desc: "Outdated core systems limit agility and increase technical debt.", image: "/BuiltFor/Recycle.png" },
+        { id: 2, title: "Regulatory Pressure", desc: "Multiple jurisdictions require constant compliance updates and reporting.", image: "/BuiltFor/Recycle.png" },
+        { id: 3, title: "Operational Silos", desc: "Disconnected systems create data gaps and inefficient workflows.", image: "/BuiltFor/Recycle.png" },
       ],
     },
   },

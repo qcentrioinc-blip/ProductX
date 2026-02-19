@@ -50,16 +50,15 @@ const Testimonial = () => {
   const location = useLocation();
   const isBankingPage = location.pathname === "/industries/banking-and-finance";
 
-  const cardBg = isBankingPage ? "#ACCAEF" : "#000";
+  const cardBg = isBankingPage ? "#ffff" : "#000";
   const textColor = isBankingPage ? "#000" : "#fff";
 
 
-  const [currentIndex, setCurrentIndex] = useState(1); // start at first real slide
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
   const [visibleCards, setVisibleCards] = useState(3);
   const [cardWidth, setCardWidth] = useState(448);
   const [gap, setGap] = useState(24);
-  // const [gradientWidth, setGradientWidth] = useState(72);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const clonedSlides = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
@@ -67,19 +66,16 @@ const Testimonial = () => {
   const updateResponsive = () => {
     if (window.innerWidth < 640) {
       setVisibleCards(1);
-      setCardWidth(window.innerWidth - 32); // full width minus padding
+      setCardWidth(window.innerWidth - 32);
       setGap(16);
-      // setGradientWidth(28);
     } else if (window.innerWidth < 1024) {
       setVisibleCards(2);
-      setCardWidth((window.innerWidth - 64 - 20) / 2); // two cards minus total padding & gap
+      setCardWidth((window.innerWidth - 64 - 20) / 2);
       setGap(20);
-      // setGradientWidth(38);
     } else {
       setVisibleCards(3);
-      setCardWidth((window.innerWidth - 96 - 48) / 3); // three cards minus total padding & gaps
+      setCardWidth((window.innerWidth - 96 - 48) / 3);
       setGap(24);
-      // setGradientWidth(50);
     }
   };
 
@@ -217,6 +213,7 @@ const Testimonial = () => {
                   width: `${cardWidth}px`,
                   height: '200px',
                   borderRadius: '16px',
+                  border: "1px solid #7f7f7f",
                   padding: '24px 32px',
                   backgroundColor: cardBg,
                   color: textColor,
