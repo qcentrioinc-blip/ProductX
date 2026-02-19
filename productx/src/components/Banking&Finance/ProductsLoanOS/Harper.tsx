@@ -65,7 +65,7 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             {/* MOBILE / TABLET (Vertical layout)        */}
             {/* ---------------------------------------- */}
-            <div className="block lg:hidden bg-[#F5DDA9] py-8 px-4">
+            <div className="block lg:hidden bg-white py-8 px-4">
                 <div className="mb-8">
                     <H1 className="font-bold text-gray-900 text-left ml-2 sm:ml-16 lg:ml-20">
                         Sed ut perspiciatis Sed ut
@@ -101,7 +101,7 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             <div
                 ref={containerRef}
-                className="hidden lg:block relative bg-[#F5DDA9]"
+                className="hidden lg:block relative bg-white"
                 style={{ height: "200vh" }} // Reduced height further
             >
                 <div className="sticky top-0 flex flex-col overflow-hidden">

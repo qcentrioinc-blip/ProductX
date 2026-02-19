@@ -17,10 +17,12 @@ export default function HeroBottomNavbar() {
       const currentY = Math.max(0, window.scrollY);
       const isUp = currentY < lastScrollY.current;
 
-      // Simplify: adhere to scroll direction matching TopBar logic
-      // If scrolling up or at top, show stack (top: 124px).
-      // If scrolling down, sticky to top (top: -1px).
-      setShowGlobalNav(currentY <= 50 || isUp);
+      const isProductRoute = window.location.pathname.includes("/industries/banking-and-finance/products/");
+      if (isProductRoute) {
+        setShowGlobalNav(currentY <= 50);
+      } else {
+        setShowGlobalNav(currentY <= 50 || isUp);
+      }
 
       lastScrollY.current = currentY;
     };

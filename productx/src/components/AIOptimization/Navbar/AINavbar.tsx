@@ -5,8 +5,8 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
-import { P } from "../../../styles/Typography";
-const ContactModal = lazy(() => import("./ContactModal"));
+import { H4, P } from "../../../styles/Typography";
+import ContactModal from "./ContactModal";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
@@ -56,7 +56,7 @@ const AINavbar = () => {
       import("../../HomePage/AIOptimization/Statistics");
       import("../../HomePage/AIOptimization/CloudDiet");
       import("../../HomePage/AIOptimization/AIBlogs");
-      import("../../HomePage/AIOptimization/AIFooter");
+      // AIFooter is statically imported in many files, no need to prefetch
       prefetchLandingPageAIImages();
       const img = new Image();
       img.src = "/AIOptimization/LandingBackground.png";
@@ -71,7 +71,7 @@ const AINavbar = () => {
       import("../ResourceDoc/ResourceDoc");
       import("./ResourcesMenu");
     },
-    support: () => import("./ContactModal"),
+    support: () => { /* ContactModal is now statically imported */ },
   };
 
   // ---------- HOVER TIMEOUT LOGIC ----------
@@ -106,7 +106,7 @@ const AINavbar = () => {
     setMenuOpen(!menuOpen);
   };
 
-  
+
 
   // ---------- AI-SPECIFIC DATA ----------
 
@@ -204,62 +204,61 @@ const AINavbar = () => {
 
           <div className="flex items-center gap-10">
             <div
-  className="relative flex items-center gap-1 cursor-pointer"
-  onMouseEnter={() => {
-    handleKeepOpen();
-    setLogoDropdownOpen(true);
-    setMegaMenuBuiltFor(false);
-  }}
->
-  <Link
-    to="/industries/cloud-finops-ai"
-    onClick={closeAllMenus}
-    className="flex items-center gap-1"
-  >
-    <div className="w-full h-12 flex justify-center items-center">
-      <img src="/QCloudLogo.png" className="w-auto h-10" alt="Cloud FinOps AI" />
-    </div>
+              className="relative flex items-center gap-1 cursor-pointer"
+              onMouseEnter={() => {
+                handleKeepOpen();
+                setLogoDropdownOpen(true);
+                setMegaMenuBuiltFor(false);
+              }}
+            >
+              <Link
+                to="/industries/cloud-finops-ai"
+                onClick={closeAllMenus}
+                className="flex items-center gap-1"
+              >
+                <div className="w-full h-12 flex justify-center items-center">
+                  <img src="/QCloudLogo.png" className="w-auto h-10" alt="Cloud FinOps AI" />
+                </div>
 
-    {/* Chevron */}
-    <img
-      src="/down.png"
-      className={`w-4 h-4 transition-transform duration-300 ${
-        logoDropdownOpen ? "rotate-180" : "rotate-0"
-      }`}
-    />
-  </Link>
+                {/* Chevron */}
+                <img
+                  src="/down.png"
+                  className={`w-4 h-4 transition-transform duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                />
+              </Link>
 
-  {/* 🔽 LOGO DROPDOWN */}
-  {logoDropdownOpen && (
-    <div
-      className="absolute top-17 w-80 bg-white shadow-xl rounded-md z-[999] px-3"
-      onMouseEnter={handleKeepOpen}
-      onMouseLeave={handleCloseMenus}
-    >
-      <Link
-        to="/industries/ehr-and-pms"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
-      >
-        <img
-          src="/QEHRLogo2.svg"
-          alt="EHR and PMS"
-          className="w-14 h-14 object-contain"
-        />
+              {/* 🔽 LOGO DROPDOWN */}
+              {logoDropdownOpen && (
+                <div
+                  className="absolute top-12 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  onMouseEnter={handleKeepOpen}
+                  onMouseLeave={handleCloseMenus}
+                >
+                  <Link
+                    to="/industries/ehr-and-pms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                  >
+                    <img
+                      src="/QEHRLogo2.svg"
+                      alt="EHR and PMS"
+                      className="w-14 h-14 object-contain"
+                    />
 
-        <div className="flex flex-col">
-          <P className="text-lg font-semibold text-gray-900">
-            EHR & PMS
-          </P>
-          <p className="text-[10px] md:text-[14px] lg:text-[14px] xl:text-[16px]">
-            The unified platform for clinical and administrative excellence. 
-          </p>
-        </div>
-      </Link>
-    </div>
-  )}
-</div>
+                    <div className="flex flex-col">
+                      <H4 className="text-lg font-semibold text-gray-900">
+                        EHR & PMS
+                      </H4>
+                      <P className="">
+                        The unified platform for clinical and administrative excellence.
+                      </P>
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
 
 
             <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
@@ -355,43 +354,43 @@ const AINavbar = () => {
          
         "
             > SIGN UP
-               <span className="relative flex items-center justify-center w-[20px] h-[20px]">
-      
-      {/* Default Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-      >
-        <path d="M7 7h10v10" />
-        <path d="M7 17L17 7" />
-      </svg>
+              <span className="relative flex items-center justify-center w-[20px] h-[20px]">
 
-      {/* Hover Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
+                {/* Default Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                >
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17L17 7" />
+                </svg>
 
-    </span>
+                {/* Hover Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+
+              </span>
             </button>
           </div>
 
@@ -543,9 +542,7 @@ const AINavbar = () => {
       </div>
 
       {/* CONTACT MODAL - SLIDES FROM TOP */}
-      <Suspense fallback={<div>Loading Contact Form...</div>}>
-        {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
-      </Suspense>
+      {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
 
     </>,
     document.body

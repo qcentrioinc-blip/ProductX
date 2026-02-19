@@ -1,4 +1,6 @@
-import { ArrowUpRight } from 'lucide-react';
+const ArrowUpRight = ({ size = 24, strokeWidth = 2 }: { size?: number; strokeWidth?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+);
 import { motion, useInView as useFramerInView } from 'framer-motion';
 import { useRef, } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,7 +9,7 @@ import { H1, P } from '../../../styles/Typography';
 const FirstProduct = () => {
 
   const ref = useRef(null);
-  const isInView = useFramerInView(ref, { 
+  const isInView = useFramerInView(ref, {
     once: false,
     amount: 0.3,
     margin: "0px 0px -100px 0px"
@@ -19,16 +21,16 @@ const FirstProduct = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(/Products/Draxora1.png)`,
+          // backgroundImage: `url(/Products/Draxora1.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
-      />  
+      />
 
       <div className="relative lg:pt-44 z-10 px-4 sm:px-6 lg:px-8 py-16">
         <div className="relative flex flex-col items-center justify-center min-h-screen">
-          
+
           {/* Trusted by 15K+ Section */}
           <div className="mb-12 flex items-center gap-4 trusted-section">
             <div className="flex -space-x-3">
@@ -56,46 +58,47 @@ const FirstProduct = () => {
             }}
           >
             {/* Main Heading */}
-            <H1 className='text-[#020059] sm:text-center'>
-              
+            <H1 className='text-[#2B68C3] sm:text-center'>
+
               Smarter Banking, Simplified
             </H1>
 
             {/* Subtitle */}
             <P>
-              
+
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt cupidatat non proident, sunt in culpa qui officia deserunt.
             </P>
 
             {/* CTA Button */}
             <Link to="/industries/banking-and-finance/contactform">
-            <button
-              className="cta-button hover:brightness-110"
-              style={{
-                width: '296.5px',
-                height: '48px',
-                gap: '8px',
-                borderRadius: '12px',
-                paddingTop: '12px',
-                paddingRight: '24px',
-                paddingBottom: '12px',
-                paddingLeft: '24px',
-                background: '#FED600',
-                color: '#000000',
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700,
-                fontSize: '13px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              EXPLORE OUR SOLUTIONS
-              <ArrowUpRight size={20} strokeWidth={2.5} />
-            </button>
+              <button
+                className="cta-button hover:brightness-110"
+                style={{
+                  width: '296.5px',
+                  height: '48px',
+                  gap: '8px',
+                  borderRadius: '12px',
+                  border: "2px solid #000000",
+                  paddingTop: '12px',
+                  paddingRight: '24px',
+                  paddingBottom: '12px',
+                  paddingLeft: '24px',
+                  background: '#F5F5F5',
+                  color: '#000000',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                EXPLORE OUR SOLUTIONS
+                <ArrowUpRight size={20} strokeWidth={2.5} />
+              </button>
             </Link>
           </div>
 

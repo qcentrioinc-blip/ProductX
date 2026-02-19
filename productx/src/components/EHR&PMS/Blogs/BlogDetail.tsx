@@ -1,15 +1,33 @@
-import { useParams } from "react-router-dom";
+ 
 import { BLOGS } from "./data/blogs";
 import { H2, H3, H4, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 import { useState } from "react";
 import EHRNavbar from "../Navbar/EHRNavbar";
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter";
+// import ReactMarkdown from "react-markdown";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
 
 
 const BlogDetail = () => {
   const { slug } = useParams();
  const [drawerOpen, setDrawerOpen] = useState(false);
+const navigate = useNavigate();
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [slug]);
+const currentIndex = BLOGS.findIndex(b => b.slug === slug);
+
+const previousBlog =
+  currentIndex > 0 ? BLOGS[currentIndex - 1] : null;
+
+const nextBlog =
+  currentIndex < BLOGS.length - 1
+    ? BLOGS[currentIndex + 1]
+    : null;
 
   const blog = BLOGS.find(b => b.slug === slug);
 
@@ -58,11 +76,11 @@ const BlogDetail = () => {
           {blog.sections.map(section => (
             <div key={section.id} id={section.id}>
               
-              {section.heading && (
+              {/* {section.heading && (
                 <H3 className="text-3xl font-semibold mb-6">
                   {section.heading}
                 </H3>
-              )}
+              )} */}
 
               {section.paragraphs?.map((para, index) => (
                 <P
@@ -72,7 +90,11 @@ const BlogDetail = () => {
                   {para}
                 </P>
               ))}
-
+{/* {section.paragraphs?.map((p, i) => (
+  <ReactMarkdown key={i}>
+    {p}
+  </ReactMarkdown>
+))} */}
               {section.listItems?.map((item, index) => (
   <div key={index} className="mt-6">
     <H4 className="text-2xl font-semibold mb-3">
@@ -132,6 +154,39 @@ const BlogDetail = () => {
       </div>
       
     ))}
+
+    <div className="flex justify-between items-center mt-16   pt-8">
+  
+  {/* Previous */}
+  {previousBlog ? (
+    <button
+      onClick={() => navigate(`/blogs/${previousBlog.slug}`)}
+      className="flex items-center space-x-2 text-[#008280] "
+    >
+      <span className=" "><ArrowLeft/></span>
+      <span className="text-left">
+        <div className=" font-quicksand text-lg text-gray-500 hover:text-[#008280]">Previous</div>
+        {/* <div className="font-semibold">{previousBlog.subtitle}</div> */}
+      </span>
+    </button>
+  ) : <div />}
+
+  {/* Next */}
+  {nextBlog ? ( 
+    <button
+      onClick={() => navigate(`/blogs/${nextBlog.slug}`)}
+      className="flex items-center space-x-2 text-[#008280]  text-right"
+    >
+      <span className="text-right">
+        <div className=" font-quicksand text-lg text-gray-500 hover:text-[#008280]">Next</div>
+        {/* <div className="font-semibold">{nextBlog.subtitle}</div> */}
+      </span>
+      <span className=" "><ArrowRight/></span>
+    </button>
+  ) : <div />}
+  
+</div>
+
     <hr className="w-full h-2"/>
     <h5 className=" font-bricolage  text-lg font-bold mt-6 mb-3">
   {blog.metaTitle}
@@ -161,6 +216,7 @@ const BlogDetail = () => {
 
   </div>
 )}
+
 
         </div>
 

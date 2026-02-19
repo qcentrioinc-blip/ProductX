@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { useEffect, useRef, useState } from "react";
 import { H1, P } from "../../../styles/Typography";
-
-const ContactModal = lazy(() => import("../Navbar/ContactModal"));
+import ContactModal from "../Navbar/ContactModal";
 
 const ArrowUpRightIcon = ({ className = "" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -75,9 +74,7 @@ const FinalHero = () => {
           </div>
         </div>
       </div>
-      <Suspense fallback={null}>
-        {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
-      </Suspense>
+      {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </section>
   );
 };
