@@ -1,15 +1,18 @@
-import CallToAction from "./CallToAction"
-import FutureSection from "./FutureSection"
-import InnovationCards from "./InnovationCards"
-import BusinessValuesSection from "./BusinessValuesSection"
-import AnimatedStatement from "./AnimatedStatement"
-import Milestone from "./Milestone"
-import LifeCycleTech from "./LifeCycleTech"
-import CEO from "./CEO"
-import NewFooter from "../../Global/NewFooter/NewFooter"
-import FlowingMenu from "./FlowingMenu"
-import Counter from "./Counter"
+import { lazy, Suspense } from "react"
 import LandingPage1 from "./LandingPage1"
+
+// Below-the-fold: lazy load to speed up initial page render
+const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
+const FutureSection = lazy(() => import("./FutureSection"))
+const InnovationCards = lazy(() => import("./InnovationCards"))
+const BusinessValuesSection = lazy(() => import("./BusinessValuesSection"))
+const Milestone = lazy(() => import("./Milestone"))
+const CEO = lazy(() => import("./CEO"))
+const LifeCycleTech = lazy(() => import("./LifeCycleTech"))
+const Counter = lazy(() => import("./Counter"))
+const CallToAction = lazy(() => import("./CallToAction"))
+const FlowingMenu = lazy(() => import("./FlowingMenu"))
+const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
 
 const GlobalLandingPage = () => {
     return (
@@ -18,54 +21,48 @@ const GlobalLandingPage = () => {
             <div id="landingpage">
                 <LandingPage1 />
             </div>
-            {/* <div>
-                <IndustrySlider/>
-            </div> */}
-            <div className="gpu-optimized">
-                <AnimatedStatement />
-            </div>
-            <div id="futuresection" className="gpu-optimized">
-                <FutureSection />
-            </div>
-            <div id="innovationcards" className="gpu-optimized">
-                <InnovationCards />
-            </div>
-            <div id="businessvaluessection" className="gpu-optimized">
-                <BusinessValuesSection />
-            </div>
 
-            {/* CEO Section - Sticky Background */}
+            <Suspense fallback={null}>
+                <div className="gpu-optimized">
+                    <AnimatedStatement />
+                </div>
+                <div id="futuresection" className="gpu-optimized">
+                    <FutureSection />
+                </div>
+                <div id="innovationcards" className="gpu-optimized">
+                    <InnovationCards />
+                </div>
+                <div id="businessvaluessection" className="gpu-optimized">
+                    <BusinessValuesSection />
+                </div>
 
-            <div className="gpu-optimized">
-                <Milestone />
-            </div>
+                <div className="gpu-optimized">
+                    <Milestone />
+                </div>
 
-            <div className="sticky top-0  h-[60vh] xl:h-screen z-0">
-                <CEO />
-            </div>
+                <div className="sticky top-0  h-[60vh] xl:h-screen z-0">
+                    <CEO />
+                </div>
 
-            {/* All sections that scroll over CEO - Wrapped together with z-10 */}
-            <div className="relative z-10 gpu-optimized">
-                {/* LifeCycleTech Section */}
-                <LifeCycleTech />
-            </div>
+                <div className="relative z-10 gpu-optimized">
+                    <LifeCycleTech />
+                </div>
 
-            <div className="gpu-optimized">
-                <Counter />
-            </div>
-            {/* CallToAction Section */}
-            <div id="calltoaction" className="gpu-optimized">
-                <CallToAction />
-            </div>
+                <div className="gpu-optimized">
+                    <Counter />
+                </div>
+                <div id="calltoaction" className="gpu-optimized">
+                    <CallToAction />
+                </div>
 
-            <div id="FlowingMenu" className="hidden xl:block gpu-optimized">
-                <FlowingMenu />
-            </div>
+                <div id="FlowingMenu" className="hidden xl:block gpu-optimized">
+                    <FlowingMenu />
+                </div>
 
-            {/* Footer Section */}
-            <div id="footer" className="gpu-optimized">
-                <NewFooter />
-            </div>
+                <div id="footer" className="gpu-optimized">
+                    <NewFooter />
+                </div>
+            </Suspense>
 
         </div>
     )

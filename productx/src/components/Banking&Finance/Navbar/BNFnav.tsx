@@ -113,6 +113,7 @@ const BNFNav = () => {
     const handleScroll = () => {
       const currentY = Math.max(0, window.scrollY);
       const isUp = currentY < lastScrollY.current;
+      const isProductRoute = window.location.pathname.includes("/industries/banking-and-finance/products/");
 
       setIsScrolled(currentY > 30);
 
@@ -120,33 +121,41 @@ const BNFNav = () => {
       const heroNavExists = !!heroBottomNav;
       if (heroNavExists !== hasHeroNav) setHasHeroNav(heroNavExists);
 
-      if (currentY > 50 && !isUp) {
-        setShowTopBar(false);
+      if (isProductRoute) {
+        // Product routes: only show TopBar & MainNav at the very top
+        const atTop = currentY <= 50;
+        setShowTopBar(atTop);
+        setShowMainNav(atTop);
       } else {
-        setShowTopBar(true);
-      }
-
-      if (heroBottomNav) {
-        let docOffset = 0;
-        let el: HTMLElement | null = heroBottomNav;
-        while (el) {
-          docOffset += el.offsetTop;
-          el = el.offsetParent as HTMLElement | null;
+        // Non-product routes: existing behavior
+        if (currentY > 50 && !isUp) {
+          setShowTopBar(false);
+        } else {
+          setShowTopBar(true);
         }
 
-        const isInStickyZone = currentY + 80 > docOffset;
+        if (heroBottomNav) {
+          let docOffset = 0;
+          let el: HTMLElement | null = heroBottomNav;
+          while (el) {
+            docOffset += el.offsetTop;
+            el = el.offsetParent as HTMLElement | null;
+          }
 
-        if (isInStickyZone) {
-          if (isUp) {
-            setShowMainNav(true);
+          const isInStickyZone = currentY + 80 > docOffset;
+
+          if (isInStickyZone) {
+            if (isUp) {
+              setShowMainNav(true);
+            } else {
+              setShowMainNav(false);
+            }
           } else {
-            setShowMainNav(false);
+            setShowMainNav(true);
           }
         } else {
           setShowMainNav(true);
         }
-      } else {
-        setShowMainNav(true);
       }
 
       lastScrollY.current = currentY;

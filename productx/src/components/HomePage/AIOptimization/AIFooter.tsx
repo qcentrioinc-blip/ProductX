@@ -1,28 +1,28 @@
-import { useRef, useState, useEffect, lazy, Suspense } from "react";
+import { useRef, useState, useEffect } from "react";
 // const FloatingLines = lazy(() => import("./AIFooterBackground"));
-const ContactModal = lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import { toast } from "react-toastify";
 import { H2, H3 } from "../../../styles/Typography";
- 
+
 // Simple inline SVG icons to avoid importing entire lucide-react library
 const ArrowUpRightIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 7h10v10" /><path d="M7 17L17 7" />
   </svg>
 );
- 
+
 const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
   </svg>
 );
- 
+
 const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
- 
+
 const LinkedinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" />
@@ -103,7 +103,7 @@ const AIFooter = () => {
 
         <div className="relative z-20   sm:mx-8 md:mx-10 px-2 sm:px-4 lg:px-4 py-2 md:py-14 text-center">
 
-<H2 className="text-white">Trust Qnest CloudDiet for guaranteed cloud savings</H2>
+          <H2 className="text-white">Trust Qnest CloudDiet for guaranteed cloud savings</H2>
           {/* <h2 className="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[55px] font-bold text-[#F5F5F5] leading-[110%]" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
             Trust Qnest CloudDiet for guaranteed cloud savings
           </h2> */}
@@ -184,7 +184,7 @@ const AIFooter = () => {
               Get Azure optimization tips and savings updates monthly.
             </h3> */}
 
-<H3 className="text-white text-center"> Get Azure optimization tips and savings updates monthly.</H3>
+            <H3 className="text-white text-center"> Get Azure optimization tips and savings updates monthly.</H3>
             <div className="w-full max-w-md flex flex-col sm:flex-row items-center gap-4">
               <input
                 type="email"
@@ -225,13 +225,11 @@ const AIFooter = () => {
         </div>
       </div>
 
-      <Suspense fallback={null}>
-        {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
-      </Suspense>
+      {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </footer>
   );
 };
- 
+
 
 export default AIFooter;
 

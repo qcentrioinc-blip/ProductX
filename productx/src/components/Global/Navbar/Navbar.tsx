@@ -1,6 +1,15 @@
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+const ArrowUpRight = ({ size = 18 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+);
+const MenuIcon = ({ size = 28 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+);
+const XIcon = ({ size = 28 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+);
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,8 +23,8 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
-            
-            <img className="h-10 w-full" src="/QnestLogo.svg"/>
+
+            <img className="h-10 w-full" src="/QnestLogo.svg" />
           </div>
         </Link>
 
@@ -55,7 +64,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+          {open ? <XIcon size={28} /> : <MenuIcon size={28} />}
         </button>
       </div>
 

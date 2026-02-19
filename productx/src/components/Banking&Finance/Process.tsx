@@ -67,7 +67,7 @@ const Process = () => {
         {
             step: "STEP 1",
             title: "GETTING OUR START",
-            description: "Founders Sarah Taylor and James Thompson open doors, bringing a combined 25 years of design expertise. United by a passion for creating spaces that improve people's lives, Sarah and James aimed to make a mark through resilient and inspiring architectural projects.",
+            description: "Founders Sarah Taylor and James Thompson open doors, bringing a combined 25 years of design expertise.",
         },
         {
             step: "STEP 2",
@@ -77,12 +77,12 @@ const Process = () => {
         {
             step: "STEP 3",
             title: "AWARD-WINNING HOSPITALITY PROJECTS",
-            description: "Our innovative hotel and restaurant designs earn three Interior Design Hospitality Awards and appear in magazines. We brought our artistic vision to life in three boutique hotel projects, which went on to earn Interior Design Hospitality Awards and appear in Architectural Digest.",
+            description: "Our innovative hotel and restaurant designs earn three Interior Design Hospitality Awards and appear in magazines",
         },
         {
             step: "STEP 4",
             title: "RESIDENTIAL PORTFOLIOS EXPANDING",
-            description: "80% of projects now in high-end custom residential including expansive rural estates and high-rise urban condos. Our personalized approach to understanding client aspirations enabled the creation.",
+            description: "80% of projects now in high-end custom residential including expansive rural estates and high-rise urban condos.",
         },
     ];
 
@@ -95,7 +95,7 @@ const Process = () => {
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[85vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
+                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[75vh] flex items-start overflow-hidden pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
 
                     {/* Header section - Responsive positioning */}
                     <div className="absolute top-6 sm:top-10 md:top-14 lg:top-24 left-0 right-0 flex-none z-20">

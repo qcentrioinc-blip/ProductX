@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { H2, H3, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
-const ContactDrawer = React.lazy(() => import("../../EHR&PMS/Navbar/ContactDrawer"));
-const ContactModal = React.lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 
 interface FaqItem {
   question: string;
@@ -190,17 +190,16 @@ const FaqSection: React.FC = () => {
               <H3> FAQ</H3>
             </div>
             <H2
-  className={`mb-4 ${
-    isEHR ? "text-[#008280]" : "text-black"
-  }`}
->
-  {introContent.heading}
-</H2>
+              className={`mb-4 ${isEHR ? "text-[#008280]" : "text-black"
+                }`}
+            >
+              {introContent.heading}
+            </H2>
 
 
-<P className="mb-6 max-w-lg">
-  {introContent.description}
-</P>
+            <P className="mb-6 max-w-lg">
+              {introContent.description}
+            </P>
 
 
             <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
@@ -236,10 +235,8 @@ const FaqSection: React.FC = () => {
         )}
       </section>
 
-      <React.Suspense fallback={null}>
-        {isEHR && drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-        {isAI && modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
-      </React.Suspense>
+      {isEHR && drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+      {isAI && modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </>
   );
 };
