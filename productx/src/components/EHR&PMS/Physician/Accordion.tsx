@@ -1,6 +1,6 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
-import {   H3 } from "../../../styles/Typography";
+import {   H3EHR } from "../../../styles/Typography";
 import { ArrowRight } from "lucide-react";
 import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
  
@@ -82,7 +82,7 @@ const Accordion = () => {
                       <div className="flex-1">
                         {/* Title */}
                         <div className="flex items-center gap-2">
-                          <H3
+                          <H3EHR
                             className={`font-semibold leading-tight transition ${
                               isActive
                                 ? "text-[#008280]"
@@ -90,7 +90,7 @@ const Accordion = () => {
                             }`}
                           >
                             {tab.title}
-                          </H3>
+                          </H3EHR>
  
                           <span
                             className={`transition ${

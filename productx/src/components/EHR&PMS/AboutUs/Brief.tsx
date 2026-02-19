@@ -1,4 +1,4 @@
-import {  H2, P } from "../../../styles/Typography";
+import {  H2EHR, P } from "../../../styles/Typography";
 
 const Brief = () => {
   return (
@@ -7,12 +7,12 @@ const Brief = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-36 items-center">
           
           <div className="space-y-4">
-                <H2
+                <H2EHR
                 className="text-[#008280]  leading-tight"
                
                                 >
               Tools Designed for Clinical Excellence
-                </H2>
+                </H2EHR>
           </div>
  
           <div className="space-y-4  ">

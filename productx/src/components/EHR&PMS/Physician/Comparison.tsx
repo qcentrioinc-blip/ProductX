@@ -1,4 +1,5 @@
-import { H2, H4  , P } from "../../../styles/Typography";
+import { H2EHR, H4EHR  , P } from "../../../styles/Typography";
+ 
 import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
 
 const Comparison = () => {
@@ -37,9 +38,9 @@ const Comparison = () => {
       <div className="max-w-8xl xl:mx-10 px-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <H2 className="text-[#008280] mb-2">
+          <H2EHR className="text-[#008280] mb-2">
           Key Benefits for Physicians Like You
-          </H2>
+          </H2EHR>
         </div>
 
         {/* Comparison Grid */}
@@ -55,9 +56,9 @@ const Comparison = () => {
             </div>
 
             {/* Main Title */}
-            <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4EHR   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
                Dramatically Reduce Time Spent on Documentation and Administrative Tasks
-            </H4 >
+            </H4EHR>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">
@@ -95,9 +96,9 @@ const Comparison = () => {
             </div>
 
             {/* Main Title */}
-            <H4   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4EHR   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
     Enhance Clinical Accuracy and Patient Outcomes with Informed Decision Support
-            </H4        >
+            </H4EHR>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { H2, H3, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
@@ -153,6 +153,8 @@ const FaqSection: React.FC = () => {
     ],
   };
 
+   
+
   const introContent =
     faqIntroByIndustry[pathname] ||
     faqIntroByIndustry["/industries/banking-and-finance"];
@@ -163,11 +165,10 @@ const FaqSection: React.FC = () => {
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/cloud-finops-ai");
-
+const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -181,20 +182,21 @@ const FaqSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative w-full py-6 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 md:px-10 flex flex-col lg:flex-row gap-12 relative z-10">
+      <section className="relative w-full py-6 px-10 xl:px-0 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto  md:px-10 xl:px-0 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
             <div className="mb-4 text-sm text-gray-700 flex items-center">
               <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
-              <H3> FAQ</H3>
+              <h3 className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px]`}> FAQ</h3>
             </div>
-            <H2
-              className={`mb-4 ${isEHR ? "text-[#008280]" : "text-black"
-                }`}
-            >
-              {introContent.heading}
-            </H2>
+            <h2
+  className={`mb-4 ${headingFontClass}   text-[24px] md:text-[32px] lg:text-[48px] ${
+    isEHR ? "text-[#008280]" : "text-black"
+  }`}
+>
+  {introContent.heading}
+</h2>
 
 
             <P className="mb-6 max-w-lg">
@@ -214,7 +216,7 @@ const FaqSection: React.FC = () => {
                     className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
                     onClick={() => handleToggle(index)}
                   >
-                    <span className="text-gray-900  font-quicksand font-bold">{item.question}</span>
+                    <span className="text-black font-quicksand font-bold">{item.question}</span>
                     <span className={`text-2xl text-gray-500 font-quicksand  transition-all ${isOpen ? "rotate-180 text-blue-600" : ""}`}>
                       {isOpen ? "−" : "+"}
                     </span>

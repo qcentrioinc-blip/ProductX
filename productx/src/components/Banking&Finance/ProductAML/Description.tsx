@@ -25,8 +25,8 @@ const Description = () => {
 
 
   return (
-    <div className="w-full bg-gray-200 h-full py-12">
-      <div className="max-w-8xl lg:mx-10 px-4  ">
+    <div className="w-full bg-[#ffffff] h-full py-12">
+      <div className="max-w-8xl lg:mx-10 px-4  "> 
 
         {/* Top Heading */}
         <div className="md:py-16 md:3xl lg:w-[95%] xl:w-7xl w-full py-8">

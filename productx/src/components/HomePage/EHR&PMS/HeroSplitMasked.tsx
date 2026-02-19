@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H2, P } from "../../../styles/Typography";
+import { H2EHR,  P } from "../../../styles/Typography";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const HeroSplitMasked = () => {
@@ -12,9 +12,9 @@ const HeroSplitMasked = () => {
 
           {/* LEFT CONTENT */}
           <div className="space-y-6">
-            <H2 className="text-[#008280]">
+            <H2EHR className="text-[#008280]">
               The Proven Impact for Modern Practices
-            </H2>
+            </H2EHR>
 
             <P className="  leading-normal tracking-normal text-[#2A2A2A] max-w-2xl ">
               Unified Clinicapp is engineered for the realities of daily healthcare delivery. By integrating clinical, administrative, and patient workflows onto a single platform, we eliminate the friction of juggling multiple systems.

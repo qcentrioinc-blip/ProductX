@@ -24,16 +24,11 @@
   src: url('/fonts/quicksand-latin-400-normal.woff2') format('woff2');
 }
 
-.ehr-pms,
-.ehr-pms * {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 400;
-}
-
+ 
 
 :root {
   --primary-color: #2B68C3;
-  --secondary-color: #FED600;
+  --secondary-color: #FBD178;
   -ms-overflow-style: none;
   /* scrollbar-width: none; */
 }
@@ -210,6 +205,12 @@ video {
 
 
 .font-bricolage {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 600;
+
+}
+
+.font-bricolageEHR {
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 400;
 

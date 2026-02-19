@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { H1, P } from '../../../styles/Typography';
+import { H1EHR, P } from '../../../styles/Typography';
 import ContactDrawer from '../Navbar/ContactDrawer';
  
 
@@ -20,9 +20,9 @@ const AdminHeroSection: React.FC = () => {
           <div className="space-y-8 z-10 max-w-3xl">
             {/* Main heading with blue accent circle */}
             <div className="relative ">
-<H1 className="text-[#008280] mt-8 xl:mt-0   w-full">
+<H1EHR className="text-[#008280] mt-8 xl:mt-0   w-full">
   Complete Control Over Clinic Operations
-</H1>
+</H1EHR>
 
                  
             </div>

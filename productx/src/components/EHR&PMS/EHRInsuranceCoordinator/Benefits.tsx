@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import img1 from "/EHR-PMS/LandingPage/img1.jpg";
 import img2 from "/EHR-PMS/LandingPage/img2.png";
 import img3 from "/EHR-PMS/LandingPage/img1.jpg";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const Benefits = () => {
   const points = [
@@ -62,10 +62,10 @@ const Benefits = () => {
         
         {/* Section Heading */}
         <div className="w-full max-w-8xl mb-10 xl:mb-12">
-          <H2 className="text-center  text-[#008280]">
+          <H2EHR className="text-center  text-[#008280]">
             Access All Payer Data Instantly
             
-          </H2>
+          </H2EHR>
         </div>
 
         {/* --- DESKTOP VIEW (xl and up) --- */}
@@ -87,9 +87,9 @@ const Benefits = () => {
                   `}
                   style={{ borderRadius: "6px" }}
                 >
-                  <H4 className="font-bold text-xl text-gray-900">
+                  <H4EHR className="font-bold text-xl text-gray-900">
                     {point.title}
-                  </H4>
+                  </H4EHR>
                   <P className="mt-3 max-w-md text-gray-700">
                     {point.desc}
                   </P>

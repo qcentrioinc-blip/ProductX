@@ -11,8 +11,9 @@ import { featureblockContent } from "./featureblockContent"
 import FeaturesEHR from "./FeaturesEHR"
 import { featuresEHRContent } from "./featuresEHRContent"
 import ImageGridEHR from "./ImageGridEHR"
+import Outcomes from "./Outcomes"
 import PhysicianHeroSection from "./PhysicianHeroSection"
-import PhysicianOutcomes from "./PhysicianOutcomes"
+ 
  
 
 const Physician = () => {
@@ -28,7 +29,8 @@ const Physician = () => {
 <Comparison/>
 {/* <GridSecClinic/>
 <CTAEHR/> */}
-<PhysicianOutcomes/>
+ 
+<Outcomes/>
 {/* <FeatureCards/> */}
 <EHRFooter/>
 

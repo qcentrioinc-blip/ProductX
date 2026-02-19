@@ -12,6 +12,7 @@ type SplitContent = {
     value: string | ReactNode;
     label: string;
   }[];
+ 
 };
 
 type Theme = {
@@ -22,55 +23,75 @@ type Theme = {
   bulletColor: string;
   statsColor: string;
   imageSrc: string;
+   bulletIcons: string[];
 };
 
 /* ================= THEMES (BY INDUSTRY) ================= */
-const BULLET_ICONS = [
+
+const THEMES: Record<string, Theme> = {
+  "banking-and-finance": {
+    sectionBg: "white",
+    imageSrc: "/BuiltFor/img2.png",
+    headingPrimaryColor: "#2B68C3",
+    headingSecondaryColor: "#2A2A2A",
+    paragraphColor: "#141414",
+    bulletColor: "#fafafa",
+    statsColor: "#2A2A2A",
+    bulletIcons: [
   "/BuiltFor/user.png",
   "/BuiltFor/arrow-down.png",
   "/BuiltFor/arrow-up.png",
   "/BuiltFor/rotate-square.png",
-];
+],
 
-const THEMES: Record<string, Theme> = {
-  "banking-and-finance": {
-    sectionBg: "bg-white",
-    imageSrc: "/BuiltFor/img2.png",
-    headingPrimaryColor: "text-[#2B68C3]",
-    headingSecondaryColor: "text-[#2A2A2A]",
-    paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#fafafa]",
-    statsColor: "text-[#2A2A2A]",
   },
 
   "ehr-and-pms": {
     sectionBg: "",
     imageSrc: "/BuiltFor/ModernCare-Image.webp",
-    headingPrimaryColor: "text-[#008280]",
-    headingSecondaryColor: "text-[#F5F5F5]",
-    paragraphColor: "text-[#141414]",
-    bulletColor: "",
-    statsColor: "text-[#008280]",
+    headingPrimaryColor: "#008280",
+    headingSecondaryColor: "#F5F5F5",
+    paragraphColor: "#141414",
+    bulletColor: "#efefef",
+    statsColor: "#008280",
+      bulletIcons: [
+  "/BuiltFor/user.png",
+  "/BuiltFor/arrow-down.png",
+  "/BuiltFor/arrow-up.png",
+  "/BuiltFor/rotate-square.png",
+],
   },
 
   "high-tech": {
-    sectionBg: "bg-[#230053]",
+    sectionBg: "#230053",
     imageSrc: "/BuiltFor/img2.png",
-    headingPrimaryColor: "text-[#F5F5F5]",
-    headingSecondaryColor: "text-[#F99526]",
-    paragraphColor: "text-[#CCCCCC]",
-    bulletColor: "bg-[#2B68C3]",
-    statsColor: "text-[#F99526]",
+    headingPrimaryColor: "#F5F5F5",
+    headingSecondaryColor: "#F99526",
+    paragraphColor: "#CCCCCC",
+    bulletColor: "#2B68C3",
+    statsColor: "#F99526",
+      bulletIcons: [
+  "/BuiltFor/user.png",
+  "/BuiltFor/arrow-down.png",
+  "/BuiltFor/arrow-up.png",
+  "/BuiltFor/rotate-square.png",
+],
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#FAFAFA]",
+    sectionBg: "white",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
-    headingPrimaryColor: "text-[#254D70]",
-    headingSecondaryColor: "text-[#254D70]",
-    paragraphColor: "text-[#141414]",
-    bulletColor: "bg-[#efefef]",
-    statsColor: "text-[#2A2A2A]",
+    headingPrimaryColor: "#254D70",
+    headingSecondaryColor: "#254D70",
+    paragraphColor: "#141414",
+    bulletColor: "#efefef",
+    statsColor: "#254D70",
+      bulletIcons: [
+  "/BuiltFor/Waste.svg",
+  "/BuiltFor/money.svg",
+  "/BuiltFor/web.svg",
+  "/BuiltFor/efficiency.svg",
+],
   },
 };
 
@@ -264,14 +285,14 @@ export default function SplitFeature() {
 
   return (
     <section className={`w-full    ${theme.sectionBg}`}>
-      <div className="max-w-8xl mx-10 pb-6 grid grid-cols-1 xl:grid-cols-2 xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl  mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
-        <div className="flex justify-start lg:justify-center xl:justify-start">
+        <div className="flex justify-start h-[600px] lg:justify-center xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-[550px] rounded-2xl object-cover "
+            className="w-full h-full rounded-lg object-fill "
           />
         </div>
 
@@ -279,12 +300,18 @@ export default function SplitFeature() {
         <div className="w-full text-left lg:text-center xl:text-left   mx-auto xl:mx-0">
 
           {/* HEADING */}
-          <H2 className="leading-tight xl:mb-10 mx-auto max-w-3xl">
-            <span className={theme.headingPrimaryColor}>
-              {content.headingPrimary}{" "}
-            </span>
+         <H2
+  className={`leading-tight xl:mb-10 mx-auto max-w-3xl ${
+    industry === "ehr-and-pms"
+      ? "font-bricolageEHR"
+      : "font-bricolage"
+  }`}
+>
+  <span style={{ color: theme.headingPrimaryColor }}>
+    {content.headingPrimary}
+  </span>
+</H2>
 
-          </H2>
 
           {/* PARAGRAPH */}
           <P className={`mt-4  mx-auto lg:max-w-lg xl:mx-0 ${theme.paragraphColor}`}>
@@ -299,13 +326,15 @@ export default function SplitFeature() {
                 className="flex items-center gap-3 w-full"
               >
                 <div
-                  className={`rounded-full ${theme.bulletColor} w-14 h-14 flex items-center justify-center flex-shrink-0`}
+                  className={`rounded-full  w-14 h-14 flex items-center justify-center flex-shrink-0`}
+                  style={{ backgroundColor: theme.bulletColor }}
                 >
                   <img
-                    src={BULLET_ICONS[index]}
-                    alt=""
-                    className="w-full h-full p-3 object-contain"
-                  />
+  src={theme.bulletIcons[index]}
+  alt={content.bulletPoints[index]}
+  className="w-full h-full p-3 "
+/>
+
                 </div>
                 <P className={`${theme.paragraphColor} text-left`}>
                   {text}
@@ -318,7 +347,11 @@ export default function SplitFeature() {
           <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
-                <H3 className={theme.statsColor}>{stat.value}</H3>
+                <H3 className={`text-[${theme.statsColor}] ${
+    industry === "ehr-and-pms"
+      ? "font-bricolageEHR"
+      : "font-bricolage"
+  }`}>{stat.value}</H3>
                 <P className={`mt-2 ${theme.paragraphColor}`}>
                   {stat.label}
                 </P>

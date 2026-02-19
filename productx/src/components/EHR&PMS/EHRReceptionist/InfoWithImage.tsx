@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const InfoWithImage = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
@@ -33,9 +33,9 @@ const InfoWithImage = () => {
             transition={{ duration: 0.6, ease: easeOut }}
             className="lg:col-span-1 lg:row-start-1"
           >
-            <H2 className="text-[#008280] mb-4 lg:whitespace-nowrap">
+            <H2EHR className="text-[#008280] mb-4 lg:whitespace-nowrap">
               Essential Front-Desk Tools 
-            </H2>
+            </H2EHR>
 
             <P className="text-[#141414] max-w-lg">
               Access the integrated tools you need daily to manage patient interactions and support clinical staff efficiently. 
@@ -70,9 +70,9 @@ const InfoWithImage = () => {
               className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="p-6">
-                <H4 className="text-gray-900 mb-4">
+                <H4EHR className="text-gray-900 mb-4">
                  Self Check-In Kiosk 
-                </H4>
+                </H4EHR>
                 <P className="text-sm text-[#141414] max-w-sm">
                   Enable patients to check themselves in via a tablet or kiosk, reducing front desk queues and manual work. 
                 </P>
@@ -92,9 +92,9 @@ const InfoWithImage = () => {
               className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="p-6">
-                <H4 className="text-gray-900 mb-4">
+                <H4EHR className="text-gray-900 mb-4">
                   Digital Consent Capture 
-                </H4>
+                </H4EHR>
                 <P className="text-sm text-[#141414] max-w-sm">
                   Collect patient signatures and forms electronically with timestamps, ensuring compliance and eliminating lost paperwork. 
                 </P>

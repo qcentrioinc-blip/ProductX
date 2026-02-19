@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 import { motion } from "framer-motion";
 
@@ -29,9 +29,9 @@ const FeatureGrid = () => {
               min-h-[260px] md:min-h-[346px]
             "
           >
-            <H2 className="mb-6 leading-tight text-[#008280]">
+            <H2EHR className="mb-6 leading-tight text-[#008280]">
               Solve Core Revenue Cycle Challenges
-            </H2>
+            </H2EHR>
             <P className="text-[#141414] leading-relaxed max-w-xl">
               Our platform directly targets the major inefficiencies that delay payments and increase administrative costs for insurance teams. 
             </P>
@@ -55,7 +55,7 @@ const FeatureGrid = () => {
               "
             >
               <span className="text-2xl font-bold">1</span>
-              <H4>Reduced Denials</H4>
+              <H4EHR>Reduced Denials</H4EHR>
               <P>Automated claim scrubbing and accurate coding cut denial rates dramatically.</P>
             </motion.div>
 
@@ -74,7 +74,7 @@ const FeatureGrid = () => {
               "
             >
               <span className="text-2xl font-bold">2</span>
-              <H4>Faster Payments</H4>
+              <H4EHR>Faster Payments</H4EHR>
               <P>Streamlined submission and real-time tracking accelerate reimbursement cycles. </P>
             </motion.div>
 

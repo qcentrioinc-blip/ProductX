@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, P } from "../../../styles/Typography";
 
 const MedicalFeature = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
@@ -51,9 +51,9 @@ const MedicalFeature = () => {
             }}
             className="space-y-4"
           >
-            <H2 className="text-[#008280]">
+            <H2EHR className="text-[#008280]">
               Essential Nursing Tools 
-            </H2>
+            </H2EHR>
             <P className="text-[#141414] leading-relaxed max-w-lg xl:mb-6">
              Our platform provides the integrated clinical features you need for efficient, accurate, and coordinated daily patient care. 
             </P>
@@ -82,9 +82,9 @@ const MedicalFeature = () => {
 
             
             <div className="space-y-2">
-              <H3 className="text-gray-900">
+              <H3EHR className="text-gray-900">
                 Smart Triage Module
-              </H3>
+              </H3EHR>
               <P className="text-[#141414] leading-relaxed xl:mb-6">
                  Log patient vitals, chief complaints, and acuity levels upon check-in to prioritize care and inform the provider. 
               </P>

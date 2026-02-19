@@ -96,7 +96,9 @@ const HeroSection = () => {
 
   return (
     // <div className="w-full bg-linear-to-b from-[#C1D7F3]  to-[#ffd900d0] mb-12">
- <div className="w-full bg-[#F5F5F5] mb-12">
+ <div className="relative w-full   overflow-hidden h-full  md:min-h-[850px] xl:min-h-[900px]
+  bg-[linear-gradient(180deg,#C1D7F3_0%,#FBD47F_100%)]">
+
       <div className=" px-8 sm:px-12 md:px-16 pt-12 md:pt-36 lg:pt-44 lg:px-16 xl:px-20 flex flex-col xl:flex-row justify-between    items-center gap-8">
         <motion.div
           className="w-full text-(--primary-color) text-center lg:text-center xl:text-left xl:w-full"
@@ -104,7 +106,7 @@ const HeroSection = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <H1 className="font-semibold tracking-tight min-h-[5rem] relative lg:text-6xl xl:text-7xl">
+          <H1 className="font-bold tracking-tight min-h-[5rem] relative lg:text-6xl xl:text-7xl">
             {typedText}
             {!isTypingDone && (
               <span className="animate-pulse ml-1">|</span>
@@ -114,7 +116,7 @@ const HeroSection = () => {
 
         {/* Right Text Block */}
         <motion.div
-          className="w-full bg-(--secondary-color) rounded-lg md:w-[500px] lg:w-[600px] xl:w-3/5 flex flex-col lg:pt-4 text-center lg:text-center xl:text-left"
+          className="w-full bg-[#FFFFFF] rounded-lg md:w-[500px] lg:w-[600px] xl:w-3/5 flex flex-col lg:pt-4 text-center lg:text-center xl:text-left"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
@@ -174,6 +176,23 @@ const HeroSection = () => {
 
       {/* --- DESKTOP IMAGE CLUSTER --- */}
       <div className="relative   hidden mx-auto mt-20 lg:flex justify-center md:px-10 lg:pb-12 pb-4 items-center">
+        <img
+  src="/AML/ALMHero.webp"
+  alt="Background Glow"
+  className="
+    absolute
+    left-1/2
+    top-1/2
+    -translate-x-1/2
+    -translate-y-1/2
+   w-[700px] xl:w-[800px]
+    max-w-none
+    opacity-90
+    z-0
+    pointer-events-none
+  "
+/>
+
         <motion.img
           src={Image1}
           alt="Left"

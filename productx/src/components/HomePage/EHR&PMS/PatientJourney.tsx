@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { H2, P } from "../../../styles/Typography";
+import { H2EHR, P } from "../../../styles/Typography";
 
 const steps = [
   "Patient Registration",
@@ -73,9 +73,9 @@ const strokeProgress = Math.max(
       <div className="sticky top-0 h-[180vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
-          <H2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
+          <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
             End to End Patient Journey,<br />Unified in One Platform
-          </H2>
+          </H2EHR>
         </div>
 
         {/* Journey Path - Takes middle space with MORE VERTICAL GAP */}
@@ -249,9 +249,9 @@ L 250 300
 
     <div className="xl:hidden bg-white px-6 py-16">
   {/* Header */}
-  <H2 className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
+  <H2EHR className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
     End to End Patient Journey,<br />Unified in One Platform
-  </H2>
+  </H2EHR>
 
   {/* Steps */}
   <div className="max-w-xl mx-auto space-y-6">

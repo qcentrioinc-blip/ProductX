@@ -1,5 +1,5 @@
 import React from "react";
-import { H2, P } from "../../../styles/Typography";
+import { H2EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const CTAEHRUnifi: React.FC = () => {
@@ -16,10 +16,10 @@ const CTAEHRUnifi: React.FC = () => {
               Generate any kind of
             </span> */}
 
-            <H2 className="mb-6 leading-tight">
+            <H2EHR className="mb-6 leading-tight">
                Ready to Transform Your Practice?
              
-            </H2>
+            </H2EHR>
 
             <P className="mb-8 max-w-xl leading-relaxed text-white/80">
          See how a unified platform simplifies everything for your business. Focus on patient care while we handle the complexity.  

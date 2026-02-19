@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H2, H3, H4, P,  } from "../../../styles/Typography";
+import { H2EHR, H3EHR, H4EHR, P,  } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
  
 type FeatureItem = {
@@ -68,9 +68,9 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
  
                 {/* Card Content */}
                 <div className="p-2 absolute top-8 z-10 md:p-6">
-                 <H3 className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-normal border-white "> 
+                 <H3EHR className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-normal border-white "> 
   {content.cardTitle}
-</H3>
+</H3EHR>
  
                  <P className="text-white max-w-xs md:max-w-sm lg:max-w-lg xl:whitespace-pre-line xl:mt-5 leading-relaxed">
   {content.cardDescription}
@@ -82,9 +82,9 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
  
             {/* Right Heading */}
             <div className="flex-1 text-left xl:text-right">
-              <H2 className="text-[#008280] leading-tight whitespace-pre-line">
+              <H2EHR className="text-[#008280] leading-tight whitespace-pre-line">
   {content.heading}
-</H2>
+</H2EHR>
  
             </div>
           </div>
@@ -98,9 +98,9 @@ const FeaturesEHR = ({content}:FeaturesEHRProps) => {
                 <img className="w-10 h-10 overflow-visible   my-8  " src={feature.image}/>
                 
                 {/* Title */}
-                <H4  className="  mb-2">
+                <H4EHR  className="  mb-2">
                   {feature.title}
-                </H4    >
+                </H4EHR>
                
                 {/* Description */}
                 <P className=" text-sm leading-relaxed">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { H1, H3, P } from "../../../styles/Typography";
+import { H1EHR, H3EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 
 const HeroSec = () => {
@@ -49,9 +49,9 @@ const HeroSec = () => {
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         className="text-center"
       >
-        <H1 className="mb-8 ">
+        <H1EHR className="mb-8 ">
           Streamline Claims, <br />  Maximize Revenue
-        </H1>
+        </H1EHR>
 
         <button
   onClick={() => {
@@ -156,7 +156,7 @@ const HeroSec = () => {
           variants={itemVariants}
           className={`${cardBaseMobile} bg-[#f0f0f0] xl:w-[171.4px] xl:h-[284.1px] xl:justify-end`}
         >
-          <H3 className="mb-2 text-black text-3xl font-bold">99%</H3>
+          <H3EHR className="mb-2 text-black text-3xl font-bold">99%</H3EHR >
           <P className="text-black text-sm">
             Claim Submission Accuracy Rate
           </P>
@@ -175,7 +175,7 @@ const HeroSec = () => {
           variants={itemVariants}
           className={`${cardBaseMobile} bg-[#00796b] text-white xl:w-[171.4px] xl:h-[284.1px] xl:justify-end`}
         >
-          <H3 className="mb-2 text-white text-3xl font-bold">60%</H3>
+          <H3EHR className="mb-2 text-white text-3xl font-bold">60%</H3EHR >
           <P className="text-white text-sm">
             Faster Denial Resolution
           </P>

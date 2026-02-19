@@ -3,8 +3,9 @@ import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
 import Image1 from "/AboutUs/image83.png";
 import Image2 from "/AboutUs/image84.png";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 import Star from "/AboutUs/AboutStar.png";
+
 const Counter = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -36,9 +37,9 @@ const StarIcon = ({ className }: { className?: string }) => (
   {/* Content Wrapper */}
   <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
     {/* Heading */}
-    <H2 className="font-semibold  text-left lg:text-center   mb-10 lg:mb-16 text-gray-800 leading-snug">
+    <H2EHR className="font-semibold  text-left lg:text-center   mb-10 lg:mb-16 text-gray-800 leading-snug">
       Eliminating the Top Nursing <br className="hidden lg:block" />Workflow Challenges 
-    </H2>
+    </H2EHR>
 
     {/* Main Container */}
     <div className="relative flex flex-col  lg:flex-row items-center   sm:gap-4 md:gap-0 w-full max-w-8xl  lg:px-6 ">
@@ -62,7 +63,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="text-4xl font-bricolage font-bold text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
-    <H4>Fewer Communication Gaps</H4>
+    <H4EHR className="text-[#2A2A2A]">Fewer Communication Gaps</H4EHR>
     <P className="text-gray-600 mt-3 max-w-3xl  ">
       A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
@@ -83,13 +84,13 @@ const StarIcon = ({ className }: { className?: string }) => (
           <div className="absolute top-0 lg:left-20 left-18 transform -translate-x-1/2  w-16  h-16 bg-[#E5E5E5] rounded-full " />
           <div className="pt-22 space-y-10 p-6">
             <div>
-              <H4 className="mb-3 text-[#2A2A2A]">Scattered Patient Information </H4>
+              <H4EHR className="mb-3 text-[#2A2A2A]">Scattered Patient Information </H4EHR>
               <P className="  text-[#141414]">
                 No more searching through multiple systems. All patient history, meds, and orders are unified in one secure, accessible profile. 
               </P>
             </div>
             <div>
-              <H4 className=" mb-3 text-[#2A2A2A]"> Manual Task Tracking </H4>
+              <H4EHR className=" mb-3 text-[#2A2A2A]"> Manual Task Tracking </H4EHR>
               <P   className="text-sm text-[#141414]">
                 Eliminate sticky notes and missed follow-ups. A dynamic digital task list organizes and tracks all your clinical responsibilities. 
               </P>
@@ -103,7 +104,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="text-4xl font-bricolage font-bold text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
-    <H4>Faster Documentation</H4>
+    <H4EHR>Faster Documentation</H4EHR>
     
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
       Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
@@ -130,7 +131,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="text-4xl font-bricolage font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
-    <H4> More Organized Shifts</H4>
+    <H4EHR> More Organized Shifts</H4EHR>
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
       Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>
@@ -146,7 +147,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
-    <H4>Fewer Communication Gaps</H4>
+    <H4EHR>Fewer Communication Gaps</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
@@ -157,7 +158,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="lg:text-6xl text-4xl font-bricolage text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
-    <H4>Faster Documentation</H4>
+    <H4EHR>Faster Documentation</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
     </P>
@@ -168,7 +169,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
-    <H4> More Organized Shifts</H4>
+    <H4EHR> More Organized Shifts</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>

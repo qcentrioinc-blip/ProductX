@@ -103,25 +103,25 @@ const EHRFooter = () => {
                 <img src="/QnestEHRLogo.svg" alt="QNEST Logo" className="w-50 lg:w-68 h-auto" />
               </div>
 
-              <div className="flex-1 w-full max-w-2xl flex flex-col items-start lg:items-end">
+              <div className=" w-full max-w-2xl flex flex-col items-start lg:items-end">
                 <h2
                   className="mb-8 text-left lg:text-center"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     fontSize: 'clamp(28px, 5vw, 40px)',
                     lineHeight: '120%',
                     color: '#008280'
                   }}
                 >
-                  Subscribe to our newsletter.
+                  Subscribe to our newsletter
                 </h2>
 
-                <div className="flex flex-col sm:flex-row gap-4 w-full lg:justify-end items-stretch">
+                <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full  justify-start xl:justify-center items-stretch">
                   <input
                     type="email"
                     placeholder="Enter your mail"
-                    className="flex-1 sm:max-w-sm px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#008280] transition-colors"
+                    className=" xl:w-[50%] xl:ml-48 px-6 rounded-full border-2 border-gray-300 bg-white outline-none text-gray-800 placeholder:text-gray-500 focus:border-[#008280] transition-colors"
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
                       fontSize: '16px',
@@ -212,7 +212,7 @@ const EHRFooter = () => {
                   className="mb-6"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     fontSize: '32px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
@@ -221,20 +221,13 @@ const EHRFooter = () => {
                 >
                   Quick Links
                 </h3>
-                <ul className="space-y-5">
+                <ul className="space-y-2">
                   {quickLinks.map((link) => (
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 transition-opacity inline-block"
-                        style={{
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '24px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          color: '#008280'
-                        }}
+                        className="hover:opacity-80 font-quicksand font-bold  text-lg  text-[#008280] transition-opacity inline-block"
+                        
                       >
                         {link.name}
                       </a>
@@ -245,33 +238,26 @@ const EHRFooter = () => {
 
               {/* RESOURCES */}
               <div>
-                <h3
+               <h3
                   className="mb-6"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     fontSize: '32px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
                     color: '#2A2A2A'
                   }}
                 >
-                  Built For
+                Built For
                 </h3>
                 <ul className="space-y-5">
                   {builtfor.map((link) => (
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 transition-opacity inline-block"
-                        style={{
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          fontSize: '24px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          color: '#008280'
-                        }}
+                        className="hover:opacity-80 font-quicksand font-bold  text-lg  text-[#008280] transition-opacity inline-block"
+                         
                       >
                         {link.name}
                       </a>
@@ -282,32 +268,25 @@ const EHRFooter = () => {
 
               {/* PRODUCTS */}
               <div>
-                <h3
+               <h3
                   className="mb-6"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     fontSize: '32px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
                     color: '#2A2A2A'
                   }}
                 >
-                  Resources
+                 Resources
                 </h3>
                 <ul className="space-y-5">
                   <li>
                     <a
                       href={`${base}/blogs`}
-                      className="hover:opacity-80 transition-opacity inline-block"
-                      style={{
-                        fontFamily: "'Bricolage Grotesque', sans-serif",
-                        fontWeight: 700,
-                        fontSize: '24px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#008280'
-                      }}
+                     className="hover:opacity-80 font-quicksand font-bold  text-lg  text-[#008280] transition-opacity inline-block"
+                       
                     >
                       Blogs
                     </a>

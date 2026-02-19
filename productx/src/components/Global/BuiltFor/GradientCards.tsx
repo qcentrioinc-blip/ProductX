@@ -1,4 +1,4 @@
-import { H2, H4, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
@@ -41,7 +41,7 @@ const themes: Record<string, Theme> = {
   },
   "/industries/ehr-and-pms/built-for": {
     sectionBg: "#ffffff",
-    headingColor: "#2A2A2A",
+    headingColor: "#008280",
     paraColor: "#2A2A2A",
     cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
@@ -274,9 +274,9 @@ export default function FiveCardGradientSection() {
 
         {/* ---------- MOBILE / TABLET INTRO ---------- */}
         <div className="mb-8 lg:hidden">
-          <H2 style={{ color: active.headingColor }} className="mb-4">
+          <h2 style={{ color: active.headingColor }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`}>
             {sectionContent.intro.title}
-          </H2>
+          </h2>
           <P style={{ color: active.paraColor }} className="max-w-md">
             {sectionContent.intro.desc}
           </P>
@@ -287,12 +287,11 @@ export default function FiveCardGradientSection() {
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="">
-              <H2
-                className="mb-4 whitespace-nowrap overflow-hidden  "
-                style={{ color: active.headingColor }}
+                 <h2 style={{ color: active.headingColor }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
+                style={{ color: active.headingColor }}`}
               >
                 {sectionContent.intro.title}
-              </H2>
+              </h2>
 
               <P style={{ color: active.paraColor }} className="max-w-md">
                 {sectionContent.intro.desc}
@@ -342,9 +341,9 @@ export default function FiveCardGradientSection() {
                   >
                     <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
                   </div>
-                  <H4 className="mb-4 text-[#254D70]">
+                  <h4 className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]" style={{ color: active.headingColor }}>
                     {card.title}
-                  </H4>
+                  </h4>
                   <P style={{ color: active.paraColor }}>
                     {card.desc}
                   </P>
@@ -385,9 +384,9 @@ export default function FiveCardGradientSection() {
                 className="w-16 h-16 rounded-full mb-6">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
-              <H4 style={{ color: active.headingColor }} className="mb-4">
+              <h4 style={{ color: active.headingColor }} className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]">
                 {card.title}
-              </H4>
+              </h4>
               <P style={{ color: active.paraColor }} className="xl:max-w-xs">
                 {card.desc}
               </P>

@@ -120,7 +120,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative   w-full z-30 text-center">
+    <section className="relative xl:mt-36  w-full z-30 text-center">
       {/* Top Section Container - Relative for background overlay */}
       <div className="relative w-full">
         {/* Background Overlay for the Expanding Animation */}
@@ -128,19 +128,36 @@ const HeroSection = () => {
           variants={backgroundCoverVariants}
           initial="hidden"
           animate="visible"
-          className="absolute inset-0 bg-white z-0"
+          className="absolute inset-0 bg-blue-600 z-0"
         />
+        {/* Left Decorative Circle */}
+<img
+  src="/ProductDetailsThree/Product3Hero.svg"
+  alt=""
+  className="
+    pointer-events-none
+    absolute
+    
+    top-1/2
+    -translate-y-1/2
+    w-[100px]
+    xl:w-[130px]
+  
+    z-0
+  "
+/>
+
 
         {/* Top Section Content - Use motion.div for text staggering */}
         <motion.div 
-          className="relative pt-10 md:pt-30 lg:pt-20 pb-10   px-4 text-[#2B68C3] z-10"
+          className="relative pt-10 md:pt-30 lg:pt-20 xl:pt-4 pb-10   px-4 text-white z-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <div className="max-w-5xl mx-auto flex flex-col items-center">
             <motion.div variants={itemVariants}>
-              <H1 className="font-bold text-[#2B68C3] pt-24">
+              <H1 className="font-bold text-white ">
                 Lorem ipsum dolor, <br /> consectetur adipiscing elit
               </H1>
             </motion.div>
@@ -183,8 +200,23 @@ const HeroSection = () => {
       </div>
       
       {/* --- Bottom Image Section (Animations focused here) --- */}
-      <div className="w-full  bg-white pb-10 md:pb-20 lg:pb-24">
-        
+      <div className="w-full relative overflow-hidden  bg-linear-to-b from-transparent via-(--secondary-color) to-(--secondary-color) pb-10 md:pb-20 lg:pb-24">
+        {/* Right Decorative Circle */}
+<img
+  src="/ProductDetailsThree/Product3Hero.svg"
+  alt=""
+  className="
+    pointer-events-none
+    absolute
+  rotate-90
+  -top-18
+     right-14
+    w-24
+   
+    z-0
+  "
+/>
+
         {/* Mobile Slider (no complex animation for smooth mobile UX) */}
         <div className="xl:hidden lg:pt-10 mt-6 px-4">
           <div

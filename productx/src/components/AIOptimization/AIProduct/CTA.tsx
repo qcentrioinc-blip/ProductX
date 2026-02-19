@@ -61,7 +61,8 @@ export default function CTA() {
       className="
         relative
         bg-white
-        xl:h-screen
+        h-[30vh] md:h-full lg:h-full
+        xl:h-[80vh]
         overflow-hidden
         px-6
         py-30
@@ -109,7 +110,7 @@ export default function CTA() {
           text-[24px]
           sm:text-[28px]
           md:text-[42px]
-          lg:text-[64px]
+          lg:text-[48px]
           font-bricolage
           font-semibold
           leading-[115%]

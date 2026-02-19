@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { H3, H4, P } from '../../../styles/Typography';
+import { H3EHR, H4EHR, P } from '../../../styles/Typography';
 
 const HeroSec = () => {
   const [activeTab, setActiveTab] = useState('Plan A');
@@ -606,9 +606,9 @@ const HeroSec = () => {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="text-center mb-16"
       >
-        <H3 className="text-[#1e8d8d]">
+        <H3EHR className="text-[#1e8d8d]">
           {activeData.heroTitle}
-        </H3>
+        </H3EHR>
 
         {activeData.heroSubTitle && (
           <P className="mt-3 text-gray-600 max-w-2xl mx-auto">
@@ -653,9 +653,9 @@ const HeroSec = () => {
                   )}
 
                   <div className={`p-8 text-center border-b border-gray-50 ${isFeatured ? 'mt-4' : ''}`}>
-                    <H3 className={`font-bold mb-1 ${isFeatured ? 'text-2xl text-[#008280]' : 'text-gray-800'}`}>
+                    <H3EHR className={`font-bold mb-1 ${isFeatured ? 'text-2xl text-[#008280]' : 'text-gray-800'}`}>
                       {card.data.title}
-                    </H3>
+                    </H3EHR>
                     {card.data.subtitle && (
                       <P className={`font-bold leading-tight ${!isFeatured ? 'text-2xl text-[#008280]' : ''}`}>
                         {card.data.subtitle}
@@ -685,9 +685,9 @@ const HeroSec = () => {
                   <div className="p-6 text-[13px] text-gray-600 space-y-6">
                     {card.data.sections.map((sec: any, i: number) => (
                       <div key={i}>
-                        <H4 className="font-bold text-gray-900 mb-1 flex items-center"><RightChevron className="mr-2 text-[#008280]" /> {sec.head}</H4>
+                        <H4EHR className="font-bold text-gray-900 mb-1 flex items-center"><RightChevron className="mr-2 text-[#008280]" /> {sec.head}</H4EHR  >
                         {/* {sec.sub && <p className="text-[11px] text-gray-500 mb-2 ml-5">{sec.sub}</p>} */}
-                        <ul className="ml-5 space-y-1 font-quicksand">
+                        <ul className="ml-5 space-y-1 text-[16px] font-semibold font-quicksand">
                           {sec.items.map((item: string) => <li key={item} className="before:content-['•'] before:mr-2 before:text-gray-400">{item}</li>)}
                         </ul>
                       </div>

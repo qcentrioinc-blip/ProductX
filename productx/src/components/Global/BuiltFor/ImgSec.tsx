@@ -44,7 +44,7 @@ const THEMES: Record<string, Theme> = {
 
   "ehr-and-pms": {
     bgImage: "/BuiltFor/.webp",
-    cardBg: "bg-[#166D48]",
+    cardBg: "bg-[#008280]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-white",
@@ -87,7 +87,7 @@ const CLOUD_FINOPS_BG_IMAGES: Record<string, string> = {
 
 const EHR_AND_PMS_BG_IMAGES: Record<string, string> = {
   "long-term-care": "/BuiltFor/ContactLong.webp",
-  "home-healthcare": "/BuiltFor/HomeContact.webp",
+  "home-healthcare": "/BuiltFor/BuiltForHealth.webp",
   "clinics-and-hospitals": "/BuiltFor/ClinicsContact.webp",
 };
 
@@ -156,7 +156,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
   },
   "ehr-and-pms": {
     "long-term-care": {
-      headingColor: "text-[#008280]",
+      headingColor: "text-[#141414]",
       heroHeading: (<>
         Unified Care for <br /> {" "} Long Term Facilities.
       </>),
@@ -165,7 +165,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "Schedule Demo",
     },
     "home-healthcare": {
-      headingColor: "text-[#008280]",
+      headingColor: "text-[#141414]",
       heroHeading: (<>
         Home Healthcare <br /> {" "} Modernized.
       </>),
@@ -174,7 +174,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       buttonLabel: "Learn More",
     },
     "clinics-and-hospitals": {
-      headingColor: "text-[#008280]",
+      headingColor: "text-[#141414]",
       heroHeading: (<>
         Connected <br /> {" "} Healthcare Systems.
       </>),
@@ -242,9 +242,16 @@ export default function ImgSec() {
           {/* LEFT TEXT */}
           <div className="absolute h-full xl:pt-6 xl:px-6">
             <div className="w-full  ">
-              <H2 className={`leading-tight ${content.headingColor} max-w-5xl`}>
-                {content.heroHeading}
-              </H2>
+              <H2
+  className={`leading-tight mt-10 pl-6 max-w-5xl ${content.headingColor} ${
+    industry === "ehr-and-pms"
+      ? "font-bricolageEHR"
+      : "font-bricolage"
+  }`}
+>
+  {content.heroHeading}
+</H2>
+
 
             </div>
           </div>

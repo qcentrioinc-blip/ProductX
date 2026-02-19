@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const DATA = [
   {
@@ -193,7 +193,7 @@ export default function Management() {
             <div
               key={card.id}
               ref={i === 0 ? firstCardRef : null}
-           className="sticky top-0 h-[100svh]"
+           className="sticky top-0  h-[100svh]  lg:h-[50vh] xl:h-[100svh]"
 
  
 
@@ -216,12 +216,12 @@ export default function Management() {
                   {/* IMAGE + TITLE */}
                   <div
                     className={`w-full lg:w-1/2 flex flex-col gap-6 ${
-                      imageOnRight ? "lg:order-2 lg:pr-20" : "lg:order-1 lg:pl-20"
+                      imageOnRight ? "lg:order-2 lg:pr-4 xl:pr-20" : "lg:order-1 lg:pl-4 xl:pl-20"
                     }`}
                   >
-                    <H2 className=" font-light text-[#008280]">
+                    <H2EHR className=" font-light text-[#008280]">
                       {card.title}
-                    </H2>
+                    </H2EHR>
 
                     <P>{card.description}</P>
 
@@ -257,9 +257,9 @@ export default function Management() {
                               onClick={() => toggleAccordion(card.id, index)}
                               className="w-full flex items-start gap-4 text-left"
                             >
-                              <H4 className="text-lg font-semibold text-teal-700 flex-1">
+                              <H4EHR className="text-lg font-semibold text-teal-700 flex-1">
                                 {item.title}
-                              </H4>
+                              </H4EHR>
 
                               <svg
                                 className={`w-6 h-6 text-teal-700 transition-transform duration-300 ${
@@ -296,7 +296,7 @@ export default function Management() {
           );
         })}
 
-        {/* <div className="h-[50vh]" /> */}
+        {/* <div className="md:h-[50vh]" /> */}
         
 
       </div>

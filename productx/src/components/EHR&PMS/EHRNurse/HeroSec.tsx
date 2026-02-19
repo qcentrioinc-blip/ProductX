@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { H2, P } from "../../../styles/Typography";
+import { H2EHR, P } from "../../../styles/Typography";
 
 const HeroSec = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
@@ -15,9 +15,9 @@ const HeroSec = () => {
         transition={{ duration: 0.6, ease: easeOut }}
         className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8"
       >
-        <H2 className="text-[#2A2A2A] leading-tight max-w-xl">
+        <H2EHR className="text-[#2A2A2A] leading-tight max-w-xl">
            Clinical Efficiency at Your Fingertips
-        </H2>
+        </H2EHR>
         <P className="max-w-md text-[#141414] leading-relaxed md:pt-2 xl:pt-8">
           Access unified patient records, document care, and coordinate tasks seamlessly from any device to support better outcomes. 
         </P>
