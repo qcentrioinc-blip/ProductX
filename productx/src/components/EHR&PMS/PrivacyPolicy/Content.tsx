@@ -1,13 +1,13 @@
 import React from "react";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2EHR,  H3EHR, P } from "../../../styles/Typography";
 
 const Content: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4 md:px-16 lg:px-32 mt-4 lg:mt-24">
       {/* Page Heading */}
-      <H2 className=" text-gray-900 mb-8">
+      <H2EHR className=" text-gray-900 mb-8">
         Privacy Policy
-      </H2>
+      </H2EHR>
 
       {/* Updated Date */}
       <P className=" text-gray-500 mb-6">
@@ -25,7 +25,7 @@ const Content: React.FC = () => {
 
       {/* Sections */}
       <section className="mt-6 space-y-6">
-        <H3 className=" text-gray-800">Information Collected</H3>
+        <H3EHR className=" text-gray-800">Information Collected</H3EHR>
         <P className="text-gray-700 leading-relaxed">
           We collect the following categories of Personal Information from you in connection with our products/solutions and services. Personal Information in certain categories may overlap with other categories:
         </P>
@@ -43,7 +43,7 @@ const Content: React.FC = () => {
       </section>
 
       <section className="mt-6 space-y-6">
-        <H3 className=" text-gray-800">How Information is Used</H3>
+        <H3EHR className=" text-gray-800">How Information is Used</H3EHR>
         <P className="text-gray-700 leading-relaxed">
           You may provide Personal Information to Kaneriko Software in a variety of ways. While visiting the Site, we may ask you to register and/or provide Personal Information for purposes of interacting with the Site. As other examples, Kaneriko Software may receive Personal Information when you:
         </P>
@@ -57,21 +57,21 @@ const Content: React.FC = () => {
       </section>
 
       <section className="mt-6 space-y-6">
-        <H3 className=" text-gray-800">Sharing and Disclosure</H3>
+        <H3EHR className=" text-gray-800">Sharing and Disclosure</H3EHR>
         <P className="text-gray-700 leading-relaxed">
           When collecting Personal Information, we will specifically describe what information is required in order to provide you with the products/solutions or service, enter you in the promotion you have requested, respond to your inquiry or comment, or otherwise communicate with you. In order to access certain Kaneriko Software services, you may be required to sign in with Kaneriko Software Single Sign-On (SSO) credentials or another authentication mechanism. By signing into one Kaneriko Software service, you may be automatically signed into other Kaneriko Software services that use these credentials.
         </P>
       </section>
 
       <section className="mt-6 space-y-6">
-        <H3 className="text-gray-800">Cookies and Tracking</H3>
+        <H3EHR className="text-gray-800">Cookies and Tracking</H3EHR>
         <P className="text-gray-700 leading-relaxed">
           A cookie is a small data text file that a web site sends to your browser, which is then stored on your computer. The cookie is unique to the computer you are using and can only be read by the web site that placed the cookie on your computer. We use cookies to improve the Site, analyze website traffic, and personalize content and services. You can decline cookies in your browser, but some features may not be fully functional.
         </P>
       </section>
 
       <section className="mt-6 space-y-6">
-        <H3 className=" text-gray-800">User Choices</H3>
+        <H3EHR className=" text-gray-800">User Choices</H3EHR>
         <P className="text-gray-700 leading-relaxed">
           You may decline to accept a cookie. You may also decline persistent cookies set by the Site by selecting an option on your browser to reject cookies. You may also withdraw your consent at any time by changing your browser settings. We collect minimal analytics information to improve the Site.
         </P>

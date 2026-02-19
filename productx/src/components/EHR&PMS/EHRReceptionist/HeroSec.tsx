@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { H2, P } from "../../../styles/Typography";
+import { H2EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 
 const HeroSec = () => {
@@ -86,10 +86,10 @@ const HeroSec = () => {
                   },
                 }}
               >
-                <H2 className="text-[#008280] leading-[1.15] mb-6">
+                <H2EHR className="text-[#008280] leading-[1.15] mb-6">
                   Simplify Front Desk,
                   Engage Patients
-                </H2>
+                </H2EHR>
               </motion.div>
 
               <motion.div

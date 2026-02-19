@@ -18,7 +18,7 @@ import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter";
 import FooterHT from "../../HighTech/FooterHT";
 import AIFooter from "../../HomePage/AIOptimization/AIFooter";
 import TitleSectionSwitcher from "./TitleSectionSwitcher";
-import BlogCarousel from "../../HomePage/EHR&PMS/BlogCarousel";
+// import BlogCarousel from "../../HomePage/EHR&PMS/BlogCarousel";
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
 import ContactSecHT from "../../HighTech/ContactSecHT";
@@ -46,7 +46,7 @@ export const BuiltFor = () => {
 
   const getInsightandThoughts = () => {
     if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
-    if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
+    // if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
     if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
     if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIBlogs />;
     return null;

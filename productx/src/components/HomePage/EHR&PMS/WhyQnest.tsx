@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { H1, H2, H3, H4, P } from "../../../styles/Typography";
+import { H1EHR, H2EHR, H3EHR, H4EHR, P } from "../../../styles/Typography";
 
 export default function WhyQnest() {
   const ref = useRef(null);
@@ -60,9 +60,9 @@ className="absolute top-40 left-20 w-7 scale-110"
 
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
-            <H2 className=" text-[#008280] mb-4">
+            <H2EHR className=" text-[#008280] mb-4">
               One Unified Platform
-            </H2>
+            </H2EHR>
             <P className=" mx-auto max-w-3xl text-black">
               Unified Clinicapp seamlessly integrates EHR and practice management into one intuitive, cloud-based solution for modern healthcare.
             </P>  
@@ -74,10 +74,10 @@ className="absolute top-40 left-20 w-7 scale-110"
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
                   <div className="bg-transparent border-5 border-[#EEDA68] rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">
                     <div>
-                      <H2 className="text-[#008280]">{c.num}</H2>
-                      <H3 className=" text-[#008280]">{c.title}</H3>
+                      <H2EHR className="text-[#008280]">{c.num}</H2EHR>
+                      <H3EHR className=" text-[#008280]">{c.title}</H3EHR>
                     </div>
-                    <H4 className="text-[#2A2A2A]">{c.desc}</H4>
+                    <H4EHR className="text-[#2A2A2A]">{c.desc}</H4EHR>
                   </div>
                 </motion.div>
               ))}
@@ -87,22 +87,22 @@ className="absolute top-40 left-20 w-7 scale-110"
       </div>
       {/* MOBILE */}
       <div className="xl:hidden py-16 px-10 space-y-8">
-        <H2 className="text-center  text-[#008280]">
+        <H2EHR className="text-center  text-[#008280]">
           Why Qnest
-        </H2>
+        </H2EHR>
         {cards.map((c, i) => (
           <motion.div
   key={i}
   className="bg-white border-5 border-[#EEDA68] rounded-br-[3rem] rounded-tl-[3rem] p-6"
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: i * 0.2 }}
+  transition={{ duration: 0.6, delay: i * 0.2 }}  
   viewport={{ once: true }}
 >
 
-            <H1 className=" text-[#008280]">{c.num}</H1>
-            <H3 className="text-[#008280]">{c.title}</H3>
-            <H4 className="mt-4 text-[#2A2A2A]">{c.desc}</H4>
+            <H1EHR className=" text-[#008280]">{c.num}</H1EHR>
+            <H3EHR className="text-[#008280]">{c.title}</H3EHR>
+            <H4EHR className="mt-4 text-[#2A2A2A]">{c.desc}</H4EHR>
           </motion.div>
         ))}
       </div>

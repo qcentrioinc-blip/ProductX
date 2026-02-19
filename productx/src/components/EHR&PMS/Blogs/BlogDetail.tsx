@@ -1,6 +1,6 @@
  
 import { BLOGS } from "./data/blogs";
-import { H2, H3, H4, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 import { useState } from "react";
 import EHRNavbar from "../Navbar/EHRNavbar";
@@ -40,9 +40,9 @@ const nextBlog =
     <EHRNavbar/>
     <section className="bg-[#ffffff] px-6 md:mt-20 mt-10 xl:px-0 lg:mt-32 text-[#000000] py-10">
        <div className="max-w-7xl mx-auto">
-        <H2 className=" font-semibold ">
+        <H2EHR className=" font-semibold ">
             {blog.subtitle}
-          </H2>
+          </H2EHR>
 
           {/* Meta Row */}
           <div className="flex font-quicksand  text-sm pt-6 pb-2 flex-row  space-x-4 xl:space-x-32 ">
@@ -74,13 +74,13 @@ const nextBlog =
           ))}
 
           {blog.sections.map(section => (
-            <div key={section.id} id={section.id}>
+            <div key={section.id} id={section.id}  className="scroll-mt-32">
               
-              {/* {section.heading && (
-                <H3 className="text-3xl font-semibold mb-6">
+              {section.heading && (
+                <H3EHR className="text-3xl font-semibold mb-6">
                   {section.heading}
-                </H3>
-              )} */}
+                </H3EHR>
+              )}
 
               {section.paragraphs?.map((para, index) => (
                 <P
@@ -97,9 +97,9 @@ const nextBlog =
 ))} */}
               {section.listItems?.map((item, index) => (
   <div key={index} className="mt-6">
-    <H4 className="text-2xl font-semibold mb-3">
+    <H4EHR className="text-2xl font-semibold mb-3">
       {item.title}
-    </H4>
+    </H4EHR>
 
     {item.paragraphs.map((para, i) => (
       <P key={i} className="leading-snug mb-3">
@@ -130,9 +130,9 @@ const nextBlog =
           ))}
           {blog.cta && (
   <div className="bg-[#F5F7F7] p-8 rounded-lg mt-16">
-    <H3 className="text-2xl font-semibold mb-4">
+    <H3EHR className="text-2xl font-semibold mb-4">
       {blog.cta.title}
-    </H3>
+    </H3EHR>
     <P className="mb-6">{blog.cta.description}</P>
     <button 
      onClick={() => setDrawerOpen(true)}
@@ -143,13 +143,13 @@ const nextBlog =
 )}
 {blog.faqs && (
   <div className="mt-16">
-    <H3 className="text-2xl font-semibold mb-6">FAQs</H3>
+    <H3EHR className="text-2xl font-semibold mb-6">FAQs</H3EHR>
 
     {blog.faqs.map((faq, index) => (
       <div key={index} className="mb-6">
-        <H4 className="text-xl font-semibold mb-2">
+        <H4EHR className="text-xl font-semibold mb-2">
           {faq.question}
-        </H4>
+        </H4EHR>
         <P>{faq.answer}</P>
       </div>
       
@@ -165,7 +165,7 @@ const nextBlog =
     >
       <span className=" "><ArrowLeft/></span>
       <span className="text-left">
-        <div className=" font-quicksand text-lg text-gray-500 hover:text-[#008280]">Previous</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#008280]">Previous</div>
         {/* <div className="font-semibold">{previousBlog.subtitle}</div> */}
       </span>
     </button>
@@ -178,7 +178,7 @@ const nextBlog =
       className="flex items-center space-x-2 text-[#008280]  text-right"
     >
       <span className="text-right">
-        <div className=" font-quicksand text-lg text-gray-500 hover:text-[#008280]">Next</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#008280]">Next</div>
         {/* <div className="font-semibold">{nextBlog.subtitle}</div> */}
       </span>
       <span className=" "><ArrowRight/></span>
@@ -195,14 +195,14 @@ const nextBlog =
 <P className="text-gray-600 mb-6">
   {blog.metaDescription}
 </P>
-<H4 className="text-black mb-4">Quick Summary:</H4>
+<H4EHR className="text-black mb-4">Quick Summary:</H4EHR>
 <P className="text-gray-600 mb-6">{blog.quickSummary}</P>
 
 {blog.keyTakeaways && (
   <div className="mb-8">
-    <H4 className="text-xl font-semibold mb-4">
+    <H4EHR className="text-xl font-semibold mb-4">
       Key Takeaways
-    </H4>
+    </H4EHR>
 
     <ul className="list-disc font-quicksand text-[18px] pl-6 text-gray-600 space-y-1 ">
       {blog.keyTakeaways.map((item, index) => (
@@ -223,9 +223,9 @@ const nextBlog =
         {/* RIGHT SIDEBAR (TOC) */}
    <div className="xl:col-span-4 self-start sticky top-20 h-fit">
 
-          <H3 className="text-black mb-6">
+          <H3EHR className="text-black mb-6">
             Table of Contents
-          </H3>
+          </H3EHR>
 
           <nav className="space-y-6 border-l-2 border-black pl-4">
             {blog.sections.map(section => (

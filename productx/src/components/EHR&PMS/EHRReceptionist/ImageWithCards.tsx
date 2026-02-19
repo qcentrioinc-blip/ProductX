@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const ImageWithCards = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
@@ -36,9 +36,9 @@ const ImageWithCards = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: easeOut }}
             >
-              <H2 className="text-teal-700 mb-4 ">
+              <H2EHR className="text-teal-700 mb-4 ">
                  Measurable Front-Desk Improvements 
-              </H2>
+              </H2EHR>
 
               <P className="text-gray-600 max-w-lg mb-6">
                 Our platform delivers clear, tangible results that make your daily work smoother and your clinic run better. 
@@ -81,7 +81,7 @@ const ImageWithCards = () => {
     className="w-8 h-8 mb-4 object-contain"
   />
 
-  <H4 className="font-semibold mb-2">Faster Patient Intake</H4>
+  <H4EHR className="font-semibold mb-2">Faster Patient Intake</H4EHR>
 
   <P className="text-sm text-gray-600">
     Digital forms and self check-in cut registration time significantly, reducing front-desk congestion.
@@ -108,7 +108,7 @@ const ImageWithCards = () => {
     loading="lazy"
     className="w-8 h-8 mb-4 object-contain"
   />
-                <H4 className="font-semibold mb-2">Reduced Wait Times </H4>
+                <H4EHR className="font-semibold mb-2">Reduced Wait Times </H4EHR>
                 <P className="text-sm text-gray-600">
                   Live tracking of patient flow and room status allows for better coordination and shorter delays. 
                 </P>
@@ -133,7 +133,7 @@ const ImageWithCards = () => {
     loading="lazy"
     className="w-8 h-8 mb-4 object-contain"
   />
-                <H4 className="font-semibold mb-2">Fewer Missed Calls </H4>
+                <H4EHR className="font-semibold mb-2">Fewer Missed Calls </H4EHR>
                 <P className="text-sm text-gray-600">
                   The unified communication hub ensures all patient calls and messages are logged and managed. 
                 </P>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { H2, H3, P } from '../../../styles/Typography';
+import { H2EHR, H3EHR, P } from '../../../styles/Typography';
 import {
   FEATURE_POINT_CONTENT,
   type FeatureItem,
@@ -20,9 +20,9 @@ const FeatureItemCard: React.FC<FeatureItem> = ({ title, description, image }) =
           alt={title}
           className="w-8 h-8 object-contain"
         />
-        <H3 className="text-[#008280] leading-tight">
+        <H3EHR className="text-[#008280] leading-tight">
           {title}
-        </H3>
+        </H3EHR>
       
       <P className="leading-snug mt-1 xl:max-w-xl">
         {description}
@@ -42,9 +42,9 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
         
         {/* Title */}
         <div className="mb-10 lg:mb-16">
-          <H2 className="text-[#008280] leading-snug">
+          <H2EHR className="text-[#008280] leading-snug">
             {content.pageTitle}
-          </H2>
+          </H2EHR>
         </div>
 
         <div className="flex flex-col xl:flex-row xl:space-x-16 xl:items-stretch items-start">

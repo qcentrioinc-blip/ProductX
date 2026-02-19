@@ -418,7 +418,7 @@ const EHRNavbar = () => {
     cursor-pointer
   "
 >
-  <span className="flex items-center gap-2">
+  <span className="flex items-center font-quicksand gap-2">
     Contact Us
 
     <span className="relative flex items-center justify-center w-[20px] h-[20px]">

@@ -1,4 +1,4 @@
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, P } from "../../../styles/Typography";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
@@ -189,7 +189,7 @@ const InformationGrid = () => {
         transition={{ duration: 0.6, ease: easeOut }}
         className="mb-16 border-b border-gray-200 pb-10"
       >
-        <H2 className="text-[#008280] mb-6">{title}</H2>
+        <H2EHR className="text-[#008280] mb-6">{title}</H2EHR>
         <P className="max-w-xl text-[#141414] leading-relaxed">
           {description}
         </P>
@@ -227,7 +227,7 @@ const InformationGrid = () => {
               className="absolute right-[-2rem] top-0 h-full w-[0.5px] bg-gray-300 origin-top"
             />
 
-            <H3 className="text-[#141414] mb-4">{feature.title}</H3>
+            <H3EHR className="text-[#141414] mb-4">{feature.title}</H3EHR>
             <P className="text-[#141414] leading-relaxed">{feature.text}</P>
           </motion.div>
         ))}

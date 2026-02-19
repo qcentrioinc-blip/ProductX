@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {   H3, H4, P } from "../../../styles/Typography";
+import {   H3EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 
 
@@ -86,10 +86,10 @@ const ImageGridEHR = () => {
                     xl:p-8
                     flex flex-col justify-between">
 
-    <H3 className="mt-10 inline-block relative">
+    <H3EHR className="mt-10 inline-block relative">
   Built For Clinicians
   <span className="absolute left-0 -bottom-2 w-44 md:w-56 lg:40 xl:w-72 h-[2px] bg-[#141414]" />
-</H3>
+</H3EHR>
 
 
       <P className="max-w-md  mt-24  xl:mt-20 leading-relaxed">
@@ -107,9 +107,9 @@ const ImageGridEHR = () => {
   <div className="lg:col-span-5">
     {/* Box 3 - Text card (beige) */}
     <div className="relative h-64 md:h-80 lg:h-96 bg-stone-300 rounded-2xl overflow-hidden shadow-lg p-8 md:p-10 flex flex-col justify-end">
-      <H4 className="text-2xl md:text-3xl text-gray-900 mb-4">
+      <H4EHR className="text-2xl md:text-3xl text-gray-900 mb-4">
        Reduces Administrative Burden
-      </H4>
+      </H4EHR>
       <P className="text-sm md:text-base text-gray-700">
       Automates coding and billing tasks integrated from your clinical notes. 
       </P>
@@ -121,9 +121,9 @@ const ImageGridEHR = () => {
     <div className="relative h-64 md:h-80 lg:h-96 bg-[#008280] flex flex-row rounded-2xl overflow-hidden shadow-lg group">
       {/* Text overlay */} 
       <div className="absolute bottom-12 left-6 md:left-8 z-10">
-        <H4 className="text-2xl md:text-3xl text-white mb-3">
+        <H4EHR className="text-2xl md:text-3xl text-white mb-3">
            Supports Smarter Decisions
-        </H4>
+        </H4EHR>
         <P className="max-w-xs text-white">
           Provides real-time alerts and patient history in one view.
         </P>

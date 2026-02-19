@@ -10,7 +10,7 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
   return (
     <h1
       className={`
-        text-[32px] md:text-[48px] lg:text-[72px]
+        text-[32px] md:text-[48px] lg:text-[56px]
         font-bricolage
         
         leading-[120%]
@@ -21,6 +21,22 @@ export const H1 = ({ children, className = "" }: TypographyProps) => {
     </h1>
   );
 };
+export const H1EHR = ({ children, className = "" }: TypographyProps) => {
+  return (
+    <h1
+      className={`
+        text-[32px] md:text-[48px] lg:text-[64px]
+        font-bricolageEHR
+        
+        leading-[120%]
+        
+        ${className}`}
+    >
+      {children}
+    </h1>
+  );
+};
+
 
 // H2
 export const H2 = ({ children, className = "", style }: TypographyProps) => {
@@ -28,9 +44,24 @@ export const H2 = ({ children, className = "", style }: TypographyProps) => {
     <h2
       style={style}
       className={`
-        text-[24px] md:text-[32px] lg:text-[64px]
+        text-[24px] md:text-[32px] lg:text-[48px]
         font-bricolage
        
+        leading-[120%]
+        ${className}`}
+    >
+      {children}
+    </h2>
+  );
+};
+export const H2EHR = ({ children, className = "", style }: TypographyProps) => {
+  return (
+    <h2
+      style={style}
+      className={`
+        text-[24px] md:text-[32px] lg:text-[48px]
+
+      font-bricolageEHR
         leading-[120%]
         ${className}`}
     >
@@ -55,6 +86,21 @@ export const H3 = ({ children, className = "" }: TypographyProps) => {
     </h3>
   );
 };
+export const H3EHR = ({ children, className = "" }: TypographyProps) => {
+  return (
+    <h3
+      className={`
+        text-[20px] md:text-[24px] lg:text-[32px]
+        font-bricolageEHR
+        font-semibold
+        leading-[120%]
+     
+        ${className}`}
+    >
+      {children}
+    </h3>
+  );
+};
 
 // H4
 export const H4 = ({ children, className = "" }: TypographyProps) => {
@@ -63,6 +109,22 @@ export const H4 = ({ children, className = "" }: TypographyProps) => {
       className={`
         text-[16px] md:text-[20px] lg:text-[24px]
         font-bricolage
+        font-bold
+        leading-[120%]
+       
+        ${className}`}
+    >
+      {children}
+    </h4>
+  );
+};
+
+export const H4EHR = ({ children, className = "" }: TypographyProps) => {
+  return (
+    <h4
+      className={`
+        text-[16px] md:text-[20px] lg:text-[24px]
+        font-bricolageEHR
         font-bold
         leading-[120%]
        

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../Navbar/ContactDrawer";
 
@@ -22,7 +22,7 @@ type FeatureBlockSecProps = {
 const FeatureBlock = ({ title, content }: { title: string; content: string }) => (
   <div className="flex flex-col items-start w-full">
     <span className="text-6xl font-bold text-[#F99526] mb-8">+</span>
-    <H3 className="mb-3">{title}</H3>
+    <H3EHR className="mb-3">{title}</H3EHR>
     <P className=" text-base leading-relaxed">{content}</P>
   </div>
 );
@@ -48,12 +48,71 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
           {!isDesktop && (
             <div className="flex flex-col gap-10">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <H2 className="text-[#008280]">
+              <H2EHR className="text-[#008280]">
   {content.heading}
-</H2>
+</H2EHR>
+ <button
+ 
+  className="
+    group
+    inline-flex items-center justify-center
+    px-6 h-12
+    rounded-lg
+    font-bricolage font-bold text-sm tracking-widest
+    bg-[#008280] text-white
+    hover:bg-white hover:text-[#008280]
+    border-2 border-[#008280]
+    transition-all duration-300 ease-in-out
+    hover:border-b-[4px]
+    hover:-translate-y-[2px]
+    shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+    cursor-pointer
+  "
+>
+  <span className="flex items-center gap-2">
+     {content.cta}
+ 
+    <span className="relative flex items-center justify-center w-[20px] h-[20px]">
+     
+      {/* Default Icon */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+      >
+        <path d="M7 7h10v10" />
+        <path d="M7 17L17 7" />
+      </svg>
+ 
+      {/* Hover Icon */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      >
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
+      </svg>
+ 
+    </span>
+  </span>
+</button>
 
-
-                <ContactUs
+                {/* <ContactUs
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -62,7 +121,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
                   className="w-fit transition-transform hover:scale-105 active:scale-95"
                 >
                 {content.cta}
-                </ContactUs>
+                </ContactUs> */}
               </div>
 
              <div className="flex flex-col sm:flex-row gap-8">
@@ -83,9 +142,9 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
             <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-20">
 
               <div className="lg:w-3/5 flex flex-col items-start">
-                <H2 className="text-[#008280]">
+                <H2EHR className="text-[#008280]">
   {content.heading}
-</H2>
+</H2EHR>
 
 
                 <ContactUs

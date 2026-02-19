@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
  
 const FeatureCards = () => {
@@ -11,7 +11,7 @@ const FeatureCards = () => {
        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-6">
-          <H2 className="text-[#007976] mb-4">Your Command Center</H2>
+          <H2EHR className="text-[#007976] mb-4">Your Command Center</H2EHR>
           <P className="text-gray-600 text-sm">
             One unified dashboard gives you full control over patient scheduling, communication, and daily clinic operations. 
           </P>
@@ -24,7 +24,7 @@ const FeatureCards = () => {
           <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
             <div className="p-8 pb-10">
               <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4 className="mb-3 text-black">Live Schedule Management </H4>
+              <H4EHR className="mb-3 text-black">Live Schedule Management </H4EHR>
               <P className="text-gray-600 leading-relaxed">
                 View, book, and adjust all appointments in real-time with a clear, color-coded calendar for any provider.
               </P>
@@ -74,9 +74,9 @@ const FeatureCards = () => {
   {/* Text Content */}
   <div className="relative z-10">
     <div className="text-white text-4xl mb-6">＋</div>
-    <H4 className="text-xl mb-3 text-white">
+    <H4EHR className="text-xl mb-3 text-white">
       Patient Flow Tracking
-    </H4>
+    </H4EHR>
     <P className="text-teal-50  md:max-w-md xl:max-w-full leading-relaxed">
       See exactly who has checked in, is in triage, or is waiting for the provider to reduce delays and improve efficiency.
     </P>
@@ -98,7 +98,7 @@ const FeatureCards = () => {
           <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
             <div className="p-8 pb-10">
               <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4 className="font-bold text-xl mb-3 text-black">Streamlined Patient Intake </H4>
+              <H4EHR className="font-bold text-xl mb-3 text-black">Streamlined Patient Intake </H4EHR>
               <P className="text-xs text-gray-600 leading-relaxed">
                  Use digital forms for new patient registration and check-in to eliminate paper and speed up the process. 
               </P>

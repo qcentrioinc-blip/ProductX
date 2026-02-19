@@ -1,4 +1,4 @@
-import { H2, H4, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import { useParams } from "react-router-dom";
 
 const CARD_CONFIG: Record<
@@ -178,7 +178,7 @@ export default function Cardcase() {
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-8xl mx-10 md:px-10">
-        <H2 className="mb-10 font-weight-400" style={{ color: config.headingColor || "#254D70" }}>{config.heading}</H2>
+        <h2 className={`mb-10   text-[24px] md:text-[32px] lg:text-[64px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: config.headingColor || "#254D70" }}>{config.heading}</h2>
 
         {/* CARDS GRID */}
         <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-start">
@@ -200,7 +200,7 @@ export default function Cardcase() {
               </div>
 
               {/* Title */}
-              <H4 className="mt-6">{card.title}</H4>
+              <h4 className={`mt-6  text-[16px] md:text-[20px] lg:text-[24px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`}>{card.title}</h4>
 
               {/* Description */}
               <P className="leading-relaxed mt-6">{card.desc}</P>

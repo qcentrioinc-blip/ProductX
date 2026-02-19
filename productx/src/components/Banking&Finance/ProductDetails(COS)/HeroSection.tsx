@@ -71,7 +71,7 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative w-full flex items-start justify-center overflow-hidden pt-0 mt-0">
       {/* Backgrounds */}
       <div className="absolute inset-0 hidden md:flex">
-        <div className="w-1/2 bg-[#FED600]" />
+        <div className="w-1/2 bg-[#2B68C3]" />
         <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Desktop Circles */}
           <div
@@ -106,7 +106,7 @@ export default function HeroSection() {
 
       {/* Mobile & Tablet Background with Circles */}
       <div className="absolute inset-0 flex flex-col md:hidden">
-        <div className="flex-1 bg-[#FED600]" />
+        <div className="flex-1 bg-[#2B68C3]" />
         <div className="flex-1 bg-[#2B68C3] relative">
           {/* Mobile & Tablet Circles - Responsive */}
           <div
@@ -216,10 +216,10 @@ export default function HeroSection() {
 
         {/* Text Section */}
         <div className="relative w-full md:w-1/2 flex  mt-10 flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-25">
-          <H1 className="mb-6  text-[#202020]">
+          <H1 className="mb-6  text-[#ffffff]">
             Lorem ipsum dolor, consectetur adipis
           </H1>
-          <P className="mb-8 max-w-xl mx-auto md:mx-0 text-[#202020]">
+          <P className="mb-8 max-w-xl mx-auto md:mx-0 text-[#ffffff]">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia.

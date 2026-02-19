@@ -1,4 +1,4 @@
-import { H2,   H3,   H4, P } from "../../../styles/Typography";
+import { H2EHR,   H3EHR,   H4EHR, P } from "../../../styles/Typography";
  
 const PhysicianHeroSection = () => {
   return (
@@ -24,11 +24,11 @@ const PhysicianHeroSection = () => {
         <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
-            <H2 className="text-4xl font-semibold text-[#008280] leading-tight">
+            <H2EHR className="text-4xl font-semibold text-[#008280] leading-tight">
               Practice Medicine,
              
               Not Paperwork.
-            </H2>
+            </H2EHR>
           </div>
  
           {/* Right Description */}
@@ -81,19 +81,19 @@ const PhysicianHeroSection = () => {
           {/* Stats */}
           <div className=" mt-10 xl:mt-28  grid grid-cols-3 gap-10 max-w-3xl">
             <div className="xl:mt-4">
-              <H3 className=" font-bold">
+              <H3EHR className=" font-bold">
                Achieve Best Results  
-              </H3>
+              </H3EHR>
             </div>
  
             <div>
-              <H2 className="text-4xl font-bold text-gray-900">55X</H2>
-              <H4 className="">Faster Charting</H4>
+              <H2EHR className="text-4xl font-bold text-gray-900">55X</H2EHR>
+              <H4EHR className="">Faster Charting</H4EHR>
             </div>
  
             <div>
-              <H2 className="text-4xl font-bold text-gray-900">85%</H2>
-              <H4 className="">Fewer Clicks</H4>
+              <H2EHR className="text-4xl font-bold text-gray-900">85%</H2EHR>
+              <H4EHR className="">Fewer Clicks</H4EHR>
             </div>
           </div>
         </div>

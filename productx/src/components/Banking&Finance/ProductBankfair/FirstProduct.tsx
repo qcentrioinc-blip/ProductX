@@ -19,7 +19,7 @@ const FirstProduct = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          // backgroundImage: `url(/Products/Draxora1.png)`,
+          backgroundImage: `url(/Products/Draxora1.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -56,7 +56,7 @@ const FirstProduct = () => {
             }}
           >
             {/* Main Heading */}
-            <H1 className='text-[#2B68C3] sm:text-center'>
+            <H1 className='text-[#020059] sm:text-center'>
               
               Smarter Banking, Simplified
             </H1>
@@ -76,12 +76,11 @@ const FirstProduct = () => {
                 height: '48px',
                 gap: '8px',
                 borderRadius: '12px',
-                border:"2px solid #000000",
                 paddingTop: '12px',
                 paddingRight: '24px',
                 paddingBottom: '12px',
                 paddingLeft: '24px',
-                background: '#F5F5F5',
+                background: '#FED600',
                 color: '#000000',
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 700,
@@ -89,7 +88,7 @@ const FirstProduct = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-              
+                border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
               }}

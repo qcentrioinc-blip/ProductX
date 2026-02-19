@@ -1,5 +1,5 @@
 import React from 'react';
-import { H2, H3, P } from '../../../styles/Typography';
+import {  H3EHR, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 
 
@@ -24,7 +24,7 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         imageSrc: '/EHR-PMS/Blogs/img5.png',
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'How Modern PMS Can Boost Patient Referrals and Retention',
-        description: 'A steady stream of both is useful to a healthy practice. The right software can do much more than just handle schedules and billing, it can become a direct tool for building your business. ',
+        description: 'A steady stream of both is useful to a healthy practice. The right software can do much more than just handle...  ',
     },
     {
         id: 6,
@@ -33,7 +33,7 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         imageSrc: '/EHR-PMS/Blogs/img6.png',
         title: 'Sed ut perspiciatis Unde',
         subtitle: "What Do These Terms Actually Mean for Care Providers?",
-        description: 'For your healthcare providers and businesses, implementing a suitable, efficient software system can be beneficial. But the technical terms used to describe these systems often create confusion.',
+        description: 'For your healthcare providers and businesses, implementing a suitable, efficient software system can be beneficial... ',
     },
     {
         id: 7,
@@ -42,7 +42,7 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         imageSrc: '/EHR-PMS/Blogs/img7.png',
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'Why Cloud-Based EHR Is the Gold Standard for Data Security',
-        description: 'But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough? Many providers worry that digital data is easier to steal than paper files locked in a room.on.',
+        description: 'But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough... ',
     }
 ];
 
@@ -60,7 +60,7 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
             {/* Text Content */}
             <P className="text-gray-600 mb-2 text-sm">{date}</P>
             {/*<H2 className="text-2xl font-bold leading-tight mb-1">{title}</H2> */}
-            <H3 className=" mb-4">{subtitle}</H3>
+            <H3EHR className=" mb-4">{subtitle}</H3EHR>
             <P className="text-gray-700 mb-10">{description}</P>
 
             {/* Image Container: Responsive scaling */}
@@ -87,11 +87,11 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
 const ImageCard: React.FC = () => {
     return (
         <section className="py-10">
-            {/* INCREASED MAX WIDTH: max-w-7xl -> max-w-8xl */}
+   
             <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
-                <div>
+                {/* <div>
                     <H2 className=' text-left text-[#008280] mb-10 xl:mb-12'>Sed ut perspiciatis Unde <br/>Seduo ut perspiciatis </H2>
-                    </div>
+                    </div> */}
                 <div
                     // Grid setup remains responsive: 1 col (mobile), 2 col (md), 3 col (lg)
                     // INCREASED GAP: gap-8 -> gap-10

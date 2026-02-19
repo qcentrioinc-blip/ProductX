@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H2, H3, H4, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 const WhyUnifiedHealth: React.FC = () => {
@@ -8,7 +8,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-8xl  py-16">
+      <div className="mx-auto max-w-8xl lg:px-0 px-10 py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
 
@@ -27,9 +27,9 @@ const WhyUnifiedHealth: React.FC = () => {
               Why Unified Health Net
             </span> */}
 
-            <H2 className="mb-6 leading-snug text-[#008280]">
+            <H2EHR className="mb-6 leading-snug text-[#008280]">
               Built for Modern Healthcare’s Demands
-            </H2>
+            </H2EHR>
 
             <P className="mb-6 max-w-xl leading-relaxed">
               We unify the entire patient and practice journey on one intelligent platform, delivering the simplicity, efficiency, and clarity that today’s providers need to succeed.
@@ -113,18 +113,18 @@ const WhyUnifiedHealth: React.FC = () => {
 
           {/* BOTTOM FEATURES (center column only) */}
           <div className="xl:-ml-72 ">
-            <H3 className="mb-4 text-[#008280]">
+            <H3EHR className="mb-4 text-[#008280]">
               Our Core Promise
-            </H3>
+            </H3EHR>
 
             <div className="mb-8 h-px w-full bg-[#008280]" />
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
               {/* Feature 1 */}
               <div>
-                <H4 className="mb-2 text-[#008280]">
+                <H4EHR className="mb-2 text-[#008280]">
                   Uncompromising Simplicity
-                </H4>
+                </H4EHR>
                 <div className="flex  flex-col-reverse   xl:flex-row">
                   <P className="max-w-sm">
                     A single, intuitive platform for all clinical, financial, and patient engagement tasks.
@@ -135,9 +135,9 @@ const WhyUnifiedHealth: React.FC = () => {
 
               {/* Feature 2 */}
               <div>
-                <H4 className="mb-2 text-[#008280]">
+                <H4EHR className="mb-2 text-[#008280]">
                   Unmatched Efficiency
-                </H4>
+                </H4EHR>
                 <div className="flex  flex-col-reverse    xl:flex-row">
                   <P className="max-w-sm">
                     Automates workflows to speed up documentation, billing, and daily operations.

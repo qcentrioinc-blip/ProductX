@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H1, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
@@ -24,40 +24,40 @@ type IntroContent = {
 
 const STYLE_CONFIG: Record<string, IntroStyle> = {
   "ehr-and-pms": {
-    sectionBg: "bg-white",
-    headingColor: "text-[#008280]",
-    paraColor: "text-[#141414]",
-    buttonBg: "",
-    buttonText: "text-[#04531A]",
+    sectionBg: "white",
+    headingColor: "#008280",
+    paraColor: "#141414",
+    buttonBg: "ffffff",
+    buttonText: "#008280",
     contactAction: "drawer",
   },
 
   "banking-and-finance": {
-    sectionBg: "bg-[#F2F2F2]",
-    headingColor: "text-[#2A2A2A]",
-    paraColor: "text-[#141414]",
-    buttonBg: "bg-[#141414]",
-    buttonText: "text-white",
+    sectionBg: "#F2F2F2",
+    headingColor: "#2A2A2A",
+    paraColor: "#141414",
+    buttonBg: "#141414",
+    buttonText: "white",
     contactAction: "route",
     contactRoute: "/industries/banking-and-finance/contactform",
   },
 
   "high-tech": {
-    sectionBg: "bg-black",
-    headingColor: "text-[#F99526]",
-    paraColor: "text-[#CCCCCC]",
-    buttonBg: "bg-white",
-    buttonText: "text-[#8338EC]",
+    sectionBg: "#000000",
+    headingColor: "#F99526",
+    paraColor: "#CCCCCC",
+    buttonBg: "white",
+    buttonText: "#8338EC",
     contactAction: "route",
     contactRoute: "/industries/high-tech/contactform",
   },
 
   "cloud-finops-ai": {
-    sectionBg: "bg-[#FAFAFA]",
-    headingColor: "text-[#254D70]",
-    paraColor: "text-[#141414]",
-    buttonBg: "bg-white",
-    buttonText: "text-[#254D70]",
+    sectionBg: "#FAFAFA",
+    headingColor: "#254D70",
+    paraColor: "#141414",
+    buttonBg: "white",
+    buttonText: "#254D70",
     contactAction: "modal",
   },
 };
@@ -177,9 +177,10 @@ export default function BuiltForIntro() {
       >
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-6xl">
-            <H1 className={`mb-6 ${style.headingColor}`}>
+            
+            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: style.headingColor}}>
               {content.heading}
-            </H1>
+            </h2>
 
             <P className={`mb-4 ${style.paraColor}`}>
               {content.para1}
@@ -188,23 +189,24 @@ export default function BuiltForIntro() {
             <P className={`mb-8 ${style.paraColor}`}>
               {content.para2}
             </P>
-            <button
-              onClick={handleContactClick}
-              className={`
-          group
-          flex items-center justify-center
-          w-auto h-[48px]
-          px-[24px] py-[12px]
-          rounded-[8px]
-          font-quicksand font-bold text-[16px]
-         
-          border-2 border-[#254D70]
-          shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-          transition-all duration-300
-          hover:bg-white hover:text-black
-         
-        ${style.buttonBg} ${style.buttonText}`}
-            >
+           <button
+  onClick={handleContactClick}
+  className="
+    group flex items-center justify-center
+    w-auto h-[48px]
+    px-[24px] py-[12px]
+    rounded-[8px]
+    font-quicksand font-bold text-[16px]
+    border-2
+    shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+    transition-all duration-300
+  "
+  style={{
+    backgroundColor: style.buttonBg,
+    color: style.buttonText,
+  }}
+>
+
               Get Solutions
               <span className="flex items-center gap-2">
 

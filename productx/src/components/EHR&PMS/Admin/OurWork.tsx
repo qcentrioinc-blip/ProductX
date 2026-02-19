@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { H2, H4, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const cards = [
   {
@@ -52,9 +52,9 @@ export default function OurWork() {
       style={{ height: "300vh" }}
     >
       <div className="flex items-center  max-w-7xl justify-start xl:mx-auto">
-          <H2 className="text-[#008280] mt-6 xl:mt-10">
+          <H2EHR className="text-[#008280] mt-6 xl:mt-10">
             Eliminate These Common <br /> Administrative Headaches
-          </H2>
+          </H2EHR>
       </div>
       <div className="sticky top-0 h-screen flex max-w-7xl xl:mx-auto xl:px-0 px-4 gap-16">
         {/* LEFT CONTENT — STACKS */}
@@ -73,9 +73,9 @@ export default function OurWork() {
                     : "translateY(40px)",
               }}
             >
-              <H4 className="text-2xl font-semibold mb-4 text-gray-900">
+              <H4EHR className="text-2xl font-semibold mb-4 text-gray-900">
                 {card.title}
-              </H4>
+              </H4EHR >
               <P className="leading-relaxed text-gray-700 max-w-md">
                 {card.text}
               </P>
@@ -104,9 +104,9 @@ export default function OurWork() {
 
     <section className="xl:hidden bg-white px-4 py-20 space-y-16">
       <div className="flex items-center justify-start ">
-          <H2 className="text-[#008280] mt-6 ">
+          <H2EHR className="text-[#008280] mt-6 ">
             Eliminate These Common <br /> Administrative Headaches
-          </H2>
+          </H2EHR>
       </div>
   {cards.map((card) => (
     <div key={card.id} className="space-y-6">
@@ -116,9 +116,9 @@ export default function OurWork() {
         className="w-full h-[260px] sm:h-[300px] object-cover rounded-xl"
       />
       <div>
-        <H4 className="text-xl font-semibold mb-3 text-gray-900">
+        <H4EHR className="text-xl font-semibold mb-3 text-gray-900">
           {card.title}
-        </H4>
+        </H4EHR>
         <P className="text-gray-700 leading-relaxed">
           {card.text}
         </P>

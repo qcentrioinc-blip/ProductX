@@ -23,10 +23,10 @@ const HWD = () => {
     },
     banking: {
       topBg: "#F5F5F5",
-      bottomBg: "#C1D7F3",
+      bottomBg: "#FFFFFF",
       headingColor: "#2B68C3",
       textcolor: "#000000",
-      CheckColor: "#A80040"
+      CheckColor: "#254D70"
     },
     hightech: {
       topBg: "#141414",
@@ -159,7 +159,7 @@ const HWD = () => {
         title: "Unified Primary Care Clinic",
          image: "/EHRIcons/Treatment.svg",
         description:
-          "Manage everything from patient visits to billing efficiently with one unified, easy-to-use platform..",
+          "Manage everything from patient visits to billing efficiently with one unified, easy-to-use platform.",
         points: [
           "Streamline digital intake and patient self-check-in.",
           "Document visits quickly with customizable SOAP templates.",
@@ -227,7 +227,8 @@ const HWD = () => {
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
  
   const bottomTextColor = isAI ? "#254D70" : textcolor;
- 
+ const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+
  
  
  
@@ -240,7 +241,11 @@ const HWD = () => {
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
-      <div className="py-6 px-4 pb-12 md:p-8" style={{ backgroundColor: topBg }}>
+   <div
+  className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
+  style={{ backgroundColor: topBg }}
+>
+
         <div className="w-14 h-14 rounded-full mb-2 overflow-hidden">
           <img
             src={image}
@@ -252,13 +257,13 @@ const HWD = () => {
  
  
         <h3
-          className="mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bricolage font-bold"
+          className={`${headingFontClass} mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}
         </h3>
  
-        <p className="balance-text" style={{ color: textcolor }}>
+        <p className="balance-text font-quicksand" style={{ color: textcolor }}>
           {description}
         </p>
  
@@ -266,12 +271,12 @@ const HWD = () => {
  
       {/* Bottom Section */}
       <div
-        className="pl-6 pr-10 py-10 xl:py-18"
+        className="pl-6 pr-10 py-10"
         style={{ backgroundColor: bottomBg }}
       >
         <ul className="space-y-4">
           {points.map((item, idx) => (
-            <li key={idx} className="flex items-center gap-4">
+            <li key={idx} className="flex font-quicksand items-center gap-4">
               <Check size={25} style={{ color: CheckColor }} />
               <p style={{ color: bottomTextColor }}>{item}</p>
             </li>
@@ -288,22 +293,18 @@ const HWD = () => {
         {/* HEADINGS */}
         {/* HEADINGS */}
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
-          <h1 className="font-medium text-2xl text-[#2A2A2A]">
-            <div className="flex items-center gap-x-2">
-              {/* <div className="w-8 h-1 rounded-full bg-gray-400"></div> */}
-              {headingContent.eyebrow}
-            </div>
-          </h1>
+          
  
           <h2
-            className="text-[#2A2A2A] font-bricolage font-semibold
-               text-[24px] md:text-[32px] lg:text-[64px] leading-none"
-          >
+  className={`text-[#2A2A2A] ${headingFontClass}
+     text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
+>
+
             {headingContent.title}
           </h2>
  
           {/* Dynamic paragraph below H2 */}
-          <p className="max-w-3xl text-base md:text-lg text-[#555555]">
+          <p className="max-w-3xl text-base md:text-lg font-quicksand xl:text-xl text-[#555555]">
             {headingContent.description}
           </p>
         </div>
@@ -343,7 +344,7 @@ const HWD = () => {
           display: none;
         }
         .scrollbar-hide {
-          -ms-overflow-style: none;
+          -ms-overflow-style: none; 
           scrollbar-width: none;
         }
       `}</style>
