@@ -14,54 +14,54 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
     const base = `/industries/${industry}`;
 
     const megaMenuItems = [
-        {
-            title: "Almanac",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P1.png",
-            path: `${base}/products/almanac`,
-        },
+        // {
+        //     title: "Almanac",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P1.png",
+        //     path: `${base}/products/almanac`,
+        // },
         {
             title: "Bankfair",
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P2.jpg",
             path: `${base}/products/bankfair`,
         },
-        {
-            title: "Customer Onboarding Solutions",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P3.jpg",
-            path: `${base}/products/customer-onboarding-solutions`
-        },
-        {
-            title: "Internet Banking System",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P4.png",
-            path: `${base}/products/internet-banking-system`,
-        },
-        {
-            title: "Loan Origination Sytem",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P5.jpg",
-            path: `${base}/products/loan-origination-system`,
-        },
-        {
-            title: "Pago",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P6.jpg",
-            path: `${base}/products/pago`,
-        },
-        {
-            title: "Remitree",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P7.jpg",
-            path: `${base}/products/remitree`,
-        },
-        {
-            title: "Sams",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P8.jpg",
-            path: `${base}/products/sams`,
-        },
+        // {
+        //     title: "Customer Onboarding Solutions",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P3.jpg",
+        //     path: `${base}/products/customer-onboarding-solutions`
+        // },
+        // {
+        //     title: "Internet Banking System",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P4.png",
+        //     path: `${base}/products/internet-banking-system`,
+        // },
+        // {
+        //     title: "Loan Origination Sytem",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P5.jpg",
+        //     path: `${base}/products/loan-origination-system`,
+        // },
+        // {
+        //     title: "Pago",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P6.jpg",
+        //     path: `${base}/products/pago`,
+        // },
+        // {
+        //     title: "Remitree",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P7.jpg",
+        //     path: `${base}/products/remitree`,
+        // },
+        // {
+        //     title: "Sams",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P8.jpg",
+        //     path: `${base}/products/sams`,
+        // },
         {
             title: "Sherlock",
             desc: "Lorem ipsum dolor sit amet consectetur",

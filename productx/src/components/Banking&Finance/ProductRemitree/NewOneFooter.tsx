@@ -23,14 +23,14 @@ const NewOneFooter = () => {
 
   const products = [
     { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
-    { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
+    // { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "Sherlock", url: "/industries/banking-and-finance/products/sherlock" },
-    { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
-    { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
-    { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
-    { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
-    { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
-    { label: "Internet Banking Solution", url: "/industries/banking-and-finance/products/internet-banking-system" },
+    // { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
+    // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
+    // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
+    // { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
+    // { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
+    // { label: "Internet Banking Solution", url: "/industries/banking-and-finance/products/internet-banking-system" },
   ];
 
   const quickLinks = [
@@ -142,7 +142,7 @@ const NewOneFooter = () => {
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+                          className="text-black text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer hover:underline transition-colors"
                         >
                           • {item.label}
                         </a>

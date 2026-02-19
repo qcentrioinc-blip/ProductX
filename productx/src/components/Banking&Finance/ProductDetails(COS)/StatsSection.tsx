@@ -3,13 +3,13 @@ import CountUp from "../CountUp";
 
 export default function StatsSection() {
   return (
-    <section className="bg-black text-white py-10">
+    <section className="bg-white text-black py-10 xl:py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center lg:items-center justify-between">
 
         {/* Left content */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
           <H2 className="mb-4">Lorem ipsum dolor sit amet</H2>
-          <P className="text-gray-400">
+          <P className="text-gray-800">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation.
@@ -25,7 +25,7 @@ export default function StatsSection() {
               <CountUp from={0} to={100} direction="up" duration={1} />
               +
             </span>
-            <P className="text-gray-400 mt-4">quis nostrud</P>
+            <P className="text-gray-800 mt-4">quis nostrud</P>
           </div>
 
           {/* 4x */}
@@ -34,7 +34,7 @@ export default function StatsSection() {
               <CountUp from={0} to={4} direction="up" duration={1} />
               x
             </span>
-            <P className="text-gray-400 mt-4">quis nostrud</P>
+            <P className="text-gray-800 mt-4">quis nostrud</P>
           </div>
 
           {/* 85% */}
@@ -43,7 +43,7 @@ export default function StatsSection() {
               <CountUp from={0} to={85} direction="up" duration={1} />
               %
             </span>
-            <P className="text-gray-400 mt-4">quis nostrud</P>
+            <P className="text-gray-800 mt-4">quis nostrud</P>
           </div>
 
         </div>

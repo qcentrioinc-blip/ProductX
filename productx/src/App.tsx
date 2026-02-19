@@ -13,15 +13,15 @@ const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'))
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
-const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
-const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
+// const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
+// const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'));
-const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
+// const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
-const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
-const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
-const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
+// const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
+// const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
+// const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
 const Platform = lazy(() => import('./components/Global/Platform/Platform'));
 const Career = lazy(() => import('./components/Banking&Finance/Career/Career'));
 const About = lazy(() => import('./components/EHR&PMS/AboutUs/About'));
@@ -53,7 +53,7 @@ const NewsPage = lazy(() => import('./components/Banking&Finance/News/NewsPage')
 const EventssPage = lazy(() => import('./components/Banking&Finance/Events/EventsPage'));
 const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
 const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
-const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
+// const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
 
 const ResourceDetailAI = lazy(() => import('./components/AIOptimization/ResourceDetail/ResourceDetailAI'));
@@ -95,14 +95,14 @@ const App = () => {
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "bankfair") return <ProductsPage1 />;
-    if (productId === "remitree") return <ProductsPage2 />;
-    if (productId === "almanac") return <AML />;
-    if (productId === "pago") return <ProductDetailthree />
+    // if (productId === "remitree") return <ProductsPage2 />;
+    // if (productId === "almanac") return <AML />;
+    // if (productId === "pago") return <ProductDetailthree />
     if (productId === "sherlock") return <ProductDetails_4_page />
-    if (productId === "customer-onboarding-solutions") return <Cos_Page />
-    if (productId === "sams") return <Sams_Page />
-    if (productId === "internet-banking-system") return <PDPage9 />
-    if (productId === "loan-origination-system") return <ProductsPage7 />
+    // if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    // if (productId === "sams") return <Sams_Page />
+    // if (productId === "internet-banking-system") return <PDPage9 />
+    // if (productId === "loan-origination-system") return <ProductsPage7 />
     return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
 

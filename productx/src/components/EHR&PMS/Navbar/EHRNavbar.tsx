@@ -149,7 +149,7 @@ const EHRNavbar = () => {
     {
       name: "Cloud Finops Ai",
       path: "/industries/cloud-finops-ai",
-      img: "/BNFHOME/P1.png",
+      img: "/QCloudLogo2.svg",
       desc: "Leverage intelligent automation to streamline clinical documentation"
     },
 
@@ -275,7 +275,7 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-18 w-80 z-[999] p-3"
+                  className="absolute top-14 w-80 z-[999] p-1"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >

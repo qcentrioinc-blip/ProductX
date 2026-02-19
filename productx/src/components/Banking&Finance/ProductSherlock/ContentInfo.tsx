@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { ContactUs } from "../../../styles/Button";
 import { H2, H4, P } from "../../../styles/Typography";
 
 export default function Sec_4() {
   return (
-    <section className="relative w-full xl:h-auto flex max-w-8xl bg-[#E4E4E4] py-10 px-5 overflow-hidden">
+    <section className="relative w-full xl:h-auto flex  bg-white py-10 px-5 overflow-hidden">
       {/* Vertical line (desktop only) */}
       <div
         className="hidden xl:block absolute top-0 right-0 h-full z-[50]"
@@ -15,7 +16,7 @@ export default function Sec_4() {
       ></div>
 
       {/* Main content container */}
-      <div className="w-full flex flex-col xl:flex-row xl:items-stretch relative z-10">
+      <div className="w-full flex flex-col xl:flex-row xl:items-stretch relative z-10 max-w-7xl mx-auto xl:mx-0 xl:max-w-8xl">
         {/* Left text section */}
         <div id="our-process" className="flex-1 w-full flex flex-col justify-center items-start px-6 py-6 md:px-20 xl:mx-10 md:py-8">
           <H2 className="text-[#2B68C3] mb-6 sm:max-w-xl md:max-w-4xl">
@@ -47,7 +48,9 @@ export default function Sec_4() {
             </div>
           </div>
 
-          <ContactUs>CONTACT US</ContactUs>
+          <Link to="/industries/banking-and-finance/products/sherlock#contact-us">
+  <ContactUs>CONTACT US</ContactUs>
+</Link>
 
           {/* Image for <1200px (below contact button) */}
           <div className="xl:hidden mt-10 w-full flex justify-center md:justify-start">
