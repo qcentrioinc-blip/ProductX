@@ -34,7 +34,7 @@
   --primary-color: #2B68C3;
   --secondary-color: #FED600;
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
 }
 
 .playfair {

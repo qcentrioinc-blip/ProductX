@@ -5,7 +5,7 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
-import {  H4, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 const ContactModal = lazy(() => import("./ContactModal"));
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -232,7 +232,7 @@ const AINavbar = () => {
   {/* 🔽 LOGO DROPDOWN */}
   {logoDropdownOpen && (
     <div
-      className="absolute top-12 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+      className="absolute top-17 w-80 bg-white shadow-xl rounded-md z-[999] px-3"
       onMouseEnter={handleKeepOpen}
       onMouseLeave={handleCloseMenus}
     >
@@ -249,12 +249,12 @@ const AINavbar = () => {
         />
 
         <div className="flex flex-col">
-          <H4 className="text-lg font-semibold text-gray-900">
+          <P className="text-lg font-semibold text-gray-900">
             EHR & PMS
-          </H4>
-          <P className="">
-            The unified platform for clinical and administrative excellence. 
           </P>
+          <p className="text-[10px] md:text-[14px] lg:text-[14px] xl:text-[16px]">
+            The unified platform for clinical and administrative excellence. 
+          </p>
         </div>
       </Link>
     </div>

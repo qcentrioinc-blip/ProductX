@@ -35,7 +35,7 @@ const accordionData = [
 ];
 
 const CheckIcon = () => (
-  <svg className="w-5 h-5 text-[#EB1F52] flex-shrink-0 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+  <svg className="w-5 h-5 text-[#2B68C3] flex-shrink-0 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
     <path
       fillRule="evenodd"
       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 13.586l7.293-7.293a1 1 0 011.414 0z"
@@ -55,7 +55,7 @@ const ImgTextSec = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
           <div>
             <H3>
-              <span className="text-[#A80040]">Sed ut perspi</span>
+              <span className="text-[#2B68C3]">Sed ut perspi</span>
               <span className="text-[#666666]"> ciatis Sed ut</span>
             </H3>
             <P className="mt-4 font-bold max-w-[390px] xl:max-w-[450px]">
@@ -89,7 +89,7 @@ const ImgTextSec = () => {
                 <H4 className="md:col-span-1 text-lg font-semibold flex items-center">
                   <svg
                     className={`w-4 h-4 mr-3 transition-transform duration-300 flex-shrink-0 ${
-                      index === openIndex ? 'rotate-90 text-[#EB1F52]' : 'text-gray-400'
+                      index === openIndex ? 'rotate-90 text-[#2B68C3]' : 'text-gray-400'
                     }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -101,7 +101,7 @@ const ImgTextSec = () => {
                     />
                   </svg>
                   <div>
-                    <span className="text-[#A80040]">{data.title.part1}</span>
+                    <span className="text-[#2B68C3]">{data.title.part1}</span>
                     <span className="text-[#666666]">{data.title.part2}</span>
                   </div>
                 </H4>

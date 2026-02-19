@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { createPortal } from "react-dom";
 import MobileProductsDropdown from "./MobileProductsDropdown";
 import MobileResourcesDropdown from "./MobileResourcesDropdown";
@@ -12,6 +12,7 @@ const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
 const BNFNav = () => {
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -352,7 +353,7 @@ const BNFNav = () => {
               Careers
             </Link>
 
-            <Link to={`${base}#contact-us`}>
+            <Link to={location.pathname.includes("/products/") ? "#contact-us" : `${base}#contact-us`}>
               <ContactUsDark>Contact Us</ContactUsDark>
             </Link>
           </div>
@@ -458,7 +459,7 @@ const BNFNav = () => {
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
-          <Link to={`${base}#contact-us`} onClick={() => setMenuOpen(false)}>
+          <Link to={location.pathname.includes("/products/") ? "#contact-us" : `${base}#contact-us`} onClick={() => setMenuOpen(false)}>
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>

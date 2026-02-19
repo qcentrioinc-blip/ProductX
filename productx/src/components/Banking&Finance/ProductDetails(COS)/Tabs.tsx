@@ -54,7 +54,7 @@ const ResponsiveTabs: React.FC = () => {
   };
 
   return (
-    <section className=" py-10 bg-[#F5DDA9] overflow-hidden">
+    <section className=" py-10 bg-white overflow-hidden">
       <div className='max-w-7xl mx-auto'>
       {/* Tabs Navigation */}
       <div className="md:w-1/2 mt-10">

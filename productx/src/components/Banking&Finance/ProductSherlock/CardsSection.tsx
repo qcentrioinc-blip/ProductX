@@ -30,7 +30,7 @@ export default function CardsSection() {
 
   return (
     <section className="w-full bg-white py-10">
-      <div className="max-w-7xl mx-auto px-5 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-14 flex flex-col items-center">
         <H2 className="text-center mb-12">
           Lorem ipsum dolor, consectetur adipis
         </H2>
