@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { H1 } from '../../../styles/Typography';
+import { ContactUs } from '../../../styles/Button';
 import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
@@ -244,11 +245,9 @@ export default function HeroSection() {
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
           </p>
-          <Link to="/industries/banking-and-finance/contactform">
-            <button className="inline-flex items-center mb-20 text-sm font-semibold rounded-lg py-3 px-6 bg-orange-500 hover:bg-orange-600 transition-colors duration-200 shadow-md text-white">
-              CONTACT US →
-            </button>
-          </Link>
+          <Link to="/industries/banking-and-finance/products/sherlock#contact-us">
+  <ContactUs>CONTACT US</ContactUs>
+</Link>
         </div>
       </div>
     </section>

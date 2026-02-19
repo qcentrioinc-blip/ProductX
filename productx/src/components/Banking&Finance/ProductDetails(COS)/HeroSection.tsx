@@ -141,7 +141,7 @@ export default function HeroSection() {
 
       {/* Tablet Circles */}
       <div className="absolute inset-0 hidden md:flex lg:hidden">
-        <div className="w-1/2 bg-[#FED600]" />
+        <div className="w-1/2 bg-[#2B68C3]" />
         <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Tablet Circles */}
           <div
@@ -216,10 +216,10 @@ export default function HeroSection() {
 
         {/* Text Section */}
         <div className="relative w-full md:w-1/2 flex  mt-10 flex-col justify-center md:pr-4 text-center md:text-left bg-[#FED600] md:bg-transparent py-10 md:py-25">
-          <H1 className="mb-6  text-[#ffffff]">
+          <H1 className="mb-6  text-white">
             Lorem ipsum dolor, consectetur adipis
           </H1>
-          <P className="mb-8 max-w-xl mx-auto md:mx-0 text-[#ffffff]">
+          <P className="mb-8 max-w-xl mx-auto md:mx-0 text-white">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu. Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia.

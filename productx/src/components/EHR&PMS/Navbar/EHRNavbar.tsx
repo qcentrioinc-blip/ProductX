@@ -5,7 +5,7 @@ import MobileProductsDropdown from "./MobileProductsDropdown";
 // import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
-const ContactDrawer = lazy(() => import("./ContactDrawer"));
+import ContactDrawer from "./ContactDrawer";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 // const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
@@ -149,7 +149,7 @@ const EHRNavbar = () => {
     {
       name: "Cloud Finops Ai",
       path: "/industries/cloud-finops-ai",
-      img: "/BNFHOME/P1.png",
+      img: "/QCloudLogo2.svg",
       desc: "Leverage intelligent automation to streamline clinical documentation"
     },
 
@@ -275,7 +275,7 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-18 w-80 z-[999] p-3"
+                  className="absolute top-14 w-80 z-[999] p-1"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
@@ -398,11 +398,11 @@ const EHRNavbar = () => {
               Support
             </button>
             <button
-  onClick={() => {
-    setMenuOpen(false);
-    setDrawerOpen(true);
-  }}
-  className="
+              onClick={() => {
+                setMenuOpen(false);
+                setDrawerOpen(true);
+              }}
+              className="
     group
     inline-flex items-center justify-center
     px-6 h-12
@@ -417,49 +417,49 @@ const EHRNavbar = () => {
     shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
     cursor-pointer
   "
->
-  <span className="flex items-center font-quicksand gap-2">
-    Contact Us
+            >
+              <span className="flex items-center gap-2">
+                Contact Us
 
-    <span className="relative flex items-center justify-center w-[20px] h-[20px]">
-      
-      {/* Default Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-      >
-        <path d="M7 7h10v10" />
-        <path d="M7 17L17 7" />
-      </svg>
+                <span className="relative flex items-center justify-center w-[20px] h-[20px]">
 
-      {/* Hover Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
+                  {/* Default Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
 
-    </span>
-  </span>
-</button>
+                  {/* Hover Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+
+                </span>
+              </span>
+            </button>
 
           </div>
 
@@ -598,9 +598,7 @@ const EHRNavbar = () => {
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading Contact...</div>}>
-        {drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-      </Suspense>
+      {drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
 
     </>,
     document.body

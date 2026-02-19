@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @font-face {
   font-family: 'Bricolage Grotesque';
   font-style: normal;
@@ -11,8 +13,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url('/fonts/bricolage-grotesque-latin-400-normal.woff2')
-       format('woff2');
+  src: url('/fonts/bricolage-grotesque-latin-400-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -513,4 +514,4 @@ button:focus-visible {
   }
 } */
 
-@import "tailwindcss";
+/* tailwindcss import moved to top of file */

@@ -8,16 +8,26 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  optimizeDeps: {
+    // Only pre-bundle essential deps 
+    include: [
+      'react',
+      'react-dom/client',
+      'react-router-dom',
+      'framer-motion',
+      'gsap',
+    ],
+  },
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split heavy libraries into separate chunks
-          'three': ['three'],
-          'mui': ['@mui/material', '@mui/icons-material'],
+          'mui': ['@mui/material', '@emotion/react', '@emotion/styled'],
           'framer': ['framer-motion'],
+          'three': ['three'],
         }
       }
     }
   }
 })
+

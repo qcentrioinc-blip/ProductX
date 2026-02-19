@@ -29,18 +29,18 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
   "banking-and-finance": {
     banks: {
       h4: "Challenges",
-      h2: "Modern Banking Infrastructure",
-      p: "Banks face rising operational costs while maintaining security, compliance, and legacy systems.",
-    },
-    nbfc: {
-      h4: "Challenges",
-      h2: "Agile Growth for NBFCs",
-      p: "NBFCs must scale rapidly while managing risk, cost efficiency, and regulatory pressure.",
+      h2: "Industry Challenges",
+      p: "Outdated systems slow growth and increase operational risk.",
     },
     "credit-union": {
       h4: "Challenges",
-      h2: "Technology Constraints in Credit Unions",
-      p: "Credit unions balance member experience with limited budgets and aging infrastructure.",
+      h2: "Industry Challenges",
+      p: "Limited resources make it hard to compete and grow.",
+    },
+    "financial-unions": {
+      h4: "Challenges",
+      h2: "Industry Challenges",
+      p: "Complex operations demand modern, scalable, and secure solutions.",
     },
   },
 

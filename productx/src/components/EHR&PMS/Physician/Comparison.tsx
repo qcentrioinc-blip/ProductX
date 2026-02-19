@@ -1,4 +1,6 @@
 import { H2EHR, H4EHR  , P } from "../../../styles/Typography";
+ 
+import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
 
 const Comparison = () => {
   const leftItems = [
@@ -47,7 +49,7 @@ const Comparison = () => {
           <div className=" rounded-xl p-8 md:p-10  lg:p-12">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
-              <img 
+              <HoverExpandImage
               src="/EHR-PMS/Physician/img1.webp"
               className="h-48 md:h-56 lg:h-72"
               />
@@ -87,7 +89,7 @@ const Comparison = () => {
           <div className=" rounded-xl p-8 md:p-10 lg:p-12  ">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
-              <img 
+              <HoverExpandImage
               src="/EHR-PMS/Physician/img2.webp"
               className="h-48 md:h-56 lg:h-72"
               />

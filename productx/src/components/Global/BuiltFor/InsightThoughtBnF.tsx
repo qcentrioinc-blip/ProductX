@@ -1,77 +1,128 @@
 import { motion } from 'framer-motion';
-import { H2 } from '../../styles/Typography';
- 
-const InsightThought = () => {
-    // Data for cards
-    const insights = [
-        {
-            img: "https://framerusercontent.com/images/Jm14NVS1DWCTSNRjQLkBTLtEKok.jpg?scale-down-to=1024",
-            category: "Lorem ipsum",
-            title: "Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque",
-            author: "Author",
-            date: "AUGUST 19, 2025"
-        },
-        {
-            img: "https://framerusercontent.com/images/MDtFSJaF3MhabVjn223xx2IMk.jpg?scale-down-to=1024",
-            category: "Lorem ipsum",
-            title: "Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque",
-            author: "Author",
-            date: "AUGUST 19, 2025"
-        },
-        {
-            img: "https://framerusercontent.com/images/v1ltoVHr1qjuj63noI3YsrEqSNg.jpg?scale-down-to=1024",
-            category: "Lorem ipsum",
-            title: "Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque",
-            author: "Author",
-            date: "AUGUST 19, 2025"
-        }
-    ];
- 
+import { H2 } from '../../../styles/Typography';
+import { useParams } from 'react-router-dom';
+
+interface InsightItem {
+    img: string;
+    category: string;
+    title: string;
+    author: string;
+    date: string;
+}
+
+// Data for Banking & Finance Insights
+const BANKING_INSIGHTS_DATA: Record<string, { title: string; insights: InsightItem[] }> = {
+    "banks": {
+        title: "Banking Trends & Insights",
+        insights: [
+            {
+                img: "https://framerusercontent.com/images/Jm14NVS1DWCTSNRjQLkBTLtEKok.jpg?scale-down-to=1024",
+                category: "Digital Transformation",
+                title: "The Future of Digital Banking: AI and Personalization",
+                author: "Tech Analyst",
+                date: "AUGUST 19, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/MDtFSJaF3MhabVjn223xx2IMk.jpg?scale-down-to=1024",
+                category: "Security",
+                title: "Securing Transactions in a Digital-First World",
+                author: "Security Expert",
+                date: "AUGUST 20, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/v1ltoVHr1qjuj63noI3YsrEqSNg.jpg?scale-down-to=1024",
+                category: "Compliance",
+                title: "Navigating Regulatory Changes in 2025",
+                author: "Compliance Officer",
+                date: "AUGUST 21, 2025"
+            }
+        ]
+    },
+    "credit-union": {
+        title: "Insights for credit union leaders",
+        insights: [
+            {
+                img: "https://framerusercontent.com/images/Jm14NVS1DWCTSNRjQLkBTLtEKok.jpg?scale-down-to=1024",
+                category: "Member Experience",
+                title: "Enhancing Member Engagement through Digital Channels",
+                author: "Member Success Lead",
+                date: "AUGUST 15, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/MDtFSJaF3MhabVjn223xx2IMk.jpg?scale-down-to=1024",
+                category: "Growth Strategies",
+                title: "Strategies for Sustainable Credit Union Growth",
+                author: "Growth Strategist",
+                date: "AUGUST 16, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/v1ltoVHr1qjuj63noI3YsrEqSNg.jpg?scale-down-to=1024",
+                category: "Technology",
+                title: "Latest Tech Trends for Credit Unions",
+                author: "Tech Insights",
+                date: "AUGUST 17, 2025"
+            }
+        ]
+    },
+    "financial-unions": {
+        title: "Insights for financial leaders",
+        insights: [
+            {
+                img: "https://framerusercontent.com/images/Jm14NVS1DWCTSNRjQLkBTLtEKok.jpg?scale-down-to=1024",
+                category: "Financial Policy",
+                title: "Impact of Global Policy on Financial Unions",
+                author: "Policy Analyst",
+                date: "AUGUST 10, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/MDtFSJaF3MhabVjn223xx2IMk.jpg?scale-down-to=1024",
+                category: "Collaboration",
+                title: "Fostering Collaboration Among Financial Institutions",
+                author: "Industry Leader",
+                date: "AUGUST 11, 2025"
+            },
+            {
+                img: "https://framerusercontent.com/images/v1ltoVHr1qjuj63noI3YsrEqSNg.jpg?scale-down-to=1024",
+                category: "Sustainability",
+                title: "Sustainable Finance: A Roadmap for Unions",
+                author: "Eco Finance Specialist",
+                date: "AUGUST 12, 2025"
+            }
+        ]
+    }
+};
+
+const InsightThoughtBnF = () => {
+    const { builtForType } = useParams<{ builtForType: string }>();
+
+    // Default to generic data or return null if not found
+    // If builtForType is undefined or not in data, we can either show default or nothing.
+    // Assuming 'banks' as fallback or empty.
+    const currentData = (builtForType && BANKING_INSIGHTS_DATA[builtForType]) || BANKING_INSIGHTS_DATA['banks'];
+
+    // Safety check if data is completely missing
+    if (!currentData) return null;
+
+    const { title, insights } = currentData;
+
     return (
-        <div className="bg-white py-8 sm:py-12 lg:py-16" id='blogs'>
+        <div className="bg-[#E7E7E7] py-8 sm:py-12 lg:py-16" id='blogs'>
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
                 {/* Header Section */}
                 <div className="flex justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
                     <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
-                        Consecte adipiscing
+                        {title}
                     </H2>
                     <a href="/industries/banking-and-finance/blogs" className="flex-shrink-0">
-                        <button
-          className={`
-            group
-            flex items-center justify-center
-            w-auto h-[44px] sm:h-[48px]
-            px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
-            rounded-[8px]
-            font-quicksand font-bold text-[14px] sm:text-[16px]
-            bg-[#141414] text-white
-            transition-all duration-300 ease-in-out
-            border border-transparent
-            hover:bg-white hover:text-[#141414]
-            hover:border-[#010101]
-            hover:border-b-[4px]
-            hover:-translate-y-[2px]
-            shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-           
-          `}
-        > View All
-          <span className="flex items-center gap-[8px]">
-           
-            <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                <path d="M7 7h10v10" />
-                <path d="M7 17L17 7" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </span>
-          </span>
-        </button>
+                        <button className="bg-white px-3 sm:px-4 lg:px-6 py-2 rounded-md text-xs sm:text-sm font-medium hover:shadow-md transition-shadow flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+                            Read Blog
+                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </a>
                 </div>
- 
+
                 {/* Cards Grid */}
                 {/* Horizontal Scrolling Row */}
                 <div className="flex overflow-x-auto gap-4 sm:gap-5 lg:gap-6 pb-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
@@ -85,7 +136,7 @@ const InsightThought = () => {
                             <div className="aspect-[4/3] relative overflow-hidden group">
                                 <img
                                     src={card.img}
-                                    alt="Modern architectural interior"
+                                    alt={card.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                                 <motion.div
@@ -144,5 +195,5 @@ const InsightThought = () => {
         </div>
     );
 };
- 
-export default InsightThought;
+
+export default InsightThoughtBnF;

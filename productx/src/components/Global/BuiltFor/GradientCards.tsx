@@ -65,6 +65,47 @@ const themes: Record<string, Theme> = {
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, SectionContent>> = {
+  "banking-and-finance": {
+    banks: {
+      intro: {
+        title: "Real-World Impact",
+        desc: "Practical applications of our solutions solving daily operational challenges for banking teams.",
+      },
+      cards: [
+        { id: 1, title: "Faster Onboarding", desc: "Digitize KYC to reduce customer account setup time significantly.", image: "/BuiltFor/database-management.png" },
+        { id: 2, title: "Automated Compliance", desc: " Screen transactions against watch lists without manual effort.", image: "/BuiltFor/mobile-hand.png" },
+        { id: 3, title: "Seamless Payments", desc: "Process cross-border remittances with straight-through efficiency.", image: "/BuiltFor/security-shield.png" },
+        { id: 4, title: "Risk Monitoring", desc: "Detect potential NPAs early using predictive analytics.", image: "/BuiltFor/integration.svg" },
+        { id: 5, title: "Accurate Reconciliation", desc: "Match high-volume transactions automatically across systems.", image: "/BuiltFor/file-invoice.png" },
+      ],
+    },
+    "credit-union": {
+      intro: {
+        title: "Real-World Impact",
+        desc: "Practical ways our solutions help credit unions serve members better every day.",
+      },
+      cards: [
+        { id: 1, title: "Member Onboarding", desc: " Open new accounts digitally with automated KYC verification.", image: "/BuiltFor/team.png" },
+        { id: 2, title: "Loan Processing", desc: "Approve member loans faster using digital applications and eVerification.", image: "/BuiltFor/money-transfer.png" },
+        { id: 3, title: "League Payments", desc: "Route transactions through your league seamlessly to central networks.", image: "/BuiltFor/mobile-hand.png" },
+        { id: 4, title: "Daily Reconciliation", desc: "Match member transactions automatically across multiple systems.", image: "/BuiltFor/analytics.png" },
+        { id: 5, title: "Regulatory Reporting", desc: "Generate compliance reports without manual data gathering.", image: "/BuiltFor/house-hands.png" },
+      ],
+    },
+    "financial-unions": {
+      intro: {
+        title: "Real-World Impact",
+        desc: "Practical applications solving complex challenges across your entire financial operations.",
+      },
+      cards: [
+        { id: 1, title: "Multi-Entity Management", desc: "Configure unlimited branches with centralized control and oversight.", image: "/BuiltFor/file-invoice.png" },
+        { id: 2, title: "Cross-Border Payments", desc: "Process international remittances with full SWIFT and AML compliance.", image: "/BuiltFor/money-transfer.png" },
+        { id: 3, title: "Asset Liability Management", desc: "Forecast liquidity and manage interest rate risk proactively.", image: "/BuiltFor/security-shield.png" },
+        { id: 4, title: "NPA Tracking", desc: "Identify stressed assets early using automated IRAC guidelines.", image: "/BuiltFor/Recycle2.svg" },
+        { id: 5, title: "Enterprise Reconciliation", desc: "Match millions of transactions across disparate systems automatically.", image: "/BuiltFor/team.png" },
+      ],
+    },
+  },
   "cloud-finops-ai": {
     enterprises: {
       intro: {

@@ -21,7 +21,7 @@ type Theme = {
 
 type Content = {
   heroHeading: string | React.ReactNode;
-  headingColor: string| React.ReactNode;
+  headingColor: string | React.ReactNode;
   cardTitle: string;
   cardPara: string;
   buttonLabel: string;
@@ -130,28 +130,28 @@ const CONTENT: Record<string, Record<string, Content>> = {
     banks: {
       headingColor: "text-[#254D70]",
       heroHeading:
-        "Secure, compliant Azure optimization for modern banks.",
-      cardTitle: "Trusted Platform",
-      cardPara: "Reduce cloud costs while meeting regulatory needs.",
-      buttonLabel: "Request Demo",
-    },
-
-    nbfc: {
-      headingColor: "text-[#254D70]",
-      heroHeading:
-        "Lower cloud costs without slowing financial innovation.",
-      cardTitle: "Cost Control",
-      cardPara: "Optimize Azure spend across NBFC workloads.",
-      buttonLabel: "View Demo",
+        "Modern banking requires modern solutions. We deliver both.",
+      cardTitle: "Transform Your Bank",
+      cardPara: "See our solutions in action with a personalized demo.",
+      buttonLabel: "Get Started",
     },
 
     "credit-union": {
       headingColor: "text-[#254D70]",
       heroHeading:
-        "Smarter Azure spend management for credit unions.",
-      cardTitle: "Cost Visibility",
-      cardPara: "Gain insight into every dollar spent on Azure.",
-      buttonLabel: "Explore",
+        "Built for credit unions. Powered by innovation. Focused on members.",
+      cardTitle: "Empower Your Team",
+      cardPara: "See how we help credit unions work smarter.",
+      buttonLabel: "Get Started",
+    },
+
+    "financial-unions": {
+      headingColor: "text-[#254D70]",
+      heroHeading:
+        "Enterprise-grade solutions for institutions built to last.",
+      cardTitle: "Transform Operations",
+      cardPara: "Schedule a demo tailored to your institution's needs.",
+      buttonLabel: "Get Started",
     },
   },
   "ehr-and-pms": {
@@ -212,7 +212,7 @@ export default function ImgSec() {
       return CLOUD_FINOPS_BG_IMAGES[builtForType] ?? theme.bgImage;
     }
 
-    if(industry === "ehr-and-pms" && builtForType) {
+    if (industry === "ehr-and-pms" && builtForType) {
       return EHR_AND_PMS_BG_IMAGES[builtForType] ?? theme.bgImage;
     }
     return theme.bgImage;

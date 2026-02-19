@@ -33,17 +33,17 @@ export default function Sec_Grid() {
   ];
 
   return (
-    <section className="w-full flex flex-col items-center justify-start bg-white py-10">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full flex flex-col items-center justify-start py-10">
+      <div className="max-w-7xl mx-auto px-6 xl:px-0">
         <H2 className="text-center mb-10 mt-2">
           Lorem ipsum dolor, consectetur adipis
         </H2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 ">
           {cards.map((card, i) => (
             <div
               key={i}
-              className="rounded-lg bg-[#F5DDA9] p-6 flex items-center shadow"
+              className="rounded-lg bg-white p-6 flex items-center  border border-gray-300"
             >
               {/* LEFT — 1/3 width */}
               <div className="w-1/3 relative flex justify-center items-center">

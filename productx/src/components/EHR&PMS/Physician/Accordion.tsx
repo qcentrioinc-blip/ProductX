@@ -2,6 +2,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import {   H3EHR } from "../../../styles/Typography";
 import { ArrowRight } from "lucide-react";
+import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
  
 const TABS = [
   {
@@ -116,23 +117,26 @@ const Accordion = () => {
  
                         {/* Mobile Image */}
                         {isActive && (
-                          <motion.img
-                            src={tab.image}
-                            alt="Clinical feature preview"
+                          <motion.div
                             initial={{ opacity: 0, y: 6 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
-                            className="
-                              mt-5
-                              w-full
-                             
-                              border
-                              border-gray-200
-                              shadow-lg
-                              object-contain
-                              lg:hidden
-                            "
-                          />
+                          >
+                            <HoverExpandImage
+                              src={tab.image}
+                              alt="Clinical feature preview"
+                              className="
+                                mt-5
+                                w-full
+                               
+                                border
+                                border-gray-200
+                                shadow-lg
+                                object-contain
+                                lg:hidden
+                              "
+                            />
+                          </motion.div>
                         )}
                       </div>
                     </div>
@@ -147,20 +151,20 @@ const Accordion = () => {
           </motion.ul>
  
           {/* Desktop Image */}
-          <div
+          <motion.div
+            key={activeTab.id}
             className="relative hidden lg:block w-full overflow-hidden rounded-xl"
             style={{ height: leftHeight ?? "auto" }}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           >
-            <motion.img
-              key={activeTab.id}
+            <HoverExpandImage
               src={activeTab.image}
               alt="Clinical feature preview"
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
               className="h-full w-full object-contain"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

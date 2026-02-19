@@ -26,11 +26,11 @@ const defaultColumns: ColumnData[] = [
 ];
 
 const InfoColumns: React.FC<InfoColumnsProps> = ({ columns = defaultColumns }) => (
-  <div className="relative bg-gray-200 w-full py-10">
+  <div className="relative bg-gray-100 w-full py-10 xl:py-20">
 
     {/* Vertical Lines (full height, desktop only) */}
-    <div className="hidden md:block absolute inset-y-0 left-1/3 w-[0.3px] bg-[#A80040]" />
-    <div className="hidden md:block absolute inset-y-0 left-2/3 w-[0.3px] bg-[#A80040]" />
+    <div className="hidden md:block absolute inset-y-0 left-1/3 w-[0.3px] bg-[#2B68C3]" />
+    <div className="hidden md:block absolute inset-y-0 left-2/3 w-[0.3px] bg-[#2B68C3]" />
 
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
       {columns.map((col, idx) => (

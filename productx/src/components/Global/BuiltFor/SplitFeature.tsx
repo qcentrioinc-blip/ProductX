@@ -98,6 +98,57 @@ const THEMES: Record<string, Theme> = {
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, SplitContent>> = {
+  "banking-and-finance": {
+    banks: {
+      headingPrimary: "Tangible outcomes for forward-thinking banking institutions",
+      imageSrc: "/BuiltFor/img2.png",
+      paragraph: "Measurable improvements in efficiency, compliance, and customer experience across your banking operations.",
+      bulletPoints: [
+        "Reduced operational costs",
+        "Faster regulatory compliance",
+        "Improved customer retention",
+        "Enhanced risk management",
+      ],
+      stats: [
+        { value: "85%", label: "Straight-through processing rate" },
+        { value: "5K+", label: "Daily messages processed per user" },
+        { value: "10", label: "Days saved in monthly reporting" },
+      ],
+    },
+    "credit-union": {
+      headingPrimary: "Real results for growing credit unions everywhere",
+      imageSrc: "/BuiltFor/img2.png",
+      paragraph: "Measurable improvements in efficiency, member service, and daily operations for your team, helping you serve members better while reducing manual work.",
+      bulletPoints: [
+        "Faster member onboarding",
+        "Reduced manual work",
+        "Improved compliance readiness",
+        "Lower operational costs",
+      ],
+      stats: [
+        { value: "85%", label: "Straight-through processing rate" },
+        { value: "5K+", label: "Monthly hours saved" },
+        { value: "10", label: "Days faster loan approvals" },
+      ],
+    },
+    "financial-unions": {
+      headingPrimary: "Proven results for financial institutions worldwide",
+      imageSrc: "/BuiltFor/img2.png",
+      paragraph: "Quantifiable improvements in efficiency, compliance, risk management, and operational scale across your entire organization.",
+      bulletPoints: [
+        "Accelerated digital transformation",
+        "Strengthened regulatory compliance",
+        "Optimized capital management",
+        "Reduced operational risk",
+      ],
+      stats: [
+        { value: "85%", label: "Straight-through processing achievement" },
+        { value: "8K+", label: "Daily messages processed per team" },
+        { value: "300", label: "Million transactions reconciled annually" },
+      ],
+    },
+  },
+
   "cloud-finops-ai": {
     enterprises: {
       // headingPrimary: "The Impact CloudDIET Delivers For Enterprises",

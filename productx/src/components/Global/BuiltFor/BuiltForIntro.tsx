@@ -117,27 +117,27 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
 
   "banking-and-finance": {
     banks: {
-      heading: "Why Legacy Banking Systems Hold You Back",
+      heading: "Why Legacy Systems Fail Modern Banks",
       para1:
-        "Banks operate on complex legacy infrastructure that increases operational cost.",
+        "Traditional banking systems were not built for today's speed or regulatory complexity. They rely on custom coding for every update, making changes slow and expensive. These fragmented platforms create data silos, limiting your view of the customer and increasing operational risk.",
       para2:
-        "Modern optimization requires intelligent automation and real-time insights.",
-    },
-
-    nbfc: {
-      heading: "Why NBFCs Struggle to Scale Efficiently",
-      para1:
-        "NBFCs grow fast but face mounting cost and compliance pressure.",
-      para2:
-        "Smart systems enable controlled, compliant growth.",
+        "Banks need flexible, integrated solutions that automate compliance and unify operations. Without them, institutions face rising costs, inefficient processes, and an inability to scale. Modern banking demands a foundation built for change, not held back by it.",
     },
 
     "credit-union": {
-      heading: "Why Credit Unions Need Smarter Technology",
+      heading: "Why generic platforms don't serve credit unions",
       para1:
-        "Limited IT budgets restrict innovation in member services.",
+        "Most banking software is built for large institutions with big IT teams and budgets. These systems are complex, expensive to maintain, and require dedicated staff to operate. Credit unions end up paying for features they don't need while struggling with daily operations.",
       para2:
-        "Targeted optimization improves efficiency without large investments.",
+        "Traditional solutions also fail to address how credit unions actually process payments. Many rely on leagues or intermediaries to connect with central networks. Standard platforms ignore this structure, creating manual work and reconciliation headaches instead of solving them.",
+    },
+
+    "financial-unions": {
+      heading: "Why conventional platforms limit financial institutions today",
+      para1:
+        "Traditional banking software was designed for a simpler time. These monolithic systems require custom coding for every change, making upgrades expensive and slow. They cannot keep pace with real-time transaction volumes, evolving regulatory demands, or customer expectations for digital experiences.",
+      para2:
+        "Legacy platforms create data silos across lending, payments, and compliance functions. Risk teams lack a unified view. Operations teams rely on manual workarounds. Growth becomes constrained by technology instead of being enabled by it. Financial institutions need integrated, adaptable solutions built for complexity.",
     },
   },
 };

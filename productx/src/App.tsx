@@ -1,10 +1,7 @@
 
-import './App.css'
-import './index.css'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ScrollProvider } from './context/ScrollContext'
 import { lazy, Suspense } from 'react';
 import FontLoader from './components/Global/FontLoader';
 import DeferredLoader from './components/Global/DeferredLoader';
@@ -16,15 +13,15 @@ const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'))
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
-const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
-const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
+// const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
+// const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'));
-const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
+// const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
-const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
-const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
-const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
+// const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
+// const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
+// const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
 const Platform = lazy(() => import('./components/Global/Platform/Platform'));
 const Career = lazy(() => import('./components/Banking&Finance/Career/Career'));
 const About = lazy(() => import('./components/EHR&PMS/AboutUs/About'));
@@ -56,7 +53,7 @@ const NewsPage = lazy(() => import('./components/Banking&Finance/News/NewsPage')
 const EventssPage = lazy(() => import('./components/Banking&Finance/Events/EventsPage'));
 const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
 const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
-const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
+// const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
 
 const ResourceDetailAI = lazy(() => import('./components/AIOptimization/ResourceDetail/ResourceDetailAI'));
@@ -70,14 +67,15 @@ const Pricing = lazy(() => import('./components/AIOptimization/Pricing/Pricing')
 const ComingSoon = lazy(() => import('./components/Global/NewFooter/ComingSoon'));
 const PrivacyPolicyAI = lazy(() => import('./components/AIOptimization/AIPrivacy'));
 const CareersPageAI = lazy(() => import('./components/AIOptimization/Careers/CareersPage').then(module => ({ default: module.CareersPageAI })));
-import { EHRPricing } from './components/EHR&PMS/EHRPricing/EHRPricing';
-import { EHRNursing } from './components/EHR&PMS/EHRNurse/EHRNursing';
-import { EHRReceptionist } from './components/EHR&PMS/EHRReceptionist/EHRReceptionist';
-import { EHRInsuranceCoordinator } from './components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator';
 
-import Admin from './components/EHR&PMS/Admin/Admin';
-import BlogDetail from './components/EHR&PMS/Blogs/BlogDetail';
-import ImageCard from './components/EHR&PMS/Blogs/ImageCard';
+const EHRPricing = lazy(() => import('./components/EHR&PMS/EHRPricing/EHRPricing').then(module => ({ default: module.EHRPricing })));
+const EHRNursing = lazy(() => import('./components/EHR&PMS/EHRNurse/EHRNursing').then(module => ({ default: module.EHRNursing })));
+const EHRReceptionist = lazy(() => import('./components/EHR&PMS/EHRReceptionist/EHRReceptionist').then(module => ({ default: module.EHRReceptionist })));
+const EHRInsuranceCoordinator = lazy(() => import('./components/EHR&PMS/EHRInsuranceCoordinator/EHRInsuranceCoordinator').then(module => ({ default: module.EHRInsuranceCoordinator })));
+
+const Admin = lazy(() => import('./components/EHR&PMS/Admin/Admin'));
+const BlogDetail = lazy(() => import('./components/EHR&PMS/Blogs/BlogDetail'));
+const ImageCard = lazy(() => import('./components/EHR&PMS/Blogs/ImageCard'));
 const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then(module => ({ default: module.BuiltFor })));
 
 
@@ -97,14 +95,14 @@ const App = () => {
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "bankfair") return <ProductsPage1 />;
-    if (productId === "remitree") return <ProductsPage2 />;
-    if (productId === "almanac") return <AML />;
-    if (productId === "pago") return <ProductDetailthree />
+    // if (productId === "remitree") return <ProductsPage2 />;
+    // if (productId === "almanac") return <AML />;
+    // if (productId === "pago") return <ProductDetailthree />
     if (productId === "sherlock") return <ProductDetails_4_page />
-    if (productId === "customer-onboarding-solutions") return <Cos_Page />
-    if (productId === "sams") return <Sams_Page />
-    if (productId === "internet-banking-system") return <PDPage9 />
-    if (productId === "loan-origination-system") return <ProductsPage7 />
+    // if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    // if (productId === "sams") return <Sams_Page />
+    // if (productId === "internet-banking-system") return <PDPage9 />
+    // if (productId === "loan-origination-system") return <ProductsPage7 />
     return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
   }
 
@@ -157,118 +155,114 @@ const App = () => {
   };
   return (
     <>
+      <div data-scroll-container>
+
+        {/* {showNavbar && <Navbar />} */}
+        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">...Loading</div>}>
+          <Routes>
+            <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
+            <Route path="/industries/cloud-finops-ai/about-us" element={<AboutAI />} />
+            <Route path="/industries/cloud-finops-ai/resource-detail" element={<ResourceDetailAI />} />
+            <Route path="/industries/cloud-finops-ai/careers" element={<CareersPageAI />} />
+            <Route path="/industries/cloud-finops-ai/jobs" element={<JobDetails />} />
+            <Route path="/industries/cloud-finops-ai/built-for" element={<BuiltFor />} />
+            <Route path="/industries/cloud-finops-ai/features" element={<HeroAIOptimization />} />
+            <Route path="/industries/cloud-finops-ai/newsletter" element={<AINewsLetter />} />
+            <Route path="/industries/cloud-finops-ai/whitepaper" element={<AIWhitePapers />} />
+            <Route path="/industries/cloud-finops-ai/glossary" element={<AIGlossary />} />
+            <Route path="/industries/cloud-finops-ai/pricing" element={<Pricing />} />
+
+            <Route path="/landingpage" element={<HeroSlider />} />
+            <Route path="/industries/:industry" element={<IndustryPage />} />
+            <Route path="/industries/:industry/aboutus" element={<IndustryAboutUsPage />} />
+            <Route path="/industries/:industry/resources" element={<IndustryResourcesPage />} />
+            <Route path="/industries/:industry/careers" element={<IndustryCareersPage />} />
+            <Route path='/' element={<HeroSection />} />
+            <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
+            <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
+            <Route path='/contact' element={<Connect />} />
+            <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
+            <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
+            <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
+            <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
+            <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
+            <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
+            <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
+            <Route path="/industries/ehr-and-pms/admin" element={<Admin />} />
+            <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
+            <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
+            <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
+            <Route path="/industries/ehr-and-pms/receptionist" element={<EHRReceptionist />} />
+            <Route path="/industries/ehr-and-pms/insurance-coordinator" element={<EHRInsuranceCoordinator />} />
+            <Route path="/industries/ehr-and-pms/blogdetail" element={<BlogDetail />} />
 
 
-      <ScrollProvider>
-        <div data-scroll-container>
-
-          {/* {showNavbar && <Navbar />} */}
-          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">...Loading</div>}>
-            <Routes>
-              <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
-              <Route path="/industries/cloud-finops-ai/about-us" element={<AboutAI />} />
-              <Route path="/industries/cloud-finops-ai/resource-detail" element={<ResourceDetailAI />} />
-              <Route path="/industries/cloud-finops-ai/careers" element={<CareersPageAI />} />
-              <Route path="/industries/cloud-finops-ai/jobs" element={<JobDetails />} />
-              <Route path="/industries/cloud-finops-ai/built-for" element={<BuiltFor />} />
-              <Route path="/industries/cloud-finops-ai/features" element={<HeroAIOptimization />} />
-              <Route path="/industries/cloud-finops-ai/newsletter" element={<AINewsLetter />} />
-              <Route path="/industries/cloud-finops-ai/whitepaper" element={<AIWhitePapers />} />
-              <Route path="/industries/cloud-finops-ai/glossary" element={<AIGlossary />} />
-              <Route path="/industries/cloud-finops-ai/pricing" element={<Pricing />} />
-
-              <Route path="/landingpage" element={<HeroSlider />} />
-              <Route path="/industries/:industry" element={<IndustryPage />} />
-              <Route path="/industries/:industry/aboutus" element={<IndustryAboutUsPage />} />
-              <Route path="/industries/:industry/resources" element={<IndustryResourcesPage />} />
-              <Route path="/industries/:industry/careers" element={<IndustryCareersPage />} />
-              <Route path='/' element={<HeroSection />} />
-              <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
-              <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
-              <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
-              <Route path='/contact' element={<Connect />} />
-              <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
-              <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
-              <Route path="/career" element={<Career />} />
-              <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
-              <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
-              <Route path="/industries/ehr-and-pms/jobdescription" element={<JobDescriptionPage />} />
-              <Route path="/industries/ehr-and-pms/contactus" element={<ContactFormPage />} />
-              <Route path="/industries/ehr-and-pms/policy" element={<PolicyPage />} />
-              <Route path="/industries/ehr-and-pms/built-for" element={<BuiltFor />} />
-              <Route path="/industries/ehr-and-pms/admin" element={<Admin />} />
-              <Route path="/industries/ehr-and-pms/physician" element={<Physician />} />
-              <Route path="/industries/ehr-and-pms/pricing" element={<EHRPricing />} />
-              <Route path="/industries/ehr-and-pms/nurse" element={<EHRNursing />} />
-              <Route path="/industries/ehr-and-pms/receptionist" element={<EHRReceptionist />} />
-              <Route path="/industries/ehr-and-pms/insurance-coordinator" element={<EHRInsuranceCoordinator />} />
-              <Route path="/industries/ehr-and-pms/blogdetail" element={<BlogDetail />} />
-
-
-   <Route path="/blogs" element={<ImageCard />} />
-        <Route path="/blogs/:slug" element={<BlogDetail />} />
+            <Route path="/blogs" element={<ImageCard />} />
+            <Route path="/blogs/:slug" element={<BlogDetail />} />
 
 
 
-              <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
-              <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
-              <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
-              <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
-              <Route path='/industries/high-tech/product-details' element={<PDPage />} />
-              <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
-              <Route path="/industries/high-tech/resources" element={<Resources />} />
-              <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
-              <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
-              <Route path='/aboutus' element={<AboutUs />} />
+            <Route path='/industries/high-tech/careers' element={<CareersPageHigh />} />
+            <Route path='/industries/high-tech/contactform' element={<ContactPage />} />
+            <Route path='/industries/high-tech/jobdescription' element={<JDPage />} />
+            <Route path='/industries/high-tech/policy' element={<PolicyPage />} />
+            <Route path='/industries/high-tech/product-details' element={<PDPage />} />
+            <Route path="/industries/high-tech/aboutus" element={<AboutHighTech />} />
+            <Route path="/industries/high-tech/resources" element={<Resources />} />
+            <Route path="/industries/high-tech/resources-detail" element={<ResourcesDetail />} />
+            <Route path="/industries/high-tech/built-for" element={<BuiltFor />} />
+            <Route path='/aboutus' element={<AboutUs />} />
 
 
-              <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge />} />
-              <Route path="/industries/banking-and-finance/news" element={<NewsPage />} />
-              <Route path="/industries/banking-and-finance/events" element={<EventssPage />} />
-              <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
-              <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
-              <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor />} />
-              <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
+            <Route path="/industries/banking-and-finance/whitepapers" element={<WhitePapersPAge />} />
+            <Route path="/industries/banking-and-finance/news" element={<NewsPage />} />
+            <Route path="/industries/banking-and-finance/events" element={<EventssPage />} />
+            <Route path="/industries/banking-and-finance/jobapplication" element={<Applicationform />} />
+            <Route path="/industries/banking-and-finance/jobdescription" element={<JobDescription />} />
+            <Route path="/industries/banking-and-finance/built-for" element={<BuiltFor />} />
+            <Route path="/industries/banking-and-finance/glossary" element={<GlossaryPage industry="finance" />} />
 
-              <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
-              <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
+            <Route path="/industries/ehr-and-pms/glossary" element={<GlossaryPage industry="ehrpms" />} />
+            <Route path="/industries/high-tech/glossary" element={<GlossaryPage industry="hightech" />} />
 
 
-              {/* Built for globally */}
+            {/* Built for globally */}
 
-              <Route
-                path="/industries/:industry/built-for/:builtForType"
-                element={<BuiltFor />}
-              />
+            <Route
+              path="/industries/:industry/built-for/:builtForType"
+              element={<BuiltFor />}
+            />
 
-              {/* Marketplace Routes */}
-              <Route path='/marketplace' element={<Marketing />} />
-              <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
-              <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
-              <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
-              <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
+            {/* Marketplace Routes */}
+            <Route path='/marketplace' element={<Marketing />} />
+            <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
+            <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
+            <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
+            <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
 
-              {/* Platform Routes */}
-              <Route path="/platform" element={<Platform />} />
-              <Route path='/industries/cloud-finops-ai/platform' element={<Platform />} />
-              <Route path='/industries/high-tech/platform' element={<Platform />} />
-              <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
-              <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
-              <Route path="/industries/cloud-finops-ai/privacy-policy" element={<PrivacyPolicyAI />} />
-              {/* FOR RESOURCES ai */}
-              <Route
-                path="/industries/:industry/resources/:category/:slug"
-                element={<ResourceDoc />}
-              />
-              <Route
-                path="/comingsoon"
-                element={<ComingSoon />}
-              />
+            {/* Platform Routes */}
+            <Route path="/platform" element={<Platform />} />
+            <Route path='/industries/cloud-finops-ai/platform' element={<Platform />} />
+            <Route path='/industries/high-tech/platform' element={<Platform />} />
+            <Route path='/industries/ehr-and-pms/platform' element={<Platform />} />
+            <Route path='/industries/banking-and-finance/platform' element={<Platform />} />
+            <Route path="/industries/cloud-finops-ai/privacy-policy" element={<PrivacyPolicyAI />} />
+            {/* FOR RESOURCES ai */}
+            <Route
+              path="/industries/:industry/resources/:category/:slug"
+              element={<ResourceDoc />}
+            />
+            <Route
+              path="/comingsoon"
+              element={<ComingSoon />}
+            />
 
-            </Routes>
-          </Suspense>
-        </div>
-      </ScrollProvider>
+          </Routes>
+        </Suspense>
+      </div>
       <ToastContainer
         position="bottom-right"
         style={{ marginBottom: '45px' }}

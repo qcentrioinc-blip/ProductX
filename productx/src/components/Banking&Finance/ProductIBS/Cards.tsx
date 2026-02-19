@@ -86,7 +86,7 @@ const BorderZoomCards: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#F5DDA9] py-16 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative w-full bg-white py-16 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
 
       {/* Shape behind (same as before) */}

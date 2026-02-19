@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
-const ContactDrawer = React.lazy(() => import("../../EHR&PMS/Navbar/ContactDrawer"));
-const ContactModal = React.lazy(() => import("../../AIOptimization/Navbar/ContactModal"));
+import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
+import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 
 interface FaqItem {
   question: string;
@@ -199,9 +199,9 @@ const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
 </h2>
 
 
-<P className="mb-6 max-w-lg">
-  {introContent.description}
-</P>
+            <P className="mb-6 max-w-lg">
+              {introContent.description}
+            </P>
 
 
             <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
@@ -237,10 +237,8 @@ const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
         )}
       </section>
 
-      <React.Suspense fallback={null}>
-        {isEHR && drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-        {isAI && modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
-      </React.Suspense>
+      {isEHR && drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
+      {isAI && modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </>
   );
 };

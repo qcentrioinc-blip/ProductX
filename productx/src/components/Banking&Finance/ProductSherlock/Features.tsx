@@ -65,13 +65,13 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
         <div
           className="
             flex flex-col gap-y-12 gap-x-10 items-center
-            [@media(min-width:1100px)]:grid 
-            [@media(min-width:1100px)]:grid-cols-12 
-            [@media(min-width:1100px)]:items-start
+            xl:grid 
+            xl:grid-cols-12 
+            xl:items-start
           "
         >
           {/* LEFT BUTTONS — DESKTOP */}
-          <div className="hidden [@media(min-width:1100px)]:flex [@media(min-width:1100px)]:col-span-3 flex-col space-y-4">
+          <div className="hidden xl:flex xl:col-span-3 flex-col space-y-4">
             {FEATURES.map((item) => {
               const isActive = item.id === activeFeatureId;
               return (
@@ -92,13 +92,13 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* HORIZONTAL BUTTONS — MOBILE & TABLET */}
-          <div className="[@media(min-width:1100px)]:hidden w-full overflow-x-auto scrollbar-hide">
+          <div className="xl:hidden w-full overflow-x-auto scrollbar-hide">
             <div
               className="
                 flex gap-3
                 px-4 sm:px-6
                 pb-4
-                snap-x snap-mandatory
+                snap-x snap-mandatory lg:pl-25 
                 scroll-pl-4 scroll-pr-4
               "
             >
@@ -124,7 +124,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* IMAGE */}
-          <div className="order-2 [@media(min-width:1100px)]:col-span-5 flex justify-center w-full">
+          <div className="order-2 xl:col-span-5 flex justify-center w-full">
             <img
               src={activeContent.imageSrc}
               alt={activeContent.title}
@@ -133,7 +133,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* CONTENT */}
-          <div className="order-3 [@media(min-width:1100px)]:col-span-4 space-y-6 text-left w-full px-2 md:px-24 xl:px-0 xl:mt-16">
+          <div className="order-3 xl:col-span-4 space-y-6 text-left w-full px-2 md:px-24 xl:px-0 xl:mt-16 lg:pl-50">
             <H3 className="text-gray-900 tracking-tight leading-tight">
               {activeContent.title}
             </H3>

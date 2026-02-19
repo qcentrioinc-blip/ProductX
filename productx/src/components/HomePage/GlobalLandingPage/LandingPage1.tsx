@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Clock } from 'lucide-react';
+
+const ArrowUpRight = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+);
+const Clock = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+);
 import { motion, AnimatePresence } from 'framer-motion';
 import { H1, P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
