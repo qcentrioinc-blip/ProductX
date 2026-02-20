@@ -72,7 +72,7 @@ const NewOneFooter = () => {
   document.body
 ) : null;
   const products = [
-    { label: "Reconciliation", url: "/industries/banking-and-finance/products/reconciliation" },
+    { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
     // { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "KYC", url: "/industries/banking-and-finance/products/kyc" },
     // { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },

@@ -22,9 +22,9 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         // },
         {
             title: "Conciliare",
-            desc: "Advanced reconciliation for financial accuracy ",
+            desc: "Advanced reconciliation for financial accuracy",
             img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/reconciliation`,
+            path: `${base}/products/conciliare`,
         },
         // {
         //     title: "Customer Onboarding Solutions",
@@ -80,12 +80,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
         ${isScrolled
                     ? "w-[96%] max-w-none rounded-xl"
-                    : "w-[90%] max-w-8xl rounded-xl"
+                    : "w-[88%] max-w-8xl rounded-xl"
                 }`}
         >
             <H3>Banking and Finance Solutions</H3>
             <P className="text-gray-700 text-lg mt-2 mb-4">
-               Automated compliance and reconciliation platforms for financial institutions
+                Automated compliance and reconciliation platforms for financial institutions
             </P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-2 gap-y-6 gap-x-10">

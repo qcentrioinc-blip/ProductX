@@ -13,7 +13,7 @@ const HWD = () => {
   // const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
   const isAI = location.pathname === "/industries/cloud-finops-ai";
-  const isReconciliation = path.startsWith("/industries/banking-and-finance/products/reconciliation");
+  const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
 const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
 
   const COLORS = {
@@ -57,7 +57,7 @@ const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
         "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
     },
 
-    reconciliation: {
+    conciliare: {
   eyebrow: " ",
   title: " Common Reconciliation Use Cases",
   description:
@@ -134,7 +134,7 @@ kyc: {
       },
     ],
 
-    reconciliation: [
+    conciliare: [
   {
     title: "Bank Account Reconciliation",
     image: "/AIOptimization/Saving.svg",
@@ -224,39 +224,42 @@ kyc: [
 
     banking: [
       {
-        title: "Fraud Detection Modernization",
+        title: "Digital KYC transformation",
         image: "/AIOptimization/Saving.svg",
         description:
-          "Advanced analytics reduced fraud losses while improving customer trust.",
+          "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
         points: [
-          "Real-time transaction anomaly detection.",
-          "Reduced false positives by 35%.",
-          "Improved regulatory reporting accuracy.",
-          "Scalable fraud pipelines.",
+          "Full lifecycle coverage from onboarding to trigger events ",
+          "Integration with front-end, screening, and core systems .",
+          "Approximately 85% straight-through processing achieved ",
+          "Significant automation with minimal manual intervention ",
+          "Used by analysts, compliance officers, and approvers ",
         ],
       },
       {
-        title: "Cost-Efficient Core Banking",
+        title: "Enterprise due diligence",
         image: "/AIOptimization/pricetag.svg",
         description:
-          "Legacy systems optimized for modern banking workloads.",
+          " Coverage primarily for non-individual entities with complex ownership structures. ",
         points: [
-          "Reduced infrastructure costs by 28%.",
-          "Improved batch processing times.",
-          "Optimized storage and compute usage.",
-          "Improved disaster recovery posture.",
+          "Screening and case management integration throughout",
+          "Roles across analyst, MLRO, and compliance approvers ",
+          "Automated risk assessment based on configured rules ",
+          "Periodic and trigger event reviews system-managed ",
+          "Consistent execution across all entity types ",
         ],
       },
       {
-        title: "Compliance Automation",
+        title: "Commodity trading compliance",
         image: "/AIOptimization/Cloud.svg",
         description:
-          "Automated compliance reduced risk and operational overhead.",
+          " Coverage for private limited companies, firms, and other entity types.",
         points: [
-          "Policy-as-code implementation.",
-          "Continuous compliance monitoring.",
-          "Audit preparation time reduced by 60%.",
-          "Improved governance visibility.",
+          "Access across UAE and India locations seamlessly ",
+          "End client types include varied corporate structures ",
+          "Beneficial ownership identification fully automated ",
+          "Policy configuration adapts to local requirements ",
+          "System-driven execution ensures consistent outcomes ",
         ],
       },
     ],
@@ -307,7 +310,7 @@ kyc: [
 
   // CARDS
 let cards;
-if (isReconciliation) cards = CARD_CONTENT.reconciliation;
+if (isConciliare) cards = CARD_CONTENT.conciliare;
 else if (isKYC) cards = CARD_CONTENT.kyc;
 else if (isAI) cards = CARD_CONTENT.ai;
 else if (isEHR) cards = CARD_CONTENT.ehr;
@@ -315,7 +318,7 @@ else cards = CARD_CONTENT.banking;
 
 // HEADING
 let headingContent;
-if (isReconciliation) headingContent = HEADING_CONTENT.reconciliation;
+if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
 else if (isKYC) headingContent = HEADING_CONTENT.kyc;
 else if (isAI) headingContent = HEADING_CONTENT.ai;
 else if (isEHR) headingContent = HEADING_CONTENT.ehr;
@@ -324,7 +327,7 @@ else headingContent = HEADING_CONTENT.banking;
 
 // PALETTE
 let palette;
-if (isReconciliation || isKYC) palette = COLORS.banking;
+if (isConciliare || isKYC) palette = COLORS.banking;
 else if (isEHR) palette = COLORS.ehr;
 else if (isHighTech) palette = COLORS.hightech;
 else if (isAI) palette = COLORS.ai;
@@ -332,12 +335,12 @@ else palette = COLORS.banking;
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
 
   const bottomTextColor = isAI ? "#254D70" : textcolor;
- const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+  const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
 
- 
- 
- 
- 
+
+
+
+
   // const itemVariants = {
   //   hidden: { opacity: 0, y: 20 },
   //   visible: { opacity: 1, y: 0 },
@@ -346,10 +349,10 @@ else palette = COLORS.banking;
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
-   <div
-  className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
-  style={{ backgroundColor: topBg }}
->
+      <div
+        className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
+        style={{ backgroundColor: topBg }}
+      >
 
         <div className="w-14 h-14 rounded-full mb-2 overflow-hidden">
           <img
@@ -362,12 +365,12 @@ else palette = COLORS.banking;
 
 
         <h3
-          className={`${headingFontClass} mb-4 text-[16px]  whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
+          className={`${headingFontClass} mb-4 text-[16px]  whitespace-wrap md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}
         </h3>
- 
+
         <p className="balance-text font-quicksand" style={{ color: textcolor }}>
           {description}
         </p>
@@ -393,24 +396,24 @@ else palette = COLORS.banking;
 
   return (
     <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
-      <div className="max-w-[1360px] w-full">
+      <div className="max-w-7xl w-full">
 
         {/* HEADINGS */}
         {/* HEADINGS */}
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
-          
- 
+
+
           <h2
-  className={`text-[#2A2A2A] ${headingFontClass}
+            className={`text-[#2A2A2A] ${headingFontClass}
      text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
->
+          >
 
             {headingContent.title}
           </h2>
 
           {/* Dynamic paragraph below H2 */}
           <p className="max-w-3xl text-base md:text-lg font-quicksand xl:text-xl text-[#555555]">
-            {headingContent.description}
+            {/* {headingContent.description} */}
           </p>
         </div>
 

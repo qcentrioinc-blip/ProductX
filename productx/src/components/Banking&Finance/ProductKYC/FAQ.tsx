@@ -46,7 +46,7 @@ const FaqSection: React.FC = () => {
         "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
       cta: "Check FAQs"
     },
-    "/industries/banking-and-finance/products/reconciliation": {
+    "/industries/banking-and-finance/products/conciliare": {
       heading: "Your Queries Answered",
       description:
         "Find answers to common questions about Conciliare's reconciliation platform, features, implementation, and how it transforms financial operations.",
@@ -107,7 +107,7 @@ const FaqSection: React.FC = () => {
       },
     ],
 
-    "/industries/banking-and-finance/products/reconciliation": [
+    "/industries/banking-and-finance/products/conciliare": [
       {
         question: "What types of reconciliation does Conciliare support?",
         answer:

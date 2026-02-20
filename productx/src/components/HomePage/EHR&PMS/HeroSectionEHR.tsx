@@ -15,7 +15,7 @@ import EHRFooter from "./EHRFooter";
 
  
 import HWD from "../../Banking&Finance/HWD";
-import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ";
+import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
 import Managment from "./Managment";
 import HeroSplitMasked from "./HeroSplitMasked";
 import Overview from "./Overview";

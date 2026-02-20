@@ -72,7 +72,7 @@ const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
    // In ContactUS.tsx — root div
 <div
   ref={targetRef}
-  className="relative z-30    pointer-events-auto bg-white"  
+  className="relative z-30  overflow-hidden  pointer-events-auto bg-white"  
   
   id='ContactUs'
 >

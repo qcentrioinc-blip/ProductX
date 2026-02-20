@@ -8,6 +8,8 @@ import DeferredLoader from './components/Global/DeferredLoader';
 import HeroSection from './components/HomePage/HeroSection'
 import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
+import ProductNotFound from './components/ProductNotFound';
+import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
 
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
@@ -15,7 +17,7 @@ const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinan
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
-const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'));
+const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
 // const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
@@ -52,7 +54,7 @@ const WhitePapersPAge = lazy(() => import('./components/Banking&Finance/WhitePap
 const NewsPage = lazy(() => import('./components/Banking&Finance/News/NewsPage'));
 const EventssPage = lazy(() => import('./components/Banking&Finance/Events/EventsPage'));
 const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
-const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
+ 
 // const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
 
@@ -94,7 +96,7 @@ const App = () => {
 
   const ProductsPage = () => {
     const { productId } = useParams();
-    if (productId === "reconciliation") return <ProductsPage1 />;
+    if (productId === "conciliare") return <ProductsPage1 />;
     // if (productId === "remitree") return <ProductsPage2 />;
     // if (productId === "almanac") return <AML />;
     // if (productId === "pago") return <ProductDetailthree />
@@ -103,7 +105,7 @@ const App = () => {
     // if (productId === "sams") return <Sams_Page />
     // if (productId === "internet-banking-system") return <PDPage9 />
     // if (productId === "loan-origination-system") return <ProductsPage7 />
-    return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
+    return <ProductNotFound/>;
   }
 
   const EhrPmsPageRouter = () => {

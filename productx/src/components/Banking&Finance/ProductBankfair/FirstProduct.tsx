@@ -58,13 +58,13 @@ const FirstProduct = () => {
             }}
           >
             {/* Main Heading */}
-            <H1 className='text-[#020059] sm:text-center'>
+            <H1 className='text-white sm:text-center'>
               
               Smarter Banking, Simplified
             </H1>
 
             {/* Subtitle */}
-            <P>
+            <P className='text-white'>
 
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt cupidatat non proident, sunt in culpa qui officia deserunt.
             </P>

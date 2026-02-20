@@ -17,7 +17,7 @@ import ContactUS from "../ProductRemitree/ContactUS"
 import BNFNav from "../Navbar/BNFnav"
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "./HeroBottomNav";
-import FaqSection from "../ProductSherlock/FAQ";
+import FaqSection from "../ProductKYC/FAQ";
 
 const ProductDetailthree = () => {
   const location = useLocation();

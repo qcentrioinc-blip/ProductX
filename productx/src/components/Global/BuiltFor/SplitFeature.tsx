@@ -12,7 +12,7 @@ type SplitContent = {
     value: string | ReactNode;
     label: string;
   }[];
- 
+  bulletIcons?: string[];
 };
 
 type Theme = {
@@ -23,7 +23,7 @@ type Theme = {
   bulletColor: string;
   statsColor: string;
   imageSrc: string;
-   bulletIcons: string[];
+  bulletIcons: string[];
 };
 
 /* ================= THEMES (BY INDUSTRY) ================= */
@@ -38,11 +38,11 @@ const THEMES: Record<string, Theme> = {
     bulletColor: "#fafafa",
     statsColor: "#2A2A2A",
     bulletIcons: [
-  "/BuiltFor/user.png",
-  "/BuiltFor/arrow-down.png",
-  "/BuiltFor/arrow-up.png",
-  "/BuiltFor/rotate-square.png",
-],
+      "/BuiltForBnf/dollar.svg",
+      "/BuiltForBnf/time-fast.svg",
+      "/BuiltForBnf/uparrow.svg",
+      "/BuiltForBnf/risk.svg",
+    ],
 
   },
 
@@ -54,12 +54,12 @@ const THEMES: Record<string, Theme> = {
     paragraphColor: "#141414",
     bulletColor: "#efefef",
     statsColor: "#008280",
-      bulletIcons: [
-  "/BuiltFor/user.png",
-  "/BuiltFor/arrow-down.png",
-  "/BuiltFor/arrow-up.png",
-  "/BuiltFor/rotate-square.png",
-],
+    bulletIcons: [
+      "/BuiltFor/user.png",
+      "/BuiltFor/arrow-down.png",
+      "/BuiltFor/arrow-up.png",
+      "/BuiltFor/rotate-square.png",
+    ],
   },
 
   "high-tech": {
@@ -70,12 +70,12 @@ const THEMES: Record<string, Theme> = {
     paragraphColor: "#CCCCCC",
     bulletColor: "#2B68C3",
     statsColor: "#F99526",
-      bulletIcons: [
-  "/BuiltFor/user.png",
-  "/BuiltFor/arrow-down.png",
-  "/BuiltFor/arrow-up.png",
-  "/BuiltFor/rotate-square.png",
-],
+    bulletIcons: [
+      "/BuiltFor/user.png",
+      "/BuiltFor/arrow-down.png",
+      "/BuiltFor/arrow-up.png",
+      "/BuiltFor/rotate-square.png",
+    ],
   },
 
   "cloud-finops-ai": {
@@ -86,12 +86,12 @@ const THEMES: Record<string, Theme> = {
     paragraphColor: "#141414",
     bulletColor: "#efefef",
     statsColor: "#254D70",
-      bulletIcons: [
-  "/BuiltFor/Waste.svg",
-  "/BuiltFor/money.svg",
-  "/BuiltFor/web.svg",
-  "/BuiltFor/efficiency.svg",
-],
+    bulletIcons: [
+      "/BuiltFor/Waste.svg",
+      "/BuiltFor/money.svg",
+      "/BuiltFor/web.svg",
+      "/BuiltFor/efficiency.svg",
+    ],
   },
 };
 
@@ -109,6 +109,12 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Improved customer retention",
         "Enhanced risk management",
       ],
+      bulletIcons: [
+        "/BuiltForBnf/dollar.svg",
+        "/BuiltForBnf/compliance.svg",
+        "/BuiltForBnf/handshake-deal.svg",
+        "/BuiltForBnf/risk.svg",
+      ],
       stats: [
         { value: "85%", label: "Straight-through processing rate" },
         { value: "5K+", label: "Daily messages processed per user" },
@@ -125,6 +131,12 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Improved compliance readiness",
         "Lower operational costs",
       ],
+      bulletIcons: [
+        "/BuiltForBnf/time-fast.svg",
+        "/BuiltForBnf/down-arrow.svg",
+        "/BuiltForBnf/revenue-alt.svg",
+        "/BuiltForBnf/cheap-stack.svg",
+      ],
       stats: [
         { value: "85%", label: "Straight-through processing rate" },
         { value: "5K+", label: "Monthly hours saved" },
@@ -140,6 +152,12 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Strengthened regulatory compliance",
         "Optimized capital management",
         "Reduced operational risk",
+      ],
+      bulletIcons: [
+        "/BuiltForBnf/time-fast.svg",
+        "/BuiltForBnf/uparrow.svg",
+        "/BuiltForBnf/revenue-alt.svg",
+        "/BuiltForBnf/risk.svg",
       ],
       stats: [
         { value: "85%", label: "Straight-through processing achievement" },
@@ -300,17 +318,16 @@ export default function SplitFeature() {
         <div className="w-full text-left lg:text-center xl:text-left   mx-auto xl:mx-0">
 
           {/* HEADING */}
-         <H2
-  className={`leading-tight xl:mb-10 mx-auto max-w-3xl ${
-    industry === "ehr-and-pms"
-      ? "font-bricolageEHR"
-      : "font-bricolage"
-  }`}
->
-  <span style={{ color: theme.headingPrimaryColor }}>
-    {content.headingPrimary}
-  </span>
-</H2>
+          <H2
+            className={`leading-tight xl:mb-10 mx-auto max-w-3xl ${industry === "ehr-and-pms"
+                ? "font-bricolageEHR"
+                : "font-bricolage"
+              }`}
+          >
+            <span style={{ color: theme.headingPrimaryColor }}>
+              {content.headingPrimary}
+            </span>
+          </H2>
 
 
           {/* PARAGRAPH */}
@@ -330,10 +347,10 @@ export default function SplitFeature() {
                   style={{ backgroundColor: theme.bulletColor }}
                 >
                   <img
-  src={theme.bulletIcons[index]}
-  alt={content.bulletPoints[index]}
-  className="w-full h-full p-3 "
-/>
+                    src={content.bulletIcons?.[index] ?? theme.bulletIcons[index]}
+                    alt={content.bulletPoints[index]}
+                    className="w-full h-full p-3 "
+                  />
 
                 </div>
                 <P className={`${theme.paragraphColor} text-left`}>
@@ -347,11 +364,10 @@ export default function SplitFeature() {
           <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
-                <H3 className={`text-[${theme.statsColor}] ${
-    industry === "ehr-and-pms"
-      ? "font-bricolageEHR"
-      : "font-bricolage"
-  }`}>{stat.value}</H3>
+                <H3 className={`text-[${theme.statsColor}] ${industry === "ehr-and-pms"
+                    ? "font-bricolageEHR"
+                    : "font-bricolage"
+                  }`}>{stat.value}</H3>
                 <P className={`mt-2 ${theme.paragraphColor}`}>
                   {stat.label}
                 </P>
