@@ -9,6 +9,7 @@ import HeroSection from './components/HomePage/HeroSection'
 import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import ProductNotFound from './components/ProductNotFound';
+import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
 
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
@@ -53,7 +54,7 @@ const WhitePapersPAge = lazy(() => import('./components/Banking&Finance/WhitePap
 const NewsPage = lazy(() => import('./components/Banking&Finance/News/NewsPage'));
 const EventssPage = lazy(() => import('./components/Banking&Finance/Events/EventsPage'));
 const HeroSlider = lazy(() => import('./components/LandingPage/HeroSlider'));
-const ProductsPage1 = lazy(() => import('./components/Banking&Finance/ProductBankfair/ProductsPage1'));
+ 
 // const ProductsPage2 = lazy(() => import('./components/Banking&Finance/ProductRemitree/ProductsPage2'));
 const JobDetails = lazy(() => import('./components/AIOptimization/Careers/JobDetails'));
 
@@ -95,7 +96,7 @@ const App = () => {
 
   const ProductsPage = () => {
     const { productId } = useParams();
-    if (productId === "bankfair") return <ProductsPage1 />;
+    if (productId === "conciliare") return <ProductsPage1 />;
     // if (productId === "remitree") return <ProductsPage2 />;
     // if (productId === "almanac") return <AML />;
     // if (productId === "pago") return <ProductDetailthree />

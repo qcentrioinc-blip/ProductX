@@ -49,20 +49,20 @@ const Counter = () => {
       />
 
       {/* Content Container */}
-      <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto px-8 lg:px-10 xl:px-0">
         {/* Heading */}
         <H2 className="  font-bold mb-12  lg:mx-6 md:mb-28">
-          <span className="text-[#2B68C3]">Lorem ipsum dolor sit amet,</span>
+          <span className="text-[#2B68C3]">Trusted by financial institutions  </span>
           <br />
-          <span className="text-[#333333]">consectetur adipiscing elit</span>
+          <span className="text-[#333333]">across the globe</span>
         </H2>
 
         {/* Counter Grid - Left Aligned */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
-          { value: 80, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-          { value: 10, suffix: "X", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-          { value: 3.5, suffix: "%", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
-          { value: 125, suffix: "", text: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique" },
+          { value: 80, suffix: "%", text: "Employee trust index score reflecting our people-first culture " },
+          { value: 10, suffix: "X", text: "Industry experience serving banking and financial clients worldwide " },
+          { value: 3.5, suffix: "%", text: "Skilled professionals delivering solutions across ten global offices " },
+          { value: 125, suffix: "", text: "Straight-through processing rate achieved by clients using our platforms " },
         ].map((item, index) => (
           <div
             key={index}

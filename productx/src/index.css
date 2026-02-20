@@ -408,44 +408,57 @@ video {
 }
 
 
-
-
-/* h1{
-font-family: "Bricolage Grotesque",sans-serif;
-font-style:"bold" ;
+.product-image {
+  max-height: 360px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.15));
 }
- 
- 
-h2{
-font-family: "Bricolage Grotesque",sans-serif;
-font-weight:600;
- 
-line-height: 48px;
- 
-}
- 
- 
-h3{
-  font-family: "Bricolage Grotesque",sans-serif;
-font-weight: 300;
- 
-}
- 
-p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 120%;
- 
-} */
 
+/* Woman image */
+.product-image-1 {
+  width: 52%;
+  transform: translate(8%, 8%);
+}
+
+/* Man image */
+.product-image-2 {
+  width: 55%;
+  transform: translate(6%, 6%);
+}
 .footer-fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 10;
 }
+/* Shared image styling */
+.image-style-1,
+.image-style-2 {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  max-height: 420px;
+  object-fit: contain;
 
+ filter:
+  drop-shadow(0 8px 15px rgba(0,0,0,0.15))
+  drop-shadow(0 25px 45px rgba(0,0,0,0.12));
+}
+
+/* First image (woman) */
+.image-style-1 {
+  width: 58%;
+  right:-10px;
+
+  
+}
+
+/* Second image (man) */
+.image-style-2 {
+  width: 50%;
+  right:-44px;
+            /* Slightly more overflow */
+}
 
 @keyframes marquee {
   0% {

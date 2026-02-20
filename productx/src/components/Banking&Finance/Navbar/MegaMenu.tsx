@@ -24,7 +24,7 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             title: "Conciliare",
             desc: "Advanced reconciliation for financial accuracy",
             img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/Conciliare`,
+            path: `${base}/products/conciliare`,
         },
         // {
         //     title: "Customer Onboarding Solutions",

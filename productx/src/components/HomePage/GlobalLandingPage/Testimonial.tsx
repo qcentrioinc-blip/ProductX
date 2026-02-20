@@ -4,44 +4,44 @@ import { useLocation } from "react-router-dom";
 const testimonials = [
   {
     id: 1,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
-    title: "Freelance Designer",
+    text: "Bankfair streamlined our core operations and reduced manual work significantly.   ",
+    name: " Michael Thompson",
+    title: "Chief Technology Officer",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 2,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
-    title: "Freelance Designer",
+    text: "Sherlock transformed our AML compliance with automated monitoring and real-time alerts. ",
+    name: " Jennifer Martinez",
+    title: "Compliance Director",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
-    title: "Freelance Designer",
+    text: "Remitree simplified our cross-border payments and integrated seamlessly with SWIFT.   ",
+    name: "Robert Williams",
+    title: "Operations Head",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 4,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
-    title: "Freelance Designer",
+    text: "PAGO payment system handles high transaction volumes with ease. Real-time monitoring and security.  ",
+    name: "Sarah Johnson",
+    title: "Payments Manager",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 5,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
+    text: "CDD and KYC platform digitized our entire onboarding process. We now onboard customers in hours instead of days.",
+    name: "David Chen",
     title: "Freelance Designer",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22"
   },
   {
     id: 6,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-    name: "Emily",
-    title: "Freelance Designer",
+    text: "Conciliare automated our reconciliation completely. Manual matching errors are gone and monthly closing within hours.  ",
+    name: "Lisa Anderson",
+    title: "Finance Controller",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face%22%22"
   }
 ];
@@ -129,10 +129,10 @@ const Testimonial = () => {
   const translateX = -currentIndex * totalCardWidth;
 
   return (
-    <div className="w-full relative py-8 sm:py-12 md:py-16">
+    <div className="w-full relative     py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 sm:px-6">
-        <H2 className='text-center pb-4 sm:pb-8 text-black'>Sed ut perspiciatis unde</H2>
-        <div className="relative w-full flex justify-center items-center">
+        <H2 className='text-center pb-4 sm:pb-8 text-black'>What Our Clients Say</H2>
+        <div className="relative   xl:w-full flex justify-center items-center">
           {/* Left Gradient */}
           {/* <div className="absolute left-0 top-0 h-full w-10 bg-linear-to-l from-transparent via-white/50 to-white z-10 pointer-events-none"
           style={{ width: `${gradientWidth}px` }}

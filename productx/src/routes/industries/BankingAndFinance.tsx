@@ -5,10 +5,10 @@ import InsightThought from "../../components/Banking&Finance/InsightThought"
 import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
 
-import Products from "../../components/Banking&Finance/Products"
+// import Products from "../../components/Banking&Finance/Products"
 
 import WhatWeDoIn from "../../components/Banking&Finance/WhatWeDoIn"
-import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
+// import Testimonial from "../../components/HomePage/GlobalLandingPage/Testimonial"
 import ContactUS from "../../components/Banking&Finance/ProductRemitree/ContactUS"
 import BNFNav from "../../components/Banking&Finance/Navbar/BNFnav"
 import NewOneFooter from "../../components/Banking&Finance/ProductRemitree/NewOneFooter"
@@ -18,6 +18,7 @@ import AuditAnimation from "../../components/Banking&Finance/AuditAnimation"
 import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../context/ScrollContext";
+import TwoProducts from "../../components/HomePage/GlobalLandingPage/TwoProducts"
 
 const BankingAndFinance = () => {
   const location = useLocation();
@@ -50,15 +51,16 @@ const BankingAndFinance = () => {
       <BNFNav />
       <HeroSection />
       <Intro />
-      <Products />
+      <TwoProducts/>
+      {/* <Products /> */}
       <WhatWeDoIn />
       <Counter />
       <AuditAnimation />
       {/* <Audit /> */}
       <Process />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <InsightThought />
-      <div className="relative">
+      {/* <div className="relative">
 
 
         <div className="hidden lg:block lg:h-[200vh]"></div>
@@ -74,9 +76,23 @@ const BankingAndFinance = () => {
           <NewOneFooter />
         </div>
 
-      </div>
+      </div> */}
+    {/* DESKTOP */}
+<div className="hidden lg:block relative">
+  {/* Footer sits at bottom, ContactUS scrolls over it */}
+  <div id="contact-us">
+    <ContactUS />
+  </div>
+  <NewOneFooter />
+</div>
 
-      {/* <ContactFooterReveal/> */}
+{/* MOBILE */}
+<div className="lg:hidden">
+  <ContactUS />
+  <NewOneFooter />
+</div>
+
+ 
 
     </>
   )
