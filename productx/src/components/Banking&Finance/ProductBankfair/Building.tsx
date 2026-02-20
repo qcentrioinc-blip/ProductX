@@ -3,616 +3,308 @@
 import { useState } from "react"
 import { Check } from "lucide-react"
 
-type FilterKey = "Duis aute" | "Duis jhgfgb aute" | "Duis aute sdfgh" | "kihg Duis aute"
+type FilterKey = "Duis aute" | "Duis jhgfgb aute" | "Duis aute sdfgh" | "kihg Duis aute" | "Duis latest"
+
+interface TabContentData {
+  title: string
+  description: string
+  checkItems: string[]
+  image: string
+  imageAlt: string
+  stats: {
+    left: { label: string; value: string }
+    right: { label: string; value: string }
+  }
+}
+
+const tabContent: Record<FilterKey, TabContentData> = {
+  "Duis aute": {
+    title: "Consecte adipiscing werdasec ku quorti wer",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
+    checkItems: [
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu",
+      "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt",
+      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip",
+    ],
+    image: "/Products/Table.png",
+    imageAlt: "Table",
+    stats: {
+      left: { label: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique", value: "80%" },
+      right: { label: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique", value: "10X" },
+    },
+  },
+  "Duis jhgfgb aute": {
+    title: "Praesent vitae eros at lorem facilisis tincidunt",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae",
+    checkItems: [
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur",
+    ],
+    image: "/Products/Table.png",
+    imageAlt: "Analytics Dashboard",
+    stats: {
+      left: { label: "Improved processing speed across all operations", value: "95%" },
+      right: { label: "Faster customer onboarding experience", value: "5X" },
+    },
+  },
+  "Duis aute sdfgh": {
+    title: "Aliquam erat volutpat integer malesuada nunc",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate",
+    checkItems: [
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
+      "Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit",
+      "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus",
+    ],
+    image: "/Products/Table.png",
+    imageAlt: "Compliance Overview",
+    stats: {
+      left: { label: "Reduction in compliance audit preparation time", value: "70%" },
+      right: { label: "Increase in regulatory adherence score", value: "3X" },
+    },
+  },
+  "kihg Duis aute": {
+    title: "Vestibulum ante ipsum primis in faucibus orci",
+    description:
+      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat quis autem vel eum iure reprehenderit",
+    checkItems: [
+      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis",
+      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam",
+      "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore",
+    ],
+    image: "/Products/Table.png",
+    imageAlt: "Risk Management",
+    stats: {
+      left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
+      right: { label: "More accurate risk assessment predictions", value: "8X" },
+    },
+  },
+  "Duis latest": {
+    title: "Duis aute irure dolor in reprehenderit",
+    description:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
+    checkItems: [
+      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis",
+      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam",
+      "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore",
+    ],
+    image: "/Products/Table.png",
+    imageAlt: "Risk Management",
+    stats: {
+      left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
+      right: { label: "More accurate risk assessment predictions", value: "8X" },
+    },
+  },
+}
 
 const Building = () => {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("Duis aute")
-  const filters: FilterKey[] = ["Duis aute", "Duis jhgfgb aute", "Duis aute sdfgh", "kihg Duis aute"]
+  const filters: FilterKey[] = ["Duis aute", "Duis jhgfgb aute", "Duis aute sdfgh", "kihg Duis aute", "Duis latest"]
+  const currentContent = tabContent[activeFilter]
 
   return (
-    <div
-      className="building-section relative flex items-center justify-center"
-      style={{
-        width: '100%',
-        minHeight: 'auto', // CHANGED: from minHeight 928px to auto
-        margin: '0 auto',
-        background: '#FFFFFF',
-        padding: '30px 20px' // CHANGED: reduced from 50px to 30px
-      }}
-    >
-      {/* DESKTOP VERSION - Content Box */}
-      <div
-        className="desktop-content flex flex-col"
-        style={{
-          width: '100%',
-          maxWidth: '1360px',
-          minHeight: 'auto', // CHANGED: from 878px to auto
-          background: 'transparent'
-        }}
-      >
-        {/* Header Section */}
-        <div className="text-center mb-6"> {/* CHANGED: reduced from mb-8 to mb-6 */}
-          <h1
-            className="main-title"
-            style={{
-              maxWidth: '1058.76px',
-              width: '100%',
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              fontSize: 'clamp(28px, 4vw, 48px)', // CHANGED: min from 32px to 28px
-              lineHeight: '100%',
-              textAlign: 'center',
-              margin: '0 auto 16px' // CHANGED: reduced from 24px to 16px
-            }}
-          >
-            <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
-            <span style={{ color: '#666666' }}>reprehenderit in Duis</span>
-          </h1>
+    <div className="w-full bg-white py-6 px-3.5 sm:py-8 sm:px-4 md:py-9 md:px-5 xl:py-[50px] xl:px-5">
 
-          <p
-            className="main-description"
-            style={{
-              maxWidth: '921.58px',
-              width: '100%',
-              fontFamily: "'Quicksand', sans-serif",
-              fontWeight: 400,
-              fontSize: 'clamp(13px, 1.5vw, 16px)', // CHANGED: min from 14px to 13px
-              lineHeight: '140%',
-              textAlign: 'center',
-              color: '#141414',
-              margin: '0 auto 24px', // CHANGED: reduced from 32px to 24px
-              padding: '0 20px'
-            }}
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-          </p>
-        </div>
+      <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
 
-        {/* Tab Section */}
-        <div
-          className="tab-section"
-          style={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '24px' // CHANGED: reduced from 32px to 24px
-          }}
+        {/* Title: scales 24→30→38→44→72px across breakpoints */}
+        <h1
+          className="font-bold leading-none max-w-[1058px] mx-auto mb-2.5 xl:mb-4
+                     text-[24px] sm:text-[30px] md:text-[38px] lg:text-[44px] xl:text-[72px]"
+          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
         >
-          {/* All Tabs */}
-          <div
-            className="tabs-container"
-            style={{
-              maxWidth: '658px',
-              width: '100%',
-              display: 'flex',
-              gap: '19px',
-              margin: '0 auto',
-              flexWrap: 'wrap',
-              justifyContent: 'center'
-            }}
-          >
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className="transition-all duration-200"
-                style={{
-                  padding: '8px 20px',
-                  borderRadius: '24px',
-                  fontSize: 'clamp(12px, 1.2vw, 14px)',
-                  fontFamily: "'Quicksand', sans-serif",
-                  fontWeight: 500,
-                  background: activeFilter === filter ? '#FFE5E5' : '#FFFFFF',
-                  color: activeFilter === filter ? '#2A2A2A' : '#666666',
-                  border: '1px solid #E0E0E0',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
+          <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
+          <span style={{ color: '#666666' }}>reprehenderit in Duis</span>
+        </h1>
 
-          {/* Tab Content */}
-          <div
-            className="tab-content"
-            style={{
-              width: '100%',
-              minHeight: 'auto', // CHANGED: from 560px to auto
-              borderRadius: '8px',
-              background: '#F5F5F5',
-              position: 'relative',
-              padding: '20px' // CHANGED: reduced from 24px to 20px
-            }}
-          >
-            <div className="content-wrapper" style={{
-              display: 'flex',
-              gap: '32px', // CHANGED: reduced from 48px to 32px
-              flexWrap: 'wrap',
-              alignItems: 'flex-start'
-            }}>
+        {/* Description: scales 12→13→14→16px */}
+        <p
+          className="font-normal text-[#141414] leading-[140%] max-w-[921px] mx-auto
+                     px-1 sm:px-2 xl:px-5
+                     text-[12px] sm:text-[13px] md:text-sm xl:text-base"
+          style={{ fontFamily: "'Quicksand', sans-serif" }}
+        >
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+        </p>
+      </div>
 
-              {/* Left Image */}
-              <div
-                className="left-image"
-                style={{
-                  flex: '1 1 350px', // CHANGED: min from 400px to 350px
-                  minWidth: '280px', // CHANGED: from 300px to 280px
-                  maxWidth: '530px',
-                  height: 'auto',
-                  aspectRatio: '530/512',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  background: '#D9D9D9'
-                }}
-              >
-                <img
-                  src="/Products/Table.png"
-                  alt="Table"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                />
-              </div>
-
-              {/* Right Content */}
-              <div
-                className="right-content"
-                style={{
-                  flex: '1 1 350px', // CHANGED: min from 400px to 350px
-                  minWidth: '280px', // CHANGED: from 300px to 280px
-                  maxWidth: '750px'
-                }}
-              >
-                <h2
-                  className="content-title"
-                  style={{
-                    width: '100%',
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 'clamp(22px, 3vw, 32px)', // CHANGED: min from 24px to 22px
-                    lineHeight: '120%',
-                    color: '#666666',
-                    marginBottom: '12px' // CHANGED: reduced from 16px to 12px
-                  }}
-                >
-                  Consecte adipiscing werdasec ku quorti wer
-                </h2>
-
-                <p
-                  className="content-description"
-                  style={{
-                    fontFamily: "'Quicksand', sans-serif",
-                    fontSize: 'clamp(12px, 1.3vw, 14px)', // CHANGED: min from 13px to 12px
-                    fontWeight: 400,
-                    color: '#333333',
-                    lineHeight: '140%',
-                    marginBottom: '20px' // CHANGED: reduced from 24px to 20px
-                  }}
-                >
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                </p>
-
-                {/* Check Items */}
-                <div className="check-items" style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}> {/* CHANGED: gap from 12px to 10px */}
-                  {[1, 2, 3].map((item) => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                      <Check size={18} style={{ color: '#000000', flexShrink: 0, marginTop: '2px' }} /> {/* CHANGED: size from 20 to 18 */}
-                      <p
-                        style={{
-                          fontFamily: "'Quicksand', sans-serif",
-                          fontSize: 'clamp(12px, 1.3vw, 14px)',
-                          color: '#2A2A2A',
-                          lineHeight: '140%'
-                        }}
-                      >
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Bottom Stats */}
-                <div
-                  className="bottom-stats"
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    gap: '24px', // CHANGED: reduced from 35px to 24px
-                    flexWrap: 'wrap'
-                  }}
-                >
-                  {/* Left Half - 80% */}
-                  <div
-                    style={{
-                      flex: '1 1 180px', // CHANGED: min from 200px to 180px
-                      minWidth: '180px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '12px' // CHANGED: reduced from 16px to 12px
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "'Quicksand', sans-serif",
-                        fontSize: 'clamp(11px, 1.2vw, 14px)', // CHANGED: min from 12px to 11px
-                        fontWeight: 400,
-                        color: '#141414',
-                        lineHeight: '140%'
-                      }}
-                    >
-                      Sed ac faucibus lectus. Ut sed eros vel sapien tristique
-                    </p>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}> {/* CHANGED: gap from 20px to 16px */}
-                      <img src="/Products/Arrow.png" alt="Arrow" className="w-14 h-7 object-fill" style={{ maxWidth: '60px' }} /> {/* CHANGED: maxWidth from 80px to 60px */}
-                      <h3
-                        style={{
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontSize: 'clamp(42px, 6vw, 86px)', // CHANGED: min from 48px to 42px
-                          fontWeight: 200,
-                          color: '#666666',
-                          lineHeight: '1'
-                        }}
-                      >
-                        80%
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div
-                    style={{
-                      width: '2px',
-                      minHeight: '80px', // CHANGED: from 100px to 80px
-                      background: '#C6C6C6',
-                      alignSelf: 'stretch'
-                    }}
-                  />
-
-                  {/* Right Half - 10X */}
-                  <div
-                    style={{
-                      flex: '1 1 180px', // CHANGED: min from 200px to 180px
-                      minWidth: '180px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '12px' // CHANGED: reduced from 16px to 12px
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "'Quicksand', sans-serif",
-                        fontSize: 'clamp(11px, 1.2vw, 14px)', // CHANGED: min from 12px to 11px
-                        fontWeight: 400,
-                        color: '#141414',
-                        lineHeight: '140%'
-                      }}
-                    >
-                      Sed ac faucibus lectus. Ut sed eros vel sapien tristique
-                    </p>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                      <img src="/Products/Arrow.png" alt="Arrow" className="w-14 h-7 object-fill" style={{ maxWidth: '60px' }} /> {/* CHANGED: maxWidth from 80px to 60px */}
-                      <h3
-                        style={{
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontSize: 'clamp(42px, 6vw, 86px)', // CHANGED: min from 48px to 42px
-                          fontWeight: 200,
-                          color: '#666666',
-                          lineHeight: '1'
-                        }}
-                      >
-                        10X
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* ── Tabs ──
+          Mobile/Tablet: horizontally scrollable (min-w-max keeps all on one line)
+          Desktop (xl): centered, wrapped, max-width 658px
+      */}
+      <div
+        className="overflow-x-auto mb-6 [&::-webkit-scrollbar]:hidden"
+        style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
+      >
+        <div className="flex gap-[19px] pb-1.5 xl:pb-0
+                        min-w-max lg:min-w-0 xl:min-w-0
+                        lg:flex-wrap lg:justify-center lg:max-w-7xl lg:mx-auto xl:flex-wrap xl:justify-center xl:max-w-7xl xl:mx-auto">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`
+                rounded-full font-medium whitespace-nowrap transition-all border border-[#E0E0E0] cursor-pointer
+                px-3 py-1.5 text-[11px]
+                sm:px-4 sm:py-2 sm:text-xs lg:text-sm lg:px-8 lg:py-4
+                xl:px-8 xl:py-4 xl:text-sm
+                ${activeFilter === filter ? 'bg-[#2B68C3] text-white' : 'bg-white text-[#666666]'}
+              `}
+              style={{ fontFamily: "'Quicksand', sans-serif" }}
+            >
+              {filter}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* MOBILE/TABLET VERSION */}
-      <div className="mobile-content absolute inset-0 bg-white p-6 overflow-y-auto">
-        <div className="text-center mb-6">
-          <h1
-            className="font-bold mb-4"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontSize: '28px',
-              lineHeight: '110%'
-            }}
-          >
-            <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
-            <span style={{ color: '#666666' }}>reprehenderit</span>
-          </h1>
-          <p
-            style={{
-              fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px',
-              color: '#141414',
-              lineHeight: '150%'
-            }}
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
-        </div>
+      <div className="max-w-[1360px] mx-auto
+                      flex flex-col xl:flex-row
+                      gap-4 sm:gap-5 xl:gap-6
+                      items-start
+                      p-2.5 sm:p-3 md:p-4 xl:p-6">
 
-        {/* Mobile Tabs */}
-        <div className="overflow-x-auto scrollbar-hide mb-6">
-          <div className="flex gap-3 min-w-max pb-2">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className="px-5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all"
-                style={{
-                  fontFamily: "'Quicksand', sans-serif",
-                  background: activeFilter === filter ? '#FFE5E5' : '#FFFFFF',
-                  color: activeFilter === filter ? '#2A2A2A' : '#666666',
-                  border: '1px solid #E0E0E0'
-                }}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile Content Card */}
-        <div className="bg-[#F5F5F5] rounded-lg p-4 space-y-4">
+        <div className="
+          w-full xl:w-[530px] xl:min-w-[530px] xl:shrink-0
+          h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[512px]
+          rounded-[4px] overflow-hidden bg-[#D9D9D9]
+        ">
           <img
-            src="/Building.jpg"
-            alt="Building"
-            className="w-full h-48 object-cover rounded-lg"
+            src={currentContent.image}
+            alt={currentContent.imageAlt}
+            className="w-full h-full object-cover"
           />
+        </div>
 
-          <h2
-            className="font-bold"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontSize: '22px',
-              color: '#666666',
-              lineHeight: '120%'
-            }}
-          >
-            Consecte adipiscing werdasec ku quorti wer
-          </h2>
+        {/* ── Right Column ── */}
+        <div className="w-full xl:w-[750px] xl:min-h-[512px] flex flex-col">
 
-          <p
-            style={{
-              fontFamily: "'Quicksand', sans-serif",
-              fontSize: '14px',
-              color: '#333',
-              lineHeight: '150%'
-            }}
-          >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
+          {/* Top: Title + Desc + Checks */}
+          <div className="flex flex-col gap-4 xl:gap-6">
 
-          {/* Check Items */}
-          <div className="space-y-3 mt-4">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="flex items-start gap-2">
-                <Check size={18} className="text-black flex-shrink-0 mt-0.5" />
-                <p
-                  style={{
-                    fontFamily: "'Quicksand', sans-serif",
-                    fontSize: '13px',
-                    color: '#2A2A2A',
-                    lineHeight: '140%'
-                  }}
-                >
-                  Duis aute irure dolor in reprehenderit in voluptate
-                </p>
-              </div>
-            ))}
+            {/* Title: 20→22→24→26→32px */}
+            <h2
+              className="font-bold text-[#666666] m-0 leading-none
+                         text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] xl:text-[32px]"
+              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+            >
+              {currentContent.title}
+            </h2>
+
+            {/* Description: 12→13→14→16px */}
+            <p
+              className="font-normal text-[#141414] m-0 leading-[150%] xl:leading-none
+                         text-[12px] sm:text-[13px] md:text-sm xl:text-base"
+              style={{ fontFamily: "'Quicksand', sans-serif" }}
+            >
+              {currentContent.description}
+            </p>
+
+            {/* Check Items */}
+            <div className="flex flex-col gap-3 sm:gap-3.5 xl:gap-6">
+              {currentContent.checkItems.map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <Check
+                    size={18}
+                    style={{ color: '#000000', flexShrink: 0, marginTop: '2px' }}
+                  />
+                  <p
+                    className="text-[#2A2A2A] leading-[140%] m-0
+                               text-[12px] sm:text-[13px] xl:text-sm"
+                    style={{ fontFamily: "'Quicksand', sans-serif" }}
+                  >
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Stats - Mobile Version */}
-          <div className="grid grid-cols-2 gap-4 mt-6">
-            <div className="space-y-2">
+          {/* ── Bottom Stats ──
+              Always side by side (left stat | divider | right stat)
+              marginTop scales: 20→24→28→32→56px
+          */}
+          <div className="
+            flex flex-row items-start
+            gap-3 sm:gap-4 xl:gap-6
+            mt-5 sm:mt-6 md:mt-7 lg:mt-8 xl:mt-[56px]
+            w-full xl:w-[691px]
+          ">
+
+            {/* Left Stat */}
+            <div className="flex-1 xl:w-[305px] flex flex-col items-start
+                            gap-2.5 sm:gap-3.5 xl:gap-6">
+
+              {/* Label: 11→13→14→15→18px */}
               <p
-                style={{
-                  fontFamily: "'Quicksand', sans-serif",
-                  fontSize: '12px',
-                  color: '#141414',
-                  lineHeight: '140%'
-                }}
+                className="font-normal text-[#141414] leading-[140%] xl:leading-none m-0
+                           xl:w-[252px]
+                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                Sed ac faucibus lectus
+                {currentContent.stats.left.label}
               </p>
-              <div className="flex items-center gap-2">
-                <svg width="30" height="20" viewBox="0 0 60 39" fill="none">
-                  <path
-                    d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
-                    stroke="#A80040"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+
+              {/* Arrow + Value */}
+              <div className="flex items-center gap-2 xl:gap-3">
+                <img
+                  src="/TrendUp.svg"
+                  alt="Trend Up"
+                  className="w-7 sm:w-9 md:w-10 lg:w-12 xl:w-[60px] h-auto object-contain shrink-0"
+                />
+                {/* Value: 34→42→48→52→64px */}
                 <h3
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontSize: '48px',
-                    fontWeight: 500,
-                    color: '#666666',
-                    lineHeight: '1'
-                  }}
+                  className="font-medium text-[#666666] leading-none m-0
+                             text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
-                  80%
+                  {currentContent.stats.left.value}
                 </h3>
               </div>
             </div>
 
-            <div className="space-y-2">
+            {/* Divider — self-stretch auto-matches column height */}
+            <div className="w-px bg-[#C6C6C6] shrink-0 self-stretch" />
+
+            {/* Right Stat */}
+            <div className="flex-1 xl:w-[305px] flex flex-col items-start
+                            gap-2.5 sm:gap-3.5 xl:gap-6">
+
+              {/* Label: 11→13→14→15→18px */}
               <p
-                style={{
-                  fontFamily: "'Quicksand', sans-serif",
-                  fontSize: '12px',
-                  color: '#141414',
-                  lineHeight: '140%'
-                }}
+                className="font-normal text-[#141414] leading-[140%] xl:leading-none m-0
+                           xl:w-[252px]
+                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                Sed ac faucibus lectus
+                {currentContent.stats.right.label}
               </p>
-              <div className="flex items-center gap-2">
-                <svg width="30" height="20" viewBox="0 0 60 39" fill="none">
-                  <path
-                    d="M2 36.5C12.5 31 18 20 25.5 13C33 6 38 8.5 42.5 2.5M42.5 2.5L36 1M42.5 2.5L41.5 9"
-                    stroke="#A80040"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+
+              {/* Arrow + Value */}
+              <div className="flex items-center gap-2 xl:gap-3">
+                <img
+                  src="/TrendUp.svg"
+                  alt="Trend Up"
+                  className="w-7 sm:w-9 md:w-10 lg:w-12 xl:w-[60px] h-auto object-contain shrink-0"
+                />
+                {/* Value: 34→42→48→52→64px */}
                 <h3
-                  style={{
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                    fontSize: '48px',
-                    fontWeight: 500,
-                    color: '#666666',
-                    lineHeight: '1'
-                  }}
+                  className="font-medium text-[#666666] leading-none m-0
+                             text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
-                  10X
+                  {currentContent.stats.right.value}
                 </h3>
               </div>
             </div>
+
           </div>
         </div>
       </div>
-
-      {/* Responsive Styles */}
-      <style>{`
-        /* Desktop Only - lg and above (1024px+) */
-        @media (min-width: 1024px) {
-          .mobile-content {
-            display: none !important;
-          }
-          .desktop-content {
-            display: flex !important;
-          }
-          .building-section {
-            padding: 50px 20px !important;
-          }
-        }
-
-        /* iPad Air specific (820px width) - ADDED */
-        @media (min-width: 820px) and (max-width: 1023px) {
-          .building-section {
-            padding: 20px 20px !important;
-            min-height: auto !important;
-          }
-          
-          .tab-content {
-            padding: 16px !important;
-          }
-          
-          .tab-content .content-wrapper {
-            gap: 24px !important;
-          }
-          
-          .bottom-stats {
-            flex-direction: column !important;
-            gap: 16px !important;
-          }
-          
-          .bottom-stats > div:nth-child(2) {
-            width: 100% !important;
-            height: 2px !important;
-            min-height: 2px !important;
-          }
-        }
-
-        /* iPad Mini specific (768px width) - ADDED */
-        @media (min-width: 768px) and (max-width: 819px) {
-          .building-section {
-            padding: 16px 16px !important;
-            min-height: auto !important;
-          }
-          
-          .tab-content {
-            padding: 14px !important;
-          }
-          
-          .tab-content .content-wrapper {
-            gap: 20px !important;
-          }
-          
-          .bottom-stats {
-            flex-direction: column !important;
-            gap: 12px !important;
-          }
-          
-          .bottom-stats > div:nth-child(2) {
-            width: 100% !important;
-            height: 2px !important;
-            min-height: 2px !important;
-          }
-          
-          .main-title {
-            margin-bottom: 12px !important;
-          }
-          
-          .main-description {
-            margin-bottom: 20px !important;
-          }
-        }
-
-        /* Mobile/Tablet - below lg (below 1024px) */
-        @media (max-width: 1023px) {
-          .building-section {
-            height: auto !important;
-            min-height: auto !important;
-            padding: 16px 0 !important;
-          }
-          
-          .desktop-content {
-            display: none !important;
-          }
-          
-          .mobile-content {
-            display: block !important;
-            position: relative !important;
-          }
-        }
-
-        /* Tablet - Medium screens */
-        @media (min-width: 640px) and (max-width: 1023px) {
-          .mobile-content h1 {
-            font-size: 36px !important;
-          }
-          
-          .mobile-content h2 {
-            font-size: 26px !important;
-          }
-          
-          .mobile-content p {
-            font-size: 15px !important;
-          }
-        }
-
-        /* Hide scrollbar */
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        
-        /* Prevent horizontal overflow */
-        .building-section * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   )
 }

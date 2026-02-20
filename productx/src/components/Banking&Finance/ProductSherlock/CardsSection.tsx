@@ -29,8 +29,8 @@ export default function CardsSection() {
   };
 
   return (
-    <section className="w-full bg-white py-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-14 flex flex-col items-center">
+    <section className="w-full bg-white py-18">
+      <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center mb-12">
           Lorem ipsum dolor, consectetur adipis
         </H2>
@@ -46,9 +46,9 @@ export default function CardsSection() {
             <motion.div
               key={i}
               variants={cardVariants}
-              className="bg-[#E6E6E6] rounded-lg flex flex-col p-6 sm:p-8 h-full"
+              className="bg-white rounded-lg flex flex-col p-6 sm:p-8 h-full border border-gray-400"
             >
-              <div className="w-12 h-12 bg-white rounded-full mb-4" />
+              <div className="w-12 h-12 bg-gray-400 rounded-full mb-4" />
               <H4 className="mt-2">Duis aute irure dolor in</H4>
               <P className="text-gray-800 mt-2">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse

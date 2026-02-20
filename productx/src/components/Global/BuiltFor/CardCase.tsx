@@ -59,9 +59,9 @@ const CARD_CONFIG: Record<
 
       heading: "Key Pain Points",
       cards: [
-        { id: 1, title: "Legacy Infrastructure", desc: "Rigid core systems hinder innovation, slow updates, and increase maintenance costs.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Compliance Burden", desc: "Manual AML and KYC processes create errors and struggle to meet regulations.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Siloed Data", desc: "Disconnected systems prevent a unified customer view and accurate reporting.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Legacy Infrastructure", desc: "Rigid core systems hinder innovation, slow updates, and increase maintenance costs.", image: "/BuiltForBnf/lightbulb-dollar.svg" },
+        { id: 2, title: "Compliance Burden", desc: "Manual AML and KYC processes create errors and struggle to meet regulations.", image: "/BuiltForBnf/exclamation.svg" },
+        { id: 3, title: "Siloed Data", desc: "Disconnected systems prevent a unified customer view and accurate reporting.", image: "/BuiltForBnf/big-data.svg" },
       ],
     },
 
@@ -69,9 +69,9 @@ const CARD_CONFIG: Record<
       bg: "#F2F2F2",
       heading: "Key Pain Points",
       cards: [
-        { id: 1, title: "Member Expectations", desc: "Members demand digital experiences like large banks provide seamlessly.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Manual Processes", desc: "Staff spends too much time on paperwork and data entry.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Compliance Complexity", desc: "Keeping up with regulations strains small teams and budgets.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Member Expectations", desc: "Members demand digital experiences like large banks provide seamlessly.", image: "/BuiltForBnf/member-list.svg" },
+        { id: 2, title: "Manual Processes", desc: "Staff spends too much time on paperwork and data entry.", image: "/BuiltForBnf/info-guide.svg" },
+        { id: 3, title: "Compliance Complexity", desc: "Keeping up with regulations strains small teams and budgets.", image: "/BuiltForBnf/compliance-document.svg" },
       ],
     },
 
@@ -79,9 +79,9 @@ const CARD_CONFIG: Record<
       bg: "#F2F2F2",
       heading: "Key Pain Points",
       cards: [
-        { id: 1, title: "Legacy Modernization", desc: "Outdated core systems limit agility and increase technical debt.", image: "/BuiltFor/Recycle.png" },
-        { id: 2, title: "Regulatory Pressure", desc: "Multiple jurisdictions require constant compliance updates and reporting.", image: "/BuiltFor/Recycle.png" },
-        { id: 3, title: "Operational Silos", desc: "Disconnected systems create data gaps and inefficient workflows.", image: "/BuiltFor/Recycle.png" },
+        { id: 1, title: "Legacy Modernization", desc: "Outdated core systems limit agility and increase technical debt.", image: "/BuiltForBnf/lightbulb-dollar.svg" },
+        { id: 2, title: "Regulatory Pressure", desc: "Multiple jurisdictions require constant compliance updates and reporting.", image: "/BuiltForBnf/exclamation.svg" },
+        { id: 3, title: "Operational Silos", desc: "Disconnected systems create data gaps and inefficient workflows.", image: "/BuiltForBnf/big-data.svg" },
       ],
     },
   },

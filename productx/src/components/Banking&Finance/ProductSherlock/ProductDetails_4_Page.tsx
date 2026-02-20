@@ -13,6 +13,7 @@ import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../Navbar/BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 import FaqSection from "./FAQ";
+import NewsLetter from "../ProductRemitree/NewsLetter";
 
 
 const ProductDetails_4_page = () => {
@@ -39,12 +40,13 @@ const ProductDetails_4_page = () => {
       <TitleSec />
       <HeroBottomNavbar />
       <div id="overview">
-        <CardsSection/>
+        <CardsSection />
       </div>
       <div id="benefits"> <Features /></div>
       <div id="process"><ContentInfo /></div>
-      
+
       <Grid />
+      <div id="process"> <NewsLetter /></div>
       <div id="usecases">
         <HWD />
       </div>
