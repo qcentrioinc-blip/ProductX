@@ -100,9 +100,9 @@ const NewOneFooter = () => {
    const BuiltFor = [
  
 
-    { label: "Banks", url: "industries/banking-and-finance/built-for/banks" },
-      { label: "Credit Unions", url: "industries/banking-and-finance/built-for/credit-unions" },
-        { label: "Financial Unions", url: "industries/banking-and-finance/built-for/financial-unions" },
+    { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
+      { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-unions" },
+        { label: "Financial Unions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
