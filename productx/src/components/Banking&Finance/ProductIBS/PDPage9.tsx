@@ -7,7 +7,7 @@ import HeroSection from "./HeroSection";
 import Cards from "./Cards";
 import ImgTextSec from "./ImgTextSec";
 import HWD from "../HWD";
-import FaqSection from "../ProductSherlock/FAQ";
+import FaqSection from "../ProductKYC/FAQ";
 import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../Navbar/BNFnav";

@@ -8,7 +8,7 @@ import Cards from "./Cards";
 import GridLayout from "./GridLayout";
 import FeatureGrid from "./FeatureGrid";
 import HWD from "../HWD";
-import FAQ from "../ProductSherlock/FAQ";
+import FAQ from "../ProductKYC/FAQ";
 import InsightThought from "../InsightThought";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 // import NewFooter from "../Products2/NewFooter";

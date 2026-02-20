@@ -8,7 +8,7 @@ import Banks from "./Banks"
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
 
-import FaqSection from "../ProductSherlock/FAQ"
+import FaqSection from "../ProductKYC/FAQ"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import BNFNav from "../Navbar/BNFnav"
 // import ContactSection from "../ProductBankfair/ContactSection"

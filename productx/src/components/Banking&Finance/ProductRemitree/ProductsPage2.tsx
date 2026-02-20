@@ -12,7 +12,7 @@ import NewOneFooter from "./NewOneFooter";
 import BNFNav from "../Navbar/BNFnav";
 import TwoPart from "./TwoPart";
 import HWD from "../HWD";
-import FaqSection from "../ProductSherlock/FAQ";
+import FaqSection from "../ProductKYC/FAQ";
 import InsightThought from "../InsightThought";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import { useContext, useEffect } from "react";

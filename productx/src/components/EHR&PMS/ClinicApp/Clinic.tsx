@@ -1,6 +1,6 @@
  
 import HWD from "../../Banking&Finance/HWD"
-import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
+import FaqSection from "../../Banking&Finance/ProductKYC/FAQ"
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Advantage from "./Advantage"

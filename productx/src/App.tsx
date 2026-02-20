@@ -8,6 +8,7 @@ import DeferredLoader from './components/Global/DeferredLoader';
 import HeroSection from './components/HomePage/HeroSection'
 import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
+import ProductNotFound from './components/ProductNotFound';
 
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
@@ -15,7 +16,7 @@ const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinan
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
-const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductSherlock/ProductDetails_4_Page'));
+const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
 // const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
@@ -98,12 +99,12 @@ const App = () => {
     // if (productId === "remitree") return <ProductsPage2 />;
     // if (productId === "almanac") return <AML />;
     // if (productId === "pago") return <ProductDetailthree />
-    if (productId === "sherlock") return <ProductDetails_4_page />
+    if (productId === "kyc") return <ProductDetails_4_page />
     // if (productId === "customer-onboarding-solutions") return <Cos_Page />
     // if (productId === "sams") return <Sams_Page />
     // if (productId === "internet-banking-system") return <PDPage9 />
     // if (productId === "loan-origination-system") return <ProductsPage7 />
-    return <div className='font-bricolage text-5xl bg-blue-300 h-screen text-black'>Product not found<br /> <span className='text-blue-600'><a href="/industries/banking-and-finance">CLICK Me</a> </span> for Products </div>;
+    return <ProductNotFound/>;
   }
 
   const EhrPmsPageRouter = () => {

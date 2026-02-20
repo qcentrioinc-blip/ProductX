@@ -13,6 +13,7 @@ import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../Navbar/BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 import FaqSection from "./FAQ";
+import NewsLetter from "../ProductRemitree/NewsLetter";
 
 
 const ProductDetails_4_page = () => {
@@ -38,6 +39,7 @@ const ProductDetails_4_page = () => {
       <BNFNav />
       <TitleSec />
       <HeroBottomNavbar />
+      
       <div id="overview">
         <CardsSection/>
       </div>
@@ -45,6 +47,7 @@ const ProductDetails_4_page = () => {
       <div id="process"><ContentInfo /></div>
       
       <Grid />
+      <NewsLetter/>
       <div id="usecases">
         <HWD />
       </div>
@@ -65,7 +68,9 @@ const ProductDetails_4_page = () => {
 
         <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
+
         </div>
+        
 
       </div>
 

@@ -56,8 +56,8 @@ const HWD = () => {
     banking: {
       eyebrow: " ",
       title: "Real-World Use Cases",
-      description:
-        "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
+      // description:
+      //   "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
     },
     ehr: {
       eyebrow: " ",
@@ -120,39 +120,42 @@ const HWD = () => {
 
     banking: [
       {
-        title: "Fraud Detection Modernization",
+        title: "Digital KYC transformation",
         image: "/AIOptimization/Saving.svg",
         description:
-          "Advanced analytics reduced fraud losses while improving customer trust.",
+          "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
         points: [
-          "Real-time transaction anomaly detection.",
-          "Reduced false positives by 35%.",
-          "Improved regulatory reporting accuracy.",
-          "Scalable fraud pipelines.",
+          "Full lifecycle coverage from onboarding to trigger events ",
+          "Integration with front-end, screening, and core systems .",
+          "Approximately 85% straight-through processing achieved ",
+          "Significant automation with minimal manual intervention ",
+          "Used by analysts, compliance officers, and approvers ",
         ],
       },
       {
-        title: "Cost-Efficient Core Banking",
+        title: "Enterprise due diligence",
         image: "/AIOptimization/pricetag.svg",
         description:
-          "Legacy systems optimized for modern banking workloads.",
+          " Coverage primarily for non-individual entities with complex ownership structures. ",
         points: [
-          "Reduced infrastructure costs by 28%.",
-          "Improved batch processing times.",
-          "Optimized storage and compute usage.",
-          "Improved disaster recovery posture.",
+          "Screening and case management integration throughout",
+          "Roles across analyst, MLRO, and compliance approvers ",
+          "Automated risk assessment based on configured rules ",
+          "Periodic and trigger event reviews system-managed ",
+          "Consistent execution across all entity types ",
         ],
       },
       {
-        title: "Compliance Automation",
+        title: "Commodity trading compliance",
         image: "/AIOptimization/Cloud.svg",
         description:
-          "Automated compliance reduced risk and operational overhead.",
+          " Coverage for private limited companies, firms, and other entity types.",
         points: [
-          "Policy-as-code implementation.",
-          "Continuous compliance monitoring.",
-          "Audit preparation time reduced by 60%.",
-          "Improved governance visibility.",
+          "Access across UAE and India locations seamlessly ",
+          "End client types include varied corporate structures ",
+          "Beneficial ownership identification fully automated ",
+          "Policy configuration adapts to local requirements ",
+          "System-driven execution ensures consistent outcomes ",
         ],
       },
     ],
@@ -307,7 +310,7 @@ const HWD = () => {
 
           {/* Dynamic paragraph below H2 */}
           <p className="max-w-3xl text-base md:text-lg font-quicksand xl:text-xl text-[#555555]">
-            {headingContent.description}
+            {/* {headingContent.description} */}
           </p>
         </div>
 

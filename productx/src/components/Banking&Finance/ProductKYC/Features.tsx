@@ -7,42 +7,42 @@ type FeatureSwitcherProps = {};
 const FEATURES = [
   {
     id: "feature_a",
-    buttonLabel: "Duis aute irure",
-    title: "Lorem ipsum dolor gamis consecte",
-    p1: "This is the primary text for Feature A. It focuses on the core benefit and initial explanation of 'Duis aute irure'.",
-    p2: "This secondary text elaborates on the feature, detailing how the user can apply it to their daily workflow.",
+    buttonLabel: "Policy Configuration Engine ",
+    title: "Zero code policy configuration engine ",
+    p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality.",
+    p2: "No training required for frontline staff when policies update. ",
     imageSrc: "/ProductDetails4/PD4_img4.jpg",
   },
   {
     id: "feature_b",
-    buttonLabel: "Duis aute irure",
-    title: "Vero eos et accusamus et iusto",
-    p1: "Feature B description. This section highlights the unique selling points and key advantages.",
-    p2: "Further information on Feature B, including technical details or user-friendly guidance.",
+    buttonLabel: "Smart Data Capture ",
+    title: "Smart forms for data capture ",
+    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile.",
+    p2: "Captures data for customers and connected parties with built-in validations for accuracy. ",
     imageSrc: "/ProductDetails4/PD4_img2.jpg",
   },
   {
     id: "feature_c",
-    buttonLabel: "Duis aute irure",
-    title: "Omnis voluptas assumenda est",
-    p1: "Feature C details. This covers the third area of functionality of the product offering.",
-    p2: "A call-to-action or next step related to exploring this feature further.",
+    buttonLabel: "Automated Screening ",
+    title: "Automated name screening integration",
+    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists.",
+    p2: "Integrates with leading screening engines during onboarding and ongoing monitoring. ",
     imageSrc: "/ProductDetails4/PD4_img3.jpg",
   },
   {
     id: "feature_d",
-    buttonLabel: "Duis aute irure",
-    title: "Temporibus autem quibusdam",
-    p1: "Feature D explanation. The fourth feature provides an essential utility for advanced users.",
-    p2: "Specific examples showing the practical application and real-world value.",
+    buttonLabel: "Risk Assessment ",
+    title: "Risk assessment and decisioning ",
+    p1: "Automatically compute risk ratings based on configured attributes and rules.",
+    p2: "Workflow rules drive consistent decisioning with options for approval routing and case management.",
     imageSrc: "/ProductDetails4/PD4_img4.jpg",
   },
   {
     id: "feature_e",
-    buttonLabel: "Duis aute irure",
-    title: "Repudiandae sint et molestiae",
-    p1: "Feature E overview. The final feature rounds out the core set of tools.",
-    p2: "Summary of benefits and a final reason to engage with this component.",
+    buttonLabel: "Lifecycle Management ",
+    title: "Full client lifecycle management ",
+    p1: "System automatically moves profiles to periodic and trigger event queues.",
+    p2: "Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness. ",
     imageSrc: "/ProductDetails4/PD4_img2.jpg",
   },
 ];
@@ -57,8 +57,8 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* SECTION TITLE */}
-        <H2 className="mb-16 mt-10 text-center text-blue-600 tracking-tight leading-snug">
-          Lorem ipsum dolor, consectetur adipis consectetur
+        <H2 className="mb-16 mt-10 text-center text-[#2B68C3] tracking-tight leading-snug">
+         Key features of Diligent platform 
         </H2>
 
         {/* MAIN LAYOUT */}
@@ -81,7 +81,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                   className={`py-4 px-12 rounded-full text-base font-semibold transition-all
                     ${
                       isActive
-                        ? "bg-blue-600 text-white"
+                        ? "bg-[#2B68C3] text-white"
                         : "border border-gray-400 text-black hover:bg-gray-100"
                     }`}
                 >
@@ -112,7 +112,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                       py-4 px-6 rounded-full text-sm font-semibold transition-all
                       ${
                         isActive
-                          ? "bg-blue-600 text-white"
+                          ? "bg-[#2B68C3] text-white"
                           : "bg-white border border-gray-400 text-black hover:bg-gray-100"
                       }`}
                   >

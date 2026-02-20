@@ -239,14 +239,13 @@ export default function HeroSection() {
           }}
         >
           <H1 className="mb-4 text-3xl md:text-5xl font-bold leading-tight">
-            Lorem ipsum dolor,<br /> consectetur adipis
+            Digital KYC and<br /> CDD platform 
           </H1>
-          <p className="mb-8 text-gray-700 max-w-[550px]">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+          <p className="mb-8 text-gray-700 max-w-[500px]">
+            Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments. 
           </p>
           <Link to="/industries/banking-and-finance/products/sherlock#contact-us">
-  <ContactUs>CONTACT US</ContactUs>
+  <ContactUs>Explore Diligent </ContactUs>
 </Link>
         </div>
       </div>
