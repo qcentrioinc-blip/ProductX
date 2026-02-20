@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
 import InsightThought from "../InsightThought";
-import FaqSection from "../ProductSherlock/FAQ";
+import FaqSection from "../ProductKYC/FAQ";
 import Cards from "./Cards";
 import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";

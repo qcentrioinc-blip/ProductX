@@ -11,59 +11,59 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
     const base = `/industries/${industry}`;
 
     const megaMenuItems = [
+        // {
+        //     title: "Almanac",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P1.png",
+        //     path: `${base}/products/almanac`,
+        // },
         {
-            title: "Almanac",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P1.png",
-            path: `${base}/products/almanac`,
-        },
-        {
-            title: "Bankfair",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            title: "Conciliare",
+            desc: "Advanced reconciliation for financial accuracy ",
             img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/bankfair`,
+            path: `${base}/products/Conciliare`,
         },
+        // {
+        //     title: "Customer Onboarding Solutions",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P3.jpg",
+        //     path: `${base}/products/customer-onboarding-solutions`
+        // },
+        // {
+        //     title: "Internet Banking System",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P4.png",
+        //     path: `${base}/products/internet-banking-system`,
+        // },
+        // {
+        //     title: "Loan Origination Sytem",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P5.jpg",
+        //     path: `${base}/products/loan-origination-system`,
+        // },
+        // {
+        //     title: "Pago",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P6.jpg",
+        //     path: `${base}/products/pago`,
+        // },
+        // {
+        //     title: "Remitree",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P7.jpg",
+        //     path: `${base}/products/remitree`,
+        // },
+        // {
+        //     title: "Sams",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P8.jpg",
+        //     path: `${base}/products/sams`,
+        // },
         {
-            title: "Customer Onboarding Solutions",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P3.jpg",
-            path: `${base}/products/customer-onboarding-solutions`
-        },
-        {
-            title: "Internet Banking System",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P4.png",
-            path: `${base}/products/internet-banking-system`,
-        },
-        {
-            title: "Loan Origination Sytem",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P5.jpg",
-            path: `${base}/products/loan-origination-system`,
-        },
-        {
-            title: "Pago",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P6.jpg",
-            path: `${base}/products/pago`,
-        },
-        {
-            title: "Remitree",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P7.jpg",
-            path: `${base}/products/remitree`,
-        },
-        {
-            title: "Sams",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P8.jpg",
-            path: `${base}/products/sams`,
-        },
-        {
-            title: "Sherlock",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            title: "KYC & CDD",
+            desc: "Digital due diligence and onboarding automation ",
             img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/sherlock`,
+            path: `${base}/products/KYC & CDD`,
         },
     ];
 

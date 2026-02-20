@@ -1,4 +1,4 @@
-import FaqSection from "../../Banking&Finance/ProductSherlock/FAQ"
+import FaqSection from "../../Banking&Finance/ProductKYC/FAQ"
 import AIFooter from "../../HomePage/AIOptimization/AIFooter"
 import AINavbar from "../Navbar/AINavbar"
 import BenefitsSection from "./BenefitsSection"

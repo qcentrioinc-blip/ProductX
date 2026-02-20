@@ -2,7 +2,7 @@ import BNFNav from "../Navbar/BNFnav"
 
 import HWD from "../HWD"
 import InsightThought from "../InsightThought"
-import FaqSection from "../ProductSherlock/FAQ"
+import FaqSection from "../ProductKYC/FAQ"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import Building from "./Building"
