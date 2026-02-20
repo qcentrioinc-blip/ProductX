@@ -27,7 +27,7 @@ const Enterprises = () => {
       <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
 
         {/* Tall Left Card */}
-        <div className="bg-white text-black gap-4 rounded-lg p-6 flex flex-col md:row-span-2">
+        <div className="bg-white text-black gap-4 rounded-lg p-6 flex flex-col md:row-span-2 border border-gray-500">
           <div >
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
             <P className="pt-4 ">
@@ -48,7 +48,7 @@ const Enterprises = () => {
 
         {/* Middle Cards */}
         {[2, 3].map((i, index) => (
-          <div key={i} className="bg-white text-black rounded-lg p-6 flex flex-col justify-between">
+          <div key={i} className="bg-white text-black rounded-lg p-6 flex flex-col justify-between border border-gray-500">
             <div>
               <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
               <P className="pt-4 ">
@@ -57,9 +57,9 @@ const Enterprises = () => {
             </div>
 
             <motion.img
-              src={Image3}
+              src="/StarLine.svg"
               alt={`Enterprise ${i}`}
-              className="mt-6 rounded-md object-cover w-full h-40 md:h-48 lg:h-36 xl:h-48"
+              className="mt-6 rounded-md object-cover w-full"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -69,7 +69,7 @@ const Enterprises = () => {
         ))}
 
         {/* Bottom Wide Card */}
-        <div className="bg-white text-black rounded-lg p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+        <div className="bg-white text-black rounded-lg p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2 border border-gray-500">
           <div>
             <H4 className="pt-0 text-[#2B68C3]">Banks werf erdcd sedrtg werft</H4>
             <P className="pt-4 ">

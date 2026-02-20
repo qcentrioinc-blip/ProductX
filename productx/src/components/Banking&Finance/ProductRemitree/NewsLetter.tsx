@@ -6,48 +6,7 @@ const NewsLetter = () => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setStartAnimation(true);
-          observer.disconnect(); // Run only once
-        }
-      },
-      { threshold: 0.01 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-  }, []);
-
-
-  useEffect(() => {
-    if (!startAnimation) return;
-
-    const sequence = setInterval(() => {
-      setActiveSteps((prev) => (prev < 5 ? prev + 1 : 5));
-    }, 1000);
-
-    return () => clearInterval(sequence);
-  }, [startAnimation]);
-
-
-  useEffect(() => {
-    if (!startAnimation) return;
-
-    if (activeSteps > 0) {
-      const timer = setTimeout(() => {
-        setLineProgress(activeSteps);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [activeSteps, startAnimation]);
-
   const items = [
-    "Consecte",
     "Adipiscing",
     "Adipiscing",
     "Consecte",
@@ -55,96 +14,102 @@ const NewsLetter = () => {
     "Consecte"
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setStartAnimation(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+
+    const sequence = setInterval(() => {
+      setActiveSteps((prev) => (prev < items.length - 1 ? prev + 1 : items.length - 1));
+    }, 800);
+
+    return () => clearInterval(sequence);
+  }, [startAnimation, items.length]);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+
+    if (activeSteps > 0) {
+      const timer = setTimeout(() => {
+        setLineProgress(activeSteps);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [activeSteps, startAnimation]);
+
+
   return (
     <div
       ref={sectionRef}
-      className="max-w-[1920px] mx-auto relative w-full flex items-center justify-center bg-[#FAFAFA] lg:h-[400px] xl:h-[460px] 2xl:h-[517px]"
+      className="max-w-7xl mx-auto w-full flex flex-col items-center justify-center bg-white py-16 px-4 md:px-8 overflow-hidden"
     >
-      {/* Desktop layout (Hidden on mobile, visible and scaled on large screens) */}
-      <div
-        className="hidden lg:flex flex-col absolute top-[60px] left-1/2 -translate-x-1/2 gap-[90px] w-[1550px] origin-top 
-                   lg:scale-[0.65] xl:scale-[0.8] 2xl:scale-100"
-      >
-        <h1 className="w-full h-[107px] font-['Bricolage_Grotesque',_sans-serif] font-semibold text-[48px] leading-[120%] text-center">
-          <span className="text-[#2B68C3]">Subscribe to our newsletter</span>
-          <br />
-          <span className="text-[#2B68C3]">to </span>
-          <span className="text-[#141414]">
-            stay in touch with the latest.
-          </span>
-        </h1>
+      <h1 className="w-full font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
+        <span className="text-[#2B68C3]">Subscribe to our newsletter</span>
+        <br />
+        <span className="text-[#2B68C3]">to </span>
+        <span className="text-[#141414]">
+          stay in touch with the latest.
+        </span>
+      </h1>
 
-        {/* Circles */}
-        <div className="flex justify-between items-end w-full">
+      <div className="w-full overflow-x-auto hide-scrollbar px-4 pb-4">
+        <div className="relative min-w-[600px] md:min-w-0 md:w-full max-w-5xl mx-auto flex items-start justify-between">
+          {/* Background Line */}
+          <div className="absolute top-[102px] md:top-[150px] left-10 md:left-[60px] right-10 md:right-[60px] h-[2px] bg-gray-200 z-0">
+            {/* Animated Progress Line */}
+            <div
+              className="h-full bg-[#2B68C3] transition-all duration-700 ease-out"
+              style={{
+                width: `${(lineProgress / (items.length - 1)) * 100}%`
+              }}
+            />
+          </div>
+
+          {/* Steps */}
           {items.map((item, index) => (
-            <div key={index} className="flex flex-col items-center gap-[20px]">
-              <div className="w-[120px] h-[120px] bg-[#D9D9D9] rounded-full" />
-              <div className="w-[12px] h-[12px] bg-[#2B68C3] rounded-full" />
-              <p className="w-[139.35px] h-[31px] font-['Space_Grotesk',_sans-serif] font-bold text-[24px] text-black text-center">
+            <div key={index} className="flex flex-col items-center justify-start z-10 relative">
+              {/* Circle Container */}
+              <div className="relative flex flex-col items-center">
+                {/* Large Grey Circle */}
+                <div className="w-20 h-20 md:w-[120px] md:h-[120px] bg-[#D9D9D9] rounded-full mb-4 md:mb-6" />
+
+                {/* Blue Dot */}
+                <div className="w-3 h-3 bg-[#2B68C3] rounded-full" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-4 font-['Space_Grotesk',_sans-serif] font-bold text-lg md:text-2xl text-black text-center whitespace-nowrap">
                 {item}
               </p>
             </div>
           ))}
         </div>
-
-        {/* Blue gradient animated underline */}
-        <div className="absolute bottom-[55px] left-[60px] right-[60px] h-[2px] bg-[#E5E7EB55] z-0 overflow-hidden">
-          <div
-            style={{
-              height: "100%",
-              width: `${(lineProgress / 5) * 100}%`,
-              background:
-                "linear-gradient(90deg, rgba(43,104,195,1) 50%, rgba(43,104,195,1) 50%, rgba(43,104,195,1) 50%)",
-              transition: "width 0.22s ease"
-            }}
-          />
-        </div>
       </div>
 
-      {/* Mobile/Tablet Layout (Visible below lg/1024px) */}
-      <div className="lg:hidden w-full h-auto flex flex-col items-center justify-center p-6 bg-[#FAFAFA]">
-        <h1 className="font-bold text-center mb-12 font-['Bricolage_Grotesque',_sans-serif] text-[32px] text-[#2B68C3] leading-[120%]">
-          <span className="text-[#2B68C3]">Subscribe to our newsletter</span>
-          <br />
-          <span className="text-[#141414]">
-            to stay in touch with the latest.
-          </span>
-        </h1>
-
-        <div className="overflow-x-auto scrollbar-hide w-full relative">
-          <div className="relative min-w-max px-4 pb-4">
-            {/* Blue Line for Mobile */}
-            <div className="absolute h-[2px] bg-[#E5E7EB55] z-0 top-[102px] left-[56px] right-[56px]">
-              <div
-                style={{
-                  height: "100%",
-                  width: `${(lineProgress / 5) * 100}%`,
-                  background: "linear-gradient(90deg, rgba(43,104,195,1) 50%, rgba(43,104,195,1) 50%, rgba(43,104,195,1) 50%)",
-                  transition: "width 0.22s ease"
-                }}
-              />
-            </div>
-
-            <div className="flex gap-12 z-10 relative">
-              {items.map((item, index) => (
-                <div key={index} className="flex flex-col items-center gap-4 w-20">
-                  <div className="w-20 h-20 bg-[#D9D9D9] rounded-full shrink-0" />
-                  <div className="w-3 h-3 rounded-full shrink-0 bg-[#2B68C3]" />
-                  <p className="text-base font-bold text-center whitespace-nowrap font-['Space_Grotesk',_sans-serif] text-black">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Hide scrollbar */}
+      {/* Mobile Scroll Hint or alternative layout if needed for very small screens? 
+          The above flex layout might get squished on very small screens (320px). 
+          Let's make it scrollable on mobile if it doesn't fit?
+          Or just let it wrap? No, a timeline usually doesn't wrap well.
+          I'll add overflow-x-auto for small screens just in case.
+      */}
       <style>{`
-          .scrollbar-hide::-webkit-scrollbar { display: none; }
-          .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        `}</style>
+          .hide-scrollbar::-webkit-scrollbar { display: none; }
+          .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </div>
   );
 };

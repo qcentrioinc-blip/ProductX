@@ -229,12 +229,12 @@ const HWD = () => {
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
 
   const bottomTextColor = isAI ? "#254D70" : textcolor;
- const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+  const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
 
- 
- 
- 
- 
+
+
+
+
   // const itemVariants = {
   //   hidden: { opacity: 0, y: 20 },
   //   visible: { opacity: 1, y: 0 },
@@ -243,10 +243,10 @@ const HWD = () => {
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
-   <div
-  className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
-  style={{ backgroundColor: topBg }}
->
+      <div
+        className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
+        style={{ backgroundColor: topBg }}
+      >
 
         <div className="w-14 h-14 rounded-full mb-2 overflow-hidden">
           <img
@@ -264,7 +264,7 @@ const HWD = () => {
         >
           {title}
         </h3>
- 
+
         <p className="balance-text font-quicksand" style={{ color: textcolor }}>
           {description}
         </p>
@@ -290,17 +290,17 @@ const HWD = () => {
 
   return (
     <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
-      <div className="max-w-[1360px] w-full">
+      <div className="max-w-7xl w-full">
 
         {/* HEADINGS */}
         {/* HEADINGS */}
         <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
-          
- 
+
+
           <h2
-  className={`text-[#2A2A2A] ${headingFontClass}
+            className={`text-[#2A2A2A] ${headingFontClass}
      text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
->
+          >
 
             {headingContent.title}
           </h2>

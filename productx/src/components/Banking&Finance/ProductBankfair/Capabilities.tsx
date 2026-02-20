@@ -78,7 +78,7 @@ const Capabilities = () => {
                                     style={{
                                         maxWidth: '971px',
                                         minHeight: '290px',
-                                        backgroundColor: '#F5F5F5',
+                                        backgroundColor: '#Fff',
                                         border: '1px solid #E0E0E0'
                                     }}
                                 >
