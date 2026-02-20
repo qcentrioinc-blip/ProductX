@@ -47,8 +47,8 @@ export default function CardsSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-14 flex flex-col items-center">
+    <section className="w-full bg-white py-18">
+      <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center mb-12">
           Complete due diligence platform overview
         </H2>

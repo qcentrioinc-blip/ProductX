@@ -41,11 +41,11 @@ const ProductDetails_4_page = () => {
       <HeroBottomNavbar />
       
       <div id="overview">
-        <CardsSection/>
+        <CardsSection />
       </div>
       <div id="benefits"> <Features /></div>
       <div id="process"><ContentInfo /></div>
-      
+
       <Grid />
       <NewsLetter/>
       <div id="usecases">

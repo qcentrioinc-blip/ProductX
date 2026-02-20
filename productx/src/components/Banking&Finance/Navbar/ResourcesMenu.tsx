@@ -50,7 +50,7 @@ const ResourcesMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenu
         transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
         ${isScrolled
                     ? "w-[96%] max-w-none rounded-xl"
-                    : "w-[90%] max-w-8xl rounded-xl"
+                    : "w-[88%] max-w-8xl rounded-xl"
                 }`}
         >
             <H3>Quisque a sagittis ligula. Nulla facilisi</H3>

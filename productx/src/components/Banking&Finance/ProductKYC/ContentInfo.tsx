@@ -10,7 +10,7 @@ export default function Sec_4() {
         className="hidden xl:block absolute top-0 right-0 h-full z-[50]"
         style={{
           width: "92px",
-          background: "#FFF2AF",
+          // background: "#FFF2AF",
           opacity: 1,
         }}
       ></div> */}
@@ -28,7 +28,7 @@ export default function Sec_4() {
 
           <div
             style={{ borderTop: "0.5px solid #A80040" }}
-            className="w-xl my-8 mt-16"
+            className="w-full max-w-xl my-8 mt-16"
           />
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 max-w-xl gap-x-8 gap-y-4 mb-6 md:mb-8 lg:mb-12">
@@ -60,14 +60,23 @@ export default function Sec_4() {
           </div>
         </div>
 
-        {/* Right image section (desktop only) */}
-        <div className="hidden xl:flex flex-1 w-full items-stretch justify-end mb-6 md:mt-0 relative z-[10]">
+        {/* Image for <1200px (below contact button) */}
+        <div className="xl:hidden mt-10 w-full flex justify-center md:justify-start">
           <img
             src="/ProductDetails4/Sec4_img.png"
             alt="Illustrative"
-            className="w-full h-full object-cover relative z-[10]"
+            className="w-[720px] max-w-full h-auto object-contain md:ml-0"
           />
         </div>
+      </div>
+
+      {/* Right image section (desktop only) */}
+      <div className="hidden xl:block w-1/2 relative">
+        <img
+          src="/ProductDetails4/Sec4_img.png"
+          alt="Illustrative"
+          className="absolute top-20 inset-0 w-full h-auto object-contain"
+        />
       </div>
     </section>
   );
