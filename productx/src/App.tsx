@@ -94,11 +94,11 @@ const App = () => {
 
   const ProductsPage = () => {
     const { productId } = useParams();
-    if (productId === "bankfair") return <ProductsPage1 />;
+    if (productId === "reconciliation") return <ProductsPage1 />;
     // if (productId === "remitree") return <ProductsPage2 />;
     // if (productId === "almanac") return <AML />;
     // if (productId === "pago") return <ProductDetailthree />
-    if (productId === "sherlock") return <ProductDetails_4_page />
+    if (productId === "kyc") return <ProductDetails_4_page />
     // if (productId === "customer-onboarding-solutions") return <Cos_Page />
     // if (productId === "sams") return <Sams_Page />
     // if (productId === "internet-banking-system") return <PDPage9 />

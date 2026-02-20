@@ -10,9 +10,12 @@ const HWD = () => {
   const path = location.pathname;
 
   const isEHR = path.startsWith("/industries/ehr-and-pms");
-  const isBanking = path.startsWith("/industries/banking-and-finance");
+  // const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
   const isAI = location.pathname === "/industries/cloud-finops-ai";
+  const isReconciliation = path.startsWith("/industries/banking-and-finance/products/reconciliation");
+const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
+
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
@@ -53,9 +56,22 @@ const HWD = () => {
       description:
         "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
     },
+
+    reconciliation: {
+  eyebrow: " ",
+  title: " Common Reconciliation Use Cases",
+  description:
+    ""
+},
+kyc: {
+  eyebrow: " ",
+  title: "Real-world use cases",
+  description:
+    ""
+},
     banking: {
       eyebrow: " ",
-      title: "Real-World Use Cases",
+      title: " Common Reconciliation Use Cases",
       description:
         "Discover how banks and financial institutions modernize operations, reduce risk, and optimize costs through cloud and data transformation."
     },
@@ -117,6 +133,94 @@ const HWD = () => {
         ],
       },
     ],
+
+    reconciliation: [
+  {
+    title: "Bank Account Reconciliation",
+    image: "/AIOptimization/Saving.svg",
+    description:
+      "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
+    points: [
+      "Match bank statement transactions against general ledger entries ",
+      "Reconcile multiple ledgers mapped to single bank accounts ",
+      "Identify discrepancies between opening and closing balances ",
+      "Handle high-volume transaction matching with parallel processing ",
+      "Generate exception reports for unmatched items with ageing analysis ",
+    ],
+  },
+  {
+    title: "NOSTRO Message Reconciliation",
+    image: "/AIOptimization/pricetag.svg",
+    description:
+      "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
+    points: [
+      "Match SWIFT MT103, 202, 940, and 950 messages against system references ",
+      "Identify messages sent without source system references ",
+      "Detect duplicate messages sent with same reference numbers ",
+      "Validate critical field values including BIC, Field 20, and Field 21 ",
+      "Escalate pending mismatches to concerned authorities automatically ",
+    ],
+  },
+  {
+    title: "Payment Channel Reconciliation",
+    image: "/AIOptimization/Cloud.svg",
+    description:
+      "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
+    points: [
+      "Reconcile POS and gateway transactions against settlement reports .",
+      "Match collections and disbursements across multiple channels ",
+      "Identify revenue leakage from unidentified discrepancies ",
+      "Link consolidated settlement entries to detailed transaction sets .",
+      "Reduce customer complaints from delayed or incorrect matching ",
+    ],
+  },
+],
+
+kyc: [
+  {
+    title: "Digital KYC transformation",
+    image: "/AIOptimization/Saving.svg",
+    description:
+      "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
+    points: [
+      "Full lifecycle coverage from onboarding to trigger events ",
+      "Integration with front-end, screening, and core systems ",
+      "Approximately 85% straight-through processing achieved ",
+      "Significant automation with minimal manual intervention ",
+      "Used by analysts, compliance officers, and approvers ",
+    ],
+  },
+  {
+    title: " Enterprise due diligence",
+    image: "/AIOptimization/pricetag.svg",
+    description:
+      "Coverage primarily for non-individual entities with complex ownership structures.",
+    points: [
+      "Screening and case management integration throughout .",
+      "Roles across analyst, MLRO, and compliance approvers ",
+      "Automated risk assessment based on configured rules ",
+      "Periodic and trigger event reviews system-managed ",
+      "Consistent execution across all entity types ",
+    ],
+  },
+  {
+    title: "Commodity trading compliance",
+    image: "/AIOptimization/Cloud.svg",
+    description:
+      "Coverage for private limited companies, firms, and other entity types.",
+    points: [
+    " Integration with front-end system for data capture .",
+
+"Connected to leading screening engine providers .",
+
+"Implemented as Software as a Service model .",
+
+"Roles across frontline, compliance, and approvers .",
+
+"Automated data capture reduces manual effort .",
+    ],
+  },
+],
 
     banking: [
       {
@@ -201,31 +305,30 @@ const HWD = () => {
 
 
 
-  let cards;
+  // CARDS
+let cards;
+if (isReconciliation) cards = CARD_CONTENT.reconciliation;
+else if (isKYC) cards = CARD_CONTENT.kyc;
+else if (isAI) cards = CARD_CONTENT.ai;
+else if (isEHR) cards = CARD_CONTENT.ehr;
+else cards = CARD_CONTENT.banking;
 
-  if (isAI) cards = CARD_CONTENT.ai;
-  if (isEHR) cards = CARD_CONTENT.ehr;
-  else if (isBanking) cards = CARD_CONTENT.banking;
-  else cards = CARD_CONTENT.ai; // fallback
+// HEADING
+let headingContent;
+if (isReconciliation) headingContent = HEADING_CONTENT.reconciliation;
+else if (isKYC) headingContent = HEADING_CONTENT.kyc;
+else if (isAI) headingContent = HEADING_CONTENT.ai;
+else if (isEHR) headingContent = HEADING_CONTENT.ehr;
+else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
+else headingContent = HEADING_CONTENT.banking;
 
-
-  let headingContent;
-
-  if (isAI) headingContent = HEADING_CONTENT.ai;
-  else if (isBanking) headingContent = HEADING_CONTENT.banking;
-  else if (isEHR) headingContent = HEADING_CONTENT.ehr;
-  else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
-  else headingContent = HEADING_CONTENT.banking; // fallback
-
-
-
-  let palette;
-  if (isEHR) palette = COLORS.ehr;
-  else if (isBanking) palette = COLORS.banking;
-  else if (isHighTech) palette = COLORS.hightech;
-  else if (isAI) palette = COLORS.ai;
-  else palette = COLORS.banking;
-
+// PALETTE
+let palette;
+if (isReconciliation || isKYC) palette = COLORS.banking;
+else if (isEHR) palette = COLORS.ehr;
+else if (isHighTech) palette = COLORS.hightech;
+else if (isAI) palette = COLORS.ai;
+else palette = COLORS.banking;
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
 
   const bottomTextColor = isAI ? "#254D70" : textcolor;
@@ -259,7 +362,7 @@ const HWD = () => {
 
 
         <h3
-          className={`${headingFontClass} mb-4 text-[16px] md:text-[20px] lg:text-[24px] font-bold`}
+          className={`${headingFontClass} mb-4 text-[16px]  whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}

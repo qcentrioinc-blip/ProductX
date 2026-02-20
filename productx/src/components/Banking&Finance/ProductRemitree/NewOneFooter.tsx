@@ -1,6 +1,7 @@
 import { H2, H4 } from '../../../styles/Typography';
-import { Link } from 'react-router-dom';
-
+ 
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
 // Inline SVGs to avoid loading heavy icon libraries
 const FaXTwitter = ({ className = "" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className={className}><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
@@ -20,11 +21,60 @@ const ArrowRight = ({ className = "" }: { className?: string }) => (
 
 
 const NewOneFooter = () => {
+ const [footerEmail, setFooterEmail] = useState('');
+  const [footerToast, setFooterToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFooterEmailValid = isValidEmail(footerEmail);
 
+  const handleFooterSubmit = () => {
+    if (!isFooterEmailValid) {
+      setFooterToast({ message: 'Please enter a valid email address.', type: 'error' });
+      setTimeout(() => setFooterToast(null), 3500);
+      return;
+    }
+    setFooterToast({ message: "Successfully submitted! We'll be in touch soon.", type: 'success' });
+    setTimeout(() => setFooterToast(null), 3500);
+    setFooterEmail('');
+  };
+  const toastPortal = footerToast ? createPortal(
+  <div
+    className={`fixed bottom-20 right-6 z-[9999] flex items-center gap-3
+      px-5 py-4 rounded-2xl font-quicksand bg-white opacity-100
+      shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+      ${footerToast.type === 'success' ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
+    style={{ minWidth: '300px' }}
+  >
+    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center
+      ${footerToast.type === 'success' ? 'bg-green-100' : 'bg-red-100'}`}>
+      {footerToast.type === 'success' ? (
+        <svg className="w-4 h-4 text-green-600 font-quiksand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+        </svg>
+      ) : (
+        <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      )}
+    </div>
+    <div className="flex-1">
+      <p className={`text-sm font-semibold ${footerToast.type === 'success' ? 'text-green-700' : 'text-red-600'}`}>
+        {footerToast.type === 'success' ? 'Success!' : 'Invalid Email'}
+      </p>
+      <p className="text-xs text-gray-500 mt-0.5">{footerToast.message}</p>
+    </div>
+    <button onClick={() => setFooterToast(null)} className="text-black font-quicksand hover:text-gray-500 ml-2">
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>,
+  document.body
+) : null;
   const products = [
-    { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
+    { label: "Reconciliation", url: "/industries/banking-and-finance/products/reconciliation" },
     // { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
-    { label: "Sherlock", url: "/industries/banking-and-finance/products/sherlock" },
+    { label: "KYC", url: "/industries/banking-and-finance/products/kyc" },
     // { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
     // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
     // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
@@ -34,17 +84,25 @@ const NewOneFooter = () => {
   ];
 
   const quickLinks = [
-    { label: "AboutUs", url: "/industries/banking-and-finance/aboutus" },
-    { label: "Careers", url: "/industries/banking-and-finance/careers" },
+    // { label: "AboutUs", url: "/industries/banking-and-finance/aboutus" },
+    // { label: "Careers", url: "/industries/banking-and-finance/careers" },
 
-    { label: "Blogs", url: "/industries/banking-and-finance/contactform" },
-    { label: "News Letter", url: "/industries/banking-and-finance/contactform" },
-    { label: "White Papers", url: "/industries/banking-and-finance/contactform" },
-    { label: "Events", url: "/industries/banking-and-finance/contactform" },
+    { label: "Blogs", url: "/industries/banking-and-finance" },
+    // { label: "News Letter", url: "/industries/banking-and-finance/contactform" },
+    // { label: "White Papers", url: "/industries/banking-and-finance/contactform" },
+    // { label: "Events", url: "/industries/banking-and-finance/contactform" },
 
-    { label: "Contact", url: "/industries/banking-and-finance/contactform" },
-    { label: "Platform", url: "/platform" },
+    // { label: "Contact", url: "/industries/banking-and-finance/contactform" },
+    // { label: "Platform", url: "/platform" },
     { label: "Market Place", url: "/marketplace" },
+  ];
+
+   const BuiltFor = [
+ 
+
+    { label: "Banks", url: "industries/banking-and-finance/built-for/banks" },
+      { label: "Credit Unions", url: "industries/banking-and-finance/built-for/credit-unions" },
+        { label: "Financial Unions", url: "industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
@@ -53,18 +111,18 @@ const NewOneFooter = () => {
 
   return (
     <div
-      className='lg:relative  lg:h-full'
+      className='lg:relative bg-white h-full '
 
     >
 
-
-      <div className='relative z-50'>
-        <footer className="relative w-full py-20  bg-gray-100 overflow-hidden" id="financeContainer">
-          <div className="max-w-8xl mx-auto px-4 sm:px-8 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 xl:gap-14 relative">
+ {toastPortal}
+      <div className='relative   z-50'>
+        <footer className="relative w-full lg:py-20   overflow-hidden" id="financeContainer">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
+            <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
               {/* Left Section - Newsletter (7 columns) */}
-              <div className="lg:col-span-7 flex flex-col space-y-10 lg:border-r lg:border-black lg:pr-10">
+              <div className="lg:col-span-7 flex flex-col space-y-10 xl:border-r xl:border-black xl:pr-10">
 
                 {/* Star Image */}
                 <div className="w-[80px] h-[80px]">
@@ -74,75 +132,69 @@ const NewOneFooter = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-
+            
                 {/* Newsletter Heading */}
-                <div className="space-y-0">
+                <div className="space-y-0 ">
                   <H2 className='text-[#2B68C3]'>
                     Subscribe to our newsletter
                   </H2>
                 </div>
 
                 {/* Newsletter Form */}
-                <div className="space-y-5 mt-2">
-                  <input
-                    type="email"
-                    placeholder="Enter your mail"
-                    className="w-full max-w-[500px] font-quicksand px-7 py-4 rounded-full border-1 border-black focus:outline-none focus:border-black text-[16px] placeholder:text-black"
-                  />
-                  <Link to="/industries/banking-and-finance">
-                    <button
-                      className="
-                      group
-                      flex items-center justify-center
-                      w-auto h-[44px] sm:h-[48px]
-                      px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
-                      rounded-[8px]
-                      font-quicksand font-bold text-[14px] sm:text-[14px]
-                      bg-[#141414] text-white
-                      transition-all duration-300 ease-in-out
-                      border border-transparent
-                      hover:bg-white hover:text-[#141414]
-                      hover:border-[#010101]
-                      hover:border-t-[1px] hover:border-r-[1px] hover:border-b-[4px] hover:border-l-[1px]
-                      hover:-translate-y-[2px]
-                      shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-                    "
-                    >
-                      SUBMIT
-                      <span className="flex items-center gap-[8px]">
-                        <span
-                          className="
-                          relative flex items-center justify-center
-                          w-[20px] sm:w-[23.5px] h-[20px] sm:h-[23.5px] p-[4px] sm:p-[5px]
-                        "
-                        >
-                          <ArrowUpRight
-                            className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                          />
-                          <ArrowRight
-                            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                          />
-                        </span>
-                      </span>
-                    </button>
-                  </Link>
-                </div>
+                <div className="space-y-5 mt-2 flex gap-4">
+  <input
+    type="email"
+    placeholder="Enter your mail"
+    value={footerEmail}
+    onChange={(e) => setFooterEmail(e.target.value)}
+    onKeyDown={(e) => e.key === 'Enter' && handleFooterSubmit()}
+    className={`w-full max-w-[350px] font-quicksand px-7 py-4 rounded-full border-1 
+      focus:outline-none text-[16px] placeholder:text-black transition-colors duration-300
+      ${isFooterEmailValid 
+        ? 'border-[#2B68C3] focus:border-[#2B68C3]' 
+        : 'border-black focus:border-black'
+      }`}
+  />
+  <button
+    onClick={handleFooterSubmit}
+    className={`
+      group flex items-center justify-center
+      w-auto h-[44px] sm:h-[48px]
+      px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
+      rounded-[8px] font-quicksand font-bold text-[14px]
+      transition-all duration-300 ease-in-out
+      border border-transparent
+      ${isFooterEmailValid
+        ? 'bg-[#2B68C3] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
+        : 'bg-[#141414] text-white hover:bg-white hover:text-[#141414] hover:border-[#010101] hover:border-b-[4px] hover:-translate-y-[2px]'
+      }
+    `}
+  >
+    SUBMIT
+    <span className="flex items-center gap-[8px]">
+      <span className="relative flex items-center justify-center w-[20px] sm:w-[23.5px] h-[20px] sm:h-[23.5px] p-[4px] sm:p-[5px]">
+        <ArrowUpRight className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+        <ArrowRight className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </span>
+    </span>
+  </button>
+</div>
               </div>
 
               {/* Vertical Divider - Moved to border-r on left column */}
 
               {/* Right Section - Products + Quick Links */}
-              <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:gap-x-8 xl:gap-x-16 pl-2 lg:pl-10 gap-y-8 lg:py-10">
+              <div className="lg:col-span-5  grid grid-cols-1 sm:grid-cols-3 lg:gap-x-8 xl:gap-x-6 pl-2 lg:pl-10 gap-y-8 lg:py-10">
 
                 {/* Products */}
                 <div>
                   <H4>Products</H4>
-                  <ul className="space-y-0 font-quicksand">
+                  <ul className="space-y-0 mt-2 font-quicksand">
                     {products.map((item) => (
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer hover:underline transition-colors"
+                          className="text-black text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
@@ -154,8 +206,23 @@ const NewOneFooter = () => {
                 {/* Quick Links */}
                 <div>
                   <H4>Quick Links</H4>
-                  <ul className="space-y-0 font-quicksand">
+                  <ul className="space-y-0 mt-2 font-quicksand">
                     {quickLinks.map((item) => (
+                      <li key={item.label}>
+                        <a
+                          href={item.url}
+                          className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+                        >
+                          • {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div> 
+                  <H4>Built For</H4>
+                  <ul className="space-y-0 mt-2 font-quicksand">
+                    {BuiltFor.map((item) => (
                       <li key={item.label}>
                         <a
                           href={item.url}
@@ -183,7 +250,7 @@ const NewOneFooter = () => {
                     </a>
                   </div>
 
-                  <div className="flex-col md:flex-row flex lg:-ml-6  items-start lg:items-center  lg:gap-8">
+                  <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center  mb-10 lg:gap-8">
                     <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Terms and Conditions
                     </a>

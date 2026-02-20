@@ -70,21 +70,18 @@ const ProductsPage1 = () => {
 
       <div id="blogs"><InsightThought /></div>
 
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+      <div className="hidden lg:block relative">
+        {/* Footer sits at bottom, ContactUS scrolls over it */}
+        <div id="contact-us">
           <ContactUS />
         </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
-          <NewOneFooter />
-        </div>
-
+        <NewOneFooter />
+      </div>
+      
+      {/* MOBILE */}
+      <div className="lg:hidden">
+        <ContactUS />
+        <NewOneFooter />
       </div>
     </div>
   )

@@ -40,10 +40,16 @@ const FaqSection: React.FC = () => {
       cta: "Learn More"
     },
 
-    "/industries/banking-and-finance": {
+    "/industries/banking-and-finance/products/kyc": {
+      heading: "Frequently asked questions",
+      description:
+        "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
+      cta: "Check FAQs"
+    },
+    "/industries/banking-and-finance/products/reconciliation": {
       heading: "Your Queries Answered",
       description:
-        "Explore common questions around security, compliance, and operational efficiency in financial services.",
+        "Find answers to common questions about Conciliare's reconciliation platform, features, implementation, and how it transforms financial operations.",
       cta: "Learn More"
     },
   };
@@ -101,6 +107,45 @@ const FaqSection: React.FC = () => {
       },
     ],
 
+    "/industries/banking-and-finance/products/reconciliation": [
+      {
+        question: "What types of reconciliation does Conciliare support?",
+        answer:
+          "Conciliare supports bank account reconciliation, NOSTRO message reconciliation, SWIFT message matching, payment channel reconciliation, and inter-company transactions. It handles any two-source file matching across various formats and use cases.  ",
+      },
+      {
+        question: " Can Conciliare handle high-volume transaction processing?",
+        answer:
+          "Yes, Conciliare handles peak volumes of up to 30 million transactions. The enterprise version features source table partitioning, metadata partitioning, data compression, and full parallelism based on available CPUs for optimal performance. ",
+      },
+      {
+        question: " What file formats and data sources are supported?",
+        answer:
+          "Conciliare supports Excel, PDFs, CSV files, and proprietary reports. It includes generic built-in parsers for SWIFT, BAI2, MT940, and SAP formats. Custom parsers can be attached through the front end for specialized requirements.  ",
+      },
+      {
+        question: " How does data enrichment improve reconciliation accuracy? ",
+        answer:
+          "Data enrichment extracts critical identifiers from free text fields and derives new values for matching. It supports transaction attribute enrichment and consolidated transaction linking, enabling one-to-many and many-to-many reconciliation scenarios. ",
+      },
+      {
+        question: "  What manual override functions are available for exceptions?",
+        answer:
+          "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks.Users can force match selected open items, undo matches, review provisional matches, approve partial matches, review exceptions, and categorize open items for investigation. All actions are logged in audit trails. ",
+        },
+      {
+        question: "How does case management work for unmatched items?",
+        answer:
+          "The central case repository assigns unmatched items to investigators with built-in roles and workflow. Users update status, perform root cause analysis, and track resolution progress. Cases can be escalated to the concerned authorities automatically. ",
+      },
+      {
+        question: "What security and compliance features are included?",
+        answer:
+          "Conciliare includes maker-checker controls, audit logging of all user actions, password security with minimum length restrictions, account lockout after failed attempts, and domain server integration for user authentication.  ",
+      },
+    ],
+
+
     "/industries/ehr-and-pms": [
       {
         question: "What is Unified Clinicapp??",
@@ -139,19 +184,42 @@ const FaqSection: React.FC = () => {
       },
     ],
 
-    "/industries/banking-and-finance": [
+    "/industries/banking-and-finance/products/kyc": [
       {
-        question: "How does the platform enhance financial security?",
+        question: "What is the difference between CDD and EDD?",
         answer:
-          "We provide enterprise-grade security, fraud detection, and compliance monitoring tailored for financial institutions.",
+          "CDD is standard due diligence for most customers to verify identity and assess risk. EDD is deeper investigation for high-risk customers like PEPs requiring additional documentation and approvals.  ",
       },
       {
-        question: "Does it support regulatory compliance?",
+        question: "How does Diligent help with regulatory compliance?",
         answer:
-          "Yes. Our solution is designed to meet global banking and financial regulatory requirements.",
+          "The platform configures policies to meet local regulations, automates name screening against watchlists, maintains version-controlled audit trails, and ensures consistent execution across all customer segments.  ",
+      },
+       {
+        question: " What customer segments does Diligent support?",
+        answer:
+          "Diligent supports both individual and corporate customers including private limited companies, partnerships, trusts, and complex ownership structures with beneficial ownership identification.    ",
+      },
+       {
+        question: "What integrations are available with Diligent?",
+        answer:
+          "Diligent integrates via APIs with data sources, name screening engines, core banking systems, CRMs, data warehouses, and frontend applications for seamless data flow.    ",
+      },
+       
+       {
+        question: " How does the platform handle beneficial ownership identification?",
+        answer:
+          "The system automatically unwraps complex ownership structures based on configured thresholds, identifies connected parties and UBOs, and screens them against sanctions and watchlists.    ",
+      },
+       {
+        question: "How long does implementation typically take??",
+        answer:
+          "Implementation typically takes three to five months, depending on customer segments, regulatory requirements, and integration complexity with existing systems.  ",
       },
     ],
   };
+
+  
 
    
 

@@ -21,10 +21,10 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     path: `${base}/products/almanac`,
         // },
         {
-            title: "Bankfair",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            title: "Conciliare",
+            desc: "Advanced reconciliation for financial accuracy ",
             img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/bankfair`,
+            path: `${base}/products/reconciliation`,
         },
         // {
         //     title: "Customer Onboarding Solutions",
@@ -63,10 +63,10 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     path: `${base}/products/sams`,
         // },
         {
-            title: "Sherlock",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            title: "KYC & CDD",
+            desc: "Digital due diligence and onboarding automation ",
             img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/sherlock`,
+            path: `${base}/products/kyc`,
         },
     ];
 
@@ -83,9 +83,9 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
                     : "w-[90%] max-w-8xl rounded-xl"
                 }`}
         >
-            <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
+            <H3>Banking and Finance Solutions</H3>
             <P className="text-gray-700 text-lg mt-2 mb-4">
-                Seamless, scalable, and intelligent platforms…
+               Automated compliance and reconciliation platforms for financial institutions
             </P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-2 gap-y-6 gap-x-10">

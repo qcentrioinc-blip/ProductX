@@ -107,7 +107,7 @@ export default function PolicySectionWrapper() {
 
   return (
     <section
-      className="w-full py-12 px-4 transition-colors duration-500"
+      className="w-full py-12 px-10  mt-20 transition-colors duration-500"
       style={{
         backgroundColor: BgColor,
         color: TextColor,

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { H2, H4 } from "../../styles/Typography";
+import {   H3,   P } from "../../styles/Typography";
 
 export default function AuditAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export default function AuditAnimation() {
 
   const textOpacity = useTransform(
     scrollYProgress,
-    [0.4, 0.8],
+    [0.4, 0.6],
     [0, 1]
   );
 
@@ -54,7 +54,7 @@ export default function AuditAnimation() {
       ref={sectionRef}
       className="relative w-full h-[180vh] lg:h-[250vh] bg-white"
     >
-      <div className="sticky top-0 xl:h-screen overflow-hidden">
+      <div className="sticky top-0  xl:h-screen overflow-hidden">
         <div className="relative w-full h-full">
           
           <div className="hidden lg:flex items-center w-full xl:h-full">
@@ -69,11 +69,10 @@ export default function AuditAnimation() {
               style={{ opacity: textOpacity, y: textY }}
               className="absolute bottom-0 xl:bottom-16 right-10 w-[35%]"
             >
-              <H2 className="text-[#2B68C3] font-bold mb-3">Audit</H2>
-              <H4 className="text-[#141414]">
-                Assess your enterprise's digital maturity and AI readiness
-                to create a strategic transform.
-              </H4>
+              <H3 className="text-[#2B68C3] font-bold mb-3">Banking operations and compliance   </H3>
+              <P className="text-[#141414]  max-w-md lg:mb-10 xl:mb-0">
+              Our team includes practitioners from global and regional banks with direct experience in AML, CDD, and financial crime risk management. 
+              </P>
             </motion.div>
           </div>
 
@@ -101,15 +100,14 @@ export default function AuditAnimation() {
                 y: textY,
                 scale: textScale
               }}
-              className="mt-8 mx-auto w-full max-w-[85%] text-center"
+              className="mt-8 px-4 mx-auto w-full max-w-full text-left"
             >
-              <H2 className="text-[#2B68C3] font-bold mb-3">
-                Audit
-              </H2>
-              <H4 className="text-[#141414]">
-                Assess your enterprise's digital maturity and AI readiness
-                to create a strategic transform.
-              </H4>
+              <H3 className="text-[#2B68C3] font-bold mb-3">
+            Banking operations and compliance 
+              </H3>
+              <P className="text-[#141414] mb-10">
+                 Our team includes practitioners from global and regional banks with direct experience in AML, CDD, and financial crime risk management. 
+              </P>
             </motion.div>
           </div>
         </div>
