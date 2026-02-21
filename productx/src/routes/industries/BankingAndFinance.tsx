@@ -1,7 +1,7 @@
 // import Audit from "../../components/Banking&Finance/Audit"
 import Counter from "../../components/Banking&Finance/Counter"
 import HeroSection from "../../components/Banking&Finance/HeroSection"
-import InsightThought from "../../components/Banking&Finance/InsightThought"
+// import InsightThought from "../../components/Banking&Finance/InsightThought"
 import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
 
@@ -59,7 +59,7 @@ const BankingAndFinance = () => {
       {/* <Audit /> */}
       <Process />
       {/* <Testimonial /> */}
-      <InsightThought />
+      {/* <InsightThought /> */}
       {/* <div className="relative">
 
 

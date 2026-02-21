@@ -11,7 +11,7 @@ const HeroSection = () => {
       {/* Background Video */}
       <LazyVideo
         className="absolute inset-0 w-full   h-full object-cover  "
-        src="/Video/BNF.mp4"
+        src="/Video/BNFHero.mp4"
         autoPlay
         muted
         loop

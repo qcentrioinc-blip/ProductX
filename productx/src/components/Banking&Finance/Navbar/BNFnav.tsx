@@ -99,7 +99,7 @@ const BNFNav = () => {
   const navItems = [
     { name: "Products", path: `${base}?scroll=products` },
     { name: "Built for", path: base },
-    { name: "Blogs", path: `${base}/blogs` },
+    // { name: "Blogs", path: `${base}/blogs` },
     // { name: "Resources", path: base },
   ];
 

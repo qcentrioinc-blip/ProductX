@@ -7,8 +7,8 @@ import NewOneFooter from "../ProductRemitree/NewOneFooter"
 // import NewOneFooter from "../Products2/NewOneFooter"
 
 import AllPosts from "./AllPosts"
-import FeaturedCards from "./FeaturedCards"
-import HeroSection from "./HeroSection"
+// import FeaturedCards from "./FeaturedCards"
+// import HeroSection from "./HeroSection"
 
 
 
@@ -16,8 +16,8 @@ const Blogs = () => {
   return (
     <div>
       <BNFNav />
-      <HeroSection />
-      <FeaturedCards />
+      {/* <HeroSection /> */}
+      {/* <FeaturedCards /> */}
       <AllPosts />
      <div className="hidden lg:block relative">
        {/* Footer sits at bottom, ContactUS scrolls over it */}
