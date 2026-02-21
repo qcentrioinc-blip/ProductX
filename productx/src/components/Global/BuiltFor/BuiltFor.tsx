@@ -8,6 +8,7 @@ import GradientCardsSection from "./GradientCards";
 import ImgSec from "./ImgSec";
 import SplitFeature from "./SplitFeature";
 import TextSec from "./TextSec";
+import BnfImg from "./BnfImg";
 
 import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 import AINavbar from "../../AIOptimization/Navbar/AINavbar";
@@ -87,7 +88,7 @@ export const BuiltFor = () => {
   };
 
   const getContactForm = () => {
-    if (pathname.startsWith("/industries/banking-and-finance")) return <ContactUS />;
+    if (pathname.startsWith("/industries/banking-and-finance")) return <div id="contact-us"><ContactUS /></div>;
     if (pathname.startsWith("/industries/high-tech")) return <ContactSecHT />;
     return null;
   };
@@ -106,7 +107,7 @@ export const BuiltFor = () => {
 
       <GradientCardsSection />
       <SplitFeature />
-      <ImgSec />
+      {industry === "banking-and-finance" ? <BnfImg /> : <ImgSec />}
 
       {getInsightandThoughts()}
       {getContactForm()}

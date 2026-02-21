@@ -34,7 +34,7 @@ type Theme = {
 const themes: Record<string, Theme> = {
   "/industries/banking-and-finance/built-for": {
     sectionBg: "#FFF",
-    headingColor: "#254D70",
+    headingColor: "#000",
     paraColor: "#4A4A4A",
     cardGradient: "#fafafa",
     circleColor: "#E0E0E0",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
@@ -132,7 +132,7 @@ const FaqSection: React.FC = () => {
         question: "  What manual override functions are available for exceptions?",
         answer:
           "Customers often achieve rapid ROI within the first month, with significant savings targeted within six weeks.Users can force match selected open items, undo matches, review provisional matches, approve partial matches, review exceptions, and categorize open items for investigation. All actions are logged in audit trails. ",
-        },
+      },
       {
         question: "How does case management work for unmatched items?",
         answer:
@@ -195,23 +195,23 @@ const FaqSection: React.FC = () => {
         answer:
           "The platform configures policies to meet local regulations, automates name screening against watchlists, maintains version-controlled audit trails, and ensures consistent execution across all customer segments.  ",
       },
-       {
+      {
         question: " What customer segments does Diligent support?",
         answer:
           "Diligent supports both individual and corporate customers including private limited companies, partnerships, trusts, and complex ownership structures with beneficial ownership identification.    ",
       },
-       {
+      {
         question: "What integrations are available with Diligent?",
         answer:
           "Diligent integrates via APIs with data sources, name screening engines, core banking systems, CRMs, data warehouses, and frontend applications for seamless data flow.    ",
       },
-       
-       {
+
+      {
         question: " How does the platform handle beneficial ownership identification?",
         answer:
           "The system automatically unwraps complex ownership structures based on configured thresholds, identifies connected parties and UBOs, and screens them against sanctions and watchlists.    ",
       },
-       {
+      {
         question: "How long does implementation typically take??",
         answer:
           "Implementation typically takes three to five months, depending on customer segments, regulatory requirements, and integration complexity with existing systems.  ",
@@ -219,9 +219,9 @@ const FaqSection: React.FC = () => {
     ],
   };
 
-  
 
-   
+
+
 
   const introContent =
     faqIntroByIndustry[pathname] ||
@@ -233,7 +233,8 @@ const FaqSection: React.FC = () => {
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/cloud-finops-ai");
-const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+  const isBnF = pathname.startsWith("/industries/banking-and-finance");
+  const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -259,20 +260,24 @@ const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
               <h3 className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px]`}> FAQ</h3>
             </div>
             <h2
-  className={`mb-4 ${headingFontClass}   text-[24px] md:text-[32px] lg:text-[48px] ${
-    isEHR ? "text-[#008280]" : "text-black"
-  }`}
->
-  {introContent.heading}
-</h2>
+              className={`mb-4 ${headingFontClass}   text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#008280]" : "text-black"
+                }`}
+            >
+              {introContent.heading}
+            </h2>
 
 
             <P className="mb-6 max-w-lg">
               {introContent.description}
             </P>
 
-
-            <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
+            {isBnF ? (
+              <Link to="#contact-us">
+                <ContactUs>{introContent.cta}</ContactUs>
+              </Link>
+            ) : (
+              <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
+            )}
           </div>
 
           <div className="lg:w-1/2 relative z-20">

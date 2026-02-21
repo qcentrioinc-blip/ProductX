@@ -7,11 +7,11 @@ const NewsLetter = () => {
 
   const sectionRef = useRef(null);
   const items = [
-    "Adipiscing",
-    "Adipiscing",
-    "Consecte",
-    "Consecte",
-    "Consecte"
+    { label: "Configure", icon: "/BuiltForBnf/cube.svg" },
+    { label: "Assess", icon: "/BuiltForBnf/access-control.svg" },
+    { label: "Decide", icon: "/BuiltForBnf/quiz-alt.svg" },
+    { label: "Implement", icon: "/BuiltForBnf/master-plan.svg" },
+    { label: "Review", icon: "/BuiltForBnf/quality.svg" }
   ];
 
   useEffect(() => {
@@ -58,11 +58,11 @@ const NewsLetter = () => {
       className="max-w-7xl mx-auto w-full flex flex-col items-center justify-center bg-white py-16 px-4 md:px-8 overflow-hidden"
     >
       <h1 className="w-full font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
-        <span className="text-[#2B68C3]">Subscribe to our newsletter</span>
+        <span className="text-[#2B68C3]">How Diligent automates</span>
         <br />
         <span className="text-[#2B68C3]">to </span>
         <span className="text-[#141414]">
-          stay in touch with the latest.
+          due diligence from start to finish
         </span>
       </h1>
 
@@ -85,7 +85,9 @@ const NewsLetter = () => {
               {/* Circle Container */}
               <div className="relative flex flex-col items-center">
                 {/* Large Grey Circle */}
-                <div className="w-20 h-20 md:w-[120px] md:h-[120px] bg-[#D9D9D9] rounded-full mb-4 md:mb-6" />
+                <div className="w-20 h-20 md:w-[120px] md:h-[120px] bg-white rounded-full mb-4 md:mb-6 overflow-hidden flex items-center justify-center p-4 md:p-7 border-[2px] border-[#D9D9D9] transition-transform hover:scale-105 duration-300">
+                  <img src={item.icon} alt={item.label} className="w-full h-full object-contain drop-shadow-sm opacity-80" />
+                </div>
 
                 {/* Blue Dot */}
                 <div className="w-3 h-3 bg-[#2B68C3] rounded-full" />
@@ -93,19 +95,13 @@ const NewsLetter = () => {
 
               {/* Text */}
               <p className="mt-4 font-['Space_Grotesk',_sans-serif] font-bold text-lg md:text-2xl text-black text-center whitespace-nowrap">
-                {item}
+                {item.label}
               </p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Mobile Scroll Hint or alternative layout if needed for very small screens? 
-          The above flex layout might get squished on very small screens (320px). 
-          Let's make it scrollable on mobile if it doesn't fit?
-          Or just let it wrap? No, a timeline usually doesn't wrap well.
-          I'll add overflow-x-auto for small screens just in case.
-      */}
       <style>{`
           .hide-scrollbar::-webkit-scrollbar { display: none; }
           .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
