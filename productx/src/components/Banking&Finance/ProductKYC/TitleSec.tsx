@@ -239,14 +239,23 @@ export default function HeroSection() {
           }}
         >
           <H1 className="mb-4 text-3xl md:text-5xl font-bold leading-tight">
-            Digital KYC and<br /> CDD platform 
+            Digital KYC and<br /> CDD platform
           </H1>
           <p className="mb-8 text-gray-700 max-w-[500px]">
-            Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments. 
+            Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments.
           </p>
-          <Link to="/industries/banking-and-finance/products/sherlock#contact-us">
-  <ContactUs>Explore Diligent </ContactUs>
-</Link>
+          <Link
+            to="#contact-us"
+            onClick={(e) => {
+              const el = document.getElementById("contact-us");
+              if (el) {
+                e.preventDefault();
+                el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <ContactUs>Explore Diligent </ContactUs>
+          </Link>
         </div>
       </div>
     </section>

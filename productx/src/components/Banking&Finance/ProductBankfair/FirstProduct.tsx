@@ -74,34 +74,34 @@ const FirstProduct = () => {
 Streamline financial reconciliation with automated data matching, straight-through processing, and comprehensive case management for unmatched and discrepant transactions.             </P>
 
             {/* CTA Button */}
-            <Link to="/industries/banking-and-finance/contactform">
-            <button
-              className="cta-button hover:brightness-110"
-              style={{
-                width: '296.5px',
-                height: '48px',
-                gap: '8px',
-                borderRadius: '12px',
-                paddingTop: '12px',
-                paddingRight: '24px',
-                paddingBottom: '12px',
-                paddingLeft: '24px',
-                background: '#FED600',
-                color: '#000000',
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700,
-                fontSize: '13px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Check out Conciliare
-              <ArrowUpRight size={20} strokeWidth={2.5} />
-            </button>
+            <Link to="#contact-us">
+              <button
+                className="cta-button hover:brightness-110"
+                style={{
+                  width: '296.5px',
+                  height: '48px',
+                  gap: '8px',
+                  borderRadius: '12px',
+                  paddingTop: '12px',
+                  paddingRight: '24px',
+                  paddingBottom: '12px',
+                  paddingLeft: '24px',
+                  background: '#FED600',
+                  color: '#000000',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Check out Conciliare
+                <ArrowUpRight size={20} strokeWidth={2.5} />
+              </button>
             </Link>
           </div>
 
