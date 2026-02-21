@@ -48,9 +48,9 @@ const BuiltForMenu = ({
                     : "w-[88%] max-w-8xl rounded-xl"
                 }`}
         >
-            <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
+            <H3>Solutions Built for Financial Institutions</H3>
             <P className="text-gray-700 text-lg mt-2 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Tailored banking platforms for every type of institution 
             </P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-3 gap-y-4 gap-x-1">

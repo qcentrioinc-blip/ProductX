@@ -101,7 +101,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
   "banking-and-finance": {
     banks: {
       headingPrimary: "Tangible outcomes for forward-thinking banking institutions",
-      imageSrc: "/BuiltFor/img2.png",
+      imageSrc: "/BuiltForBnf/bank3rd.webp",
       paragraph: "Measurable improvements in efficiency, compliance, and customer experience across your banking operations.",
       bulletPoints: [
         "Reduced operational costs",
@@ -123,7 +123,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
     },
     "credit-union": {
       headingPrimary: "Real results for growing credit unions everywhere",
-      imageSrc: "/BuiltFor/img2.png",
+      imageSrc: "/BuiltForBnf/credit-3rd.webp",
       paragraph: "Measurable improvements in efficiency, member service, and daily operations for your team, helping you serve members better while reducing manual work.",
       bulletPoints: [
         "Faster member onboarding",
@@ -145,7 +145,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
     },
     "financial-unions": {
       headingPrimary: "Proven results for financial institutions worldwide",
-      imageSrc: "/BuiltFor/img2.png",
+      imageSrc: "/BuiltForBnf/finance3rd.webp",
       paragraph: "Quantifiable improvements in efficiency, compliance, risk management, and operational scale across your entire organization.",
       bulletPoints: [
         "Accelerated digital transformation",
@@ -303,14 +303,14 @@ export default function SplitFeature() {
 
   return (
     <section className={`w-full    ${theme.sectionBg}`}>
-      <div className="max-w-8xl  mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-20 items-center">
 
         {/* LEFT IMAGE */}
         <div className="flex justify-start h-[600px] lg:justify-center xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-full rounded-lg object-fill "
+            className="w-full h-full rounded-lg object-contain"
           />
         </div>
 

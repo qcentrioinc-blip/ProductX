@@ -57,6 +57,7 @@ const CARD_CONFIG: Record<
     banks: {
       bg: "#F2F2F2",
 
+      headingColor: "#000",
       heading: "Key Pain Points",
       cards: [
         { id: 1, title: "Legacy Infrastructure", desc: "Rigid core systems hinder innovation, slow updates, and increase maintenance costs.", image: "/BuiltForBnf/lightbulb-dollar.svg" },
@@ -67,6 +68,7 @@ const CARD_CONFIG: Record<
 
     "credit-union": {
       bg: "#F2F2F2",
+      headingColor: "#000",
       heading: "Key Pain Points",
       cards: [
         { id: 1, title: "Member Expectations", desc: "Members demand digital experiences like large banks provide seamlessly.", image: "/BuiltForBnf/member-list.svg" },
@@ -77,6 +79,7 @@ const CARD_CONFIG: Record<
 
     "financial-unions": {
       bg: "#F2F2F2",
+      headingColor: "#000",
       heading: "Key Pain Points",
       cards: [
         { id: 1, title: "Legacy Modernization", desc: "Outdated core systems limit agility and increase technical debt.", image: "/BuiltForBnf/lightbulb-dollar.svg" },
@@ -160,7 +163,7 @@ export default function Cardcase() {
 
   return (
     <section
-      className="relative w-full py-4 overflow-hidden"
+      className="relative w-full py-12 overflow-hidden"
       style={{ backgroundColor: config.bg }}
     >
       {/* RIGHT-SIDE DIAGONAL IMAGE */}
@@ -176,22 +179,19 @@ export default function Cardcase() {
       </div>
 
       {/* CONTENT WRAPPER */}
-      <div className="relative max-w-8xl mx-10 md:px-10">
-        <h2 className={`mb-10   text-[24px] md:text-[32px] lg:text-[64px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: config.headingColor || "#254D70" }}>{config.heading}</h2>
+      <div className="relative max-w-7xl mx-10 md:px-3 lg:px-5 xl:px-8">
+        <h2 className={`mb-10 text-[24px] md:text-[32px] lg:text-[64px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: config.headingColor || "#254D70" }}>{config.heading}</h2>
 
         {/* CARDS GRID */}
-        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-start">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch w-full justify-start">
           {config.cards.map((card) => (
             <div
               key={card.id}
               style={{
-                width: "100%",
-                maxWidth: "400px",
-                height: "330px",
                 borderRadius: "8px",
                 padding: "30px 20px"
               }}
-              className="bg-white shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white hover:shadow-lg mx-auto xl:mx-0"
+              className="flex-1 min-h-[330px] bg-white shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white hover:shadow-lg w-full"
             >
               {/* Placeholder Circle */}
               <div className="w-16 h-16">

@@ -6,17 +6,9 @@ export default function Sec_4() {
   return (
     <section className="relative w-full xl:h-auto bg-white py-10 overflow-hidden">
       {/* Vertical line (desktop only) */}
-      {/* <div
-        className="hidden xl:block absolute top-0 right-0 h-full z-[50]"
-        style={{
-          width: "92px",
-          // background: "#FFF2AF",
-          opacity: 1,
-        }}
-      ></div> */}
 
       {/* Main content container */}
-<div className="w-full flex flex-col xl:flex-row xl:items-stretch relative z-10">
+      <div className="w-full flex flex-col xl:flex-row xl:items-stretch relative z-10">
         {/* Left text section */}
         <div id="our-process" className="flex-1 w-full flex flex-col justify-center items-center xl:items-start px-6 py-6 md:px-20 xl:mx-10 md:py-8">
           <H2 className="text-[#2B68C3] mb-6 sm:max-w-xl md:max-w-xl">
@@ -35,49 +27,50 @@ export default function Sec_4() {
             <div>
               <H4>Significant cost savings</H4>
               <P className="mt-4">
-                Over fifty percent reduction in KYC processing costs with automated workflows. 
+                Over fifty percent reduction in KYC processing costs with automated workflows.
               </P>
             </div>
             <div>
               <H4> Secure API integrations </H4>
               <P className="mt-4">
-                 Connect with core systems, screening engines, and data sources securely. 
+                Connect with core systems, screening engines, and data sources securely.
               </P>
             </div>
           </div>
 
-          <Link to="/industries/banking-and-finance/products/sherlock#contact-us">
-  <ContactUs>View Platform</ContactUs>
-</Link>
+          <Link
+            to="#contact-us"
+            onClick={(e) => {
+              const el = document.getElementById("contact-us");
+              if (el) {
+                e.preventDefault();
+                el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <ContactUs>View Platform</ContactUs>
+          </Link>
 
           {/* Image for <1200px (below contact button) */}
           <div className="xl:hidden mt-10 w-full flex justify-center md:justify-center">
             <img
-              src="/ProductDetails4/Sec4_img.png"
+              src="/ProductDetails4/Sec4_img.webp"
               alt="Illustrative"
               className="w-[720px] max-w-full h-auto object-contain md:ml-0"
             />
           </div>
         </div>
-
-        {/* Image for <1200px (below contact button) */}
-        <div className="xl:hidden mt-10 w-full flex justify-center md:justify-start">
-          <img
-            src="/ProductDetails4/Sec4_img.png"
-            alt="Illustrative"
-            className="w-[720px] max-w-full h-auto object-contain md:ml-0"
-          />
-        </div>
-      </div>
-
-      {/* Right image section (desktop only) */}
+        {/* Right image section (desktop only) */}
       <div className="hidden xl:block w-1/2 relative">
         <img
-          src="/ProductDetails4/Sec4_img.png"
+          src="/ProductDetails4/Sec4_img(2).webp"
           alt="Illustrative"
-          className="absolute top-20 inset-0 w-full h-auto object-contain"
+          className="absolute inset-0 w-full h-full object-contain"
         />
       </div>
+      </div>
+
+      
     </section>
   );
 }

@@ -71,25 +71,25 @@ const BNFNav = () => {
   };
 
   const industry = "banking-and-finance";
-  const currentIndustry = "Banking & Finance";
+  const currentIndustry = "";
   const industries = [
-    {
-      name: "Banking & Finance",
-      path: "/industries/banking-and-finance",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
+    // {
+    //   name: "Banking & Finance",
+    //   path: "/industries/banking-and-finance",
+    //   img: "/QBnFLogo.svg",
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
     {
       name: "EHR and PMS",
       path: "/industries/ehr-and-pms",
       img: "/QEHRLogo2.svg",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      desc: "The unified platform for clinical and administrative excellence."
     },
     {
       name: "Cloud Finops AI",
       path: "/industries/cloud-finops-ai",
       img: "/QCloudLogo2.svg",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      desc: "Leverage intelligent automation to streamline clinical documentation"
     },
   ];
 
@@ -240,8 +240,8 @@ const BNFNav = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  LOGO
+                <div className=" flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  <img className="h-full w-full" src="/QBnFLogo.svg" alt="Company Logo" />
                 </div>
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
                   <img src="/down.png" className="w-4 h-4" />
@@ -419,8 +419,8 @@ const BNFNav = () => {
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                LOGO
+              <div className="flex justify-center items-center rounded-full text-xs font-semibold">
+                <img className="h-full w-full" src="/QBnFLogo.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>

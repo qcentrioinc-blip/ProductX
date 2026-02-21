@@ -1,7 +1,7 @@
 import BNFNav from "../Navbar/BNFnav"
 
 import HWD from "../HWD"
-import InsightThought from "../InsightThought"
+// import InsightThought from "../InsightThought"
 import FaqSection from "../ProductKYC/FAQ"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
@@ -68,20 +68,22 @@ const ProductsPage1 = () => {
 
       <div id="faq"><FaqSection /></div>
 
-      <div id="blogs"><InsightThought /></div>
+      {/* <div id="blogs"><InsightThought /></div> */}
 
-      <div className="hidden lg:block relative">
-        {/* Footer sits at bottom, ContactUS scrolls over it */}
-        <div id="contact-us">
-          <ContactUS />
+      <div id="contact-us">
+        <div className="hidden lg:block relative">
+          {/* Footer sits at bottom, ContactUS scrolls over it */}
+          <div>
+            <ContactUS />
+          </div>
+          <NewOneFooter />
         </div>
-        <NewOneFooter />
-      </div>
-      
-      {/* MOBILE */}
-      <div className="lg:hidden">
-        <ContactUS />
-        <NewOneFooter />
+
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
     </div>
   )

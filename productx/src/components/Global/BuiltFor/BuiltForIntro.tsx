@@ -161,6 +161,16 @@ export default function BuiltForIntro() {
   if (!content) return null;
 
   const handleContactClick = () => {
+    // Scroll behavior for Banking & Finance to match the #contact-us anchor
+    if (industry === "banking-and-finance") {
+      const el = document.getElementById("contact-us");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+
+    // Default behaviors
     if (style.contactAction === "route" && style.contactRoute) {
       navigate(style.contactRoute);
     } else if (style.contactAction === "drawer") {
@@ -177,8 +187,8 @@ export default function BuiltForIntro() {
       >
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-6xl">
-            
-            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: style.headingColor}}>
+
+            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: style.headingColor }}>
               {content.heading}
             </h2>
 
@@ -189,9 +199,9 @@ export default function BuiltForIntro() {
             <P className={`mb-8 ${style.paraColor}`}>
               {content.para2}
             </P>
-           <button
-  onClick={handleContactClick}
-  className="
+            <button
+              onClick={handleContactClick}
+              className="
     group flex items-center justify-center
     w-auto h-[48px]
     px-[24px] py-[12px]
@@ -201,11 +211,11 @@ export default function BuiltForIntro() {
     shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
     transition-all duration-300
   "
-  style={{
-    backgroundColor: style.buttonBg,
-    color: style.buttonText,
-  }}
->
+              style={{
+                backgroundColor: style.buttonBg,
+                color: style.buttonText,
+              }}
+            >
 
               Get Solutions
               <span className="flex items-center gap-2">

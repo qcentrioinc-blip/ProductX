@@ -7,7 +7,7 @@ import CardsSection from "./CardsSection";
 import Features from "./Features";
 import ContentInfo from "./ContentInfo";
 import Grid from "./Grid";
-import InsightThought from "../InsightThought";
+// import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../Navbar/BNFnav";
@@ -54,7 +54,7 @@ const ProductDetails_4_page = () => {
       <div id="faq">
         <FaqSection />
       </div>
-      <InsightThought />
+      {/* <InsightThought /> */}
      <div className="hidden lg:block relative">
   {/* Footer sits at bottom, ContactUS scrolls over it */}
   <div id="contact-us">

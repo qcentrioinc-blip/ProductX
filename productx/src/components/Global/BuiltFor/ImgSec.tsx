@@ -91,6 +91,12 @@ const EHR_AND_PMS_BG_IMAGES: Record<string, string> = {
   "clinics-and-hospitals": "/BuiltFor/ClinicsContact.webp",
 };
 
+const BANKING_AND_FINANCE_BG_IMAGES: Record<string, string> = {
+  banks: "/BuiltForBnf/Bank.webp",
+  "credit-union": "/BuiltForBnf/credit.webp",
+  "financial-unions": "/BuiltForBnf/financial1.webp",
+};
+
 /* ================= CONTENT (INDUSTRY + BUILT FOR) ================= */
 
 const CONTENT: Record<string, Record<string, Content>> = {
@@ -208,13 +214,20 @@ export default function ImgSec() {
   if (!content) return null;
 
   const getBgImage = () => {
-    if (industry === "cloud-finops-ai" && builtForType) {
-      return CLOUD_FINOPS_BG_IMAGES[builtForType] ?? theme.bgImage;
+    const activeBuiltForType = builtForType ?? defaultBuiltForType;
+
+    if (industry === "cloud-finops-ai" && activeBuiltForType) {
+      return CLOUD_FINOPS_BG_IMAGES[activeBuiltForType] ?? theme.bgImage;
     }
 
-    if (industry === "ehr-and-pms" && builtForType) {
-      return EHR_AND_PMS_BG_IMAGES[builtForType] ?? theme.bgImage;
+    if (industry === "ehr-and-pms" && activeBuiltForType) {
+      return EHR_AND_PMS_BG_IMAGES[activeBuiltForType] ?? theme.bgImage;
     }
+
+    if (industry === "banking-and-finance" && activeBuiltForType) {
+      return BANKING_AND_FINANCE_BG_IMAGES[activeBuiltForType] ?? theme.bgImage;
+    }
+
     return theme.bgImage;
   };
 
@@ -243,14 +256,13 @@ export default function ImgSec() {
           <div className="absolute h-full xl:pt-6 xl:px-6">
             <div className="w-full  ">
               <H2
-  className={`leading-tight mt-10 pl-6 max-w-5xl ${content.headingColor} ${
-    industry === "ehr-and-pms"
-      ? "font-bricolageEHR"
-      : "font-bricolage"
-  }`}
->
-  {content.heroHeading}
-</H2>
+                className={`leading-tight mt-10 pl-6 max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
+                  ? "font-bricolageEHR"
+                  : "font-bricolage"
+                  }`}
+              >
+                {content.heroHeading}
+              </H2>
 
 
             </div>

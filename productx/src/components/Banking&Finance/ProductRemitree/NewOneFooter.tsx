@@ -101,7 +101,7 @@ const NewOneFooter = () => {
  
 
     { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
-      { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-unions" },
+      { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-union" },
         { label: "Financial Unions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
@@ -122,16 +122,16 @@ const NewOneFooter = () => {
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
               {/* Left Section - Newsletter (7 columns) */}
-              <div className="lg:col-span-7 flex flex-col space-y-10 xl:border-r xl:border-black xl:pr-10">
+              <div className="lg:col-span-7 flex flex-col xl:border-r xl:border-black xl:pr-10">
 
                 {/* Star Image */}
-                {/* <div className="w-[80px] h-[80px]">
+                <div className="">
                   <img
-                    src="/BNFFooter/Footer"
-                    alt="Footer Star"
-                    className="w-full h-full object-contain"
+                    src="/QnestLogo.svg"
+                    alt="logo"
+                    className="w-[150px] h-[150px] object-contain"
                   />
-                </div> */}
+                </div> 
             
                 {/* Newsletter Heading */}
                 <div className="space-y-0 ">

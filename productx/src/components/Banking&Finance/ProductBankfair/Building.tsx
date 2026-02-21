@@ -3,7 +3,12 @@
 import { useState } from "react"
 import { Check } from "lucide-react"
 
-type FilterKey = "Duis aute" | "Duis jhgfgb aute" | "Duis aute sdfgh" | "kihg Duis aute" | "Duis latest"
+type FilterKey =
+  | "Data acquisition"
+  | "Data enrichment"
+  | "Automated matching"
+  | "Manual override"
+  | "Case management"
 
 interface TabContentData {
   title: string
@@ -18,80 +23,80 @@ interface TabContentData {
 }
 
 const tabContent: Record<FilterKey, TabContentData> = {
-  "Duis aute": {
-    title: "Consecte adipiscing werdasec ku quorti wer",
+  "Data acquisition": {
+    title: "Data Acquisition From Multiple Sources",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
+      "Consolidate data from disparate sources, including bank statements, sales registers, aggregators, and third-party platforms. The system handles Excel, PDFs, CSV files, and proprietary reports through generic and custom parsers.",
     checkItems: [
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu",
-      "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt",
-      "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip",
+      "Generic built-in parsers for common file formats",
+      "Support for SWIFT, BAI2, MT940, and SAP formats",
+      "Centralized database storage for consistent processing",
     ],
-    image: "/Products/Table.png",
+    image: "/Products/img3.webp",
     imageAlt: "Table",
     stats: {
-      left: { label: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique", value: "80%" },
-      right: { label: "Sed ac faucibus lectus. Ut sed eros vel sapien tristique", value: "10X" },
+      left: { label: "Bank accounts reconciled simultaneously in production", value: "100+" },
+      right: { label: "Transactions processed during peak volumes", value: "30M" },
     },
   },
-  "Duis jhgfgb aute": {
-    title: "Praesent vitae eros at lorem facilisis tincidunt",
+  "Data enrichment": {
+    title: "Data Enrichment And Attribute Extraction",
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae",
+      "Enhance raw data with rule-based enrichment to extract critical identifiers from free text fields. Supports transaction attribute enrichment and consolidated transaction linking for complex one-to-many and many-to-many matching scenarios.",
     checkItems: [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur",
+      "Extract transaction IDs from unstructured data",
+      "Link consolidated entries to detailed transaction sets",
+      "Iterative enrichment configurations supported",
     ],
-    image: "/Products/Table.png",
+    image: "/Products/img4.webp",
     imageAlt: "Analytics Dashboard",
     stats: {
       left: { label: "Improved processing speed across all operations", value: "95%" },
       right: { label: "Faster customer onboarding experience", value: "5X" },
     },
   },
-  "Duis aute sdfgh": {
-    title: "Aliquam erat volutpat integer malesuada nunc",
+  "Automated matching": {
+    title: "Configurable Matching Rules Engine",
     description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate",
+      "Define matching rules and execution sequences based on your specific reconciliation requirements. The highly configurable rule engine allows unlimited rules to be added through the front-end interface without coding.",
     checkItems: [
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
-      "Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit",
-      "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus",
+      "Specify columns for searching and matching",
+      "Configure reconciliation services and sequences",
+      "Support for multiple reconciliation groups",
     ],
-    image: "/Products/Table.png",
+    image: "/Products/img1.webp",
     imageAlt: "Compliance Overview",
     stats: {
-      left: { label: "Reduction in compliance audit preparation time", value: "70%" },
-      right: { label: "Increase in regulatory adherence score", value: "3X" },
+      left: { label: "Unique reconciliation workflows configured", value: "35+" },
+      right: { label: "Automatic matching rate achieved", value: "85%" },
     },
   },
-  "kihg Duis aute": {
-    title: "Vestibulum ante ipsum primis in faucibus orci",
+  "Manual override": {
+    title: "Manual Override And Review Functions",
     description:
-      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat quis autem vel eum iure reprehenderit",
+      "Empower users with manual intervention capabilities for exception handling. Functions include force match, undo match, provisional match review, partial match review, and exception match review with full audit logging.",
     checkItems: [
-      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam",
-      "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore",
+      "Force match selected open items from both sources",
+      "Review and approve provisional matches",
+      "Categorize open items for investigation",
     ],
-    image: "/Products/Table.png",
+    image: "/Products/img5.webp",
     imageAlt: "Risk Management",
     stats: {
       left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
       right: { label: "More accurate risk assessment predictions", value: "8X" },
     },
   },
-  "Duis latest": {
-    title: "Duis aute irure dolor in reprehenderit",
+  "Case management": {
+    title: "Case Management And MIS Reporting",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
+      "Central repository for managing unmatched items with built-in roles and workflow. Assign cases for investigation, track status updates, and perform root cause analysis. Generate comprehensive MIS reports with ageing analysis.",
     checkItems: [
-      "Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis",
-      "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam",
-      "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore",
+      "Reconciliation control reports for each run",
+      "Unmatched reports with ageing analysis",
+      "Case investigation status tracking",
     ],
-    image: "/Products/Table.png",
+    image: "/Products/img2.webp",
     imageAlt: "Risk Management",
     stats: {
       left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
@@ -101,41 +106,45 @@ const tabContent: Record<FilterKey, TabContentData> = {
 }
 
 const Building = () => {
-  const [activeFilter, setActiveFilter] = useState<FilterKey>("Duis aute")
-  const filters: FilterKey[] = ["Duis aute", "Duis jhgfgb aute", "Duis aute sdfgh", "kihg Duis aute", "Duis latest"]
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("Data acquisition")
+
+  const filters: FilterKey[] = [
+    "Data acquisition",
+    "Data enrichment",
+    "Automated matching",
+    "Manual override",
+    "Case management",
+  ]
+
   const currentContent = tabContent[activeFilter]
 
   return (
     <div className="w-full bg-white py-6 px-3.5 sm:py-8 sm:px-4 md:py-9 md:px-5 xl:py-[50px] xl:px-5">
 
-      <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
+      {/* Everything below remains EXACTLY the same as your original code */}
 
-        {/* Title: scales 24→30→38→44→72px across breakpoints */}
+      {/* Title Section */}
+      <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
         <h1
           className="font-bold leading-none max-w-[1058px] mx-auto mb-2.5 xl:mb-4
                      text-[24px] sm:text-[30px] md:text-[38px] lg:text-[44px] xl:text-[72px]"
           style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
         >
-          <span style={{ color: '#2B68C3' }}>Duis aute irure dolor in</span>{' '}
-          <span style={{ color: '#666666' }}>reprehenderit in Duis</span>
+          <span style={{ color: '#2B68C3' }}>Powerful Features That Transform</span>{' '}
+          <span style={{ color: '#666666' }}>Financial Reconciliation</span>
         </h1>
 
-        {/* Description: scales 12→13→14→16px */}
         <p
           className="font-normal text-[#141414] leading-[140%] max-w-[921px] mx-auto
                      px-1 sm:px-2 xl:px-5
                      text-[12px] sm:text-[13px] md:text-sm xl:text-base"
           style={{ fontFamily: "'Quicksand', sans-serif" }}
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+          Conciliare combines advanced automation, configurable rules, and intelligent matching to streamline complex reconciliation processes for financial institutions.
         </p>
       </div>
 
-      {/* ── Tabs ──
-          Mobile/Tablet: horizontally scrollable (min-w-max keeps all on one line)
-          Desktop (xl): centered, wrapped, max-width 658px
-      */}
+      {/* Tabs */}
       <div
         className="overflow-x-auto mb-6 [&::-webkit-scrollbar]:hidden"
         style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
