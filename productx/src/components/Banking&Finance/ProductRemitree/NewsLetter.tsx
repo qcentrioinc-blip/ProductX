@@ -7,11 +7,11 @@ const NewsLetter = () => {
 
   const sectionRef = useRef(null);
   const items = [
-    "Adipiscing",
-    "Adipiscing",
-    "Consecte",
-    "Consecte",
-    "Consecte"
+    "Configure ",
+    "Assess ",
+    "Decide ",
+    "Review ",
+    "Conclude"
   ];
 
   useEffect(() => {
@@ -58,11 +58,11 @@ const NewsLetter = () => {
       className="max-w-7xl mx-auto w-full flex flex-col items-center justify-center bg-white py-16 px-4 md:px-8 overflow-hidden"
     >
       <h1 className="w-full font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
-        <span className="text-[#2B68C3]">Subscribe to our newsletter</span>
+        <span className="text-[#2B68C3]">How Diligent automates due </span>
         <br />
-        <span className="text-[#2B68C3]">to </span>
+        
         <span className="text-[#141414]">
-          stay in touch with the latest.
+          diligence from start to finish
         </span>
       </h1>
 

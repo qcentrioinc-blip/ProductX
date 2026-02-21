@@ -16,9 +16,9 @@ const FirstProduct = () => {
   });
 
   return (
-    <div className="w-full min-h-screen relative overflow-hidden">
+    <div className="w-full min-h-screen bg-[#307BD6] relative overflow-hidden">
       {/* Background Image - Draxora1 */}
-      <div
+      {/* <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(/Products/Draxora1.png)`,
@@ -26,7 +26,12 @@ const FirstProduct = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
-      />
+      /> */}
+      {/* Top Right Blur Circle */}
+<div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
+
+{/* Bottom Left Blur Circle */}
+<div className="absolute bottom-[-200px] left-[-200px] w-[700px] h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
 
       <div className="relative lg:pt-44 z-10 px-4 sm:px-6 lg:px-8 py-16">
         <div className="relative flex flex-col items-center justify-center min-h-screen">
@@ -40,7 +45,7 @@ const FirstProduct = () => {
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 border-2 border-white"></div>
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
             </div>
-            <P>
+            <P className='text-white'>
               Trusted by 15K+
             </P>
           </div>
@@ -60,14 +65,13 @@ const FirstProduct = () => {
             {/* Main Heading */}
             <H1 className='text-white sm:text-center'>
               
-              Smarter Banking, Simplified
+              Automate reconciliation for accuracy 
             </H1>
 
             {/* Subtitle */}
-            <P className='text-white'>
+            <P className='text-white text-center max-w-3xl  mb-2'>
 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt cupidatat non proident, sunt in culpa qui officia deserunt.
-            </P>
+Streamline financial reconciliation with automated data matching, straight-through processing, and comprehensive case management for unmatched and discrepant transactions.             </P>
 
             {/* CTA Button */}
             <Link to="/industries/banking-and-finance/contactform">
@@ -95,7 +99,7 @@ const FirstProduct = () => {
                 transition: 'all 0.3s ease'
               }}
             >
-              EXPLORE OUR SOLUTIONS
+              Check out Conciliare
               <ArrowUpRight size={20} strokeWidth={2.5} />
             </button>
             </Link>
@@ -108,7 +112,7 @@ const FirstProduct = () => {
             style={{ perspective: '1200px' }}
           >
             {/* CircleLight Background Image */}
-            <img
+            {/* <img
               src="/Products/CircleLight.png"
               alt="Circle Light"
               className="absolute circle-light"
@@ -122,7 +126,7 @@ const FirstProduct = () => {
                 zIndex: 0,
                 opacity: 0.8
               }}
-            />
+            /> */}
 
             {/* Dashboard Image with Animation */}
             <motion.div
@@ -151,16 +155,16 @@ const FirstProduct = () => {
               }}
             >
               <img
-                src="https://framerusercontent.com/images/kH2dYUYz6bTbR4cjVTdgUbxd3jk.png?width=2400&height=1350"
+                src="/HeroImg.webp"
                 alt="Banking Dashboard Interface"
-                className="w-full h-auto rounded-2xl shadow-2xl"
-                style={{
-                  display: 'block',
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(255,255,255,0.1)'
-                }}
+                className="w-full h-auto"
+                // style={{
+                //   display: 'block',
+                //   width: '100%',
+                //   height: 'auto',
+                //   borderRadius: '16px',
+                //   border: '1px solid rgba(255,255,255,0.1)'
+                // }}
               />
             </motion.div>
           </div>
