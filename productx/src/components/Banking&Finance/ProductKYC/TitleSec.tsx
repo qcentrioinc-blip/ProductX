@@ -93,11 +93,11 @@ export default function HeroSection() {
             overflow: 'hidden'
           }}
         >
-          <img
+          {/* <img
             src="/ProductPage9/shape.png"
             alt="Decorative shape"
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
       )}
 
@@ -153,7 +153,7 @@ export default function HeroSection() {
 
         {/* Main Image with Futuristic Animation */}
         <img
-          src="/ProductDetails4/Title_img.png"
+          src="/ProductDetails4/Title_img.webp"
           alt="Sales Report Overview"
           className={`w-full h-auto object-contain absolute top-1/2 left-1/2 z-10 
             ${hasEntered ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-95 blur-md'}`}

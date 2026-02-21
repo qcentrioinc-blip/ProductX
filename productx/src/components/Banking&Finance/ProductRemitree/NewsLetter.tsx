@@ -60,7 +60,7 @@ const NewsLetter = () => {
       <h1 className="w-full font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
         <span className="text-[#2B68C3]">How Diligent automates</span>
         <br />
-        <span className="text-[#2B68C3]">to </span>
+        
         <span className="text-[#141414]">
           due diligence from start to finish
         </span>

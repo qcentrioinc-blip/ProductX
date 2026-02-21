@@ -33,16 +33,19 @@ export default function CardsSection() {
       title: "Zero code policy configuration engine",
       description:
         "Configure all due diligence parameters on the go without vendor support.",
+      icon: "/ProductDetails4/icon1.svg",
     },
     {
-      title: " Full client lifecycle coverage",
+      title: "Full client lifecycle coverage",
       description:
         "Manage onboarding, periodic reviews, and trigger events seamlessly.",
+      icon: "/ProductDetails4/icon2.svg",
     },
     {
-      title: "Seamless API integrations ",
+      title: "Seamless API integrations",
       description:
-        "Connect with data sources, screening engines, and core systems. ",
+        "Connect with data sources, screening engines, and core systems.",
+      icon: "/ProductDetails4/icon3.svg",
     },
   ];
 
@@ -58,17 +61,26 @@ export default function CardsSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-80px" }}
+          viewport={{ once: true, margin: "-80px" }}
         >
           {cards.map((card, i) => (
             <motion.div
               key={i}
               variants={cardVariants}
-              className="border border-gray-300 rounded-lg flex flex-col p-6 sm:p-4 h-full"
+              className="group border border-gray-200 rounded-xl flex flex-col p-6 h-full transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-[#D8D8D8] rounded-full mb-4" />
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                <img
+                  src={card.icon}
+                  alt={card.title}
+                  className="w-12 h-12 object-contain"
+                />
+              </div>
+
               <H4 className="mt-2">{card.title}</H4>
-              <P className="text-gray-800 mt-2">
+
+              <P className="text-gray-800 mt-3">
                 {card.description}
               </P>
             </motion.div>

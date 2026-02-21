@@ -1,136 +1,124 @@
 import { H2, H3, P } from "../../../styles/Typography";
 
+const FEATURES = [
+  {
+    icon: "/icon6.svg",
+    text: "Automate matching ",
+  },
+  {
+    icon: "/icon5.svg",
+    text: "Reduce errors ",
+  },
+  {
+    icon: "/icon4.svg",
+    text: "Ensure compliance ",
+  },
+];
+
+const CARDS = [
+  {
+    number: "01",
+    title: "Overview",
+    description:
+      "Conciliare automates reconciliation by consolidating data from multiple sources including bank statements, sales registers, and third-party platforms. It handles various formats like Excel, PDFs, CSV, and proprietary reports.  The platform transforms disparate data into structured, matchable information for accurate and efficient reconciliation across your organization. ",
+  },
+  {
+    number: "02",
+    title: "Features",
+    description:
+      "The platform offers data acquisition, enrichment, and reconciliation services with configurable matching rules. It supports manual override functions, including force match, undo match, and exception review. Case management tools enable collaborative investigation and resolution of unmatched items.  Audit logging captures all user actions for complete transparency and compliance. ",
+  },
+  {
+    number: "03",
+    title: "Benefits",
+    description:
+      "Organizations achieve high automatic matching rates and straight-through processing with reduced operational overhead. The platform minimizes manual errors, accelerates monthly closing cycles, and provides comprehensive audit trails. This ensures regulatory compliance while freeing staff from tedious spreadsheet-based reconciliation tasks.  Customer satisfaction improves through accurate and timely transaction processing. ",
+  },
+  {
+    number: "04",
+    title: "Capabilities",
+    description:
+      "Conciliare handles NOSTRO message reconciliation, SWIFT message matching, and bank account reconciliation across multiple ledgers. It supports transaction attribute enrichment and consolidated transaction linking.  The system scales from standard to enterprise versions with advanced parallelism, aggressive scheduling, and automated data purging for optimal performance with high transaction volumes. ",
+  },
+];
+
 const Capabilities = () => {
-    return (
-        <>
-            <div
-                className="relative min-h-screen"
-                style={{
-                    // backgroundImage: "url('/Products/CapabilityBackground.png')",
-                    backgroundPosition: "bottom",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat"
-                }}
-            >   
-                <div className="max-w-8xl xl:mx-10 mx-4 py-20 px-4">
-                    {/* Desktop: Side by Side | Mobile: Stacked */}
-                    <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
-                        
-                        {/* Left Column - Sticky on Desktop Only */}
-                        <div className="xl:sticky xl:top-20 xl:h-fit">
-                            <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
-                                
-                                {/* Title - Responsive Font Size */}
-                                <H2
-                                    
-                                >
-                                    <div style={{ color: '#2B68C3' }}>
-                                        Consecte 
-                                    </div>
-                                    <div style={{ color: 'gray' }}>
-                                        Con secte adipi
-                                    </div>
-                                </H2>
+  return (
+    <div className="relative min-h-screen">
+      <div className="max-w-8xl xl:mx-10 mx-4 py-20 px-4">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
 
-                                {/* Description - Responsive Font */}
-                                <P
-                                    
-                                >
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </P>
+          {/* ================= LEFT COLUMN ================= */}
+          <div className="xl:sticky xl:top-20 xl:h-fit">
+            <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
 
-                                {/* List Items - Responsive Icons & Text */}
-                                <div className="flex flex-col gap-3 lg:gap-4">
-                                    {[1, 2, 3].map((item) => (
-                                        <div key={item} className="flex items-center gap-3">
-                                            <div
-                                                className="rounded-full bg-gray-300 flex-shrink-0"
-                                                style={{
-                                                    width: 'clamp(28px, 4vw, 34px)',
-                                                    height: 'clamp(28px, 4vw, 34px)'
-                                                }}
-                                            />
-                                            <P
-                                                className="leading-[100%]"
-                                                
-                                            >
-                                                Duis aute irure
-                                            </P>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+              <H2>
+                <div className="text-[#2B68C3]">What is</div>
+                <div className="text-gray-500">Conciliare</div>
+              </H2>
 
-                        {/* Right Column - Scrollable Cards */}
-                        <div className="flex flex-col items-end gap-6 w-full">
-                            
-                            {/* Card Component (Repeated 4 times) */}
-                            {[
-                                { number: '01', title: 'Banks' },
-                                { number: '02', title: 'Banks' },
-                                { number: '03', title: 'Banks' },
-                                { number: '04', title: 'Banks' }
-                            ].map((card) => (
-                                <div
-                                    key={card.number}
-                                    className="w-full rounded-2xl p-2 sm:p-4 lg:p-4"
-                                    style={{
-                                        maxWidth: '971px',
-                                        minHeight: '290px',
-                                        backgroundColor: '#Fff',
-                                        border: '1px solid #E0E0E0'
-                                    }}
-                                >
-                                    {/* Desktop Layout: Number + Content Side by Side */}
-                                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                                        
-                                        {/* Card Number - Responsive Size */}
-                                        <div
-                                            className="font-bold flex-shrink-0"
-                                            style={{
-                                                fontFamily: "'Bricolage Grotesque', Arial, sans-serif",
-                                                fontSize: 'clamp(32px, 8vw, 58px)', // Scales 48px to 70px
-                                                lineHeight: '1.1',
-                                                color: 'gray',
-                                            }}
-                                        >
-                                            {card.number}
-                                        </div>
+              <P>
+                Conciliare is Qcentrio's advanced reconciliation platform designed to automate and streamline complex financial reconciliation processes. It transforms how financial institutions match transactions across disparate sources, ensuring accuracy and efficiency.
+              </P>
 
-                                        {/* Card Content */}
-                                        <div className="flex-1">
-                                            <H3 className="text-[#2B68C3] xl:mt-5">
-                                               
-                                                {card.title}
-                                            </H3>
+              {/* ICON LIST */}
+              <div className="flex flex-col gap-4">
+                {FEATURES.map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
 
-                                            {/* Description - NO LEFT MARGIN on Mobile */}
-                                            <p
-                                                className="leading-[150%]"
-                                                style={{
-                                                    fontFamily: "'Quicksand', sans-serif",
-                                                    fontWeight: 400,
-                                                    fontSize: 'clamp(14px, 2vw, 16px)',
-                                                    color: '#3A3A3A',
-                                                    // Only add left margin on large screens
-                                                    marginLeft: window.innerWidth >= 1024 ? '160px' : '0'
-                                                }}
-                                            >
-                                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat
-                                                <br /><br />
-                                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <img
+                        src={item.icon}
+                        alt="feature icon"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                </div>
+
+                    <P className="leading-[120%]">
+                      {item.text}
+                    </P>
+                  </div>
+                ))}
+              </div>
+
             </div>
-        </>
-    );
+          </div>
+
+          {/* ================= RIGHT COLUMN ================= */}
+          <div className="flex flex-col items-end gap-6 w-full">
+            {CARDS.map((card) => (
+              <div
+                key={card.number}
+                className="w-full max-w-[971px] rounded-2xl p-6 bg-white border border-[#E0E0E0]"
+              >
+                <div className="flex flex-col sm:flex-row gap-6">
+
+                  {/* Number */}
+                  <div className="text-[clamp(32px,8vw,58px)] font-bold text-gray-400 flex-shrink-0">
+                    {card.number}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <H3 className="text-[#2B68C3] xl:mt-5">
+                      {card.title}
+                    </H3>
+
+                    <P className="leading-[150%] lg:ml-[160px] text-[#3A3A3A] mt-4">
+                      {card.description}
+                    </P>
+
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Capabilities;

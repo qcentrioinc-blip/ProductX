@@ -54,31 +54,23 @@ export default function Sec_4() {
           {/* Image for <1200px (below contact button) */}
           <div className="xl:hidden mt-10 w-full flex justify-center md:justify-center">
             <img
-              src="/ProductDetails4/Sec4_img.png"
+              src="/ProductDetails4/Sec4_img.webp"
               alt="Illustrative"
               className="w-[720px] max-w-full h-auto object-contain md:ml-0"
             />
           </div>
         </div>
-
-        {/* Image for <1200px (below contact button) */}
-        <div className="xl:hidden mt-10 w-full flex justify-center md:justify-start">
-          <img
-            src="/ProductDetails4/Sec4_img.png"
-            alt="Illustrative"
-            className="w-[720px] max-w-full h-auto object-contain md:ml-0"
-          />
-        </div>
-      </div>
-
-      {/* Right image section (desktop only) */}
+        {/* Right image section (desktop only) */}
       <div className="hidden xl:block w-1/2 relative">
         <img
-          src="/ProductDetails4/Sec4_img.png"
+          src="/ProductDetails4/Sec4_img(2).webp"
           alt="Illustrative"
-          className="absolute top-20 inset-0 w-full h-auto object-contain"
+          className="absolute inset-0 w-full h-full object-contain"
         />
       </div>
+      </div>
+
+      
     </section>
   );
 }

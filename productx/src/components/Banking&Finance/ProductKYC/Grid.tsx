@@ -6,29 +6,29 @@ export default function Sec_Grid() {
       title: "Multi-segment client coverage for individuals and corporates ",
       content:
         "Handle due diligence for retail customers, private limited companies, firms, and complex corporate structures with beneficial ownership identification. ",
-      shape: "/ProductDetails4/gridShape1.png",
-      illustration: "/ProductDetails4/gridShape1.png",
+      shape: "/ProductDetails4/icon4.svg",
+      illustration: "/ProductDetails4/icon4.svg",
     },
     {
       title: "Beneficial ownership identification and unwrapping thresholds",
       content:
         "Automatically identify connected parties and ultimate beneficial owners based on configured thresholds and entity types. ",
-      shape: "/ProductDetails4/gridShape2.png",
-      illustration: "/ProductDetails4/gridShape2.png",
+      shape: "/ProductDetails4/icon5.svg",
+      illustration: "/ProductDetails4/icon5.svg",
     },
     {
       title: "Transaction screening for remittances and trade finance",
       content:
         "Screen inward and outward remittances along with import and export letters of credit and bills. ",
-      shape: "/ProductDetails4/gridShape1.png",
-      illustration: "/ProductDetails4/gridShape1.png",
+      shape: "/ProductDetails4/icon6.svg",
+      illustration: "/ProductDetails4/icon6.svg",
     },
     {
       title: "Always audit ready with version controlled profiles ",
       content:
         "Maintain complete history of KYC profiles across lifecycle with all changes tracked for regulatory examinations. ",
-      shape: "/ProductDetails4/gridShape2.png",
-      illustration: "/ProductDetails4/gridShape2.png",
+      shape: "/ProductDetails4/icon7.svg",
+      illustration: "/ProductDetails4/icon7.svg",
     },
   ];
 
@@ -61,14 +61,18 @@ export default function Sec_Grid() {
     <img
       src={card.shape}
       alt=""
-      className="absolute w-[150px] h-[150px] object-contain -z-10"
+      className="absolute xl:w-[120px] xl:h-[120px]
+    md:w-[100px] md:h-[100px]
+    sm:w-[50px] sm:h-[50px] object-contain -z-10"
     />
 
     {/* Illustration */}
     <img
       src={card.illustration}
       alt=""
-      className="w-[120px] h-[120px] object-contain z-10"
+      className="xl:w-[120px] xl:h-[120px]
+    md:w-[100px] md:h-[100px]
+    sm:w-[50px] sm:h-[50px] object-contain z-10"
     />
   </div>
 
