@@ -243,7 +243,16 @@ export default function InteractiveHeroSection() {
 
   useEffect(() => {
     if (!isHeroVisible.current) return;
-    cardRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const container = scrollContainerRef.current;
+    const card = cardRefs.current[activeIndex];
+
+    // Only scroll the horizontal container on mobile without locking vertical page scroll
+    if (container && card && window.innerWidth < 1280) {
+      const cardRect = card.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const scrollLeft = container.scrollLeft + (cardRect.left - containerRect.left) - (containerRect.width / 2) + (cardRect.width / 2);
+      container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
   }, [activeIndex]);
 
   useEffect(() => {
@@ -263,7 +272,7 @@ export default function InteractiveHeroSection() {
   return (
     <>
       <Navbar />
-      <div className="bg-black overflow-x-hidden font-quicksand">
+      <div className="bg-black flex flex-col font-quicksand overflow-x-clip">
         <div ref={heroRef} className="relative min-h-[100svh] md:min-h-[70svh] xl:min-h-screen flex items-center md:pt-15 xl:py-6">
           <div className="max-w-8xl xl:px-10 w-full">
             <div className="grid grid-cols-1 xl:grid-cols-[60%_1fr_20%] gap-10 xl:gap-8 items-stretch pt-28 md:pt-15 xl:pr-10">
@@ -306,11 +315,11 @@ export default function InteractiveHeroSection() {
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
                   style={{ touchAction: 'auto', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0 snap-x snap-mandatory overscroll-x-contain">
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (
-                      <div key={industry.title} className="flex flex-col items-center snap-center">
+                      <div key={industry.title} className="flex flex-col items-center">
                         <IndustryCard
                           ref={(el) => { cardRefs.current[index] = el; }}
                           title={industry.title}
