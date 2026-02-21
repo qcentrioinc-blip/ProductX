@@ -33,10 +33,10 @@ type Theme = {
 
 const themes: Record<string, Theme> = {
   "/industries/banking-and-finance/built-for": {
-    sectionBg: "#F5FBFF",
+    sectionBg: "#FFF",
     headingColor: "#254D70",
     paraColor: "#4A4A4A",
-    cardGradient: "linear-gradient(135deg, #E9F2FF, #FFEAD2)",
+    cardGradient: "#fafafa",
     circleColor: "#E0E0E0",
   },
   "/industries/ehr-and-pms/built-for": {
