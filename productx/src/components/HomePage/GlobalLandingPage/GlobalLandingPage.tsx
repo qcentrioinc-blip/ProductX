@@ -1,4 +1,7 @@
 import { lazy, Suspense } from "react"
+// import LandingPage1 from "./LandingPage1"
+import CircularCards from "./CircularCards"
+import Navbar from "../../Global/Navbar/Navbar"
 import LandingPage1 from "./LandingPage1"
 import Map from "./Map"
 
@@ -18,7 +21,8 @@ const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
-
+<Navbar/>
+                <CircularCards/>
             <div id="landingpage">
                 <LandingPage1 />
             </div>

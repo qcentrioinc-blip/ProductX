@@ -39,7 +39,7 @@ const NewOneFooter = () => {
   };
   const toastPortal = footerToast ? createPortal(
   <div
-    className={`fixed bottom-20 right-6 z-[9999] flex items-center gap-3
+    className={`fixed bottom-32 left-0 z-[9999] flex items-center gap-3
       px-5 py-4 rounded-2xl font-quicksand bg-white opacity-100
       shadow-[0_8px_32px_rgba(0,0,0,0.25)]
       ${footerToast.type === 'success' ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
@@ -102,7 +102,7 @@ const NewOneFooter = () => {
 
     { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
       { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-union" },
-        { label: "Financial Unions", url: "/industries/banking-and-finance/built-for/financial-unions" },
+        { label: "Financial Institutions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
@@ -270,11 +270,12 @@ const NewOneFooter = () => {
 
           </div>
           {/* Bottom Pattern Image - no extra spacing */}
-          <img
+          {/* <img
             src="/BNFFooter/BottomPattern.png"
             className="w-full h-16  absolute bottom-0 object-cover block"
             alt=""
-          />
+          /> */}
+          
         </footer>
       </div>
 

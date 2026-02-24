@@ -74,8 +74,8 @@ export default function AuditAnimation() {
               {/* <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">
              Our team includes practitioners from global and regional banks with direct experience in AML, CDD, and financial crime risk management. They have led functions at leading MNC banks and dealt with regulators worldwide. 
               </P> */}
-                <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-28">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
-                  {/* <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P> */}
+                <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-4">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
+                  <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-4">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P>
               <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-0"> This deep industry knowledge informs every product we build. When you work with Qnest, you gain access to decades of collective banking experience dedicated to solving your most pressing operational and regulatory challenges.</P>
             </motion.div>
           </div>
@@ -110,7 +110,7 @@ export default function AuditAnimation() {
            Domain experts in managing banking operations and compliance 
               </H3>
      <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
-                  {/* <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P> */}
+                  <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P>
               <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-0"> This deep industry knowledge informs every product we build. When you work with Qnest, you gain access to decades of collective banking experience dedicated to solving your most pressing operational and regulatory challenges.</P>
             </motion.div>
           </div>
