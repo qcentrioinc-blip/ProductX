@@ -14,17 +14,17 @@ const MobileBuiltForDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         {
             title: "Banks",
             desc: "Praesent eget laoreet arcu, nec iaculis ",
-            path: `${base}/built-for`
+            path: `${base}/built-for/banks`
         },
         {
             title: "Credit Unions",
             desc: "Praesent eget laoreet arcu, nec iaculis ",
-            path: `${base}/built-for`
+            path: `${base}/built-for/credit-union`
         },
         {
             title: "Financial Unions",
             desc: "Praesent eget laoreet arcu, nec iaculis ",
-            path: `${base}/built-for`
+            path: `${base}/built-for/financial-unions`
         },
     ];
 

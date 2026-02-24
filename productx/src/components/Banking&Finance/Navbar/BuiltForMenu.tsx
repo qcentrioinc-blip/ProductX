@@ -6,6 +6,7 @@ interface BuiltForMenuProps {
     showTopBar: boolean;
     handleKeepOpen: () => void;
     handleCloseMenus: () => void;
+    onLinkClick?: () => void;
 }
 
 const BuiltForMenu = ({
@@ -13,6 +14,7 @@ const BuiltForMenu = ({
     showTopBar,
     handleKeepOpen,
     handleCloseMenus,
+    onLinkClick,
 }: BuiltForMenuProps) => {
     const industry = "banking-and-finance";
     const base = `/industries/${industry}`;
@@ -50,7 +52,7 @@ const BuiltForMenu = ({
         >
             <H3>Solutions Built for Financial Institutions</H3>
             <P className="text-gray-700 text-lg mt-2 mb-4">
-                Tailored banking platforms for every type of institution 
+                Tailored banking platforms for every type of institution
             </P>
             <hr className="border-gray-300 h-1 mb-8" />
             <div className="grid grid-cols-3 gap-y-4 gap-x-1">
@@ -58,6 +60,7 @@ const BuiltForMenu = ({
                     <Link
                         key={index}
                         to={item.path}
+                        onClick={onLinkClick}
                         className="block cursor-pointer pointer-events-auto hover:bg-gray-100 p-2 rounded-lg transition-colors"
                     >
                         <h3 className="text-lg font-quicksand font-bold text-gray-900 mb-1">{item.title}</h3>
