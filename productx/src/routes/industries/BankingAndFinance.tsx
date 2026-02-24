@@ -51,7 +51,7 @@ const BankingAndFinance = () => {
       <BNFNav />
       <HeroSection />
       <Intro />
-      <TwoProducts/>
+      <TwoProducts />
       {/* <Products /> */}
       <WhatWeDoIn />
       <Counter />
@@ -77,22 +77,21 @@ const BankingAndFinance = () => {
         </div>
 
       </div> */}
-    {/* DESKTOP */}
-<div className="hidden lg:block relative">
-  {/* Footer sits at bottom, ContactUS scrolls over it */}
-  <div id="contact-us">
-    <ContactUS />
-  </div>
-  <NewOneFooter />
-</div>
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
 
-{/* MOBILE */}
-<div className="lg:hidden">
-  <ContactUS />
-  <NewOneFooter />
-</div>
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
 
- 
+
 
     </>
   )

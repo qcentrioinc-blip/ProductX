@@ -12,10 +12,9 @@ import ProductNotFound from './components/ProductNotFound';
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
-
+import BankingAndFinance from './routes/industries/BankingAndFinance'
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
-const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));

@@ -33,17 +33,17 @@ const Intro = () => {
             <span className="text-[#2B68C3]">Complete banking technology stack </span>{' '}
             <span className="text-[#666666]">for modern institutions</span>
           </H2>
-          </div>
+        </div>
 
-          {/* First Paragraph */}
-          <div className="max-w-4xl xl:pr-20">
+        {/* First Paragraph */}
+        <div className="max-w-4xl xl:pr-20">
           <p className="text-sm sm:text-base md:text-lg text-[#141414] mb-4 md:mb-6  leading-relaxed ">
-        Qnest Banking & Finance is our comprehensive suite of solutions built for financial institutions worldwide. We combine core banking, loan management, payments, compliance, and lending products into one integrated technology ecosystem. Our platforms are designed by industry practitioners with direct experience in managing AML operations and financial crime risk. 
+            Qnest Banking & Finance is our comprehensive suite of solutions built for financial institutions worldwide. We combine core banking, loan management, payments, compliance, and lending products into one integrated technology ecosystem. Our platforms are designed by industry practitioners with direct experience in managing AML operations and financial crime risk.
           </p>
 
           {/* Second Paragraph */}
           <p className="text-sm sm:text-base md:text-lg text-[#141414] mb-8 md:mb-10 leading-relaxed  ">
-            We offer specialized products including Bankfair for core banking, PAGO for payments, Sherlock for AML compliance, and Remitree for cross-border remittances. Each solution addresses specific operational challenges while integrating seamlessly with your existing infrastructure. This complete stack helps institutions digitize processes, automate compliance, and scale operations efficiently. 
+            We offer specialized products including Bankfair for core banking, PAGO for payments, Sherlock for AML compliance, and Remitree for cross-border remittances. Each solution addresses specific operational challenges while integrating seamlessly with your existing infrastructure. This complete stack helps institutions digitize processes, automate compliance, and scale operations efficiently.
           </p>
 
           {/* Contact Button */}

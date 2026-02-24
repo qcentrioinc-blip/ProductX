@@ -19,9 +19,9 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         // },
         {
             title: "Conciliare",
-            desc: "Advanced reconciliation for financial accuracy ",
+            desc: "Advanced reconciliation for financial accuracy",
             img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/Conciliare`,
+            path: `${base}/products/conciliare`,
         },
         // {
         //     title: "Customer Onboarding Solutions",
@@ -61,9 +61,9 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         // },
         {
             title: "KYC & CDD",
-            desc: "Digital due diligence and onboarding automation ",
+            desc: "Digital due diligence and onboarding automation",
             img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/KYC & CDD`,
+            path: `${base}/products/kyc`,
         },
     ];
 

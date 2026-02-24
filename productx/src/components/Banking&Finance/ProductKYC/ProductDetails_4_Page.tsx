@@ -39,7 +39,7 @@ const ProductDetails_4_page = () => {
       <BNFNav />
       <TitleSec />
       <HeroBottomNavbar />
-      
+
       <div id="overview">
         <CardsSection />
       </div>
@@ -47,7 +47,7 @@ const ProductDetails_4_page = () => {
       <div id="process"><ContentInfo /></div>
 
       <Grid />
-      <NewsLetter/>
+      <NewsLetter />
       <div id="usecases">
         <HWD />
       </div>
@@ -55,19 +55,19 @@ const ProductDetails_4_page = () => {
         <FaqSection />
       </div>
       {/* <InsightThought /> */}
-     <div className="hidden lg:block relative">
-  {/* Footer sits at bottom, ContactUS scrolls over it */}
-  <div id="contact-us">
-    <ContactUS />
-  </div>
-  <NewOneFooter />
-</div>
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
 
-{/* MOBILE */}
-<div className="lg:hidden">
-  <ContactUS />
-  <NewOneFooter />
-</div>
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
 
     </div>
 
