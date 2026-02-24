@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function ProductNotFound() {
+export default function ProductsCommingSoon() {
   return (
     <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-6 overflow-hidden">
 
@@ -21,7 +21,7 @@ export default function ProductNotFound() {
       font-bricolageEHR
         leading-[120%] text-[#2B68C3]"
           >
-            We couldn’t locate this product.
+            Comming Soon..
           </motion.h1>
 
           <motion.p
@@ -32,8 +32,9 @@ export default function ProductNotFound() {
         font-quicksand
         leading-[120%] max-w-xl"
           >
-            The URL you entered may be incorrect, outdated, or no longer active.
-            You can explore our verified solutions or return to the industry overview.
+            We’re working on something exciting. This product is currently under development and will be available soon.
+
+In the meantime, feel free to explore our existing solutions or return to the previous page.
           </motion.p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-6">

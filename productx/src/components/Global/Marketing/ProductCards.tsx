@@ -1,251 +1,203 @@
-import React, { useState, useRef } from "react";
-import { H4, P } from '../../../styles/Typography'
+"use client";
 
-// Define the structure of a card item
+import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { H4, P } from "../../../styles/Typography";
+
 type CardItem = {
   id: string;
   logo: string;
   title: string;
   tags?: string[];
   description: string;
-  category: string; 
+  category: string;
+  link?: string;
 };
 
 const sampleData: CardItem[] = [
-  // --- Banking and Finance (8 Cards) ---
+  // --- Banking and Finance (2 Products Only) ---
   {
     id: "1",
-    logo: "/MarketPlace/img3.png",
-    title: "AI-Powered Fraud Detection Engine",
+    logo: "QBnFLogo.svg",
+    title: "Conciliare",
     tags: ["AML", "AI", "Security"],
     description:
-      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives across all banking channels.",
+      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
     category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/conciliare",
   },
   {
     id: "2",
-    logo: "/MarketPlace/img4.png",
-    title: "Core Banking Modernization Suite",
-    tags: ["Core", "Cloud", "Integration"],
+    logo: "/kycLogo.png",
+    title: "KYC & CDD",
+    tags: ["Core", "Cloud"],
     description:
-      "A comprehensive toolkit for migrating legacy core systems to a scalable, cloud-native architecture, ensuring zero downtime during transition.",
+      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
     category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/kyc",
   },
   {
     id: "3",
-    logo: "/MarketPlace/img5.png",
-    title: "Digital Account Opening Platform",
-    tags: ["KYC", "Onboarding", "Digital"],
+    logo: "QBnFLogo.svg",
+    title: "Bankfair",
+    tags: ["AML", "AI", "Security"],
     description:
-      "End-to-end customer onboarding via mobile and web, featuring integrated KYC compliance, biometric verification, and instant account activation.",
+      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
     category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
   },
   {
     id: "4",
-    logo: "/MarketPlace/img6.png",
-    title: "Commercial Loan Origination System",
-    tags: ["Lending", "Automation"],
+    logo: "/kycLogo.png",
+    title: "Sherlock",
+    tags: ["Core", "Cloud"],
     description:
-      "Streamlines the underwriting, document management, and approval process for complex commercial lending applications, cutting cycle time by 40%.",
+      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
     category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
   },
   {
     id: "5",
-    logo: "/MarketPlace/img7.png",
-    title: "Regulatory Compliance Tracker (RegTech)",
-    tags: ["Compliance", "RegTech", "Reporting"],
+    logo: "QBnFLogo.svg",
+    title: "Remitree",
+    tags: ["AML", "AI", "Security"],
     description:
-      "Automated tracking and reporting solution for global financial regulations (e.g., Basel, GDPR, MiFID II), reducing manual audit burden.",
+      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
     category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
   },
   {
     id: "6",
-    logo: "/MarketPlace/img8.png",
-    title: "Personalized Wealth Management App",
-    tags: ["Wealth", "FinTech", "Mobile"],
+    logo: "/kycLogo.png",
+    title: "Customer Onboarding Systems",
+    tags: ["Core", "Cloud"],
     description:
-      "Provides tailored investment advice, portfolio simulation tools, and automated rebalancing for retail and high-net-worth clients.",
+      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
     category: "Banking and Finance",
-  },
-  {
+    link: "/industries/:industry/products/commingsoon",
+  },{
     id: "7",
-    logo: "/MarketPlace/img3.png",
-    title: "Payment Gateway Integrator",
-    tags: ["Payments", "API", "Settlement"],
+    logo: "QBnFLogo.svg",
+    title: "PAGO",
+    tags: ["AML", "AI", "Security"],
     description:
-      "A robust API service for connecting domestic and international payment networks, enabling fast and secure fund transfers and settlements.",
+      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
     category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
   },
   {
     id: "8",
-    logo: "/MarketPlace/img4.png",
-    title: "Anti-Money Laundering (AML) Toolkit",
-    tags: ["AML", "Compliance"],
+    logo: "/kycLogo.png",
+    title: "SAMS",
+    tags: ["Core", "Cloud"],
     description:
-      "Manages customer due diligence (CDD) and risk profiling effectively, applying a risk-based approach to potential criminal economic activities.",
+      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
     category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
   },
-  // --- EHR and PMS (8 Cards) ---
+
+  // --- EHR and PMS (1 Product) ---
   {
     id: "9",
-    logo: "/MarketPlace/img5.png",
-    title: "Telehealth Integration Module",
-    tags: ["Telehealth", "Virtual Care"],
-    description:
-      "Adds secure, high-definition video conferencing and remote patient monitoring features directly into existing electronic health record systems.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "10",
-    logo: "/MarketPlace/img6.png",
-    title: "Electronic Health Record (EHR) v2.0",
+    logo: "QBnFLogo.svg",
+    title: "ALMANAC",
     tags: ["EHR", "Interoperability"],
     description:
-      "Next-generation patient record system with advanced interoperability standards and AI-driven diagnostic support for providers.",
+      "Next-generation patient record system with AI-driven diagnostic support.",
     category: "EHR and PMS",
+    link: "/industries/ehr-and-pms",
   },
+
+  // --- Cloud Finops AI (CloudDIET) ---
   {
-    id: "11",
-    logo: "/MarketPlace/img7.png",
-    title: "Integrated Practice Management Suite",
-    tags: ["PMS", "Billing", "Scheduling"],
-    description:
-      "A unified suite handling scheduling, resource allocation, medical billing, claims submission, and financial reporting for clinics.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "12",
-    logo: "/MarketPlace/img8.png",
-    title: "Patient Portal and Engagement Hub",
-    tags: ["Patient", "Engagement", "Mobile"],
-    description:
-      "A secure patient web portal enabling self-service appointment booking, lab result viewing, and direct provider communication.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "13",
-    logo: "/MarketPlace/img5.png",
-    title: "Clinical Decision Support System",
-    tags: ["CDS", "AI", "Clinical"],
-    description:
-      "Provides real-time, evidence-based treatment recommendations and alerts to clinicians at the point of care to improve outcomes.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "14",
-    logo: "/MarketPlace/img6.png",
-    title: "Medical Billing and Coding Optimizer",
-    tags: ["Billing", "Revenue Cycle"],
-    description:
-      "Automatically verifies insurance eligibility and uses smart logic to optimize CPT/ICD coding, ensuring maximum and timely reimbursement.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "15",
-    logo: "/MarketPlace/img7.png",
-    title: "Pharmacy Management Module",
-    tags: ["Pharmacy", "E-Prescribe"],
-    description:
-      "Integrates prescription ordering, drug inventory tracking, and electronic prior authorization workflows for in-house pharmacies.",
-    category: "EHR and PMS",
-  },
-  {
-    id: "16",
-    logo: "/MarketPlace/img8.png",
-    title: "Hospital Bed Management System",
-    tags: ["Hospital", "Operations"],
-    description:
-      "Dynamic visualization and assignment of beds based on patient needs, discharge status, and department capacity to improve flow.",
-    category: "EHR and PMS",
-  },
-  // --- High Tech (8 Cards) ---
-  {
-    id: "17",
-    logo: "/MarketPlace/img3.png",
-    title: "Multi-Cloud Deployment Orchestrator",
-    tags: ["Cloud", "DevOps", "Kubernetes"],
-    description:
-      "A management layer for deploying, scaling, and monitoring containerized applications seamlessly across AWS, GCP, and Azure environments.",
-    category: "High Tech",
-  },
-  {
-    id: "18",
-    logo: "/MarketPlace/img4.png",
-    title: "Edge Computing Data Processor",
-    tags: ["Edge", "IoT", "Processing"],
-    description:
-      "Software solution designed for real-time data analysis and inference on local IoT and edge devices before data is transmitted to the cloud.",
-    category: "High Tech",
-  },
-  {
-    id: "19",
-    logo: "/MarketPlace/img5.png",
-    title: "Enterprise Cybersecurity Dashboard",
-    tags: ["Security", "Threats", "Compliance"],
-    description:
-      "Unified view of threats, vulnerabilities, and security posture across all organizational endpoints and networks with automated alerting.",
-    category: "High Tech",
-  },
-  // --- AI Optimization (8 Cards) ---
-  {
-    id: "25",
-    logo: "/MarketPlace/cloud1.png",
-    title: "AI-Powered Cloud Cost Optimization",
+    id: "10",
+    logo: "QBnFLogo.svg",
+    title: "CloudDIET",
     tags: ["FinOps", "Savings", "Cloud"],
     description:
-      " CloudDIET uses AI to analyze your Azure, AWS, and Google Cloud spend. It identifies savings, eliminates waste, and ensures continuous optimization—with guaranteed ROI and no data access. ",
+      "CloudDIET uses AI to analyze AWS, Azure & GCP spend. Eliminates waste and guarantees ROI.",
     category: "Cloud Finops AI",
+    link: "/industries/cloud-finops-ai",
   },
+
+  // HIGH TECH INDUSTRY COMMENTED OUT
   // {
-  //   id: "26",
-  //   logo: "/MarketPlace/cloud2.png",
-  //   title: "Idle Resource Auto-Cleaner",
-  //   tags: ["Automation", "Cleanup"],
-  //   description:
-  //     "Automatically shuts down orphaned VMs, disks, snapshots, and IPs across AWS, Azure, and GCP.",
-  //   category: "Cloud Finops AI",
+  //   id: "5",
+  //   ...
+  //   category: "High Tech",
   // },
 ];
 
 export const App: React.FC = () => {
-  const categories = ["Banking and Finance", "EHR and PMS", "High Tech", "Cloud Finops AI"];
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [isAnimating, setIsAnimating] = useState(false);
-  
-  const sectionRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
-  const filteredData = sampleData.filter(
-    (item) => item.category === selectedCategory
+  const categories = [
+    "Banking and Finance",
+    "EHR and PMS",
+    "Cloud Finops AI",
+  ];
+
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+  const filteredData = useMemo(
+    () => sampleData.filter((item) => item.category === selectedCategory),
+    [selectedCategory]
   );
 
-  const handleCategoryClick = (category: string) => {
-    if (category !== selectedCategory) {
-      setIsAnimating(true);
-      setSelectedCategory(category);
-      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => setIsAnimating(false), 500);
+  const handleCardClick = (item: CardItem) => {
+    if (item.link) {
+      navigate(item.link);
     }
   };
 
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+
+  const [isScrollUp, setIsScrollUp] = useState(false);
+const lastScrollY = React.useRef(0);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentY = window.scrollY;
+    setIsScrollUp(currentY < lastScrollY.current);
+    lastScrollY.current = currentY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   return (
-    <section ref={sectionRef} className="w-full pb-10 ">
+    <section ref={sectionRef} className="w-full pb-10">
       {/* Category Pills */}
-      <div className="sticky top-[0px] z-30 bg-white py-3 mb-5 shadow-sm backdrop-blur-sm">
-        <div className="flex justify-start sm:justify-center flex-nowrap sm:flex-wrap gap-x-4 sm:gap-x-8 lg:gap-x-[45px] overflow-x-auto sm:overflow-x-visible px-4 sm:px-0 scroll-smooth ">
+      <div
+  className={`
+    sticky 
+    ${isScrollUp ? "top-16 lg:top-32" : "top-0 lg:top-16"} 
+    z-40 
+    bg-white 
+    py-3 
+    shadow-sm 
+    transition-all 
+    duration-300
+  `}
+>
+        <div className="flex justify-start sm:justify-center gap-4 py-2 overflow-x-auto px-4 sm:px-0">
           {categories.map((c) => (
             <button
               key={c}
-              onClick={() => handleCategoryClick(c)}
-              className={`
-                flex-shrink-0 
-                px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg lg:px-[24px] lg:py-[16px] lg:text-[24px]
-                rounded-full border border-gray-200 whitespace-nowrap font-medium transition-colors
+              onClick={() => {
+    setSelectedCategory(c);
+    sectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+              className={`px-5 py-4 text-sm sm:text-base rounded-full border transition-all duration-300 whitespace-nowrap
                 ${
                   c === selectedCategory
-                    ? "bg-[#5d8ef0] text-white shadow-xl border-[#8495ae]"
-                    : "bg-white text-gray-700 hover:bg-gray-50"
+                    ? "bg-[#5d8ef0] text-white shadow-md"
+                    : "bg-white text-gray-700 hover:bg-gray-100"
                 }
-                ${isAnimating ? 'pointer-events-none opacity-80' : ''}
               `}
             >
               {c}
@@ -256,92 +208,101 @@ export const App: React.FC = () => {
 
       {/* Cards Grid */}
       <div
-        className={`
-          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 
-          [@media(min-width:1024px)]:grid-cols-2 [@media(min-width:1400px)]:grid-cols-3
-          gap-x-[32px] gap-y-[64px] px-6 sm:px-10 lg:px-[80px] justify-items-center
-          transition-opacity duration-500
-          ${isAnimating ? 'opacity-70' : 'opacity-100'}
-        `}
+        className="
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          lg:grid-cols-3 
+          gap-12 
+          px-6 sm:px-10 lg:px-20 
+          mt-12
+        "
       >
         {filteredData.map((item) => (
-          <article
-            key={item.id + item.category}
-            className={`
-              relative bg-[#F2F2F2] border border-gray-100 rounded-lg p-6 shadow-sm flex flex-col
-              w-[90vw] sm:w-[320px] sm:h-[380px] md:w-[360px] md:h-[420px] lg:w-[405px] lg:h-[480px]
-              overflow-hidden
-            `}
-          >
-            <div className="flex items-start justify-between mb-4 relative z-10">
-              <img
-                src={item.logo}
-                alt={`${item.title} logo`}
-                className="h-[70px] w-[200px] md:h-[90px] md:w-[260px] mb-5 object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "https://placehold.co/200x70/DFDFDF/000000?text=Placeholder+Logo";
-                }}
-              />
-              <button
-                className="h-8 w-8 rounded-full border border-gray-200 flex items-center justify-center bg-[#DFDFDF] flex-shrink-0"
-                aria-label="Open"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-black"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+  <article
+    key={item.id}
+    onClick={() => handleCardClick(item)}
+    className="
+      group
+      relative bg-[#F2F2F2] 
+      rounded-2xl 
+      p-8 
+      flex flex-col 
+      shadow-md 
+      transition-all duration-300 
+      cursor-pointer 
+      hover:shadow-md 
+      hover:-translate-y-2
+      
+      min-h-[400px] 
+      lg:min-h-[450px]
+    "
+  >
+    {/* Title + Arrow */}
+    <div className="flex items-start justify-between mb-3">
+      <H4 className="text-lg font-semibold">
+        {item.title}
+      </H4>
 
-            <H4 className="text-sm md:text-base font-medium text-gray-800 mb-2 relative z-10">
-              {item.title}
-            </H4>
+      {/* Arrow Icon */}
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          handleCardClick(item);
+        }}
+        className="
+          flex items-center justify-center
+          w-8 h-8 
+          rounded-full 
+          bg-white 
+          transition-all duration-300
+          group-hover:translate-x-2
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4 transition-transform duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </div>
 
-            <div className="flex gap-2 items-center flex-wrap mb-3 relative z-10">
-              {item.tags?.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-2 py-0.5 rounded-full border border-gray-200 bg-gray-50 whitespace-nowrap"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+    {/* Tags */}
+    <div className="flex gap-2 flex-wrap mb-5">
+      {item.tags?.map((t) => (
+        <span
+          key={t}
+          className="text-xs px-3 py-1 bg-white border rounded-full"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
 
-            <P className="text-sm text-gray-600 flex-1 leading-relaxed line-clamp-5 relative z-10">
-              {item.description}
-            </P>
+    {/* Description */}
+    <P className="text-sm text-gray-600 flex-1 leading-relaxed">
+      {item.description}
+    </P>
 
-            <div className="mt-5 relative z-10">
-              <a
-                href="#"
-                className="
-                  inline-flex items-center gap-2 px-[24PX] py-[12PX] font-quicksand font-bold 
-                  rounded-md text-sm bg-black text-white
-                "
-              >
-                Start Saving Now !
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3 w-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7M21 12H3" />
-                </svg>
-              </a>
-            </div>
-          </article>
-        ))}
+    {/* CTA */}
+    <div className="mt-8">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleCardClick(item);
+        }}
+        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition"
+      >
+        Explore Product
+      </button>
+    </div>
+  </article>
+))}
       </div>
     </section>
   );

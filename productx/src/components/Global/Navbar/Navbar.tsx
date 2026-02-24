@@ -31,13 +31,13 @@ const Navbar = () => {
 
         {/* Desktop nav (unchanged) */}
         <nav className="hidden md:flex items-center gap-8">
-           <Link
+           {/* <Link
             to="/"
             className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"
               }`}
           >
             Home
-          </Link>
+          </Link> */}
           <Link
             to="/platform"
             className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"

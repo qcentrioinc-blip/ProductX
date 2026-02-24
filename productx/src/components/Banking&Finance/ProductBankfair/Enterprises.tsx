@@ -43,9 +43,9 @@ const ENTERPRISES_DATA = [
 
 const Enterprises = () => {
   return (
-    <section className="bg-[#F5F5F5] w-full text-black py-10 px-4 md:px-8">
+    <section className="max-w-7xl xl:mx-auto  w-full text-black py-10 px-4 md:px-8 xl:px-0">
       {/* Heading */}
-      <div className="max-w-4xl mx-4 lg:mx-10 text-left mb-16">
+      <div className="max-w-4xl mx-4 lg:mx-10 xl:mx-0 text-left mb-16">
         <H2>
           How Conciliare Works:
           <br />
@@ -57,7 +57,7 @@ const Enterprises = () => {
       {/* ============================= */}
       {/* DESKTOP GRID */}
       {/* ============================= */}
-      <div className="hidden lg:grid grid-cols-3 gap-6 mx-10">
+      <div className="hidden lg:grid grid-cols-3 gap-6 mx-10 xl:mx-0">
         {ENTERPRISES_DATA.map((card, index) => {
           // Tall Left Card
           if (card.type === "tall") {

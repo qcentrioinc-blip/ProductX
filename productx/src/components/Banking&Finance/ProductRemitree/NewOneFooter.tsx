@@ -117,14 +117,14 @@ const NewOneFooter = () => {
 
  {toastPortal}
       <div className='relative   z-50'>
-        <footer className="relative w-full lg:py-20   overflow-hidden" id="financeContainer">
+        <footer className="relative w-full lg:pt-10   overflow-hidden" id="financeContainer">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
               {/* Left Section - Newsletter (7 columns) */}
               <div className="lg:col-span-7 flex flex-col xl:border-r xl:border-black xl:pr-10">
 
-                {/* Star Image */}
+                {/* LOGO */}
                 <div className="">
                   <img
                     src="/QnestLogo.svg"
@@ -270,11 +270,11 @@ const NewOneFooter = () => {
 
           </div>
           {/* Bottom Pattern Image - no extra spacing */}
-          <img
+          {/* <img
             src="/BNFFooter/BottomPattern.png"
             className="w-full h-16  absolute bottom-0 object-cover block"
             alt=""
-          />
+          /> */}
         </footer>
       </div>
 
