@@ -11,7 +11,7 @@ const FEATURES = [
     title: "Zero code policy configuration engine ",
     p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality.",
     p2: "No training required for frontline staff when policies update. ",
-    imageSrc: "/ProductDetails4/PD4_img4.jpg",
+    imageSrc: "/ProductDetails4/PD4_img1(2).webp",
   },
   {
     id: "feature_b",
@@ -19,7 +19,7 @@ const FEATURES = [
     title: "Smart forms for data capture ",
     p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile.",
     p2: "Captures data for customers and connected parties with built-in validations for accuracy. ",
-    imageSrc: "/ProductDetails4/PD4_img2.jpg",
+    imageSrc: "/ProductDetails4/PD4_img2(2).webp",
   },
   {
     id: "feature_c",
@@ -27,7 +27,7 @@ const FEATURES = [
     title: "Automated name screening integration",
     p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists.",
     p2: "Integrates with leading screening engines during onboarding and ongoing monitoring. ",
-    imageSrc: "/ProductDetails4/PD4_img3.jpg",
+    imageSrc: "/ProductDetails4/PD4_img3.webp",
   },
   {
     id: "feature_d",
@@ -35,7 +35,7 @@ const FEATURES = [
     title: "Risk assessment and decisioning ",
     p1: "Automatically compute risk ratings based on configured attributes and rules.",
     p2: "Workflow rules drive consistent decisioning with options for approval routing and case management.",
-    imageSrc: "/ProductDetails4/PD4_img4.jpg",
+    imageSrc: "/ProductDetails4/PD4_img4.webp",
   },
   {
     id: "feature_e",
@@ -43,7 +43,7 @@ const FEATURES = [
     title: "Full client lifecycle management ",
     p1: "System automatically moves profiles to periodic and trigger event queues.",
     p2: "Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness. ",
-    imageSrc: "/ProductDetails4/PD4_img2.jpg",
+    imageSrc: "/ProductDetails4/PD4_img5.webp",
   },
 ];
 
@@ -67,11 +67,11 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
             flex flex-col gap-y-12 gap-x-10 items-center
             xl:grid 
             xl:grid-cols-12 
-            xl:items-start
+            xl:items-stretch
           "
         >
           {/* LEFT BUTTONS — DESKTOP */}
-          <div className="hidden xl:flex xl:col-span-3 flex-col space-y-4">
+          <div className="hidden xl:flex xl:col-span-3 flex-col justify-center space-y-4 h-full">
             {FEATURES.map((item) => {
               const isActive = item.id === activeFeatureId;
               return (
@@ -124,16 +124,19 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* IMAGE */}
-          <div className="order-2 xl:col-span-5 flex justify-center w-full">
+          <div className="order-2 xl:col-span-6 flex justify-center items-center h-full w-full">
             <img
               src={activeContent.imageSrc}
               alt={activeContent.title}
-              className="max-w-xl w-full object-contain rounded-xl"
+              className=" w-full object-contain rounded-xl
+    max-h-[400px] 
+    md:max-h-[450px] 
+    xl:max-h-none xl:h-full"
             />
           </div>
 
           {/* CONTENT */}
-          <div className="order-3 xl:col-span-4 space-y-6 text-left w-full px-2 md:px-24 xl:px-0 xl:mt-16 lg:pl-50">
+          <div className="order-3 xl:col-span-3 flex flex-col justify-center space-y-6 text-center xl:text-left w-full h-full">
             <H3 className="text-gray-900 tracking-tight leading-tight">
               {activeContent.title}
             </H3>

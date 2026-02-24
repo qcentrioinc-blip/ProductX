@@ -230,7 +230,7 @@ export const App: React.FC = () => {
   return (
     <section ref={sectionRef} className="w-full pb-10 ">
       {/* Category Pills */}
-      <div className="sticky top-[0px] z-30 bg-white py-3 mb-5 shadow-sm backdrop-blur-sm">
+      <div className="sticky top-16 z-30 bg-white py-3 mb-5 shadow-sm backdrop-blur-sm">
         <div className="flex justify-start sm:justify-center flex-nowrap sm:flex-wrap gap-x-4 sm:gap-x-8 lg:gap-x-[45px] overflow-x-auto sm:overflow-x-visible px-4 sm:px-0 scroll-smooth ">
           {categories.map((c) => (
             <button

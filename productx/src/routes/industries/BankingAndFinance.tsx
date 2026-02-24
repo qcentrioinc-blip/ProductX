@@ -1,7 +1,7 @@
 // import Audit from "../../components/Banking&Finance/Audit"
 import Counter from "../../components/Banking&Finance/Counter"
 import HeroSection from "../../components/Banking&Finance/HeroSection"
-import InsightThought from "../../components/Banking&Finance/InsightThought"
+// import InsightThought from "../../components/Banking&Finance/InsightThought"
 import Intro from "../../components/Banking&Finance/Intro"
 import Process from "../../components/Banking&Finance/Process"
 
@@ -51,7 +51,7 @@ const BankingAndFinance = () => {
       <BNFNav />
       <HeroSection />
       <Intro />
-      <TwoProducts/>
+      <TwoProducts />
       {/* <Products /> */}
       <WhatWeDoIn />
       <Counter />
@@ -59,7 +59,7 @@ const BankingAndFinance = () => {
       {/* <Audit /> */}
       <Process />
       {/* <Testimonial /> */}
-      <InsightThought />
+      {/* <InsightThought /> */}
       {/* <div className="relative">
 
 
@@ -77,22 +77,21 @@ const BankingAndFinance = () => {
         </div>
 
       </div> */}
-    {/* DESKTOP */}
-<div className="hidden lg:block relative">
-  {/* Footer sits at bottom, ContactUS scrolls over it */}
-  <div id="contact-us">
-    <ContactUS />
-  </div>
-  <NewOneFooter />
-</div>
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
 
-{/* MOBILE */}
-<div className="lg:hidden">
-  <ContactUS />
-  <NewOneFooter />
-</div>
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
 
- 
+
 
     </>
   )

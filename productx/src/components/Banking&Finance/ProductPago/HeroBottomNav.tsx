@@ -41,7 +41,7 @@ export default function HeroBottomNavbar() {
         ...(isBankfair ? [] : [{ label: "Our Process", id: "process" }]),
         { label: "Use Cases", id: "usecases" },
         { label: "FAQs", id: "faq" },
-        { label: "Blogs", id: "blogs" },
+        // { label: "Blogs", id: "blogs" },
       ];
     },
     [currentPath]

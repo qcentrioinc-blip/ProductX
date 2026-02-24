@@ -10,10 +10,11 @@ import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import ProductNotFound from './components/ProductNotFound';
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
-
+import Terms from './components/Banking&Finance/Policy/Terms';
+import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
+import BankingAndFinance from './routes/industries/BankingAndFinance'
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
-const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
@@ -32,7 +33,7 @@ const Connect = lazy(() => import('./components/Global/Contact/Connect'));
 const CareersPageHigh = lazy(() => import('./components/HighTech/Careers/CareersPage'));
 const ContactPage = lazy(() => import('./components/HighTech/ContactForm/ContactPage'));
 const JDPage = lazy(() => import('./components/HighTech/JobDescription/JDPage'));
-const PolicyPage = lazy(() => import('./components/HighTech/Policy/PolicyPage'));
+const PolicyPage = lazy(() => import('./components/Banking&Finance/Policy/PolicyPage'));
 const PDPage = lazy(() => import('./components/HighTech/ProductDetails/PDPage'));
 const JobDescription = lazy(() => import('./components/Banking&Finance/JobDescription/JobDescription'));
 
@@ -182,6 +183,9 @@ const App = () => {
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
             <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
+            <Route path="/industries/banking-and-finance/terms-and-conditions" element={<Terms />} />
+            <Route path="/industries/banking-and-finance/cookies-policies" element={<Cookies />} />
+            <Route path="/industries/banking" element={<About />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
             <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />

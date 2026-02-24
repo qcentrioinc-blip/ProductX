@@ -87,7 +87,7 @@ const NewOneFooter = () => {
     // { label: "AboutUs", url: "/industries/banking-and-finance/aboutus" },
     // { label: "Careers", url: "/industries/banking-and-finance/careers" },
 
-    { label: "Blogs", url: "/industries/banking-and-finance" },
+    // { label: "Blogs", url: "/industries/banking-and-finance" },
     // { label: "News Letter", url: "/industries/banking-and-finance/contactform" },
     // { label: "White Papers", url: "/industries/banking-and-finance/contactform" },
     // { label: "Events", url: "/industries/banking-and-finance/contactform" },
@@ -100,9 +100,9 @@ const NewOneFooter = () => {
    const BuiltFor = [
  
 
-    { label: "Banks", url: "industries/banking-and-finance/built-for/banks" },
-      { label: "Credit Unions", url: "industries/banking-and-finance/built-for/credit-unions" },
-        { label: "Financial Unions", url: "industries/banking-and-finance/built-for/financial-unions" },
+    { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
+      { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-union" },
+        { label: "Financial Unions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
@@ -122,16 +122,16 @@ const NewOneFooter = () => {
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
               {/* Left Section - Newsletter (7 columns) */}
-              <div className="lg:col-span-7 flex flex-col space-y-10 xl:border-r xl:border-black xl:pr-10">
+              <div className="lg:col-span-7 flex flex-col xl:border-r xl:border-black xl:pr-10">
 
                 {/* Star Image */}
-                <div className="w-[80px] h-[80px]">
+                <div className="">
                   <img
-                    src="/BNFFooter/FooterStar.png"
-                    alt="Footer Star"
-                    className="w-full h-full object-contain"
+                    src="/QnestLogo.svg"
+                    alt="logo"
+                    className="w-[150px] h-[150px] object-contain"
                   />
-                </div>
+                </div> 
             
                 {/* Newsletter Heading */}
                 <div className="space-y-0 ">
@@ -251,10 +251,10 @@ const NewOneFooter = () => {
                   </div>
 
                   <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center  mb-10 lg:gap-8">
-                    <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Terms and Conditions
                     </a>
-                    <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/cookies-policies" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Cookies Policy
                     </a>
                     <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">

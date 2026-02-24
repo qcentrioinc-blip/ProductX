@@ -137,7 +137,7 @@ kyc: {
     conciliare: [
   {
     title: "Bank Account Reconciliation",
-    image: "/AIOptimization/Saving.svg",
+    image: "/icon1.svg",
     description:
       "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
     points: [
@@ -150,7 +150,7 @@ kyc: {
   },
   {
     title: "NOSTRO Message Reconciliation",
-    image: "/AIOptimization/pricetag.svg",
+    image: "/icon2.svg",
     description:
       "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
     points: [
@@ -163,7 +163,7 @@ kyc: {
   },
   {
     title: "Payment Channel Reconciliation",
-    image: "/AIOptimization/Cloud.svg",
+    image: "/icon3.svg",
     description:
       "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
     points: [
@@ -179,7 +179,7 @@ kyc: {
 kyc: [
   {
     title: "Digital KYC transformation",
-    image: "/AIOptimization/Saving.svg",
+    image: "/icon1.svg",
     description:
       "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
     points: [
@@ -192,7 +192,7 @@ kyc: [
   },
   {
     title: " Enterprise due diligence",
-    image: "/AIOptimization/pricetag.svg",
+    image: "/icon2.svg",
     description:
       "Coverage primarily for non-individual entities with complex ownership structures.",
     points: [
@@ -205,7 +205,7 @@ kyc: [
   },
   {
     title: "Commodity trading compliance",
-    image: "/AIOptimization/Cloud.svg",
+    image: "/icon3.svg",
     description:
       "Coverage for private limited companies, firms, and other entity types.",
     points: [

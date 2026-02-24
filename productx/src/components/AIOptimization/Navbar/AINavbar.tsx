@@ -5,7 +5,6 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
-import { H4, P } from "../../../styles/Typography";
 import ContactModal from "./ContactModal";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -231,7 +230,7 @@ const AINavbar = () => {
               {/* 🔽 LOGO DROPDOWN */}
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-12 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  className="absolute top-16 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
@@ -248,12 +247,33 @@ const AINavbar = () => {
                     />
 
                     <div className="flex flex-col">
-                      <H4 className="text-lg font-semibold text-gray-900">
+                      <h4 className="text-lg font-semibold text-gray-900">
                         EHR & PMS
-                      </H4>
-                      <P className="">
+                      </h4>
+                      <p className="text-gray-600 font-quicksand text-sm">
                         The unified platform for clinical and administrative excellence.
-                      </P>
+                      </p>
+                    </div>
+                  </Link>
+                   <Link
+                    to="/industries/banking-and-finance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                  >
+                    <img
+                      src="/QBnfLogo2.png"
+                      alt="EHR and PMS"
+                      className="w-14 h-14 object-contain"
+                    />
+
+                    <div className="flex flex-col">
+                      <h4 className="text-lg font-semibold text-gray-900">
+                        Banking-and-Finance
+                      </h4>
+                      <p className="text-gray-600 font-quicksand text-xs">
+                       Smart KYC and reconciliation for modern banking.
+                      </p>
                     </div>
                   </Link>
                 </div>

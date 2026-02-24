@@ -124,12 +124,12 @@ const EHRNavbar = () => {
   const industry = "ehr-and-pms";
   const currentIndustry = "EHR and PMS";
   const industries = [
-    // {
-    //   name: "Banking & Finance",
-    //   path: "/industries/banking-and-finance",
-    //   img: "/BNFHOME/P1.png",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    // },
+    {
+      name: "Banking & Finance",
+      path: "/industries/banking-and-finance",
+      img: "/QBnfLogo2.png",
+      desc: "Smart KYC and reconciliation for modern banking."
+    },
 
     // {
     //   name: "EHR and PMS", path:
@@ -265,7 +265,7 @@ const EHRNavbar = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-24 h-10 text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                <div className="text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
                   <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}

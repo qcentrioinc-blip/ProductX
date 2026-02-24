@@ -23,7 +23,7 @@ import TitleSectionSwitcher from "./TitleSectionSwitcher";
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
 import ContactSecHT from "../../HighTech/ContactSecHT";
-import InsightThoughtBnF from "./InsightThoughtBnF";
+// import InsightThoughtBnF from "./InsightThoughtBnF";
 
 // Valid built-for types per industry
 const VALID_BUILT_FOR_TYPES: Record<string, string[]> = {
@@ -76,11 +76,11 @@ export const BuiltFor = () => {
 
   const getInsightandThoughts = () => {
     // Determine dynamic content for Banking & Finance using the specialized component
-    if (industry === "banking-and-finance" && builtForType) {
-      return <InsightThoughtBnF />;
-    }
+    // if (industry === "banking-and-finance" && builtForType) {
+    //   return <InsightThoughtBnF />;
+    // }
 
-    if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
+    // if (pathname.startsWith("/industries/banking-and-finance")) return <InsightThought />;
     // if (pathname.startsWith("/industries/ehr-and-pms")) return <BlogCarousel />;
     if (pathname.startsWith("/industries/high-tech")) return <InsightThought />;
     if (pathname.startsWith("/industries/cloud-finops-ai")) return <AIBlogs />;

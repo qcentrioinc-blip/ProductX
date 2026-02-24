@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import MobileProductsDropdown from "./MobileProductsDropdown";
 // import MobileResourcesDropdown from "./MobileResourcesDropdown";
@@ -13,6 +13,7 @@ const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
 const BNFNav = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -23,6 +24,19 @@ const BNFNav = () => {
 
   // ---------- HOVER TIMEOUT LOGIC ----------
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTouchRef = useRef(false);
+
+  // Detect touch vs mouse input
+  useEffect(() => {
+    const onTouch = () => { isTouchRef.current = true; };
+    const onMouse = () => { isTouchRef.current = false; };
+    window.addEventListener('touchstart', onTouch, { passive: true });
+    window.addEventListener('mousemove', onMouse);
+    return () => {
+      window.removeEventListener('touchstart', onTouch);
+      window.removeEventListener('mousemove', onMouse);
+    };
+  }, []);
 
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
@@ -71,25 +85,25 @@ const BNFNav = () => {
   };
 
   const industry = "banking-and-finance";
-  const currentIndustry = "Banking & Finance";
+  const currentIndustry = "";
   const industries = [
-    {
-      name: "Banking & Finance",
-      path: "/industries/banking-and-finance",
-      img: "/BNFHOME/P1.png",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
+    // {
+    //   name: "Banking & Finance",
+    //   path: "/industries/banking-and-finance",
+    //   img: "/QBnFLogo.svg",
+    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    // },
     {
       name: "EHR and PMS",
       path: "/industries/ehr-and-pms",
       img: "/QEHRLogo2.svg",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      desc: "The unified platform for clinical and administrative excellence."
     },
     {
       name: "Cloud Finops AI",
       path: "/industries/cloud-finops-ai",
       img: "/QCloudLogo2.svg",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      desc: "Leverage intelligent automation to streamline clinical documentation"
     },
   ];
 
@@ -99,7 +113,7 @@ const BNFNav = () => {
   const navItems = [
     { name: "Products", path: `${base}?scroll=products` },
     { name: "Built for", path: base },
-    { name: "Blogs", path: `${base}/blogs` },
+    // { name: "Blogs", path: `${base}/blogs` },
     // { name: "Resources", path: base },
   ];
 
@@ -240,8 +254,8 @@ const BNFNav = () => {
                   closeAllMenus();
                 }}
               >
-                <div className="w-10 h-10 bg-black text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  LOGO
+                <div className=" flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
+                  <img className="h-full w-full" src="/QBnFLogo.svg" alt="Company Logo" />
                 </div>
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
                   <img src="/down.png" className="w-4 h-4" />
@@ -289,9 +303,17 @@ const BNFNav = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuOpen(true);
                         // setResourcesMenuOpen(false);
+                        setmegaMenuBuiltFor(false);
+                        setLogoDropdownOpen(false);
+                        preloadImages();
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuOpen((prev) => !prev);
                         setmegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                         preloadImages();
@@ -326,10 +348,17 @@ const BNFNav = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setmegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
                         // setResourcesMenuOpen(false);
+                        setLogoDropdownOpen(false);
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setmegaMenuBuiltFor((prev) => !prev);
+                        setMegaMenuOpen(false);
                         setLogoDropdownOpen(false);
                       }}
                     >
@@ -362,9 +391,16 @@ const BNFNav = () => {
               Careers
             </Link> */}
 
-            <Link to={location.pathname.includes("/products/") ? "#contact-us" : `${base}#contact-us`}>
-              <ContactUs>Contact Us</ContactUs>
-            </Link>
+            <ContactUs onClick={(e) => {
+              e.preventDefault();
+              const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/");
+              const target = hasContactSection ? "#contact-us" : `${base}#contact-us`;
+              navigate(target);
+              setTimeout(() => {
+                const el = document.getElementById('contact-us');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}>Contact Us</ContactUs>
           </div>
 
           <button
@@ -410,6 +446,7 @@ const BNFNav = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
+            onLinkClick={closeAllMenus}
           />
         )}
       </Suspense>
@@ -419,8 +456,8 @@ const BNFNav = () => {
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
-              <div className="w-12 h-12 bg-black text-white flex justify-center items-center rounded-full text-xs font-semibold">
-                LOGO
+              <div className="flex justify-center items-center rounded-full text-xs font-semibold">
+                <img className="h-full w-full" src="/QBnFLogo.svg" alt="Company Logo" />
               </div>
               <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
@@ -468,9 +505,17 @@ const BNFNav = () => {
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
-          <Link to={location.pathname.includes("/products/") ? "#contact-us" : `${base}#contact-us`} onClick={() => setMenuOpen(false)}>
-            <ContactUs>Contact Us</ContactUs>
-          </Link>
+          <ContactUs onClick={(e) => {
+            e.preventDefault();
+            setMenuOpen(false);
+            const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/");
+            const target = hasContactSection ? "#contact-us" : `${base}#contact-us`;
+            navigate(target);
+            setTimeout(() => {
+              const el = document.getElementById('contact-us');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 400);
+          }}>Contact Us</ContactUs>
         </div>
       </div>
 

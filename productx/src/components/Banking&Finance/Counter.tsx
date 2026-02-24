@@ -33,7 +33,7 @@ const Counter = () => {
     <div
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden py-16 md:py-24"
+      className="relative overflow-hidden py-16 md:py-10"
       style={{
         background: "linear-gradient(90deg, #2B68C34D, #FED6004D)",
       }}
@@ -51,7 +51,7 @@ const Counter = () => {
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-8 lg:px-10 xl:px-0">
         {/* Heading */}
-        <H2 className="  font-bold mb-12  lg:mx-6 md:mb-28">
+        <H2 className="  font-bold mb-12  lg:mx-6 mt-10 md:mb-16">
           <span className="text-[#2B68C3]">Trusted by financial institutions  </span>
           <br />
           <span className="text-[#333333]">across the globe</span>
@@ -69,7 +69,7 @@ const Counter = () => {
             className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-0   lg:px-8"
           >
             {/* Text above */}
-            <P className="text-[#141414] mb-[30px]  lg:mb-[84px] max-w-[240px]">
+            <P className="text-[#141414] mb-[30px]  lg:mb-[40px] max-w-[240px]">
               {item.text}
             </P>
 
