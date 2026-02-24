@@ -12,11 +12,12 @@ import ProductNotFound from './components/ProductNotFound';
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
+import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
 
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
-const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
+// const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
@@ -189,8 +190,10 @@ const App = () => {
             <Route path="/industries/banking" element={<About />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
-            <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
+            {/* <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} /> */}
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
+            <Route path="/industries/banking-and-finance/blogs/:slug" element={<BlogDetailBNF />} />
+
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
@@ -209,6 +212,7 @@ const App = () => {
 
             <Route path="/blogs" element={<ImageCard />} />
             <Route path="/blogs/:slug" element={<BlogDetail />} />
+
 
 
 

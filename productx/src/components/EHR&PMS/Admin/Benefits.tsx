@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import img1 from "/EHR-PMS/LandingPage/img1.jpg";
-import img2 from "/EHR-PMS/LandingPage/img2.png";
-import img3 from "/EHR-PMS/LandingPage/img1.jpg";
+
 import { H2EHR, H4EHR, P } from "../../../styles/Typography";
  
 const Benefits = () => {
@@ -15,12 +14,12 @@ const Benefits = () => {
     {
       title: "Centralized Task & Communication Hub",
       desc: "Manage all patient follow-ups, provider messages, and team assignments from a single, organized to-do list interface.",
-      image: img2,
+      image: img1,
     },
     {
       title: " Filter-Driven Reporting & Analytics",
       desc: "Generate instant reports on appointments, revenue, and provider performance using dynamic filters for data-driven decisions.",
-      image: img3,
+      image: img1,
     },
   ];
  
@@ -104,7 +103,7 @@ const Benefits = () => {
                 key={activeIndex}
                 src={points[activeIndex].image}
                 alt={points[activeIndex].title}
-                className="w-full max-w-2xl h-[500px] rounded-2xl shadow-2xl object-cover"
+                className="w-full max-w-2xl h-[500px] rounded-2xl shadow-2xl object-contain"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
