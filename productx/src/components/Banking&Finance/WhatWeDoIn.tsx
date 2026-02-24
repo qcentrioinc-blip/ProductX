@@ -1,224 +1,237 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { H2, H3, P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
+
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
-  //  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
   const desktopRef = useRef<HTMLDivElement | null>(null);
   const mobileRef = useRef<HTMLDivElement | null>(null);
- 
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const stickyInnerRef = useRef<HTMLDivElement | null>(null);
 
- 
-
-
-
-
-
-  // useEffect(() => {
-  //   const wheelHandler = (e: WheelEvent | TouchEvent) => handleScroll(e);
-
-
-  //   window.addEventListener("wheel", wheelHandler, { passive: false });
-  //   window.addEventListener("touchmove", wheelHandler, { passive: false });
-
-  //   return () => {
-  //     window.removeEventListener("wheel", wheelHandler);
-  //     window.removeEventListener("touchmove", wheelHandler);
-  //   };
-  // });
-
-
-  const targetRef = useRef(null);
   const accordionData = [
     {
       id: 1,
       title: "Banks",
-       link: "/industries/banking-and-finance/built-for/banks",
+      link: "/industries/banking-and-finance/built-for/banks",
       content: [
         "Banks face complex challenges from legacy infrastructure, regulatory pressure, and digital expectations. Our solutions modernize core banking, automate AML compliance, streamline payments, and provide real-time risk visibility. ",
         "Enterprise-grade core banking and compliance platforms built for scale and future growth. ",
-      ]
+      ],
     },
     {
       id: 2,
       title: "Credit Unions",
-       link: "/industries/banking-and-finance/built-for/credit-union",
+      link: "/industries/banking-and-finance/built-for/credit-union",
       content: [
         "Credit unions need technology to compete with larger institutions while serving members. Our solutions digitize onboarding, simplify loan processing, enable league payments, and automate reconciliation without large IT teams. ",
         "Member-focused technology that streamlines operations without burdening your valuable staff. ",
-      ]
+      ],
     },
     {
       id: 3,
       title: "Financial Institutions",
-       link: "/industries/banking-and-finance/built-for/financial-unions",
+      link: "/industries/banking-and-finance/built-for/financial-unions",
       content: [
         "Mortgage companies, NBFCs, and asset managers need adaptable platforms for diverse products and regulations. Our suite supports multi-entity management, asset tracking, treasury, and enterprise reconciliation. ",
         "Integrated solutions for complex operations, multi-entity management, and regulatory compliance. ",
-      ]
+      ],
     },
   ];
 
-  const images = ["/Products/AccordionImage.png", "/Image1.jpg", "/Image2.jpg"];
+  const images = ["/WhatWe1.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
 
+  // Track desktop breakpoint (xl = 1280px)
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1280px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
+  // Sticky scroll logic — desktop only
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isDesktop || !targetRef.current) return;
 
+      const rect = targetRef.current.getBoundingClientRect();
+      const outerHeight = targetRef.current.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const scrolledIn = -rect.top;
+
+      if (scrolledIn <= 0) {
+        setOpenIndex(0);
+        return;
+      }
+
+      const extraScroll = outerHeight - windowHeight;
+
+      if (scrolledIn >= extraScroll) {
+        setOpenIndex(accordionData.length - 1);
+        return;
+      }
+
+      const segmentSize = extraScroll / accordionData.length;
+
+      const newIndex = Math.min(
+        accordionData.length - 1,
+        Math.max(0, Math.floor(scrolledIn / segmentSize))
+      );
+
+      setOpenIndex(newIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [accordionData.length, isDesktop]);
 
   return (
     <div
-  ref={targetRef}
-  className="bg-white text-black w-full"
-  id="benefits"
->
-  <div className="max-w-7xl mx-auto flex flex-col">
-
-      {/* Heading Section */}
-      <div className="relative mb-20 max-w-7xl mx-auto pt-10 px-10 ">
-        <div className="flex justify-between items-start gap-8">
-          <div className="max-w-5xl">
-            <H2 className="font-bold text-[#2B68C3]">
-              Who <span className="text-[#666666]"> We </span> Serve
-            </H2>
-            <P className="pt-4 text-justify leading-tight">
-            Financial institutions of all sizes trust our solutions to streamline operations, automate compliance, and deliver better customer experiences. Our platforms scale to meet your specific needs. 
-            </P>
-          </div>
-
-          <ContactUs className="hidden xl:block gap-2 whitespace-nowrap">
-            Learn More
-          </ContactUs>
-        </div>
-
-        {/* Mobile Button */}
-        <div className="lg:hidden mt-6">
-          <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
-            CONTACT US
-          </ContactUs>
-        </div>
-      </div>
-      {/* Desktop Layout */}
-      {/* STICKY SCROLL WRAPPER */}
-
-      {/* <div
-        className="relative h-auto lg:h-[calc(var(--accordion-height))]"
-        style={
-          {
-            "--accordion-height": `${accordionData.length * 100}vh`,
-          } as React.CSSProperties
-        }
-      > */}
-<div className="relative">
-
-
-        {/* STICKY CONTENT */}
-        <div className=" flex flex-col justify-center">
-
-
-
-          <div
-            ref={desktopRef}
-            className="hidden xl:flex flex-1 flex-row max-w-7xl mx-auto px-6 pb-16 lg:px-10 w-full"
-          >
-
-
-            <div className="relative md:w-[500px] w-full h-[500px] md:h-[570px] flex items-center justify-start">
-
-
-              {/* Main Image Container */}
-              <div className="absolute top-0 left-0 right-0  w-[calc(100%-2rem)] h-[calc(100%-1rem)] z-20">
-                <img
-                  src={images[openIndex]}
-                  alt="Who we serve"
-                  className="w-full h-full object-cover  rounded-br-[180px] rounded-lg"
-                />
-                <div className="
-      absolute
-      bottom-0 right-0
-      w-full h-full
-      border-r-[12px]
-      border-b-[12px]
-      border-t-[12px] border-[#2B68C3]
-      rounded-br-[180px]
-         
-      z-20
-    ">
-                </div>
-                <div className="
-      absolute
-      -top-18 -left-8
-         
-      flex flex-col gap-2
-      z-20
-    ">
-                  <img src="/Products/FloatingImage.png" alt="" />
-                </div>
-              </div>
-
-
+      ref={targetRef}
+      className="relative bg-white text-black w-full"
+      id="benefits"
+      style={
+        isDesktop
+          ? { height: `calc(100vh + ${accordionData.length * 80}vh)` }
+          : { height: "auto" }
+      }
+    >
+      <div
+        ref={stickyInnerRef}
+        className={isDesktop ? "sticky top-0 w-full overflow-hidden" : "relative w-full"}
+        style={isDesktop ? { height: "115vh" } : { height: "auto" }}
+      >
+        <div
+          className="max-w-7xl mx-auto flex flex-col px-10 xl:px-0"
+          style={
+            isDesktop
+              ? {
+                  height: "100%",
+                  paddingTop: "clamp(1.25rem, 3vh, 2.5rem)",
+                  paddingBottom: "clamp(0.75rem, 2vh, 1.5rem)",
+                }
+              : {
+                  height: "auto",
+                  paddingTop: "2.5rem",
+                  paddingBottom: "2rem",
+                }
+          }
+        >
+          {/* ── Heading ── */}
+          <div className="shrink-0 flex justify-between items-start gap-8">
+            <div className="max-w-5xl">
+              <H2 className="font-bold text-[#2B68C3]">
+                Who <span className="text-[#666666]"> We </span> Serve
+              </H2>
+              <P className="pt-2 text-justify xl:pr-56 leading-tight">
+                Financial institutions of all sizes trust our solutions to
+                streamline operations, automate compliance, and deliver better
+                customer experiences. Our platforms scale to meet your specific
+                needs.
+              </P>
             </div>
 
+            <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
+              Learn More
+            </ContactUs>
+          </div>
+
+          {/* Mobile Button */}
+          <div className="xl:hidden mt-4 shrink-0">
+            <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+              CONTACT US
+            </ContactUs>
+          </div>
+
+          {/* ── Desktop Layout ── */}
+          <div className="flex-1  py-10 min-h-0 hidden xl:flex flex-row items-stretch gap-8">
+
+            {/* Image — no wrapper div, height stretches to match accordion column */}
+            <motion.img
+              key={openIndex}
+              src={images[openIndex]}
+              alt="Who we serve"
+              className="shrink-0 object-cover object-top"
+              style={{
+                width: "550px",
+                
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+
             {/* Accordion Side */}
-            <div className="w-full md:w-3/5 flex flex-col justify-center gap-4">
+            <div
+              ref={desktopRef}
+              className="flex-1 flex flex-col justify-center gap-3 min-h-0"
+            >
               {accordionData.map((item, index) => {
                 const isOpen = openIndex === index;
 
                 return (
                   <div
                     key={item.id}
-                    className={`relative cursor-pointer overflow-hidden transition-all duration-500 ease-in-out rounded-lg ${isOpen ? "bg-blue-100 min-h-[50px]" : "bg-[#F6F6F6] min-h-[100px]"
-                      }`}
+                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${
+                      isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
+                    }`}
+                    style={{ minHeight: isOpen ? "auto" : "100px" }}
                     onClick={() => setOpenIndex(index)}
                   >
+                    {/* Number */}
                     <span
-                      className={`absolute left-6 top-4 text-6xl md:text-7xl font-bold transition-colors duration-500 ${isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
-                        }`}
+                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${
+                        isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                      }`}
                     >
                       {String(item.id).padStart(2, "0")}
                     </span>
 
-                 <motion.h3
-  className="text-lg md:text-2xl lg:text-3xl font-semibold absolute top-8 left-32 transition-colors duration-500"
-  initial={false}
-  animate={{
-    color: isOpen ? "#3E3E3E" : "#000000",
-  }}
-  transition={{ duration: 0.6, ease: "easeInOut" }}
->
-  {item.title}
-</motion.h3>
+                    {/* Title */}
+                    <motion.h3
+                      className="absolute top-6 left-32 text-2xl lg:text-3xl font-semibold"
+                      initial={false}
+                      animate={{ color: isOpen ? "#3E3E3E" : "#000000" }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                      {item.title}
+                    </motion.h3>
 
-{/* Circular Arrow - ONLY WHEN OPEN */}
-{isOpen && (
-  <motion.a
-    href={item.link}
-    initial={{ opacity: 0, x: 20 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: 20 }}
-    transition={{ duration: 0.4 }}
-    className="absolute right-8 top-12 -translate-y-1/2 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300"
-  >
-    <span className="text-black "><img src="/Arrowright.svg" alt="Arrow Right" className="w-5 h-5" /></span>
-  </motion.a>
-)}
+                    {/* Arrow — only when open */}
+                    {isOpen && (
+                      <motion.a
+                        href={item.link}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute right-6 top-10 -translate-y-1/2 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-200 z-10"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <img src="/Arrowright.svg" alt="Arrow Right" className="w-5 h-5" />
+                      </motion.a>
+                    )}
 
-
+                    {/* Content — only when open */}
                     {isOpen && (
                       <motion.div
-                        className="pr-12 lg:pl-10 pt-24    xl:pl-66 text-left pt-16 pb-2"
-                        initial={{ opacity: 0, x: 80 }}
+                        className="  pr-14 pt-16 pb-3 text-left"
+                        initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 80 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                       >
                         {Array.isArray(item.content) ? (
                           item.content.map((para, i) => (
-                            <P key={i} className="  pb-4 leading-tight text-base">
+                            <P key={i} className="pb-2 xl:pl-24 pt-4 leading-snug text-sm">
                               {para}
                             </P>
                           ))
                         ) : (
-                          <P className="  leading-tight text-base">{item.content}</P>
+                          <P className="leading-snug text-sm">{item.content}</P>
                         )}
                       </motion.div>
                     )}
@@ -227,110 +240,100 @@ const WhatWeDoIn = () => {
               })}
             </div>
           </div>
-        </div>
-        {/* Mobile/Tablet Layout */}
-        <div
-          ref={mobileRef}
-          className="xl:hidden flex flex-col w-full px-8 py-4"
-        >
-          {/* Accordion Items with Images */}
-          <div className="w-full flex flex-col gap-6">
-            {accordionData.map((item, index) => {
-              const isOpen = openIndex === index;
 
-              return (
-                <div key={item.id} className="w-full ">
-                  {/* Image with Yellow Border */}
-                  <div className="relative w-full h-[280px] sm:h-[450px] mt-4 mb-4">
-                    <img
-                      src={images[index]}
-                      alt={item.title}
-                      className="w-full h-full object-cover rounded-br-[120px] rounded-lg"
-                    />
-                    <div className="absolute bottom-0 right-0 w-full h-full border-r-[8px] border-b-[8px] border-t-[8px] border-[#2B68C3] rounded-br-[120px] z-20"></div>
-                    <div className="absolute -top-12 -left-4 flex flex-col gap-2 z-20">
-                      <img src="/Products/FloatingImage.png" alt="" className="w-20 h-20" />
+          {/* ── Mobile / Tablet Layout — normal flow, no sticky ── */}
+          <div
+            ref={mobileRef}
+            className="xl:hidden flex flex-col w-full mt-6"
+          >
+            <div className="w-full flex flex-col gap-6">
+              {accordionData.map((item, index) => {
+                const isOpen = openIndex === index;
+
+                return (
+                  <div key={item.id} className="w-full">
+                    {/* Image — no border, no badge, full image visible */}
+                    <div className="w-full mt-4 mb-4">
+                      <img
+                        src={images[index]}
+                        alt={item.title}
+                        className="w-full h-auto object-contain rounded-2xl"
+                      />
+                    </div>
+
+                    {/* Accordion */}
+                    <div
+                      className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 ${
+                        isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
+                      }`}
+                    >
+                      <div
+                        className="flex items-center justify-between px-4 py-4 cursor-pointer"
+                        onClick={() => setOpenIndex(index)}
+                      >
+                        <div className="flex items-center">
+                          <span
+                            className={`text-4xl sm:text-5xl font-bold mr-4 transition-colors duration-500 ${
+                              isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                            }`}
+                          >
+                            {String(item.id).padStart(2, "0")}
+                          </span>
+                          <H3
+                            className={`text-lg sm:text-xl font-semibold transition-colors duration-500 ${
+                              isOpen ? "text-[#3E3E3E]" : "text-black"
+                            }`}
+                          >
+                            {item.title}
+                          </H3>
+                        </div>
+
+                        {isOpen && (
+                          <motion.a
+                            href={item.link}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md shrink-0"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <img
+                              src="/Arrowright.svg"
+                              alt="Arrow Right"
+                              className="w-4 h-4"
+                            />
+                          </motion.a>
+                        )}
+                      </div>
+
+                      {isOpen && (
+                        <motion.div
+                          layout
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="px-4 pb-4"
+                        >
+                          {Array.isArray(item.content)
+                            ? item.content.map((para, i) => (
+                                <P key={i} className="mb-3 text-sm leading-relaxed">
+                                  {para}
+                                </P>
+                              ))
+                            : <P>{item.content}</P>}
+                        </motion.div>
+                      )}
                     </div>
                   </div>
-
-                  {/* Accordion Item */}
-             <div
-  className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 ${
-    isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
-  }`}
->
-  {/* Header */}
-  <div
-    className="flex items-center justify-between px-4 py-4 cursor-pointer"
-    onClick={() => setOpenIndex(index)}
-  >
-    <div className="flex items-center">
-      <span
-        className={`text-4xl sm:text-5xl font-bold mr-4 transition-colors duration-500 ${
-          isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
-        }`}
-      >
-        {String(item.id).padStart(2, "0")}
-      </span>
-
-      <H3
-        className={`text-lg sm:text-xl font-semibold transition-colors duration-500 ${
-          isOpen ? "text-[#3E3E3E]" : "text-black"
-        }`}
-      >
-        {item.title}
-      </H3>
-    </div>
-
-    {/* Arrow ONLY when open */}
-    {isOpen && (
-      <motion.a
-        href={item.link}
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-        className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src="/Arrowright.svg"
-          alt="Arrow Right"
-          className="w-4 h-4"
-        />
-      </motion.a>
-    )}
-  </div>
-
-  {/* Content */}
-  {isOpen && (
-  <motion.div
-    layout
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
-    className="px-4 pb-4"
-  >
-    {Array.isArray(item.content)
-      ? item.content.map((para, i) => (
-          <P key={i} className="mb-3 text-sm leading-relaxed">
-            {para}
-          </P>
-        ))
-      : <P>{item.content}</P>}
-  </motion.div>
-)}
-
-</div>
-
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
   );
 };
+
 export default WhatWeDoIn;

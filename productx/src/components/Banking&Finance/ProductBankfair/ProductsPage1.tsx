@@ -1,7 +1,7 @@
 import BNFNav from "../Navbar/BNFnav"
 
 import HWD from "../HWD"
-import InsightThought from "../InsightThought"
+// import InsightThought from "../InsightThought"
 import FaqSection from "../ProductKYC/FAQ"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
@@ -68,7 +68,7 @@ const ProductsPage1 = () => {
 
       <div id="faq"><FaqSection /></div>
 
-      <div id="blogs"><InsightThought /></div>
+      {/* <div id="blogs"><InsightThought /></div> */}
 
       <div id="contact-us">
         <div className="hidden lg:block relative">

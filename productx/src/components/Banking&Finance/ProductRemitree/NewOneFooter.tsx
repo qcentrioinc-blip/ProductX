@@ -39,7 +39,7 @@ const NewOneFooter = () => {
   };
   const toastPortal = footerToast ? createPortal(
   <div
-    className={`fixed bottom-20 right-6 z-[9999] flex items-center gap-3
+    className={`fixed bottom-32 left-0 z-[9999] flex items-center gap-3
       px-5 py-4 rounded-2xl font-quicksand bg-white opacity-100
       shadow-[0_8px_32px_rgba(0,0,0,0.25)]
       ${footerToast.type === 'success' ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
@@ -87,7 +87,7 @@ const NewOneFooter = () => {
     // { label: "AboutUs", url: "/industries/banking-and-finance/aboutus" },
     // { label: "Careers", url: "/industries/banking-and-finance/careers" },
 
-    { label: "Blogs", url: "/industries/banking-and-finance" },
+    // { label: "Blogs", url: "/industries/banking-and-finance" },
     // { label: "News Letter", url: "/industries/banking-and-finance/contactform" },
     // { label: "White Papers", url: "/industries/banking-and-finance/contactform" },
     // { label: "Events", url: "/industries/banking-and-finance/contactform" },
@@ -100,9 +100,9 @@ const NewOneFooter = () => {
    const BuiltFor = [
  
 
-    { label: "Banks", url: "industries/banking-and-finance/built-for/banks" },
-      { label: "Credit Unions", url: "industries/banking-and-finance/built-for/credit-unions" },
-        { label: "Financial Unions", url: "industries/banking-and-finance/built-for/financial-unions" },
+    { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
+      { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-union" },
+        { label: "Financial Institutions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
@@ -131,7 +131,7 @@ const NewOneFooter = () => {
                     alt="logo"
                     className="w-[150px] h-[150px] object-contain"
                   />
-                </div>
+                </div> 
             
                 {/* Newsletter Heading */}
                 <div className="space-y-0 ">
@@ -251,10 +251,10 @@ const NewOneFooter = () => {
                   </div>
 
                   <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center  mb-10 lg:gap-8">
-                    <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Terms and Conditions
                     </a>
-                    <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/cookies-policies" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Cookies Policy
                     </a>
                     <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
@@ -275,6 +275,7 @@ const NewOneFooter = () => {
             className="w-full h-16  absolute bottom-0 object-cover block"
             alt=""
           /> */}
+          
         </footer>
       </div>
 

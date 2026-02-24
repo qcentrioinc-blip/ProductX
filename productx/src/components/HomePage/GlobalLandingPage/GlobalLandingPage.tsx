@@ -1,5 +1,9 @@
 import { lazy, Suspense } from "react"
+// import LandingPage1 from "./LandingPage1"
+import CircularCards from "./CircularCards"
+import Navbar from "../../Global/Navbar/Navbar"
 import LandingPage1 from "./LandingPage1"
+import Map from "./Map"
 
 // Below-the-fold: lazy load to speed up initial page render
 const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
@@ -17,7 +21,8 @@ const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
-
+<Navbar/>
+                <CircularCards/>
             <div id="landingpage">
                 <LandingPage1 />
             </div>
@@ -31,6 +36,9 @@ const GlobalLandingPage = () => {
                 </div>
                 <div id="innovationcards" className="gpu-optimized">
                     <InnovationCards />
+                </div>
+                <div id="map" className="gpu-optimized">
+                    <Map />
                 </div>
                 <div id="businessvaluessection" className="gpu-optimized">
                     <BusinessValuesSection />

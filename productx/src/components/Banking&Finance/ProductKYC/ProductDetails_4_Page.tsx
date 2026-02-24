@@ -7,7 +7,7 @@ import CardsSection from "./CardsSection";
 import Features from "./Features";
 import ContentInfo from "./ContentInfo";
 // import Grid from "./Grid";
-import InsightThought from "../InsightThought";
+// import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../Navbar/BNFnav";
@@ -42,7 +42,7 @@ const ProductDetails_4_page = () => {
       <BNFNav />
       <TitleSec />
       <HeroBottomNavbar />
-      
+
       <div id="overview">
         <CardsSection />
         <CoreCapabilities/>
@@ -62,20 +62,20 @@ const ProductDetails_4_page = () => {
       <div id="faq">
         <FaqSection />
       </div>
-      <InsightThought />
-     <div className="hidden lg:block relative">
-  {/* Footer sits at bottom, ContactUS scrolls over it */}
-  <div id="contact-us">
-    <ContactUS />
-  </div>
-  <NewOneFooter />
-</div>
+      {/* <InsightThought /> */}
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
 
-{/* MOBILE */}
-<div className="lg:hidden">
-  <ContactUS />
-  <NewOneFooter />
-</div>
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
 
     </div>
 

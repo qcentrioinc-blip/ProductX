@@ -11,7 +11,7 @@ type ProcessStepProps = {
 const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) => {
   return (
     <div
-      className="w-[400px] sm:w-[500px] lg:w-[680px]
+      className="w-[400px] sm:w-[500px] lg:w-[690px]
  flex-shrink-0 flex flex-col items-center"
       style={{ fontFamily: "Bricolage Grotesque" }}
     >
@@ -31,10 +31,10 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
       </H3>
       </div>
 
-      {/* Description */}
+    
      {/* Description */}
-<div className="mt-4 w-full flex justify-end">
-  <div className=" lg:ml-99">
+<div className="mt-4 w-full flex justify-center">
+  <div className=" lg:ml-99 ">
     <P className="text-gray-600 text-left">
       {description}
     </P>
@@ -55,7 +55,7 @@ const Process = () => {
     });
 
     // Transform scroll progress - Desktop keeps same
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
 
     const steps = [
         {
@@ -87,16 +87,16 @@ const Process = () => {
 
     return (
         <>
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
   <div className=" font-sans" id='our-process'>
             {/* Container with section height for scroll tracking */}
             <div
                 ref={containerRef}
-                className="relative bg-[#EFEFEF] h-[200vh] sm:h-[250vh] lg:h-[300vh]"
+                className="relative bg-[#EFEFEF] h-[200vh]  "
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[85vh] flex items-start  pt-[10vh] sm:pt-[15vh] lg:pt-[35vh]">
+                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[100vh] flex items-start pt-[35vh] ">
 
                     {/* Header section - Responsive positioning */}
                     <div className="absolute top-6 sm:top-10 md:top-14 lg:top-24 left-0 right-0 flex-none z-20">
@@ -117,12 +117,16 @@ const Process = () => {
 
                         <motion.div
                             style={{ x }}
-                            className="relative flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-16 pl-4 sm:pl-6 md:pl-8"
+                            className="relative flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-0 pl-4 sm:pl-6 md:pl-8 xl:pl-0"
                         >
                             {/* Dotted line - Responsive positioning */}
-                            <div className="absolute top-9 sm:top-[44px] md:top-12 lg:top-[52px] left-16 sm:left-[84px] md:left-24 lg:left-[100px] w-[250vw] sm:w-[220vw] xl:w-[220vw] h-px z-0">
-                                <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
-                            </div>
+                          <div className="absolute top-9 sm:top-[44px] md:top-12 lg:top-[52px] 
+left-16 sm:left-[84px] md:left-24 lg:left-[100px] 
+xl:left-[325px] 
+w-[250vw] sm:w-[220vw] lg:w-[180vw] xl:w-[180vw] 
+h-px z-0">
+  <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
+</div>
 
                             {/* Process steps */}
                             {steps.map((item) => (
@@ -140,7 +144,7 @@ const Process = () => {
             </div>
         </div>
 </div>
-<div className="block lg:hidden bg-[#EFEFEF] py-16 px-6">
+<div className="block xl:hidden bg-[#EFEFEF] py-16 px-6">
   <div className="max-w-2xl mx-auto">
     <H2 className="text-blue-500 text-center mb-12">
       Our Implementation Process

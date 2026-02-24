@@ -119,7 +119,7 @@ export default function NewFooter() {
         </div>
         <hr className="my-4 md:my-10 bg-[#858585] w-full"></hr>
         {/* Middle Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-0 py-4 md:py-10">
+        <div className="grid grid-cols-1 max-w-6xl   sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1fr_2fr] gap-10 md:gap-0 py-4 md:py-10">
           {/* Industries */}
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>
@@ -171,7 +171,7 @@ export default function NewFooter() {
           </div>
 
           {/* Contact Sales */}
-          <div>
+          {/* <div>
             <H4 className="text-gray-300 mb-4">Contact Sales</H4>
             <ul className="space-y-3 text-gray-300 text-sm">
               <Li>
@@ -185,14 +185,14 @@ export default function NewFooter() {
                 </span>
               </Li>
             </ul>
-          </div>
+          </div> */}
 
 
           {/* only for md it will be hidden  */}
-          <div className="flex flex-col  md:hidden xl:flex">
+          <div className="flex flex-col   md:hidden xl:flex">
 
             <H4 className="text-gray-300 mb-4">Stay Up to date</H4>
-            <P className="text-gray-300 text-sm mb-4">
+            <P className="text-gray-300   text-sm mb-4">
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
 

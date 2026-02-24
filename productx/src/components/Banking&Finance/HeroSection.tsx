@@ -1,21 +1,21 @@
 // import { H1, P } from "../../styles/Typography";
 // import { ContactUsDark } from "../../styles/Button";
 // import { Link } from "react-router-dom";
-import LazyVideo from "../Global/LazyVideo";
 
 const HeroSection = () => {
   return (
     // <div className="relative h-[600px] sm:h-screen min-h-[500px] sm:max-h-[800px] w-full overflow-hidden">
-    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-screen min-h-[500px] max-h-[900px] overflow-hidden">
+    <div className="relative w-full h-[60vh] sm:h-[75vh] md:h-screen  bg-[#efefef] min-h-[500px] max-h-[900px] overflow-hidden">
 
       {/* Background Video */}
-      <LazyVideo
-        className="absolute inset-0 w-full   h-full object-cover  "
-        src="/Video/BNF.mp4"
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/Video/LandingBnf.mp4"
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
       />
 
       {/* Overlay for better text contrast */}

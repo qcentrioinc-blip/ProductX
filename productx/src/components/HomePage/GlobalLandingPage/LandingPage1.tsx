@@ -269,6 +269,18 @@ export default function InteractiveHeroSection() {
     document.head.appendChild(link);
   };
 
+  const prefetchBNFVideo = () => {
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    video.src = '/Video/LandingBnf.mp4';
+    video.style.display = 'none';
+    document.body.appendChild(video);
+    // Clean up after metadata loads
+    video.onloadedmetadata = () => {
+      video.remove();
+    };
+  };
+
   return (
     <>
       <Navbar />
@@ -331,7 +343,11 @@ export default function InteractiveHeroSection() {
                           onClick={() => setActiveIndex(index)}
                           onComingSoonClick={handleComingSoon}
                           onNavigate={(url) => window.open(url, '_blank')}
-                          onPrefetch={industry.title === 'EHR and PMS' ? prefetchEHRVideo : undefined}
+                          onPrefetch={
+                            industry.title === 'EHR and PMS' ? prefetchEHRVideo
+                              : industry.title === 'Banking and Finance' ? prefetchBNFVideo
+                                : undefined
+                          }
 
                           countdownText={getCountdown(industry.deadline)}
                         />
