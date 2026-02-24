@@ -16,7 +16,7 @@ const FirstProduct = () => {
   });
 
   return (
-    <div className="w-full min-h-screen bg-[#307BD6] relative overflow-hidden">
+    <div className="w-full xl:min-h-screen bg-[#307BD6] relative overflow-hidden">
       {/* Background Image - Draxora1 */}
       {/* <div
         className="absolute inset-0 z-0"
@@ -28,16 +28,16 @@ const FirstProduct = () => {
         }}
       /> */}
       {/* Top Right Blur Circle */}
-<div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
+<div className="absolute top-[-200px] right-[-200px] w-[300px] h-[300px] xl:w-[700px] xl:h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
 
 {/* Bottom Left Blur Circle */}
-<div className="absolute bottom-[-200px] left-[-200px] w-[700px] h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
+<div className="absolute bottom-[-200px] left-[-200px] w-[300px] h-[300px] xl:w-[700px] xl:h-[700px] rounded-full bg-[#FBE580] blur-[300px] pointer-events-none z-0"></div>
 
-      <div className="relative lg:pt-44 z-10 px-4 sm:px-6 lg:px-8 py-16">
-        <div className="relative flex flex-col items-center justify-center min-h-screen">
+      <div className="relative xl:pt-44 z-10 px-4 sm:px-6 lg:px-8 py-16">
+        <div className="relative flex flex-col items-center justify-center xl:min-h-screen">
 
           {/* Trusted by 15K+ Section */}
-          <div className="mb-12 flex items-center gap-4 trusted-section">
+          {/* <div className="mb-12 flex items-center gap-4 trusted-section">
             <div className="flex -space-x-3">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white"></div>
@@ -48,13 +48,13 @@ const FirstProduct = () => {
             <P className='text-white'>
               Trusted by 15K+
             </P>
-          </div>
+          </div> */}
 
           {/* Content Container */}
           <div
             className="content-container"
             style={{
-              width: '1000px',
+              width: '1100px',
               display: 'flex',
               flexDirection: 'column',
               gap: '10px',
@@ -63,15 +63,15 @@ const FirstProduct = () => {
             }}
           >
             {/* Main Heading */}
-            <H1 className='text-white sm:text-center'>
+            <H1 className='text-white text-center'>
               
               Automate reconciliation for accuracy 
             </H1>
 
             {/* Subtitle */}
-            <P className='text-white text-center max-w-3xl  mb-2'>
+            <P className='text-white text-center max-w-5xl  mb-4'>
 
-Streamline financial reconciliation with automated data matching, straight-through processing, and comprehensive case management for unmatched and discrepant transactions.             </P>
+Streamline financial reconciliation with automated data matching, straight-through processing, and comprehensive case management for unmatched and discrepant transactions. Reduce manual effort, eliminate errors, and accelerate month-end closing. Gain complete visibility into your reconciliation status with real-time dashboards and audit trails.            </P>
 
             {/* CTA Button */}
             <Link to="#contact-us">
@@ -88,7 +88,7 @@ Streamline financial reconciliation with automated data matching, straight-throu
                   paddingLeft: '24px',
                   background: '#FED600',
                   color: '#000000',
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "'quicksand', sans-serif",
                   fontWeight: 700,
                   fontSize: '13px',
                   display: 'flex',

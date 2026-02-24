@@ -395,12 +395,12 @@ else palette = COLORS.banking;
   );
 
   return (
-    <div className="w-full relative  shadow-md flex flex-col items-center py-10 sm:py-20 px-4 sm:px-6 md:px-10">
+    <div className="w-full relative  shadow-md flex flex-col items-center py-10  md:py-8 px-4 sm:px-6 md:px-10">
       <div className="max-w-7xl w-full">
 
         {/* HEADINGS */}
         {/* HEADINGS */}
-        <div className="flex flex-col space-y-4 sm:space-y-6 mb-10">
+        <div className="flex flex-col space-y-4 sm:space-y-6 mb-6">
 
 
           <h2

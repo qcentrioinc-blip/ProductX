@@ -10,6 +10,7 @@ import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import ProductNotFound from './components/ProductNotFound';
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
+import CommingSoon from './components/ProductsCommingSoon';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
 import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
@@ -253,6 +254,7 @@ const App = () => {
             <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
             <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
             <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
+            <Route path="/industries/:industry/products/commingsoon" element={<CommingSoon />} />
 
             {/* Platform Routes */}
             <Route path="/platform" element={<Platform />} />

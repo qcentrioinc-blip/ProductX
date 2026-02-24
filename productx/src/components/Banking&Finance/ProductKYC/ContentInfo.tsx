@@ -1,76 +1,111 @@
 import { Link } from "react-router-dom";
 import { ContactUs } from "../../../styles/Button";
 import { H2, H4, P } from "../../../styles/Typography";
+import { Settings, LifeBuoy, Plug } from "lucide-react";
 
 export default function Sec_4() {
   return (
-    <section className="relative w-full xl:h-auto bg-white py-10 overflow-hidden">
-      {/* Vertical line (desktop only) */}
+    <section className="w-full bg-[#F4F4F4] py-10">
+      <div className="max-w-7xl mx-auto px-10 xl:px-0">
 
-      {/* Main content container */}
-      <div className="w-full flex flex-col xl:flex-row xl:items-stretch relative z-10">
-        {/* Left text section */}
-        <div id="our-process" className="flex-1 w-full flex flex-col justify-center items-center xl:items-start px-6 py-6 md:px-20 xl:mx-10 md:py-8">
-          <H2 className="text-[#2B68C3] mb-6 sm:max-w-xl md:max-w-xl">
-            Value, purpose, and security
-          </H2>
-          <P className="mt-4 text-black max-w-xl">
-            Diligent delivers measurable business outcomes while ensuring data protection and regulatory compliance across all due diligence operations.
-          </P>
+        {/* Two Column Layout */}
+        <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">
 
-          <div
-            style={{ borderTop: "0.5px solid #A80040" }}
-            className="w-full max-w-xl my-8 mt-16"
-          />
+          {/* Vertical Divider (Desktop Only) */}
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-blue-200 -translate-x-1/2" />
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 max-w-xl gap-x-8 gap-y-4 mb-6 md:mb-8 lg:mb-12">
-            <div>
-              <H4>Significant cost savings</H4>
-              <P className="mt-4">
-                Over fifty percent reduction in KYC processing costs with automated workflows.
-              </P>
-            </div>
-            <div>
-              <H4> Secure API integrations </H4>
-              <P className="mt-4">
-                Connect with core systems, screening engines, and data sources securely.
-              </P>
-            </div>
-          </div>
+          {/* LEFT SECTION */}
+          <div className="flex-1 lg:pr-16">
+            <H2 className="text-[#2B68C3] mb-6 max-w-xl">
+              Zero code policy configuration engine
+            </H2>
 
-          <Link
-            to="#contact-us"
-            onClick={(e) => {
-              const el = document.getElementById("contact-us");
-              if (el) {
-                e.preventDefault();
-                el.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            <ContactUs>View Platform</ContactUs>
-          </Link>
+            <P className="mt-4 text-black max-w-xl">
+              Automatically identify connected parties and ultimate beneficial
+              owners based on configured thresholds and entity types.
+            </P>
 
-          {/* Image for <1200px (below contact button) */}
-          <div className="xl:hidden mt-10 w-full flex justify-center md:justify-center">
-            <img
-              src="/ProductDetails4/Sec4_img.webp"
-              alt="Illustrative"
-              className="w-[720px] max-w-full h-auto object-contain md:ml-0"
+            <div
+              style={{ borderTop: "0.2px solid #A80040" }}
+              className="w-full max-w-xl my-10"
             />
-          </div>
-        </div>
-        {/* Right image section (desktop only) */}
-      <div className="hidden xl:block w-1/2 relative">
-        <img
-          src="/ProductDetails4/Sec4_img(2).webp"
-          alt="Illustrative"
-          className="absolute inset-0 w-full h-full object-contain"
-        />
-      </div>
-      </div>
 
-      
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 max-w-xl mb-10">
+              <div>
+                <H4>Significant cost savings</H4>
+                <P className="mt-4">
+                  Over fifty percent reduction in KYC processing costs with automated workflows.
+                </P>
+              </div>
+
+              <div>
+                <H4>Security & Integrations</H4>
+                <P className="mt-4">
+                  Connect with core systems, screening engines, and data sources securely.
+                </P>
+              </div>
+            </div>
+
+            <Link
+              to="#contact-us"
+              onClick={(e) => {
+                const el = document.getElementById("contact-us");
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              <ContactUs>CONTACT US</ContactUs>
+            </Link>
+          </div>
+
+          {/* RIGHT SECTION */}
+          <div className="flex-1 space-y-6">
+
+            {/* Card 1 */}
+            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+              <div className="flex flex-col gap-4 items-start">
+                <Settings className="text-[#2B68C3] mt-1" size={30} />
+                <div>
+                  <H4>Zero code policy configuration engine</H4>
+                  <P className="mt-2 text-gray-900">
+                    Configure due diligence parameters on the go without vendor support.
+                  </P>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+              <div className="flex flex-col gap-4 items-start">
+                <LifeBuoy className="text-[#2B68C3] mt-1" size={30} />
+                <div>
+                  <H4>Full client lifecycle coverage</H4>
+                  <P className="mt-2 text-gray-900">
+                    Manage onboarding, periodic reviews, and trigger events seamlessly.
+                  </P>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+              <div className="flex flex-col gap-4 items-start">
+                <Plug className="text-[#2B68C3] mt-1" size={30} />
+                <div>
+                  <H4>Seamless API integrations</H4>
+                  <P className="mt-2 text-gray-900">
+                    Connect with data sources, screening engines, and core systems.
+                  </P>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }

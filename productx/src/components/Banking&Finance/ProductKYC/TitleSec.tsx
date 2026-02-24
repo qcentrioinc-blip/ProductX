@@ -73,20 +73,23 @@ export default function HeroSection() {
 
   return (
     <section
-      ref={sectionRef}
-      className="w-full lg:h-screen relative overflow-hidden flex items-start lg:items-start xl:items-center"
-      style={{ minHeight: '800px', ...yellowGradientStyle }}
-    >
+  ref={sectionRef}
+  className="w-full relative overflow-hidden flex items-start lg:items-start xl:items-center"
+  style={{
+    minHeight: isMobile ? '1030px' : '800px',
+    ...yellowGradientStyle
+  }}
+>
 
       {/* Shape - Desktop Only */}
       {!isMobile && (
         <div
           className="absolute hidden md:block z-0"
           style={{
-            width: '1100.75px',
-            height: '1111.99px',
-            top: '220.5px',
-            left: '-131.53px',
+  width: '800px',
+  height: '820px',
+  top: '180px',
+  left: '-100px',
             transform: 'rotate(-168.69deg)',
             opacity: 1,
             borderRadius: '600px',
@@ -108,7 +111,7 @@ export default function HeroSection() {
         style={{
           background: '#2B68C3',
           ...(isMobile ? {
-            bottom: '60px',
+            bottom: '20px',
             left: '0',
             height: '45%',
             width: '85%',
@@ -119,8 +122,8 @@ export default function HeroSection() {
             bottom: '8px',
             top: '0',
             right: '20px',
-            height: '95%',
-            width: '40%',
+            height: '80%',
+            width: '32%',
             borderRadius: '0 0 9999px 9999px',
             borderLeft: '24px solid #F99526',
           })
@@ -153,12 +156,12 @@ export default function HeroSection() {
 
         {/* Main Image with Futuristic Animation */}
         <img
-          src="/ProductDetails4/Title_img.webp"
+          src="/ProductDetails4/Title_img(1).png"
           alt="Sales Report Overview"
           className={`w-full h-auto object-contain absolute top-1/2 left-1/2 z-10 
             ${hasEntered ? 'opacity-100 scale-110 blur-0' : 'opacity-0 scale-95 blur-md'}`}
           style={{
-            maxWidth: isMobile ? '70%' : '90%',
+            maxWidth: isMobile ? '70%' : '85%',
             transform: 'translate(-50%, -50%)',
             transition: 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
             transitionDelay: hasEntered ? '0.6s' : '0s',
@@ -215,7 +218,7 @@ export default function HeroSection() {
 
       {/* Main Content Container (Text + Button) */}
       <div
-        className="relative z-10 w-full flex flex-col px-4 sm:px-8 py-20 xl:py-10 lg:top-30 xl:top-0"
+        className="relative z-10 w-full flex flex-col px-4 sm:px-8 py-20 xl:py-10 top-10 lg:top-30 xl:top-0"
         style={{
           ...(isMobile ? {} : {
             alignItems: 'flex-start',
@@ -234,16 +237,15 @@ export default function HeroSection() {
             } : {
               alignItems: 'flex-start',
               textAlign: 'left',
-              marginTop: '-100px',
+              marginTop: '-0px',
             })
           }}
         >
-          <H1 className="mb-4 text-3xl md:text-5xl font-bold leading-tight">
-            Digital KYC and<br /> CDD platform
+          <H1 className="mb-4 max-w-2xl">
+            Enterprise Digital KYC and  CDD Automation Platform
           </H1>
-          <p className="mb-8 text-gray-700 max-w-[500px]">
-            Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments.
-          </p>
+          <p className="mb-8 text-gray-700 max-w-[700px]">
+            Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments. Replace manual, document-based processes with system-configured policies, automated risk assessment, and seamless screening integrations.       </p>
           <Link
             to="#contact-us"
             onClick={(e) => {

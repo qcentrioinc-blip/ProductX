@@ -176,7 +176,7 @@ export default function NewFooter() {
             <ul className="space-y-3 text-gray-300 text-sm">
               <Li>
                 <span className="inline-block hover:text-white hover:underline cursor-pointer">
-                  info@abc.com
+                  sales@qnest.com
                 </span>
               </Li>
               <Li>
