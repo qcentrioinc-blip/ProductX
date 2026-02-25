@@ -45,7 +45,7 @@ const CARDS = [
 const Capabilities = () => {
   return (
     <div className="relative min-h-screen">
-      <div className="max-w-8xl xl:mx-10 mx-4 py-20 px-4">
+      <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-0">
         <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
 
           {/* ================= LEFT COLUMN ================= */}
@@ -104,7 +104,7 @@ const Capabilities = () => {
                       {card.title}
                     </H3>
 
-                    <P className="leading-[150%] lg:ml-[160px] text-[#3A3A3A] mt-4">
+                    <P className="leading-[150%] text-[#3A3A3A] mt-4">
                       {card.description}
                     </P>
 

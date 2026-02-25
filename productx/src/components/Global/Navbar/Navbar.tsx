@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const ArrowUpRight = ({ size = 18 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
 );
 const MenuIcon = ({ size = 28 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
 );
 const XIcon = ({ size = 28 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
 );
 
 const Navbar = () => {
@@ -31,16 +31,16 @@ const Navbar = () => {
 
         {/* Desktop nav (unchanged) */}
         <nav className="hidden md:flex items-center gap-8">
-           <Link
+           {/* <Link
             to="/"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
           >
             Home
-          </Link>
+          </Link> */}
           <Link
             to="/platform"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
           >
             Platform
@@ -48,7 +48,7 @@ const Navbar = () => {
 
           <Link
             to="/marketplace"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-white hover:text-gray-300"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
           >
             Marketplace
@@ -78,17 +78,17 @@ const Navbar = () => {
 
       {/* Mobile / Tablet menu */}
       {open && (
-        <div className="md:hidden bg-neutral-900 border-t border-white/10 px-6 py-6 space-y-4">
+        <div className="md:hidden bg-[#efefef] border-t border-white/10 px-6 py-6 space-y-4">
           <Link
             to="/platform"
-            className="block text-white text-lg"
+            className="block text-black  font-quicksand font-bold text-lg"
             onClick={() => setOpen(false)}
           >
             Platform
           </Link>
           <Link
             to="/marketplace"
-            className="block text-white text-lg "
+            className="block text-black  font-quicksand font-bold text-lg"
             onClick={() => setOpen(false)}
           >
             Marketplace

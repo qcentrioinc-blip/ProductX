@@ -143,7 +143,7 @@ useEffect(() => {
           {/* Blue background band */}
           <div className="absolute top-0 left-0 w-full h-[75vh] pt-10 bg-[#2B68C3]">
             <img
-              src="/ContactSection/yellowCurve.png"
+              src="/FormLineWHite.png"
               alt="curve"
               className="absolute left-18 -top-9 w-[1440px] h-[555px] inset-0 object-fit pointer-events-none"
             />
@@ -161,7 +161,13 @@ useEffect(() => {
             <div className="flex justify-end overflow-visible">
               <div className="w-[480px] -mt-[24vh] overflow-visible">
                 <div className="bg-white h-[650px] rounded-[20px] px-12 py-20   shadow-[0_10px_30px_rgba(0,0,0,0.06),0_5px_10px_rgba(0,0,0,0.20)]">
-                  <div className="space-y-6">
+                  <form
+  className="space-y-6"
+  onSubmit={(e) => {
+    e.preventDefault();    
+    handleSubmit();
+  }}
+>
                     <input
                       type="text"
                       placeholder="Name"
@@ -238,7 +244,7 @@ useEffect(() => {
                       SUBMIT
                       <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -255,7 +261,7 @@ useEffect(() => {
         <div className="flex flex-col min-h-full relative">
           <div className="relative bg-[#2B68C3] h-[52vh] pt-12 px-6 overflow-hidden">
             <img
-              src="/ContactSection/yellowCurve.png"
+              src="/FormLineWHite.png"
               alt="Background curve graphic"
               className="absolute top-10 left-0 lg:top-20 w-[100%] h-[200px] lg:h-[380px] -rotate-20 lg:-rotate-10 object-fit pointer-events-none"
             />
@@ -268,8 +274,8 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="relative -mt-48 pr-6 pl-8 pb-10">
-            <div className="bg-white rounded-[28px] md:rounded-[20px] p-6 md:p-14 lg:p-16 shadow-[0px_20px_60px_rgba(0,0,0,0.12),_-20px_0px_40px_rgba(0,0,0,0.06),_20px_0px_40px_rgba(0,0,0,0.06)]">
+          <div className="relative -mt-48 pr-6 pl-8 pb-10 z-40">
+            <div className="bg-white rounded-[28px] md:rounded-[20px] p-6 md:p-14 lg:p-16 shadow-[0px_20px_60px_rgba(0,0,0,0.12),_-20px_0px_40px_rgba(0,0,0,0.06),_20px_0px_40px_rgba(0,0,0,0.06)]  relative z-50">
               <div className="space-y-5 pt-16">
                 <input
                   type="text"

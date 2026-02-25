@@ -35,7 +35,7 @@ const ENTERPRISES_DATA = [
     id: 4,
     title: "Case Management And MIS Reporting ",
     description:
-      "Investigate exceptions, force matches, and generate comprehensive reports with full audit trails. ",
+      "Investigate exceptions, force matches, and generate comprehensive reports with full audit trails. Track investigation status and resolution progress through collaborative workflows.",
     image: Image4,
     type: "wide",
   },
@@ -43,21 +43,21 @@ const ENTERPRISES_DATA = [
 
 const Enterprises = () => {
   return (
-    <section className="bg-[#F5F5F5] w-full text-black py-10 px-4 md:px-8">
+    <section className="max-w-7xl xl:mx-auto  w-full text-black py-10 px-4 md:px-8 xl:px-0">
       {/* Heading */}
-      <div className="max-w-4xl mx-4 lg:mx-10 text-left mb-16">
+      <div className="max-w-4xl mx-4 lg:mx-10 xl:mx-0 text-left mb-16">
         <H2>
           How Conciliare Works:
           <br />
           <span className="text-[#2B68C3]">From Data to Decision</span>
-          
+
         </H2>
       </div>
 
       {/* ============================= */}
       {/* DESKTOP GRID */}
       {/* ============================= */}
-      <div className="hidden lg:grid grid-cols-3 gap-6 mx-10">
+      <div className="hidden lg:grid grid-cols-3 gap-6 mx-10 xl:mx-0">
         {ENTERPRISES_DATA.map((card, index) => {
           // Tall Left Card
           if (card.type === "tall") {
@@ -76,7 +76,7 @@ const Enterprises = () => {
                 <motion.img
                   src={card.image}
                   alt={card.title}
-                  className="mt-6 rounded-md object-cover w-full lg:h-[520px] xl:h-[650px]"
+                  className="mt-4 rounded-md object-cover w-full lg:h-[520px] xl:h-[650px]"
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}

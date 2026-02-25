@@ -30,30 +30,30 @@ export default function CardsSection() {
 
   const cards = [
     {
-      title: "Zero code policy configuration engine",
+      title: "Configure policies without code",
       description:
-        "Configure all due diligence parameters on the go without vendor support.",
+        "Set up and modify due diligence rules and parameters instantly without any vendor support.",
       icon: "/ProductDetails4/icon1.svg",
     },
     {
-      title: "Full client lifecycle coverage",
+      title: " End-to-end client lifecycle management",
       description:
-        "Manage onboarding, periodic reviews, and trigger events seamlessly.",
+        "Handle onboarding, periodic reviews, and trigger events seamlessly in one unified platform.",
       icon: "/ProductDetails4/icon2.svg",
     },
     {
-      title: "Seamless API integrations",
+      title: "Connect Seamlessly via Open APIs",
       description:
-        "Connect with data sources, screening engines, and core systems.",
+        "Integrate with data sources, screening tools, and core banking systems through standard APIs.",
       icon: "/ProductDetails4/icon3.svg",
     },
   ];
 
   return (
-    <section className="w-full bg-white py-18">
+    <section className="w-full bg-white py-10">
       <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center mb-12">
-          Complete due diligence platform overview
+           Intelligent KYC and due diligence platform
         </H2>
 
         <motion.div

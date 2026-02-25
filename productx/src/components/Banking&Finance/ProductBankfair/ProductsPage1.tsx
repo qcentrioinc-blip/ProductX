@@ -15,6 +15,11 @@ import Capabilities from "./Capabilities"
 import { useContext, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { ScrollContext } from "../../../context/ScrollContext"
+import ConsilierCTA from "./ConsilierCTA"
+import ConsilierCard from "./ConsilierCard"
+import FourPoints from "./FourPoints"
+import Configurable from "./Configurable"
+import Industry from "./Industry"
 // import Pricing from "./Pricing"
 
 const ProductsPage1 = () => {
@@ -58,10 +63,13 @@ const ProductsPage1 = () => {
       <FirstProduct />
       <HeroBottomNavbar />
       <Capabilities />
-      <div id="overview">
-        <Enterprises /></div>
-
       <div id="benefits"> <Building /></div>
+      <div id="configurable"><Configurable /></div>
+      <div id="overview"><Enterprises /></div>
+      <div id="consilier"><ConsilierCard /></div>
+      <div id="consilier"><ConsilierCTA /></div>
+      <div id="industry"><Industry /></div>
+      <div id="four-points"><FourPoints /></div>
 
       {/* <Pricing /> */}
       <div id="usecases"> <HWD /></div>

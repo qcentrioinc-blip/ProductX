@@ -53,11 +53,11 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
     FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
 
   return (
-    <section className="pb-10 px-5 bg-white overflow-hidden">
+    <section className="pb-5 px-5 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* SECTION TITLE */}
-        <H2 className="mb-16 mt-10 text-center text-[#2B68C3] tracking-tight leading-snug">
+        <H2 className="py-4 text-center text-[#2B68C3] tracking-tight leading-snug">
          Key features of Diligent platform 
         </H2>
 
@@ -92,14 +92,14 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* HORIZONTAL BUTTONS — MOBILE & TABLET */}
-          <div className="xl:hidden w-full overflow-x-auto scrollbar-hide">
+          <div className="xl:hidden w-full overflow-x-auto scrollbar-hide py-2">
             <div
               className="
                 flex gap-3
                 px-4 sm:px-6
                 pb-4
-                snap-x snap-mandatory lg:pl-25 
-                scroll-pl-4 scroll-pr-4
+                snap-x snap-mandatory xl:pl-25 
+               scroll-pr-4
               "
             >
               {FEATURES.map((item) => {

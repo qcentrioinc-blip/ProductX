@@ -51,8 +51,8 @@ const tabContent: Record<FilterKey, TabContentData> = {
     image: "/Products/img4.webp",
     imageAlt: "Analytics Dashboard",
     stats: {
-      left: { label: "Improved processing speed across all operations", value: "95%" },
-      right: { label: "Faster customer onboarding experience", value: "5X" },
+      left: { label: " Reduction in manual data preparation time", value: "90%" },
+      right: { label: "Enrichment rules applied per transaction automatically", value: "15+" },
     },
   },
   "Automated matching": {
@@ -83,8 +83,8 @@ const tabContent: Record<FilterKey, TabContentData> = {
     image: "/Products/img5.webp",
     imageAlt: "Risk Management",
     stats: {
-      left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
-      right: { label: "More accurate risk assessment predictions", value: "8X" },
+      left: { label: " Fewer exceptions requiring manual intervention", value: "50%" },
+      right: { label: "Audit trail accuracy for all override actions", value: "99.9%" },
     },
   },
   "Case management": {
@@ -99,8 +99,8 @@ const tabContent: Record<FilterKey, TabContentData> = {
     image: "/Products/img2.webp",
     imageAlt: "Risk Management",
     stats: {
-      left: { label: "Decrease in fraudulent transaction detection time", value: "60%" },
-      right: { label: "More accurate risk assessment predictions", value: "8X" },
+      left: { label: " Faster investigation resolution times", value: "70%" },
+      right: { label: "Standard MIS reports generated automatically", value: "20+" },
     },
   },
 }
@@ -119,15 +119,18 @@ const Building = () => {
   const currentContent = tabContent[activeFilter]
 
   return (
-    <div className="w-full bg-white py-6 px-3.5 sm:py-8 sm:px-4 md:py-9 md:px-5 xl:py-[50px] xl:px-5">
+    <div className="w-full bg-white px-3.5 sm:px-4 md:px-5">
 
       {/* Everything below remains EXACTLY the same as your original code */}
 
       {/* Title Section */}
       <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
         <h1
-          className="font-bold leading-none max-w-[1058px] mx-auto mb-2.5 xl:mb-4
-                     text-[24px] sm:text-[30px] md:text-[38px] lg:text-[44px] xl:text-[72px]"
+          className=" max-w-[1058px] mx-auto mb-2.5 xl:mb-4
+                     text-[24px] md:text-[32px] lg:text-[48px]
+
+      font-bricolage
+        leading-[120%]"
           style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
         >
           <span style={{ color: '#2B68C3' }}>Powerful Features That Transform</span>{' '}
@@ -206,7 +209,7 @@ const Building = () => {
 
             {/* Description: 12→13→14→16px */}
             <p
-              className="font-normal text-[#141414] m-0 leading-[150%] xl:leading-none
+              className="font-normal text-[#141414] m-0 leading-[150%]
                          text-[12px] sm:text-[13px] md:text-sm xl:text-base"
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
@@ -250,7 +253,7 @@ const Building = () => {
 
               {/* Label: 11→13→14→15→18px */}
               <p
-                className="font-normal text-[#141414] leading-[140%] xl:leading-none m-0
+                className="font-normal text-[#141414] leading-[140%]  m-0
                            xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
@@ -285,7 +288,7 @@ const Building = () => {
 
               {/* Label: 11→13→14→15→18px */}
               <p
-                className="font-normal text-[#141414] leading-[140%] xl:leading-none m-0
+                className="font-normal text-[#141414] leading-[140%] m-0
                            xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}

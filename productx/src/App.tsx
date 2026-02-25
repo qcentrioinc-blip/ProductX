@@ -10,12 +10,15 @@ import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import ProductNotFound from './components/ProductNotFound';
 import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
+import CommingSoon from './components/ProductsCommingSoon';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
-import BankingAndFinance from './routes/industries/BankingAndFinance'
+import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
+
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
-const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
+const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
+// const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
@@ -188,8 +191,10 @@ const App = () => {
             <Route path="/industries/banking" element={<About />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
-            <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
+            {/* <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} /> */}
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
+            <Route path="/industries/banking-and-finance/blogs/:slug" element={<BlogDetailBNF />} />
+
             <Route path="/career" element={<Career />} />
             <Route path="/industries/ehr-and-pms/contactform" element={<ContactFormPage />} />
             <Route path="/industries/ehr-and-pms/careers" element={<CareersPage />} />
@@ -208,6 +213,7 @@ const App = () => {
 
             <Route path="/blogs" element={<ImageCard />} />
             <Route path="/blogs/:slug" element={<BlogDetail />} />
+
 
 
 
@@ -248,6 +254,7 @@ const App = () => {
             <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
             <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />
             <Route path='/industries/banking-and-finance/marketplace' element={<Marketing />} />
+            <Route path="/industries/:industry/products/commingsoon" element={<CommingSoon />} />
 
             {/* Platform Routes */}
             <Route path="/platform" element={<Platform />} />

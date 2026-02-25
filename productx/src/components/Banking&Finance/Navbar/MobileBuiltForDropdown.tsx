@@ -22,7 +22,7 @@ const MobileBuiltForDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
             path: `${base}/built-for/credit-union`
         },
         {
-            title: "Financial Unions",
+            title: "Financial Institutions",
             desc: "Praesent eget laoreet arcu, nec iaculis ",
             path: `${base}/built-for/financial-unions`
         },

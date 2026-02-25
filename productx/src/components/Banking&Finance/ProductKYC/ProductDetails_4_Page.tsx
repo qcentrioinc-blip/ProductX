@@ -6,7 +6,7 @@ import TitleSec from "./TitleSec";
 import CardsSection from "./CardsSection";
 import Features from "./Features";
 import ContentInfo from "./ContentInfo";
-import Grid from "./Grid";
+// import Grid from "./Grid";
 // import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
@@ -14,6 +14,9 @@ import BNFNav from "../Navbar/BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 import FaqSection from "./FAQ";
 import NewsLetter from "../ProductRemitree/NewsLetter";
+import CoreCapabilities from "./CoreCapabilities";
+import CircleSec from "./CircleSec";
+import ChallengesSection from "./ChallengesSection";
 
 
 const ProductDetails_4_page = () => {
@@ -42,12 +45,17 @@ const ProductDetails_4_page = () => {
 
       <div id="overview">
         <CardsSection />
+        <CoreCapabilities/>
       </div>
       <div id="benefits"> <Features /></div>
+      <ChallengesSection/>
       <div id="process"><ContentInfo /></div>
 
-      <Grid />
-      <NewsLetter />
+      
+
+      {/* <Grid /> */}
+      <CircleSec/>
+      <NewsLetter/>
       <div id="usecases">
         <HWD />
       </div>

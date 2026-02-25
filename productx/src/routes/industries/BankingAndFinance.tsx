@@ -19,6 +19,7 @@ import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../context/ScrollContext";
 import TwoProducts from "../../components/HomePage/GlobalLandingPage/TwoProducts"
+import ImageCard from "../../components/Banking&Finance/BNFBlogs/ImageCard"
 
 const BankingAndFinance = () => {
   const location = useLocation();
@@ -58,6 +59,7 @@ const BankingAndFinance = () => {
       <AuditAnimation />
       {/* <Audit /> */}
       <Process />
+      <ImageCard/>
       {/* <Testimonial /> */}
       {/* <InsightThought /> */}
       {/* <div className="relative">

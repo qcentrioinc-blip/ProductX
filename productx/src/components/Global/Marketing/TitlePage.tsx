@@ -1,165 +1,227 @@
-import { useState, useRef, useEffect } from "react";
-import { H1, H4 } from "../../../styles/Typography";
+"use client";
+
+import { useState, useRef, useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { H1, P } from "../../../styles/Typography";
+import { Search } from "lucide-react";
+
+const products = [
+  { name: "Conciliare", path: "/industries/banking-and-finance/products/conciliare" },
+  { name: "KYC & CDD", path: "/industries/banking-and-finance/products/kyc" },
+  { name: "Unified EHR", path: "/industries/ehr-and-pms" },
+  { name: "CloudDIET", path: "/industries/cloud-finops-ai" },
+];
 
 export default function MarketplaceHero() {
   const [search, setSearch] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  /* ---------------- Intersection Animation ---------------- */
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  /* ---------------- Filter Products ---------------- */
+  const filteredProducts = useMemo(() => {
+    if (!search.trim()) return [];
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search]);
+
+  /* ---------------- Outside Click ---------------- */
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setShowDropdown(false);
+        setActiveIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  /* ---------------- Keyboard Navigation ---------------- */
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!filteredProducts.length) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setShowDropdown(true);
+      setActiveIndex((prev) =>
+        prev === null || prev === filteredProducts.length - 1
+          ? 0
+          : prev + 1
+      );
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((prev) =>
+        prev === null || prev === 0
+          ? filteredProducts.length - 1
+          : prev - 1
+      );
+    }
+
+    if (e.key === "Enter") {
+      const selected =
+        activeIndex !== null
+          ? filteredProducts[activeIndex]
+          : filteredProducts[0];
+
+      if (selected) {
+        navigate(selected.path);
+        setShowDropdown(false);
+        setSearch("");
+        setActiveIndex(null);
+      }
+    }
+
+    if (e.key === "Escape") {
+      setShowDropdown(false);
+      setActiveIndex(null);
+    }
+  };
+
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative w-full h-screen bg-[#E7EFFF] py-20 flex items-center justify-center overflow-hidden"
+      className="relative w-full h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-300 rounded-full opacity-60 animate-float" />
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-400 rounded-full opacity-40 animate-float-delayed" />
-        <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-blue-200 rounded-full opacity-50 animate-float-slow" />
-      </div>
-
-      {/* Decorative Left Image */}
-      <img
-        src="/MarketPlace/img1.png"
-        alt="Decorative left"
-        className="
-          absolute z-0
-          top-[60px] left-0
-          w-[220px] sm:w-[220px] md:w-[300px]
-          h-auto
-          transform transition-all duration-1000 ease-out
-        "
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-100px) rotate(-5deg)',
-          transitionDelay: isVisible ? '0.2s' : '0s'
-        }}
-      />
-
-      {/* Decorative Right Image */}
-      <img
-  src="/MarketPlace/img2.png"
-  alt="Decorative right"
-  className="
-    absolute z-0
-    bottom-0 right-0
-    w-[220px] sm:w-[220px] md:w-[300px]
-    h-auto
-    transform transition-all duration-1000 ease-out
-  "
-  style={{
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible
-      ? 'translateX(0) rotate(0deg) scaleX(-1)'
-      : 'translateX(100px) rotate(5deg) scaleX(-1)',
-    transitionDelay: isVisible ? '0.2s' : '0s'
-  }}
-/>
-
-
-      {/* Main Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center flex flex-col items-center">
-        <H1 
-          className="text-[#2B68C3] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-snug transform transition-all duration-800 ease-out"
+      <div className="relative z-10 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
+        <H1
+          className="text-[#2B68C3] text-4xl md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
-            transitionDelay: isVisible ? '0.4s' : '0s'
+            transform: isVisible ? "translateY(0)" : "translateY(40px)",
           }}
         >
-           Innovate with Qcentrio's Product Hub 
+          Innovate with Qcentrio's Market Place
         </H1>
 
-        <H4 
-          className="text-black text-base sm:text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed max-w-3xl transform transition-all duration-800 ease-out"
+        <P
+          className="text-lg md:text-xl mb-10 max-w-5xl transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-            transitionDelay: isVisible ? '0.6s' : '0s'
+            transform: isVisible ? "translateY(0)" : "translateY(30px)",
           }}
         >
-          Explore Qcentrio’s suite of intelligent products designed to optimize, secure, and transform your digital ecosystem, all in one trusted platform.
-        </H4>
+           Qcentrio’s Market Place brings together a powerful portfolio of
+  intelligent, enterprise-grade solutions built for the digital era.
+  Our banking platforms strengthen compliance, enhance fraud detection,
+  and enable real-time financial intelligence at scale.
+  In healthcare, we modernize patient systems through secure,
+  
+        </P>
 
-        {/* Search Input */}
-        <div 
-          className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl transform transition-all duration-800 ease-out"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.9)',
-            transitionDelay: isVisible ? '0.8s' : '0s'
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Search for products"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+        {/* ---------------- Premium Search ---------------- */}
+        <div ref={dropdownRef} className="relative w-full max-w-2xl text-left">
+          {/* Input */}
+          <div
             className="
-              w-full px-5 py-4 sm:py-5 rounded-lg bg-white border border-gray-300
-              focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
-              shadow-lg text-sm sm:text-base
-              transform transition-all duration-300 ease-out
-              hover:shadow-xl hover:scale-105
-              focus:scale-105
-            "
-          />
-          <button 
-            className="
-              absolute right-3 top-1/2 transform -translate-y-1/2 
-              text-gray-500 hover:text-gray-700 
-              transition-all duration-300 ease-out
-              hover:scale-125
+              relative group rounded-2xl
+              bg-white/80 backdrop-blur-xl
+              border border-white/40
+              shadow-[0_15px_50px_rgba(43,104,195,0.15)]
+              transition-all duration-300
+              focus-within:shadow-[0_20px_60px_rgba(43,104,195,0.25)]
+              focus-within:border-blue-400/50
             "
           >
-            🔍
-          </button>
+            <Search
+              size={20}
+              className="
+                absolute left-5 top-1/2 -translate-y-1/2
+                text-gray-400
+                transition-all duration-300
+                group-focus-within:text-blue-500
+              "
+            />
+
+            <input
+              type="text"
+              placeholder="Search products"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setShowDropdown(true);
+                setActiveIndex(null);
+              }}
+              onFocus={() => setShowDropdown(true)}
+              onKeyDown={handleKeyDown}
+              className="
+                w-full pl-14 pr-6 py-5
+                bg-transparent rounded-2xl
+                text-base md:text-lg
+                placeholder:text-gray-400
+                focus:outline-none
+              "
+            />
+          </div>
+
+          {/* ---------------- Dropdown ---------------- */}
+          {showDropdown && search.trim() !== "" && (
+            <div
+              className="
+                absolute left-0 right-0 mt-3
+                bg-white/95 backdrop-blur-xl
+                rounded-2xl shadow-2xl
+                border border-white/40
+                z-50 overflow-hidden
+              "
+            >
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      navigate(product.path);
+                      setShowDropdown(false);
+                      setSearch("");
+                      setActiveIndex(null);
+                    }}
+                    className={`
+                      px-6 py-4 cursor-pointer text-left
+                      transition-all duration-200
+                      ${
+                        activeIndex === index
+                          ? "bg-blue-100 text-blue-700 font-medium"
+                          : "hover:bg-blue-50"
+                      }
+                    `}
+                  >
+                    {product.name}
+                  </div>
+                ))
+              ) : (
+                <div className="px-6 py-4 text-gray-500 text-sm text-left">
+                  No matching products found
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(-3deg); }
-        }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(2deg); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-          animation-delay: 1s;
-        }
-        .animate-float-slow {
-          animation: float-slow 10s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-      `}</style>
     </section>
   );
 }

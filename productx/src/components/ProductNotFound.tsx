@@ -33,7 +33,7 @@ export default function ProductNotFound() {
         leading-[120%] max-w-xl"
           >
             The URL you entered may be incorrect, outdated, or no longer active.
-            You can explore our verified solutions below or return to the industry overview.
+            You can explore our verified solutions or return to the industry overview.
           </motion.p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-6">
@@ -65,7 +65,7 @@ export default function ProductNotFound() {
 
           <div className="space-y-6">
             <Link
-              to="/industries/banking-and-finance/products/reconciliation"
+              to="/industries/banking-and-finance/products/conciliare"
               className="block p-5 border border-gray-100 rounded-xl hover:border-[#2B68C3] hover:shadow-md transition"
             >
               <h4 className="font-semibold  text-[16px] md:text-[20px] lg:text-[24px]

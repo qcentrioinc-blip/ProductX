@@ -234,9 +234,10 @@ const validateForm = (form: HTMLFormElement) => {
     newErrors.interest = "Please select an interest.";
   }
 
-  if (!message || message.length < 10) {
-    newErrors.message = "Message must be at least 10 characters.";
-  }
+  // MESSAGE OPTIONAL
+if (message && message.length > 0 && message.length < 3) {
+  newErrors.message = "If provided, message must be at least 3 characters.";
+}
 
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
@@ -265,6 +266,30 @@ return (
        
       
       <section className="w-full min-h-[900px] flex relative bg-[#FAFAFA] overflow-hidden font-quicksand justify-center xl:justify-end px-6 lg:px-24">
+        {/* Go Back Button */}
+<div className="absolute top-20 left-12 z-20">
+  <button
+    onClick={() => window.history.back()}
+    className="
+      group flex items-center gap-2
+      p-3
+      bg-white/70 backdrop-blur-md
+      border border-white/60
+      rounded-full
+      text-md font-bold font-bricolage text-black
+      shadow-md
+      cursor-pointer
+      hover:bg-white
+      transition-all duration-300
+    "
+  >
+    <ArrowRight
+      size={30}
+      className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1"
+    />
+    
+  </button>
+</div>
       
       {/* BACKGROUND DOTS */}
       <div className="absolute inset-0 z-0 pointer-events-none lg:pointer-events-auto">
@@ -274,80 +299,114 @@ return (
       </div>
 
       {/* FORM: Width 20%, Height 700px */}
-      <div className="relative z-10 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-white/50">
+      <div className="relative z-10 top-10 xl:top-0 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-white/50">
         <div className="mb-5">
           <H1 className="text-black font-bold mb-2 text-4xl tracking-tight leading-tight">Let's talk</H1>
           <P className="">Fill out the form and we'll be in touch shortly.</P>
         </div>
 
-        <form className="flex flex-col flex-grow gap-3" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-6">
-            <input 
-              name="name"
-              className="w-full px-6 py-4 bg-white/60 border required border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
-              placeholder="Full Name" 
-            />
-            {errors.name && <p className="text-red-700 text-md ">{errors.name}</p>}
-            <input 
-              name="email"
-              type="email"
-              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none transition-all text-sm" 
-              placeholder="Email Address" 
-            />
-            {errors.email && <p className="text-red-700 text-md ">{errors.email}</p>}
-            
-            <div className="relative">
-              <select 
-                name="interest"
-                className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black outline-none appearance-none cursor-pointer text-gray-500 text-sm"
-              >
-                <option value="">Interested in...</option>
-                <option value="Manufacturing">Manufacturing</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Finance">Finance</option>
-              </select>
-        
-              <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                 <ArrowRight size={16} className="rotate-90" />
-              </div>
-            </div>
-            
-            
-            <textarea 
-              name="message"
-              rows={4} 
-              className="w-full px-6 py-4 bg-white/60 border border-gray-200 rounded-2xl resize-none focus:ring-2 focus:ring-black outline-none text-sm" 
-              placeholder="Message" 
-            />
-            {errors.message && <p className="text-red-700 text-md mt-1">{errors.message}</p>}
-          </div>
+        <form className="flex flex-col flex-grow gap-6 mt-6" onSubmit={handleSubmit}>
+  <div className="flex flex-col gap-5">
 
-          <div className="mt-4">
-           <button
-  type="submit"
-  disabled={isSubmitted}
-  className={`
-    group flex items-center justify-center w-full h-[64px]
-    rounded-2xl font-bold text-lg text-white transition-all
-    ${isSubmitted ? 'bg-green-600 cursor-default' : 'bg-black hover:shadow-2xl'}
-    active:scale-[0.98]
-  `}
->
-  {isSubmitted ? (
-    <span>Submitted Successfully</span>
-  ) : (
-    <>
-      <span className="mr-2">Send Message</span>
-      <ArrowUpRight
-        size={22}
-        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+    {/* Name */}
+    <div>
+      <input
+        name="name"
+        className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl 
+        focus:border-black focus:ring-4 focus:ring-black/5 
+        outline-none transition-all duration-300 text-sm shadow-sm"
+        placeholder="Full Name *"
       />
-    </>
-  )}
-</button>
+      {errors.name && (
+        <p className="text-red-600 text-sm mt-2">{errors.name}</p>
+      )}
+    </div>
 
-          </div>
-        </form>
+    {/* Email */}
+    <div>
+      <input
+        name="email"
+        type="email"
+        className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl 
+        focus:border-black focus:ring-4 focus:ring-black/5 
+        outline-none transition-all duration-300 text-sm shadow-sm"
+        placeholder="Email Address *"
+      />
+      {errors.email && (
+        <p className="text-red-600 text-sm mt-2">{errors.email}</p>
+      )}
+    </div>
+
+    {/* Interest */}
+    <div className="relative">
+      <select
+        name="interest"
+        className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl 
+        focus:border-black focus:ring-4 focus:ring-black/5 
+        outline-none appearance-none cursor-pointer text-sm shadow-sm"
+      >
+        <option value="">Interested in... *</option>
+        <option value="Manufacturing">Manufacturing</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Finance">Finance</option>
+      </select>
+
+      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+        <ArrowRight size={16} className="rotate-90" />
+      </div>
+
+      {errors.interest && (
+        <p className="text-red-600 text-sm mt-2">{errors.interest}</p>
+      )}
+    </div>
+
+    {/* Message (Optional) */}
+    <div>
+      <textarea
+        name="message"
+        rows={4}
+        className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl 
+        resize-none focus:border-black focus:ring-4 focus:ring-black/5 
+        outline-none transition-all duration-300 text-sm shadow-sm"
+        placeholder="Message (Optional)"
+      />
+      {errors.message && (
+        <p className="text-red-600 text-sm mt-2">{errors.message}</p>
+      )}
+    </div>
+  </div>
+
+  {/* Submit Button */}
+  <div className="pt-4">
+    <button
+      type="submit"
+      disabled={isSubmitted}
+      className={`
+        group flex items-center justify-center w-full h-[64px]
+        rounded-2xl font-semibold text-base text-white 
+        transition-all duration-300
+        ${
+          isSubmitted
+            ? "bg-green-600 cursor-default"
+            : "bg-black hover:bg-gray-900 hover:shadow-xl"
+        }
+        active:scale-[0.98]
+      `}
+    >
+      {isSubmitted ? (
+        <span>Submitted Successfully</span>
+      ) : (
+        <>
+          <span className="mr-2">Send Message</span>
+          <ArrowUpRight
+            size={20}
+            className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+          />
+        </>
+      )}
+    </button>
+  </div>
+</form>
       </div>
       
       

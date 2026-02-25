@@ -23,7 +23,7 @@ const locations: Location[] = [
     {
         id: 'alto-adige',
         name: 'Alto Adige',
-        position: { top: '48.4%', left: '43.67%' },
+        position: { top: '55%', left: '43.67%' },
         description: 'Sede centrale a Vipiteno e uffici a Bolzano. Ricerca e Sviluppo, Product Care, Vendite, Project Management e Customer Service.'
     },
     {
@@ -35,13 +35,13 @@ const locations: Location[] = [
     {
         id: 'vienna',
         name: 'Vienna, Austria',
-        position: { top: '44.6%', left: '47.3%' },
+        position: { top: '40%', left: '60%' },
         description: 'Filiale austriaca con uffici di ricerca e sviluppo. Monitoraggio.'
     },
     {
         id: 'gilly',
         name: 'Gilly-sur-Isère, Francia',
-        position: { top: '55.5%', left: '46.6%' },
+        position: { top: '50%', left: '35%' },
         description: 'Produzione di turbine eoliche (generatori, mozzi e telai) da parte della società associata POMA.'
     },
     {
@@ -53,7 +53,7 @@ const locations: Location[] = [
     {
         id: 'lacedonia',
         name: 'Lacedonia, Italia',
-        position: { top: '57.0%', left: '46.8%' },
+        position: { top: '50%', left: '50%' },
         description: "Centro di assistenza e manutenzione per l'area del Sud Italia. Stoccaggio dei materiali, produzione di nuovi pezzi, rigenerazione e assemblaggio dei pezzi."
     }
 ];
@@ -120,7 +120,7 @@ export default function Map() {
                 {/* ✅ LEFT CARD — scroll-linked upward animation */}
                 <motion.div
                     style={{ y: cardY, opacity: cardOpacity }}
-                    className="absolute left-4 right-4 md:left-12 md:right-auto top-[30%] md:top-[35%] z-30 bg-[#2B68C3] rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 w-auto md:w-[420px] lg:w-[480px]"
+                    className="absolute left-4 right-4 md:left-12 md:right-auto top-[30%] md:top-[35%] z-30 bg-[#2B68C3] rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 w-auto md:w-[420px] lg:w-[480px] border-[15px] border-white"
                 >
                     <div className="flex flex-col space-y-8 md:space-y-16">
 
@@ -150,7 +150,7 @@ export default function Map() {
                         </div>
 
                         {/* Section 2 */}
-                        <div className="flex items-start gap-4 md:gap-16">
+                        <div className="flex items-start gap-4 md:gap-10">
                             <div
                                 className="text-5xl md:text-7xl font-medium text-white leading-none shrink-0"
                                 style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
