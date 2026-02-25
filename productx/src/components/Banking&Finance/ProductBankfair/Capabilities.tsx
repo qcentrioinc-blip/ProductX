@@ -104,7 +104,7 @@ const Capabilities = () => {
                       {card.title}
                     </H3>
 
-                    <P className="leading-[150%] lg:ml-[160px] text-[#3A3A3A] mt-4">
+                    <P className="leading-[150%] text-[#3A3A3A] mt-4">
                       {card.description}
                     </P>
 
