@@ -263,7 +263,7 @@ useEffect(() => {
             <img
               src="/FormLineWHite.png"
               alt="Background curve graphic"
-              className="absolute top-10 left-0 lg:top-20 w-[100%] h-[200px] lg:h-[380px] -rotate-20 lg:-rotate-10 object-fit pointer-events-none"
+              className="absolute top-10 left-0  md:-top-4 lg:top-20 w-[100%] h-[200px] md:h-[380px] lg:h-[380px] -rotate-20  md:-rotate-11 lg:-rotate-10 object-fit pointer-events-none"
             />
             <div className="relative ml-6 mt-24 md:mt-32 md:ml-20 lg:mt-52 lg:ml-24 z-10 pt-8">
               <H2 className="text-white text-3xl font-bold leading-tight">

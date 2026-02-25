@@ -138,7 +138,7 @@ export default function NewFooter() {
               </li>
              
            <a href="/industries/ehr-and-pms" target="_blank"><Li className="mb-3 hover:text-white ">EHR-PMS</Li></a>
-              <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a>
+              <a href="/industries/banking-and-finance" target="_blank"><Li className="mb-3 hover:text-white ">Banking and Finance</Li></a>
                <a href="/comingsoon" target="_blank"><Li className="mb-3 hover:text-white ">High Tech</Li></a>
              
 

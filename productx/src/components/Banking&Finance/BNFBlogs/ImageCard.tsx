@@ -1,5 +1,5 @@
 import React from 'react';
-import {   H2, H3, P } from '../../../styles/Typography';
+import {   H2, H4,  P } from '../../../styles/Typography';
 import { Link } from 'react-router-dom';
 
 
@@ -21,28 +21,29 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         id: 5,
         slug: "what-is-aml-compliance",
         date: '13 Feb 2026',
-        imageSrc: '/EHR-PMS/Blogs/img5.png',
+        imageSrc: '/Blog/AMLBlog.webp',
         title: 'Sed ut perspiciatis Unde',
-        subtitle: 'What Is AML Compliance and Why Banks Cant Afford to Ignore It in 2026  ',
+        subtitle: 'What Is AML Compliance and Why Banks Cant Afford to Ignore  ',
         description: 'Banks have to deal with very specific, high-stakes responsibilities when it comes to financial crime...  ',
     },
     {
         id: 6,
-        slug: "what-do-these-terms-actually-mean-for-care-providers",
+        slug: "what-the-difference-and-why-both-matter-for-your-bank",
         date: '10 Feb 2026',
-        imageSrc: '/EHR-PMS/Blogs/img6.png',
+       imageSrc: '/Blog/KYCBlog.webp',
         title: 'Sed ut perspiciatis Unde',
-        subtitle: "What Do These Terms Actually Mean for Care Providers?",
-        description: 'For your healthcare providers and businesses, implementing a suitable, efficient software system can be beneficial... ',
+        subtitle: "KYC vs. CDD: What's the Difference and Why Both Matter",
+        description: 'When it comes to banking compliance, there are two terms that are important, used every day, and still mixed ...  ',
     },
     {
         id: 7,
-        slug: "why-cloud-based-ehr-is-the-gold-standard-for-data-security",
+        slug: "what-is-core-banking-and-when-should",
         date: '8 Feb 2026',
-        imageSrc: '/EHR-PMS/Blogs/img7.png',
+        
+         imageSrc: '/Blog/CoreBankingBlog.webp',
         title: 'Sed ut perspiciatis Unde',
-        subtitle: 'Why Cloud-Based EHR Is the Gold Standard for Data Security',
-        description: 'But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough... ',
+        subtitle: 'What Is Core Banking and When Should a Financial Institution..',
+        description: 'If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling... ',
     }
 ];
 
@@ -56,7 +57,7 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
 
     return (
         // The container now uses w-full and flex-col to ensure it fills its grid cell
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full ">
              <div
                 className="relative w-full overflow-hidden rounded-lg"
                 style={ASPECT_RATIO_STYLE} // Image height is now proportional to its width
@@ -68,15 +69,15 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
                         const target = e.target as HTMLImageElement;
                         target.src = `https://placehold.co/${FALLBACK_WIDTH}x${FALLBACK_HEIGHT}/cccccc/333333?text=Image`;
                     }}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     style={{ borderRadius: '8px' }}
                 />
             </div>
             {/* Text Content */}
             <P className="text-gray-600 my-2 text-sm">{date}</P>
             {/*<H2 className="text-2xl font-bold leading-tight mb-1">{title}</H2> */}
-            <H3 className=" mb-4">{subtitle}</H3>
-            <P className="text-gray-700 mb-10">{description}</P>
+            <H4 className=" mb-4 ">{subtitle}</H4>
+            <P className="text-gray-700 mb-4 xl:mb-10">{description}</P>
 
             {/* Image Container: Responsive scaling */}
            
@@ -84,12 +85,12 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
     );
 };
 
-// --- Main Component for the Responsive Grid (Renamed for clarity) ---
+ 
 const ImageCard: React.FC = () => {
     return (
-        <section className="pt-10">
+        <section className="pt-10 ">
    
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
+            <div className="max-w-7xl mx-auto xl:max-w-8xl  xl:mx-auto px-4 sm:px-6 xl:px-0 ">
                   <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
                                     <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
                                       Banking & Finance Insights

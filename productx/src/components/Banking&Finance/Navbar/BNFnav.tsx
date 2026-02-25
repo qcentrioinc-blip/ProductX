@@ -214,9 +214,9 @@ const BNFNav = () => {
           onClick={handleToggleMenu}
           aria-label="Toggle menu"
         >
-          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
         </button>
       </div>
 
@@ -501,7 +501,7 @@ const BNFNav = () => {
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
           {/* <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link> */}
-          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
+          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-blue-600 text-lg font-semibold">Marketplace</Link>
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">

@@ -127,7 +127,7 @@ const NewOneFooter = () => {
                 {/* LOGO */}
                 <div className="">
                   <img
-                    src="/QnestLogo.svg"
+                    src="/BNFLogo.svg"
                     alt="logo"
                     className="w-[150px] h-[150px] object-contain"
                   />
@@ -141,7 +141,7 @@ const NewOneFooter = () => {
                 </div>
 
                 {/* Newsletter Form */}
-                <div className="space-y-5 mt-2 flex gap-4">
+                <div className="space-y-5 mt-2  flex gap-4">
   <input
     type="email"
     placeholder="Enter your mail"
@@ -159,7 +159,7 @@ const NewOneFooter = () => {
     onClick={handleFooterSubmit}
     className={`
       group flex items-center justify-center
-      w-auto h-[44px] sm:h-[48px]
+      w-auto h-[44px] sm:h-[48px] mt-2 xl:mt-0
       px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
       rounded-[8px] font-quicksand font-bold text-[14px]
       transition-all duration-300 ease-in-out
