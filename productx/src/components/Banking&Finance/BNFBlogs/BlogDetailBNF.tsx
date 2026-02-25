@@ -39,7 +39,7 @@ const nextBlog =
    <BNFNav/>
     <section className="bg-[#ffffff] px-6 md:mt-20 mt-10 xl:px-0 lg:mt-32 text-[#000000] py-10">
        <div className="max-w-7xl mx-auto">
-        <H2 className=" font-semibold ">
+        <H2 className=" font-semibold max-w-4xl ">
             {blog.subtitle}
           </H2>
 
@@ -55,7 +55,7 @@ const nextBlog =
           <img  
             src={blog.heroImage}
             alt={blog.subtitle}
-            className="w-full rounded-md"
+            className="w-full  h-[300px] xl:h-[650px] rounded-md"
           />
 
           </div>
@@ -159,7 +159,7 @@ const nextBlog =
   {/* Previous */}
   {previousBlog ? (
     <button
-      onClick={() => navigate(`/blogs/${previousBlog.slug}`)}
+      onClick={() => navigate(`/industries/banking-and-finance/blogs/${previousBlog.slug}`)}
       className="flex items-center space-x-2 text-[#008280] "
     >
       <span className=" "><ArrowLeft/></span>
@@ -173,7 +173,7 @@ const nextBlog =
   {/* Next */}
   {nextBlog ? ( 
     <button
-      onClick={() => navigate(`/blogs/${nextBlog.slug}`)}
+      onClick={() => navigate(`/industries/banking-and-finance/blogs/${nextBlog.slug}`)}
       className="flex items-center space-x-2 text-[#008280]  text-right"
     >
       <span className="text-right">

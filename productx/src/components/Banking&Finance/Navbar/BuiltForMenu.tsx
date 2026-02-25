@@ -22,17 +22,17 @@ const BuiltForMenu = ({
     const BuiltForItems = [
         {
             title: "Banks",
-            desc: "Praesent eget laoreet arcu, nec iaculis ",
+            desc: "Core banking, payments, and compliance solutions ",
             path: `${base}/built-for/banks`
         },
         {
             title: "Credit Unions",
-            desc: "Praesent eget laoreet arcu, nec iaculis ",
+            desc: "Member-focused technology for growing credit unions  ",
             path: `${base}/built-for/credit-union`
         },
         {
             title: "Financial Institutions",
-            desc: "Praesent eget laoreet arcu, nec iaculis ",
+            desc: "Enterprise-grade platforms for complex financial operations  ",
             path: `${base}/built-for/financial-unions`
         },
     ];
