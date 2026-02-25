@@ -35,7 +35,7 @@ const ENTERPRISES_DATA = [
     id: 4,
     title: "Case Management And MIS Reporting ",
     description:
-      "Investigate exceptions, force matches, and generate comprehensive reports with full audit trails. ",
+      "Investigate exceptions, force matches, and generate comprehensive reports with full audit trails. Track investigation status and resolution progress through collaborative workflows.",
     image: Image4,
     type: "wide",
   },
@@ -50,7 +50,7 @@ const Enterprises = () => {
           How Conciliare Works:
           <br />
           <span className="text-[#2B68C3]">From Data to Decision</span>
-          
+
         </H2>
       </div>
 
@@ -76,7 +76,7 @@ const Enterprises = () => {
                 <motion.img
                   src={card.image}
                   alt={card.title}
-                  className="mt-6 rounded-md object-cover w-full lg:h-[520px] xl:h-[650px]"
+                  className="mt-4 rounded-md object-cover w-full lg:h-[520px] xl:h-[650px]"
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}

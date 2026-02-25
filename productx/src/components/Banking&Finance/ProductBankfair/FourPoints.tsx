@@ -1,0 +1,183 @@
+import { useState } from "react";
+
+const FourPoints = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const navItems = [
+        "Banking and Financial Services",
+        "Retail and E-commerce",
+        "Healthcare Provider Payments",
+        "Manufacturing and Supply Chain",
+        "Energy and Utilities"
+    ];
+
+    // Dummy icons to be replaced later
+    const navIcons = [
+        "/BNFConsilier/Banking.svg",
+        "/BNFConsilier/Cart.svg",
+        "/BNFConsilier/healthcare.svg",
+        "/BNFConsilier/manufacture.svg",
+        "/BNFConsilier/Energy.svg",
+    ];
+
+    const tabData = [
+        {
+            heading: "Banking and Financial Services",
+            paragraph: "Reconcile NOSTRO messages, SWIFT transactions, and inter-bank settlements with precision. The platform handles MT103, 202, and 940/950 messages while identifying duplicates and field mismatches across core banking systems.",
+            bullets: ["NOSTRO message matching", "SWIFT transaction reconciliation", "Duplicate message detection", "Core system integration"],
+        },
+        {
+            heading: "Retail and E-commerce",
+            paragraph: "Match high-volume transactions across payment gateways, POS systems, and merchant accounts. Automate reconciliation of sales channels, settlement files, and payment aggregators while identifying revenue leakage and discrepancies.",
+            bullets: ["Payment gateway matching", "POS transaction reconciliation", "Settlement file processing", "Revenue leakage detection"],
+        },
+        {
+            heading: "Healthcare Provider Payments",
+            paragraph: "Reconcile patient payments, insurance claims, and provider settlements across multiple systems. Match electronic and paper payments with claims data while managing denials and adjustments efficiently.",
+            bullets: ["Insurance claim matching", "Patient payment reconciliation", "Provider settlement processing", "Denial and adjustment tracking"],
+        },
+        {
+            heading: "Manufacturing and Supply Chain",
+            paragraph: "Automate reconciliation of vendor payments, supplier invoices, and intercompany transactions. Match purchase orders with invoices and payments across multiple entities while ensuring supply chain financial accuracy.",
+            bullets: ["Vendor payment matching", "Supplier invoice reconciliation", "Intercompany transactions", "Purchase order matching"],
+        },
+        {
+            heading: "Energy and Utilities",
+            paragraph: "Reconcile customer billing, payment collections, and regulatory reporting requirements. Match meter data with billing systems and payment gateways while ensuring compliance with industry regulations.",
+            bullets: ["Customer billing matching", "Payment collection reconciliation", "Regulatory reporting", "Meter data integration"],
+        },
+    ];
+
+    // ── Vertical divider height calculation (desktop/tablet) ──
+    const TOTAL_HEIGHT = 391;
+    const GAP = 11;
+    const ITEM_SLOT = (TOTAL_HEIGHT - (navItems.length - 1) * GAP) / navItems.length;
+    const blueHeight = (activeIndex + 1) * ITEM_SLOT + activeIndex * GAP;
+
+    // ── Horizontal divider width calculation (mobile) ──
+    const blueWidthPercent = ((activeIndex + 1) / navItems.length) * 100;
+
+    return (
+        <section className="w-full bg-[#EFEFEF] px-4 py-10 md:px-10 md:py-12 xl:px-[203px] xl:py-[60px] box-border overflow-hidden mb-6">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start">
+
+                {/* ─────────────── LEFT NAV ─────────────── */}
+
+                {/* ── Mobile/Tablet: Horizontal tabs ── */}
+                <div className="lg:hidden w-full mb-8">
+                    {/* Horizontal tab row */}
+                    <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
+                        {navItems.map((item, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setActiveIndex(index)}
+                                className={`font-bricolage font-semibold text-lg md:text-xl text-[#2B68C3] whitespace-nowrap select-none transition-opacity duration-300 cursor-pointer bg-transparent border-none px-0 ${activeIndex === index ? "opacity-100" : "opacity-55"
+                                    }`}
+                            >
+                                {item}
+                            </button>
+                        ))}
+                    </div>
+                    {/* Horizontal progress bar */}
+                    <div className="w-full h-[3px] rounded-full overflow-hidden mt-2 flex">
+                        <div
+                            className="h-full bg-[#2B68C3] rounded-l-full transition-all duration-400"
+                            style={{
+                                width: `${blueWidthPercent}%`,
+                                transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                            }}
+                        />
+                        <div className="h-full bg-[#C0C0C0] flex-1 rounded-r-full" />
+                    </div>
+                </div>
+
+                {/* ── Desktop: Vertical nav with divider ── */}
+                <div className="hidden lg:flex items-start shrink-0">
+                    {/* Nav Labels */}
+                    <div
+                        className="flex flex-col min-w-max pr-8 xl:pr-[50px]"
+                        style={{ height: `${TOTAL_HEIGHT}px`, gap: `${GAP}px` }}
+                    >
+                        {navItems.map((item, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setActiveIndex(index)}
+                                className="flex items-center cursor-pointer"
+                                style={{ height: `${ITEM_SLOT}px` }}
+                            >
+                                <span
+                                    className={`font-bricolage font-semibold text-[32px] leading-none text-[#2B68C3] select-none transition-opacity duration-300 flex items-center whitespace-nowrap ${activeIndex === index ? "opacity-100" : "opacity-55"
+                                        }`}
+                                >
+                                    {item}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Vertical Divider */}
+                    <div
+                        className="hidden lg:flex w-[3px] flex-col rounded overflow-hidden shrink-0"
+                        style={{ height: `${TOTAL_HEIGHT}px` }}
+                    >
+                        <div
+                            className="w-[3px] bg-[#2B68C3] rounded-t"
+                            style={{
+                                height: `${blueHeight}px`,
+                                transition: "height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                            }}
+                        />
+                        <div className="w-[3px] flex-1 bg-[#C0C0C0] rounded-b" />
+                    </div>
+                </div>
+
+                {/* ─────────────── RIGHT CONTENT ─────────────── */}
+                <div className="flex flex-col items-center justify-center gap-6 md:gap-8 xl:gap-[22px] w-full lg:flex-1 lg:ml-10 xl:ml-[80px] overflow-hidden">
+
+                    {/* Dynamic Icon */}
+                    <img
+                        src={navIcons[activeIndex]}
+                        alt={`${navItems[activeIndex]} icon`}
+                        className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-[139px] xl:h-[139px] rounded-lg shrink-0 object-cover"
+                    />
+
+                    {/* Text Container */}
+                    <div className="flex flex-col items-center gap-5 md:gap-6 xl:gap-[29px] w-full max-w-4xl px-2 md:px-0">
+
+                        {/* Heading */}
+                        <h2
+                            className="w-full text-center text-[#2B68C3] m-0 font-bricolage font-semibold leading-tight md:leading-none"
+                            style={{ fontSize: "clamp(24px, 4vw, 42px)" }}
+                        >
+                            {tabData[activeIndex].heading}
+                        </h2>
+
+                        {/* Paragraph */}
+                        <p className="w-full text-center text-[#141414] m-0 font-quicksand font-normal text-sm md:text-base xl:text-lg leading-relaxed md:leading-[130%]">
+                            {tabData[activeIndex].paragraph}
+                        </p>
+
+                        {/* Bullet Row */}
+                        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-6 lg:gap-[11px] w-full mt-2 md:mt-0">
+                            {tabData[activeIndex].bullets.map((point, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center gap-1.5 md:gap-[5px]"
+                                >
+                                    <span className="text-[#141414] text-base md:text-lg font-quicksand leading-none">
+                                        •
+                                    </span>
+                                    <span className="font-quicksand font-semibold md:font-medium text-sm md:text-base xl:text-lg leading-tight text-[#141414] text-center">
+                                        {point}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default FourPoints;
