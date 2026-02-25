@@ -108,6 +108,13 @@ export default function MarketplaceHero() {
       ref={sectionRef}
       className="relative w-full h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
     >
+      <div>
+        <img 
+          src="/Hero.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"/>
+
+      </div>
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
         <H1
           className="text-[#2B68C3] text-4xl md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"

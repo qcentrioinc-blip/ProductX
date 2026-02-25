@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { H4, P } from "../styles/Typography";
 
 const images = [
-  { src: "/img1.jpg", left: "8%", top: "40%" },
-  { src: "/img2.jpg", left: "20%", top: "48%" },
-  { src: "/img3.jpg", left: "32%", top: "55%" },
-  { src: "/img4.jpg", left: "45%", top: "52%" },
-  { src: "/img5.jpg", left: "60%", top: "50%" },
-  { src: "/img6.jpg", left: "75%", top: "45%" },
-  { src: "/img7.jpg", left: "88%", top: "38%" },
+  { src: "/img1.jpg", left: "8%", top: "-10%" },
+  { src: "/img2.jpg", left: "20%", top: "10%" },
+  { src: "/img3.jpg", left: "32%", top: "20%" },
+  { src: "/img4.jpg", left: "45%", top: "20%" },
+  { src: "/img5.jpg", left: "60%", top: "18%" },
+  { src: "/img6.jpg", left: "75%", top: "10%" },
+  { src: "/img7.jpg", left: "88%", top: "-20%" },
 ];
 
 export default function FooterWaveSection() {
@@ -19,8 +20,8 @@ export default function FooterWaveSection() {
       {/* ================= Footer Content ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-14 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm relative z-20">
         <div>
-          <h4 className="font-semibold mb-4">Sitemap</h4>
-          <ul className="space-y-2 text-gray-600">
+          <H4 className="font-semibold mb-4">Sitemap</H4>
+          <ul className="space-y-2 text-black hover:cursor-pointer">
             <li>Home</li>
             <li>Projects</li>
             <li>About us</li>
@@ -30,8 +31,8 @@ export default function FooterWaveSection() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">Contact</h4>
-          <ul className="space-y-2 text-gray-600">
+          <H4 className="font-semibold mb-4">Contact</H4>
+          <ul className="space-y-2 text-black hover:cursor-pointer">
             <li>Koningslinde 31</li>
             <li>7131 MP Lichtenvoorde</li>
             <li>Netherlands</li>
@@ -41,8 +42,8 @@ export default function FooterWaveSection() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4">Socials</h4>
-          <ul className="space-y-2 text-gray-600">
+          <H4 className="font-semibold mb-4">Socials</H4>
+          <ul className="space-y-2 text-black hover:cursor-pointer">
             <li>Instagram</li>
             <li>TikTok</li>
             <li>LinkedIn</li>
@@ -50,7 +51,7 @@ export default function FooterWaveSection() {
         </div>
 
         <div className="md:text-right">
-          <p className="text-gray-500">Copyright © CFI 2026</p>
+          <P className="text-black">Copyright © CFI 2026</P>
         </div>
       </div>
 

@@ -65,7 +65,7 @@ const FirstProduct = () => {
             {/* Main Heading */}
             <H1 className='text-white text-center'>
               
-              Automate reconciliation for accuracy 
+               Precision Reconciliation for Complex Financial Data 
             </H1>
 
             {/* Subtitle */}

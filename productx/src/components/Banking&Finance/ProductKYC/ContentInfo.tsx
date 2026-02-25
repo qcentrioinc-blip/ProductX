@@ -12,7 +12,7 @@ export default function Sec_4() {
         <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">
 
           {/* Vertical Divider (Desktop Only) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-blue-200 -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#2B68C3] -translate-x-1/2" />
 
           {/* LEFT SECTION */}
           <div className="flex-1 lg:pr-16">
@@ -26,7 +26,7 @@ export default function Sec_4() {
             </P>
 
             <div
-              style={{ borderTop: "0.2px solid #A80040" }}
+              style={{ borderTop: "0.2px solid #2B68C3" }}
               className="w-full max-w-xl my-10"
             />
 

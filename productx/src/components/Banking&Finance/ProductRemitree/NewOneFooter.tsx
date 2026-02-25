@@ -250,7 +250,7 @@ const NewOneFooter = () => {
                     </a>
                   </div> */}
 
-                  <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center  mb-10 lg:gap-8">
+                  <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center mt-4 mb-10 lg:gap-8">
                     <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Terms and Conditions
                     </a>
