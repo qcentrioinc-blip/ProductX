@@ -5,7 +5,9 @@ const NewsLetter = () => {
   const [lineProgress, setLineProgress] = useState(0);
   const [startAnimation, setStartAnimation] = useState(false);
 
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null); // Ref for the scrollable container
+
   const items = [
     { label: "Configure", icon: "/BuiltForBnf/cube.svg" },
     { label: "Assess", icon: "/BuiltForBnf/access-control.svg" },
@@ -51,6 +53,30 @@ const NewsLetter = () => {
     }
   }, [activeSteps, startAnimation]);
 
+  // Auto-scroll to the active step on mobile
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      // The flex container is the first child of the scroll container
+      const flexContainer = container.children[0] as HTMLElement;
+      
+      if (flexContainer && flexContainer.children[activeSteps]) {
+        const activeItem = flexContainer.children[activeSteps] as HTMLElement;
+        
+        // Calculate the position to center the active item
+        const itemLeft = activeItem.offsetLeft;
+        const itemWidth = activeItem.offsetWidth;
+        const containerWidth = container.offsetWidth;
+        
+        const scrollLeft = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeSteps]);
 
   return (
     <div
@@ -66,7 +92,11 @@ const NewsLetter = () => {
         </span>
       </h1>
 
-      <div className="w-full overflow-x-auto hide-scrollbar px-4 pb-4">
+      {/* Added ref={scrollContainerRef} here */}
+      <div 
+        ref={scrollContainerRef}
+        className="w-full overflow-x-auto hide-scrollbar px-4 pb-4"
+      >
         <div className="relative min-w-[600px] md:min-w-0 md:w-full max-w-7xl mx-auto flex items-start justify-between">
           {/* Background Line */}
           <div className="absolute top-[102px] md:top-[150px] left-10 md:left-[60px] right-10 md:right-[60px] h-[2px] bg-gray-200 z-0">
@@ -85,7 +115,7 @@ const NewsLetter = () => {
               {/* Circle Container */}
               <div className="relative flex flex-col items-center">
                 {/* Large Grey Circle */}
-                <div className="w-20 h-20 md:w-[120px] md:h-[120px] bg-white rounded-full mb-4 md:mb-6 overflow-hidden flex items-center justify-center p-4 md:p-7 border-[2px] border-[#D9D9D9] transition-transform hover:scale-105 duration-300">
+                <div className="w-20 h-20 md:w-[120px] md:h-[120px] bg-white rounded-full mb-4 md:mb-6 overflow-hidden flex items-center justify-center p-4 md:p-7 border-[2px] border-[#D9D9D9] transition-transform  duration-300">
                   <img src={item.icon} alt={item.label} className="w-10 h-10 object-contain drop-shadow-sm opacity-80" />
                 </div>
 

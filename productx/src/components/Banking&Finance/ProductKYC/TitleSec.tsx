@@ -224,7 +224,7 @@ export default function HeroSection() {
 
       {/* Main Content Container (Text + Button) */}
       <div
-        className="relative z-10 w-full flex flex-col px-4 sm:px-8 py-20 xl:py-10 top-10 lg:top-20 xl:top-0"
+        className="relative z-10 w-full flex flex-col px-4 sm:px-8 py-14 xl:py-10 top-10 lg:top-20 xl:top-0"
         style={{
           ...(isMobile ? {} : {
             alignItems: 'flex-start',
