@@ -45,7 +45,7 @@ const TestimonialEHR = () => {
 
   return (
     <> 
-    <div className="max-w-7xl   lg:my-20 xl:mx-auto   ">
+    <div className="max-w-7xl  px-4 lg:my-20 xl:mx-auto   ">
                 <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start  xl:px-6  ">
                   {/* Left Heading */}
                   <div
@@ -68,7 +68,7 @@ const TestimonialEHR = () => {
                   </div>
                 </div>
               </div>
-   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 my-10  mx-auto ">
+   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 my-10 mx-auto ">
    
     {/* GREEN CARD + HEADING IN ONE ROW */}
   <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
@@ -109,7 +109,7 @@ const TestimonialEHR = () => {
 
      
                      {/* Card Content */}
-                    <div className="absolute   top-4 xl:top-8 z-10  xl:px-4">
+                    <div className="absolute   top-4 xl:top-8 z-10   xl:px-4">
                       <H3EHR className="text-white mb-6 md:mt-4 xl:mt-0 -ml-24 md:-ml-44 lg:-ml-2 xl:-ml-0 p-4  inline-block border-b-2 border-white pb-2">
        How We Function
      </H3EHR>

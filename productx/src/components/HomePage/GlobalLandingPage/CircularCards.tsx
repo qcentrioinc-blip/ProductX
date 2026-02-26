@@ -1,89 +1,108 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { H1, H2 } from "../../../styles/Typography";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { H1,  } from "../../../styles/Typography";
 
-// ── 5 unique industries — tabs render from here ───────────────────────────────
+// ── 4 industries (tabs) ───────────────────────────────────────────────────────
 const industries = [
-  { label: "Unified Healthcare", link: "/industries/ehr-and-pms", comingSoon: false, launch: null as Date | null },
-  { label: "Cloud FinOps AI",    link: "/industries/cloud-finops-ai", comingSoon: false, launch: null as Date | null },
-  { label: "Banking & Finance",  link: "/industries/banking-and-finance", comingSoon: false, launch: null as Date | null },
-
-  { label: "High Tech",          link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
-     { label: "NeuroPharma",        link: "/comingsoon", comingSoon: true, launch: new Date("2026-07-01T00:00:00") },
- 
+  { label: "Unified Healthcare", link: "/industries/ehr-and-pms",          comingSoon: false, launch: null as Date | null },
+  { label: "Cloud FinOps AI",    link: "/industries/cloud-finops-ai",      comingSoon: false, launch: null as Date | null },
+  { label: "Banking & Finance",  link: "/industries/banking-and-finance",   comingSoon: false, launch: null as Date | null },
+  { label: "High Tech",          link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
 ];
 
-// ── 7 cards for the carousel (extra 2 fill the arc visually) ─────────────────
+// 7 cards — duplicates fill the arc so it always looks full
 const cards = [
-  { label: "Unified Healthcare", image: "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1", industryIndex: 0 },
-  { label: "Cloud FinOps AI",    image: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc", industryIndex: 1 },
-  { label: "Banking & Finance",  image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66", industryIndex: 2 },
-  { label: "High Tech",          image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7", industryIndex: 4 },
-  { label: "NeuroPharma",        image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56", industryIndex: 3 },
-  { label: "Banking & Finance", image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69", industryIndex: 2 },
-  { label: "Cloud FinOps AI",    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d", industryIndex: 1 },
+  { label: "Unified Healthcare", image: "/EHR.png",      industryIndex: 0 },
+  { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
+  { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
+  { label: "High Tech",          image: "/HighTech.png", industryIndex: 3 },
+  
+  { label: "Unified Healthcare", image: "/EHR.png",      industryIndex: 0 },
+    { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
+  { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
+
 ];
 
-const TOTAL = cards.length; // 7 for smooth arc
+const TOTAL = cards.length; // 7
 
-// Desktop values (unchanged)
-const RX = 320;
-const RY = 250;
-const CW = 220;
-const CH = 350;
 
-// Mobile values (smaller)
-const RX_M = 150;
-const RY_M = 120;
-const CW_M = 130;
-const CH_M = 190;
+// ── Geometry — tweak these to adjust the arc ──────────────────────────────────
+const RX   = 340;  const RY   = 220;   // ellipse radii (desktop)
+const CW   = 230;  const CH   = 375;   // card size (desktop)
 
-function getCardStyle(cardIndex: number, stepCount: number, isMobile: boolean): React.CSSProperties {
-  const rx = isMobile ? RX_M : RX;
-  const ry = isMobile ? RY_M : RY;
-  const cw = isMobile ? CW_M : CW;
-  const ch = isMobile ? CH_M : CH;
+const RX_M = 155;  const RY_M = 100;   // ellipse radii (mobile)
+const CW_M = 120;  const CH_M = 192;   // card size (mobile)
 
-  const slotAngle = (2 * Math.PI) / TOTAL;
-  const angle = -Math.PI / 2 + cardIndex * slotAngle - stepCount * slotAngle;
+const DRAG_STEP_PX   = 85;
+const DRAG_STEP_PX_M = 50;
 
-  const x = rx * Math.cos(angle);
-  const y = ry * Math.sin(angle);
+// ── Card position on the ellipse ─────────────────────────────────────────────
+function getCardStyle(
+  cardIndex: number,
+  stepCount: number,
+  mobile: boolean,
+  dragOffset = 0,
+): React.CSSProperties {
+  const rx = mobile ? RX_M : RX;
+  const ry = mobile ? RY_M : RY;
+  const cw = mobile ? CW_M : CW;
+  const ch = mobile ? CH_M : CH;
+
+  const step  = (2 * Math.PI) / TOTAL;
+  // Top of ellipse = -π/2. stepCount moves cards forward (clockwise).
+  const angle = -Math.PI / 2 + cardIndex * step - (stepCount + dragOffset) * step;
+
+  const x    = rx * Math.cos(angle);
+  const y    = ry * Math.sin(angle);
   const sinA = Math.sin(angle);
   const cosA = Math.cos(angle);
 
-  const rotateDeg = cosA * 45;
-  const t = (1 - sinA) / 2;
-  const scale = 0.68 + 0.47 * t;
-  // Mobile: lower z-index so cards go behind navbar (navbar is typically z-50 = 50)
-  const zIndex = isMobile
-    ? Math.round(1 + 20 * t)   // mobile: max ~21, well below navbar
-    : Math.round(5 + 75 * t);  // desktop: unchanged
-  const opacity = sinA > 0.85 ? 0.3 : 1;
-  const isTop = sinA < -0.75;
+  // t = 1 at top (sinA = -1), t = 0 at bottom (sinA = 1)
+  const t      = (1 - sinA) / 2;
+  const scale  = 0.62 + 0.44 * t;
+  const zIndex = Math.round(5 + 75 * t);
+  // Tilt follows tangent of the ellipse — gives the fan spread on the sides
+  const rotateDeg = cosA * 38;
+  // Cards at the bottom half gradually fade so they don't crowd
+  const opacity = sinA > 0.6 ? Math.max(0, 1 - (sinA - 0.6) / 0.5) : 1;
 
   return {
-    position: "absolute",
-    width: cw,
-    height: ch,
-    transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%)) rotate(${rotateDeg}deg) scale(${scale})`,
+    position:      "absolute",
+    width:         cw,
+    height:        ch,
+    transform:     `translate(calc(${x}px - 50%), calc(${y}px - 50%)) rotate(${rotateDeg}deg) scale(${scale})`,
     zIndex,
     opacity,
-    filter: `grayscale(${isTop ? 0 : 100}%)`,
-    transition: "transform 0.75s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease, filter 0.5s ease",
-    borderRadius: "1rem",
-    overflow: "hidden",
-    cursor: "pointer",
+    filter:        `grayscale(${sinA < -0.6 ? 0 : 100}%)`,
+    pointerEvents: opacity < 0.05 ? "none" : "auto",
+    transition:    dragOffset !== 0
+      ? "opacity 0.08s ease, filter 0.08s ease"
+      : "transform 0.70s cubic-bezier(0.4,0,0.2,1), opacity 0.40s ease, filter 0.40s ease",
+    borderRadius:  "1.25rem",
+    overflow:      "hidden",
+    cursor:        "pointer",
   };
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
 export default function CircularCards() {
-  const [stepCount, setStepCount] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const tabsRef = useRef<HTMLDivElement>(null);
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [stepCount,  setStepCount]  = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isMobile,   setIsMobile]   = useState(false);
+  const [countdowns, setCountdowns] = useState(
+    industries.map(() => ({ days: 0, hours: 0, minutes: 0, seconds: 0 }))
+  );
 
+  const isDragging   = useRef(false);
+  const dragStartX   = useRef(0);
+  const lastDragX    = useRef(0);
+  const dragVelocity = useRef(0);
+  const autoTimer    = useRef<ReturnType<typeof setInterval> | null>(null);
+  const tabsRef      = useRef<HTMLDivElement>(null);
+  const tabRefs      = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // ── Responsive ───────────────────────────────────────────────────────────────
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1280);
     check();
@@ -91,56 +110,132 @@ export default function CircularCards() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // active = which of the 5 industries is currently at the top
-  const topCardIndex = ((-stepCount % TOTAL) + TOTAL) % TOTAL;
+  // ── Which card is at the top right now? ────────────────────────────────────
+  // Each step advances the carousel by 1 slot clockwise.
+  // Card at slot 0 starts at top. After stepCount steps, the card now at top
+  // is the one at index (stepCount % TOTAL) — it has rotated to position 0.
+  const topCardIndex   = (stepCount % TOTAL + TOTAL) % TOTAL;
   const activeIndustry = cards[topCardIndex].industryIndex;
 
-  // Auto-scroll tabs to keep active tab visible on mobile
+  // Auto-scroll tabs on mobile
   useEffect(() => {
     if (!isMobile) return;
-    const container = tabsRef.current;
-    const activeTab = tabRefs.current[activeIndustry];
-    if (!container || !activeTab) return;
-
-    // Center the active tab in the scroll container
-    const targetScroll = activeTab.offsetLeft - container.offsetWidth / 2 + activeTab.offsetWidth / 2;
-    container.scrollTo({ left: targetScroll, behavior: "smooth" });
+    const c = tabsRef.current;
+    const t = tabRefs.current[activeIndustry];
+    if (!c || !t) return;
+    c.scrollTo({ left: t.offsetLeft - c.offsetWidth / 2 + t.offsetWidth / 2, behavior: "smooth" });
   }, [activeIndustry, isMobile]);
 
-  // Navigate tab click: find first card that maps to this industry
-  const goToIndustry = (industryIndex: number) => {
-    const candidates = cards
-      .map((c, i) => ({ i, ind: c.industryIndex }))
-      .filter((c) => c.ind === industryIndex);
+  // ── Auto-rotate ──────────────────────────────────────────────────────────────
+  const startAuto = useCallback(() => {
+    if (autoTimer.current) clearInterval(autoTimer.current);
+    autoTimer.current = setInterval(() => setStepCount(p => p + 1), 1500);
+  }, []);
+  const stopAuto = useCallback(() => {
+    if (autoTimer.current) { clearInterval(autoTimer.current); autoTimer.current = null; }
+  }, []);
+  useEffect(() => { startAuto(); return () => stopAuto(); }, [startAuto, stopAuto]);
 
-    let bestSteps = TOTAL;
-    for (const c of candidates) {
-      const steps = (c.i - topCardIndex + TOTAL) % TOTAL;
-      if (steps < bestSteps) { bestSteps = steps; }
-    }
-    if (bestSteps === 0) return;
-    setStepCount((prev) => prev + bestSteps);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => setStepCount((p) => p + 1), 2500);
-    return () => clearInterval(interval);
+  // ── Rotate until the card for `industryIdx` is at the top ────────────────────
+  // With 4 cards each industry appears exactly once, so there's always a unique
+  // card to bring to top. We find the minimum forward steps needed.
+  const goToIndustry = useCallback((industryIdx: number) => {
+    setStepCount(prev => {
+      // Current top card index: after `prev` steps, card `prev % TOTAL` is at top
+      const cur = (prev % TOTAL + TOTAL) % TOTAL;
+      // Find the card matching this industry, minimum steps forward
+      let best = TOTAL;
+      cards.forEach((c, i) => {
+        if (c.industryIndex !== industryIdx) return;
+        // Steps needed to bring card i to the top from current position
+        const steps = (i - cur + TOTAL) % TOTAL;
+        if (steps > 0 && steps < best) best = steps;
+      });
+      return best === TOTAL ? prev : prev + best;
+    });
   }, []);
 
-  const [countdowns, setCountdowns] = useState(
-    industries.map(() => ({ days: 0, hours: 0, minutes: 0, seconds: 0 }))
-  );
+  // ── Tab click ────────────────────────────────────────────────────────────────
+  const handleTabClick = useCallback((industryIdx: number) => {
+    const ind = industries[industryIdx];
+    if (ind.comingSoon) {
+      goToIndustry(industryIdx);
+      return;
+    }
+    setStepCount(prev => {
+      const cur = (prev % TOTAL + TOTAL) % TOTAL;
+      // Already showing this industry → navigate
+      if (cards[cur].industryIndex === industryIdx) {
+      window.open(ind.link, "_blank", "noopener,noreferrer");
+        return prev;
+      }
+      let best = TOTAL;
+      cards.forEach((c, i) => {
+        if (c.industryIndex !== industryIdx) return;
+        const steps = (i - cur + TOTAL) % TOTAL;
+        if (steps > 0 && steps < best) best = steps;
+      });
+      return best === TOTAL ? prev : prev + best;
+    });
+  }, [goToIndustry]);
 
+  // ── Drag / swipe ──────────────────────────────────────────────────────────────
+  const dragPx = isMobile ? DRAG_STEP_PX_M : DRAG_STEP_PX;
+
+  const onDragStart = useCallback((x: number) => {
+    isDragging.current   = true;
+    dragStartX.current   = x;
+    lastDragX.current    = x;
+    dragVelocity.current = 0;
+    stopAuto();
+  }, [stopAuto]);
+
+  const onDragMove = useCallback((x: number) => {
+    if (!isDragging.current) return;
+    dragVelocity.current = -(x - lastDragX.current) / dragPx;
+    lastDragX.current    = x;
+    setDragOffset(-(x - dragStartX.current) / dragPx);
+  }, [dragPx]);
+
+  const onDragEnd = useCallback(() => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const snap = Math.round(dragOffset) + Math.round(dragVelocity.current * 2);
+    setDragOffset(0);
+    if (snap !== 0) setStepCount(p => p + snap);
+    startAuto();
+  }, [dragOffset, startAuto]);
+
+  const onMouseDown  = (e: React.MouseEvent) => { e.preventDefault(); onDragStart(e.clientX); };
+  const onTouchStart = (e: React.TouchEvent) => { onDragStart(e.touches[0].clientX); };
+  const onMouseMove  = useCallback((e: MouseEvent) => onDragMove(e.clientX), [onDragMove]);
+  const onMouseUp    = useCallback(() => onDragEnd(), [onDragEnd]);
+  const onTouchMove  = useCallback((e: TouchEvent) => { e.preventDefault(); onDragMove(e.touches[0].clientX); }, [onDragMove]);
+  const onTouchEnd   = useCallback(() => onDragEnd(), [onDragEnd]);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup",   onMouseUp);
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend",  onTouchEnd);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup",   onMouseUp);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend",  onTouchEnd);
+    };
+  }, [onMouseMove, onMouseUp, onTouchMove, onTouchEnd]);
+
+  // ── Countdown timers ─────────────────────────────────────────────────────────
   useEffect(() => {
     const tick = () => {
       const now = Date.now();
-      setCountdowns(industries.map((ind) => {
+      setCountdowns(industries.map(ind => {
         if (!ind.launch) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-        const d = ind.launch.getTime() - now;
-        if (d <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        const d = Math.max(0, ind.launch.getTime() - now);
         return {
-          days: Math.floor(d / 86400000),
-          hours: Math.floor((d / 3600000) % 24),
+          days:    Math.floor(d / 86400000),
+          hours:   Math.floor((d / 3600000) % 24),
           minutes: Math.floor((d / 60000) % 60),
           seconds: Math.floor((d / 1000) % 60),
         };
@@ -151,41 +246,133 @@ export default function CircularCards() {
     return () => clearInterval(t);
   }, []);
 
-  // Desktop container dimensions (unchanged)
-  const containerW = RX * 2 + CW + 80;
-  const containerH = RY + CH / 2 + 30;
-
-  // Mobile container dimensions
-  const containerW_M = RX_M * 2 + CW_M + 40;
+  // ── Container dimensions ──────────────────────────────────────────────────────
+  // Height = RY (top arc) + CH/2 (card sticks above center) + padding
+  // Anchor at bottom:0 means ellipse center is at container bottom
+  // Cards at top of arc (y = -RY) are fully in view; bottom (y = +RY) are clipped
+  const containerW   = RX * 3 + CW + 80;
+  const containerH   = RY + CH / 2 + 30;
+  const containerW_M = RX_M * 2 + CW_M + 30;
   const containerH_M = RY_M + CH_M / 2 + 20;
 
-  return (
-    <div className="w-full flex flex-col items-center justify-start pt-4 bg-gray-100 overflow-hidden">
+  // ── Render ────────────────────────────────────────────────────────────────────
+  const renderCards = (mobile: boolean) =>
+    cards.map((card, index) => {
+      const style  = getCardStyle(index, stepCount, mobile, dragOffset);
+      const step2  = (2 * Math.PI) / TOTAL;
+      const angle2 = -Math.PI / 2 + index * step2 - (stepCount + dragOffset) * step2;
+      const isTop  = Math.sin(angle2) < -0.6;
+      const ind    = industries[card.industryIndex];
+      const cd     = countdowns[card.industryIndex];
 
-      <div className="mt-16 text-center">
+      return (
+        <div
+          key={index}
+          style={style}
+          className="group"
+          onMouseDown={onMouseDown}
+          onTouchStart={onTouchStart}
+          onClick={() => {
+            if (Math.abs(dragOffset) > 0.15) return;
+            if (!isTop) { goToIndustry(card.industryIndex); return; }
+            if (!ind.comingSoon) window.open(ind.link, "_blank");
+          }}
+        >
+          <img
+            src={card.image}
+            alt={ind.label}
+            draggable={false}
+            style={{ width: "100%", height: "100%", objectFit: "cover", userSelect: "none" }}
+          />
+
+          {/* Frosted blue label */}
+          {!ind.comingSoon && (
+            <div className={`absolute inset-0 flex items-end justify-center ${mobile ? "pb-3 " : "pb-4 "}`}>
+              <div
+                className="w-full  items-center justify-center  xl:mb-6   py-2 xl:py-6 px-3"
+                style={{
+                  background: "rgba(0,0,0,0.55)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                
+                }}
+              >
+                <span className={`text-white font-bold font-bricolage items-center  xl:pl-4 tracking-wide text-center drop-shadow ${mobile ? "text-[10px]" : "text-sm xl:text-lg"}`}>
+                  {ind.label}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Coming Soon */}
+          {ind.comingSoon && (
+            <>
+              <div className={`absolute inset-0 bg-black/25 flex items-end justify-center ${mobile ? "pb-3 px-2" : "pb-5 px-4"}`}>
+                <div className="text-center">
+                  <span className={`text-white font-bold tracking-wide drop-shadow-lg block ${mobile ? "text-[10px]" : "text-base"}`}>
+                    {ind.label}
+                  </span>
+                  <span className={`inline-block mt-1 bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold tracking-wider border border-white/30 ${mobile ? "text-[8px] px-2 py-0.5" : "text-[11px] px-3 py-0.5"}`}>
+                    COMING SOON
+                  </span>
+                </div>
+              </div>
+
+              {/* Countdown overlay */}
+              <div className={`absolute inset-0 flex flex-col items-center justify-center text-white text-center transition-all duration-500 ${mobile ? "px-2" : "px-4"} ${isTop ? "bg-black/70 backdrop-blur-md opacity-100" : "bg-black/65 backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}>
+                <div className={`${mobile ? "w-5" : "w-8"} h-px bg-white/40 mb-3`} />
+                <span className={`${mobile ? "text-[11px]" : "text-lg"} font-bold mb-1`}>{ind.label}</span>
+                <div className="flex items-center gap-1 mb-3">
+                  <span className={`${mobile ? "w-1 h-1" : "w-1.5 h-1.5"} rounded-full bg-blue-400 animate-pulse`} />
+                  <span className={`${mobile ? "text-[8px]" : "text-[11px]"} text-blue-300 font-semibold tracking-widest uppercase`}>
+                    Coming Soon
+                  </span>
+                  <span className={`${mobile ? "w-1 h-1" : "w-1.5 h-1.5"} rounded-full bg-blue-400 animate-pulse`} />
+                </div>
+                <p className={`${mobile ? "text-[8px]" : "text-xs"} text-white/50 mb-2`}>Launching in</p>
+                <div className={`flex ${mobile ? "gap-1" : "gap-2"}`}>
+                  {(mobile
+                    ? [["D", cd.days], ["H", cd.hours], ["M", cd.minutes], ["S", cd.seconds]]
+                    : [["Days", cd.days], ["Hrs", cd.hours], ["Min", cd.minutes], ["Sec", cd.seconds]]
+                  ).map(([l, v]) => (
+                    <div key={String(l)} className={`flex flex-col items-center bg-white/10 rounded-lg ${mobile ? "px-1.5 py-1 min-w-[28px]" : "px-2 py-1.5 min-w-[40px]"}`}>
+                      <p className={`${mobile ? "text-sm" : "text-xl"} font-bold leading-none`}>{v}</p>
+                      <span className={`${mobile ? "text-[7px]" : "text-[10px]"} text-white/60 mt-0.5`}>{l}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className={`${mobile ? "w-5" : "w-8"} h-px bg-white/40 mt-3`} />
+              </div>
+            </>
+          )}
+        </div>
+      );
+    });
+
+  return (
+    <div className="w-full flex flex-col items-center justify-start pt-4 bg-gray-100 overflow-hidden pb-8">
+
+      <div className="mt-16 text-center px-4">
         <H1>Shaping The Future Across Every Sector</H1>
       </div>
 
-      {/* Tabs — only 5 unique industries */}
+      {/* ── 4 Tabs ── */}
       <div
         ref={tabsRef}
-        className="mt-6 w-full xl:max-w-4xl bg-gray-200 rounded-full p-2 flex gap-2 mx-auto
-          overflow-x-auto snap-x snap-mandatory scroll-smooth xl:overflow-visible xl:justify-center"
+        className="mt-6 w-full xl:max-w-3xl bg-gray-200 rounded-full p-2 flex gap-2 mx-auto
+          overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
+          xl:overflow-visible xl:justify-center"
         style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
       >
         {industries.map((ind, i) => (
           <button
             key={i}
-            ref={(el) => { tabRefs.current[i] = el; }}
-            onClick={() => goToIndustry(i)}
-           className={`shrink-0 snap-start whitespace-nowrap px-3 xl:px-4 text-sm md:text-base
-  font-bold font-quicksand rounded-full py-1.5
-  transition-colors duration-300
-  focus:outline-none
-  ${activeIndustry === i
-    ? "bg-white shadow-md text-black"
-    : "bg-transparent text-gray-500 hover:bg-transparent"
-  }`}
+            ref={el => { tabRefs.current[i] = el; }}
+            onClick={() => handleTabClick(i)}
+            className={`shrink-0 snap-start whitespace-nowrap px-4 xl:px-5 text-sm md:text-base
+              font-bold font-quicksand rounded-full py-1.5
+              transition-colors duration-300 focus:outline-none
+              ${activeIndustry === i ? "bg-white shadow-md text-black" : "bg-transparent text-gray-500"}`}
           >
             {ind.label}
             {ind.comingSoon && (
@@ -197,177 +384,36 @@ export default function CircularCards() {
         ))}
       </div>
 
-      {/* ── DESKTOP carousel (unchanged) ── */}
+      {/* ── DESKTOP ── */}
       <div
-        className="relative mt-6 hidden xl:block"
-        style={{ width: containerW, height: containerH, overflow: "hidden" }}
+        className="relative mt-10 hidden xl:block select-none"
+        style={{
+          width:    containerW,
+          height:   containerH,
+          overflow: "hidden",
+          cursor:   isDragging.current ? "grabbing" : "grab",
+        }}
       >
         <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
-          {cards.map((card, index) => {
-            const style = getCardStyle(index, stepCount, false);
-            const slotAngle = (2 * Math.PI) / TOTAL;
-            const angle = -Math.PI / 2 + index * slotAngle - stepCount * slotAngle;
-            const isTop = Math.sin(angle) < -0.75;
-
-            const ind = industries[card.industryIndex];
-            const cd = countdowns[card.industryIndex];
-
-            return (
-              <div
-                key={index}
-                style={style}
-                className="group"
-                onClick={() => {
-                  if (!isTop) { goToIndustry(card.industryIndex); return; }
-                  if (!ind.comingSoon) window.open(ind.link, "_blank");
-                }}
-              >
-                <img
-                  src={`${card.image}?auto=format&fit=crop&w=900&q=80`}
-                  alt={card.label}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-
-                {/* Normal card label */}
-                {!ind.comingSoon && (
-                  <div className={`absolute inset-0 flex items-end justify-center pb-6 px-4
-                    transition-all duration-300 ${isTop ? "bg-black/40" : "bg-black/25"}`}
-                  >
-                    <H2 className="text-white text-base xl:text-lg font-bold tracking-wide text-center drop-shadow-lg">
-                      {card.label}
-                    </H2>
-                  </div>
-                )}
-
-                {/* Coming Soon card */}
-                {ind.comingSoon && (
-                  <>
-                    <div className="absolute inset-0 bg-black/30 flex items-end justify-center pb-6 px-4">
-                      <div className="text-center">
-                        <H2 className="text-white text-base xl:text-lg font-bold tracking-wide drop-shadow-lg">
-                          {card.label}
-                        </H2>
-                        <span className="inline-block mt-1 text-[11px] bg-white/20 backdrop-blur-sm
-                          text-white px-3 py-0.5 rounded-full font-semibold tracking-wider border border-white/30">
-                          COMING SOON
-                        </span>
-                      </div>
-                    </div>
-                    <div className={`absolute inset-0 flex flex-col items-center justify-center
-                      text-white text-center px-4 transition-all duration-500
-                      ${isTop ? "bg-black/70 backdrop-blur-md opacity-100"
-                               : "bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}
-                    >
-                      <div className="w-8 h-px bg-white/40 mb-3" />
-                      <H2 className="text-lg xl:text-xl font-bold mb-1">{card.label}</H2>
-                      <div className="flex items-center gap-1.5 mb-4">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                        <span className="text-[11px] text-blue-300 font-semibold tracking-widest uppercase">Coming Soon</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                      </div>
-                      <p className="text-xs text-white/50 mb-3">Launching in</p>
-                      <div className="flex gap-2">
-                        {[["Days", cd.days], ["Hrs", cd.hours], ["Min", cd.minutes], ["Sec", cd.seconds]].map(([l, v]) => (
-                          <div key={String(l)} className="flex flex-col items-center bg-white/10 rounded-lg px-2 py-1.5 min-w-[40px]">
-                            <p className="text-xl font-bold leading-none">{v}</p>
-                            <span className="text-[10px] text-white/60 mt-0.5">{l}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="w-8 h-px bg-white/40 mt-4" />
-                    </div>
-                  </>
-                )}
-              </div>
-            );
-          })}
+          {renderCards(false)}
         </div>
       </div>
 
-      {/* ── MOBILE carousel (smaller cards, lower z-index so navbar stays on top) ── */}
+      {/* ── MOBILE ── */}
       <div
-        className="relative mt-6 xl:hidden"
-        style={{ width: containerW_M, height: containerH_M, overflow: "hidden" }}
+        className="relative mt-6 xl:hidden select-none"
+        style={{
+          width:    containerW_M,
+          height:   containerH_M,
+          overflow: "hidden",
+          cursor:   isDragging.current ? "grabbing" : "grab",
+        }}
       >
         <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
-          {cards.map((card, index) => {
-            const style = getCardStyle(index, stepCount, true);
-            const slotAngle = (2 * Math.PI) / TOTAL;
-            const angle = -Math.PI / 2 + index * slotAngle - stepCount * slotAngle;
-            const isTop = Math.sin(angle) < -0.75;
-
-            const ind = industries[card.industryIndex];
-            const cd = countdowns[card.industryIndex];
-
-            return (
-              <div
-                key={index}
-                style={style}
-                className="group"
-                onClick={() => {
-                  if (!isTop) { goToIndustry(card.industryIndex); return; }
-                  if (!ind.comingSoon) window.open(ind.link, "_blank");
-                }}
-              >
-                <img
-                  src={`${card.image}?auto=format&fit=crop&w=400&q=80`}
-                  alt={card.label}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-
-                {!ind.comingSoon && (
-                  <div className={`absolute inset-0 flex items-end justify-center pb-3 px-2
-                    transition-all duration-300 ${isTop ? "bg-black/40" : "bg-black/25"}`}
-                  >
-                    <span className="text-white text-[10px] font-bold tracking-wide text-center drop-shadow-lg">
-                      {card.label}
-                    </span>
-                  </div>
-                )}
-
-                {ind.comingSoon && (
-                  <>
-                    <div className="absolute inset-0 bg-black/30 flex items-end justify-center pb-3 px-2">
-                      <div className="text-center">
-                        <span className="text-white text-[10px] font-bold tracking-wide drop-shadow-lg block">
-                          {card.label}
-                        </span>
-                        <span className="inline-block mt-0.5 text-[8px] bg-white/20 backdrop-blur-sm
-                          text-white px-2 py-0.5 rounded-full font-semibold tracking-wider border border-white/30">
-                          COMING SOON
-                        </span>
-                      </div>
-                    </div>
-                    <div className={`absolute inset-0 flex flex-col items-center justify-center
-                      text-white text-center px-2 transition-all duration-500
-                      ${isTop ? "bg-black/70 backdrop-blur-md opacity-100"
-                               : "bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}
-                    >
-                      <div className="w-5 h-px bg-white/40 mb-1.5" />
-                      <span className="text-[11px] font-bold mb-0.5">{card.label}</span>
-                      <div className="flex items-center gap-1 mb-2">
-                        <span className="w-1 h-1 rounded-full bg-blue-400 animate-pulse" />
-                        <span className="text-[8px] text-blue-300 font-semibold tracking-widest uppercase">Soon</span>
-                        <span className="w-1 h-1 rounded-full bg-blue-400 animate-pulse" />
-                      </div>
-                      <p className="text-[8px] text-white/50 mb-1.5">Launching in</p>
-                      <div className="flex gap-1">
-                        {[["D", cd.days], ["H", cd.hours], ["M", cd.minutes], ["S", cd.seconds]].map(([l, v]) => (
-                          <div key={String(l)} className="flex flex-col items-center bg-white/10 rounded px-1.5 py-1 min-w-[28px]">
-                            <p className="text-sm font-bold leading-none">{v}</p>
-                            <span className="text-[7px] text-white/60 mt-0.5">{l}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="w-5 h-px bg-white/40 mt-2" />
-                    </div>
-                  </>
-                )}
-              </div>
-            );
-          })}
+          {renderCards(true)}
         </div>
       </div>
+
     </div>
   );
 }
