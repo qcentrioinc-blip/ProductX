@@ -193,7 +193,7 @@ export default function Management() {
             <div
               key={card.id}
               ref={i === 0 ? firstCardRef : null}
-           className="sticky top-0  h-[100svh]  lg:h-[50vh] xl:h-[100svh]"
+           className="sticky top-0  h-full  "
 
  
 
@@ -240,7 +240,7 @@ export default function Management() {
 
                   {/* ACCORDION */}
                   <div
-                    className={`w-full lg:w-1/2 flex items-start pt-20 ${
+                    className={`w-full lg:w-1/2 flex items-start xl:pt-20 ${
                       imageOnRight ? "lg:order-1 " : "lg:order-2"
                     }`}
                   >
@@ -251,7 +251,7 @@ export default function Management() {
                         return (
                           <div
                             key={index}
-                            className="border-b space-y-4 my-6 border-[#3D8D7A] pb-4"
+                            className="border-b space-y-4 md:my-6 border-[#3D8D7A] pb-4"
                           >
                             <button
                               onClick={() => toggleAccordion(card.id, index)}

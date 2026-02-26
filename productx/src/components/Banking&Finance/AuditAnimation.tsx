@@ -1,30 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {   H3,   P } from "../../styles/Typography";
 
 export default function AuditAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
-const [isDesktop, setIsDesktop] = useState(false);
 
-useEffect(() => {
-  const mq = window.matchMedia("(min-width: 1280px)");
-  setIsDesktop(mq.matches);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
 
-  const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-  mq.addEventListener("change", handler);
-
-  return () => mq.removeEventListener("change", handler);
-}, []);
-  const { scrollYProgress } = useScroll(
-  isDesktop
-    ? {
-        target: sectionRef,
-        offset: ["start start", "end start"],
-      }
-    : undefined
-);
   const imageWidth = useTransform(
     scrollYProgress,
     [0, 0.4],
@@ -65,7 +52,7 @@ useEffect(() => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[180vh] lg:h-[250vh] bg-white"
+      className="relative w-full h-full xl:h-[250vh] bg-white"
     >
       <div className="sticky top-0    overflow-hidden">
         <div className="relative w-full h-full">
@@ -84,44 +71,49 @@ useEffect(() => {
               className="absolute bottom-0 xl:bottom-16 right-10 w-[30%]"
             >
               <H3 className="text-[#2B68C3] font-bold mb-3">Domain experts in managing banking operations and compliance    </H3>
-              {/* <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">
+              <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">
              Our team includes practitioners from global and regional banks with direct experience in AML, CDD, and financial crime risk management. They have led functions at leading MNC banks and dealt with regulators worldwide. 
-              </P> */}
-                <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-4">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
-                  <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-4">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P>
+              </P>
+                <P className="text-[#141414]  max-w-lg lg:mb-10 ">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
+                  {/* <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-6">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P> */}
               <P className="text-[#141414]  max-w-lg lg:mb-10 xl:mb-0"> This deep industry knowledge informs every product we build. When you work with Qnest, you gain access to decades of collective banking experience dedicated to solving your most pressing operational and regulatory challenges.</P>
             </motion.div>
           </div>
 
           {/* Improved Mobile Animation */}
-         {/* Mobile – Fully Static */}
-<div className="flex xl:hidden flex-col w-full">
-  <div className="w-full">
-    <img
-      src="/AuditAnimate.webp"
-      alt="Audit"
-      className="w-full object-cover"
-    />
-  </div>
+          <div className="flex xl:hidden flex-col justify-start h-full  ">
+            <motion.div
+              // style={{ 
+              //   scale: mobileImageScale,
+              //   opacity: mobileImageOpacity,
+              //   originX: 0.5,
+              //   originY: 0.5
+              // }}
+              className="w-full  mx-auto"
+            >
+              <img
+                src="/AuditAnimate.webp"
+                alt="Audit"
+                className="w-full h-full lg:h-[500px]  "
+              />
+            </motion.div>
 
-  <div className="mt-8 px-4 w-full text-left">
-    <H3 className="text-[#2B68C3] px-2 font-bold mb-3">
-      Domain experts in managing banking operations and compliance
-    </H3>
-
-    <P className="text-[#141414] px-2 mb-6">
-      This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily. Unlike typical technology vendors, we understand banking from the inside out.
-    </P>
-
-    <P className="text-[#141414] px-2 mb-6">
-      Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions.
-    </P>
-
-    <P className="text-[#141414] px-2 mb-6">
-      This deep industry knowledge informs every product we build. When you work with Qnest, you gain access to decades of collective banking experience dedicated to solving your most pressing operational and regulatory challenges.
-    </P>
-  </div>
-</div>
+            <motion.div
+              // style={{ 
+              //   opacity: textOpacity, 
+              //   y: textY,
+              //   scale: textScale
+              // }}
+              className="mt-8 px-4 mx-auto w-full max-w-full text-left"
+            >
+              <H3 className="text-[#2B68C3] font-bold mb-3">
+           Domain experts in managing banking operations and compliance 
+              </H3>
+     <P className="text-[#141414]  max-w-full  lg:mb-10  mb-4 xl:mb-6">This firsthand domain expertise ensures our solutions address real operational challenges faced by financial institutions daily.Unlike typical technology vendors, we understand banking from the inside out. </P>
+                  <P className="text-[#141414]  max-w-full  lg:mb-10 mb-4 xl:mb-6">Our practitioners have managed complex AML operations, designed compliance workflows, and implemented risk frameworks across multiple jurisdictions. </P>
+              <P className="text-[#141414]  max-w-full  lg:mb-10 mb-4 xl:mb-0"> This deep industry knowledge informs every product we build. When you work with Qnest, you gain access to decades of collective banking experience dedicated to solving your most pressing operational and regulatory challenges.</P>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

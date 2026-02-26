@@ -6,6 +6,9 @@ import Navbar from "../../Global/Navbar/Navbar"
 import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
 import AnimatedFooter from "../../AnimatedFooter"
+import LogoMarquee from "./LogoMarquee"
+// import LifeCycleTech from "./LifeCycleTech"
+import GoalsSection from "./GoalsSection"
 
 // Below-the-fold: lazy load to speed up initial page render
 // const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
@@ -28,7 +31,8 @@ const GlobalLandingPage = () => {
             {/* <div id="landingpage">
                 <LandingPage1 />
             </div> */}
-
+            <LogoMarquee/>
+                <GoalsSection/>
             <Suspense fallback={null}>
                 {/* <div className="gpu-optimized">
                     <AnimatedStatement />
