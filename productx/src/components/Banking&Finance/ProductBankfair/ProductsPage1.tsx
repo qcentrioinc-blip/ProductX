@@ -8,7 +8,7 @@ import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import Building from "./Building"
 // import Capabilities from "./Capabilities"
 import Enterprises from "./Enterprises"
-import FirstProduct from "./FirstProduct"
+// import FirstProduct from "./FirstProduct"
 // import PagoNavbar from "../ProductPago/PagoNavbar"
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav"
 import Capabilities from "./Capabilities"
@@ -60,11 +60,11 @@ const ProductsPage1 = () => {
   return (
     <div>
       <BNFNav />
-      <FirstProduct />
+      <div id="configurable"><Configurable /></div>
+      {/* <FirstProduct /> */}
       <HeroBottomNavbar />
       <Capabilities />
       <div id="benefits"> <Building /></div>
-      <div id="configurable"><Configurable /></div>
       <div id="overview"><Enterprises /></div>
       <div id="consilier"><ConsilierCard /></div>
       <div id="consilier"><ConsilierCTA /></div>
