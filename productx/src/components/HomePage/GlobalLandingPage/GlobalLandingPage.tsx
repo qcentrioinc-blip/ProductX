@@ -43,12 +43,13 @@ const GlobalLandingPage = () => {
                 {/* <div id="innovationcards" className="gpu-optimized">
                     <InnovationCards />
                 </div> */}
+                 <div>
+                    <SlideReveal/>
+                </div>
                 <div id="map" className="gpu-optimized">
                     <Map />
                 </div>
-                <div>
-                    <SlideReveal/>
-                </div>
+               
                 {/* <div id="businessvaluessection" className="gpu-optimized">
                     <BusinessValuesSection />
                 </div> */}

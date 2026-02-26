@@ -4,49 +4,60 @@ import { motion } from "framer-motion";
 import { H4, P } from "../styles/Typography";
 
 const images = [
-  { src: "/img1.jpg", left: "8%", top: "-10%" },
-  { src: "/img2.jpg", left: "20%", top: "10%" },
-  { src: "/img3.jpg", left: "32%", top: "20%" },
-  { src: "/img4.jpg", left: "45%", top: "20%" },
-  { src: "/img5.jpg", left: "60%", top: "18%" },
-  { src: "/img6.jpg", left: "75%", top: "10%" },
-  { src: "/img7.jpg", left: "88%", top: "-20%" },
+  { src: "/bg_image.webp", left: "8%", top: "-10%" },
+  { src: "/Audit.png", left: "20%", top: "10%" },
+  { src: "/Audit.webp", left: "32%", top: "20%" },
+  { src: "/BNFBG.jpg", left: "45%", top: "24%" },
+  { src: "/Building.jpg", left: "60%", top: "18%" },
+  { src: "/ContactPic.png", left: "75%", top: "10%" },
+  { src: "/digitalnative.webp", left: "88%", top: "-20%" },
 ];
 
 export default function FooterWaveSection() {
   return (
-    <section className="relative w-full h-screen bg-[#efefef] overflow-hidden pt-16 pb-0">
+    <section className="relative w-full h-full bg-[#efefef] overflow-hidden py-16">
       
       {/* ================= Footer Content ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-14 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm relative z-20">
         <div>
-          <H4 className="font-semibold mb-4">Sitemap</H4>
+          <H4 className="font-semibold mb-4">Industries</H4>
           <ul className="space-y-2 text-black hover:cursor-pointer">
-            <li>Home</li>
-            <li>Projects</li>
-            <li>About us</li>
-            <li>Sustainability</li>
-            <li>Contact</li>
+            <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Cloud Finops AI</li></a>
+            <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Unified Healthcare</li></a>
+            <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Banking and Finance</li></a>
+            
+            
+          </ul>
+        </div>
+
+        <div>
+          <H4 className="font-semibold mb-4">Quick Links</H4>
+          <ul className="space-y-2 text-black hover:cursor-pointer">
+            <li>
+                <a
+                  href="/marketplace"
+                  className="inline-block hover:text-gray-600 hover:underline"
+                >
+                  Marketplace
+                </a>
+              </li>
+            <li>
+                <a
+                  href="/platform"
+                  className="inline-block hover:text-gray-600 hover:underline"
+                >
+                  Platform
+                </a>
+              </li>
+            
           </ul>
         </div>
 
         <div>
           <H4 className="font-semibold mb-4">Contact</H4>
           <ul className="space-y-2 text-black hover:cursor-pointer">
-            <li>Koningslinde 31</li>
-            <li>7131 MP Lichtenvoorde</li>
-            <li>Netherlands</li>
-            <li>+31 (0)544 760 120</li>
-            <li>info@company.com</li>
-          </ul>
-        </div>
-
-        <div>
-          <H4 className="font-semibold mb-4">Socials</H4>
-          <ul className="space-y-2 text-black hover:cursor-pointer">
-            <li>Instagram</li>
-            <li>TikTok</li>
-            <li>LinkedIn</li>
+            <li className="hover:text-gray-600 hover:underline">sales@qnest.com</li>
+            
           </ul>
         </div>
 
@@ -56,7 +67,7 @@ export default function FooterWaveSection() {
       </div>
 
       {/* ================= Floating Images ================= */}
-      <div className="relative h-[320px] mt-10 z-20">
+      <div className="relative h-[320px] mt-10 z-20 hidden xl:block">
         {images.map((img, i) => (
           <motion.img
             key={i}
@@ -72,6 +83,7 @@ export default function FooterWaveSection() {
       </div>
 
       {/* ================= Curve Images ================= */}
+      <div className="hidden xl:block">
 
       {/* Top Curve */}
       <img
@@ -86,6 +98,7 @@ export default function FooterWaveSection() {
         alt=""
         className="absolute bottom-0 left-0 w-full z-0 pointer-events-none select-none"
       />
+      </div>
     </section>
   );
 }
