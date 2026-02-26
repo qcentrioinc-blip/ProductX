@@ -123,7 +123,7 @@ export default function MarketplaceHero() {
             transform: isVisible ? "translateY(0)" : "translateY(40px)",
           }}
         >
-          Innovate with Qcentrio's Market Place
+          Qnest Suite of Banking Products
         </H1>
 
         <P
@@ -133,11 +133,7 @@ export default function MarketplaceHero() {
             transform: isVisible ? "translateY(0)" : "translateY(30px)",
           }}
         >
-           Qcentrio’s Market Place brings together a powerful portfolio of
-  intelligent, enterprise-grade solutions built for the digital era.
-  Our banking platforms strengthen compliance, enhance fraud detection,
-  and enable real-time financial intelligence at scale.
-  In healthcare, we modernize patient systems through secure,
+           Access Qnest's complete suite of banking products on a single platform. From core banking and loan management to AML compliance and cross-border remittances. Each solution is built by industry practitioners to address specific operational challenges faced by financial institutions globally.
   
         </P>
 

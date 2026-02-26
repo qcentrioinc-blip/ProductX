@@ -22,7 +22,7 @@ const sampleData: CardItem[] = [
     title: "Conciliare",
     tags: ["AML", "AI", "Security"],
     description:
-      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
+      "Automated reconciliation platform designed to streamline complex financial data matching. It consolidates data from disparate sources, applies advanced algorithms for high automatic matching rates, and generates detailed reports. The solution reduces manual effort, ensures accuracy, and provides transparent audit trails for regulatory compliance. ",
     category: "Banking and Finance",
     link: "/industries/banking-and-finance/products/conciliare",
   },
@@ -32,7 +32,7 @@ const sampleData: CardItem[] = [
     title: "KYC & CDD",
     tags: ["Core", "Cloud"],
     description:
-      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
+      "Policy-driven due diligence automation platform that digitizes customer onboarding and lifecycle management. It replaces manual document-based processes with system-configured policies, automated risk assessment, and name screening. The solution ensures consistent KYC compliance, reduces re-work, and maintains audit-ready customer profiles across jurisdictions. ",
     category: "Banking and Finance",
     link: "/industries/banking-and-finance/products/kyc",
   },
@@ -42,7 +42,7 @@ const sampleData: CardItem[] = [
     title: "Bankfair",
     tags: ["AML", "AI", "Security"],
     description:
-      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
+      "Core banking and loan management system with comprehensive parameterization capabilities. It enables centralized management of branch setup, currency handling, general ledger, and financial products. The system automates processes, ensures regulatory compliance, and supports scalability. Advanced security features protect sensitive customer data while enabling tailored financial product offerings. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },
@@ -52,7 +52,7 @@ const sampleData: CardItem[] = [
     title: "Sherlock",
     tags: ["Core", "Cloud"],
     description:
-      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
+      "An advanced anti-money laundering solution that monitors customer transactions and financial messages in real-time. It screens transactions against global watch lists, performs KYC verification, and generates alerts for suspicious activities. The system integrates with core banking platforms to ensure regulatory compliance and enhance operational efficiency. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },
@@ -62,17 +62,17 @@ const sampleData: CardItem[] = [
     title: "Remitree",
     tags: ["AML", "AI", "Security"],
     description:
-      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
+      "Cross-border remittance middleware that bridges core banking systems with the Swift Alliance Gateway. It supports bi-directional message handling, validates MT and MX formats, and automates compliance checks through AML integration. The solution enables straight-through processing, reduces manual intervention, and ensures timely settlement of international transactions. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },
   {
     id: "6",
     logo: "/kycLogo.png",
-    title: "Customer Onboarding Systems",
+    title: "Customer Onboarding Solutions",
     tags: ["Core", "Cloud"],
     description:
-      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
+      "Digital onboarding platform that streamlines customer application processes across web and mobile channels. It features dynamic forms, SSN auto-fill, document verification through OCR, and role-based sales manager assistance. The solution reduces drop-off rates, ensures data accuracy, and provides real-time application tracking for financial institutions. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },{
@@ -81,7 +81,7 @@ const sampleData: CardItem[] = [
     title: "PAGO",
     tags: ["AML", "AI", "Security"],
     description:
-      "Real-time transaction monitoring using machine learning to flag suspicious activity and reduce false positives.",
+      "Versatile payment and settlement system supporting multiple transaction methods, including e-cash and e-cheques. It ensures atomicity with immediate payment decisions, integrates seamlessly with existing infrastructure, and provides real-time monitoring. Advanced security protocols protect transactions while lower fees make it economical for high-volume processing. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },
@@ -91,31 +91,42 @@ const sampleData: CardItem[] = [
     title: "SAMS",
     tags: ["Core", "Cloud"],
     description:
-      "Toolkit for migrating legacy core systems to scalable cloud-native architecture.",
+      "Stressed asset management solution that automates NPA tracking and provisioning calculations. It consolidates customer data across multiple loan products, applies regulatory classification rules based on days past due, and generates comprehensive MIS reports. Predictive analytics enable early identification of potential NPAs for proactive risk management.",
+    category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
+  },
+
+  {
+    id: "9",
+    logo: "/kycLogo.png",
+    title: "ALMANAC",
+    tags: ["Core", "Cloud"],
+    description:
+      "An asset and liability management system that integrates risk management, liquidity forecasting, and regulatory reporting. It provides tools for interest rate sensitivity analysis, stress testing, and government securities management. Multi-currency compliant with predictive analytics for capital planning. Generates regulatory reports and supports informed strategic decision-making for financial institutions. ",
     category: "Banking and Finance",
     link: "/industries/:industry/products/commingsoon",
   },
 
   // --- EHR and PMS (1 Product) ---
   {
-    id: "9",
+    id: "10",
     logo: "QBnFLogo.svg",
-    title: "ALMANAC",
+    title: "Unified HealthCare",
     tags: ["EHR", "Interoperability"],
     description:
-      "Next-generation patient record system with AI-driven diagnostic support.",
+      "All-in-one EMR/EHR and practice management solution that integrates clinical workflows with revenue cycle management. It streamlines patient care from scheduling to treatment follow-ups, tracks billing and payments, and supports any practice size. HIPAA-compliant with enterprise-grade security for protecting sensitive patient data. ",
     category: "EHR and PMS",
     link: "/industries/ehr-and-pms",
   },
 
   // --- Cloud Finops AI (CloudDIET) ---
   {
-    id: "10",
+    id: "11",
     logo: "QBnFLogo.svg",
     title: "CloudDIET",
     tags: ["FinOps", "Savings", "Cloud"],
     description:
-      "CloudDIET uses AI to analyze AWS, Azure & GCP spend. Eliminates waste and guarantees ROI.",
+      "AI-powered cloud financial optimization platform that profiles resource configuration, utilization, and cost across AWS, Azure, and Google Cloud. It identifies misconfigurations, over-provisioning, and waste. Provides detailed recommendations and savings assurance with a pay-for-performance model. Reduces cloud expenditure by up to 30% without impacting outcomes. ",
     category: "Cloud Finops AI",
     link: "/industries/cloud-finops-ai",
   },
@@ -172,7 +183,7 @@ useEffect(() => {
       <div
   className={`
     sticky 
-    ${isScrollUp ? "top-16 lg:top-32" : "top-0 lg:top-16"} 
+    ${isScrollUp ? "top-16 lg:top-16" : "top-0 lg:top-16"} 
     z-40 
     bg-white 
     py-3 

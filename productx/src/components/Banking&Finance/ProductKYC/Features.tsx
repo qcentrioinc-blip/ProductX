@@ -9,40 +9,40 @@ const FEATURES = [
     id: "feature_a",
     buttonLabel: "Policy Configuration Engine",
     title: "Zero code policy configuration engine",
-    p1: "Configure all due diligence parameters without coding. Changes to regulations or.",
-    p2: "No training required for frontline staff when policies update jcbew  jhwbv cwj .",
+    p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality. No training required for frontline staff when policies update. ",
+    
     imageSrc: "/ProductDetails4/PD4_img1(2).webp",
   },
   {
     id: "feature_b",
     buttonLabel: "Smart Data Capture",
     title: "Smart forms for data capture",
-    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile.",
-    p2: "Captures data for customers and connected parties with built-in validations for accuracy.",
+    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile. Captures data for customers and connected parties with built-in validations for accuracy. ",
+    
     imageSrc: "/ProductDetails4/PD4_img2(2).webp",
   },
   {
     id: "feature_c",
     buttonLabel: "Automated Screening",
     title: "Automated name screening integration",
-    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists.",
-    p2: "Integrates with leading screening engines during onboarding and ongoing monitoring.",
+    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists. Integrates with leading screening engines during onboarding and ongoing monitoring.  ",
+   
     imageSrc: "/ProductDetails4/PD4_img3.webp",
   },
   {
     id: "feature_d",
     buttonLabel: "Risk Assessment",
     title: "Risk assessment and decisioning",
-    p1: "Automatically compute risk ratings based on configured attributes and rules.",
-    p2: "Workflow rules drive consistent decisioning with options for approval routing and case management.",
+    p1: "Automatically compute risk ratings based on configured attributes and rules. Workflow rules drive consistent decisioning with options for approval routing and case management. ",
+  
     imageSrc: "/ProductDetails4/PD4_img4.webp",
   },
   {
     id: "feature_e",
     buttonLabel: "Lifecycle Management",
     title: "Full client lifecycle management",
-    p1: "System automatically moves profiles to periodic and trigger event queues.",
-    p2: "Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.",
+    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.  ",
+    
     imageSrc: "/ProductDetails4/PD4_img5.webp",
   },
 ];
@@ -52,6 +52,20 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
   const [mobileScrollProgress, setMobileScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const mobileTabsContainerRef = useRef<HTMLDivElement>(null);
+  const desktopTextRef = useRef<HTMLDivElement>(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
 
   const handleTabClick = (id: string, index: number) => {
     if (window.innerWidth < 768 && sectionRef.current) {
@@ -125,7 +139,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
     // Initial calculation
     updateScroll();
 
-    // Use ResizeObserver to catch layout shifts (common on page navigation)
+    // Use ResizeObserver to catch layout shifts
     const resizeObserver = new ResizeObserver(() => {
         updateScroll();
     });
@@ -183,23 +197,45 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
     }
   }, [activeFeatureId]);
 
+  /* ============================= */
+  /* RESET DESKTOP SCROLL ON TAB CHANGE */
+  /* ============================= */
+  useEffect(() => {
+    if (desktopTextRef.current && window.innerWidth >= 768) {
+      desktopTextRef.current.scrollTop = 0;
+    }
+  }, [activeFeatureId]);
+
+  useEffect(() => {
+  if (isMobile) {
+    setTimeout(() => {
+      window.dispatchEvent(new Event("scroll"));
+    }, 50);
+  }
+}, [isMobile]);
+
   const activeContent =
     FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
 
   return (
     <section
-      ref={sectionRef}
-      className="w-full bg-white relative h-[350vh] md:h-auto md:pb-5 md:px-5"
-    >
+  ref={sectionRef}
+  className="w-full bg-white relative md:h-auto md:pb-5 md:px-5"
+  style={{
+    height: isMobile ? `${FEATURES.length * window.innerHeight}px` : "auto",
+  }}
+>
       {/* MOBILE VIEW */}
-      <div className="md:hidden sticky top-10 h-[70dvh] w-full overflow-hidden flex flex-col z-10 bg-white pt-6 pb-4 touch-pan-y">
-        <H2 className="px-4 text-center text-[#2B68C3] tracking-tight leading-snug mb-6 shrink-0">
-          Key features of Diligent platform
-        </H2>
+      <div className="md:hidden sticky top-20 xl:top-0  w-full overflow-hidden flex flex-col z-10 bg-white pt-2 pb-2">
+        <div className="px-4 mb-8 shrink-0">
+            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug text-[18px]">
+                Key features of Diligent platform
+            </H2>
+        </div>
 
         <div
           ref={mobileTabsContainerRef}
-          className="w-full overflow-x-auto scrollbar-hide shrink-0"
+          className="w-full overflow-x-auto scrollbar-hide shrink-0 mb-2"
         >
           <div className="flex gap-3 px-4 snap-x snap-mandatory pb-1">
             {FEATURES.map((item, index) => {
@@ -210,7 +246,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                   data-active={isActive.toString()}
                   onClick={() => handleTabClick(item.id, index)}
                   className={`flex-shrink-0 snap-start whitespace-nowrap
-                  py-2 px-4 rounded-full text-[13px] font-semibold transition-all
+                  py-2 px-4 rounded-full text-[12px] font-semibold transition-colors
                   ${
                     isActive
                       ? "bg-[#2B68C3] text-white shadow-md"
@@ -224,9 +260,9 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
         </div>
 
-        {/* 🔥 SMOOTHER SLIDER */}
+        {/* 🔥 FIXED SLIDER */}
         <div
-          className="flex flex-1 w-[500%] will-change-transform transition-transform duration-200 ease-out"
+          className="flex w-[500%] will-change-transform"
           style={{
             transform: `translate3d(-${mobileScrollProgress * 80}%, 0, 0)`,
           }}
@@ -234,26 +270,30 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           {FEATURES.map((item) => (
             <div
               key={item.id}
-              className="w-1/5 h-full flex flex-col justify-start items-center px-6 pb-6"
+              className="w-1/5 h-full flex flex-col justify-start items-start px-4 pb-4"
             >
-              <div className="w-full flex justify-center items-center h-[35vh] mb-4">
+              {/* Reduced image height to 25vh for better text visibility */}
+              <div className="w-full flex justify-center items-center mb-2 shrink-0">
                 <img
                   src={item.imageSrc}
                   alt={item.title}
-                  className="w-full h-full object-contain"
+                  className="w-full my-10  h-[40vh] md:h-full object-fill"
                 />
               </div>
 
-              <div className="w-full text-center flex flex-col space-y-3 max-w-lg">
-                <H3 className="text-gray-900 tracking-tight leading-tight">
+              {/* Text container with overflow-y-auto */}
+              <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
+                <H3 className="text-gray-900 tracking-tight leading-tight text-[18px]">
                   {item.title}
                 </H3>
-                <P className="">
-                  {item.p1}
-                </P>
-                <P className="">
-                  {item.p2}
-                </P>
+                <div className="flex flex-col gap-3 text-center">
+                    <P className="text-sm leading-relaxed">
+                    {item.p1}
+                    </P>
+                    {/* <P className="text-sm leading-relaxed">
+                    {item.p2}
+                    </P> */}
+                </div>
               </div>
             </div>
           ))}
@@ -261,11 +301,12 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
       </div>
 
       {/* DESKTOP VIEW */}
-      <div className="hidden md:block max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="hidden md:block max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
         <H2 className=" text-center text-[#2B68C3] tracking-tight leading-snug">
           Key features of Diligent platform
         </H2>
 
+        {/* Grid: Buttons (3) | Image (5) | Text (4) */}
         <div className="grid grid-cols-12 items-stretch gap-x-6 lg:gap-x-10">
           <div className="col-span-4 lg:col-span-3 flex flex-col justify-center space-y-4">
             {FEATURES.map((item, index) => {
@@ -287,7 +328,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
             })}
           </div>
 
-          <div className="col-span-4 lg:col-span-6 flex justify-center items-center">
+          <div className="col-span-4 lg:col-span-5 flex justify-center items-center">
             <img
               src={activeContent.imageSrc}
               alt={activeContent.title}
@@ -295,12 +336,19 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
             />
           </div>
 
-          <div className="col-span-4 lg:col-span-3 flex flex-col justify-center space-y-6">
+          {/* Text column */}
+          {/* Changed justify-center to justify-center to ensure title is always at top */}
+          <div 
+            ref={desktopTextRef}
+            className="col-span-4 lg:col-span-4 flex flex-col justify-center space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar"
+          >
             <H3 className="text-gray-900 tracking-tight leading-tight text-2xl">
               {activeContent.title}
             </H3>
-            <P className="text-gray-600">{activeContent.p1}</P>
-            <P className="text-gray-600">{activeContent.p2}</P>
+            <div className="flex flex-col space-y-6">
+                <P className="text-gray-600 leading-relaxed text-left">{activeContent.p1}</P>
+                {/* <P className="text-gray-600 leading-relaxed text-left">{activeContent.p2}</P> */}
+            </div>
           </div>
         </div>
       </div>
@@ -308,6 +356,24 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
       <style>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+        
+        /* Custom scrollbar for the text area */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #94a3b8;
+            border-radius: 4px;
+            border: 2px solid #f1f5f9;
+        }
+        .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+            background-color: #64748b;
+        }
+        
         html { scroll-behavior: smooth; }
       `}</style>
     </section>
