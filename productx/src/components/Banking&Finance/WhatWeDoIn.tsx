@@ -53,42 +53,62 @@ const WhatWeDoIn = () => {
   }, []);
 
   // Sticky scroll logic — desktop only
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!isDesktop || !targetRef.current) return;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (!isDesktop || !targetRef.current) return;
 
-      const rect = targetRef.current.getBoundingClientRect();
-      const outerHeight = targetRef.current.offsetHeight;
-      const windowHeight = window.innerHeight;
+  //     const rect = targetRef.current.getBoundingClientRect();
+  //     const outerHeight = targetRef.current.offsetHeight;
+  //     const windowHeight = window.innerHeight;
 
-      const scrolledIn = -rect.top;
+  //     const scrolledIn = -rect.top;
 
-      if (scrolledIn <= 0) {
-        setOpenIndex(0);
-        return;
-      }
+  //     if (scrolledIn <= 0) {
+  //       setOpenIndex(0);
+  //       return;
+  //     }
 
-      const extraScroll = outerHeight - windowHeight;
+  //     const extraScroll = outerHeight - windowHeight;
 
-      if (scrolledIn >= extraScroll) {
-        setOpenIndex(accordionData.length - 1);
-        return;
-      }
+  //     if (scrolledIn >= extraScroll) {
+  //       setOpenIndex(accordionData.length - 1);
+  //       return;
+  //     }
 
-      const segmentSize = extraScroll / accordionData.length;
+  //     const segmentSize = extraScroll / accordionData.length;
 
-      const newIndex = Math.min(
-        accordionData.length - 1,
-        Math.max(0, Math.floor(scrolledIn / segmentSize))
-      );
+  //     const newIndex = Math.min(
+  //       accordionData.length - 1,
+  //       Math.max(0, Math.floor(scrolledIn / segmentSize))
+  //     );
 
-      setOpenIndex(newIndex);
-    };
+  //     setOpenIndex(newIndex);
+  //   };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [accordionData.length, isDesktop]);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   handleScroll();
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [accordionData.length, isDesktop]);
+useEffect(() => {
+  const handleScroll = () => {
+    if (!isDesktop || !targetRef.current) return;
+
+    const rect = targetRef.current.getBoundingClientRect();
+    const scrollTop = -rect.top;
+    const sectionHeight = window.innerHeight;
+
+    const index = Math.min(
+      accordionData.length - 1,
+      Math.max(0, Math.round(scrollTop / sectionHeight))
+    );
+
+    setOpenIndex(index);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [accordionData.length, isDesktop]);
+
 
   return (
     <div
@@ -97,7 +117,7 @@ const WhatWeDoIn = () => {
       id="benefits"
       style={
         isDesktop
-          ? { height: `calc(100vh + ${accordionData.length * 80}vh)` }
+          ? { height: `calc(100vh + ${accordionData.length *100}vh)` }
           : { height: "auto" }
       }
     >
@@ -107,7 +127,7 @@ const WhatWeDoIn = () => {
         style={isDesktop ? { height: "115vh" } : { height: "auto" }}
       >
         <div
-          className="max-w-7xl mx-auto flex flex-col px-10 xl:px-0"
+          className="max-w-8xl xl:mx-18  mx-auto flex flex-col px-4 xl:px-2  md:px-10 "
           style={
             isDesktop
               ? {
@@ -117,18 +137,18 @@ const WhatWeDoIn = () => {
                 }
               : {
                   height: "auto",
-                  paddingTop: "2.5rem",
+                  paddingTop: "0.5rem",
                   paddingBottom: "2rem",
                 }
           }
         >
           {/* ── Heading ── */}
           <div className="shrink-0 flex justify-between items-start gap-8">
-            <div className="max-w-5xl">
+            <div className="max-w-4xl">
               <H2 className="font-bold text-[#2B68C3]">
                 Who <span className="text-[#666666]"> We </span> Serve
               </H2>
-              <P className="pt-2 text-justify xl:pr-56 leading-tight">
+              <P className="pt-2 text-justify xl:pr-20  leading-tight">
                 Financial institutions of all sizes trust our solutions to
                 streamline operations, automate compliance, and deliver better
                 customer experiences. Our platforms scale to meet your specific

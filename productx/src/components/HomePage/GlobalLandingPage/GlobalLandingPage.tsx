@@ -2,7 +2,7 @@ import {  Suspense } from "react"
 // import LandingPage1 from "./LandingPage1"
 import CircularCards from "./CircularCards"
 import Navbar from "../../Global/Navbar/Navbar"
-import LandingPage1 from "./LandingPage1"
+// import LandingPage1 from "./LandingPage1"
 import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
 import AnimatedFooter from "../../AnimatedFooter"
@@ -25,9 +25,9 @@ const GlobalLandingPage = () => {
         <div className="relative">
 <Navbar/>
                 <CircularCards/>
-            <div id="landingpage">
+            {/* <div id="landingpage">
                 <LandingPage1 />
-            </div>
+            </div> */}
 
             <Suspense fallback={null}>
                 {/* <div className="gpu-optimized">

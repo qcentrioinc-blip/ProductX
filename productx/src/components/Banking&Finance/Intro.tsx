@@ -3,8 +3,8 @@ import { H2, P } from "../../styles/Typography";
 
 const Intro = () => {
   return (
-    <section className="w-full bg-gray-50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 xl:px-0">
+    <section className="w-full bg-gray-50  py-6 xl:py-10">
+      <div className="max-w-8xl mx-auto xl:mx-18 px-4 sm:px-8 lg:px-10 xl:px-0">
         
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-center">
@@ -34,11 +34,11 @@ const Intro = () => {
           </div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div className="flex justify-end ">
+          <div className="flex ">
             <img
               src="/ImageSection.png"
               alt="Banking Features"
-              className="w-full max-w-md lg:max-w-xl h-auto"
+              className="w-full  lg:max-w-xl h-auto"
             />
           </div>
 

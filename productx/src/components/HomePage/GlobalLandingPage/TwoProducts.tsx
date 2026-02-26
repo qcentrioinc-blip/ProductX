@@ -9,7 +9,7 @@ const products = [
     link: "/industries/banking-and-finance/products/kyc",
     description:
       "Digitizes and standardizes customer onboarding with automated risk assessment and screening.",
-    image: "/KYC.webp",
+    image: "/ProductKYC.webp",
     imageAlt: "Woman with laptop and credit card",
 
     // Hard-coded layout control
@@ -33,7 +33,7 @@ const products = [
 
 export default function TwoProducts() {
   return (
-    <section className="max-w-7xl mx-auto bg-white py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
+    <section className="max-w-7xl  mx-auto xl:mx-18 bg-white  py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
       
       <H2 className="text-[#2B68C3] leading-tight">
         Banking and finance Products
@@ -42,7 +42,7 @@ export default function TwoProducts() {
 
 
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 py-8 mt-10 overflow-visible">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 py-8 xl:mt-10 overflow-visible">
         {products.map((product) => (
           <div
             key={product.id}
@@ -91,7 +91,7 @@ export default function TwoProducts() {
               src={product.image}
               alt={product.imageAlt}
               className={`
-                absolute hidden md:block
+                absolute hidden xl:block
                 pointer-events-none select-none
                 object-contain
                 ${product.imageWidth}

@@ -1,21 +1,30 @@
 const Check = ({ className = "", size = 24, style }: { className?: string; size?: number; style?: React.CSSProperties }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><path d="M20 6 9 17l-5-5" /></svg>
 );
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLocation } from "react-router-dom";
- 
- 
+import { useRef } from "react";
+
+
 const HWD = () => {
   const location = useLocation();
   const path = location.pathname;
- 
+
+  // Horizontal scroll refs & hooks (same pattern as Process.tsx)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   // const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
-const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
- 
+  const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
+
   const COLORS = {
     ehr: {
       topBg: "#F5F5F5",
@@ -58,17 +67,17 @@ const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
     },
  
     conciliare: {
-  eyebrow: " ",
-  title: " Common Reconciliation Use Cases",
-  description:
-    ""
-},
-kyc: {
-  eyebrow: " ",
-  title: "Real-world use cases",
-  description:
-    ""
-},
+      eyebrow: " ",
+      title: " Common Reconciliation Use Cases",
+      description:
+        ""
+    },
+    kyc: {
+      eyebrow: " ",
+      title: "Real-world use cases",
+      description:
+        ""
+    },
     banking: {
       eyebrow: " ",
       title: " Common Reconciliation Use Cases",
@@ -135,93 +144,93 @@ kyc: {
     ],
  
     conciliare: [
-  {
-    title: "Bank Account Reconciliation",
-    image: "/icon1.svg",
-    description:
-      "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
-    points: [
-      "Match bank statement transactions against general ledger entries ",
-      "Reconcile multiple ledgers mapped to single bank accounts ",
-      "Identify discrepancies between opening and closing balances ",
-      "Handle high-volume transaction matching with parallel processing ",
-      "Generate exception reports for unmatched items with ageing analysis ",
+      {
+        title: "Bank Account Reconciliation",
+        image: "/icon1.svg",
+        description:
+          "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
+        points: [
+          "Match bank statement transactions against general ledger entries ",
+          "Reconcile multiple ledgers mapped to single bank accounts ",
+          "Identify discrepancies between opening and closing balances ",
+          "Handle high-volume transaction matching with parallel processing ",
+          "Generate exception reports for unmatched items with ageing analysis ",
+        ],
+      },
+      {
+        title: "NOSTRO Message Reconciliation",
+        image: "/icon2.svg",
+        description:
+          "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
+        points: [
+          "Match SWIFT MT103, 202, 940, and 950 messages against system references ",
+          "Identify messages sent without source system references ",
+          "Detect duplicate messages sent with same reference numbers ",
+          "Validate critical field values including BIC, Field 20, and Field 21 ",
+          "Escalate pending mismatches to concerned authorities automatically ",
+        ],
+      },
+      {
+        title: "Payment Channel Reconciliation",
+        image: "/icon3.svg",
+        description:
+          "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
+        points: [
+          "Reconcile POS and gateway transactions against settlement reports .",
+          "Match collections and disbursements across multiple channels ",
+          "Identify revenue leakage from unidentified discrepancies ",
+          "Link consolidated settlement entries to detailed transaction sets .",
+          "Reduce customer complaints from delayed or incorrect matching ",
+        ],
+      },
     ],
-  },
-  {
-    title: "NOSTRO Message Reconciliation",
-    image: "/icon2.svg",
-    description:
-      "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
-    points: [
-      "Match SWIFT MT103, 202, 940, and 950 messages against system references ",
-      "Identify messages sent without source system references ",
-      "Detect duplicate messages sent with same reference numbers ",
-      "Validate critical field values including BIC, Field 20, and Field 21 ",
-      "Escalate pending mismatches to concerned authorities automatically ",
+
+    kyc: [
+      {
+        title: "Digital KYC transformation",
+        image: "/icon1.svg",
+        description:
+          "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
+        points: [
+          "Full lifecycle coverage from onboarding to trigger events ",
+          "Integration with front-end, screening, and core systems ",
+          "Approximately 85% straight-through processing achieved ",
+          "Significant automation with minimal manual intervention ",
+          "Used by analysts, compliance officers, and approvers ",
+        ],
+      },
+      {
+        title: " Enterprise due diligence",
+        image: "/icon2.svg",
+        description:
+          "Coverage primarily for non-individual entities with complex ownership structures.",
+        points: [
+          "Screening and case management integration throughout .",
+          "Roles across analyst, MLRO, and compliance approvers ",
+          "Automated risk assessment based on configured rules ",
+          "Periodic and trigger event reviews system-managed ",
+          "Consistent execution across all entity types ",
+        ],
+      },
+      {
+        title: "Commodity trading compliance",
+        image: "/icon3.svg",
+        description:
+          "Coverage for private limited companies, firms, and other entity types.",
+        points: [
+          " Integration with front-end system for data capture .",
+
+          "Connected to leading screening engine providers .",
+
+          "Implemented as Software as a Service model .",
+
+          "Roles across frontline, compliance, and approvers .",
+
+          "Automated data capture reduces manual effort .",
+        ],
+      },
     ],
-  },
-  {
-    title: "Payment Channel Reconciliation",
-    image: "/icon3.svg",
-    description:
-      "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
-    points: [
-      "Reconcile POS and gateway transactions against settlement reports .",
-      "Match collections and disbursements across multiple channels ",
-      "Identify revenue leakage from unidentified discrepancies ",
-      "Link consolidated settlement entries to detailed transaction sets .",
-      "Reduce customer complaints from delayed or incorrect matching ",
-    ],
-  },
-],
- 
-kyc: [
-  {
-    title: "Digital KYC transformation",
-    image: "/icon1.svg",
-    description:
-      "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
-    points: [
-      "Full lifecycle coverage from onboarding to trigger events ",
-      "Integration with front-end, screening, and core systems ",
-      "Approximately 85% straight-through processing achieved ",
-      "Significant automation with minimal manual intervention ",
-      "Used by analysts, compliance officers, and approvers ",
-    ],
-  },
-  {
-    title: " Enterprise due diligence",
-    image: "/icon2.svg",
-    description:
-      "Coverage primarily for non-individual entities with complex ownership structures.",
-    points: [
-      "Screening and case management integration throughout .",
-      "Roles across analyst, MLRO, and compliance approvers ",
-      "Automated risk assessment based on configured rules ",
-      "Periodic and trigger event reviews system-managed ",
-      "Consistent execution across all entity types ",
-    ],
-  },
-  {
-    title: "Commodity trading compliance",
-    image: "/icon3.svg",
-    description:
-      "Coverage for private limited companies, firms, and other entity types.",
-    points: [
-    " Integration with front-end system for data capture .",
- 
-"Connected to leading screening engine providers .",
- 
-"Implemented as Software as a Service model .",
- 
-"Roles across frontline, compliance, and approvers .",
- 
-"Automated data capture reduces manual effort .",
-    ],
-  },
-],
- 
+
     banking: [
       {
         title: "Digital KYC transformation",
@@ -309,29 +318,29 @@ kyc: [
  
  
   // CARDS
-let cards;
-if (isConciliare) cards = CARD_CONTENT.conciliare;
-else if (isKYC) cards = CARD_CONTENT.kyc;
-else if (isAI) cards = CARD_CONTENT.ai;
-else if (isEHR) cards = CARD_CONTENT.ehr;
-else cards = CARD_CONTENT.banking;
- 
-// HEADING
-let headingContent;
-if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
-else if (isKYC) headingContent = HEADING_CONTENT.kyc;
-else if (isAI) headingContent = HEADING_CONTENT.ai;
-else if (isEHR) headingContent = HEADING_CONTENT.ehr;
-else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
-else headingContent = HEADING_CONTENT.banking;
- 
-// PALETTE
-let palette;
-if (isConciliare || isKYC) palette = COLORS.banking;
-else if (isEHR) palette = COLORS.ehr;
-else if (isHighTech) palette = COLORS.hightech;
-else if (isAI) palette = COLORS.ai;
-else palette = COLORS.banking;
+  let cards;
+  if (isConciliare) cards = CARD_CONTENT.conciliare;
+  else if (isKYC) cards = CARD_CONTENT.kyc;
+  else if (isAI) cards = CARD_CONTENT.ai;
+  else if (isEHR) cards = CARD_CONTENT.ehr;
+  else cards = CARD_CONTENT.banking;
+
+  // HEADING
+  let headingContent;
+  if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
+  else if (isKYC) headingContent = HEADING_CONTENT.kyc;
+  else if (isAI) headingContent = HEADING_CONTENT.ai;
+  else if (isEHR) headingContent = HEADING_CONTENT.ehr;
+  else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
+  else headingContent = HEADING_CONTENT.banking;
+
+  // PALETTE
+  let palette;
+  if (isConciliare || isKYC) palette = COLORS.banking;
+  else if (isEHR) palette = COLORS.ehr;
+  else if (isHighTech) palette = COLORS.hightech;
+  else if (isAI) palette = COLORS.ai;
+  else palette = COLORS.banking;
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
  
   const bottomTextColor = isAI ? "#254D70" : textcolor;
@@ -395,54 +404,82 @@ else palette = COLORS.banking;
   );
  
   return (
-    <div className="w-full relative  shadow-md flex flex-col items-center py-10  md:py-8 px-4 sm:px-6 md:px-10">
-      <div className="max-w-7xl w-full">
- 
-        {/* HEADINGS */}
-        {/* HEADINGS */}
-        <div className="flex flex-col space-y-4 sm:space-y-6 mb-6">
- 
- 
-          <h2
-            className={`text-[#2A2A2A] ${headingFontClass}
-     text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
-          >
- 
-            {headingContent.title}
-          </h2>
- 
-          {/* Dynamic paragraph below H2 */}
-          <p className="max-w-3xl text-base md:text-lg font-quicksand xl:text-xl text-[#555555]">
-            {/* {headingContent.description} */}
-          </p>
-        </div>
- 
-        {/* CARDS — MOBILE CAROUSEL / DESKTOP GRID */}
+    <>
+      {/* ===== MOBILE: Horizontal scroll on vertical scroll (same pattern as Process.tsx) ===== */}
+      <div className="block md:hidden">
         <div
-          className="
-    flex gap-6 overflow-x-auto snap-x snap-mandatory
-    xl:overflow-visible xl:grid
-    xl:grid-cols-3
-    sm:gap-14
-    pb-4
-    scrollbar-hide
-  "
+          ref={containerRef}
+          className="relative h-[200vh]"
         >
- 
-          {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              className="relative rounded-md overflow-hidden shadow-lg snap-center flex-shrink-0
-               w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
-              style={{ backgroundColor: bottomBg }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+          {/* Sticky container */}
+          <div className="sticky top-13 xl:top-0 h-screen flex flex-col justify-center overflow-hidden w-full shadow-md">
+            {/* Header */}
+            <div className="px-4 pt-6 pb-4">
+              <h2
+                className={`text-[#2A2A2A] ${headingFontClass} text-[24px] leading-none`}
+              >
+                {headingContent.title}
+              </h2>
+            </div>
+
+            {/* Horizontal scroll section */}
+            <div className="flex-1 flex items-start overflow-hidden w-full pt-4">
+              <motion.div
+                style={{ x }}
+                className="flex gap-6 pl-4"
+              >
+                {cards.map((card, i) => (
+                  <div
+                    key={i}
+                    className="relative rounded-md overflow-hidden shadow-lg flex-shrink-0 w-[85vw] min-h-[420px]"
+                    style={{ backgroundColor: bottomBg }}
+                  >
+                    <CardContent {...card} />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== DESKTOP/TABLET: Original grid layout ===== */}
+      <div className="hidden md:block">
+        <div className="w-full relative shadow-md flex flex-col items-center py-10 md:py-8 px-4 sm:px-6 md:px-10">
+          <div className="max-w-7xl w-full">
+
+            {/* HEADINGS */}
+            <div className="flex flex-col space-y-4 sm:space-y-6 mb-6">
+              <h2
+                className={`text-[#2A2A2A] ${headingFontClass}
+       text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
+              >
+                {headingContent.title}
+              </h2>
+              <p className="max-w-3xl text-base md:text-lg font-quicksand xl:text-xl text-[#555555]">
+                {/* {headingContent.description} */}
+              </p>
+            </div>
+
+            {/* CARDS — DESKTOP GRID */}
+            <div
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory xl:overflow-visible xl:grid xl:grid-cols-3 sm:gap-14 pb-4 scrollbar-hide"
             >
-              <CardContent {...card} />
-            </motion.div>
-          ))}
- 
+              {cards.map((card, i) => (
+                <motion.div
+                  key={i}
+                  className="relative rounded-md overflow-hidden shadow-lg snap-center flex-shrink-0
+                   w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
+                  style={{ backgroundColor: bottomBg }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+                >
+                  <CardContent {...card} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
  
@@ -456,7 +493,7 @@ else palette = COLORS.banking;
           scrollbar-width: none;
         }
       `}</style>
-    </div>
+    </>
   );
 };
  

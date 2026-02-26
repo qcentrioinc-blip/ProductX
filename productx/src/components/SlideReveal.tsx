@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { H2, H4, P } from "../styles/Typography";
-
+ 
 export default function SlideReveal() {
   const sectionRef = useRef(null);
 
@@ -24,9 +24,9 @@ export default function SlideReveal() {
     target: sectionRef,
     offset: ["start start", "end end"],
   });
-
+ 
   const x = useTransform(scrollYProgress, [0, 0.8], ["0%", "-100%"]);
-
+ 
   return (
     <section
       ref={sectionRef}
