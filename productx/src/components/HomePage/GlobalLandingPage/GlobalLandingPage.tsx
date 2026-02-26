@@ -1,74 +1,80 @@
-import { lazy, Suspense } from "react"
+import {  Suspense } from "react"
 // import LandingPage1 from "./LandingPage1"
 import CircularCards from "./CircularCards"
 import Navbar from "../../Global/Navbar/Navbar"
-import LandingPage1 from "./LandingPage1"
+// import LandingPage1 from "./LandingPage1"
 import Map from "./Map"
+import SlideReveal from "../../SlideReveal"
+import AnimatedFooter from "../../AnimatedFooter"
 
 // Below-the-fold: lazy load to speed up initial page render
-const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
-const FutureSection = lazy(() => import("./FutureSection"))
-const InnovationCards = lazy(() => import("./InnovationCards"))
-const BusinessValuesSection = lazy(() => import("./BusinessValuesSection"))
-const Milestone = lazy(() => import("./Milestone"))
-const CEO = lazy(() => import("./CEO"))
-const LifeCycleTech = lazy(() => import("./LifeCycleTech"))
-const Counter = lazy(() => import("./Counter"))
-const CallToAction = lazy(() => import("./CallToAction"))
-const FlowingMenu = lazy(() => import("./FlowingMenu"))
-const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
+// const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
+// const FutureSection = lazy(() => import("./FutureSection"))
+// const InnovationCards = lazy(() => import("./InnovationCards"))
+// const BusinessValuesSection = lazy(() => import("./BusinessValuesSection"))
+// const Milestone = lazy(() => import("./Milestone"))
+// const CEO = lazy(() => import("./CEO"))
+// const LifeCycleTech = lazy(() => import("./LifeCycleTech"))
+// const Counter = lazy(() => import("./Counter"))
+// const CallToAction = lazy(() => import("./CallToAction"))
+// const FlowingMenu = lazy(() => import("./FlowingMenu"))
+// const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
 
 const GlobalLandingPage = () => {
     return (
         <div className="relative">
 <Navbar/>
                 <CircularCards/>
-            <div id="landingpage">
+            {/* <div id="landingpage">
                 <LandingPage1 />
-            </div>
+            </div> */}
 
             <Suspense fallback={null}>
-                <div className="gpu-optimized">
+                {/* <div className="gpu-optimized">
                     <AnimatedStatement />
-                </div>
-                <div id="futuresection" className="gpu-optimized">
+                </div> */}
+                {/* <div id="futuresection" className="gpu-optimized">
                     <FutureSection />
-                </div>
-                <div id="innovationcards" className="gpu-optimized">
+                </div> */}
+                {/* <div id="innovationcards" className="gpu-optimized">
                     <InnovationCards />
-                </div>
+                </div> */}
                 <div id="map" className="gpu-optimized">
                     <Map />
                 </div>
-                <div id="businessvaluessection" className="gpu-optimized">
+                <div>
+                    <SlideReveal/>
+                </div>
+                {/* <div id="businessvaluessection" className="gpu-optimized">
                     <BusinessValuesSection />
-                </div>
+                </div> */}
 
-                <div className="gpu-optimized">
+                {/* <div className="gpu-optimized">
                     <Milestone />
-                </div>
+                </div> */}
 
-                <div className="sticky top-0  h-[60vh] xl:h-screen z-0">
+                {/* <div className="sticky top-0  h-[60vh] xl:h-screen z-0">
                     <CEO />
-                </div>
+                </div> */}
 
-                <div className="relative z-10 gpu-optimized">
+                {/* <div className="relative z-10 gpu-optimized">
                     <LifeCycleTech />
-                </div>
+                </div> */}
 
-                <div className="gpu-optimized">
+                {/* <div className="gpu-optimized">
                     <Counter />
-                </div>
-                <div id="calltoaction" className="gpu-optimized">
+                </div> */}
+                {/* <div id="calltoaction" className="gpu-optimized">
                     <CallToAction />
-                </div>
+                </div> */}
 
-                <div id="FlowingMenu" className="hidden xl:block gpu-optimized">
+                {/* <div id="FlowingMenu" className="hidden xl:block gpu-optimized">
                     <FlowingMenu />
-                </div>
+                </div> */}
 
                 <div id="footer" className="gpu-optimized">
-                    <NewFooter />
+                    {/* <NewFooter /> */}
+                    <AnimatedFooter />
                 </div>
             </Suspense>
 

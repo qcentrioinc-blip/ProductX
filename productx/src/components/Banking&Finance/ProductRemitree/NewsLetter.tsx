@@ -55,7 +55,7 @@ const NewsLetter = () => {
   return (
     <div
       ref={sectionRef}
-      className=" w-full flex flex-col items-center justify-center bg-[#F2F7FF] py-10 px-4 md:px-8 overflow-hidden"
+      className=" w-full flex flex-col items-center justify-center bg-[#F2F7FF] py-6 px-4 md:px-8 overflow-hidden"
     >
       <h1 className="w-full max-w-7xl mx-auto font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
         <span className="text-[#2B68C3]">How Diligent automates</span>

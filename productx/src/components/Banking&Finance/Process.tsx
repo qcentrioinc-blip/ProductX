@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { H2, H3, P } from '../../styles/Typography';
 
@@ -8,10 +8,11 @@ type ProcessStepProps = {
     description: string;
 };
 
+
 const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) => {
   return (
     <div
-      className="w-[400px] sm:w-[500px] lg:w-[690px]
+      className="w-[400px] sm:w-[500px] lg:w-[600px]
  flex-shrink-0 flex flex-col items-center"
       style={{ fontFamily: "Bricolage Grotesque" }}
     >
@@ -21,7 +22,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
           {step}
         </div>
       </div>
-  <div className="w-full flex justify-center xl:pl-40">
+  <div className="w-full flex justify-start xl:pl-52">
       {/* Title */}
       <H3
         className="mt-6 font-semibold   "
@@ -33,12 +34,11 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
 
     
      {/* Description */}
-<div className="mt-4 w-full flex justify-center">
-  <div className=" lg:ml-99 ">
-    <P className="text-gray-600 text-left">
+<div className="mt-4 w-full xl:max-w-md xl:ml-66 flex justify-end">
+       <P className="text-gray-600 text-justify ">
       {description}
     </P>
-  </div>
+ 
 </div>
 
     </div>
@@ -46,16 +46,26 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ step, title, description }) =
 };
 
 const Process = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-
+const [scrollWidth, setScrollWidth] = useState(0);
     // Use useScroll hook
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
     });
+useEffect(() => {
+  if (trackRef.current && containerRef.current) {
+    const totalWidth = trackRef.current.scrollWidth;
+    const viewportWidth = window.innerWidth;
 
+    const horizontalScrollDistance = totalWidth - viewportWidth;
+
+    setScrollWidth(horizontalScrollDistance);
+  }
+}, []);
     // Transform scroll progress - Desktop keeps same
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
 
     const steps = [
         {
@@ -92,14 +102,16 @@ const Process = () => {
             {/* Container with section height for scroll tracking */}
             <div
                 ref={containerRef}
-                className="relative bg-[#EFEFEF] h-[200vh]  "
+                className="relative bg-[#EFEFEF]   "style={{ height: `${scrollWidth + window.innerHeight}px` }}
             >
 
                 {/* Sticky container */}
-                <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[100vh] flex items-start pt-[35vh] ">
+                {/* <div className="sticky top-0 h-[50vh] sm:h-[60vh] lg:h-[100vh] flex items-start pt-[20vh] ">
+                 */}
+                 <div className="sticky top-0 h-[80vh] flex items-center pt-[20vh] ">
 
                     {/* Header section - Responsive positioning */}
-                    <div className="absolute top-6 sm:top-10 md:top-14 lg:top-24 left-0 right-0 flex-none z-20">
+                    <div className="absolute top-10 left-0 right-0 flex-none z-20">
                         <div className="container mx-auto px-4 sm:px-6">
                             <div className="text-center">
                                 <H2
@@ -108,6 +120,7 @@ const Process = () => {
                                 >
                                    Our Implementation Process
                                 </H2>
+                                
                             </div>
                         </div>
                     </div>
@@ -116,6 +129,7 @@ const Process = () => {
                     <div className="flex-1 flex items-start justify-start overflow-hidden w-full pt-10 sm:pt-16 md:pt-6">
 
                         <motion.div
+                         ref={trackRef}
                             style={{ x }}
                             className="relative flex gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-0 pl-4 sm:pl-6 md:pl-8 xl:pl-0"
                         >
@@ -123,7 +137,7 @@ const Process = () => {
                           <div className="absolute top-9 sm:top-[44px] md:top-12 lg:top-[52px] 
 left-16 sm:left-[84px] md:left-24 lg:left-[100px] 
 xl:left-[325px] 
-w-[250vw] sm:w-[220vw] lg:w-[180vw] xl:w-[180vw] 
+w-[250vw] sm:w-[220vw] lg:w-[180vw] xl:w-[155vw] 
 h-px z-0">
   <div className="border-t-2 border-dotted border-gray-300 w-full"></div>
 </div>
@@ -144,13 +158,13 @@ h-px z-0">
             </div>
         </div>
 </div>
-<div className="block xl:hidden bg-[#EFEFEF] py-16 px-6">
+<div className="block xl:hidden bg-[#EFEFEF] py-8 xl:py-10 px-6">
   <div className="max-w-2xl mx-auto">
     <H2 className="text-blue-500 text-center mb-12">
       Our Implementation Process
     </H2>
 
-    <div className="relative   pl-8 space-y-14">
+    <div className="relative   pl-16 space-y-8">
       {steps.map((item, index) => (
         <motion.div
           key={item.step}
@@ -161,13 +175,13 @@ h-px z-0">
           className="relative"
         >
           {/* Circle */}
-          <div className="absolute -left-[34px] top-1 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-semibold shadow-md">
+          <div className="absolute -left-[64px] top-1 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-semibold shadow-md">
             {item.step}
           </div>
 
           {/* Content */}
-          <div className='pt-18'>
-            <H3 className="mb-3 font-semibold">
+          <div className='flex flex-col  lg:pl-2 items-start '>
+            <H3 className="my-4 lg:my-2  font-semibold">
               {item.title}
             </H3>
             <P className="text-gray-600">
