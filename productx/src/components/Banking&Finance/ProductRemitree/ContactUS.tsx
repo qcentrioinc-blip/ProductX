@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import emailjs from "@emailjs/browser";
 
 const ArrowUpRight = ({ className = "" }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
@@ -8,6 +9,8 @@ import { H2 } from '../../../styles/Typography';
 
 const OPTIONS = ['Product Enquiry', 'Partnerships', 'General Support'];
 
+
+
 const ContactUS = () => {
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -15,8 +18,9 @@ const ContactUS = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    query: [] as string[],
+    interest: [] as string[],
     message: '',
+    industry: 'Banking and Finance',
   });
   const isEmailValid = isValidEmail(formData.email);
 
@@ -67,16 +71,61 @@ useEffect(() => {
   const smoothBorderRadius = useSpring(borderRadius, { stiffness: 100, damping: 30 });
   const smoothClip = useSpring(clipPath, { stiffness: 100, damping: 25 });
 
-  const handleSubmit = () => {
-    if (!isEmailValid) {
-      setToast({ message: 'Please enter a valid email address.', type: 'error' });
-      setTimeout(() => setToast(null), 3500);
-      return;
-    }
-    setToast({ message: "Successfully submitted! We'll be in touch soon.", type: 'success' });
+  const handleSubmit = async () => {
+  if (!isEmailValid) {
+    setToast({ message: 'Please enter a valid email address.', type: 'error' });
     setTimeout(() => setToast(null), 3500);
-    setFormData({ name: '', email: '', query: [], message: '' });
+    return;
+  }
+
+  const templateParams = {
+    name: formData.name,
+    email: formData.email,
+    interest: formData.interest.join(", "),
+    message: formData.message || "No message provided",
+    industry: "Banking and Finance", // ✅ default industry
   };
+
+  try {
+    await Promise.all([
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_USER,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+    ]);
+
+    setToast({
+      message: "Successfully submitted! We'll be in touch soon.",
+      type: "success",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      interest: [],
+      message: "",
+      industry: "Banking and Finance",
+    });
+
+    setTimeout(() => setToast(null), 3500);
+
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    setToast({
+      message: "Something went wrong. Please try again.",
+      type: "error",
+    });
+    setTimeout(() => setToast(null), 3500);
+  }
+};
 
   return (
     /*
@@ -193,7 +242,7 @@ useEffect(() => {
                         className="w-full px-5 py-3.5 rounded-full border-2 border-gray-200 cursor-pointer flex items-center justify-between"
                       >
                         <span className="text-sm truncate">
-                          {formData.query.length > 0 ? formData.query.join(', ') : 'What are you looking for?'}
+                          {formData.interest.length > 0 ? formData.interest.join(', ') : 'What are you looking for?'}
                         </span>
                         <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${showDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -202,7 +251,7 @@ useEffect(() => {
                       {showDropdown && (
                         <div className="absolute mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-lg z-20 p-3 space-y-2">
                           {OPTIONS.map((option) => {
-                            const checked = formData.query.includes(option);
+                            const checked = formData.interest.includes(option);
                             return (
                               <label key={option} className="flex items-center gap-3 px-2 py-2 cursor-pointer rounded-lg hover:bg-gray-100">
                                 <input
@@ -211,7 +260,7 @@ useEffect(() => {
                                   onChange={() =>
                                     setFormData((prev) => ({
                                       ...prev,
-                                      query: checked ? prev.query.filter((o) => o !== option) : [...prev.query, option],
+                                      interest: checked ? prev.interest.filter((o) => o !== option) : [...prev.interest, option],
                                     }))
                                   }
                                   className="accent-black w-4 h-4"
@@ -236,7 +285,7 @@ useEffect(() => {
                       onClick={handleSubmit}
                       disabled={!isEmailValid && formData.email.length > 0}
                       className={`px-8 py-3.5 rounded-full font-semibold font-quicksand flex items-center gap-2 group
-                        transition-all duration-300 ease-in-out
+                        transition-all duration-300 ease-in-out cursor-pointer
                         ${isEmailValid
                           ? 'bg-[#2B68C3] text-white shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
                           : 'bg-black text-white'}`}
@@ -300,7 +349,7 @@ useEffect(() => {
     className="w-full px-5 py-3.5 rounded-full border-2 border-gray-200 cursor-pointer flex items-center justify-between"
   >
                     <span className="text-sm truncate">
-                      {formData.query.length > 0 ? formData.query.join(', ') : 'What are you looking for?'}
+                      {formData.interest.length > 0 ? formData.interest.join(', ') : 'What are you looking for?'}
                     </span>
                     <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${showDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -309,7 +358,7 @@ useEffect(() => {
                   {showDropdownMobile && (
                     <div className="absolute mt-2 w-full bg-white rounded-2xl border border-gray-200 shadow-lg z-20 p-3 space-y-2">
                       {OPTIONS.map((option) => {
-                        const checked = formData.query.includes(option);
+                        const checked = formData.interest.includes(option);
                         return (
                           <label key={option} className="flex items-center gap-3 px-2 py-2 cursor-pointer rounded-lg hover:bg-gray-100">
                             <input
@@ -318,7 +367,7 @@ useEffect(() => {
                               onChange={() =>
                                 setFormData((prev) => ({
                                   ...prev,
-                                  query: checked ? prev.query.filter((o) => o !== option) : [...prev.query, option],
+                                  interest: checked ? prev.interest.filter((o) => o !== option) : [...prev.interest, option],
                                 }))
                               }
                               className="accent-black w-4 h-4"

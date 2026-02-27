@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import React, { useRef, useEffect, useCallback, useMemo, useState } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
+import emailjs from "@emailjs/browser";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(InertiaPlugin);
@@ -25,6 +26,8 @@ const throttle = <T extends (event: any) => void>(func: T, limit: number) => {
     }
   };
 };
+
+
  
 interface Dot {
   cx: number;
@@ -244,23 +247,49 @@ if (message && message.length > 0 && message.length < 3) {
 };
 
 
+
+
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  if (!validateForm(e.currentTarget)) {
-    return; // stop submission if validation fails
-  }
+  if (!validateForm(e.currentTarget)) return;
 
+  const form = e.currentTarget;
+
+  const formData = new FormData(form);
+
+  const templateParams = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    interest: formData.get("interest"),
+    message: formData.get("message") || "No message provided",
+  };
+
+  // ✅ 1. Instantly show success (green button)
   setIsSubmitted(true);
   setErrors({});
-  e.currentTarget.reset();
 
+  // ✅ 2. Send emails in background (no await)
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN,
+    templateParams,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  );
+
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_USER,
+    templateParams,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  );
+
+  // ✅ 3. After 3 seconds → reset everything
   setTimeout(() => {
-    setIsSubmitted(false);
+    form.reset();          // clear inputs
+    setIsSubmitted(false); // button back to black
   }, 3000);
 };
-
-
 return (
     <>
        
@@ -270,6 +299,7 @@ return (
 <div className="absolute top-20 left-12 z-20">
   <button
     onClick={() => window.history.back()}
+    disabled={isSubmitted}
     className="
       group flex items-center gap-2
       p-3
