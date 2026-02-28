@@ -245,7 +245,7 @@ export default function CircleSec() {
                         <img
                           src={product.mobileImage || product.image}
                           alt={product.label}
-                          className="w-full h-auto object-contain max-w-full"
+                          className="w-full h-auto object-cover max-w-full"
                         />
                       </div>
                     </>

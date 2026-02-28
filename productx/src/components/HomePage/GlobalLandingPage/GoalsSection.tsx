@@ -1,5 +1,6 @@
 "use client";
 
+import { Link } from "react-router-dom";
 import {  P } from "../../../styles/Typography";
 
 const stats = [
@@ -27,6 +28,8 @@ export default function GoalsSection() {
             platforms so each client can operate with better speed, control, and insight.
           </P>
 
+
+        <Link to="/contact">
           <button
             className="
               group flex items-center gap-2
@@ -35,7 +38,7 @@ export default function GoalsSection() {
               bg-[#1C59A1] text-white border border-transparent
               transition-all duration-300 ease-in-out
               hover:bg-white hover:text-[#141414] hover:border-[#010101] hover:border-b-4 hover:-translate-y-0.5
-              shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+              shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] cursor-pointer
             "
           >
             <span>Contact Us</span>
@@ -52,6 +55,7 @@ export default function GoalsSection() {
               </svg>
             </span>
           </button>
+        </Link>
         </div>
 
         {/* ── RIGHT: 2×2 stats grid ── */}
@@ -59,11 +63,11 @@ export default function GoalsSection() {
   <div className="relative grid grid-cols-2">
 
     {/* Vertical Gradient Line */}
-    <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[4px]
+    <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[2px]
       bg-gradient-to-b from-transparent via-[#2B68C3] to-transparent" />
 
     {/* Horizontal Gradient Line */}
-    <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-full h-[4px]
+    <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-full h-[2px]
       bg-gradient-to-r from-transparent via-[#2B68C3] to-transparent" />
 
     {stats.map((stat, i) => (

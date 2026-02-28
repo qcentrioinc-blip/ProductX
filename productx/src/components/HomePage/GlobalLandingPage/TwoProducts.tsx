@@ -44,12 +44,17 @@ export default function TwoProducts() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 py-8 xl:mt-10 overflow-visible">
         {products.map((product) => (
-          <div
-            key={product.id}
-            className="relative rounded-xl bg-white overflow-visible
-            shadow-[0_10px_30px_rgba(0,0,0,0.06),0_1px_10px_rgba(0,0,0,0.20)]
-            flex items-center  "
-          >
+  <a
+    key={product.id}
+    href={product.link}
+    className="relative rounded-xl bg-white overflow-visible
+      shadow-[0_10px_30px_rgba(0,0,0,0.06),0_1px_10px_rgba(0,0,0,0.20)]
+      flex items-center
+      transition-all duration-300
+     hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+      group
+    "
+  >
             {/* TEXT */}
           <div className="relative z-20 p-10 w-full xl:w-[60%]">
 
@@ -99,7 +104,7 @@ export default function TwoProducts() {
                 ${product.imagePosition}
               `}
             />
-          </div>
+          </a>
         ))}
       </div>
     </section>

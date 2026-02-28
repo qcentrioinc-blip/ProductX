@@ -288,21 +288,21 @@ export default function Firm() {
         enabled={!isMobile}
         spotlightRadius={590}
       />
-      <section className="w-full pt-4 px-4 sm:px-6 lg:px-8" ref={containerRef}>
+      <section className="w-full xl:pt-4 pt-8 px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="text-center">
-            <H2 className="text-[#254D70]">
+          <div className="text-center ">
+            <H2 className="  max-w-3xl mx-auto text-[#254D70]">
               How CloudDIET Compares Better To Other Tools & Platforms
             </H2>
  
-            <P className="my-4 max-w-3xl mx-auto">
+            <P className="my-4 max-w-3xl mx-10 md:mx-auto">
               See why CloudDIET delivers better Azure savings and functionality reliably
             </P>
           </div>
  
           {/* Outer White Container */}
-          <div className="bg-white  rounded-3xl my-14 p-4 sm:p-6 md:p-8">
+          <div className="bg-white  rounded-3xl md:my-8 p-4 sm:p-6 md:p-8">
             <div className="grid bg-gray-100 rounded-4xl grid-cols-1 lg:grid-cols-2 gap-6">
  
               {/* Other Firms */}

@@ -94,21 +94,31 @@ useEffect(() => {
     if (!isDesktop || !targetRef.current) return;
 
     const rect = targetRef.current.getBoundingClientRect();
-    const scrollTop = -rect.top;
-    const sectionHeight = window.innerHeight;
+    const totalScrollable =
+      targetRef.current.offsetHeight - window.innerHeight;
 
-    const index = Math.min(
-      accordionData.length - 1,
-      Math.max(0, Math.round(scrollTop / sectionHeight))
+    if (totalScrollable <= 0) return;
+
+    const scrolled = Math.min(
+      Math.max(-rect.top, 0),
+      totalScrollable
     );
 
-    setOpenIndex(index);
+    const progress = scrolled / totalScrollable; // 0 → 1
+
+    const newIndex = Math.min(
+      accordionData.length - 1,
+      Math.floor(progress * accordionData.length)
+    );
+
+    setOpenIndex(newIndex);
   };
 
   window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+
   return () => window.removeEventListener("scroll", handleScroll);
 }, [accordionData.length, isDesktop]);
-
 
   return (
     <div

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { H4, P } from "../styles/Typography";
+import { H4 } from "../styles/Typography";
 
 const images = [
   { src: "/bg_image.webp", left: "8%", top: "-10%" },
@@ -61,9 +61,9 @@ export default function FooterWaveSection() {
           </ul>
         </div>
 
-        <div className="md:text-right">
+        {/* <div className="md:text-right">
           <P className="text-black">Copyright © CFI 2026</P>
-        </div>
+        </div> */}
       </div>
 
       {/* ================= Floating Images ================= */}

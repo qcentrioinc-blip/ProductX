@@ -40,6 +40,7 @@
 
 
 
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -218,6 +219,7 @@ video {
 
 .font-quicksand {
   font-family: "Quicksand", sans-serif;
+   font-weight: 400;
 
 }
 
@@ -495,7 +497,50 @@ video {
 }
 
 
+/* ── Falling Waterfall Grid Background ── */
+/* Add this to your global CSS or a CSS module */
 
+.falling-grid-bg {
+  position: fixed; /* or absolute if inside a relative container */
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #111111; /* your dark bg */
+  pointer-events: none;
+}
+
+/* The grid itself */
+.falling-grid-bg::before {
+  content: "";
+  position: absolute;
+  /* Make the grid taller than viewport so the fall looks seamless */
+  inset: -100% 0 0 0;
+  height: 300%;
+
+  /* Grid lines — adjust 72px to make squares larger/smaller */
+  background-image:
+    linear-gradient(to right,  rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 72px 72px; /* ← square size, change both values together */
+
+  /* Waterfall fall animation */
+  animation: gridFall 6s linear infinite;
+}
+
+@keyframes gridFall {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(33.333%); } /* = 1 tile-height of the 3x tall pseudo-el */
+}
+
+/* Optional: subtle fade at top & bottom edges so it blends nicely */
+.falling-grid-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, #111111 0%, transparent 12%, transparent 88%, #111111 100%);
+  pointer-events: none;
+}
 
 
 /* button {

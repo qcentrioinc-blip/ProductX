@@ -11,19 +11,19 @@ const DATA = [
         title: "Simplify Clinical Management- From Patient Encounter to Complete Note ",
         content:
           " We connect every part of the visit into one intuitive flow, from vitals and history to assessment and coding, ensuring nothing is missed.",
-        image: "/images/sample-1.png",
+        image: "/Imagee1.webp",
       },
       {
         title: "Integrate Point-of-Care Tools for Smarter, Faster Diagnoses",
         content:
           "Access e-prescribing, lab orders, and clinical alerts directly within the patient’s chart to support accurate and timely care decisions without switching screens.",
-        image: "/images/sample-2.png",
+        image: "/Imagee1.webp",
       },
       {
         title: "Enable Seamless Care Coordination with a Unified Patient Timeline",
         content:
           "View the patient’s full history—medications, labs, and past visits—in one chronological view, providing complete context for every clinical decision and note.",
-        image: "/images/sample-2.png",
+        image: "/Imagee1.webp",
       },
     ]
   },
@@ -36,19 +36,19 @@ const DATA = [
         title: " Digital Intake & Registration Before the Visit",
         content:
           "Allow new and existing patients to complete forms, provide history, and submit digital consents securely online before they arrive",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image2.webp",
       },
       {
         title: "Streamlined Check-In & Status Tracking",
         content:
           "Patients can check themselves in via kiosk or phone. Staff gets real-time updates on room status and patient flow to reduce wait times.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image2.webp",
       },
       {
         title: "Centralize Communication and Task Management",
         content:
           " Assign, track, and complete patient follow-ups, reminders, and staff messages from one unified dashboard to ensure nothing gets missed.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image2.webp",
       },
     ]
   },
@@ -61,19 +61,19 @@ const DATA = [
         title: "Turn Claims into Revenue, Faster",
         content:
           "Streamline your entire revenue cycle with integrated billing tools. Submit clean claims, track payments in real time, and reduce denials for a healthier bottom line.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image3.webp",
       },
       {
         title: "Automated Claims Submission & Payment Tracking",
         content:
           " Submit electronic claims directly, monitor their status on a dashboard, and track remittances to simplify your financial workflow.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image3.webp",
       },
       {
         title: "Transparent Patient Billing Portal",
         content:
           "Patients can view balances, payment history, and detailed invoices online, reducing front-desk calls and speeding up collections.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image3.webp",
       },
     ]
   },
@@ -86,19 +86,19 @@ const DATA = [
         title: "Leverage Smart, Color-Coded Calendar Scheduling for Providers",
         content:
           "Visualize and manage daily appointments with drag-and-drop rescheduling and status indicators to optimize provider time and reduce conflicts.",
-        image: "/images/sample-2.png",
+       image: "/EHR-PMS/Image4.webp",
       },
       {
         title: " Enable Real-Time Staff Coordination with Role-Based Task Lists",
         content:
           "Assign and track clinical and administrative tasks with alerts and due dates, ensuring smooth handoffs and accountability across your team.",
-        image: "/images/sample-2.png",
+       image: "/EHR-PMS/Image4.webp",
       },
       {
         title: " Streamline Patient Flow with Live Room and Status Tracking",
         content:
           " Monitor patient movement from check-in to discharge in real-time, allowing for instant room reassignments and reduced patient wait times.",
-        image: "/images/sample-2.png",
+       image: "/EHR-PMS/Image4.webp",
       },
     ]
   },
@@ -111,19 +111,19 @@ const DATA = [
         title: "   Unified Clinical & Financial Dashboards",
         content:
           "View key metrics on appointments, billing, and patient care together in one central, easy-to-read visual dashboard.",
-        image: "/images/sample-2.png",
+       image: "/EHR-PMS/Image5.webp",
       },
       {
         title: " Customizable Reporting for Any Need",
         content:
           " Easily create, filter, and export reports on appointments, revenue, or clinical outcomes with just a few clicks.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image5.webp",
       },
       {
         title: " Live Performance & Health Analytics",
         content:
           "Monitor practice health with real-time dashboards tracking KPIs like patient volume, revenue, and provider efficiency.",
-        image: "/images/sample-2.png",
+        image: "/EHR-PMS/Image5.webp",
       },
     ]
   },
@@ -230,7 +230,7 @@ export default function Management() {
                         <img
                           src={card.items[activeIndex].image}
                           alt=""  
-                          className="w-full h-full  object-cover transition-opacity duration-300"
+                          className="w-full h-full  object-fit transition-opacity duration-300"
                         />
                       ) : (
                         <span className="text-gray-400 text-sm">Select an item</span>

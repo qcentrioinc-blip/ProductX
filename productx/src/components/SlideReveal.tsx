@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { H2, H4, P } from "../styles/Typography";
+import { Link } from "react-router-dom";
  
 export default function SlideReveal() {
   const sectionRef = useRef(null);
@@ -68,10 +69,33 @@ export default function SlideReveal() {
                 expertise and creativity.
               </P>
 
-              <button className="bg-[#2B68C3] text-white font-bricolage px-6 py-3 rounded-md text-sm tracking-wide flex items-center gap-2 hover:bg-[#1f4ea3] transition-all duration-300">
-                CONTACT US
-                {/* <span>↗</span> */}
-              </button>
+            <Link to="/contact">
+              <button
+            className="
+              group flex items-center gap-2
+              h-[44px] sm:h-[48px] px-5 sm:px-6
+              rounded-lg font-quicksand font-bold text-sm sm:text-base
+              bg-[#1C59A1] text-white border border-transparent
+              transition-all duration-300 ease-in-out
+              hover:bg-white hover:text-[#141414] hover:border-[#010101] hover:border-b-4 hover:-translate-y-0.5
+              shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] cursor-pointer
+            "
+          >
+            <span>Contact Us</span>
+            <span className="relative flex items-center justify-center w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <path d="M7 7h10v10"/><path d="M7 17L17 7"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </button>
+          </Link>
             </div>
 
             {/* RIGHT CARDS */}

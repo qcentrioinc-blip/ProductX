@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { H1,  } from "../../../styles/Typography";
+import FallingGridBg from "./FallingGridBg";
+
 
 // ── 4 industries (tabs) ───────────────────────────────────────────────────────
 const industries = [
@@ -9,6 +11,7 @@ const industries = [
   { label: "Cloud FinOps AI",    link: "/industries/cloud-finops-ai",      comingSoon: false, launch: null as Date | null },
   { label: "Banking & Finance",  link: "/industries/banking-and-finance",   comingSoon: false, launch: null as Date | null },
   { label: "High Tech",          link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
+  { label: "Billing & Utility",  link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
 ];
 
 // 7 cards — duplicates fill the arc so it always looks full
@@ -17,10 +20,13 @@ const cards = [
   { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
   { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
   { label: "High Tech",          image: "/HighTech.png", industryIndex: 3 },
-  
+  { label: "Biling & Utility",          image: "/Billing.jpg", industryIndex: 4 },
+
   { label: "Unified Healthcare", image: "/EHR.png",      industryIndex: 0 },
     { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
   { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
+   { label: "High Tech",          image: "/HighTech.png", industryIndex: 3 },
+    { label: "Biling & Utility",          image: "/Billing.jpg", industryIndex: 4 },
 
 ];
 
@@ -63,7 +69,7 @@ function getCardStyle(
   const scale  = 0.62 + 0.44 * t;
   const zIndex = Math.round(5 + 75 * t);
   // Tilt follows tangent of the ellipse — gives the fan spread on the sides
-  const rotateDeg = cosA * 38;
+  const rotateDeg = cosA * 60;
   // Cards at the bottom half gradually fade so they don't crowd
   const opacity = sinA > 0.6 ? Math.max(0, 1 - (sinA - 0.6) / 0.5) : 1;
 
@@ -74,7 +80,8 @@ function getCardStyle(
     transform:     `translate(calc(${x}px - 50%), calc(${y}px - 50%)) rotate(${rotateDeg}deg) scale(${scale})`,
     zIndex,
     opacity,
-    filter:        `grayscale(${sinA < -0.6 ? 0 : 100}%)`,
+    // filter:        `grayscale(${sinA < -0.6 ? 0 : 100}%)`,
+  filter: "grayscale(100%)", // default, will override later
     pointerEvents: opacity < 0.05 ? "none" : "auto",
     transition:    dragOffset !== 0
       ? "opacity 0.08s ease, filter 0.08s ease"
@@ -86,6 +93,7 @@ function getCardStyle(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+
 export default function CircularCards() {
   const [stepCount,  setStepCount]  = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
@@ -252,16 +260,24 @@ export default function CircularCards() {
   // Cards at top of arc (y = -RY) are fully in view; bottom (y = +RY) are clipped
   const containerW   = RX * 3 + CW + 80;
   const containerH   = RY + CH / 2 + 30;
-  const containerW_M = RX_M * 2 + CW_M + 30;
+  const containerW_M = RX_M * 2 + CW_M + 80;
   const containerH_M = RY_M + CH_M / 2 + 20;
 
   // ── Render ────────────────────────────────────────────────────────────────────
   const renderCards = (mobile: boolean) =>
     cards.map((card, index) => {
-      const style  = getCardStyle(index, stepCount, mobile, dragOffset);
+      // const style  = getCardStyle(index, stepCount, mobile, dragOffset);
+      const baseStyle = getCardStyle(index, stepCount, mobile, dragOffset);
+const isActive = index === topCardIndex;
+
+const style = {
+  ...baseStyle,
+  filter: isActive ? "grayscale(0%)" : "grayscale(100%)",
+};
       const step2  = (2 * Math.PI) / TOTAL;
       const angle2 = -Math.PI / 2 + index * step2 - (stepCount + dragOffset) * step2;
       const isTop  = Math.sin(angle2) < -0.6;
+     
       const ind    = industries[card.industryIndex];
       const cd     = countdowns[card.industryIndex];
 
@@ -278,18 +294,25 @@ export default function CircularCards() {
             if (!ind.comingSoon) window.open(ind.link, "_blank");
           }}
         >
-          <img
-            src={card.image}
-            alt={ind.label}
-            draggable={false}
-            style={{ width: "100%", height: "100%", objectFit: "cover", userSelect: "none" }}
-          />
+         <img
+  src={card.image}
+  alt={ind.label}
+  loading="lazy"
+  decoding="async"
+  draggable={false}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    userSelect: "none",
+  }}
+/>
 
           {/* Frosted blue label */}
           {!ind.comingSoon && (
-            <div className={`absolute inset-0 flex items-end justify-center ${mobile ? "pb-3 " : "pb-4 "}`}>
+            <div className={`absolute inset-0 flex items-end justify-center ${mobile ? "pb-3 " : "  "}`}>
               <div
-                className="w-full  items-center justify-center  xl:mb-6   py-2 xl:py-6 px-3"
+                className="w-full  items-center justify-center    py-2 xl:py-10 px-3"
                 style={{
                   background: "rgba(0,0,0,0.55)",
                   backdropFilter: "blur(10px)",
@@ -297,7 +320,7 @@ export default function CircularCards() {
                 
                 }}
               >
-                <span className={`text-white font-bold font-bricolage items-center  xl:pl-4 tracking-wide text-center drop-shadow ${mobile ? "text-[10px]" : "text-sm xl:text-lg"}`}>
+                <span className={`text-white font-bold font-bricolage items-center  xl:pl-4 tracking-wide text-center drop-shadow ${mobile ? "text-[10px]" : "text-sm xl:text-xl"}`}>
                   {ind.label}
                 </span>
               </div>
@@ -309,17 +332,17 @@ export default function CircularCards() {
             <>
               <div className={`absolute inset-0 bg-black/25 flex items-end justify-center ${mobile ? "pb-3 px-2" : "pb-5 px-4"}`}>
                 <div className="text-center">
-                  <span className={`text-white font-bold tracking-wide drop-shadow-lg block ${mobile ? "text-[10px]" : "text-base"}`}>
+                  <span className={`text-white font-bold font-bricolagetracking-wide drop-shadow-lg block ${mobile ? "text-[10px]" : "text-base"}`}>
                     {ind.label}
                   </span>
-                  <span className={`inline-block mt-1 bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold tracking-wider border border-white/30 ${mobile ? "text-[8px] px-2 py-0.5" : "text-[11px] px-3 py-0.5"}`}>
+                  <span className={`inline-block mt-1 font-bricolage bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold tracking-wider border border-white/30 ${mobile ? "text-[8px] px-2 py-0.5" : "text-[11px] px-3 py-0.5"}`}>
                     COMING SOON
                   </span>
                 </div>
               </div>
 
               {/* Countdown overlay */}
-              <div className={`absolute inset-0 flex flex-col items-center justify-center text-white text-center transition-all duration-500 ${mobile ? "px-2" : "px-4"} ${isTop ? "bg-black/70 backdrop-blur-md opacity-100" : "bg-black/65 backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}>
+              <div className={`absolute inset-0 flex flex-col items-center  font-bricolage justify-center text-white text-center transition-all duration-500 ${mobile ? "px-2" : "px-4"} ${isTop ? "  backdrop-blur-md opacity-100" : "  backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}>
                 <div className={`${mobile ? "w-5" : "w-8"} h-px bg-white/40 mb-3`} />
                 <span className={`${mobile ? "text-[11px]" : "text-lg"} font-bold mb-1`}>{ind.label}</span>
                 <div className="flex items-center gap-1 mb-3">
@@ -350,16 +373,17 @@ export default function CircularCards() {
     });
 
   return (
-    <div className="w-full flex flex-col items-center justify-start pt-4 bg-gray-100 overflow-hidden pb-8">
+ <FallingGridBg>
+    <div className="w-full relative flex z-0 flex-col items-center justify-start pt-4   overflow-hidden ">
 
       <div className="mt-16 text-center px-4">
-        <H1>Shaping The Future Across Every Sector</H1>
+        <H1 className="text-black">Shaping The Future Across Every Sector</H1>
       </div>
 
       {/* ── 4 Tabs ── */}
       <div
         ref={tabsRef}
-        className="mt-6 w-full xl:max-w-3xl bg-gray-200 rounded-full p-2 flex gap-2 mx-auto
+        className="mt-6 w-full lg:max-w-3xl xl:max-w-4xl bg-white rounded-full p-2 flex gap-2 mx-auto
           overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
           xl:overflow-visible xl:justify-center"
         style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
@@ -372,7 +396,7 @@ export default function CircularCards() {
             className={`shrink-0 snap-start whitespace-nowrap px-4 xl:px-5 text-sm md:text-base
               font-bold font-quicksand rounded-full py-1.5
               transition-colors duration-300 focus:outline-none
-              ${activeIndustry === i ? "bg-white shadow-md text-black" : "bg-transparent text-gray-500"}`}
+              ${activeIndustry === i ? "bg-blue-200 shadow-md text-black" : "bg-transparent text-black"}`}
           >
             {ind.label}
             {ind.comingSoon && (
@@ -415,5 +439,6 @@ export default function CircularCards() {
       </div>
 
     </div>
+    </FallingGridBg>
   );
 }
