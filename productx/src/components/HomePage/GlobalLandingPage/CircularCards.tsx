@@ -7,26 +7,32 @@ import FallingGridBg from "./FallingGridBg";
 
 // ── 4 industries (tabs) ───────────────────────────────────────────────────────
 const industries = [
-  { label: "Unified Healthcare", link: "/industries/ehr-and-pms",          comingSoon: false, launch: null as Date | null },
-  { label: "Cloud FinOps AI",    link: "/industries/cloud-finops-ai",      comingSoon: false, launch: null as Date | null },
   { label: "Banking & Finance",  link: "/industries/banking-and-finance",   comingSoon: false, launch: null as Date | null },
+    { label: "Billing & Utility",  link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
+    { label: "Cloud FinOps AI",    link: "/industries/cloud-finops-ai",      comingSoon: false, launch: null as Date | null },
+      
   { label: "High Tech",          link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
-  { label: "Billing & Utility",  link: "/comingsoon", comingSoon: true,    launch: new Date("2026-04-01T00:00:00") },
+  { label: "Unified Healthcare", link: "/industries/ehr-and-pms",          comingSoon: false, launch: null as Date | null },
+  
+
+
 ];
 
 // 7 cards — duplicates fill the arc so it always looks full
 const cards = [
-  { label: "Unified Healthcare", image: "/EHR.png",      industryIndex: 0 },
-  { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
-  { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
-  { label: "High Tech",          image: "/HighTech.png", industryIndex: 3 },
-  { label: "Biling & Utility",          image: "/Billing.jpg", industryIndex: 4 },
+    { label: "Banking & Finance",  image: "/Global/Banking.webp",      industryIndex: 0 },
+  { label: "Biling & Utility",          image: "/Global/Banking.webp", industryIndex: 1 },
+   { label: "Cloud FinOps AI",    image: "/Global/Cloud.webp",    industryIndex: 2 },
+    { label: "High Tech",          image: "/Global/HighTech.webp", industryIndex: 3 },
+  { label: "Unified Healthcare", image: "/Global/EHR.webp",      industryIndex: 4 },
+ { label: "Banking & Finance",  image: "/Global/Banking.webp",      industryIndex: 0 },
+  { label: "Biling & Utility",          image: "/Global/Banking.webp", industryIndex: 1 },
+   { label: "Cloud FinOps AI",    image: "/Global/Cloud.webp",    industryIndex: 2 },
+    { label: "High Tech",          image: "/Global/HighTech.webp", industryIndex: 3 },
+  { label: "Unified Healthcare", image:  "/Global/EHR.webp",         industryIndex: 4 },
 
-  { label: "Unified Healthcare", image: "/EHR.png",      industryIndex: 0 },
-    { label: "Cloud FinOps AI",    image: "/Cloud.png",    industryIndex: 1 },
-  { label: "Banking & Finance",  image: "/BNF.png",      industryIndex: 2 },
-   { label: "High Tech",          image: "/HighTech.png", industryIndex: 3 },
-    { label: "Biling & Utility",          image: "/Billing.jpg", industryIndex: 4 },
+ 
+
 
 ];
 
@@ -71,7 +77,10 @@ function getCardStyle(
   // Tilt follows tangent of the ellipse — gives the fan spread on the sides
   const rotateDeg = cosA * 60;
   // Cards at the bottom half gradually fade so they don't crowd
-  const opacity = sinA > 0.6 ? Math.max(0, 1 - (sinA - 0.6) / 0.5) : 1;
+  // const opacity = sinA > 0.6 ? Math.max(0, 1 - (sinA - 0.6) / 0.5) : 1;
+  const opacity = sinA > 0.0
+  ? Math.max(0, 1 - (sinA - 0.0) / 0.30)
+  : 1;
 
   return {
     position:      "absolute",
@@ -83,9 +92,18 @@ function getCardStyle(
     // filter:        `grayscale(${sinA < -0.6 ? 0 : 100}%)`,
   filter: "grayscale(100%)", // default, will override later
     pointerEvents: opacity < 0.05 ? "none" : "auto",
-    transition:    dragOffset !== 0
-      ? "opacity 0.08s ease, filter 0.08s ease"
-      : "transform 0.70s cubic-bezier(0.4,0,0.2,1), opacity 0.40s ease, filter 0.40s ease",
+    // transition:    dragOffset !== 0
+    //   ? "opacity 0.08s ease, filter 0.08s ease"
+    //   : "transform 0.70s cubic-bezier(0.4,0,0.2,1), opacity 0.40s ease, filter 0.40s ease",
+    transition: dragOffset !== 0
+  ? "opacity 0.08s ease, filter 0.08s ease"
+  : [
+      "transform 0.70s cubic-bezier(0.34,1.4,0.64,1)",
+      "opacity 0.50s ease",
+      "filter 0.40s ease",
+      // "z-index 0.70s step-end",   // ← snaps at END of animation
+    ].join(", "),
+
     borderRadius:  "1.25rem",
     overflow:      "hidden",
     cursor:        "pointer",
@@ -122,9 +140,16 @@ export default function CircularCards() {
   // Each step advances the carousel by 1 slot clockwise.
   // Card at slot 0 starts at top. After stepCount steps, the card now at top
   // is the one at index (stepCount % TOTAL) — it has rotated to position 0.
+  const [displayTopIndex, setDisplayTopIndex] = useState(0);
   const topCardIndex   = (stepCount % TOTAL + TOTAL) % TOTAL;
   const activeIndustry = cards[topCardIndex].industryIndex;
 
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setDisplayTopIndex(topCardIndex);
+  }, 680); // just under the 700ms transform duration
+  return () => clearTimeout(timer);
+}, [topCardIndex]);
   // Auto-scroll tabs on mobile
   useEffect(() => {
     if (!isMobile) return;
@@ -166,10 +191,11 @@ export default function CircularCards() {
   // ── Tab click ────────────────────────────────────────────────────────────────
   const handleTabClick = useCallback((industryIdx: number) => {
     const ind = industries[industryIdx];
-    if (ind.comingSoon) {
-      goToIndustry(industryIdx);
-      return;
-    }
+     stopAuto();
+    // if (ind.comingSoon) {
+    //   goToIndustry(industryIdx);
+    //   return;
+    // }
     setStepCount(prev => {
       const cur = (prev % TOTAL + TOTAL) % TOTAL;
       // Already showing this industry → navigate
@@ -185,7 +211,8 @@ export default function CircularCards() {
       });
       return best === TOTAL ? prev : prev + best;
     });
-  }, [goToIndustry]);
+    setTimeout(() => startAuto(), 2000);
+  }, [ stopAuto, startAuto]);
 
   // ── Drag / swipe ──────────────────────────────────────────────────────────────
   const dragPx = isMobile ? DRAG_STEP_PX_M : DRAG_STEP_PX;
@@ -216,23 +243,23 @@ export default function CircularCards() {
 
   const onMouseDown  = (e: React.MouseEvent) => { e.preventDefault(); onDragStart(e.clientX); };
   const onTouchStart = (e: React.TouchEvent) => { onDragStart(e.touches[0].clientX); };
-  const onMouseMove  = useCallback((e: MouseEvent) => onDragMove(e.clientX), [onDragMove]);
-  const onMouseUp    = useCallback(() => onDragEnd(), [onDragEnd]);
-  const onTouchMove  = useCallback((e: TouchEvent) => { e.preventDefault(); onDragMove(e.touches[0].clientX); }, [onDragMove]);
-  const onTouchEnd   = useCallback(() => onDragEnd(), [onDragEnd]);
+  // const onMouseMove  = useCallback((e: MouseEvent) => onDragMove(e.clientX), [onDragMove]);
+  // const onMouseUp    = useCallback(() => onDragEnd(), [onDragEnd]);
+  // const onTouchMove  = useCallback((e: TouchEvent) => { e.preventDefault(); onDragMove(e.touches[0].clientX); }, [onDragMove]);
+  // const onTouchEnd   = useCallback(() => onDragEnd(), [onDragEnd]);
 
-  useEffect(() => {
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup",   onMouseUp);
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("touchend",  onTouchEnd);
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup",   onMouseUp);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend",  onTouchEnd);
-    };
-  }, [onMouseMove, onMouseUp, onTouchMove, onTouchEnd]);
+  // useEffect(() => {
+  //   window.addEventListener("mousemove", onMouseMove);
+  //   window.addEventListener("mouseup",   onMouseUp);
+  //   window.addEventListener("touchmove", onTouchMove, { passive: false });
+  //   window.addEventListener("touchend",  onTouchEnd);
+  //   return () => {
+  //     window.removeEventListener("mousemove", onMouseMove);
+  //     window.removeEventListener("mouseup",   onMouseUp);
+  //     window.removeEventListener("touchmove", onTouchMove);
+  //     window.removeEventListener("touchend",  onTouchEnd);
+  //   };
+  // }, [onMouseMove, onMouseUp, onTouchMove, onTouchEnd]);
 
   // ── Countdown timers ─────────────────────────────────────────────────────────
   useEffect(() => {
@@ -268,11 +295,14 @@ export default function CircularCards() {
     cards.map((card, index) => {
       // const style  = getCardStyle(index, stepCount, mobile, dragOffset);
       const baseStyle = getCardStyle(index, stepCount, mobile, dragOffset);
-const isActive = index === topCardIndex;
+// const isActive = index === topCardIndex;
+const isActive = index === displayTopIndex;
 
 const style = {
   ...baseStyle,
   filter: isActive ? "grayscale(0%)" : "grayscale(100%)",
+  
+  
 };
       const step2  = (2 * Math.PI) / TOTAL;
       const angle2 = -Math.PI / 2 + index * step2 - (stepCount + dragOffset) * step2;
@@ -297,8 +327,10 @@ const style = {
          <img
   src={card.image}
   alt={ind.label}
-  loading="lazy"
-  decoding="async"
+   decoding="sync"  
+ loading="eager"
+fetchPriority="high"
+ 
   draggable={false}
   style={{
     width: "100%",
@@ -383,7 +415,7 @@ const style = {
       {/* ── 4 Tabs ── */}
       <div
         ref={tabsRef}
-        className="mt-6 w-full lg:max-w-3xl xl:max-w-4xl bg-white rounded-full p-2 flex gap-2 mx-auto
+        className="mt-6  w-full lg:max-w-3xl xl:max-w-4xl bg-white rounded-full p-2 flex gap-2 mx-auto
           overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
           xl:overflow-visible xl:justify-center"
         style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
@@ -393,7 +425,7 @@ const style = {
             key={i}
             ref={el => { tabRefs.current[i] = el; }}
             onClick={() => handleTabClick(i)}
-            className={`shrink-0 snap-start whitespace-nowrap px-4 xl:px-5 text-sm md:text-base
+            className={`cursor-pointer  shrink-0 snap-start whitespace-nowrap px-4 xl:px-5 text-sm md:text-base
               font-bold font-quicksand rounded-full py-1.5
               transition-colors duration-300 focus:outline-none
               ${activeIndustry === i ? "bg-blue-200 shadow-md text-black" : "bg-transparent text-black"}`}
@@ -417,6 +449,9 @@ const style = {
           overflow: "hidden",
           cursor:   isDragging.current ? "grabbing" : "grab",
         }}
+        onMouseMove={(e) => onDragMove(e.clientX)}
+  onMouseUp={onDragEnd}
+  onMouseLeave={onDragEnd}
       >
         <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
           {renderCards(false)}
@@ -430,8 +465,19 @@ const style = {
           width:    containerW_M,
           height:   containerH_M,
           overflow: "hidden",
-          cursor:   isDragging.current ? "grabbing" : "grab",
+          // cursor:   isDragging.current ? "grabbing" : "grab",
+          cursor:"default",
+            touchAction: "pan-y",
         }}
+        onTouchEnd={() => {
+    // If auto was stopped by onTouchStart on a card, restart it
+    if (!autoTimer.current) startAuto();
+  }}
+  //        onMouseMove={(e) => onDragMove(e.clientX)}
+  // onMouseUp={onDragEnd}
+  // onMouseLeave={onDragEnd}
+  // onTouchMove={(e) => onDragMove(e.touches[0].clientX)}
+  // onTouchEnd={onDragEnd} 
       >
         <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
           {renderCards(true)}

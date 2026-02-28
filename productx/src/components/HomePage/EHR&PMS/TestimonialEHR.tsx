@@ -18,7 +18,7 @@ const TestimonialEHR = () => {
      image:"/EHRIcons/HospitalUser.svg"
     },
     {
-      title:"Streamline Revenue Cycle Management",
+      title:"Streamline Revenue  Management Cycle",
       desc:" From automated coding and claims submission to transparent payment tracking, ensure a healthy and visible financial workflow",
      image:"/EHRIcons/MasterPlan.svg"
     },

@@ -5,7 +5,7 @@
 
 export default function FallingGridBg({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="relative  h-full xl:min-h-screen overflow-hidden" style={{ background: "#efefef" }}>
+    <div className="relative  h-full   " style={{ background: "#efefef" }}>
 
       {/* ── Waterfall grid layer ── */}
       <div
@@ -15,7 +15,7 @@ export default function FallingGridBg({ children }: { children?: React.ReactNode
           inset: 0,
           zIndex: 0,
           overflow: "hidden",
-          pointerEvents: "none",
+           
         }}
       >
         <div

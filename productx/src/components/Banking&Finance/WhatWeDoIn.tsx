@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { H2, H3, P } from "../../styles/Typography";
 import { ContactUs } from "../../styles/Button";
+import { Link } from "react-router-dom";
 
 const WhatWeDoIn = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -165,17 +166,38 @@ useEffect(() => {
                 needs.
               </P>
             </div>
-
+ <Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
             <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
               Learn More
             </ContactUs>
+            </Link>
           </div>
 
           {/* Mobile Button */}
           <div className="xl:hidden mt-4 shrink-0">
+            <Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
             <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
               CONTACT US
             </ContactUs>
+            </Link>
           </div>
 
           {/* ── Desktop Layout ── */}

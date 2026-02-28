@@ -41,7 +41,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
     <div
       className="
         group relative overflow-hidden rounded-lg bg-white
-        border-2 border-slate-100
+        border-2 border-slate-300
         hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
         [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
      
