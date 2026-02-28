@@ -222,28 +222,28 @@ export default function Map() {
                 {/* ── DESKTOP LEFT CARD — md+ only, scroll animation ── */}
                 <motion.div
                     style={{ y: cardY, opacity: cardOpacity }}
-                    className="hidden md:block absolute left-12 top-[35%] z-30 bg-[#2B68C3] rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-white"
+                    className="hidden md:block absolute left-12 top-[35%] z-30 bg-white rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-[#2B68C3]"
                 >
                     <div className="flex flex-col space-y-16">
 
                         {/* Section 1 */}
                         <div className="flex items-start gap-8 justify-between">
                             <div
-                                className="text-5xl font-medium text-white leading-none shrink-0"
+                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
                                 style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                             >
                                 6
                             </div>
                             <div className="flex flex-col">
                                 <div
-                                    className="text-base font-extrabold text-white mb-2 uppercase tracking-widest"
+                                    className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
                                     style={{ fontFamily: 'Quicksand, sans-serif' }}
                                 >
                                     Manufacturing Sites
                                 </div>
                                 <div className="space-y-1">
                                     {productionSites.map((site, index) => (
-                                        <div key={index} className="text-sm text-white" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                        <div key={index} className="text-sm text-[#2B68C3]" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                             {site}
                                         </div>
                                     ))}
@@ -254,26 +254,26 @@ export default function Map() {
                         {/* Section 2 */}
                         <div className="flex items-start gap-10">
                             <div
-                                className="text-5xl font-medium text-white leading-none shrink-0"
+                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
                                 style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                             >
                                 400+
                             </div>
                             <div className="flex flex-col pt-3">
                                 <div
-                                    className="text-base font-extrabold text-white uppercase tracking-widest"
+                                    className="text-base font-extrabold text-[#2B68C3] uppercase tracking-widest"
                                     style={{ fontFamily: 'Quicksand, sans-serif' }}
                                 >
                                     Turbines
                                 </div>
-                                <div className="text-sm text-white mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                <div className="text-sm text-[#2B68C3] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                     Installed Globally
                                 </div>
                             </div>
                         </div>
 
                         {/* Link */}
-                        <a href="#" className="text-white text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                        <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
                             View All References
                             <ArrowRight size={18} strokeWidth={2} className="ml-2 md:w-5 md:h-5" />
                         </a>
@@ -298,7 +298,7 @@ export default function Map() {
                             {selectedLocation.name}
                         </div>
                         <div className="bg-white rounded-3xl shadow-2xl p-6 lg:p-8">
-                            <p className="text-base text-gray-800 leading-relaxed" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                            <p className="text-base text-[#2B68C3] leading-relaxed" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                 {selectedLocation.description}
                             </p>
                         </div>
