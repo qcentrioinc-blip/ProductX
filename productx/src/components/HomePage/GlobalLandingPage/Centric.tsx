@@ -37,13 +37,13 @@ const Centric = () => {
                     {/* Grey Box */}
                     <div className="absolute top-[140px] left-0 right-0 h-[227px] bg-[#EAEAEA] flex flex-col justify-center px-8 gap-4">
                         <span
-                            className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
+                            className="relative left-10 text-[#2B68C3] text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Driven by Outcomes
                         </span>
                         <p
-                            className="text-[#141414] text-[16px] font-normal leading-[130%] m-0 max-w-[256px]"
+                            className="relative left-10 text-[#141414] text-[16px] font-normal leading-[130%] m-0 max-w-[256px]"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             We focus on measurable improvements in performance, cost, and

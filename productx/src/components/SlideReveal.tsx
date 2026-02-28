@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { H2, H4, P } from "../styles/Typography";
 import { Link } from "react-router-dom";
- 
+
 export default function SlideReveal() {
   const sectionRef = useRef(null);
 
@@ -25,22 +25,20 @@ export default function SlideReveal() {
     target: sectionRef,
     offset: ["start start", "end end"],
   });
- 
+
   const x = useTransform(scrollYProgress, [0, 0.8], ["0%", "-100%"]);
- 
+
   return (
     <section
       ref={sectionRef}
-      className={`relative bg-white ${
-        isDesktop ? "h-[180vh]" : "h-auto"
-      }`}
+      className={`relative bg-white ${isDesktop ? "h-[180vh]" : "h-auto"
+        }`}
     >
       <div
-        className={`${
-          isDesktop
-            ? "sticky top-20 h-auto overflow-hidden"
+        className={`${isDesktop
+            ? "sticky top-0 h-screen overflow-hidden"
             : ""
-        }`}
+          }`}
       >
         {/* MOBILE STATIC IMAGE */}
         {!isDesktop && (
@@ -69,9 +67,9 @@ export default function SlideReveal() {
                 expertise and creativity.
               </P>
 
-            <Link to="/contact">
-              <button
-            className="
+              <Link to="/contact">
+                <button
+                  className="
               group flex items-center gap-2
               h-[44px] sm:h-[48px] px-5 sm:px-6
               rounded-lg font-quicksand font-bold text-sm sm:text-base
@@ -80,22 +78,22 @@ export default function SlideReveal() {
               hover:bg-white hover:text-[#141414] hover:border-[#010101] hover:border-b-4 hover:-translate-y-0.5
               shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] cursor-pointer
             "
-          >
-            <span>Contact Us</span>
-            <span className="relative flex items-center justify-center w-5 h-5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                <path d="M7 7h10v10"/><path d="M7 17L17 7"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-              </svg>
-            </span>
-          </button>
-          </Link>
+                >
+                  <span>Contact Us</span>
+                  <span className="relative flex items-center justify-center w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                      className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                      <path d="M7 7h10v10" /><path d="M7 17L17 7" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                      className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </button>
+              </Link>
             </div>
 
             {/* RIGHT CARDS */}
@@ -149,7 +147,7 @@ export default function SlideReveal() {
             <img
               src="/Img1.png"
               alt="Wind Energy"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
           </motion.div>
         )}
