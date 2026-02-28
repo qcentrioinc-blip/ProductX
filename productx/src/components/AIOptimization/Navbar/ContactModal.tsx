@@ -296,7 +296,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                   backgroundPosition: "center",
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
  
                 <motion.div
                   initial={{ opacity: 0, x: 40 }}

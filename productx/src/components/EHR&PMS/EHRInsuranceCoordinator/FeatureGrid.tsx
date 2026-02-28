@@ -96,7 +96,7 @@ const FeatureGrid = () => {
             flex-1
           "
           style={{
-            backgroundImage: `url('/EHR-PMS/InsuranceCoordinator/Img4.jpg')`,
+            backgroundImage: `url('/EHR-PMS/InsuranceCoordinator/Img4.webp')`,
           }}
         >
           {/* Glass Card */}

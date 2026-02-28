@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { H3EHR, H4EHR, P } from '../../../styles/Typography';
+import ContactDrawer from '../Navbar/ContactDrawer';
+
 
 const HeroSec = () => {
   const [activeTab, setActiveTab] = useState('Plan A');
@@ -15,6 +17,11 @@ const HeroSec = () => {
       transition: { staggerChildren: 0.1, delayChildren: 0.1 }
     }
   };
+
+    const [drawerOpen, setDrawerOpen] = useState(false);
+      const [, setMenuOpen] = useState(false);
+
+
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -598,6 +605,7 @@ const HeroSec = () => {
           ))}
         </div>
       </div>
+      {drawerOpen && <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
 
       <motion.div
         key={activeTab}
@@ -662,7 +670,17 @@ const HeroSec = () => {
                       </P>
                     )}
                     
-                    <button 
+                    <button
+              onClick={() => setDrawerOpen(true)}
+              className="text-gray-800 text-[18px] font-bold font-quicksand cursor-pointer"
+            >
+              Support
+            </button>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                setDrawerOpen(true);
+              }}
   className="
     mt-8 w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-wider 
     transition-all duration-300 cursor-pointer flex items-center justify-center

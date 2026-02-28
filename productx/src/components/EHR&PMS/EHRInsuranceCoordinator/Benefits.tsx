@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img1 from "/EHR-PMS/LandingPage/img1.jpg";
-import img2 from "/EHR-PMS/LandingPage/img2.png";
-import img3 from "/EHR-PMS/LandingPage/img1.jpg";
+import img1 from "/EHR-PMS/LandingPage/img1.webp";
+import img2 from "/EHR-PMS/LandingPage/img2.webp";
+import img3 from "/EHR-PMS/LandingPage/img3.webp";
 import { H2EHR, H4EHR, P } from "../../../styles/Typography";
 
 const Benefits = () => {
@@ -69,9 +69,9 @@ const Benefits = () => {
         </div>
 
         {/* --- DESKTOP VIEW (xl and up) --- */}
-        <div className="hidden xl:flex w-[90%] max-w-7xl items-center gap-12">
+        <div className="hidden xl:flex w-[90%] max-w-7xl items-stretch gap-12">
           {/* Interactive Cards */}
-          <div className="flex flex-col w-[40%] gap-4">
+         <div className="flex flex-col w-[40%] gap-4 h-full">
             {points.map((point, i) => {
               const isActive = activeIndex === i;
               return (
@@ -99,13 +99,13 @@ const Benefits = () => {
           </div>
 
           {/* Dynamic Image Display */}
-          <div className="w-[60%] flex justify-center items-center overflow-hidden">
+          <div className="w-[60%] h-full flex">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeIndex}
                 src={points[activeIndex].image}
                 alt={points[activeIndex].title}
-                className="w-full max-w-2xl rounded-2xl shadow-2xl object-cover"
+                className="w-full h-full rounded-2xl shadow-2xl object-cover"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}

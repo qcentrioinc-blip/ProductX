@@ -77,8 +77,9 @@ const InfoWithImage = () => {
                   Enable patients to check themselves in via a tablet or kiosk, reducing front desk queues and manual work. 
                 </P>
               </div>
-              <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
-            </motion.div>
+<span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
+  01
+</span>            </motion.div>
 
             <motion.div
               variants={{
@@ -99,8 +100,9 @@ const InfoWithImage = () => {
                   Collect patient signatures and forms electronically with timestamps, ensuring compliance and eliminating lost paperwork. 
                 </P>
               </div>
-              <span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1" />
-            </motion.div>
+<span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
+  02
+</span>            </motion.div>
           </motion.div>
 
           {/* BOTTOM RIGHT — IMAGE */}

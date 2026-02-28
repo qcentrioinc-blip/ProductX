@@ -32,7 +32,7 @@ const FeatureCards = () => {
             {/* Image Section */}
             <div className="mt-auto h-72">
               <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
+                src="/EHR-PMS/Receptionist/img3.webp"
                 alt="Feature"
                 className="w-full h-full object-cover"
               />
@@ -87,7 +87,7 @@ const FeatureCards = () => {
             {/* Bottom Image Section */}
             <div className="mt-auto h-72">
               <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
+                src="/EHR-PMS/Receptionist/img4.webp"
                 alt="Feature Center"
                 className="w-full h-full object-cover"
               />
@@ -106,7 +106,7 @@ const FeatureCards = () => {
             {/* Image Section */}
             <div className="mt-auto h-72">
               <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2000"
+                src="/EHR-PMS/Receptionist/img5.webp"
                 alt="Feature"
                 className="w-full h-full object-cover"
               />

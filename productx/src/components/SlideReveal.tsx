@@ -32,13 +32,13 @@ export default function SlideReveal() {
     <section
       ref={sectionRef}
       className={`relative bg-white ${
-        isDesktop ? "h-[250vh]" : "h-auto"
+        isDesktop ? "h-[180vh]" : "h-auto"
       }`}
     >
       <div
         className={`${
           isDesktop
-            ? "sticky top-10 h-screen overflow-hidden"
+            ? "sticky top-20 h-auto overflow-hidden"
             : ""
         }`}
       >
@@ -149,7 +149,7 @@ export default function SlideReveal() {
             <img
               src="/Img1.png"
               alt="Wind Energy"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </motion.div>
         )}
