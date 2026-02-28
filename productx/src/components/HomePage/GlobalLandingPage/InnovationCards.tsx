@@ -163,7 +163,7 @@ Add to your index.html <head>:
 
 const InnovationCards = () => {
   return (
-    <section className="w-full bg-white px-4 py-8 sm:px-8 sm:py-10 xl:px-16 xl:py-16">
+    <section className="w-full bg-white px-4 sm:px-8 xl:px-16">
 
       {/* Overall Container */}
       <div className="max-w-8xl mx-auto flex flex-col gap-6 xl:gap-[30px]">
@@ -175,7 +175,7 @@ const InnovationCards = () => {
           <div className="flex flex-col gap-3 w-full lg:flex-1 lg:min-w-0">
 
             {/* Dash + Label */}
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <div className="w-[32px] h-[3px] bg-gray-400 rounded-full flex-shrink-0" />
               <span
                 className="text-[#2B68C3] text-[18px] sm:text-[20px] xl:text-[24px] font-medium leading-none"
@@ -183,7 +183,7 @@ const InnovationCards = () => {
               >
                 Quis autem
               </span>
-            </div>
+            </div> */}
 
             {/* Heading */}
             <h2
@@ -222,60 +222,101 @@ const InnovationCards = () => {
         </div>
 
         {/* ══════ ROW 2: Bottom Row ══════ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[593px_1fr_1fr] xl:grid-cols-[650px_350px_350px] gap-3 xl:gap-[10px] xl:p-[10px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[593px_1fr_1fr] xl:grid-cols-[750px_1fr_360px_360px] gap-3 xl:gap-[10px] xl:p-[10px]">
 
           {/* ── Bottom Left Card ── */}
-          <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[454px] xl:h-[454px] rounded-[30px] bg-[#E7E3D7] overflow-hidden sm:col-span-2 lg:col-span-1">
+          <div className="relative w-full h-[420px] sm:h-[400px] lg:h-[454px] xl:h-[454px] rounded-[30px] bg-[#E7E3D7] overflow-hidden sm:col-span-2 lg:col-span-1 flex flex-col justify-between p-5 xl:p-0">
 
-            {/* White Badge */}
-            <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-10">
-              <span
-                className="text-[#2B68C3] text-[20px] xl:text-[24px] font-semibold leading-none block xl:w-[190px]"
+            {/* ── MOBILE & TABLET LAYOUT (flex column) ── */}
+            <div className="flex flex-col h-full xl:hidden">
+
+              {/* White Badge */}
+              <div className="flex items-center bg-white rounded-full px-[20px] py-[15px] h-[52px] w-fit mb-4">
+                <span
+                  className="text-[#2B68C3] text-[18px] sm:text-[20px] font-semibold leading-none"
+                  style={{ fontFamily: "Quicksand, sans-serif" }}
+                >
+                  How We Deliver
+                </span>
+              </div>
+
+              {/* Image — right aligned */}
+              <div className="flex justify-end flex-1 px-2">
+                <div className="w-[55%] max-w-[200px] h-full max-h-[260px] rounded-[20px] overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
+                    alt="How we deliver"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Bottom Paragraph */}
+              <p
+                className="text-[#141414] text-[12px] sm:text-[13px] font-normal leading-[155%] m-0 mt-3"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
-                How We Deliver
-              </span>
+                Every engagement begins with clear goals, agreed metrics, and
+                realistic timelines, to drive performance, revenue, and
+                competitive edge.
+              </p>
             </div>
 
-            {/* Dummy Image */}
-            <div className="absolute top-[84px] left-[55%] lg:left-[55%] xl:left-[400px] w-[180px] lg:w-[200px] xl:w-[214px] h-[240px] lg:h-[260px] xl:h-[271px] rounded-[20px] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
-                alt="How we deliver"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* ── DESKTOP LAYOUT (absolute positioning) — xl only ── */}
+            <div className="hidden xl:block w-full h-full relative">
 
-            {/* Bottom Paragraph */}
-            <p
-              className="absolute bottom-4 xl:top-[384px] left-[21px] right-4 xl:right-auto xl:w-[542px] text-[#141414] text-[12px] sm:text-[13px] xl:text-[16px] font-normal leading-[155%] m-0"
-              style={{ fontFamily: "Quicksand, sans-serif" }}
-            >
-              Every engagement begins with clear goals, agreed metrics, and
-              realistic timelines, to drive performance, revenue, and
-              competitive edge.
-            </p>
+              {/* White Badge */}
+              <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-10">
+                <span
+                  className="text-[#2B68C3] text-[24px] font-semibold leading-none block w-[190px]"
+                  style={{ fontFamily: "Quicksand, sans-serif" }}
+                >
+                  How We Deliver
+                </span>
+              </div>
+
+              {/* Dummy Image */}
+              <div className="absolute top-[84px] left-[400px] w-[214px] h-[271px] rounded-[20px] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
+                  alt="How we deliver"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Bottom Paragraph */}
+              <p
+                className="absolute top-[384px] left-[21px] w-[542px] text-[#141414] text-[16px] font-normal leading-[155%] m-0"
+                style={{ fontFamily: "Quicksand, sans-serif" }}
+              >
+                Every engagement begins with clear goals, agreed metrics, and
+                realistic timelines, to drive performance, revenue, and
+                competitive edge.
+              </p>
+            </div>
           </div>
 
+          {/* ── Spacer — xl only, pushes images to right ── */}
+          <div className="hidden xl:block" />
+
           {/* ── First Image ── */}
-          <div className="w-full h-[260px] sm:h-[380px] lg:h-[454px] xl:h-[454px] xl:relative xl:left-[150px] rounded-[30px] overflow-hidden">
+          <div className="w-full h-[260px] sm:h-[380px] lg:h-[454px] xl:h-[454px] rounded-[30px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1573496799515-eebbb63814f2?w=400&h=600&fit=crop&crop=face"
+              src="/Global-Landing-Page/card1.webp"
               alt="Woman working with laptop"
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* ── Second Image ── */}
-          <div className="w-full h-[260px] sm:h-[380px] lg:h-[454px] xl:h-[454px] xl:relative xl:left-[180px] rounded-[30px] overflow-hidden">
+          <div className="w-full h-[260px] sm:h-[380px] lg:h-[454px] xl:h-[454px] rounded-[30px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=400&h=600&fit=crop&crop=faces"
+              src="/Global-Landing-Page/card2.webp"
               alt="Two men reviewing tablet"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
-
       </div>
     </section>
   );
