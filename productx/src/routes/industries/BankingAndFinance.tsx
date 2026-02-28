@@ -20,6 +20,7 @@ import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../context/ScrollContext";
 import TwoProducts from "../../components/HomePage/GlobalLandingPage/TwoProducts"
 import ImageCard from "../../components/Banking&Finance/BNFBlogs/ImageCard"
+// import HeroTitle from "../../components/Banking&Finance/HeroTitle"
 
 const BankingAndFinance = () => {
   const location = useLocation();
@@ -50,7 +51,9 @@ const BankingAndFinance = () => {
     <>
 
       <BNFNav />
+   
       <HeroSection />
+         {/* <HeroTitle/> */}
       <Intro />
       <TwoProducts />
       {/* <Products /> */}

@@ -29,7 +29,7 @@ const features = [
 export default function FeatureCards() {
   return (
     <section className="w-full relative overflow-hidden bg-gray-50">
-      <div className="xl:ml-32 max-w-8xl py-10 px-6 xl:px-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 xl:py-20 relative z-10">
+      <div className="xl:ml-32 max-w-8xl py-10 px-6 xl:px-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 xl:pt-4 xl:pb-20 relative z-10">
         {features.map((item, idx) => {
            // Animation logic handled by CSS animation, no need for ref or isVisible state.
 
