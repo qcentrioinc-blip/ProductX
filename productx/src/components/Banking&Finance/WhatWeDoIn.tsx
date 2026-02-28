@@ -208,7 +208,7 @@ useEffect(() => {
               key={openIndex}
               src={images[openIndex]}
               alt="Who we serve"
-              className="shrink-0 object-cover object-top"
+              className="shrink-0 object-contain object-top"
               style={{
                 width: "550px",
                 
