@@ -1,18 +1,40 @@
 // Centric.jsx
+import { motion, useInView, type Variants } from "framer-motion";
+import { useRef } from "react";
 
 const Centric = () => {
+    // ✅ Single ref on the section to detect viewport
+    const sectionRef = useRef<HTMLElement>(null);
+    const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+    // ✅ Reusable divider animation variant
+    const dividerVariant = (fullHeight: number, delay = 0): Variants => ({
+        hidden: { height: 0, opacity: 0 },
+        visible: {
+            height: fullHeight,
+            opacity: 1,
+            transition: { duration: 1.2, ease: "easeOut", delay },
+        },
+    });
+
     return (
-        <section className="w-full bg-white overflow-hidden">
+        <section ref={sectionRef} className="w-full bg-white overflow-hidden">
 
             {/* ── DESKTOP (xl) ── */}
             <div className="hidden xl:flex w-full h-[640px] relative">
+
                 {/* ── COL 1 ── */}
                 <div className="relative flex-1 h-full border-opacity-0">
 
-                    {/* Divider only goes to 331px height */}
-                    <div className="absolute right-[-2px] top-0 w-0 h-[365px] border-r border-[1px] border-[#515151]" />
+                    {/* ✅ Animated Divider - grows from top to 365px */}
+                    <motion.div
+                        variants={dividerVariant(365, 0)}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        className="absolute right-[-2px] top-0 w-0 border-r border-[1px] border-[#515151]"
+                    />
 
-                    {/* Grey Box — starts from left-0, top: 140px */}
+                    {/* Grey Box */}
                     <div className="absolute top-[140px] left-0 right-0 h-[227px] bg-[#EAEAEA] flex flex-col justify-center px-8 gap-4">
                         <span
                             className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
@@ -33,10 +55,15 @@ const Centric = () => {
                 {/* ── COL 2 ── */}
                 <div className="relative flex-1 h-full">
 
-                    {/* Divider only goes to 577px height */}
-                    <div className="absolute right-[1px] top-0 w-0 h-[500px] border-r border-[1px] border-[#515151]" />
+                    {/* ✅ Animated Divider - grows from top to 500px */}
+                    <motion.div
+                        variants={dividerVariant(500, 0.2)}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        className="absolute right-[1px] top-0 w-0 border-r border-[1px] border-[#515151]"
+                    />
 
-                    {/* People-Centric Delivery — vertically center-lower */}
+                    {/* People-Centric Delivery */}
                     <div className="absolute top-[200px] left-8 right-8 flex flex-col gap-4">
                         <span
                             className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
@@ -57,19 +84,15 @@ const Centric = () => {
                 {/* ── COL 3 ── */}
                 <div className="relative flex-1 h-full">
 
-                    {/* Divider only goes to 439px height */}
-                    <div className="absolute right-[-2px] top-40 w-0 h-[400px] border-r border-[1px] border-[#515151]" />
+                    {/* ✅ Animated Divider - grows from top-40 to 400px */}
+                    <motion.div
+                        variants={dividerVariant(400, 0.4)}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        className="absolute right-[-2px] top-40 w-0 border-r border-[1px] border-[#515151]"
+                    />
 
-                    {/* Dotted Image — top, full col width */}
-                    <div className="absolute top-0 left-0 right-0 h-[50px] flex items-center justify-center">
-                        <img
-                            src="/Dotted.png"
-                            alt="dot pattern"
-                            className="w-[280px] h-[220px] object-contain rotate-180"
-                        />
-                    </div>
-
-                    {/* Grey Box — col 3, below dots */}
+                    {/* Grey Box */}
                     <div className="absolute top-[270px] left-0 right-0 h-[231px] bg-[#EAEAEA] flex flex-col justify-center px-8 gap-4">
                         <span
                             className="text-[#2B68C3] text-[24px] font-semibold leading-[120%] block"
@@ -82,7 +105,7 @@ const Centric = () => {
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             We commit to clear expectations, honest updates, and consistent
-                            follow-through. .
+                            follow-through.
                         </p>
                     </div>
                 </div>
@@ -90,7 +113,19 @@ const Centric = () => {
                 {/* ── COL 4 ── */}
                 <div className="relative flex-1 h-full">
 
-                    {/* People-Centric Delivery — bottom aligned */}
+                    {/* Rotating Circle SVG */}
+                    <div className="absolute bottom-125 right-[250px] w-[350px] h-[250px] pointer-events-none z-0">
+                        <motion.img
+                            src="/Global-Landing-Page/Circle.svg"
+                            alt="circle pattern"
+                            className="w-full h-full max-w-none object-contain rotate-180"
+                            animate={{ rotate: 360 }}
+                            transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                            style={{ transformOrigin: "50% 50%" }}
+                        />
+                    </div>
+
+                    {/* People-Centric Delivery */}
                     <div className="absolute top-[450px] left-8 right-8 flex flex-col gap-4">
                         <span
                             className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
@@ -107,7 +142,6 @@ const Centric = () => {
                         </p>
                     </div>
                 </div>
-
             </div>
 
             {/* ── MOBILE & TABLET (below xl) ── */}
@@ -149,11 +183,6 @@ const Centric = () => {
 
                 {/* Col 3 */}
                 <div className="bg-[#EAEAEA] px-8 py-8 flex flex-col gap-4">
-                    <img
-                        src="/Centric/Dotted.jpg"
-                        alt="dot pattern"
-                        className="w-[160px] h-[90px] object-cover mb-2 hidden"
-                    />
                     <span
                         className="text-[#2B68C3] text-[20px] font-semibold leading-[120%]"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
@@ -185,8 +214,8 @@ const Centric = () => {
                         healthcare, retail, and services. Our teams design AI, CRM, HRM
                     </p>
                 </div>
-
             </div>
+
         </section>
     );
 };
