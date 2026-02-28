@@ -1,6 +1,6 @@
 // NO LAZY LOADING - All components load immediately for consistent scroll restoration
 import { memo, Suspense, lazy, useState, useEffect } from 'react';
-import HeroCombined from "./HeroComp/HeroCombined";
+// import HeroCombined from "./HeroComp/HeroCombined";
 import DeferredLoader from "../../Global/DeferredLoader";
 import HWD from "../../Banking&Finance/HWD";
 import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
@@ -29,7 +29,7 @@ const AIProduct = () => {
   return (
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
-        <HeroCombined />
+        {/* <HeroCombined /> */}
       </div>
 
       <Suspense fallback={null}>

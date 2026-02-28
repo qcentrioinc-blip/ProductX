@@ -161,18 +161,19 @@ export default function HeroSection() {
         )}
 
         {/* Main Image with Futuristic Animation */}
-        <img
-          src="/ProductDetails4/Title_img(1).webp"
-          alt="Sales Report Overview"
-          className={`w-full h-auto object-contain absolute top-1/2 xl:top-3/5 left-1/2 z-10
-            ${hasEntered ? 'opacity-100 scale-115 blur-0' : 'opacity-0 scale-95 blur-md'}`}
-          style={{
-            maxWidth: isMobile ? '70%' : '85%',
-            transform: 'translate(-50%, -50%)',
-            transition: 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            transitionDelay: hasEntered ? '0.6s' : '0s',
-          }}
-        />
+        <video
+  src="/ProductDetails4/kyc_video.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className={`absolute inset-0 w-full h-full object-cover z-10
+    ${hasEntered ? 'opacity-100 scale-105' : 'opacity-0 scale-95'}`}
+  style={{
+    transition: 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+    transitionDelay: hasEntered ? '0.6s' : '0s',
+  }}
+/>
 
         {/* Holographic Overlay Effect */}
         {/* <div className={`absolute inset-0 z-15 transition-all duration-1000 ease-out ${hasEntered ? 'opacity-30' : 'opacity-0'
