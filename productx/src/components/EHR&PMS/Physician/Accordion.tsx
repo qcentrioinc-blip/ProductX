@@ -143,7 +143,8 @@ const Accordion = () => {
                   </button>
  
                   {index !== TABS.length - 1 && (
-                    <div className="mt-4 h-px w-full bg-gray-200" />
+                     
+                    <hr className="mt-4 h-px w-full text-gray-400" />
                   )}
                 </li>
               );

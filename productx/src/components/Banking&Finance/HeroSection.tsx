@@ -1,7 +1,11 @@
 import { useRef, useEffect, useState } from "react";
-import { H1 } from "../../styles/Typography";
+ 
 
-const WORDS = ["banking", "credit", "financial"];
+const WORDS = [
+  "banks",
+  "credit\u2011unions",
+  "financial\u2011institutions"
+];
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -78,24 +82,26 @@ const HeroSection = () => {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         controls={false}
       >
         Your browser does not support the video tag.
       </video>
 
-      <div className="absolute top-16 left-2 md:top-28 lg:top-60 xl:top-1/2 xl:left-80 flex flex-col overflow-hidden text-center justify-center items-center">
-        <H1 className="text-white ">
-          Enterprise platforms transforming{" "}
-          <br className="xl:block hidden" />
-          <span className="inline-flex items-center gap-1">
-            <span className="text-blue-300   text-left">
-              {displayText}
+      <div className="absolute   left-4     md:left-14  lg:left-12  top-1/2 xl:left-28  xl:top-72  overflow-hidden text-left justify-center items-center">
+        <h1 className="text-white font-bricolage text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px] ">
+          Enterprise AI-enabled platforms {" "}
+          <br className="md:block hidden" />
+          
+          <span className="inline-flex items-center gap-1 xl:gap-3">
+             {" "}transforming   
+            <span className="text-blue-300  text-left">
+               {displayText}
             </span>
             <span className="inline-block w-[4px] h-[1em] bg-blue-400 animate-pulse align-middle" />
-          </span>{" "}
-          operations worldwide
-        </H1>
+          </span>
+          
+        </h1>
       </div>
     </div>
   );

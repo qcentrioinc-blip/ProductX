@@ -2,7 +2,7 @@ import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const GoToTopButton = () => {
-  const [showLabel, setShowLabel] = useState(false);
+  const [, setShowLabel] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const GoToTopButton = () => {
       onMouseLeave={() => setShowLabel(false)}
     >
       {/* Hover Label */}
-      <div className={`
+      {/* <div className={`
           mr-3
           px-4 py-1.5
           rounded-full
@@ -64,7 +64,7 @@ const GoToTopButton = () => {
           ${showLabel && isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-4 scale-95'}
       `}>
         Go to top
-      </div>
+      </div> */}
 
       {/* Button */}
       <button

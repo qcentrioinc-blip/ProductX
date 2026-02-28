@@ -24,7 +24,7 @@ const ImageGridEHR = () => {
   {/* First Row */}
   <div className="lg:col-span-8">
     {/* Box 1 - Doctor with laptop (larger) */}
-    <div className="relative h-64 md:h-80 lg:h-[450px] rounded-2xl overflow-hidden shadow-lg group">
+    <div className="relative h-64 md:h-80 lg:h-[450px] rounded-4xl overflow-hidden shadow-lg group">
       <img
          src="/EHRIcons/ImageDoctor.webp"
         alt="Doctor working on laptop"
@@ -106,11 +106,15 @@ const ImageGridEHR = () => {
   {/* Second Row */}
   <div className="lg:col-span-5">
     {/* Box 3 - Text card (beige) */}
-    <div className="relative h-64 md:h-80 lg:h-96 bg-stone-300 rounded-2xl overflow-hidden shadow-lg p-8 md:p-10 flex flex-col justify-end">
+    <div className="relative h-64 md:h-80 lg:h-90 bg-[#EEDA68] rounded-4xl overflow-hidden shadow-lg p-8 md:p-10 flex flex-col justify-end">
+      <div className=" flex justify-center items-center mb-10">
+          <img src="/EHRIcons/ReduceAdmin.svg" alt="reduce" className=" w-20 h-20 md:w-28 md:h-28"/>
+      </div>
+   
       <H4EHR className="text-2xl md:text-3xl text-gray-900 mb-4">
        Reduces Administrative Burden
       </H4EHR>
-      <P className="text-sm md:text-base text-gray-700">
+      <P className="text-sm md:text-base text-black">
       Automates coding and billing tasks integrated from your clinical notes. 
       </P>
     </div>
@@ -118,9 +122,9 @@ const ImageGridEHR = () => {
 
   <div className="lg:col-span-8">
     {/* Box 4 - Doctor with laptop on teal background (larger) */}
-    <div className="relative h-64 md:h-80 lg:h-96 bg-[#008280] flex flex-row rounded-2xl overflow-hidden shadow-lg group">
+    <div className="relative h-64 md:h-80 lg:h-90 bg-[#008280] flex flex-row rounded-4xl overflow-hidden shadow-lg group">
       {/* Text overlay */} 
-      <div className="absolute bottom-12 left-6 md:left-8 z-10">
+      <div className="absolute bottom-12 left-6 p-2 md:p-0 md:left-8 z-10">
         <H4EHR className="text-2xl md:text-3xl text-white mb-3">
            Supports Smarter Decisions
         </H4EHR>
@@ -132,7 +136,7 @@ const ImageGridEHR = () => {
       <img
         src="/EHRIcons/LadyDoctor.webp"
         alt="Female doctor with laptop"
-        className="w-full h-full absolute -bottom-10 right-0 md:-right-20 lg:-right-28 object-contain transition-transform duration-500 group-hover:scale-105"
+        className="w-full hidden  md:block h-full absolute -bottom-10 px-20 md:-right-20 lg:-right-28 object-contain scale-120 transition-transform duration-500 group-hover:scale-125"
       /> 
     </div>
   </div>

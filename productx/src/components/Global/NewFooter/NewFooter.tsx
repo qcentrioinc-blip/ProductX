@@ -13,7 +13,7 @@ const preloadAssets = () => {
 
 export default function NewFooter() {
   const [email, setEmail] = useState("");
-  const [buttonColor, setButtonColor] = useState("bg-[#8C8C8C]");
+  const [buttonColor, setButtonColor] = useState(" border border-gray-500 cursor-pointer bg-transparent");
   const hasPreloaded = useRef(false);
 
   const handlePreload = () => {
@@ -65,15 +65,15 @@ export default function NewFooter() {
 
 
   return (
-    <footer className="bg-black text-white  py-10 lg:py-20 ">
+    <footer className="bg-black text-white  py-10 ">
       <div className="max-w-8xl lg:mx-10 px-4">
         {/* Top Section */}
         {/* <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 space-x-16   pb-8"> */}
-        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-8 pb-8">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-8 pb-2">
 
           {/* Logo & Description */}
-          <div className="max-w-sm space-y-8">
-            <div className=" h-12 rounded-sm font-quickstand  mb-6 flex items-center justify-start    ">
+          <div className="max-w-sm space-y-2">
+            <div className=" h-12 rounded-sm font-quickstand  mb-2 flex items-center justify-start    ">
               < a href="/"><img src="/WhiteQnestLogo.webp" alt="Logo" className="w-full h-10" /></a>
             </div>
             <P className="  text-gray-300">
@@ -81,11 +81,11 @@ export default function NewFooter() {
             </P>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4 mt-4">
+            {/* <div className="flex items-center gap-4 mt-4">
               <span className="cursor-pointer"><img src="/GlobalTwitter.png" w-14 h-14 alt="" /> </span>
               <span className="cursor-pointer"><img src="/GlobalInsta.png" w-14 h-14 alt="" /> </span>
               <span className="cursor-pointer"><img src="/GlobalLinkedIn.png" w-14 h-14 alt="" /> </span>
-            </div>
+            </div> */}
           </div>
           {/* Stay Up to date (md only, top-right) */}
           <div className="hidden  md:flex xl:hidden flex-col">
@@ -149,14 +149,14 @@ export default function NewFooter() {
           <div>
             <H4 className="text-gray-300 mb-4">Quick Links</H4>
             <ul className="space-y-3 font-quicksand text-gray-300 text-sm">
-              <li>
+              {/* <li>
                 <a
                   href="/platform"
                   className="inline-block hover:text-white hover:underline"
                 >
                   Platform
                 </a>
-              </li>
+              </li> */}
 
               <li>
                 <a

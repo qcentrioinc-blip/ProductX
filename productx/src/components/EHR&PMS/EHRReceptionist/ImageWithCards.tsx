@@ -18,7 +18,7 @@ const ImageWithCards = () => {
             className="rounded-sm overflow-hidden order-2 lg:order-1"
           >
             <img
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1400"
+              src="/EHR-PMS/InsuranceCoordinator/imgwithcards.webp"
               alt="Professional interaction"
               className="w-full h-full object-cover"
               loading="lazy"
