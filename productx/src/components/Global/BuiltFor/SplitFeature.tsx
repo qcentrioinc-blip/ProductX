@@ -303,14 +303,14 @@ export default function SplitFeature() {
 
   return (
     <section className={`w-full    ${theme.sectionBg}`}>
-      <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-20 items-center">
+      <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-10 items-center">
 
         {/* LEFT IMAGE */}
         <div className="flex justify-start h-[600px] lg:justify-center xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-full rounded-lg object-contain"
+            className="w-full h-full rounded-lg xl:object-fill object-fill"
           />
         </div>
 

@@ -238,7 +238,7 @@ const Enterprises = () => {
             {/* 1st Tall Image */}
             <div className="w-full sm:w-full lg:w-[250px] xl:w-[307px] h-[260px] sm:h-[360px] lg:h-[450px] xl:h-[578px] rounded-[24px] overflow-hidden flex-shrink-0">
               <img
-                src="/BNFConsilier/G1.webp"
+                src="/BNFConsilier/how1.webp"
                 alt="Woman working on laptop"
                 className="w-full h-full object-cover"
               />
@@ -281,7 +281,7 @@ const Enterprises = () => {
             {/* 2nd Tall Image */}
             <div className="w-full lg:w-[250px] xl:w-[301px] h-[260px] sm:h-[360px] lg:h-[450px] xl:h-[577px] rounded-[24px] overflow-hidden flex-shrink-0">
               <img
-                src="/BNFConsilier/G2.webp"
+                src="/BNFConsilier/how2.webp"
                 alt="Two professionals working together"
                 className="w-full h-full object-cover"
               />

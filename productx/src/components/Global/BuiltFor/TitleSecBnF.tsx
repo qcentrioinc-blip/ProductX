@@ -28,7 +28,7 @@ export default function TitleSecBnF() {
     <section className="w-full bg-white relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
       {/* LEFT CONTENT */}
       <div
-        className="flex flex-col z-10 px-6 pt-40 pb-16 xl:p-0 xl:absolute"
+        className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute"
         style={{
           gap: "24px",
         }}

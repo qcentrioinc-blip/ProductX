@@ -6,7 +6,7 @@ const Configurable = () => {
 
             {/* ────── LEFT COLUMN ────── */}
             <div
-                className="w-full lg:w-[480px] xl:w-4xl min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-4 lg:pt-0 xl:pt-0"
+                className="w-full lg:w-[480px] xl:w-3xl min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-12 lg:pt-0 xl:pt-0"
                 style={{ backgroundColor: "#152934" }}
             >
                 <div
@@ -41,9 +41,7 @@ const Configurable = () => {
             </div>
 
             {/* ────── RIGHT COLUMN ────── */}
-            <div className="flex flex-col flex-1 min-w-0">
-
-                {/* Blue Halftone Block */}
+            {/* <div className="flex flex-col flex-1 min-w-0">
                 <div
                     className="relative overflow-hidden flex-1"
                     style={{
@@ -55,7 +53,6 @@ const Configurable = () => {
                 </div>
 
 
-                {/* Beige Block */}
                 <div
                     className="flex items-center justify-center gap-4 lg:gap-5 xl:gap-6 px-6 lg:px-[40px] xl:px-[80px] py-8 lg:py-[36px] xl:py-1\0"
                     style={{
@@ -76,7 +73,57 @@ const Configurable = () => {
                         Configurable and Automated
                     </h3>
                 </div>
+            </div> */}
+
+            <div className="flex flex-col flex-1 min-w-0">
+                <div className="flex sm:flex-col flex-row flex-1">
+                    <div
+                        className="relative overflow-hidden flex-1 sm:flex-none sm:flex-1"
+                        style={{
+                            backgroundColor: "#2B68C3",
+                            // minHeight: "260px",
+                        }}
+                    >
+                        <video
+                            src="/BNFConsilier/HEROCONCILIAR.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    {/* Beige Block */}
+                    <div
+                        className="
+                            flex items-center justify-center
+                            gap-3 sm:gap-4 lg:gap-5 xl:gap-6
+                            px-3 sm:px-6 lg:px-[40px] xl:px-[80px]
+                            py-6 sm:py-8 lg:py-[36px]
+                            w-1/2 sm:w-full
+                        "
+                        style={{
+                            backgroundColor: "#D9D0C9",
+                            minHeight: "200px",
+                            height: "343px",
+                        }}
+                    >
+                        <img
+                            src="/BNFConsilier/monitor-sun.svg"
+                            alt="Configurable icon"
+                            className="w-[40px] h-[40px] sm:w-[72px] sm:h-[72px] lg:w-[80px] lg:h-[80px] xl:w-[96px] xl:h-[96px] object-contain flex-shrink-0"
+                        />
+                        <h3
+                            className="text-[#152934] text-[14px] sm:text-[26px] lg:text-[28px] xl:text-[37.09px] font-semibold leading-tight sm:leading-none tracking-normal m-0 sm:w-auto lg:w-[280px] xl:w-[350px]"
+                            style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
+                        >
+                            Configurable and Automated
+                        </h3>
+                    </div>
+                </div>
+
             </div>
+
 
         </section>
     );
