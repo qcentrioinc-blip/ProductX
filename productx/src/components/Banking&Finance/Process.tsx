@@ -17,7 +17,7 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
 
       {/* Large step number watermark */}
       <motion.span
-        className="absolute text-[100px] font-bold text-blue-100 select-none leading-none z-0"
+        className="absolute text-[100px] font-bold text-blue-500/40 select-none leading-none z-0"
         initial={{ opacity: 0, scale: 0.7 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: index * 0.12 }}
@@ -102,7 +102,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ title, description, index }) 
       {/* Centre circle */}
       <div className="flex-shrink-0 w-24 flex items-center justify-center z-10">
         <div className="w-12 h-12 bg-blue-500 text-[24px] font-bricolage rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg ring-4 ring-white">
-          {index + 1}
+          {/* {index + 1} */}
         </div>
       </div>
 
