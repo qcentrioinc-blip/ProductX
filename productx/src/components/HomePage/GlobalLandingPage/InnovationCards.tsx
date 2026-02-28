@@ -160,7 +160,7 @@
 Add to your index.html <head>:
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
 */
-
+import { motion } from "framer-motion";
 const InnovationCards = () => {
   return (
     <section className="w-full bg-white px-4 sm:px-8 xl:px-16">
@@ -262,11 +262,12 @@ const InnovationCards = () => {
               </p>
             </div>
 
-            {/* ── DESKTOP LAYOUT (absolute positioning) — xl only ── */}
-            <div className="hidden xl:block w-full h-full relative">
 
-              {/* White Badge */}
-              <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-10">
+
+            <div className="hidden xl:block w-full h-full relative overflow-hidden">
+
+              {/* ✅ Heading Badge - Static top left */}
+              <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-0">
                 <span
                   className="text-[#2B68C3] text-[24px] font-semibold leading-none block w-[190px]"
                   style={{ fontFamily: "Quicksand, sans-serif" }}
@@ -275,25 +276,79 @@ const InnovationCards = () => {
                 </span>
               </div>
 
-              {/* Dummy Image */}
-              <div className="absolute top-[84px] left-[400px] w-[214px] h-[271px] rounded-[20px] overflow-hidden">
+              {/* ✅ Image Card - z-10 always in FRONT */}
+              <div className="absolute top-[84px] left-[500px] w-[214px] h-[271px] rounded-[20px] overflow-hidden z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
+                  src="/Global-Landing-Page/MoneyDollar.webp"
                   alt="How we deliver"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Bottom Paragraph */}
+              {/* ✅ Pill Buttons - Infinite RIGHT → LEFT Marquee, BEHIND image */}
+              <div className="absolute top-[160px] left-0 right-0 overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["0%", "-50%"] }}           // moves right to left
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[16px] w-max"
+                >
+                  {/* Duplicate TWICE for seamless infinite loop */}
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[16px] pr-[16px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <div
+                          key={j}
+                          className="flex items-center border border-[#2B68C3] rounded-full px-[28px] py-[14px] h-[56px] whitespace-nowrap"
+                        >
+                          <span
+                            className="text-[#2B68C3] text-[18px] font-semibold tracking-widest"
+                            style={{ fontFamily: "Quicksand, sans-serif" }}
+                          >
+                            {text}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Large Text - Infinite LEFT → RIGHT Marquee, BEHIND image */}
+              <div className="absolute top-[240px] left-0 right-0 overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["-50%", "0%"] }}           // moves left to right
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[40px] w-max"
+                >
+                  {/* Duplicate TWICE for seamless infinite loop */}
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[40px] pr-[40px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <span
+                          key={j}
+                          className="text-[#2B68C3] text-[28px] font-bold tracking-widest whitespace-nowrap"
+                          style={{ fontFamily: "Quicksand, sans-serif" }}
+                        >
+                          {text}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Bottom Description - STATIC, no animation */}
               <p
-                className="absolute top-[384px] left-[21px] w-[542px] text-[#141414] text-[16px] font-normal leading-[155%] m-0"
+                className="absolute top-[380px] left-0 right-0 mx-10 w-[542px] text-left text-[#141414] text-[16px] font-normal leading-[155%] m-0 z-0"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
                 Every engagement begins with clear goals, agreed metrics, and
                 realistic timelines, to drive performance, revenue, and
                 competitive edge.
               </p>
+
             </div>
+
           </div>
 
           {/* ── Spacer — xl only, pushes images to right ── */}
