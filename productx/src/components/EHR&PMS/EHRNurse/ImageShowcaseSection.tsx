@@ -2,14 +2,11 @@ import { H2EHR, P } from "../../../styles/Typography";
 
 const ImageShowcaseSection = () => {
   const images = [
-    "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1580281657521-6b63bce89d8b?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1576091160550-2173dad99901?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=600",
+    "/EHR-PMS/Nurse/Img11.jpg",
+    "/EHR-PMS/Nurse/Img12.jpg",
+    "/EHR-PMS/Nurse/Img13.jpg",
+    "/EHR-PMS/Nurse/Img14.jpg",
+    "/EHR-PMS/Nurse/Img15.jpg",
   ];
 
   // We double the images to create a seamless infinite loop

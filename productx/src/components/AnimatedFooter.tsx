@@ -1,104 +1,154 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { H4 } from "../styles/Typography";
+import { useState } from "react";
+import { H4, P } from "../styles/Typography";
+import { toast } from "react-toastify";
 
-const images = [
-  { src: "/bg_image.webp", left: "8%", top: "-10%" },
-  { src: "/Audit.png", left: "20%", top: "10%" },
-  { src: "/Audit.webp", left: "32%", top: "20%" },
-  { src: "/BNFBG.jpg", left: "45%", top: "24%" },
-  { src: "/Building.jpg", left: "60%", top: "18%" },
-  { src: "/ContactPic.png", left: "75%", top: "10%" },
-  { src: "/digitalnative.webp", left: "88%", top: "-20%" },
-];
+export default function NewFooter() {
+  const [email, setEmail] = useState("");
+  const [buttonColor, setButtonColor] = useState("bg-[#141414]");
 
-export default function FooterWaveSection() {
+  const isFullyValidEmail = (value: string) => {
+    return /^[^\s@]+@[a-zA-Z]+\.(com|in|net|org|co|io)$/.test(value);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (isFullyValidEmail(value)) {
+      setButtonColor("bg-[#6B6B6B]");
+    } else {
+      setButtonColor("bg-[#8C8C8C]");
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!isFullyValidEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    toast.success("Subscribed successfully");
+    setEmail("");
+    setButtonColor("bg-[#8C8C8C]");
+  };
+
   return (
-    <section className="relative w-full h-full bg-[#efefef] overflow-hidden py-16">
-      
-      {/* ================= Footer Content ================= */}
-      <div className="max-w-7xl mx-auto px-6 md:px-14 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm relative z-20">
-        <div>
-          <H4 className="font-semibold mb-4">Industries</H4>
-          <ul className="space-y-2 text-black hover:cursor-pointer">
-            <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Cloud Finops AI</li></a>
-            <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Unified Healthcare</li></a>
-            <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3 hover:text-gray-600 hover:underline ">Banking and Finance</li></a>
-            
-            
-          </ul>
+    <footer className="bg-white text-black py-4">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Top Section */}
+        <div className="mb-4 max-w-sm">
+          {/* <img
+            src="/QnestLogo.svg"
+            alt="Logo"
+            className="h-10 mb-2"
+          /> */}
+          <P className="text-sm leading-relaxed ">
+            We are more than a technology provider; we are your strategic partner in progress.
+          </P>
         </div>
 
-        <div>
-          <H4 className="font-semibold mb-4">Quick Links</H4>
-          <ul className="space-y-2 text-black hover:cursor-pointer">
-            <li>
+        {/* Divider */}
+        <div className="border-t border-gray-300 mb-12"></div>
+
+        {/* Middle Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+          {/* Industries */}
+          <div>
+            <H4 className=" mb-4 ">
+              Industries
+            </H4>
+            <ul className="space-y-2 text-sm font-quicksand">
+              {/* <li className="hover:underline cursor-pointer">High Tech</li> */}
+              <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Cloud Finops AI</li></a>
+              <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Banking and Finance</li></a>
+           <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3 hover:text-black hover:underline ">EHR-PMS</li></a>
+               <a href="/comingsoon" target="_blank"><li className="mb-3 hover:text-black hover:underline ">High Tech</li></a>
+              
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <H4 className=" mb-4">Quick Links</H4>
+            <ul className="space-y-3 font-quicksand  text-sm">
+              {/* <li>
+                <a
+                  href="/platform"
+                  className="inline-block hover:text-black hover:underline"
+                >
+                  Platform
+                </a>
+              </li> */}
+
+              <li>
                 <a
                   href="/marketplace"
-                  className="inline-block hover:text-gray-600 hover:underline"
+                  className="inline-block hover:text-black hover:underline font-quicksand "
                 >
                   Marketplace
                 </a>
               </li>
-            <li>
-                <a
-                  href="/platform"
-                  className="inline-block hover:text-gray-600 hover:underline"
-                >
-                  Platform
-                </a>
-              </li>
-            
-          </ul>
+            </ul>
+
+          </div>
+
+          {/* Contact Sales */}
+          <div>
+            <H4 className="text-sm  font-semibold mb-4 ">
+              Contact Sales
+            </H4>
+            <ul className="space-y-2 text-sm font-quicksand">
+              <li>sales@qnestglobal.com</li>
+              {/* <li>040-7418529630</li> */}
+            </ul>
+          </div>
+
+          {/* Stay Up to date */}
+          <div>
+            <H4 className="text-sm font-semibold mb-4 ">
+              Stay Up to date
+            </H4>
+            <P className="text-sm  mb-4">
+              Subscribe to our insights, our monthly look at the critical issues facing global businesses.
+            </P>
+
+            <form onSubmit={handleSubmit} className="flex gap-3">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+                className="flex-1 px-4 py-2 text-sm rounded-md border border-[#141414] bg-transparent focus:outline-none"
+              />
+
+              <button
+                type="submit"
+                className={`${buttonColor} text-white px-5 py-2 cursor-pointer rounded-md text-sm transition duration-300`}
+              >
+                SUBMIT
+              </button>
+            </form>
+          </div>
         </div>
 
-        <div>
-          <H4 className="font-semibold mb-4">Contact</H4>
-          <ul className="space-y-2 text-black hover:cursor-pointer">
-            <li className="hover:text-gray-600 hover:underline">sales@qnest.com</li>
-            
-          </ul>
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between font-quicksand items-center text-sm   border-t border-gray-300 pt-6">
+          <span>2025 Qnest. All rights reserved</span>
+
+          <div className="flex gap-6 mt-4 md:mt-0">
+            {/* <span className="hover:underline cursor-pointer">Security Policy</span> */}
+            {/* <span className="hover:underline cursor-pointer">Privacy Policy</span>
+            <span className="hover:underline cursor-pointer">Terms of service</span>
+            <span className="hover:underline cursor-pointer">Cookie Policy</span> */}
+          </div>
         </div>
-
-        {/* <div className="md:text-right">
-          <P className="text-black">Copyright © CFI 2026</P>
-        </div> */}
       </div>
-
-      {/* ================= Floating Images ================= */}
-      <div className="relative h-[320px] mt-10 z-20 hidden xl:block">
-        {images.map((img, i) => (
-          <motion.img
-            key={i}
-            src={img.src}
-            alt=""
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.08 }}
-            className="absolute w-28 h-28 object-cover rounded-md shadow-md"
-            style={{ left: img.left, top: img.top }}
-          />
-        ))}
-      </div>
-
-      {/* ================= Curve Images ================= */}
-      <div className="hidden xl:block">
-
-      {/* Top Curve */}
-      <img
-        src="/kycShape1.png"
-        alt=""
-        className="absolute bottom-32 left-0 w-full z-0 pointer-events-none select-none"
-      />
-
-      {/* Bottom Curve */}
-      <img
-        src="/kycShape2.png"
-        alt=""
-        className="absolute bottom-0 left-0 w-full z-0 pointer-events-none select-none"
-      />
-      </div>
-    </section>
+    </footer>
   );
 }

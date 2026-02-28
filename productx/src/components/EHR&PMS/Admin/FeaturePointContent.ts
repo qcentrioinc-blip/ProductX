@@ -45,7 +45,7 @@ export const FEATURE_POINT_CONTENT: Record<UserRole, FeatureSectionContent> = {
 
   insuranceCoordinator: {
     pageTitle: 'Drive Tangible Revenue Cycle Improvements',
-    heroImage: '/EHR-PMS/Careers/img6.png',
+    heroImage: '/EHR-PMS/Careers/img6.webp',
     features: [
       {
         id: 1,

@@ -4,7 +4,7 @@ import InformationGrid from "../EHRNurse/InformationGrid"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import FeatureCards from "./FeatureCards"
 import HeroSec from "./HeroSec"
-import { Image } from "./Image"
+// import { Image } from "./Image"
 import ImageWithCards from "./ImageWithCards"
 import InfoWithImage from "./InfoWithImage"
 
@@ -16,7 +16,7 @@ export const EHRReceptionist = () => {
         <FeatureCards/>
         <InfoWithImage/>
         <InformationGrid/>
-        <Image/>
+        {/* <Image/> */}
         <ImageWithCards/>
         <FeatureHighlights/>
         <EHRFooter/>

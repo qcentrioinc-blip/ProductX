@@ -9,6 +9,9 @@ import AnimatedFooter from "../../AnimatedFooter"
 import LogoMarquee from "./LogoMarquee"
 // import LifeCycleTech from "./LifeCycleTech"
 import GoalsSection from "./GoalsSection"
+import InnovationCards from "./InnovationCards"
+import Centric from "./Centric"
+import ImgSec from "./ImgSec"
 
 // Below-the-fold: lazy load to speed up initial page render
 // const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
@@ -33,6 +36,8 @@ const GlobalLandingPage = () => {
             </div> */}
             <LogoMarquee/>
                 <GoalsSection/>
+                <InnovationCards/>
+                <Centric/>
             <Suspense fallback={null}>
                 {/* <div className="gpu-optimized">
                     <AnimatedStatement />
@@ -79,6 +84,7 @@ const GlobalLandingPage = () => {
 
                 <div id="footer" className="gpu-optimized">
                     {/* <NewFooter /> */}
+                    <ImgSec/>
                     <AnimatedFooter />
                 </div>
             </Suspense>
