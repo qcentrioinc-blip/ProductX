@@ -35,13 +35,15 @@ const lineVariants = {
 const InformationGrid = () => {
   const { pathname } = useLocation();
 
-  const { title, description, features } = (() => {
+  const { title, description, features, image } = (() => {
     /* ---------- insurance-coordinator ---------- */
     if (pathname.includes("insurance-coordinator")) {
       return {
         title: " Built for Coordinators",
         description:
           " Our system is designed around the unique challenges and workflows of insurance coordination, not just billing.",
+
+          image: "/EHR-PMS/InsuranceCoordinator/Img5.webp", 
         features: [
           {
             title: " Centralized Payer Portal ",
@@ -78,7 +80,8 @@ const InformationGrid = () => {
         title: "Supporting Your Expertise ",
         description:
           " Designed to reduce documentation burden and provide the right information at the right time, empowering your clinical judgment. ",
-        features: [
+         image: "/EHR-PMS/Nurse/Img7.webp",
+          features: [
           {
             title: "Reduces Documentation Time ",
             text:
@@ -114,6 +117,8 @@ const InformationGrid = () => {
         title: " Designed for You ",
         description:
           "Built around the real-world needs of the front desk to eliminate daily frustrations and boost efficiency. ",
+
+           image: "/EHR-PMS/InsuranceCoordinator/Img6.webp",
         features: [
           {
             title: "Unified Communication Hub ",
@@ -149,6 +154,8 @@ const InformationGrid = () => {
       title: "Designed for You",
       description:
         "Built to eliminate operational inefficiencies and improve day-to-day workflows.",
+
+         image: "/EHR-PMS/InsuranceCoordinator/Img5.webp",
       features: [
         {
           title: "Centralized Operations",
@@ -234,14 +241,16 @@ const InformationGrid = () => {
 
         {/* Image Placeholder */}
         <motion.div variants={itemVariants} className="flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: easeOut }}
-            className="bg-[#dcdcdc] rounded-2xl w-full h-48 md:h-full min-h-[200px]"
-          />
-        </motion.div>
+  <motion.img
+    src={image}  // replace with your imported image
+    alt={title}
+    initial={{ opacity: 0, scale: 0.94 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: easeOut }}
+    className="w-full h-48 md:h-50 rounded-xl object-cover shadow-xl"
+  />
+</motion.div>
       </motion.div>
     </section>
   );

@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
   /* DOT SETTINGS */
   const dotSize = 5;
   const gap = 15;
-  const baseColor = "#808080";
+  const baseColor = "#2b2b2b";
   const activeColor = "#5227FF";
   const proximity = 120;
   const speedTrigger = 100;
@@ -329,7 +329,7 @@ return (
       </div>
 
       {/* FORM: Width 20%, Height 700px */}
-      <div className="relative z-10 top-10 xl:top-0 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-white/50">
+      <div className="relative z-10 top-10 xl:top-0 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-black/50">
         <div className="mb-5">
           <H1 className="text-black font-bold mb-2 text-4xl tracking-tight leading-tight">Let's talk</H1>
           <P className="">Fill out the form and we'll be in touch shortly.</P>
@@ -381,7 +381,7 @@ return (
         <option value="Finance">Finance</option>
       </select>
 
-      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-black">
         <ArrowRight size={16} className="rotate-90" />
       </div>
 
@@ -414,7 +414,7 @@ return (
       className={`
         group flex items-center justify-center w-full h-[64px]
         rounded-2xl font-semibold text-base text-white 
-        transition-all duration-300
+        transition-all duration-300 cursor-pointer
         ${
           isSubmitted
             ? "bg-green-600 cursor-default"

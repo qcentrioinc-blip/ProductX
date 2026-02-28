@@ -27,7 +27,7 @@ const products: ProductTab[] = [
     description:
       "Re-configure on the GO! No more expensive, time consuming system change requests.",
     image: "/ProductDetails4/KYC1.webp",
-    mobileImage: "/ProductDetails4/KYC1_mobile.png", // 👈 Mobile image
+    mobileImage: "/ProductDetails4/KYC1_mobile.webp", // 👈 Mobile image
   },
   {
     label: "ID and V Monitor",

@@ -17,7 +17,7 @@ const MedicalFeature = () => {
           className="relative aspect-[4/3] md:aspect-square lg:aspect-[1/1] overflow-hidden rounded-[20px]"
         >
           <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
+            src="/EHR-PMS/Nurse/img5.webp" 
             alt="Medical professional typing with stethoscope"
             className="w-full h-full object-cover shadow-xl"
             loading="lazy"
