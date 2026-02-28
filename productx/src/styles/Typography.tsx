@@ -25,7 +25,7 @@ export const H1EHR = ({ children, className = "" }: TypographyProps) => {
   return (
     <h1
       className={`
-        text-[32px] md:text-[48px] lg:text-[64px]
+        text-[24px] md:text-[48px] lg:text-[64px]
         font-bricolageEHR
         
         leading-[120%]

@@ -63,11 +63,11 @@ export default function GoalsSection() {
   <div className="relative grid grid-cols-2">
 
     {/* Vertical Gradient Line */}
-    <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[4px]
+    <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[2px]
       bg-gradient-to-b from-transparent via-[#2B68C3] to-transparent" />
 
     {/* Horizontal Gradient Line */}
-    <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-full h-[4px]
+    <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-full h-[2px]
       bg-gradient-to-r from-transparent via-[#2B68C3] to-transparent" />
 
     {stats.map((stat, i) => (
