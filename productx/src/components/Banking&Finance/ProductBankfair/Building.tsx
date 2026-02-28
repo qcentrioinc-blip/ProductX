@@ -134,7 +134,7 @@ const Building = () => {
           style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
         >
           <span style={{ color: '#2B68C3' }}>Powerful Features That Transform</span>{' '}
-          <span style={{ color: '#666666' }}>Financial Reconciliation</span>
+          <span style={{ color: '#141414' }}>Financial Reconciliation</span>
         </h1>
 
         <p
@@ -164,7 +164,7 @@ const Building = () => {
                 px-3 py-1.5 text-[11px]
                 sm:px-4 sm:py-2 sm:text-xs lg:text-sm lg:px-8 lg:py-4
                 xl:px-8 xl:py-4 xl:text-sm
-                ${activeFilter === filter ? 'bg-[#2B68C3] text-white' : 'bg-white text-[#666666]'}
+                ${activeFilter === filter ? 'bg-[#2B68C3] text-white' : 'bg-white text-[#141414]'}
               `}
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
@@ -200,7 +200,7 @@ const Building = () => {
 
             {/* Title: 20→22→24→26→32px */}
             <h2
-              className="font-bold text-[#666666] m-0 leading-none
+              className="font-bold text-[#141414] m-0 leading-none
                          text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] xl:text-[32px]"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >
@@ -270,7 +270,7 @@ const Building = () => {
                 />
                 {/* Value: 34→42→48→52→64px */}
                 <h3
-                  className="font-medium text-[#666666] leading-none m-0
+                  className="font-medium text-[#141414] leading-none m-0
                              text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
@@ -305,7 +305,7 @@ const Building = () => {
                 />
                 {/* Value: 34→42→48→52→64px */}
                 <h3
-                  className="font-medium text-[#666666] leading-none m-0
+                  className="font-medium text-[#141414] leading-none m-0
                              text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >

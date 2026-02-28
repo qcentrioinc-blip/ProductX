@@ -54,7 +54,7 @@ const Capabilities = () => {
 
               <H2>
                 <div className="text-[#2B68C3]">What is</div>
-                <div className="text-gray-500">Conciliare</div>
+                <div className="text-gray-800">Conciliare</div>
               </H2>
 
               <P>
@@ -94,7 +94,7 @@ const Capabilities = () => {
                 <div className="flex flex-col sm:flex-row gap-6">
 
                   {/* Number */}
-                  <div className="text-[clamp(32px,8vw,58px)] font-bold text-gray-400 flex-shrink-0">
+                  <div className="text-[clamp(32px,8vw,58px)] font-bold text-gray-800 flex-shrink-0">
                     {card.number}
                   </div>
 
@@ -104,7 +104,7 @@ const Capabilities = () => {
                       {card.title}
                     </H3>
 
-                    <P className="leading-[150%] text-[#3A3A3A] mt-4">
+                    <P className="leading-[150%] text-black mt-4">
                       {card.description}
                     </P>
 
