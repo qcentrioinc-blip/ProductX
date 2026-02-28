@@ -57,7 +57,7 @@ export default function Terms() {
 
       {/* Content */}
       <section className="w-full bg-white text-gray-800">
-        <div className="max-w-8xl px-10 mx-10 py-16">
+        <div className="max-w-8xl  px-4 xl:px-10 xl:mx-10 py-6 xl:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
 
             {/* MAIN CONTENT */}
