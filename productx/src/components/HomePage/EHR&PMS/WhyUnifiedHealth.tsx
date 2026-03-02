@@ -129,7 +129,7 @@ const WhyUnifiedHealth: React.FC = () => {
                   <P className="max-w-sm">
                     A single, intuitive platform for all clinical, financial, and patient engagement tasks.
                   </P>
-                  <div className="h-12 w-12 bg-[#D9D9D9] my-4 xl:my-0  rounded-full" />
+                  {/* <div className="h-12 w-12 bg-[#D9D9D9] my-4 xl:my-0  rounded-full" /> */}
                 </div>
               </div>
 
@@ -142,7 +142,7 @@ const WhyUnifiedHealth: React.FC = () => {
                   <P className="max-w-sm">
                     Automates workflows to speed up documentation, billing, and daily operations.
                   </P>
-                  <div className="h-12 w-12 bg-[#D9D9D9]  my-4 xl:my-0 rounded-full" />
+                  {/* <div className="h-12 w-12 bg-[#D9D9D9]  my-4 xl:my-0 rounded-full" /> */}
                 </div>
               </div>
             </div>

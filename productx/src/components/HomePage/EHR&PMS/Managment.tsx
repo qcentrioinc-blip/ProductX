@@ -132,7 +132,7 @@ const DATA = [
 export default function Management() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const firstCardRef = useRef<HTMLDivElement>(null);
-  const [firstCardWidth, setFirstCardWidth] = useState(85);
+  // const [firstCardWidth, setFirstCardWidth] = useState(85);
   const [activeItem, setActiveItem] = useState<Record<number, number | null>>(
     Object.fromEntries(DATA.map(card => [card.id, 0]))
   );
@@ -153,20 +153,20 @@ export default function Management() {
       const startPoint = viewportHeight; // Section bottom touches viewport bottom
       const endPoint = viewportHeight * 0.3; // Section well into view
       
-      let scrollProgress = 0;
+      // let scrollProgress = 0;
       
       if (sectionTop <= startPoint && sectionTop >= endPoint) {
         // Calculate progress as section moves from bottom to top
-        scrollProgress = (startPoint - sectionTop) / (startPoint - endPoint);
-        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+        // scrollProgress = (startPoint - sectionTop) / (startPoint - endPoint);
+        // scrollProgress = Math.max(0, Math.min(1, scrollProgress));
       } else if (sectionTop < endPoint) {
         // Section is past the expansion point
-        scrollProgress = 1;
+        // scrollProgress = 1;
       }
       
       // Interpolate width from 85 to 100
-      const newWidth = 85 + (scrollProgress * 15);
-      setFirstCardWidth(newWidth);
+      // const newWidth = 85 + (scrollProgress * 15);
+      // setFirstCardWidth(newWidth);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -205,11 +205,11 @@ export default function Management() {
   } h-full rounded-t-[6rem] transition-all duration-700 ease-out 
   shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
 
-  style={
-    i === 0
-      ? { maxWidth: `${firstCardWidth}vw` }
-      : { maxWidth: "100vw" }
-  }
+  // style={
+  //   i === 0
+  //     ? { maxWidth: `${firstCardWidth}vw` }
+  //     : { maxWidth: "100vw" }
+  // }
 >
 
                 <div className="flex flex-col lg:flex-row gap-12 p-8 lg:px-16">

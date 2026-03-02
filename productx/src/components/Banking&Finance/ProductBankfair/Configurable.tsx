@@ -78,7 +78,7 @@ const Configurable = () => {
             <div className="flex flex-col flex-1 min-w-0">
                 <div className="flex sm:flex-col flex-row flex-1">
                     <div
-                        className="relative overflow-hidden flex-1 sm:flex-none sm:flex-1"
+                        className="relative overflow-hidden flex-1"
                         style={{
                             backgroundColor: "#2B68C3",
                             // minHeight: "260px",

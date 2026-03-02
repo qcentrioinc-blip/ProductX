@@ -64,7 +64,7 @@ const Centric = () => {
                     />
 
                     {/* People-Centric Delivery */}
-                    <div className="absolute top-[200px] left-8 right-8 flex flex-col gap-4">
+                    <div className="absolute top-[250px] left-8 right-8 flex flex-col gap-4">
                         <span
                             className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
@@ -114,16 +114,16 @@ const Centric = () => {
                 <div className="relative flex-1 h-full">
 
                     {/* Rotating Circle SVG */}
-                    <div className="absolute bottom-125 right-[250px] w-[350px] h-[250px] pointer-events-none z-0">
+                    {/* <div className="absolute bottom-125 right-[180px] w-[350px] h-[280px] pointer-events-none z-0">
                         <motion.img
                             src="/Global-Landing-Page/Circle.svg"
                             alt="circle pattern"
                             className="w-full h-full max-w-none object-contain rotate-180"
                             animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
                             style={{ transformOrigin: "50% 50%" }}
                         />
-                    </div>
+                    </div> */}
 
                     {/* People-Centric Delivery */}
                     <div className="absolute top-[450px] left-8 right-8 flex flex-col gap-4">
@@ -131,14 +131,13 @@ const Centric = () => {
                             className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
-                            People‑Centric Delivery
+                            Built for Scale
                         </span>
                         <p
                             className="text-[#141414] text-[16px] font-normal leading-[130%] m-0"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
-                            Qnest Global supports companies across banking, manufacturing,
-                            healthcare, retail, and services. Our teams design AI, CRM, HRM
+                            We design platforms that grow with your business without performance degradation.
                         </p>
                     </div>
                 </div>
@@ -204,14 +203,13 @@ const Centric = () => {
                         className="text-[#2B68C3] text-[20px] font-semibold leading-none"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
-                        People‑Centric Delivery
+                        Built for Scale
                     </span>
                     <p
                         className="text-[#141414] text-[15px] font-normal leading-[145%] m-0"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
-                        Qnest Global supports companies across banking, manufacturing,
-                        healthcare, retail, and services. Our teams design AI, CRM, HRM
+                        We design platforms that grow with your business without performance degradation.
                     </p>
                 </div>
             </div>

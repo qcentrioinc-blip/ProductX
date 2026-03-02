@@ -275,11 +275,11 @@ export default function HeroSection() {
       <div className="flex items-center gap-2">
         <TrendingUp className="w-12 h-12" />
         <H2 className="">
-          80%
+          70%
         </H2>
       </div>
       <P className="mt-2 text-center  max-w-[140px] sm:max-w-[180px]">
-        Reduced manual review time.
+       Faster turnaround time for periodic reviews 
       </P>
     </div>
 
@@ -291,11 +291,11 @@ export default function HeroSection() {
       <div className="flex items-center gap-2">
         <TrendingUp className="w-12 h-12" />
         <H2>
-          300+ 
+          50+ 
         </H2>
       </div>
       <P className="mt-2 text-center max-w-[140px] sm:max-w-[180px]">
-       Used by global financial institutions.
+       Configurable risk parameters for accurate profiling
       </P>
     </div>
 

@@ -10,7 +10,7 @@ const TABS = [
     title: " Intelligent Clinical Documentation",
     description:
       " Speed up charting with customizable SOAP templates and smart fields that pull in patient history. Our system suggests E/M codes and auto-saves, cutting documentation time in half.",
-    image: "/EHR-PMS/Physician/img6.webp",
+    image: "/Physician/ICD.webp",
   },
   {
     id: "tab2",
@@ -163,7 +163,7 @@ const Accordion = () => {
             <HoverExpandImage
               src={activeTab.image}
               alt="Clinical feature preview"
-              className="h-full w-full object-contain"
+              className="h-full w-full bg-gray-100 object-contain"
             />
           </motion.div>
         </div>

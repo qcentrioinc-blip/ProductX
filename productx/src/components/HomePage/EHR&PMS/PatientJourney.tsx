@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { H2EHR, P } from "../../../styles/Typography";
-
+ 
 const steps = [
   "Patient Registration",
   "Appointment Scheduling",
@@ -13,71 +13,71 @@ const steps = [
   "Customizations and Integrations",
   "Analytics and Reports",
 ];
-
+ 
 export default function PatientJourney() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0.02);
 const stepThresholds = [
-  0.00, // 1
+  0.0, // 1
   0.10, // 2s
   0.20, // 3
   0.30, // 4
-  0.40, // 5
+  0.38, // 5
   0.55, // 6
-  0.65, // 7
+  0.62, // 7
   0.70, // 8
-  0.78, // 9 
-  0.86, // 10 
+  0.75, // 9
+  0.86, // 10
 ];
-
+ 
 // const isActive = scrollProgress >= stepThresholds[index];
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-      
+     
       const rect = sectionRef.current.getBoundingClientRect();
       const sectionHeight = rect.height;
       const viewportHeight = window.innerHeight;
-      
+     
       const scrolled = -rect.top;
       const totalScrollDistance = sectionHeight - viewportHeight;
       const progress = Math.min(Math.max(scrolled / totalScrollDistance, 0), 1);
-      
+     
       setScrollProgress(progress);
     };
-
+ 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-    
+   
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   // const currentStep = scrollProgress * 10;
   const strokeSpeed = 1.2;  
 const strokeProgress = Math.max(
   Math.min(scrollProgress * strokeSpeed, 1),
   0.04
 );
-
-
-
+ 
+ 
+ 
   return (
-    <> 
+    <>
    <section
   ref={sectionRef}
   className="relative hidden xl:block bg-white z-30"
   style={{ height: "420vh" }}
 >
 
-      <div className="sticky top-0 h-[180vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
+      <div className="sticky top-20 h-[100vh] xl:[80vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
           <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
             End to End Patient Journey,<br />Unified in One Platform
           </H2EHR>
         </div>
-
+ 
         {/* Journey Path - Takes middle space with MORE VERTICAL GAP */}
         <div className="w-full flex-shrink-0  ">
           <div className="relative w-full max-w-8xl  px-4">
@@ -95,17 +95,17 @@ Q 1120 100 1120 200
 Q 1120 300 960 300
 L 250 300
 "
-
+ 
   stroke="#D1D5DB"
   strokeWidth="1"
   fill="none"
   strokeLinecap="round"
   strokeLinejoin="round"
  
-
+ 
              
               />
-
+ 
               {/* Yellow Progress Path - INCREASED VERTICAL GAP */}
               <path
              d="
@@ -115,7 +115,7 @@ Q 1120 100 1120 200
 Q 1120 300 960 300
 L 250 300
 "
-
+ 
                 stroke="#141414"
                 strokeWidth="2"
                 fill="none"
@@ -124,15 +124,15 @@ L 250 300
                 pathLength="1"
                 strokeDasharray="1"
                strokeDashoffset={1 - strokeProgress}
-
+ 
               />
-
+ 
               {/* Top Row Steps (1-5) */}
     {[0, 1, 2, 3, 4].map((index) => {
   const x = 80 + index * 220;
   const y = 100;
   const isActive = scrollProgress >= stepThresholds[index];
-
+ 
   return (
     <g key={index}>
       <circle
@@ -143,7 +143,7 @@ L 250 300
         stroke={isActive ? "#EEDA68" : "#D1D5DB"}
         strokeWidth="2"
       />
-
+ 
       <text
         x={x}
         y={y + 6}
@@ -155,7 +155,7 @@ L 250 300
       >
         {index + 1}
       </text>
-
+ 
       {/* ✅ TEXT BELOW STEP */}
       <foreignObject
         x={x - 80}
@@ -175,15 +175,15 @@ L 250 300
     </g>
   );
 })}
-
-
+ 
+ 
               {/* Bottom Row Steps (6-10) - Text BELOW circles like top row */}
        {[5, 6, 7, 8, 9].map((index) => {
   const reverseIndex = 9 - index;
   const x = 250 + reverseIndex * 180;
   const y = 300;
   const isActive = scrollProgress >= stepThresholds[index];
-
+ 
   return (
     <g key={index}>
       <circle
@@ -194,7 +194,7 @@ L 250 300
         stroke={isActive ? "#EEDA68" : "#D1D5DB"}
         strokeWidth="2"
       />
-
+ 
       <text
         x={x}
         y={y + 6}
@@ -206,7 +206,7 @@ L 250 300
       >
         {index + 1}
       </text>
-
+ 
       {/* ✅ TEXT BELOW STEP */}
       <foreignObject
         x={x - 90}
@@ -226,33 +226,33 @@ L 250 300
     </g>
   );
 })}
-
-
+ 
+ 
             </svg>
           </div>
         </div>
-
-        
+ 
+       
         {/* Bottom Image - Fixed at bottom of sticky container */}
-     <img
+     {/* <img
             src="/Physician/PatientJourney.webp"
             alt="Patient using laptop"
             className="w-full absolute -bottom-60 h-full   object-contain "
-            
-          />
+           
+          /> */}
          
       </div>
-      
-        
+     
+       
     </section>
-
-
-    <div className="xl:hidden bg-white px-6 py-16">
+ 
+ 
+    <div className="xl:hidden bg-white px-6 py-6 xl:py-10">
   {/* Header */}
   <H2EHR className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
     End to End Patient Journey,<br />Unified in One Platform
   </H2EHR>
-
+ 
   {/* Steps */}
   <div className="max-w-xl mx-auto space-y-6">
     {steps.map((step, index) => (
@@ -269,17 +269,18 @@ L 250 300
       </div>
     ))}
   </div>
-
+ 
   {/* Image */}
-  <div className=" ">
+  {/* <div className=" ">
     <img
       src="/Physician/PatientJourney.webp"
       alt="Patient using laptop"
       className="w-full h-full object-cover rounded-xl"
     />
-  </div>
+  </div> */}
 </div>
-
+ 
     </>
   );
 }
+ 

@@ -88,7 +88,7 @@ export default function CTA() {
               xl:w-40 xl:h-40
               rounded-xl
               overflow-hidden
-              border border-black/5
+              
               will-change-transform
             "
           >
