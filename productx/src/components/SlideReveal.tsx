@@ -36,8 +36,8 @@ export default function SlideReveal() {
     >
       <div
         className={`${isDesktop
-            ? "sticky top-0 h-screen overflow-hidden"
-            : ""
+          ? "sticky top-20 h-auto overflow-hidden"
+          : ""
           }`}
       >
         {/* MOBILE STATIC IMAGE */}
