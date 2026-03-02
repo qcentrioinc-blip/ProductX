@@ -14,10 +14,9 @@ import CommingSoon from './components/ProductsCommingSoon';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
 import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
-
+import BankingAndFinance from './routes/industries/BankingAndFinance'
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
-const BankingAndFinance = lazy(() => import('./routes/industries/BankingAndFinance'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 // const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
