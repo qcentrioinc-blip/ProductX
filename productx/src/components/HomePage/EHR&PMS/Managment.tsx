@@ -132,7 +132,7 @@ const DATA = [
 export default function Management() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const firstCardRef = useRef<HTMLDivElement>(null);
-  const [firstCardWidth, setFirstCardWidth] = useState(85);
+  const [, setFirstCardWidth] = useState(85);
   const [activeItem, setActiveItem] = useState<Record<number, number | null>>(
     Object.fromEntries(DATA.map(card => [card.id, 0]))
   );
@@ -205,11 +205,11 @@ export default function Management() {
   } h-full rounded-t-[6rem] transition-all duration-700 ease-out 
   shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
 
-  style={
-    i === 0
-      ? { maxWidth: `${firstCardWidth}vw` }
-      : { maxWidth: "100vw" }
-  }
+  // style={
+  //   i === 0
+  //     ? { maxWidth: `${firstCardWidth}vw` }
+  //     : { maxWidth: "100vw" }
+  // }
 >
 
                 <div className="flex flex-col lg:flex-row gap-12 p-8 lg:px-16">
