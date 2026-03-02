@@ -31,14 +31,27 @@ export default function HeroBottomNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const navbar = document.getElementById("hero-bottom-nav");
+    const globalNavHeight = showGlobalNav ? 124 : 0;
+    const heroNavHeight = navbar ? navbar.offsetHeight : 0;
+    const totalOffset = globalNavHeight + heroNavHeight + 16; // extra 16px breathing room
+
+    const top = section.getBoundingClientRect().top + window.scrollY - totalOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
   const navItems: NavItem[] = useMemo(
     () => {
-      const isBankfair = currentPath.includes("/industries/banking-and-finance/products/bankfair");
+      // const isBankfair = currentPath.includes("/industries/banking-and-finance/products/bankfair");
 
       return [
         { label: "Overview", id: "overview" },
-        { label: "Benefits", id: "benefits" },
-        ...(isBankfair ? [] : [{ label: "Our Process", id: "process" }]),
+        { label: "Features", id: "benefits" },
+        {label: "Our Process", id: "process" },
         { label: "Use Cases", id: "usecases" },
         { label: "FAQs", id: "faq" },
         // { label: "Blogs", id: "blogs" },
@@ -83,6 +96,7 @@ export default function HeroBottomNavbar() {
           <a
             key={item.id}
             href={`#${item.id}`}
+            onClick={(e) => handleNavClick(e, item.id)} 
             className={`
               text-sm lg:text-lg whitespace-nowrap  
               ${activeSection === item.id

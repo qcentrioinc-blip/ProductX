@@ -63,7 +63,7 @@ export default function NewFooter() {
             <H4 className=" mb-4 ">
               Industries
             </H4>
-            <ul className="space-y-2 text-sm font-quicksand">
+            <ul className="space-y-2 text-md font-quicksand">
               {/* <li className="hover:underline cursor-pointer">High Tech</li> */}
               <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Cloud Finops AI</li></a>
               <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Banking and Finance</li></a>
@@ -118,13 +118,13 @@ export default function NewFooter() {
               Subscribe to our insights, our monthly look at the critical issues facing global businesses.
             </P>
 
-            <form onSubmit={handleSubmit} className="flex gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col xl:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
-                className="flex-1 px-4 py-2 text-sm rounded-md border border-[#141414] bg-transparent focus:outline-none"
+                className="flex-0 px-4 py-2 text-sm rounded-md border border-[#141414] bg-transparent focus:outline-none"
               />
 
               <button

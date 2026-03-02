@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { H2 } from '../../../styles/Typography';
+import { H2EHR } from '../../../styles/Typography';
 
 // SMOOTH WAVE BREATHING EFFECT - Reduced heights + Smooth scroll
 const GradientLayers = () => {
@@ -136,7 +136,7 @@ const EHRFooter = () => {
               </div>
 
               <div className="w-full max-w-2xl flex flex-col items-start lg:items-end">
-                <H2
+                <H2EHR
                   className="mb-8 text-left lg:text-center"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -147,7 +147,7 @@ const EHRFooter = () => {
                   }}
                 >
                   Subscribe to our newsletter
-                </H2>
+                </H2EHR>
 
                 <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full justify-start xl:justify-center items-stretch">
                   <div className="flex flex-col xl:w-[50%] xl:ml-48">
@@ -264,7 +264,7 @@ const EHRFooter = () => {
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.6fr_0.6fr_1fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.6fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
 
               {/* QUICK LINKS */}
               <div>
