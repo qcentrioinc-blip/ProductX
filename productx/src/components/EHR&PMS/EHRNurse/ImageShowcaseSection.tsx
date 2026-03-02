@@ -6,7 +6,7 @@ const ImageShowcaseSection = () => {
     "/EHR-PMS/Nurse/Img12.jpg",
     "/EHR-PMS/Nurse/Img13.jpg",
     "/EHR-PMS/Nurse/Img14.jpg",
-    "/EHR-PMS/Nurse/Img15.jpg",
+    "/EHR-PMS/Nurse/Img15.webp",
   ];
 
   // We double the images to create a seamless infinite loop

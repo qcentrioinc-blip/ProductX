@@ -4,7 +4,7 @@ import { useState } from "react";
 import { H4, P } from "../styles/Typography";
 import { toast } from "react-toastify";
 
-export default function NewFooter() {
+export default function AnimatedFooter() {
   const [email, setEmail] = useState("");
   const [buttonColor, setButtonColor] = useState("bg-[#141414]");
 
@@ -38,7 +38,7 @@ export default function NewFooter() {
 
   return (
     <footer className="bg-white text-black py-4">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Top Section */}
         <div className="mb-4 max-w-sm">
@@ -47,13 +47,13 @@ export default function NewFooter() {
             alt="Logo"
             className="h-10 mb-2"
           /> */}
-          <P className="text-sm leading-relaxed ">
+          {/* <P className="text-sm leading-relaxed ">
             We are more than a technology provider; we are your strategic partner in progress.
-          </P>
+          </P> */}
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-300 mb-12"></div>
+        {/* <div className="border-t border-gray-300 mb-12"></div> */}
 
         {/* Middle Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">

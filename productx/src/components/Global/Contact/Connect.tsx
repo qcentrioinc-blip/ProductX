@@ -1,8 +1,9 @@
  
 import Navbar from "../Navbar/Navbar"
-import NewFooter from "../NewFooter/NewFooter"
+    // import NewFooter from "../NewFooter/NewFooter"
 import Contact from "./Contact"
 // import Contact2 from "./Contact2"
+import AnimatedFooter from "../../AnimatedFooter"
 
  
 const Connect = () => {
@@ -12,7 +13,9 @@ const Connect = () => {
        <Navbar/>
       <Contact/>
       {/* <Contact2/> */}
-      <NewFooter/>
+      
+      <AnimatedFooter/>
+      {/* <NewFooter/> */}
       
     </div>
   )
