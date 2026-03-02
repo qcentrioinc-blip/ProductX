@@ -17,7 +17,7 @@ export default function GoalsSection() {
 
         {/* ── LEFT: ~45% ── */}
         <div className="w-full lg:w-[60%] flex flex-col items-start">
-          <h2 className="text-gray-900 font-bricolage  text-lg md:text-[24px]  lg:text-[64px] leading-tight  mb-2 md:mb-5">
+          <h2 className="text-gray-900 font-bricolage  text-lg md:text-[24px]  lg:text-[56px] leading-tight  mb-2 md:mb-5">
             Turning goals into<br className="xl:block hidden" /> measurable results.
           </h2>
 
