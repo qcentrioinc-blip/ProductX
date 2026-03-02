@@ -1,27 +1,27 @@
 "use client";
-
+ 
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { H1, P } from "../../../styles/Typography";
 import { Search, ArrowRight } from "lucide-react";
-
+ 
 const products = [
   { name: "Conciliare", path: "/industries/banking-and-finance/products/conciliare" },
   { name: "KYC & CDD", path: "/industries/banking-and-finance/products/kyc" },
   { name: "Unified EHR", path: "/industries/ehr-and-pms" },
   { name: "CloudDIET", path: "/industries/cloud-finops-ai" },
 ];
-
+ 
 export default function MarketplaceHero() {
   const [search, setSearch] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
+ 
   const sectionRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
+ 
   /* ---------------- Intersection Animation ---------------- */
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,11 +30,11 @@ export default function MarketplaceHero() {
       },
       { threshold: 0.3 }
     );
-
+ 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
+ 
   /* ---------------- Filter Products ---------------- */
   const filteredProducts = useMemo(() => {
     if (!search.trim()) return [];
@@ -42,7 +42,7 @@ export default function MarketplaceHero() {
       product.name.toLowerCase().includes(search.toLowerCase())
     );
   }, [search]);
-
+ 
   /* ---------------- Outside Click ---------------- */
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -54,16 +54,16 @@ export default function MarketplaceHero() {
         setActiveIndex(null);
       }
     };
-
+ 
     document.addEventListener("mousedown", handleClickOutside);
     return () =>
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
+ 
   /* ---------------- Keyboard Navigation ---------------- */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!filteredProducts.length) return;
-
+ 
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setShowDropdown(true);
@@ -73,7 +73,7 @@ export default function MarketplaceHero() {
           : prev + 1
       );
     }
-
+ 
     if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIndex((prev) =>
@@ -82,13 +82,13 @@ export default function MarketplaceHero() {
           : prev - 1
       );
     }
-
+ 
     if (e.key === "Enter") {
       const selected =
         activeIndex !== null
           ? filteredProducts[activeIndex]
           : filteredProducts[0];
-
+ 
       if (selected) {
         navigate(selected.path);
         setShowDropdown(false);
@@ -96,26 +96,26 @@ export default function MarketplaceHero() {
         setActiveIndex(null);
       }
     }
-
+ 
     if (e.key === "Escape") {
       setShowDropdown(false);
       setActiveIndex(null);
     }
   };
-
+ 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
+      className="relative w-full h-full xl:h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
     >
       <div>
         <img
           src="/Hero.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover opacity-50" />
-
+ 
         {/* Go Back Button & Logo */}
-        <div className="absolute top-10 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
+        <div className="absolute top-20 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
           <button
             onClick={() => navigate(-1)}
             className="
@@ -140,7 +140,7 @@ export default function MarketplaceHero() {
       </div>
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
         <H1
-          className="text-[#2B68C3] text-4xl md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"
+          className="text-[#2B68C3] text-4xl mt-20 xl:mt-0 md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(40px)",
@@ -148,7 +148,7 @@ export default function MarketplaceHero() {
         >
           Qnest Suite of Banking Products
         </H1>
-
+ 
         <P
           className="text-lg md:text-xl mb-10 max-w-5xl transition-all duration-700"
           style={{
@@ -157,9 +157,9 @@ export default function MarketplaceHero() {
           }}
         >
           Access Qnest's complete suite of banking products on a single platform. From core banking and loan management to AML compliance and cross-border remittances. Each solution is built by industry practitioners to address specific operational challenges faced by financial institutions globally.
-
+ 
         </P>
-
+ 
         {/* ---------------- Premium Search ---------------- */}
         <div ref={dropdownRef} className="relative w-full max-w-2xl text-left">
           {/* Input */}
@@ -183,7 +183,7 @@ export default function MarketplaceHero() {
                 group-focus-within:text-blue-500
               "
             />
-
+ 
             <input
               type="text"
               placeholder="Search products"
@@ -204,7 +204,7 @@ export default function MarketplaceHero() {
               "
             />
           </div>
-
+ 
           {/* ---------------- Dropdown ---------------- */}
           {showDropdown && search.trim() !== "" && (
             <div
@@ -250,3 +250,4 @@ export default function MarketplaceHero() {
     </section>
   );
 }
+ 

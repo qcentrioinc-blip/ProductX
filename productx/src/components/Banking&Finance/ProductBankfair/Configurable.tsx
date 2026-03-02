@@ -1,9 +1,10 @@
 
 
+ 
 const Configurable = () => {
     return (
         <section className="w-full mx-auto min-h-auto lg:min-h-auto xl:min-h-screen flex flex-col lg:flex-row xl:flex-row overflow-hidden">
-
+ 
             {/* ────── LEFT COLUMN ────── */}
             <div
                 className="w-full lg:w-[480px] xl:w-3xl min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-12 lg:pt-0 xl:pt-0"
@@ -24,7 +25,7 @@ const Configurable = () => {
                     >
                         Reconciliation Built for Every Industry
                     </h2>
-
+ 
                     {/* Paragraph */}
                     <p
                         className="relative xl:top-10 text-[#FAFAFA] text-[14px] sm:text-[16px] lg:text-[15px] xl:text-[19.64px] font-normal leading-[160%] tracking-normal m-0 w-full lg:w-[380px] xl:w-[530px]"
@@ -39,7 +40,7 @@ const Configurable = () => {
                     </p>
                 </div>
             </div>
-
+ 
             {/* ────── RIGHT COLUMN ────── */}
             {/* <div className="flex flex-col flex-1 min-w-0">
                 <div
@@ -51,8 +52,8 @@ const Configurable = () => {
                 >
                     <video src="/BNFConsilier/HEROCONCILIAR.mp4" autoPlay loop muted />
                 </div>
-
-
+ 
+ 
                 <div
                     className="flex items-center justify-center gap-4 lg:gap-5 xl:gap-6 px-6 lg:px-[40px] xl:px-[80px] py-8 lg:py-[36px] xl:py-1\0"
                     style={{
@@ -74,8 +75,8 @@ const Configurable = () => {
                     </h3>
                 </div>
             </div> */}
-
-            <div className="flex flex-col flex-1 min-w-0">
+ 
+            <div className=" hidden lg:flex flex-col flex-1 min-w-0">
                 <div className="flex sm:flex-col flex-row flex-1">
                     <div
                         className="relative overflow-hidden flex-1"
@@ -92,7 +93,7 @@ const Configurable = () => {
                             className="w-full h-full object-cover"
                         />
                     </div>
-
+ 
                     {/* Beige Block */}
                     <div
                         className="
@@ -121,12 +122,14 @@ const Configurable = () => {
                         </h3>
                     </div>
                 </div>
-
+ 
             </div>
-
-
+ 
+ 
         </section>
     );
 };
-
+ 
 export default Configurable;
+ 
+ 
