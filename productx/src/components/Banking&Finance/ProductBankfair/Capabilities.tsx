@@ -58,7 +58,7 @@ const Capabilities = () => {
               </H2>
 
               <P>
-                Conciliare is Qcentrio's advanced reconciliation platform designed to automate and streamline complex financial reconciliation processes. It transforms how financial institutions match transactions across disparate sources, ensuring accuracy and efficiency.
+                Conciliare is Qnest's advanced reconciliation platform designed to automate and streamline complex financial reconciliation processes. It transforms how financial institutions match transactions across disparate sources, ensuring accuracy and efficiency.
               </P>
 
               {/* ICON LIST */}

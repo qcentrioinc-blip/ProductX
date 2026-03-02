@@ -1,11 +1,13 @@
 import { useState, useRef } from 'react';
-import { ArrowRight, X } from 'lucide-react';
+import {   X } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { H3, P } from '../../../styles/Typography';
+
 
 const productionSites = [
     'USA', 'Switzerland', 'UK', 'Singapore', 'India', 'Australia'
 ];
+
 
 interface Location {
     id: string;
@@ -13,6 +15,7 @@ interface Location {
     position: { top: string; left: string };
     description: string;
 }
+
 
 const locations: Location[] = [
     {
@@ -53,17 +56,21 @@ const locations: Location[] = [
     }
 ];
 
+
 export default function Map() {
     const [selectedLocation, setSelectedLocation] = useState<Location | null>(locations[0]);
     const sectionRef = useRef(null);
+
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start end', 'end start']
     });
 
+
     const cardY = useTransform(scrollYProgress, [0, 1], [250, -50]);
     const cardOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+
 
     return (
         <div
@@ -71,9 +78,10 @@ export default function Map() {
             className="relative w-full overflow-hidden bg-white font-sans
                         h-auto md:h-[1000px]"
         >
-            {/* Background Map */}
+            {/* Background Map — hidden on mobile (mobile uses its own map section below) */}
+            {/* ✅ FIX 1: Added "hidden md:block" so desktop is unchanged, mobile uses dedicated section */}
             <div
-                className="absolute inset-0"
+                className="hidden md:block absolute inset-0"
                 style={{
                     backgroundImage: 'url(/worldmap.webp)',
                     backgroundSize: 'contain',
@@ -81,7 +89,9 @@ export default function Map() {
                 }}
             />
 
+
             <div className="relative z-10 h-full flex flex-col">
+
 
                 {/* ── Header ── */}
                 <div className="p-4 sm:p-6 md:p-10 lg:p-16 max-w-2xl">
@@ -100,7 +110,8 @@ export default function Map() {
                     </P>
                 </div>
 
-                {/* ── Map Dots — hidden on mobile, visible md+ ── */}
+
+                {/* ── Map Dots — DESKTOP ONLY (hidden on mobile, visible md+) ── UNCHANGED ── */}
                 <div className="hidden md:block">
                     {locations.map((location) => (
                         <button
@@ -124,32 +135,70 @@ export default function Map() {
                     ))}
                 </div>
 
+
+                {/* ✅ FIX 2: MOBILE MAP SECTION — dedicated map image + dots, only on mobile */}
+                <div className="block md:hidden relative w-full h-[220px] mx-auto overflow-hidden">
+                    {/* Map image inside its own relative container */}
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: 'url(/worldmap.webp)',
+                            backgroundSize: 'contain',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    />
+                    {/* Dots are now absolutely positioned INSIDE this map container */}
+                    {locations.map((location) => (
+                        <button
+                            key={location.id}
+                            className="absolute z-20 cursor-pointer transition-transform duration-200 active:scale-110"
+                            style={{
+                                top: location.position.top,
+                                left: location.position.left,
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                            onClick={() => setSelectedLocation(location)}
+                        >
+                            <div className="relative flex items-center justify-center">
+                                <div className="absolute w-6 h-6 bg-[#0066A1] rounded-full opacity-20 animate-ping" />
+                                <div className="absolute w-4 h-4 bg-[#0066A1] rounded-full opacity-40" />
+                                <div className="relative w-3 h-3 bg-[#0066A1] rounded-full border-2 border-white shadow-md flex items-center justify-center">
+                                    <div className="w-1 h-1 bg-[#6CB52D] rounded-full" />
+                                </div>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+
+
                 {/* MOBILE left card — static, in normal flow */}
                 <div className="block md:hidden px-4 pb-4">
-                    <div className="bg-[#2B68C3] rounded-2xl shadow-2xl p-6 w-full border-[12px] border-white">
+                    <div className="bg-white rounded-2xl shadow-2xl p-6 w-full border-[12px] border-[#2B68C3]">
                         <div className="flex flex-col space-y-6">
+
 
                             {/* Section 1 */}
                             <div className="flex items-start gap-4 justify-between">
                                 <div
-                                    className="text-3xl font-medium text-white leading-none shrink-0"
+                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
                                     6
                                 </div>
                                 <div className="flex flex-col">
                                     <div
-                                        className="text-xs font-extrabold text-white mb-1 uppercase tracking-widest"
-                                        style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                        className=" text-md text-[#2B68C3] mb-1 uppercase tracking-widest"
+                                        style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }} 
                                     >
-                                        Manufacturing Sites
+                                        Locations
                                     </div>
                                     <div className="space-y-0.5">
                                         {productionSites.map((site, index) => (
                                             <div
                                                 key={index}
-                                                className="text-xs text-white"
-                                                style={{ fontFamily: 'Barlow, sans-serif' }}
+                                                className="text-xs text-[#2B68C3]"
+                                                style={{ fontFamily: 'Quicksand, sans-serif' }}
                                             >
                                                 {site}
                                             </div>
@@ -158,39 +207,42 @@ export default function Map() {
                                 </div>
                             </div>
 
+
                             {/* Section 2 */}
                             <div className="flex items-start gap-6">
                                 <div
-                                    className="text-3xl font-medium text-white leading-none shrink-0"
+                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
                                     400+
                                 </div>
-                                <div className="flex flex-col pt-2">
+                                <div className="flex flex-col relative left-20  pt-2">
                                     <div
-                                        className="text-sm font-extrabold text-white uppercase tracking-widest"
+                                        className="text-sm font-extrabold text-[#2B68C3] uppercase tracking-widest"
                                         style={{ fontFamily: 'Quicksand, sans-serif' }}
                                     >
                                         Turbines
                                     </div>
-                                    <div className="text-xs text-white mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                    <div className="text-xs text-[#2B68C3] mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                         Installed Globally
                                     </div>
                                 </div>
                             </div>
 
+
                             {/* Link */}
-                            <a
+                            {/* <a
                                 href="#"
-                                className="text-white text-sm font-semibold flex items-center group"
+                                className="text-[#2B68C3] text-sm font-semibold flex items-center group"
                                 style={{ fontFamily: 'Barlow, sans-serif' }}
                             >
                                 View All References
                                 <ArrowRight size={16} strokeWidth={2} className="ml-1" />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>
+
 
                 {/* MOBILE right card — static, below left card */}
                 {selectedLocation && (
@@ -219,12 +271,14 @@ export default function Map() {
                     </div>
                 )}
 
-                {/* ── DESKTOP LEFT CARD — md+ only, scroll animation ── */}
+
+                {/* ── DESKTOP LEFT CARD — md+ only, scroll animation ── UNCHANGED ── */}
                 <motion.div
                     style={{ y: cardY, opacity: cardOpacity }}
                     className="hidden md:block absolute left-12 top-[35%] z-30 bg-white rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-[#2B68C3]"
                 >
                     <div className="flex flex-col space-y-16">
+
 
                         {/* Section 1 */}
                         <div className="flex items-start gap-8 justify-between">
@@ -237,9 +291,9 @@ export default function Map() {
                             <div className="flex flex-col">
                                 <div
                                     className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
-                                    style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
-                                    Manufacturing Sites
+                                    Locations
                                 </div>
                                 <div className="space-y-1">
                                     {productionSites.map((site, index) => (
@@ -250,6 +304,7 @@ export default function Map() {
                                 </div>
                             </div>
                         </div>
+
 
                         {/* Section 2 */}
                         <div className="flex items-start gap-10">
@@ -272,15 +327,17 @@ export default function Map() {
                             </div>
                         </div>
 
+
                         {/* Link */}
-                        <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                        {/* <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
                             View All References
                             <ArrowRight size={18} strokeWidth={2} className="ml-2 md:w-5 md:h-5" />
-                        </a>
+                        </a> */}
                     </div>
                 </motion.div>
 
-                {/* ── DESKTOP RIGHT CARD — md+ only ── */}
+
+                {/* ── DESKTOP RIGHT CARD — md+ only ── UNCHANGED ── */}
                 {selectedLocation && (
                     <div
                         className="hidden md:flex absolute right-12 top-[25%] z-30 flex-col gap-3 w-[340px] lg:w-[380px]"
@@ -305,7 +362,9 @@ export default function Map() {
                     </div>
                 )}
 
+
             </div>
+
 
             <style>{`
                 @keyframes slideInRight {

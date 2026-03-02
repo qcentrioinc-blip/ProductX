@@ -4,7 +4,7 @@ import { useState } from "react";
 import { H4, P } from "../styles/Typography";
 import { toast } from "react-toastify";
 
-export default function NewFooter() {
+export default function AnimatedFooter() {
   const [email, setEmail] = useState("");
   const [buttonColor, setButtonColor] = useState("bg-[#141414]");
 
@@ -53,7 +53,7 @@ export default function NewFooter() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-300 mb-12"></div>
+        {/* <div className="border-t border-gray-300 mb-12"></div> */}
 
         {/* Middle Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">

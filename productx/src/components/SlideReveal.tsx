@@ -36,8 +36,8 @@ export default function SlideReveal() {
     >
       <div
         className={`${isDesktop
-            ? "sticky top-0 h-screen overflow-hidden"
-            : ""
+          ? "sticky top-20 h-auto overflow-hidden"
+          : ""
           }`}
       >
         {/* MOBILE STATIC IMAGE */}
@@ -46,7 +46,7 @@ export default function SlideReveal() {
             <img
               src="/Img1.png"
               alt="Wind Energy"
-              className="w-full h-[300px] object-cover"
+              className="w-full object-fit"
             />
           </div>
         )}
