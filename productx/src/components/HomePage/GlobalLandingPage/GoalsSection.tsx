@@ -12,12 +12,12 @@ const stats = [
 
 export default function GoalsSection() {
   return (
-    <section className="w-full bg-white  py-6 xl:py-10 px-6 md:px-12 lg:px-16">
+    <section className="w-full bg-white  py-6 xl:py-10 px-6 md:px-8">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center gap-4 lg:gap-20">
 
         {/* ── LEFT: ~45% ── */}
         <div className="w-full lg:w-[60%] flex flex-col items-start">
-          <h2 className="text-gray-900 font-bricolage  text-lg md:text-[24px]  lg:text-[64px] leading-tight  mb-2 md:mb-5">
+          <h2 className="text-gray-900 font-bricolage  text-lg md:text-[24px]  lg:text-[56px] leading-tight  mb-2 md:mb-5">
             Turning goals into<br className="xl:block hidden" /> measurable results.
           </h2>
 

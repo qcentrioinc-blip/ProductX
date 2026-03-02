@@ -26,7 +26,7 @@ const InnovationCards = () => {
  
             {/* Heading */}
             <h2
-              className="text-[#2A2A2A] text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[55px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
+              className="text-[#141414] text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[55px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
               style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
             >
               We build platforms that scale with you. 
