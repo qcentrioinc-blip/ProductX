@@ -77,11 +77,20 @@ const StarIcon = ({ className }: { className?: string }) => (
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Lighter inner rectangle */}
-        <div className="absolute inset-4 bg-[#ffffff]  border-1 border-[#ffffff] rounded-lg backdrop-blur-sm"></div>
+        <div className="absolute inset-4 bg-[#ffffff]  border-1 border-[#ffffff] rounded-lg backdrop-blur-sm">
+          
+        </div>
 
         {/* Circle and Texts on top of light box */}
         <div className="relative z-10 px-8">
-          <div className="absolute top-0 lg:left-20 left-18 transform -translate-x-1/2  w-16  h-16 bg-[#E5E5E5] rounded-full " />
+          <div className="absolute top-0 lg:left-20 left-18 transform -translate-x-1/2  w-16  h-16 rounded-full  flex items-center justify-center">
+          <img
+    src="/EHR-PMS/Nurse/icon1.svg"
+    alt="Feature icon"
+    loading="lazy"
+    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+  />
+          </div>
           <div className="pt-22 space-y-10 p-6">
             <div>
               <H4EHR className="mb-3 text-[#2A2A2A]">Scattered Patient Information </H4EHR>
