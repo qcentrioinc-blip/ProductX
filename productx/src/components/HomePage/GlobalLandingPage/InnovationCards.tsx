@@ -160,7 +160,7 @@
 Add to your index.html <head>:
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
 */
-
+import { motion } from "framer-motion";
 const InnovationCards = () => {
   return (
     <section className="w-full bg-white px-4 sm:px-8 xl:px-16">
@@ -198,7 +198,7 @@ const InnovationCards = () => {
           <div className="relative flex flex-col justify-center w-full lg:w-[48%] xl:w-[626px] xl:h-[198px] flex-shrink-0 rounded-[30px] bg-[#E7E3D7] p-5 xl:pt-[20px] xl:pr-[30px] xl:pb-[20px] xl:pl-[30px] gap-4 xl:gap-[21px]">
 
             {/* Dark Circle */}
-            <div className="absolute top-4 right-4 xl:top-[20px] xl:right-[30px] w-[38px] h-[38px] xl:w-[46px] xl:h-[46px] rounded-full bg-[#424242] flex-shrink-0" />
+            {/* <div className="absolute top-4 right-4 xl:top-[20px] xl:right-[30px] w-[38px] h-[38px] xl:w-[46px] xl:h-[46px] rounded-full bg-[#424242] flex-shrink-0" /> */}
 
             {/* Our Approach Title */}
             <span
@@ -227,11 +227,11 @@ const InnovationCards = () => {
           {/* ── Bottom Left Card ── */}
           <div className="relative w-full h-[420px] sm:h-[400px] lg:h-[454px] xl:h-[454px] rounded-[30px] bg-[#E7E3D7] overflow-hidden sm:col-span-2 lg:col-span-1 flex flex-col justify-between p-5 xl:p-0">
 
-            {/* ── MOBILE & TABLET LAYOUT (flex column) ── */}
-            <div className="flex flex-col h-full xl:hidden">
+            {/* ── MOBILE & TABLET LAYOUT (Similar to Desktop) ── */}
+            <div className="relative flex flex-col h-full xl:hidden overflow-hidden">
 
-              {/* White Badge */}
-              <div className="flex items-center bg-white rounded-full px-[20px] py-[15px] h-[52px] w-fit mb-4">
+              {/* ✅ Heading Badge */}
+              <div className="absolute top-[20px] left-[20px] flex items-center bg-white rounded-full px-[15px] py-[10px] h-[46px] w-fit z-20">
                 <span
                   className="text-[#2B68C3] text-[18px] sm:text-[20px] font-semibold leading-none"
                   style={{ fontFamily: "Quicksand, sans-serif" }}
@@ -240,20 +240,68 @@ const InnovationCards = () => {
                 </span>
               </div>
 
-              {/* Image — right aligned */}
-              <div className="flex justify-end flex-1 px-2">
-                <div className="w-[55%] max-w-[200px] h-full max-h-[260px] rounded-[20px] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
-                    alt="How we deliver"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              {/* ✅ Image Card - adjusted for mobile */}
+              <div className="absolute top-[70px] right-[10px] w-[140px] h-[180px] sm:w-[180px] sm:h-[230px] rounded-[20px] overflow-hidden z-20 shadow-lg">
+                <img
+                  src="/howwe.webp"
+                  alt="How we deliver"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
-              {/* Bottom Paragraph */}
+              {/* ✅ Pill Buttons Marquee - Moves Right to Left */}
+              <div className="absolute top-[120px] left-0 w-full overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[10px] w-max"
+                >
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[10px] pr-[10px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <div
+                          key={j}
+                          className="flex items-center border border-[#2B68C3] rounded-full px-[15px] py-[8px] h-[40px] whitespace-nowrap"
+                        >
+                          <span
+                            className="text-[#2B68C3] text-[14px] font-semibold tracking-widest"
+                            style={{ fontFamily: "Quicksand, sans-serif" }}
+                          >
+                            {text}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Large Text Marquee - Moves Left to Right */}
+              <div className="absolute top-[180px] left-0 w-full overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["-50%", "0%"] }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[20px] w-max"
+                >
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[20px] pr-[20px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <span
+                          key={j}
+                          className="text-[#2B68C3] text-[20px] font-bold tracking-widest whitespace-nowrap"
+                          style={{ fontFamily: "Quicksand, sans-serif" }}
+                        >
+                          {text}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Bottom Description */}
               <p
-                className="text-[#141414] text-[12px] sm:text-[13px] font-normal leading-[155%] m-0 mt-3"
+                className="absolute bottom-[20px] left-[20px] right-[20px] text-[#141414] text-[13px] sm:text-[14px] font-normal leading-[155%] m-0 z-20"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
                 Every engagement begins with clear goals, agreed metrics, and
@@ -262,11 +310,12 @@ const InnovationCards = () => {
               </p>
             </div>
 
-            {/* ── DESKTOP LAYOUT (absolute positioning) — xl only ── */}
-            <div className="hidden xl:block w-full h-full relative">
 
-              {/* White Badge */}
-              <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-10">
+
+            <div className="hidden xl:block w-full h-full relative overflow-hidden">
+
+              {/* ✅ Heading Badge - Static top left */}
+              <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[229px] z-0">
                 <span
                   className="text-[#2B68C3] text-[24px] font-semibold leading-none block w-[190px]"
                   style={{ fontFamily: "Quicksand, sans-serif" }}
@@ -275,25 +324,79 @@ const InnovationCards = () => {
                 </span>
               </div>
 
-              {/* Dummy Image */}
-              <div className="absolute top-[84px] left-[400px] w-[214px] h-[271px] rounded-[20px] overflow-hidden">
+              {/* ✅ Image Card - z-10 always in FRONT */}
+              <div className="absolute top-[84px] left-[500px] w-[214px] h-[271px] rounded-[20px] overflow-hidden z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
+                  src="/howwe.webp"
                   alt="How we deliver"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Bottom Paragraph */}
+              {/* ✅ Pill Buttons - Infinite RIGHT → LEFT Marquee, BEHIND image */}
+              <div className="absolute top-[160px] left-0 w-[500px] overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["0%", "-50%"] }}           // moves right to left
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[16px] w-max"
+                >
+                  {/* Duplicate TWICE for seamless infinite loop */}
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[16px] pr-[16px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <div
+                          key={j}
+                          className="flex items-center border border-[#2B68C3] rounded-full px-[28px] py-[14px] h-[56px] whitespace-nowrap"
+                        >
+                          <span
+                            className="text-[#2B68C3] text-[18px] font-semibold tracking-widest"
+                            style={{ fontFamily: "Quicksand, sans-serif" }}
+                          >
+                            {text}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Large Text - Infinite LEFT → RIGHT Marquee, BEHIND image */}
+              <div className="absolute top-[240px] left-0 w-[500px] overflow-hidden z-0">
+                <motion.div
+                  animate={{ x: ["-50%", "0%"] }}           // moves left to right
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-[40px] w-max"
+                >
+                  {/* Duplicate TWICE for seamless infinite loop */}
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="flex gap-[40px] pr-[40px]">
+                      {["QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM", "QUIS AUTEM"].map((text, j) => (
+                        <span
+                          key={j}
+                          className="text-[#2B68C3] text-[28px] font-bold tracking-widest whitespace-nowrap"
+                          style={{ fontFamily: "Quicksand, sans-serif" }}
+                        >
+                          {text}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* ✅ Bottom Description - STATIC, no animation */}
               <p
-                className="absolute top-[384px] left-[21px] w-[542px] text-[#141414] text-[16px] font-normal leading-[155%] m-0"
+                className="absolute top-[380px] left-0 right-0 mx-10 w-[542px] text-left text-[#141414] text-[16px] font-normal leading-[155%] m-0 z-0"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
                 Every engagement begins with clear goals, agreed metrics, and
                 realistic timelines, to drive performance, revenue, and
                 competitive edge.
               </p>
+
             </div>
+
           </div>
 
           {/* ── Spacer — xl only, pushes images to right ── */}

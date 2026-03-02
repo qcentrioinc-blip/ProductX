@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ContactUs } from "../../styles/Button";
 import { H2, P } from "../../styles/Typography";
 
@@ -27,10 +28,20 @@ const Intro = () => {
             <P className="text-base md:text-lg text-[#141414] mb-8 leading-relaxed">
               We offer specialized products including Bankfair, PAGO, Sherlock, and Remitree. Each solution integrates seamlessly with your infrastructure.
             </P>
-
+<Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
             <ContactUs className="inline-flex items-center gap-2">
               View All
             </ContactUs>
+            </Link>
           </div>
 
           {/* RIGHT SIDE IMAGE */}

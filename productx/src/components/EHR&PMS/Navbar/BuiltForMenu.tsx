@@ -47,7 +47,7 @@ const BuiltForMenu = ({
                 handleKeepOpen();
             }}
             onMouseLeave={handleCloseMenus}
-            className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[120px]" : "top-[85px]") : "top-34"}
+            className={`fixed left-1/2 ${isScrolled ? (showTopBar ? "top-[112px]" : "top-[78px]") : "top-[128px]"}
 translate-y-1 -translate-x-1/2
 bg-white px-24 py-10 shadow-xl z-[9998]
 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]

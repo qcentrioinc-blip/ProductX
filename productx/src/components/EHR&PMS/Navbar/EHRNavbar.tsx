@@ -216,8 +216,8 @@ const EHRNavbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link>
-          <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Marketplace</Link>
+          {/* <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link> */}
+          <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-black'}`}>Marketplace</Link>
         </div>
 
         <button
@@ -275,7 +275,7 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-14 w-80 z-[999] p-1"
+                  className="absolute top-10 w-80 z-[999] p-1"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
@@ -566,7 +566,7 @@ const EHRNavbar = () => {
         </div>
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
-          <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link>
+          {/* <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link> */}
           <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
         </div>
 
