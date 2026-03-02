@@ -76,7 +76,7 @@ const InnovationCards = () => {
               </div>
  
               {/* ✅ Image Card - adjusted for mobile */}
-              <div className="absolute top-[70px] right-[10px] w-[140px] h-[180px] sm:w-[180px] sm:h-[230px] rounded-[20px] overflow-hidden z-20 shadow-lg">
+              <div className="absolute top-[50px] right-[0px] w-[140px] h-[180px] sm:w-[180px] sm:h-[230px] rounded-[20px] overflow-hidden z-20 shadow-lg">
                 <img
                   src="/howwe.webp"
                   alt="How we deliver"
