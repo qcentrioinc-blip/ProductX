@@ -18,7 +18,7 @@ export default function PatientJourney() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0.02);
 const stepThresholds = [
-  0.00, // 1
+  0.0, // 1
   0.10, // 2s
   0.20, // 3
   0.30, // 4
@@ -69,8 +69,8 @@ const strokeProgress = Math.max(
   className="relative hidden xl:block bg-white z-30"
   style={{ height: "420vh" }}
 >
- 
-      <div className="sticky top-20 h-[80vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
+
+      <div className="sticky top-20 h-[100vh] xl:[80vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
           <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">

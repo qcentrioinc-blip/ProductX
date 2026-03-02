@@ -46,7 +46,7 @@ export default function SlideReveal() {
             <img
               src="/Img1.png"
               alt="Wind Energy"
-              className="w-full h-[300px] object-cover"
+              className="w-full object-fit"
             />
           </div>
         )}

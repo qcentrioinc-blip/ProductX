@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { ArrowRight, X } from 'lucide-react';
+import {   X } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { H3, P } from '../../../styles/Typography';
 
@@ -188,17 +188,17 @@ export default function Map() {
                                 </div>
                                 <div className="flex flex-col">
                                     <div
-                                        className="text-xs font-extrabold text-[#2B68C3] mb-1 uppercase tracking-widest"
-                                        style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                        className=" text-md text-[#2B68C3] mb-1 uppercase tracking-widest"
+                                        style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }} 
                                     >
-                                        Manufacturing Sites
+                                        Locations
                                     </div>
                                     <div className="space-y-0.5">
                                         {productionSites.map((site, index) => (
                                             <div
                                                 key={index}
                                                 className="text-xs text-[#2B68C3]"
-                                                style={{ fontFamily: 'Barlow, sans-serif' }}
+                                                style={{ fontFamily: 'Quicksand, sans-serif' }}
                                             >
                                                 {site}
                                             </div>
@@ -231,14 +231,14 @@ export default function Map() {
 
 
                             {/* Link */}
-                            <a
+                            {/* <a
                                 href="#"
                                 className="text-[#2B68C3] text-sm font-semibold flex items-center group"
                                 style={{ fontFamily: 'Barlow, sans-serif' }}
                             >
                                 View All References
                                 <ArrowRight size={16} strokeWidth={2} className="ml-1" />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>
@@ -291,9 +291,9 @@ export default function Map() {
                             <div className="flex flex-col">
                                 <div
                                     className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
-                                    style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
-                                    Manufacturing Sites
+                                    Locations
                                 </div>
                                 <div className="space-y-1">
                                     {productionSites.map((site, index) => (
@@ -329,10 +329,10 @@ export default function Map() {
 
 
                         {/* Link */}
-                        <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                        {/* <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
                             View All References
                             <ArrowRight size={18} strokeWidth={2} className="ml-2 md:w-5 md:h-5" />
-                        </a>
+                        </a> */}
                     </div>
                 </motion.div>
 

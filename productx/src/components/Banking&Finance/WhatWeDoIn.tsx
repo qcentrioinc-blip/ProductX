@@ -224,7 +224,7 @@ useEffect(() => {
               className="flex-1 flex flex-col justify-center gap-3 min-h-0"
             >
               {accordionData.map((item, index) => {
-                const isOpen = openIndex === index;
+              const isOpen = !isDesktop ? true : openIndex === index;
 
                 return (
                   <div
@@ -233,7 +233,9 @@ useEffect(() => {
                       isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
                     }`}
                     style={{ minHeight: isOpen ? "auto" : "100px" }}
-                    onClick={() => setOpenIndex(index)}
+                   onClick={() => {
+  if (isDesktop) setOpenIndex(index);
+}}
                   >
                     {/* Number */}
                     <span
@@ -300,7 +302,7 @@ useEffect(() => {
           >
             <div className="w-full flex flex-col gap-6">
               {accordionData.map((item, index) => {
-                const isOpen = openIndex === index;
+                // const isOpen = openIndex === index;
 
                 return (
                   <div key={item.id} className="w-full">
@@ -315,9 +317,7 @@ useEffect(() => {
 
                     {/* Accordion */}
                     <div
-                      className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 ${
-                        isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
-                      }`}
+                      className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 `}
                     >
                       <div
                         className="flex items-center justify-between px-4 py-4 cursor-pointer"
@@ -325,22 +325,18 @@ useEffect(() => {
                       >
                         <div className="flex items-center">
                           <span
-                            className={`text-4xl sm:text-5xl font-bold mr-4 transition-colors duration-500 ${
-                              isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
-                            }`}
+                            className={`text-4xl sm:text-5xl font-bold mr-4 transition-colors duration-500 `}
                           >
                             {String(item.id).padStart(2, "0")}
                           </span>
                           <H3
-                            className={`text-lg sm:text-xl font-semibold transition-colors duration-500 ${
-                              isOpen ? "text-[#3E3E3E]" : "text-black"
-                            }`}
+                            className={`text-lg sm:text-xl font-semibold transition-colors duration-500 `}
                           >
                             {item.title}
                           </H3>
                         </div>
 
-                        {isOpen && (
+                      
                           <motion.a
                             href={item.link}
                             initial={{ opacity: 0, x: 10 }}
@@ -355,10 +351,10 @@ useEffect(() => {
                               className="w-4 h-4"
                             />
                           </motion.a>
-                        )}
+                        
                       </div>
 
-                      {isOpen && (
+                   
                         <motion.div
                           layout
                           initial={{ opacity: 0 }}
@@ -375,7 +371,7 @@ useEffect(() => {
                               ))
                             : <P>{item.content}</P>}
                         </motion.div>
-                      )}
+               
                     </div>
                   </div>
                 );

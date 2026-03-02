@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { H2EHR } from '../../../styles/Typography';
- 
 // SMOOTH WAVE BREATHING EFFECT - Reduced heights + Smooth scroll
 const GradientLayers = () => {
   const containerRef = useRef(null);
@@ -148,7 +147,6 @@ const EHRFooter = () => {
                 >
                   Subscribe to our newsletter
                 </H2EHR>
- 
                 <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full justify-start xl:justify-center items-stretch">
                   <div className="flex flex-col xl:w-[50%] xl:ml-48">
                     <input
@@ -263,9 +261,9 @@ const EHRFooter = () => {
           }}
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
- 
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.6fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
- 
+
               {/* QUICK LINKS */}
               <div>
                 <h3

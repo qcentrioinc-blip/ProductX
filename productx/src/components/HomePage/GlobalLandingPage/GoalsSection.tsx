@@ -7,7 +7,7 @@ const stats = [
   { value: "30%",   label: "AI-Driven\nOutcomes"     },
   { value: "99.9%", label: "Secure, Scalable\nCloud" },
   { value: "24/7",  label: "End-to-End\nDelivery"    },
-  { value: "100+",  label: "Global\nClients"         },
+  { value: "50%",  label: "Faster regulatory\ncompliance" },
 ];
 
 export default function GoalsSection() {

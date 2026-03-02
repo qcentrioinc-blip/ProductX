@@ -1,14 +1,20 @@
 "use client";
 
 const logos = [
-  { src: "/Logo/logo1.svg", alt: "Logo 1", label: "ALMANAC" },
-  { src: "/Logo/logo2.svg", alt: "Logo 2", label: "Concilier" },
-  { src: "/Logo/logo3.svg", alt: "Logo 3", label: "PAGO" },
-  { src: "/Logo/logo4.svg", alt: "Logo 4", label: "Sherlock" },
-  { src: "/Logo/logo5.svg", alt: "Logo 5", label: "Product 5" },
-  { src: "/Logo/logo6.svg", alt: "Logo 6", label: "Product 6" },
-  { src: "/Logo/logo7.svg", alt: "Logo 7", label: "Product 7" },
-  { src: "/Logo/logo8.svg", alt: "Logo 8", label: "Product 8" },
+  { label: "Bankfair", tagline: "Core Banking" },
+  { label: "PAGO", tagline: "Payment System" },
+  { label: "Sherlock", tagline: "AML Monitoring" },
+  { label: "Remitree", tagline: "Cross-border Remittance" },
+  { label: "LOS", tagline: "Loan Origination System" },
+  { label: "ALMANAC", tagline: "Asset Management" },
+  { label: "SAMS", tagline: "NPA Tracking" },
+  { label: "Conciliare", tagline: "AI Reconciliation" },
+  { label: "IOS", tagline: "Internet & Mobile Banking" },
+  { label: "Diligent", tagline: "KYC & CDD Platform" },
+  { label: "Cloud Diet", tagline: "Cloud Optimization AI" },
+  { label: "Unified Health", tagline: "EHR & PMS" },
+  { label: "HRMS", tagline: "Human Resource Platform" },
+  { label: "DMS", tagline: "Document & Contract Management" },
 ];
 
 export default function LogoMarquee() {
@@ -37,37 +43,51 @@ export default function LogoMarquee() {
         {/* Scrolling track */}
         <div
           className="flex items-center"
-          style={{ animation: "marquee 28s linear infinite" }}
+          style={{ animation: "marquee 38s linear infinite" }}
         >
           {doubled.map((logo, i) => (
             <div
               key={i}
-              className="flex items-center justify-center flex-shrink-0"
+              className="flex items-center space-y-4 justify-center flex-shrink-0"
               style={{
                 // Desktop: 350×200, Mobile: 160×80
-                width: "clamp(160px, 22vw, 350px)",
-                height: "clamp(80px, 10vw, 200px)",
+              width: "clamp(220px, 40vw, 350px)",
+height: "clamp(110px, 18vw, 200px)",
                 borderRight: "1px solid #e0e0e0",
                 padding: "0 clamp(16px, 2vw, 40px)",
               }}
             >
-              <span
-                className="product-name text-[18px] xl:text-[28px]"
-                style={{
-                  
-                  fontWeight: 600,
-                  letterSpacing: "1px",
-                  color: "#b5b5b5",
-                  filter: "grayscale(100%)",
-                  opacity: 1,
-                  transition: "all 0.3s ease",
-                  cursor: "pointer",
-                  userSelect: "none",
-                  fontFamily:"bricolage,sans-serif"
-                }}
-              >
-                {logo.label || logo.alt}
-              </span>
+             <div className="text-center leading-tight">
+  <div
+    className="product-name text-[18px] xl:text-[28px]"
+    style={{
+      fontWeight: 600,
+      letterSpacing: "1px",
+      color: "#b5b5b5",
+      filter: "grayscale(100%)",
+      transition: "all 0.3s ease",
+      cursor: "pointer",
+      userSelect: "none",
+      fontFamily: "bricolage, sans-serif",
+    
+    }}
+  >
+    {logo.label}
+  </div>
+
+  <div
+    className="text-[12px]  font-bricolage xl:text-[16px]"
+    style={{
+      color: "#b5b5b5",
+      marginTop: "8px",
+      fontWeight: 400,
+      letterSpacing: "0.5px",
+      transition: "all 0.3s ease",
+    }}
+  >
+    {logo.tagline}
+  </div>
+</div>
             </div>
           ))}
         </div>

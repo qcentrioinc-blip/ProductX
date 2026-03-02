@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { P } from "../../../styles/Typography";
 const InnovationCards = () => {
   return (
     <section className="w-full bg-white px-4 sm:px-8 xl:mx-auto">
@@ -68,21 +69,21 @@ const InnovationCards = () => {
               {/* ✅ Heading Badge */}
               <div className="absolute top-[20px] left-[20px] flex items-center bg-white rounded-full px-[15px] py-[10px] h-[46px] w-fit z-20">
                 <span
-                  className="text-[#2B68C3] text-[18px] sm:text-[20px] font-semibold leading-none"
-                  style={{ fontFamily: "Quicksand, sans-serif" }}
+                  className="text-[#2B68C3] text-[18px] font-bricolage sm:text-[20px] font-semibold leading-none"
+                 
                 >
                   How We Deliver
                 </span>
               </div>
  
               {/* ✅ Image Card - adjusted for mobile */}
-              <div className="absolute top-[50px] right-[0px] w-[140px] h-[180px] sm:w-[180px] sm:h-[230px] rounded-[20px] overflow-hidden z-20 shadow-lg">
+              {/* <div className="absolute top-[50px] right-[0px] w-[140px] h-[180px] sm:w-[180px] sm:h-[230px] rounded-[20px] overflow-hidden z-20 shadow-lg">
                 <img
                   src="/howwe.webp"
                   alt="How we deliver"
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </div> */}
  
               {/* ✅ Pill Buttons Marquee - Moves Right to Left */}
               <div className="absolute top-[120px] left-0 w-full overflow-hidden z-0">
@@ -135,12 +136,12 @@ const InnovationCards = () => {
               </div>
  
               {/* ✅ Bottom Description */}
-              <p
-                className="absolute bottom-[20px] left-[20px] right-[20px] text-[#141414] text-[13px] sm:text-[14px] font-normal leading-[155%] m-0 z-20"
-                style={{ fontFamily: "Quicksand, sans-serif" }}
+              <P
+                className="absolute bottom-[40px] left-[20px] right-[20px] text-[#141414]  leading-[155%] m-0 z-20"
+                 
               >
                 We deliver agile, integrated platforms that automate compliance and scale reliably with your institution's growth. 
-              </p>
+              </P>
             </div>
  
  
@@ -245,7 +246,7 @@ const InnovationCards = () => {
 </div>
  
           {/* ── First Image ── */}
-          <div className="relative z-10 w-full h-[260px] sm:h-[380px] lg:h-[454px] xl:h-[454px] rounded-[30px] overflow-hidden">
+          <div className="relative z-10 w-full h-[260px] hidden md:flex sm:h-[380px] lg:h-[454px] xl:h-[454px] rounded-[30px] overflow-hidden">
             <img
               src="/Global-Landing-Page/card1.webp"
               alt="Woman working with laptop"
