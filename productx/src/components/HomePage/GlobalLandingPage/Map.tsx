@@ -94,19 +94,17 @@ export default function Map() {
 
 
                 {/* ── Header ── */}
-                <div className="p-4 sm:p-6 md:p-10 lg:p-16 max-w-2xl">
+                <div className="p-4 sm:p-6 md:p-10 lg:p-16 max-w-3xl">
                     <H3
                         className="text-xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl uppercase text-[#002DB4] leading-tight mb-3 md:mb-6"
                     >
-                        Our Global Presence Across Six Strategic Manufacturing Locations
+                   Global Footprint Delivering Enterprise Solutions Across Industries
                     </H3>
                     <P
-                        className="text-sm sm:text-base md:text-xl text-gray-800 leading-relaxed"
-                        style={{ fontFamily: 'Quicksand, sans-serif' }}
+                        className="text-sm max-w-2xl sm:text-base md:text-xl text-gray-800 leading-relaxed"
+                        
                     >
-                        With production facilities across Europe and Asia, we maintain an
-                        international supply chain to serve customers efficiently. Six
-                        operational hubs ensure reliable delivery and local support worldwide.
+                       With delivery centers and offices across North America, Europe, Asia, and Australia, we serve financial institutions, healthcare providers, and enterprises worldwide. Our global team ensures local support and seamless implementation. 
                     </P>
                 </div>
 
@@ -191,7 +189,8 @@ export default function Map() {
                                         className=" text-md text-[#2B68C3] mb-1 uppercase tracking-widest"
                                         style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }} 
                                     >
-                                        Locations
+                                       Operational Countries 
+
                                     </div>
                                     <div className="space-y-0.5">
                                         {productionSites.map((site, index) => (
@@ -224,7 +223,7 @@ export default function Map() {
                                         Turbines
                                     </div>
                                     <div className="text-xs text-[#2B68C3] mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
-                                        Installed Globally
+                                       Skilled Professionals Globally 
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +292,7 @@ export default function Map() {
                                     className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
                                      style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
-                                    Locations
+                                   Operational Countries 
                                 </div>
                                 <div className="space-y-1">
                                     {productionSites.map((site, index) => (
@@ -321,8 +320,8 @@ export default function Map() {
                                 >
                                     Turbines
                                 </div>
-                                <div className="text-sm text-[#2B68C3] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
-                                    Installed Globally
+                                <div className="text-sm  text-[#2B68C3] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                   Skilled Professionals Globally 
                                 </div>
                             </div>
                         </div>

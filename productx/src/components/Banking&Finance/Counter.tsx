@@ -32,15 +32,16 @@ const Counter = () => {
   return (
     <div
       ref={sectionRef}
+      onMouseDown={(e) => e.preventDefault()}
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden py-6 md:py-10"
+      className="relative overflow-hidden py-6 md:py-10 select-none"
       style={{
         background: "linear-gradient(90deg, #2B68C34D, #FED6004D)",
       }}
     >
       {/* Glow effect following mouse */}
       <motion.div
-        className="absolute w-[100px] h-[100px] rounded-full blur-3xl bg-amber-500 pointer-events-none"
+      className="absolute w-[100px] h-[100px] rounded-full blur-3xl bg-amber-500 pointer-events-none will-change-transform"
         animate={{
           x: mousePos.x - 60,
           y: mousePos.y - 60,
