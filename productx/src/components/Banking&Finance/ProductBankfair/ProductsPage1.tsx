@@ -7,7 +7,7 @@ import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import Building from "./Building"
 // import Capabilities from "./Capabilities"
-import Enterprises from "./Enterprises"
+// import Enterprises from "./Enterprises"
 // import FirstProduct from "./FirstProduct"
 // import PagoNavbar from "../ProductPago/PagoNavbar"
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav"
@@ -65,7 +65,7 @@ const ProductsPage1 = () => {
       <HeroBottomNavbar />
       <Capabilities />
       <div id="benefits"> <Building /></div>
-      <div id="overview"><Enterprises /></div>
+      {/* <div id="overview"><Enterprises /></div> */}
       <div id="consilier"><ConsilierCard /></div>
       <div id="consilier"><ConsilierCTA /></div>
       <div id="industry"><Industry /></div>

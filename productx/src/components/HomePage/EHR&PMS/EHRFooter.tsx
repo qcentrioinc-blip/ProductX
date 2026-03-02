@@ -1,18 +1,18 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { H2 } from '../../../styles/Typography';
-
+import { H2EHR } from '../../../styles/Typography';
+ 
 // SMOOTH WAVE BREATHING EFFECT - Reduced heights + Smooth scroll
 const GradientLayers = () => {
   const containerRef = useRef(null);
-
+ 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
-
+ 
   const GRADIENT = 'linear-gradient(90deg, #0E5756 0%, #116D6B 25%, #218281 50%, #41A09E 75%, #51B4B3 100%)';
-
+ 
   const layers = [
     { opacity: 0.9, minHeight: 10, maxHeight: 28 },
     { opacity: 0.8, minHeight: 12, maxHeight: 30 },
@@ -21,7 +21,7 @@ const GradientLayers = () => {
     { opacity: 0.2, minHeight: 6, maxHeight: 22 },
     { opacity: 0.05, minHeight: 5, maxHeight: 20 }
   ];
-
+ 
   return (
     <div ref={containerRef} className="w-full">
       {layers.map((layer, index) => {
@@ -30,13 +30,13 @@ const GradientLayers = () => {
           0.5,
           1.0 - (index * 0.03)
         ];
-
+ 
         const height = useTransform(
           scrollYProgress,
           scrollRange,
           [layer.minHeight, layer.maxHeight, layer.minHeight]
         );
-
+ 
         return (
           <motion.div
             key={index}
@@ -56,15 +56,15 @@ const GradientLayers = () => {
     </div>
   );
 };
-
+ 
 const EHRFooter = () => {
   const base = '/industries/ehr-and-pms';
-
+ 
   // Email validation state
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
+ 
   const validateEmail = (value: string): string => {
     if (!value.trim()) {
       return 'Email address is required.';
@@ -75,7 +75,7 @@ const EHRFooter = () => {
     }
     return '';
   };
-
+ 
   const handleSubmit = () => {
     const error = validateEmail(email);
     if (error) {
@@ -87,7 +87,7 @@ const EHRFooter = () => {
     setSubmitted(true);
     // TODO: handle actual submission logic here
   };
-
+ 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     if (emailError) {
@@ -95,7 +95,7 @@ const EHRFooter = () => {
     }
     if (submitted) setSubmitted(false);
   };
-
+ 
   const quickLinks = [
     { name: 'Physician', path: `${base}/physician` },
     { name: 'Admin', path: `${base}/admin` },
@@ -104,21 +104,21 @@ const EHRFooter = () => {
     { name: 'Insurance Coordinator', path: `${base}/insurance-coordinator` },
     { name: 'Pricing', path: `${base}/pricing` },
   ];
-
+ 
   const builtfor = [
     { name: 'Long Term Care', path: `${base}/built-for/long-term-care` },
     { name: 'Home Healthcare', path: `${base}/built-for/home-healthcare` },
     { name: 'Clinics & Hospitals', path: `${base}/built-for/clinics-and-hospitals` },
   ];
-
+ 
   return (
     <footer className="bg-[#008280]">
       {/* Green Gradient Layers */}
       <GradientLayers />
-
+ 
       {/* Main Container */}
       <div className="bg-[#008280] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
-
+ 
         {/* TOP CARD - Newsletter */}
         <div
           className="bg-white shadow-xl w-full"
@@ -130,13 +130,13 @@ const EHRFooter = () => {
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-8 lg:py-10">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
-
+ 
               <div className="flex-shrink-0">
                 <img src="/QnestEHRLogo.svg" alt="QNEST Logo" className="w-50 lg:w-68 h-auto" />
               </div>
-
+ 
               <div className="w-full max-w-2xl flex flex-col items-start lg:items-end">
-                <H2
+                <H2EHR
                   className="mb-8 text-left lg:text-center"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -147,8 +147,8 @@ const EHRFooter = () => {
                   }}
                 >
                   Subscribe to our newsletter
-                </H2>
-
+                </H2EHR>
+ 
                 <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full justify-start xl:justify-center items-stretch">
                   <div className="flex flex-col xl:w-[50%] xl:ml-48">
                     <input
@@ -188,7 +188,7 @@ const EHRFooter = () => {
                       </p>
                     )}
                   </div>
-
+ 
                   <button
                     onClick={handleSubmit}
                     className="
@@ -210,7 +210,7 @@ const EHRFooter = () => {
                   >
                     <span className="flex items-center font-bricolage gap-2">
                       Submit
-
+ 
                       <span className="relative flex items-center justify-center w-[20px] h-[20px]">
                         {/* Default Icon */}
                         <svg
@@ -228,7 +228,7 @@ const EHRFooter = () => {
                           <path d="M7 7h10v10" />
                           <path d="M7 17L17 7" />
                         </svg>
-
+ 
                         {/* Hover Icon */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@ const EHRFooter = () => {
             </div>
           </div>
         </div>
-
+ 
         {/* BOTTOM CARD - Links */}
         <div
           className="bg-white shadow-xl w-full relative"
@@ -263,9 +263,9 @@ const EHRFooter = () => {
           }}
         >
           <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[0.6fr_0.6fr_1fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
-
+ 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.6fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
+ 
               {/* QUICK LINKS */}
               <div>
                 <h3
@@ -294,7 +294,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
-
+ 
               {/* BUILT FOR */}
               <div>
                 <h3
@@ -323,7 +323,7 @@ const EHRFooter = () => {
                   ))}
                 </ul>
               </div>
-
+ 
               {/* RESOURCES */}
               {/* <div>
                 <h3
@@ -350,7 +350,7 @@ const EHRFooter = () => {
                   </li>
                 </ul>
               </div> */}
-
+ 
               {/* FOOTER VIDEO */}
               <div className="flex h-full">
                 <div className="w-full h-full overflow-hidden">
@@ -368,7 +368,7 @@ const EHRFooter = () => {
             </div>
           </div>
         </div>
-
+ 
         <div className="px-4 sm:px-6 md:px-12 pb-8 pt-10">
           <div className="max-w-8xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white">
             <p
@@ -421,5 +421,6 @@ const EHRFooter = () => {
     </footer>
   );
 };
-
+ 
 export default EHRFooter;
+ 
