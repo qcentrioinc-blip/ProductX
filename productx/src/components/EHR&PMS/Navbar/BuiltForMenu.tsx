@@ -71,8 +71,8 @@ ${isScrolled
                         }}
                         className="block cursor-pointer pointer-events-auto hover:bg-gray-100 p-2 rounded-lg transition-colors"
                     >
-                        <h3 className="text-lg font-quicksand font-semibold text-gray-900 mb-1">{item.title}</h3>
-                        <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
+                        <h3 className="text-lg font-quicksand font-bold text-gray-900">{item.title}</h3>
+                        <P className="text-gray-600 text-base leading-snug">{item.desc}</P>
                     </Link>
                 ))}
             </div>

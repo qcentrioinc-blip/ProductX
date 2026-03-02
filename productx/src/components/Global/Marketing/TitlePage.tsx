@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { H1, P } from "../../../styles/Typography";
-import { Search } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 
 const products = [
   { name: "Conciliare", path: "/industries/banking-and-finance/products/conciliare" },
@@ -109,11 +109,34 @@ export default function MarketplaceHero() {
       className="relative w-full h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
     >
       <div>
-        <img 
+        <img
           src="/Hero.png"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"/>
+          className="absolute inset-0 w-full h-full object-cover opacity-50" />
 
+        {/* Go Back Button & Logo */}
+        <div className="absolute top-10 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="
+              group flex items-center justify-center
+              w-12 h-12 md:w-14 md:h-14
+              bg-white/70 backdrop-blur-md
+              border border-white/60
+              rounded-full
+              text-black
+              shadow-md
+              cursor-pointer
+              hover:bg-white
+              transition-all duration-300
+            "
+          >
+            <ArrowRight
+              size={24}
+              className="rotate-180 transition-transform duration-300 group-hover:-translate-x-1 md:w-8 md:h-8"
+            />
+          </button>
+        </div>
       </div>
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
         <H1
@@ -133,8 +156,8 @@ export default function MarketplaceHero() {
             transform: isVisible ? "translateY(0)" : "translateY(30px)",
           }}
         >
-           Access Qnest's complete suite of banking products on a single platform. From core banking and loan management to AML compliance and cross-border remittances. Each solution is built by industry practitioners to address specific operational challenges faced by financial institutions globally.
-  
+          Access Qnest's complete suite of banking products on a single platform. From core banking and loan management to AML compliance and cross-border remittances. Each solution is built by industry practitioners to address specific operational challenges faced by financial institutions globally.
+
         </P>
 
         {/* ---------------- Premium Search ---------------- */}
@@ -206,10 +229,9 @@ export default function MarketplaceHero() {
                     className={`
                       px-6 py-4 cursor-pointer text-left
                       transition-all duration-200
-                      ${
-                        activeIndex === index
-                          ? "bg-blue-100 text-blue-700 font-medium"
-                          : "hover:bg-blue-50"
+                      ${activeIndex === index
+                        ? "bg-blue-100 text-blue-700 font-medium"
+                        : "hover:bg-blue-50"
                       }
                     `}
                   >
