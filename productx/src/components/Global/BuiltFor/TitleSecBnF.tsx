@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+ 
 const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: string }> = {
   banks: {
     title: "Banking solutions built for modern institutions.",
@@ -17,20 +17,25 @@ const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: st
     bgImage: "/BuiltForBnf/financial-union.webp"
   }
 };
-
+ 
 export default function TitleSecBnF() {
   const { builtForType } = useParams<{ builtForType: string }>();
 
   // Default to banks if type not found
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
-
+ 
   return (
     <section className="w-full bg-white relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
       
       {/* LEFT CONTENT */}
-      <div className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute">
-        <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[687px] flex flex-col gap-[24px]">
-          
+      <div
+        className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute"
+        style={{
+          gap: "24px",
+        }}
+      >
+        {/* Desktop Wrapper helps match the Figma constraints while mobile stays fluid */}
+        <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[600px] flex flex-col gap-[24px]">
           <h1
             className="text-[#2B68C3] m-0 p-0 font-bricolage"
             style={{
@@ -41,9 +46,13 @@ export default function TitleSecBnF() {
           >
             {content.title}
           </h1>
-
-          <Link
-            to="/marketplace"
+ 
+          <a href="/marketplace">
+          <button
+            onClick={() => {
+              const el = document.getElementById("contact-us");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
             className="flex items-center justify-center font-bold text-black border border-black hover:bg-black hover:text-white transition-colors duration-300"
             style={{
               width: "240px",
@@ -72,11 +81,11 @@ export default function TitleSecBnF() {
               <path d="M7 7h10v10" />
               <path d="M7 17 17 7" />
             </svg>
-          </Link>
-
+          </button>
+          </a>
         </div>
       </div>
-
+ 
       {/* RIGHT IMAGE */}
       <div
         className="w-full xl:w-full xl:absolute z-0 xl:right-0"

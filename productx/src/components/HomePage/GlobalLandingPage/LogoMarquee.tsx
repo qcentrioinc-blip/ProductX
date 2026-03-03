@@ -1,5 +1,5 @@
 "use client";
-
+ 
 const logos = [
   { label: "Bankfair", tagline: "Core Banking" },
   { label: "PAGO", tagline: "Payment System" },
@@ -16,17 +16,17 @@ const logos = [
   { label: "HRMS", tagline: "Human Resource Platform" },
   { label: "DMS", tagline: "Document & Contract Management" },
 ];
-
+ 
 export default function LogoMarquee() {
   const doubled = [...logos, ...logos];
-
+ 
   return (
     <div
       className="w-full bg-[#fcfcfc] mt-1 overflow-hidden"
       style={{
         borderTop: "2px solid #a9a9a9",
         borderBottom: "2px solid #a9a9a9",
-        
+       
       }}
     >
       <div className="relative flex">
@@ -39,7 +39,7 @@ export default function LogoMarquee() {
               "linear-gradient(to right, #ffffff 0%, transparent 100%)",
           }}
         />
-
+ 
         {/* Scrolling track */}
         <div
           className="flex items-center"
@@ -63,18 +63,18 @@ height: "clamp(110px, 18vw, 200px)",
     style={{
       fontWeight: 600,
       letterSpacing: "1px",
-      
+     
       filter: "grayscale(100%)",
       transition: "all 0.3s ease",
       cursor: "pointer",
       userSelect: "none",
       fontFamily: "bricolage, sans-serif",
-    
+   
     }}
   >
     {logo.label}
   </div>
-
+ 
   <div
     className="text-[12px]  text-[#1C59A1] font-bricolage  xl:text-[20px]"
     style={{
@@ -91,7 +91,7 @@ height: "clamp(110px, 18vw, 200px)",
             </div>
           ))}
         </div>
-
+ 
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
@@ -102,14 +102,14 @@ height: "clamp(110px, 18vw, 200px)",
           }}
         />
       </div>
-
+ 
       <style>{`
         .product-name:hover {
           filter: grayscale(0%);
           opacity: 1;
           color: #000;
         }
-
+ 
         @keyframes marquee {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }

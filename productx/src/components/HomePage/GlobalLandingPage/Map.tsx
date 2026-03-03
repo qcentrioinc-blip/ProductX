@@ -1,14 +1,14 @@
 import { useState, useRef } from 'react';
 import { X } from 'lucide-react';
-// import {useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { H3, P } from '../../../styles/Typography';
-
-
-// const productionSites = [
-//     'USA', 'Switzerland', 'UK', 'Singapore', 'India', 'Australia'
-// ];
-
-
+ 
+ 
+const productionSites = [
+    'USA', 'Switzerland', 'UK', 'Singapore', 'India', 'Australia'
+];
+ 
+ 
 interface Location {
     id: string;
     name: string;
@@ -45,7 +45,7 @@ const locations: Location[] = [
     {
         id: 'india',
         name: 'India',
-        position: { top: '53%', left: '74%' },
+        position: { top: '53%', left: '77%' },
         description: 'Unit # 504D, 5th Floor, 126(P), PSR Prime Tower, Gachibowli, Hyderabad, Telangana 500032'
     },
     {
@@ -60,18 +60,18 @@ const locations: Location[] = [
 export default function Map() {
     const [selectedLocation, setSelectedLocation] = useState<Location | null>(locations[0]);
     const sectionRef = useRef(null);
-
-
-    // const { scrollYProgress } = useScroll({
-    //     target: sectionRef,
-    //     offset: ['start end', 'end start']
-    // });
-
-
-    // const cardY = useTransform(scrollYProgress, [0, 1], [250, -50]);
-    // const cardOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-
-
+ 
+ 
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ['start end', 'end start']
+    });
+ 
+ 
+    const cardY = useTransform(scrollYProgress, [0, 1], [250, -50]);
+    const cardOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+ 
+ 
     return (
         <div
             ref={sectionRef}
@@ -102,6 +102,7 @@ export default function Map() {
                     </H3>
                     <P
                         className="text-sm max-w-2xl sm:text-base md:text-xl text-gray-800 leading-relaxed"
+ 
                     >
                         With delivery centers and offices across North America, Europe, Asia, and Australia, we serve financial institutions, healthcare providers, and enterprises worldwide. Our global team ensures local support and seamless implementation.
                     </P>
@@ -170,8 +171,78 @@ export default function Map() {
  
  
                 {/* MOBILE left card — static, in normal flow */}
-
-
+                <div className="block md:hidden px-4 pb-4">
+                    <div className="bg-white rounded-2xl shadow-2xl p-6 w-full border-[12px] border-[#2B68C3]">
+                        <div className="flex flex-col space-y-6">
+ 
+ 
+                            {/* Section 1 */}
+                            <div className="flex items-start gap-4 justify-between">
+                                <div
+                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                    style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                                >
+                                    6
+                                </div>
+                                <div className="flex flex-col">
+                                    <div
+                                        className=" text-md text-[#2B68C3] mb-1 uppercase tracking-widest"
+                                        style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                                    >
+                                        Operational Countries
+ 
+                                    </div>
+                                    <div className="space-y-0.5">
+                                        {productionSites.map((site, index) => (
+                                            <div
+                                                key={index}
+                                                className="text-xs text-[#2B68C3]"
+                                                style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                            >
+                                                {site}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+ 
+ 
+                            {/* Section 2 */}
+                            {/* <div className="flex items-start gap-6">
+                                <div
+                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                    style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                                >
+                                    400+
+                                </div>
+                                <div className="flex flex-col relative left-20  pt-2">
+                                    <div
+                                        className="text-sm font-extrabold text-[#2B68C3] uppercase tracking-widest"
+                                        style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                    >
+                                      Skilled Professionals Globally
+                                    </div>
+                                    <div className="text-xs text-[#2B68C3] mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                       Skilled Professionals Globally
+                                    </div>
+                                </div>
+                            </div> */}
+ 
+ 
+                            {/* Link */}
+                            {/* <a
+                                href="#"
+                                className="text-[#2B68C3] text-sm font-semibold flex items-center group"
+                                style={{ fontFamily: 'Barlow, sans-serif' }}
+                            >
+                                View All References
+                                <ArrowRight size={16} strokeWidth={2} className="ml-1" />
+                            </a> */}
+                        </div>
+                    </div>
+                </div>
+ 
+ 
                 {/* MOBILE right card — static, below left card */}
                 {selectedLocation && (
                     <div className="block md:hidden px-4 pb-6">
@@ -201,9 +272,70 @@ export default function Map() {
  
  
                 {/* ── DESKTOP LEFT CARD — md+ only, scroll animation ── UNCHANGED ── */}
-                {/*  */}
-
-
+                <motion.div
+                    style={{ y: cardY, opacity: cardOpacity }}
+                    className="hidden md:block absolute left-12 top-[35%] z-30 bg-white rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-[#2B68C3]"
+                >
+                    <div className="flex flex-col space-y-16">
+ 
+ 
+                        {/* Section 1 */}
+                        <div className="flex items-start gap-8 justify-between">
+                            <div
+                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                            >
+                                6
+                            </div>
+                            <div className="flex flex-col">
+                                <div
+                                    className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
+                                    style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                                >
+                                    Operational Countries
+                                </div>
+                                <div className="space-y-1">
+                                    {productionSites.map((site, index) => (
+                                        <div key={index} className="text-sm text-[#2B68C3]" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                            {site}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+ 
+ 
+                        {/* Section 2 */}
+                        {/* <div className="flex items-start gap-10">
+                            <div
+                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
+                            >
+                                400+
+                            </div>
+                            <div className="flex flex-col pt-3">
+                                <div
+                                    className="text-base font-extrabold text-[#2B68C3] uppercase tracking-widest"
+                                    style={{ fontFamily: 'Quicksand, sans-serif' }}
+                                >
+                                   Skilled Professionals Globally
+                                </div>
+                                <div className="text-sm  text-[#2B68C3] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                   
+                                </div>
+                            </div>
+                        </div> */}
+ 
+ 
+                        {/* Link */}
+                        {/* <a href="#" className="text-black text-lg font-semibold flex items-center group" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                            View All References
+                            <ArrowRight size={18} strokeWidth={2} className="ml-2 md:w-5 md:h-5" />
+                        </a> */}
+                    </div>
+                </motion.div>
+ 
+ 
                 {/* ── DESKTOP RIGHT CARD — md+ only ── UNCHANGED ── */}
                 {selectedLocation && (
                     <div
@@ -245,3 +377,4 @@ export default function Map() {
         </div>
     );
 }
+ 
