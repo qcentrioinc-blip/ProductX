@@ -44,7 +44,18 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'What Is Core Banking and When Should a Financial Institution..',
         description: 'If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling... ',
-    }
+    },
+    //   {
+    //     id: 8,
+    //     slug: "how-to-reduce-payment-processing",
+    //     date: '16 Feb 2026',
+        
+    //      imageSrc: '/Blog/CoreBankingBlog.webp',
+    //     title: 'Sed ut perspiciatis Unde',
+    //     subtitle: 'What Is Core Banking and When Should a Financial Institution..',
+    //     description: 'If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling... ',
+    // },
+    
 ];
 
 // --- Sub-Component for a Single Image Card with Text Above ---

@@ -1,7 +1,7 @@
-import {   useNavigate, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: string }> = {
-  "banks": {
+  banks: {
     title: "Banking solutions built for modern institutions.",
     buttonLabel: "EXPLORE PRODUCTS",
     bgImage: "/BuiltForBnf/bnklanding.webp"
@@ -20,21 +20,17 @@ const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: st
 
 export default function TitleSecBnF() {
   const { builtForType } = useParams<{ builtForType: string }>();
-const navigate = useNavigate();
-  // Default to banks if type not found (or handle generic case)
+
+  // Default to banks if type not found
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
 
   return (
     <section className="w-full bg-white relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
+      
       {/* LEFT CONTENT */}
-      <div
-        className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute"
-        style={{
-          gap: "24px",
-        }}
-      >
-        {/* Desktop Wrapper helps match the Figma constraints while mobile stays fluid */}
+      <div className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute">
         <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[687px] flex flex-col gap-[24px]">
+          
           <h1
             className="text-[#2B68C3] m-0 p-0 font-bricolage"
             style={{
@@ -46,8 +42,8 @@ const navigate = useNavigate();
             {content.title}
           </h1>
 
-          <button
-          onClick={() => navigate("/marketplace")}
+          <Link
+            to="/marketplace"
             className="flex items-center justify-center font-bold text-black border border-black hover:bg-black hover:text-white transition-colors duration-300"
             style={{
               width: "240px",
@@ -59,7 +55,9 @@ const navigate = useNavigate();
               fontFamily: "'quicksand', sans-serif"
             }}
           >
-            <span className="uppercase whitespace-nowrap">{content.buttonLabel}</span>
+            <span className="uppercase whitespace-nowrap">
+              {content.buttonLabel}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -74,16 +72,15 @@ const navigate = useNavigate();
               <path d="M7 7h10v10" />
               <path d="M7 17 17 7" />
             </svg>
-          </button>
+          </Link>
+
         </div>
       </div>
 
       {/* RIGHT IMAGE */}
       <div
         className="w-full xl:w-full xl:absolute z-0 xl:right-0"
-        style={{
-          top: "clamp(0px, 141.5px, 120px)",
-        }}
+        style={{ top: "clamp(0px, 141.5px, 120px)" }}
       >
         <div className="w-full h-full xl:absolute xl:right-0 xl:w-full xl:max-w-3xl xl:h-[700px]">
           <img
@@ -93,6 +90,7 @@ const navigate = useNavigate();
           />
         </div>
       </div>
+
     </section>
   );
 }

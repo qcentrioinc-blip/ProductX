@@ -78,7 +78,7 @@ const HeroSection = () => {
     {/* Video */}
     <video
       ref={videoRef}
-      className="w-full h-auto max-h-screen object-cover"
+      className="w-full h-auto  xl:max-h-screen object-cover"
       src="/Video/HeroFinal.mp4"
       autoPlay
       muted
@@ -94,7 +94,7 @@ const HeroSection = () => {
     <div className="absolute inset-0 bg-blue-900/50 pointer-events-none" />
 
     {/* Content */}
-    <div className="absolute left-4 md:left-14 lg:left-12 xl:left-28 top-1/2 xl:top-72 overflow-hidden text-left">
+    <div className="absolute left-4 md:left-14 l g:left-12 xl:left-28 top-1/2 xl:top-72 overflow-hidden text-left">
       <h1 className="text-white font-bricolage text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px]">
         Enterprise AI-enabled platforms{" "}
         <br className="md:block hidden" />
