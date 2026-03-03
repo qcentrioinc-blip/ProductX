@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </H1>
           <P className="mx-auto max-w-3xl text-lg md:text-xl text-white/80 leading-relaxed">
-            At FinCore Banking Solutions, your privacy and the security of your financial information are our highest priorities. This policy explains how we collect, use, and protect your personal and financial data in compliance with applicable banking regulations.
+            At Qnest Banking Solutions, your privacy and the security of your financial information are our highest priorities. This policy explains how we collect, use, and protect your personal and financial data in compliance with applicable banking regulations.
           </P>
           <div className="mt-10 flex flex-wrap font-quicksand items-center justify-center gap-4">
             <a
@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
               <P className="text-sm text-gray-500">Last updated: February 1, 2026</P>
 
               <P className="mb-2">
-                FinCore Banking Solutions ("we," "us," or "our") is committed to protecting the privacy and security of your personal and financial information. This Privacy Policy describes how we collect, use, disclose, and safeguard information obtained through our banking platforms, mobile applications, websites, and related financial services (collectively, the "Services"). By using our Services, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of our Services immediately.
+                Qnest Banking Solutions ("we," "us," or "our") is committed to protecting the privacy and security of your personal and financial information. This Privacy Policy describes how we collect, use, disclose, and safeguard information obtained through our banking platforms, mobile applications, websites, and related financial services (collectively, the "Services"). By using our Services, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of our Services immediately.
               </P>
 
               <P className="mb-2">
@@ -192,7 +192,7 @@ export default function PrivacyPolicy() {
                   Our Services are intended for individuals who are 18 years of age or older, or the minimum age of majority in their jurisdiction. We do not knowingly collect, process, or store personal data from minors without verified parental or guardian consent.
                 </P>
                 <P className="mb-2">
-                  Certain products (such as youth savings accounts) may be offered with explicit parental consent and appropriate safeguards. If you believe we have inadvertently collected data from a minor without appropriate consent, please contact us immediately at privacy@fincore.com and we will take prompt corrective action.
+                  Certain products (such as youth savings accounts) may be offered with explicit parental consent and appropriate safeguards. If you believe we have inadvertently collected data from a minor without appropriate consent, please contact us immediately at privacy@Qnest.com and we will take prompt corrective action.
                 </P>
               </section>
 
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
                 <P className="mb-2"><strong>Right to Data Portability:</strong> Request your data in a structured, machine-readable format for transfer to another provider where technically feasible.</P>
                 <P className="mb-2"><strong>Right to Object:</strong> Object to processing based on legitimate interests, including direct marketing.</P>
                 <P className="mb-2"><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, withdraw it at any time without affecting prior lawful processing.</P>
-                <P className="mb-2">To exercise any of these rights, submit a written request to our Data Protection Officer at dpo@fincore.com. We will respond within 30 days (or sooner as required by law). We may need to verify your identity before processing your request.</P>
+                <P className="mb-2">To exercise any of these rights, submit a written request to our Data Protection Officer at dpo@Qnest.com. We will respond within 30 days (or sooner as required by law). We may need to verify your identity before processing your request.</P>
               </section>
 
               {/* 12 */}
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
                 <P className="mb-2">
                   If you have questions, concerns, or requests relating to this Privacy Policy or our data practices, please contact our Data Protection Officer:
                 </P>
-                <P className="mb-2"><strong>Data Protection Officer</strong><br />FinCore Banking Solutions<br />Email: dpo@fincore.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
+                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: dpo@Qnest.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
                 <P className="mb-2">
                   If you are located in the EEA or UK and are unsatisfied with our response, you have the right to lodge a complaint with your local supervisory authority (e.g., the ICO in the UK, or your national Data Protection Authority within the EU).
                 </P>

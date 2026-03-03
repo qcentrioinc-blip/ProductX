@@ -159,16 +159,16 @@ const InnovationCards = () => {
               </div>
  
               {/* ✅ Image Card - z-10 always in FRONT */}
-              <div className="absolute top-[30px] left-[460px] w-[214px] h-[340px] rounded-[20px] overflow-hidden z-10">
+              {/* <div className="absolute top-[30px] left-[460px] w-[214px] h-[340px] rounded-[20px] overflow-hidden z-10">
                 <img
                   src="/howwe.webp"
                   alt="How we deliver"
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </div> */}
  
               {/* ✅ Pill Buttons - Infinite RIGHT → LEFT Marquee, BEHIND image */}
-              <div className="absolute top-[160px] left-0 w-[500px] overflow-hidden z-0">
+              <div className="absolute top-[160px] left-0 w-full overflow-hidden z-0">
                 <motion.div
                   animate={{ x: ["0%", "-50%"] }}           // moves right to left
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -196,7 +196,7 @@ const InnovationCards = () => {
               </div>
  
               {/* ✅ Large Text - Infinite LEFT → RIGHT Marquee, BEHIND image */}
-              <div className="absolute top-[240px] left-0 w-[500px] overflow-hidden z-0">
+              <div className="absolute top-[240px] left-0 w-full overflow-hidden z-0">
                 <motion.div
                   animate={{ x: ["-50%", "0%"] }}           // moves left to right
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}

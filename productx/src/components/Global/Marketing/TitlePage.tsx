@@ -106,7 +106,7 @@ export default function MarketplaceHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
+      className="relative w-full h-full xl:h-screen bg-gradient-to-br from-[#E7EFFF] to-[#F8FAFF] py-20 flex items-center justify-center overflow-hidden"
     >
       <div>
         <img
@@ -115,7 +115,7 @@ export default function MarketplaceHero() {
           className="absolute inset-0 w-full h-full object-cover opacity-50" />
 
         {/* Go Back Button & Logo */}
-        <div className="absolute top-10 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
+        <div className="absolute top-20 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
           <button
             onClick={() => navigate(-1)}
             className="
@@ -140,7 +140,7 @@ export default function MarketplaceHero() {
       </div>
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
         <H1
-          className="text-[#2B68C3] text-4xl md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"
+          className="text-[#2B68C3] text-4xl mt-20 xl:mt-0 md:text-6xl font-bold mb-6 leading-snug transition-all duration-700"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(40px)",

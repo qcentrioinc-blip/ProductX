@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import {   useNavigate, useParams } from "react-router-dom";
 
 const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: string }> = {
   "banks": {
@@ -20,7 +20,7 @@ const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: st
 
 export default function TitleSecBnF() {
   const { builtForType } = useParams<{ builtForType: string }>();
-
+const navigate = useNavigate();
   // Default to banks if type not found (or handle generic case)
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
 
@@ -47,10 +47,7 @@ export default function TitleSecBnF() {
           </h1>
 
           <button
-            onClick={() => {
-              const el = document.getElementById("contact-us");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
+          onClick={() => navigate("/marketplace")}
             className="flex items-center justify-center font-bold text-black border border-black hover:bg-black hover:text-white transition-colors duration-300"
             style={{
               width: "240px",

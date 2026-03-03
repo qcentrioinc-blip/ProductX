@@ -73,38 +73,43 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative w-full">
-      <video
-        ref={videoRef}
-        className="w-full h-auto max-h-screen object-cover"
-        src="/Video/HeroFinal.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        controls={false}
-      >
-        Your browser does not support the video tag.
-      </video>
+  <div className="relative w-full bg-[#0b1f3a]"> {/* Fallback background */}
 
-      <div className="absolute   left-4     md:left-14  lg:left-12  top-1/2 xl:left-28  xl:top-72  overflow-hidden text-left justify-center items-center">
-        <h1 className="text-white font-bricolage text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px] ">
-          Enterprise AI-enabled platforms {" "}
-          <br className="md:block hidden" />
-          
-          <span className="inline-flex items-center gap-1 xl:gap-3">
-             {" "}transforming   
-            <span className="text-blue-300  text-left">
-               {displayText}
-            </span>
-            <span className="inline-block w-[4px] h-[1em] bg-blue-400 animate-pulse align-middle" />
+    {/* Video */}
+    <video
+      ref={videoRef}
+      className="w-full h-auto max-h-screen object-cover"
+      src="/Video/HeroFinal.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      controls={false}
+    >
+      Your browser does not support the video tag.
+    </video>
+
+    {/* Blue Overlay */}
+    <div className="absolute inset-0 bg-blue-900/50 pointer-events-none" />
+
+    {/* Content */}
+    <div className="absolute left-4 md:left-14 lg:left-12 xl:left-28 top-1/2 xl:top-72 overflow-hidden text-left">
+      <h1 className="text-white font-bricolage text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px]">
+        Enterprise AI-enabled platforms{" "}
+        <br className="md:block hidden" />
+
+        <span className="inline-flex items-center gap-1 xl:gap-3">
+          transforming
+          <span className="text-blue-300">
+            {displayText}
           </span>
-          
-        </h1>
-      </div>
+          <span className="inline-block w-[4px] h-[1em] bg-blue-400 animate-pulse align-middle" />
+        </span>
+      </h1>
     </div>
-  );
+  </div>
+);
 };
 
 export default HeroSection;

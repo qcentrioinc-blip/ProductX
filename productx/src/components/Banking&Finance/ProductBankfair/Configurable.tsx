@@ -75,7 +75,7 @@ const Configurable = () => {
                 </div>
             </div> */}
 
-            <div className="flex flex-col flex-1 min-w-0">
+            <div className=" hidden lg:flex flex-col flex-1 min-w-0">
                 <div className="flex sm:flex-col flex-row flex-1">
                     <div
                         className="relative overflow-hidden flex-1"
