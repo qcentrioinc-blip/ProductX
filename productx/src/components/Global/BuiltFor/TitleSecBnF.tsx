@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-
+ 
 const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: string }> = {
   "banks": {
     title: "Banking solutions built for modern institutions.",
@@ -17,13 +17,13 @@ const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: st
     bgImage: "/BuiltForBnf/financial-union.webp"
   }
 };
-
+ 
 export default function TitleSecBnF() {
   const { builtForType } = useParams<{ builtForType: string }>();
-
+ 
   // Default to banks if type not found (or handle generic case)
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
-
+ 
   return (
     <section className="w-full bg-white relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
       {/* LEFT CONTENT */}
@@ -34,7 +34,7 @@ export default function TitleSecBnF() {
         }}
       >
         {/* Desktop Wrapper helps match the Figma constraints while mobile stays fluid */}
-        <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[687px] flex flex-col gap-[24px]">
+        <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[600px] flex flex-col gap-[24px]">
           <h1
             className="text-[#2B68C3] m-0 p-0 font-bricolage"
             style={{
@@ -45,7 +45,8 @@ export default function TitleSecBnF() {
           >
             {content.title}
           </h1>
-
+ 
+          <a href="/marketplace">
           <button
             onClick={() => {
               const el = document.getElementById("contact-us");
@@ -78,9 +79,10 @@ export default function TitleSecBnF() {
               <path d="M7 17 17 7" />
             </svg>
           </button>
+          </a>
         </div>
       </div>
-
+ 
       {/* RIGHT IMAGE */}
       <div
         className="w-full xl:w-full xl:absolute z-0 xl:right-0"
