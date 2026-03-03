@@ -26,10 +26,10 @@ const InnovationCards = () => {
  
             {/* Heading */}
             <h2
-              className="text-[#141414] text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[55px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
+              className="text-[#2A2A2A] text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[64px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
               style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
             >
-              We build platforms that scale with you. 
+              We build platforms that scale with you.
             </h2>
           </div>
  
@@ -52,7 +52,7 @@ const InnovationCards = () => {
               className="text-[#141414] text-[13px] sm:text-[14px] xl:text-[16px] font-normal leading-[155%] m-0 w-full xl:w-[526px]"
               style={{ fontFamily: "Quicksand, sans-serif" }}
             >
-              We engage stakeholders throughout the journey, involving them in key decisions to ensure alignment and ownership. Our solutions fit real workflows, ease change, and drive stronger adoption across teams while delivering measurable business outcomes. 
+              We engage stakeholders throughout the journey, involving them in key decisions to ensure alignment and ownership. Our solutions fit real workflows, ease change, and drive stronger adoption across teams while delivering measurable business outcomes.
             </p>
           </div>
         </div>
@@ -140,7 +140,7 @@ const InnovationCards = () => {
                 className="absolute bottom-[40px] left-[20px] right-[20px] text-[#141414]  leading-[155%] m-0 z-20"
                  
               >
-                We deliver agile, integrated platforms that automate compliance and scale reliably with your institution's growth. 
+                We deliver agile, integrated platforms that automate compliance and scale reliably with your institution's growth.
               </P>
             </div>
  
@@ -154,21 +154,21 @@ const InnovationCards = () => {
                   className="text-[#2B68C3] text-[24px] font-semibold leading-none block "
                   style={{ fontFamily: "Quicksand, sans-serif" }}
                 >
-                  Delivering Solutions 
+                  Delivering Solutions
                 </span>
               </div>
  
               {/* ✅ Image Card - z-10 always in FRONT */}
-              <div className="absolute top-[30px] left-[460px] w-[214px] h-[340px] rounded-[20px] overflow-hidden z-10">
+              {/* <div className="absolute top-[30px] left-[460px] w-[214px] h-[340px] rounded-[20px] overflow-hidden z-10">
                 <img
                   src="/howwe.webp"
                   alt="How we deliver"
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </div> */}
  
               {/* ✅ Pill Buttons - Infinite RIGHT → LEFT Marquee, BEHIND image */}
-              <div className="absolute top-[160px] left-0 w-[500px] overflow-hidden z-0">
+              <div className="absolute top-[160px] left-0 w-full overflow-hidden z-0">
                 <motion.div
                   animate={{ x: ["0%", "-50%"] }}           // moves right to left
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -196,7 +196,7 @@ const InnovationCards = () => {
               </div>
  
               {/* ✅ Large Text - Infinite LEFT → RIGHT Marquee, BEHIND image */}
-              <div className="absolute top-[240px] left-0 w-[500px] overflow-hidden z-0">
+              <div className="absolute top-[240px] left-0 w-full overflow-hidden z-0">
                 <motion.div
                   animate={{ x: ["-50%", "0%"] }}           // moves left to right
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -224,7 +224,7 @@ const InnovationCards = () => {
                 className="absolute top-[380px] left-0 right-0 mx-10 w-[542px] text-left text-[#141414] text-[16px] font-normal leading-[155%] m-0 z-0"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
-                We deliver agile, integrated platforms that automate compliance and scale reliably with your institution's growth. 
+                We deliver agile, integrated platforms that automate compliance and scale reliably with your institution's growth.
               </p>
  
             </div>

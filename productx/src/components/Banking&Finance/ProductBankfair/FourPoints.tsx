@@ -4,6 +4,8 @@ import { useScroll } from "framer-motion";
 const FourPoints = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
+    const navScrollRef = useRef<HTMLDivElement>(null);
+    const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -17,6 +19,24 @@ const FourPoints = () => {
             setActiveIndex(index);
         });
     }, [scrollYProgress]);
+
+    // Auto-scroll the mobile nav container horizontally to keep active tab visible
+    useEffect(() => {
+        const container = navScrollRef.current;
+        const activeBtn = navBtnRefs.current[activeIndex];
+        if (!container || !activeBtn) return;
+
+        const containerLeft = container.getBoundingClientRect().left;
+        const containerWidth = container.getBoundingClientRect().width;
+        const activeLeft = activeBtn.getBoundingClientRect().left;
+        const activeWidth = activeBtn.getBoundingClientRect().width;
+
+        const activeCenterRelative = activeLeft - containerLeft + activeWidth / 2;
+        const containerCenter = containerWidth / 2;
+        const scrollAdjustment = activeCenterRelative - containerCenter;
+
+        container.scrollBy({ left: scrollAdjustment, behavior: "smooth" });
+    }, [activeIndex]);
 
     const handleNavClick = (index: number) => {
         if (!containerRef.current) return;
@@ -93,10 +113,11 @@ const FourPoints = () => {
                     {/* ── Mobile/Tablet: Horizontal tabs ── */}
                     <div className="lg:hidden w-full mb-8">
                         {/* Horizontal tab row */}
-                        <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
+                        <div ref={navScrollRef} className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide scroll-smooth">
                             {navItems.map((item, index) => (
                                 <button
                                     key={index}
+                                    ref={(el) => { navBtnRefs.current[index] = el; }}
                                     onClick={() => handleNavClick(index)}
                                     className={`font-bricolage font-semibold text-lg md:text-xl text-[#2B68C3] whitespace-nowrap select-none transition-opacity duration-300 cursor-pointer bg-transparent border-none px-0 ${activeIndex === index ? "opacity-100" : "opacity-55"
                                         }`}
@@ -104,6 +125,8 @@ const FourPoints = () => {
                                     {item}
                                 </button>
                             ))}
+                            {/* Spacer to allow last item to be scrolled/centered on mobile */}
+                            <div className="min-w-[40vw] shrink-0" aria-hidden="true" />
                         </div>
                         {/* Horizontal progress bar */}
                         <div className="w-full h-[3px] rounded-full overflow-hidden mt-2 flex">

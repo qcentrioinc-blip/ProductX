@@ -1,5 +1,5 @@
 "use client";
-
+ 
 const logos = [
   { label: "Bankfair", tagline: "Core Banking" },
   { label: "PAGO", tagline: "Payment System" },
@@ -16,17 +16,17 @@ const logos = [
   { label: "HRMS", tagline: "Human Resource Platform" },
   { label: "DMS", tagline: "Document & Contract Management" },
 ];
-
+ 
 export default function LogoMarquee() {
   const doubled = [...logos, ...logos];
-
+ 
   return (
     <div
       className="w-full bg-[#fcfcfc] mt-1 overflow-hidden"
       style={{
-        borderTop: "2px solid #efefef",
-        borderBottom: "2px solid #efefef",
-        
+        borderTop: "2px solid #a9a9a9",
+        borderBottom: "2px solid #a9a9a9",
+       
       }}
     >
       <div className="relative flex">
@@ -34,12 +34,12 @@ export default function LogoMarquee() {
         <div
           className="absolute left-0 top-0 bottom-0 z-10  "
           style={{
-            width: "180px",
+            width: "60px",
             background:
               "linear-gradient(to right, #ffffff 0%, transparent 100%)",
           }}
         />
-
+ 
         {/* Scrolling track */}
         <div
           className="flex items-center"
@@ -53,32 +53,32 @@ export default function LogoMarquee() {
                 // Desktop: 350×200, Mobile: 160×80
               width: "clamp(220px, 40vw, 350px)",
 height: "clamp(110px, 18vw, 200px)",
-                borderRight: "1px solid #e0e0e0",
+                borderRight: "2px solid #a9a9a9 ",
                 padding: "0 clamp(16px, 2vw, 40px)",
               }}
             >
              <div className="text-center leading-tight">
   <div
-    className="product-name text-[18px] xl:text-[28px]"
+    className="product-name text-gray-500  text-[18px] xl:text-[28px]"
     style={{
       fontWeight: 600,
       letterSpacing: "1px",
-      color: "#b5b5b5",
+     
       filter: "grayscale(100%)",
       transition: "all 0.3s ease",
       cursor: "pointer",
       userSelect: "none",
       fontFamily: "bricolage, sans-serif",
-    
+   
     }}
   >
     {logo.label}
   </div>
-
+ 
   <div
-    className="text-[12px]  font-bricolage xl:text-[16px]"
+    className="text-[12px]  text-[#1C59A1] font-bricolage  xl:text-[20px]"
     style={{
-      color: "#b5b5b5",
+       
       marginTop: "8px",
       fontWeight: 400,
       letterSpacing: "0.5px",
@@ -91,25 +91,25 @@ height: "clamp(110px, 18vw, 200px)",
             </div>
           ))}
         </div>
-
+ 
         {/* Right fade */}
         <div
           className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
           style={{
-            width: "120px",
+            width: "60px",
             background:
               "linear-gradient(to left, #ffffff 0%, transparent 100%)",
           }}
         />
       </div>
-
+ 
       <style>{`
         .product-name:hover {
           filter: grayscale(0%);
           opacity: 1;
           color: #000;
         }
-
+ 
         @keyframes marquee {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }

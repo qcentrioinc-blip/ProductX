@@ -1,10 +1,10 @@
 'use client';
-
+ 
 import { H1, H4, P } from "../../../styles/Typography";
 import BNFNav from "../Navbar/BNFnav";
 import ContactUS from "../ProductRemitree/ContactUS";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-
+ 
 const sections = [
   { id: 'collect', title: 'What Information Do We Collect?' },
   { id: 'process', title: 'How Do We Process Your Information?' },
@@ -21,7 +21,7 @@ const sections = [
   { id: 'dnt', title: 'Controls for Do-Not-Track Features' },
   { id: 'contact', title: 'How Can You Contact Us?' },
 ];
-
+ 
 export default function Cookies() {
   return (
     <>
@@ -30,13 +30,13 @@ export default function Cookies() {
       <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#0B2A4A] via-[#0E3561] to-[#0B2A4A]">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),transparent_60%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_40%,rgba(255,255,255,0.04)_50%,transparent_60%)]" />
-
+ 
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center text-white">
           <H1 className="mb-6 mt-24 text-white text-5xl md:text-6xl font-semibold tracking-tight">
         Cookies Policy
           </H1>
           <P className="mx-auto max-w-3xl text-lg md:text-xl text-white/80 leading-relaxed">
-            At FinCore Banking Solutions, your privacy and the security of your financial information are our highest priorities. This policy explains how we collect, use, and protect your personal and financial data in compliance with applicable banking regulations.
+            At Qnest Banking Solutions, your privacy and the security of your financial information are our highest priorities. This policy explains how we collect, use, and protect your personal and financial data in compliance with applicable banking regulations.
           </P>
           <div className="mt-10 flex flex-wrap font-quicksand items-center justify-center gap-4">
             <a
@@ -54,25 +54,25 @@ export default function Cookies() {
           </div>
         </div>
       </section>
-
+ 
       {/* Content */}
       <section className="w-full bg-white text-gray-800">
         <div className="max-w-8xl px-4 xl:px-10 xl:mx-10  py-6 xl:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
-
+ 
             {/* MAIN CONTENT */}
             <article className="prose space-y-8 prose-gray max-w-none">
               <H1>Cookies Policy</H1>
               <P className="text-sm text-gray-500">Last updated: February 1, 2026</P>
-
+ 
               <P className="mb-2">
-                FinCore Banking Solutions ("we," "us," or "our") is committed to protecting the privacy and security of your personal and financial information. This Cookies Policy describes how we collect, use, disclose, and safeguard information obtained through our banking platforms, mobile applications, websites, and related financial services (collectively, the "Services"). By using our Services, you agree to the terms of this Cookies Policy. If you do not agree, please discontinue use of our Services immediately.
+                Qnest Banking Solutions ("we," "us," or "our") is committed to protecting the privacy and security of your personal and financial information. This Cookies Policy describes how we collect, use, disclose, and safeguard information obtained through our banking platforms, mobile applications, websites, and related financial services (collectively, the "Services"). By using our Services, you agree to the terms of this Cookies Policy. If you do not agree, please discontinue use of our Services immediately.
               </P>
-
+ 
               <P className="mb-2">
                 This policy applies to all customers, including individuals, businesses, credit unions, banks, and financial institutions that access or use our platforms. We operate in compliance with applicable financial privacy laws, including but not limited to the Gramm-Leach-Bliley Act (GLBA), the General Data Protection Regulation (GDPR) where applicable, and other regional data protection regulations.
               </P>
-
+ 
               {/* 1 */}
               <section id="collect">
                 <H4>1. What Information Do We Collect?</H4>
@@ -86,7 +86,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Behavioral and Usage Data:</strong> Pages visited, features used, transaction patterns, login frequency, and interaction logs within our applications.</P>
                 <P className="mb-2"><strong>Communications:</strong> Records of communications you have with our customer support teams, compliance officers, or through in-app messaging, including call recordings where required by regulation.</P>
               </section>
-
+ 
               {/* 2 */}
               <section id="process">
                 <H4>2. How Do We Process Your Information?</H4>
@@ -98,7 +98,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Service Improvement:</strong> To analyze usage trends, improve platform features, conduct internal research, and develop new financial products tailored to your needs.</P>
                 <P className="mb-2"><strong>Marketing (with consent):</strong> Where you have provided explicit consent, we may send communications about new products, offers, and financial insights. You may opt out at any time.</P>
               </section>
-
+ 
               {/* 3 */}
               <section id="legal">
                 <H4>3. What Legal Bases Do We Rely On?</H4>
@@ -109,7 +109,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Consent:</strong> For marketing communications, optional data collection, and certain profiling activities, we rely on your explicit consent, which you may withdraw at any time without affecting prior processing.</P>
                 <P className="mb-2"><strong>Vital Interests / Public Task:</strong> In limited circumstances, we may process data to protect vital interests or fulfill tasks carried out in the public interest as required by applicable law.</P>
               </section>
-
+ 
               {/* 4 */}
               <section id="share">
                 <H4>4. When and With Whom Do We Share Information?</H4>
@@ -121,7 +121,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction, subject to equivalent privacy protections.</P>
                 <P className="mb-2"><strong>With Your Consent:</strong> We may share information with third parties where you have given explicit consent, such as open banking integrations or third-party financial applications.</P>
               </section>
-
+ 
               {/* 5 */}
               <section id="cookies">
                 <H4>5. Do We Use Cookies and Tracking Technologies?</H4>
@@ -134,7 +134,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Analytics Cookies:</strong> Collect aggregated data on usage patterns. You may opt out of non-essential analytics cookies through our Cookie Preferences Centre.</P>
                 <P className="mb-2">You can manage cookie preferences at any time through your browser settings or our in-platform Cookie Preferences Centre. Note that disabling essential cookies may impair the security and functionality of your account.</P>
               </section>
-
+ 
               {/* 6 */}
               <section id="financial">
                 <H4>6. How Do We Handle Financial Data?</H4>
@@ -147,7 +147,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Transaction Monitoring:</strong> All transactions are subject to real-time monitoring for fraud, unusual activity, and AML compliance. Flagged transactions may be reviewed by our compliance team and reported to authorities as required.</P>
                 <P className="mb-2"><strong>Audit Trails:</strong> Complete, tamper-evident audit logs of all financial transactions and data access events are maintained for regulatory compliance and dispute resolution.</P>
               </section>
-
+ 
               {/* 7 */}
               <section id="international">
                 <H4>7. Is Your Information Transferred Internationally?</H4>
@@ -158,7 +158,7 @@ export default function Cookies() {
                   Where data is transferred outside your jurisdiction, we ensure appropriate safeguards are in place, including Standard Contractual Clauses (SCCs) approved by relevant authorities, adequacy decisions, or binding corporate rules. For transfers from the European Economic Area (EEA), we comply fully with GDPR Chapter V requirements.
                 </P>
               </section>
-
+ 
               {/* 8 */}
               <section id="retain">
                 <H4>8. How Long Do We Keep Your Information?</H4>
@@ -171,7 +171,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Marketing Data:</strong> Retained until you withdraw consent or request deletion, subject to any overriding legal retention requirements.</P>
                 <P className="mb-2">Upon expiration of applicable retention periods, data is securely deleted or anonymized in accordance with our data lifecycle management policy.</P>
               </section>
-
+ 
               {/* 9 */}
               <section id="secure">
                 <H4>9. How Do We Keep Your Information Safe?</H4>
@@ -184,7 +184,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Incident Response:</strong> We maintain a documented incident response plan. In the event of a data breach affecting your rights, we will notify you and relevant regulators within the timeframes required by applicable law.</P>
                 <P className="mb-2">Despite our robust measures, no system is entirely immune to risk. We encourage you to use strong, unique passwords and to contact us immediately if you suspect unauthorized access to your account.</P>
               </section>
-
+ 
               {/* 10 */}
               <section id="minors">
                 <H4>10. Do We Collect Information From Minors?</H4>
@@ -195,7 +195,7 @@ export default function Cookies() {
                   Certain products (such as youth savings accounts) may be offered with explicit parental consent and appropriate safeguards. If you believe we have inadvertently collected data from a minor without appropriate consent, please contact us immediately at privacy@fincore.com and we will take prompt corrective action.
                 </P>
               </section>
-
+ 
               {/* 11 */}
               <section id="rights">
                 <H4>11. What Are Your Privacy Rights?</H4>
@@ -209,7 +209,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, withdraw it at any time without affecting prior lawful processing.</P>
                 <P className="mb-2">To exercise any of these rights, submit a written request to our Data Protection Officer at dpo@fincore.com. We will respond within 30 days (or sooner as required by law). We may need to verify your identity before processing your request.</P>
               </section>
-
+ 
               {/* 12 */}
               <section id="regulatory">
                 <H4>12. Regulatory Compliance & Disclosures</H4>
@@ -222,7 +222,7 @@ export default function Cookies() {
                 <P className="mb-2"><strong>PCI-DSS:</strong> For all card payment processing, we adhere to Payment Card Industry Data Security Standards.</P>
                 <P className="mb-2">Regulatory disclosures and examination information may be shared with supervisory authorities as required by law without prior notice to you.</P>
               </section>
-
+ 
               {/* 13 */}
               <section id="dnt">
                 <H4>13. Controls for Do-Not-Track Features</H4>
@@ -233,14 +233,14 @@ export default function Cookies() {
                   You may, however, manage your tracking and cookie preferences through our Cookie Preferences Centre available on our website, or by adjusting your browser settings. For mobile applications, you may opt out of certain data collection through your device's privacy settings.
                 </P>
               </section>
-
+ 
               {/* 14 */}
               <section id="contact">
                 <H4>14. How Can You Contact Us?</H4>
                 <P className="mb-2">
                   If you have questions, concerns, or requests relating to this Cookies Policy or our data practices, please contact our Data Protection Officer:
                 </P>
-                <P className="mb-2"><strong>Data Protection Officer</strong><br />FinCore Banking Solutions<br />Email: dpo@fincore.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
+                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: dpo@fincore.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
                 <P className="mb-2">
                   If you are located in the EEA or UK and are unsatisfied with our response, you have the right to lodge a complaint with your local supervisory authority (e.g., the ICO in the UK, or your national Data Protection Authority within the EU).
                 </P>
@@ -249,7 +249,7 @@ export default function Cookies() {
                 </P>
               </section>
             </article>
-
+ 
             {/* TABLE OF CONTENTS */}
             <aside className="hidden lg:block">
               <div className="sticky top-24 rounded-xl border border-gray-200 p-6">
@@ -270,7 +270,7 @@ export default function Cookies() {
                 </ul>
               </div>
             </aside>
-
+ 
           </div>
         </div>
       </section>
@@ -281,7 +281,7 @@ export default function Cookies() {
         </div>
         <NewOneFooter />
       </div>
-      
+     
       {/* MOBILE */}
       <div className="lg:hidden">
         <ContactUS />
