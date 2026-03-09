@@ -20,8 +20,6 @@ import ConsilierCard from "./ConsilierCard"
 import FourPoints from "./FourPoints"
 import Configurable from "./Configurable"
 import Industry from "./Industry"
-import ColourBoard from "./ColourBoard"
-import ThreeBank from "./ThreeBank"
 // import Pricing from "./Pricing"
 
 const ProductsPage1 = () => {
@@ -65,8 +63,6 @@ const ProductsPage1 = () => {
       <div id="configurable"><Configurable /></div>
       {/* <FirstProduct /> */}
       <HeroBottomNavbar />
-      <ThreeBank />
-      <ColourBoard />
       <div id="overview"><Capabilities /></div>
       <div id="benefits"> <Building /></div>
       {/* <div id="overview"><Enterprises /></div> */}

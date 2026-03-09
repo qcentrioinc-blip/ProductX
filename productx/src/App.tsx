@@ -9,7 +9,7 @@ import HeroSection from './components/HomePage/HeroSection'
 import AIOptimization from './routes/industries/AIOptimization'
 import EHRAndPMS from './routes/industries/EHRandPMS'
 import ProductNotFound from './components/ProductNotFound';
-import ProductsPage1 from './components/Banking&Finance/ProductBankfair/ProductsPage1';
+import ProductsPage1 from './components/Banking&Finance/ProductConciliare/ProductsPage1';
 import CommingSoon from './components/ProductsCommingSoon';
 import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
@@ -18,6 +18,8 @@ import BankingAndFinance from './routes/industries/BankingAndFinance'
 // import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
  
 import Blogs from './components/Banking&Finance/Blogs/Blogs';
+import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
+import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -103,9 +105,11 @@ const App = () => {
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "conciliare") return <ProductsPage1 />;
-    // if (productId === "remitree") return <ProductsPage2 />;
+    if (productId === "remitree") return <ProductsPage2 />;
     if (productId === "almanac") return <AML />; 
     if (productId === "pago") return <ProductDetailthree />
+    if (productId === "bankfair") return <Bankfair/>
+    // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
     if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />

@@ -7,7 +7,6 @@ import CardsSection from "./CardsSection";
 import Features from "./Features";
 import ContentInfo from "./ContentInfo";
 // import Grid from "./Grid";
-// import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import BNFNav from "../Navbar/BNFnav";
@@ -17,6 +16,7 @@ import NewsLetter from "../ProductRemitree/NewsLetter";
 import CoreCapabilities from "./CoreCapabilities";
 import CircleSec from "./CircleSec";
 import ChallengesSection from "./ChallengesSection";
+import ImageCard from "../BNFBlogs/ImageCard";
 
 
 const ProductDetails_4_page = () => {
@@ -62,7 +62,7 @@ const ProductDetails_4_page = () => {
       <div id="faq">
         <FaqSection />
       </div>
-      {/* <InsightThought /> */}
+      <ImageCard/>
       <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">

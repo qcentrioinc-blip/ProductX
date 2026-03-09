@@ -11,12 +11,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
     const base = `/industries/${industry}`;
 
     const megaMenuItems = [
-        // {
-        //     title: "Almanac",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P1.png",
-        //     path: `${base}/products/almanac`,
-        // },
+        {
+            title: "Bankfair",
+            desc: "Complete core banking & loan management system ",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/bankfair`,
+        },
         {
             title: "Conciliare",
             desc: "Advanced reconciliation for financial accuracy",
@@ -29,6 +29,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     img: "/BNFHOME/P3.jpg",
         //     path: `${base}/products/customer-onboarding-solutions`
         // },
+        {
+            title: "Almanac",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/almanac`
+        },
         // {
         //     title: "Internet Banking System",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
@@ -41,18 +47,18 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     img: "/BNFHOME/P5.jpg",
         //     path: `${base}/products/loan-origination-system`,
         // },
-        // {
-        //     title: "Pago",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P6.jpg",
-        //     path: `${base}/products/pago`,
-        // },
-        // {
-        //     title: "Remitree",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P7.jpg",
-        //     path: `${base}/products/remitree`,
-        // },
+        {
+            title: "Pago",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P6.jpg",
+            path: `${base}/products/pago`,
+        },
+        {
+            title: "Remitree",
+            desc: "Cross-border remittance platform for seamless global transactions",
+            img: "/BNFHOME/P7.jpg",
+            path: `${base}/products/remitree`,
+        },
         // {
         //     title: "Sams",
         //     desc: "Lorem ipsum dolor sit amet consectetur",

@@ -19,6 +19,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P1.png",
             path: `${base}/products/almanac`,
+         
+        },
+        {   title: "Bankfair",
+            desc: "Complete core banking & loan management system  ",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/bankfair`,
         },
         {
             title: "Conciliare",
@@ -50,12 +56,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P6.jpg",
             path: `${base}/products/pago`,
         },
-        // {
-        //     title: "Remitree",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P7.jpg",
-        //     path: `${base}/products/remitree`,
-        // },
+        {
+            title: "Remitree",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P7.jpg",
+            path: `${base}/products/remitree`,
+        },
         // {
         //     title: "Sams",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
