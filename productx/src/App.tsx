@@ -19,6 +19,7 @@ import BankingAndFinance from './routes/industries/BankingAndFinance'
  
 import Blogs from './components/Banking&Finance/Blogs/Blogs';
 import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
+import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -104,7 +105,7 @@ const App = () => {
   const ProductsPage = () => {
     const { productId } = useParams();
     if (productId === "conciliare") return <ProductsPage1 />;
-    // if (productId === "remitree") return <ProductsPage2 />;
+    if (productId === "remitree") return <ProductsPage2 />;
     if (productId === "almanac") return <AML />; 
     if (productId === "bankfair") return <Bankfair/>
     // if (productId === "pago") return <ProductDetailthree />

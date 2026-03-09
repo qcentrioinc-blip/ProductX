@@ -65,7 +65,7 @@ const FaqSection: React.FC = () => {
         "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
       cta: "Check FAQs"
     },
-    
+
   };
 
 
@@ -314,11 +314,26 @@ const FaqSection: React.FC = () => {
 
   const introContent =
     faqIntroByIndustry[pathname] ||
-    faqIntroByIndustry["/industries/banking-and-finance"];
+    faqIntroByIndustry["/industries/banking-and-finance"] ||
+    {
+      heading: "Frequently Asked Questions",
+      description: "Find clear answers about our platforms, implementation, and operations.",
+      cta: "Check FAQs"
+    };
 
   const faqData =
     faqContentByIndustry[pathname] ||
-    faqContentByIndustry["/industries/banking-and-finance"];
+    faqContentByIndustry["/industries/banking-and-finance"] ||
+    [
+      {
+        question: "How does the platform ensure security and compliance?",
+        answer: "Our solution includes robust access controls, audit logging, and automated compliance checks to meet all regulatory requirements."
+      },
+      {
+        question: "Is the platform scalable?",
+        answer: "Yes, our platforms are built on robust architecture designed to scale seamlessly with your growing business demands."
+      }
+    ];
 
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/cloud-finops-ai");

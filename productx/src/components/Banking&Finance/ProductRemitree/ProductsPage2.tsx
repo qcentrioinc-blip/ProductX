@@ -2,7 +2,7 @@
 import ContactUS from "./ContactUS";
 import FiveCards from "./FiveCards";
 // import NewFooter from "./NewFooter";
-import NewsLetter from "./NewsLetter";
+// import NewsLetter from "./NewsLetter";
 import Overview from "./Overview";
 // import SecondHeading from "./SecondHeading";
 import ThirdCards from "./ThirdCards";
@@ -10,7 +10,7 @@ import ThreeTab from "./ThreeTab";
 // import { ScrollProvider } from "../../../context/ScrollContext"; 
 import NewOneFooter from "./NewOneFooter";
 import BNFNav from "../Navbar/BNFnav";
-import TwoPart from "./TwoPart";
+// import TwoPart from "./TwoPart";
 import HWD from "../HWD";
 import FaqSection from "../ProductKYC/FAQ";
 import InsightThought from "../InsightThought";
@@ -18,6 +18,8 @@ import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
+import TwoImage from "./TwoImage";
+import ThreeCircle from "./ThreeCircle";
 
 const ProductsPage2 = () => {
 
@@ -74,10 +76,11 @@ const ProductsPage2 = () => {
         <ThreeTab />
       </div>
       <FiveCards />
-      <TwoPart />
-
+      {/* <TwoPart /> */}
+      <TwoImage />
+      <ThreeCircle />
       {/* <ArrowBuilding /> */}
-      <div id="process"> <NewsLetter /></div>
+      {/* <div id="process"> <NewsLetter /></div> */}
 
       <div id="usecases">
         <HWD />

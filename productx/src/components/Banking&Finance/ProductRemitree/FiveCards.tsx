@@ -289,7 +289,7 @@ const FiveCards = () => {
   ];
 
   return (
-    <div className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden">
+    <div className="bg-white text-black py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden">
       <div className="max-w-8xl mx-auto px-10">
         <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center">
           Sed ut perspiciatis unde
@@ -301,14 +301,14 @@ const FiveCards = () => {
             {smallCards.map((card, index) => (
               <ParticleCard
                 key={index}
-                className="bg-gray-200 text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-9 flex flex-col h-full"
+                className="bg-white text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-9 flex flex-col h-full border border-gray-500"
                 enableTilt={true}
                 enableMagnetism={true}
                 clickEffect={true}
                 particleCount={8}
                 glowColor="59, 130, 246" // Blue color matching your theme
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gray-500 rounded-lg mb-3 sm:mb-4"></div>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-blue-500 rounded-full mb-3 sm:mb-4"></div>
                 <H3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">{card.title}</H3>
                 <P className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {card.description}
@@ -320,7 +320,7 @@ const FiveCards = () => {
           {/* Right Section - Large Card with MagicBento animations */}
           <div className="xl:col-span-6 mt-4 sm:mt-6 xl:mt-0">
             <ParticleCard
-              className="bg-gray-200 text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-8 h-full flex flex-col"
+              className="bg-white text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-8 h-full flex flex-col border border-gray-500"
               enableTilt={true}
               enableMagnetism={true}
               clickEffect={true}
