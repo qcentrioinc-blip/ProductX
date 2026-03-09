@@ -254,14 +254,8 @@ export default function HeroSection() {
           <P className="mb-8 font-quicksand max-w-[700px]">
             Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments. Replace manual, document-based processes with system-configured policies, automated risk assessment, and seamless screening integrations.       </P>
           <Link
-            to="#contact-us"
-            onClick={(e) => {
-              const el = document.getElementById("contact-us");
-              if (el) {
-                e.preventDefault();
-                el.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            to="/marketplace"
+            
           >
             <ContactUs>Explore Diligent </ContactUs>
           </Link>

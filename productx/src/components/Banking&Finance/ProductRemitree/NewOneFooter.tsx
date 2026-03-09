@@ -75,7 +75,7 @@ const NewOneFooter = () => {
     { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
     // { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "KYC", url: "/industries/banking-and-finance/products/kyc" },
-    // { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
+    { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
     // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
     // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
     // { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },

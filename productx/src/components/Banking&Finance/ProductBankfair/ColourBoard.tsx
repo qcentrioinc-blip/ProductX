@@ -29,9 +29,9 @@ const ColourBoard = () => {
           lg:top-[48px] lg:left-[32px] lg:right-[20px] lg:text-[58px]
           xl:top-[59px] xl:left-[36px] xl:right-auto xl:w-[603px] xl:text-[72px]
         ">
-          Consecte
+          Transform Your 
           <br />
-          Con secte adipi
+          Bank with Bankfair
         </h1>
 
         {/* Bottom paragraph */}
@@ -43,8 +43,7 @@ const ColourBoard = () => {
           lg:bottom-[32px] lg:left-[32px] lg:right-[20px] lg:text-[14px]
           xl:top-[467px] xl:bottom-auto xl:left-[39px] xl:right-auto xl:w-[459px] xl:h-[40px] xl:text-[16px] xl:leading-none
         ">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          See firsthand how parameterization eliminates manual work and accelerates product launches for your institution. 
         </p>
       </div>
 
@@ -90,8 +89,7 @@ const ColourBoard = () => {
               lg:top-[16px] lg:left-[20px] lg:right-[14px] lg:text-[15px]
               xl:top-[18px] xl:left-[22px] xl:right-auto xl:w-[380px] xl:text-[18px] xl:leading-none
             ">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              Book a personalized demo to explore automation, compliance features, and multi-branch scalability. 
             </p>
           </div>
 
