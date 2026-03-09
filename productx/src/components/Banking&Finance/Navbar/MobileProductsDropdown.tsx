@@ -47,12 +47,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     img: "/BNFHOME/P6.jpg",
         //     path: `${base}/products/pago`,
         // },
-        // {
-        //     title: "Remitree",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P7.jpg",
-        //     path: `${base}/products/remitree`,
-        // },
+        {
+            title: "Remitree",
+            desc: "Cross-border remittance platform for seamless global transactions",
+            img: "/BNFHOME/P7.jpg",
+            path: `${base}/products/remitree`,
+        },
         // {
         //     title: "Sams",
         //     desc: "Lorem ipsum dolor sit amet consectetur",

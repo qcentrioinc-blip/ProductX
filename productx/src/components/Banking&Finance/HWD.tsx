@@ -32,8 +32,8 @@ const HWD = () => {
       headingColor: "#008280",
       textcolor: "#141414",
       CheckColor: "#008280"
- 
- 
+
+
     },
     banking: {
       topBg: "#F5F5F5",
@@ -55,7 +55,7 @@ const HWD = () => {
       headingColor: "#254D70",
       textcolor: "#141414",
       CheckColor: "#254D70"
- 
+
     }
   };
   const HEADING_CONTENT = {
@@ -65,7 +65,7 @@ const HWD = () => {
       description:
         "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
     },
- 
+
     conciliare: {
       eyebrow: " ",
       title: " Common Reconciliation Use Cases",
@@ -97,7 +97,7 @@ const HWD = () => {
         "Explore how high-tech companies scale faster, control cloud spend, and optimize complex multi-cloud environments."
     }
   };
- 
+
   const CARD_CONTENT = {
     ai: [
       {
@@ -113,14 +113,14 @@ const HWD = () => {
           "Implemented 3-year Synapse RIs, achieving an 81% blended discount on runtime costs. ",
         ],
       },
- 
+
       {
         title: " Retain Savings Long-Term",
         image: "/AIOptimization/PriceTag.svg",
         description:
           " CloudDIET helped a tech firm maintain 8x ROI with continuous optimization and secure profiling.",
         points: [
- 
+
           "Used read-only access to analyze billing metadata and resource configurations only. ",
           "Targeted 60-70% savings in under six weeks using effort-based categorization. ",
           "Leveraged AI to identify unused messaging buses and unlinked integration accounts. ",
@@ -142,7 +142,7 @@ const HWD = () => {
         ],
       },
     ],
- 
+
     conciliare: [
       {
         title: "Bank Account Reconciliation",
@@ -314,9 +314,9 @@ const HWD = () => {
       },
     ],
   };
- 
- 
- 
+
+
+
   // CARDS
   let cards;
   if (isConciliare) cards = CARD_CONTENT.conciliare;
@@ -342,19 +342,19 @@ const HWD = () => {
   else if (isAI) palette = COLORS.ai;
   else palette = COLORS.banking;
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
- 
+
   const bottomTextColor = isAI ? "#254D70" : textcolor;
   const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
- 
- 
- 
- 
- 
+
+
+
+
+
   // const itemVariants = {
   //   hidden: { opacity: 0, y: 20 },
   //   visible: { opacity: 1, y: 0 },
   // };
- 
+
   const CardContent = ({ title, description, points, image }: { title: string; description: string; points: string[]; image: string }) => (
     <section>
       {/* Top Section */}
@@ -362,7 +362,7 @@ const HWD = () => {
         className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
         style={{ backgroundColor: topBg }}
       >
- 
+
         <div className="w-14 h-14 rounded-full mb-2 overflow-hidden">
           <img
             src={image}
@@ -370,22 +370,22 @@ const HWD = () => {
             className="w-full h-full object-contain p-2"
           />
         </div>
- 
- 
- 
+
+
+
         <h3
           className={`${headingFontClass} mb-4 text-[16px]  whitespace-wrap md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}
         </h3>
- 
+
         <p className="balance-text font-quicksand" style={{ color: textcolor }}>
           {description}
         </p>
- 
+
       </div>
- 
+
       {/* Bottom Section */}
       <div
         className="pl-6 pr-10 py-10"
@@ -402,7 +402,7 @@ const HWD = () => {
       </div>
     </section>
   );
- 
+
   return (
     <>
       {/* ===== MOBILE: Horizontal scroll on vertical scroll (same pattern as Process.tsx) ===== */}
@@ -482,7 +482,7 @@ const HWD = () => {
           </div>
         </div>
       </div>
- 
+
       {/* Hide scrollbar */}
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -496,5 +496,5 @@ const HWD = () => {
     </>
   );
 };
- 
+
 export default HWD;
