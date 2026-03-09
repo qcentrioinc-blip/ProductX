@@ -24,7 +24,7 @@ const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'))
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
-// const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
+const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
 const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
@@ -107,6 +107,7 @@ const App = () => {
     if (productId === "conciliare") return <ProductsPage1 />;
     if (productId === "remitree") return <ProductsPage2 />;
     if (productId === "almanac") return <AML />; 
+    if (productId === "pago") return <ProductDetailthree />
     if (productId === "bankfair") return <Bankfair/>
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />

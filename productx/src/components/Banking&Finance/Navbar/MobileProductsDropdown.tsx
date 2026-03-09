@@ -29,6 +29,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     img: "/BNFHOME/P3.jpg",
         //     path: `${base}/products/customer-onboarding-solutions`
         // },
+        {
+            title: "Almanac",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/almanac`
+        },
         // {
         //     title: "Internet Banking System",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
@@ -41,12 +47,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     img: "/BNFHOME/P5.jpg",
         //     path: `${base}/products/loan-origination-system`,
         // },
-        // {
-        //     title: "Pago",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P6.jpg",
-        //     path: `${base}/products/pago`,
-        // },
+        {
+            title: "Pago",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P6.jpg",
+            path: `${base}/products/pago`,
+        },
         {
             title: "Remitree",
             desc: "Cross-border remittance platform for seamless global transactions",

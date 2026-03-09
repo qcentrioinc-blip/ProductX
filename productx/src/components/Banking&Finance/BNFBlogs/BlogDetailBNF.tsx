@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import BNFNav from "../Navbar/BNFnav";
 import { H2, H3, H4, P } from "../../../styles/Typography";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
+import ContactUS from "../ProductRemitree/ContactUS";
 
 
 
@@ -243,7 +244,22 @@ const nextBlog =
       </div>
        
     </section>
-  <NewOneFooter/>
+ 
+      <div id="contact-us">
+        <div className="hidden lg:block relative">
+          {/* Footer sits at bottom, ContactUS scrolls over it */}
+          <div>
+            <ContactUS />
+          </div>
+          <NewOneFooter />
+        </div>
+
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
     </>
   );
 };

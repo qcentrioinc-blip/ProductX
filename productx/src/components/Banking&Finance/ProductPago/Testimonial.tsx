@@ -22,7 +22,7 @@ export default function Testimonial() {
 
   return (
     <div className="bg-white py-10">
-      <div className="max-w-7xl mx-auto  px-6 lg:px-8 xl:px-10">
+      <div className="max-w-8xl mx-auto  px-6 lg:px-8 xl:px-20">
 
 
         {/* Header */}

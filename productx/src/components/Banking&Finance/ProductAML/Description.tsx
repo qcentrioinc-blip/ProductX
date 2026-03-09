@@ -24,7 +24,7 @@ const Description = () => {
 
   return (
     <div className="w-full bg-[#ffffff] h-full ">
-      <div className="max-w-8xl lg:mx-10 px-4 xl:py-0">
+      <div className="max-w-8xl lg:mx-10 px-10 xl:py-0">
 
         {/* Top Heading */}
         <div className="md:py-16 md:3xl lg:w-[95%] xl:w-4xl w-full pb-8">
@@ -53,16 +53,16 @@ const Description = () => {
         </div>
 
         {/* Image + Overlay Content */}
-        <div className="relative w-full rounded-xl overflow-hidden ">
+        <div className="relative w-full rounded-2xl overflow-hidden ">
           {/* Background Image */}
           <img
             src={images[activeIndex]}
             alt="Description"
-            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[350px] object-cover rounded-md"
+            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[350px] object-cover rounded-2xl"
           />
 
           {/* Right Overlay Box - Desktop only */}
-          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-10 xl:right-10 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[280px] min-h-[240px] xl:min-h-[280px] xl:px-14">
+          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-10 xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] xl:px-14">
             <H3 className="text-[#2B68C3]">
               Lorem ipsum dolor <br /> consectetur
             </H3>

@@ -15,7 +15,13 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
 
     const megaMenuItems = [
         {
-            title: "Bankfair",
+            title: "Almanac",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/almanac`,
+         
+        },
+        {   title: "Bankfair",
             desc: "Complete core banking & loan management system  ",
             img: "/BNFHOME/P1.png",
             path: `${base}/products/bankfair`,
@@ -44,15 +50,15 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     img: "/BNFHOME/P5.jpg",
         //     path: `${base}/products/loan-origination-system`,
         // },
-        // {
-        //     title: "Pago",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P6.jpg",
-        //     path: `${base}/products/pago`,
-        // },
+        {
+            title: "Pago",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P6.jpg",
+            path: `${base}/products/pago`,
+        },
         {
             title: "Remitree",
-            desc: "Cross-border remittance platform for seamless global transactions",
+            desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P7.jpg",
             path: `${base}/products/remitree`,
         },

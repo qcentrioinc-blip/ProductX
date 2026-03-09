@@ -17,26 +17,9 @@ interface ArticleData {
 
 // --- Mock Data ---
 const NEW_MOCK_ARTICLES: ArticleData[] = [
+   
     {
         id: 5,
-        slug: "what-is-aml-compliance",
-        date: '13 Feb 2026',
-        imageSrc: '/Blog/AMLBlog.webp',
-        title: 'Sed ut perspiciatis Unde',
-        subtitle: 'What Is AML Compliance and Why Banks Cant Afford to Ignore  ',
-        description: 'Banks have to deal with very specific, high-stakes responsibilities when it comes to financial crime...  ',
-    },
-    {
-        id: 6,
-        slug: "what-the-difference-and-why-both-matter-for-your-bank",
-        date: '10 Feb 2026',
-       imageSrc: '/Blog/KYCBlog.webp',
-        title: 'Sed ut perspiciatis Unde',
-        subtitle: "KYC vs. CDD: What's the Difference and Why Both Matter",
-        description: 'When it comes to banking compliance, there are two terms that are important, used every day, and still mixed ...  ',
-    },
-    {
-        id: 7,
         slug: "what-is-core-banking-and-when-should",
         date: '8 Feb 2026',
         
@@ -45,6 +28,26 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         subtitle: 'What Is Core Banking and When Should a Financial Institution..',
         description: 'If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling... ',
     },
+    
+     {
+        id: 6,
+        slug: "what-is-aml-compliance",
+        date: '13 Feb 2026',
+        imageSrc: '/Blog/AMLBlog.webp',
+        title: 'Sed ut perspiciatis Unde',
+        subtitle: 'What Is AML Compliance and Why Banks Cant Afford to Ignore  ',
+        description: 'Banks have to deal with very specific, high-stakes responsibilities when it comes to financial crime...  ',
+    },
+    {
+        id: 7,
+        slug: "what-the-difference-and-why-both-matter-for-your-bank",
+        date: '10 Feb 2026',
+       imageSrc: '/Blog/KYCBlog.webp',
+        title: 'Sed ut perspiciatis Unde',
+        subtitle: "KYC vs. CDD: What's the Difference and Why Both Matter",
+        description: 'When it comes to banking compliance, there are two terms that are important, used every day, and still mixed ...  ',
+    },
+    
       {
         id: 8,
         slug: "how-to-reduce-payment-processing",

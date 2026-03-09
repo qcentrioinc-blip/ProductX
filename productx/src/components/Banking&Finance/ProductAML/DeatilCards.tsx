@@ -51,7 +51,7 @@ const DetailCards = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl border border-neutral-300 shadow-md px-6 pt-8 pb-8 flex flex-col items-center text-center"
+              className="bg-white rounded-2xl border py-20 border-neutral-300 shadow-md px-6   flex flex-col items-center text-center"
             >
               {/* Icon placeholder circle */}
               <div className="w-14 h-14 rounded-full bg-neutral-200 mb-5 flex-shrink-0" />

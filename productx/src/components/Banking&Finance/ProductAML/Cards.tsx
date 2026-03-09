@@ -19,7 +19,7 @@ export default function Cards() {
   ];
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 xl:py-20">
+    <section className="w-full bg-white py-10 md:py-16 xl:py-10">
       <div className="max-w-8xl xl:mx-10 px-4  sm:px-8 lg:px-16">
 
         {/* GRID */}
