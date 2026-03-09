@@ -8,7 +8,7 @@ import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { ContactUs } from "../../../styles/Button";
 
 const MegaMenu = lazy(() => import("./MegaMenu"));
-// const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
+const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
 
 const BNFNav = () => {
@@ -17,7 +17,7 @@ const BNFNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  // const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const [megaMenuBuiltFor, setmegaMenuBuiltFor] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<null | "products" | "resources" | "builtfor">(null);
   const [logoDropdownOpen, setLogoDropdownOpen] = useState(false);
@@ -41,7 +41,7 @@ const BNFNav = () => {
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
       setMegaMenuOpen(false);
-      // setResourcesMenuOpen(false);
+      setResourcesMenuOpen(false);
       setmegaMenuBuiltFor(false);
       setLogoDropdownOpen(false);
     }, 200);
@@ -57,7 +57,7 @@ const BNFNav = () => {
   const closeAllMenus = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setMegaMenuOpen(false);
-    // setResourcesMenuOpen(false);
+    setResourcesMenuOpen(false);
     setmegaMenuBuiltFor(false);
     setLogoDropdownOpen(false);
   };
@@ -114,7 +114,7 @@ const BNFNav = () => {
     { name: "Products", path: `${base}?scroll=products` },
     { name: "Built for", path: base },
     // { name: "Blogs", path: `${base}/blogs` },
-    // { name: "Resources", path: base },
+    { name: "Resources", path: base },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -270,7 +270,7 @@ const BNFNav = () => {
                 handleKeepOpen();
                 setLogoDropdownOpen(true);
                 setMegaMenuOpen(false);
-                // setResourcesMenuOpen(false);
+                setResourcesMenuOpen(false);
                 setmegaMenuBuiltFor(false);
               }}
             >
@@ -333,7 +333,7 @@ const BNFNav = () => {
                         if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuOpen(true);
-                        // setResourcesMenuOpen(false);
+                        setResourcesMenuOpen(false);
                         setmegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                         preloadImages();
@@ -358,16 +358,16 @@ const BNFNav = () => {
                       className="relative"
                       onMouseEnter={() => {
                         handleKeepOpen();
-                        // setResourcesMenuOpen(true);
+                        setResourcesMenuOpen(true);
                         setMegaMenuOpen(false);
                         setmegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                       }}
                     >
-                      {/* <div className="flex items-center gap-1 cursor-pointer">
+                      <div className="flex items-center gap-1 cursor-pointer">
                         <button className="text-gray-800 text-[18px] cursor-pointer">Resources</button>
                         <img src="/down.png" className={`w-4 h-4 relative top-[1.5px] transition-transform duration-300 ${resourcesMenuOpen ? "rotate-180" : "rotate-0"}`} />
-                      </div> */}
+                      </div>
                     </div>
                   )}
 
@@ -379,7 +379,7 @@ const BNFNav = () => {
                         handleKeepOpen();
                         setmegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
-                        // setResourcesMenuOpen(false);
+                        setResourcesMenuOpen(false);
                         setLogoDropdownOpen(false);
                       }}
                       onClick={() => {
@@ -455,7 +455,7 @@ const BNFNav = () => {
         )}
       </Suspense>
 
-      {/* <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         {resourcesMenuOpen && (
           <ResourcesMenu
             isScrolled={isScrolled}
@@ -464,7 +464,7 @@ const BNFNav = () => {
             handleCloseMenus={handleCloseMenus}
           />
         )}
-      </Suspense> */}
+      </Suspense>
 
       <Suspense fallback={<div>Loading...</div>}>
         {megaMenuBuiltFor && (

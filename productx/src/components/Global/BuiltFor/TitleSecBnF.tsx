@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
  
 const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: string }> = {
-  "banks": {
+  banks: {
     title: "Banking solutions built for modern institutions.",
     buttonLabel: "EXPLORE PRODUCTS",
     bgImage: "/BuiltForBnf/bnklanding.webp"
@@ -20,12 +20,13 @@ const CONTENT: Record<string, { title: string; buttonLabel: string; bgImage?: st
  
 export default function TitleSecBnF() {
   const { builtForType } = useParams<{ builtForType: string }>();
- 
-  // Default to banks if type not found (or handle generic case)
+
+  // Default to banks if type not found
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
  
   return (
     <section className="w-full bg-white relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
+      
       {/* LEFT CONTENT */}
       <div
         className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute"
@@ -63,7 +64,9 @@ export default function TitleSecBnF() {
               fontFamily: "'quicksand', sans-serif"
             }}
           >
-            <span className="uppercase whitespace-nowrap">{content.buttonLabel}</span>
+            <span className="uppercase whitespace-nowrap">
+              {content.buttonLabel}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -86,9 +89,7 @@ export default function TitleSecBnF() {
       {/* RIGHT IMAGE */}
       <div
         className="w-full xl:w-full xl:absolute z-0 xl:right-0"
-        style={{
-          top: "clamp(0px, 141.5px, 120px)",
-        }}
+        style={{ top: "clamp(0px, 141.5px, 120px)" }}
       >
         <div className="w-full h-full xl:absolute xl:right-0 xl:w-full xl:max-w-3xl xl:h-[700px]">
           <img
@@ -98,6 +99,7 @@ export default function TitleSecBnF() {
           />
         </div>
       </div>
+
     </section>
   );
 }

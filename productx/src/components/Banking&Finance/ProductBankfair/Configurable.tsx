@@ -75,7 +75,6 @@ const Configurable = () => {
                     </h3>
                 </div>
             </div> */}
- 
             <div className=" hidden lg:flex flex-col flex-1 min-w-0">
                 <div className="flex sm:flex-col flex-row flex-1">
                     <div

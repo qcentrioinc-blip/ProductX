@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { H2, H3, P } from "../../../styles/Typography";
-// import Image1 from "/AML/image73.png"
-
 
 const images = [
   "/AML/image73.png",
@@ -16,24 +14,26 @@ const Description = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const textData = [
-    "Button 1: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 2: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 3: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 4: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 5: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non "
+    "Button 1 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 2 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 3 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 4 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
+    "Button 5 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non "
   ];
 
 
   return (
-    <div className="w-full bg-[#ffffff] h-full py-12">
-      <div className="max-w-8xl lg:mx-10 px-4  "> 
+    <div className="w-full bg-[#ffffff] h-full ">
+      <div className="max-w-8xl lg:mx-10 px-4 xl:py-0">
 
         {/* Top Heading */}
-        <div className="md:py-16 md:3xl lg:w-[95%] xl:w-7xl w-full py-8">
-          <H2 className="text-left ">
-            Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor , consectetur adipis
+        <div className="md:py-16 md:3xl lg:w-[95%] xl:w-4xl w-full pb-8">
+          <H2 className="text-left">
+            Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor ,
           </H2>
         </div>
+
+        {/* Mobile pill buttons - top */}
         <div className="xl:hidden mb-8">
           <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             {[0, 1, 2, 3, 4].map((index) => (
@@ -41,11 +41,10 @@ const Description = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`snap-center shrink-0 lg:w-[18vw] md:w-[24vw] w-[36vw] md:py-4 py-2 rounded-full text-lg font-semibold
-          ${activeIndex === index
-                    ? "bg-(--primary-color) text-white"
+                  ${activeIndex === index
+                    ? "bg-(--primary-color) text-black"
                     : "border-2 border-neutral-700 text-black bg-white"
-                  }
-        `}
+                  }`}
               >
                 Duis aute irure
               </button>
@@ -53,67 +52,51 @@ const Description = () => {
           </div>
         </div>
 
-
-
-
         {/* Image + Overlay Content */}
-        <div className="relative w-full rounded-xl overflow-hidden shadow-lg">
+        <div className="relative w-full rounded-xl overflow-hidden ">
           {/* Background Image */}
           <img
             src={images[activeIndex]}
             alt="Description"
-            className="w-full h-[250px] md:h-[450px] lg:h-[450px] xl:h-[550px] object-cover"
+            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[350px] object-cover rounded-md"
           />
 
-
           {/* Right Overlay Box - Desktop only */}
-          <div className="hidden lg:block absolute lg:top-8 lg:right-8 xl:top-16 xl:right-16 lg:h-[180px] xl:h-[200px] bg-neutral-500 text-white rounded-sm p-4 sm:p-6 lg:p-6 backdrop-blur-md">
-            < H3 className="mb-3">
+          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-10 xl:right-10 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[280px] min-h-[240px] xl:min-h-[280px] xl:px-14">
+            <H3 className="text-[#2B68C3]">
               Lorem ipsum dolor <br /> consectetur
-            </ H3>
+            </H3>
 
-            <div className="flex gap-6 mt-12 font-bricolage items-start">
+            <div className="flex gap-8 font-bricolage items-start mt-auto">
               <div className="flex flex-col items-start">
-                <span className="text-xl sm:text-2xl font-bold">32%</span>
-                <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">32%</span>
+                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
               </div>
-
               <div className="flex flex-col items-start">
-                <span className="text-xl sm:text-2xl font-bold">4x%</span>
-                <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">4x%</span>
+                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
               </div>
-
               <div className="flex flex-col items-start">
-                <span className="text-xl sm:text-2xl font-bold">80%</span>
-                <span className="text-xs sm:text-sm text-gray-300">Lorem Ipsum</span>
+                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">80%</span>
+                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
               </div>
             </div>
           </div>
+        </div>
 
+        {/* Bottom Content Card - Desktop only (replaces overlay) */}
+        <div className="hidden lg:flex flex-row justify-between items-start gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
+          {/* Left Text */}
+          <div className="w-full xl:w-1/2">
+            <H3 className="text-black">
+             Lorem ipsum dolor , consectetur 
+consectetur adipis,Lorem ipsum 
+            </H3>
+          </div>
 
-          {/* Bottom Overlay - Desktop only */}
-          <div className="hidden lg:block absolute bottom-0 w-full px-6 py-6 sm:px-10 sm:py-8 backdrop-blur-sm text-white/80">
-            <div className="flex flex-col p-10 lg:flex-col xl:flex-row justify-between items-start gap-6">
-
-              {/* Left Text */}
-              <div className="w-full lg:w-full xl:w-xl">
-                <H3 className="text-white">Lorem ipsum dolor , consectetur adipis
-                  Lorem ipsum dolor
-                </H3>
-              </div>
-
-              {/* Right Text */}
-              <div className="w-full lg:w-full xl:w-2/5">
-                <P className="text-[#FAFAFA]">{textData[activeIndex]}</P>
-              </div>
-
-            </div>
-
-            {/* Dots */}
-            {/* <div className="flex gap-3 mt-6">
-            <div className="w-10 h-10 rounded-full bg-gray-400"></div>
-            <div className="w-10 h-10 rounded-full bg-gray-400"></div>
-          </div> */}
+          {/* Right Text */}
+          <div className="w-full xl:w-2/5">
+            <P className="text-[#141414]">{textData[activeIndex]}</P>
           </div>
         </div>
 
@@ -121,21 +104,21 @@ const Description = () => {
         <div className="lg:hidden mt-6 space-y-6">
           {/* Stats Box for Mobile */}
           <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-6">
-            <H3 className="mb-4  ">
+            <H3 className="mb-4">
               Lorem ipsum dolor <br />consectetur
             </H3>
-            <div className="flex  justify-around gap-4 mt-10">
+            <div className="flex justify-around gap-4 mt-10">
               <div className="flex flex-col items-center">
                 <span className="text-2xl font-bold">32%</span>
-                <span className="text-xs ">Lorem Ipsum</span>
+                <span className="text-xs">Lorem Ipsum</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-2xl font-bold">4x%</span>
-                <span className="text-xs ">Lorem Ipsum</span>
+                <span className="text-xs">Lorem Ipsum</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-2xl font-bold">80%</span>
-                <span className="text-xs ">Lorem Ipsum</span>
+                <span className="text-xs">Lorem Ipsum</span>
               </div>
             </div>
           </div>
@@ -153,33 +136,28 @@ const Description = () => {
               cupidatat non proident.
             </P>
           </div>
-
-
         </div>
 
-        {/* Bottom Buttons */}
+        {/* Bottom Pill Buttons - Desktop */}
         <div className="hidden xl:flex md:flex-wrap md:justify-between mt-8">
-
           {[0, 1, 2, 3, 4].map((index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`px-4 py-4 w-[14vw]  text-[20px] font-schibsted rounded-full transition duration-300
-        ${activeIndex === index
-                  ? "bg-(--primary-color) text-white"
+              className={`px-4 py-4 w-[14vw] text-[20px] font-schibsted rounded-full transition duration-300
+                ${activeIndex === index
+                  ? "bg-(--primary-color) text-black"
                   : "border border-[#2B68C3] text-black"
-                }`
-              }
+                }`}
             >
               Duis aute irure
             </button>
           ))}
-
         </div>
 
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Description
+export default Description;

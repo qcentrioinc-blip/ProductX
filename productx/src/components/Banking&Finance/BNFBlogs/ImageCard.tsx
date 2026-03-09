@@ -44,7 +44,27 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'What Is Core Banking and When Should a Financial Institution..',
         description: 'If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling... ',
-    }
+    },
+      {
+        id: 8,
+        slug: "how-to-reduce-payment-processing",
+        date: '5 Feb 2026',
+        
+         imageSrc: '/Blog/CoreBankingBlog.webp',
+        title: 'Sed ut perspiciatis Unde',
+        subtitle: 'How to Reduce Process Payment Costs for Your Financial Institution',
+        description: 'Most of the financial institutions face challenges from high transaction fees charged by traditional card networks... ',
+    },
+     {
+        id: 9,
+        slug: "a-beginner's-Guide-to-interest-rater-risk",
+        date: '3 Feb 2026',
+        
+         imageSrc: '/Blog/CoreBankingBlog.webp',
+        title: 'Sed ut perspiciatis Unde',
+        subtitle: 'A Beginner"s Guide To Interest Rate Risk Management... ',
+        description: 'If there is one top concern for community bankers in 2026, it is interest rate risk. Even small shifts in rates ... ',
+    },
 ];
 
 // --- Sub-Component for a Single Image Card with Text Above ---
@@ -77,7 +97,7 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
             <P className="text-gray-600 my-2 text-sm">{date}</P>
             {/*<H2 className="text-2xl font-bold leading-tight mb-1">{title}</H2> */}
             <H4 className=" mb-4 ">{subtitle}</H4>
-            <P className="text-gray-700 mb-4 xl:mb-10">{description}</P>
+            <P className="text-gray-700 mb-4 ">{description}</P>
 
             {/* Image Container: Responsive scaling */}
            
@@ -105,7 +125,7 @@ const ImageCard: React.FC = () => {
                     // INCREASED GAP: gap-8 -> gap-10
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
                 >
-                   {NEW_MOCK_ARTICLES.map(article => (
+                 {NEW_MOCK_ARTICLES.slice(0, 3).map(article => (
   <Link 
     key={article.id} 
     to={`/industries/banking-and-finance/blogs/${article.slug}`} 

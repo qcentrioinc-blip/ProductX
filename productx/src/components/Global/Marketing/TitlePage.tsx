@@ -115,7 +115,7 @@ export default function MarketplaceHero() {
           className="absolute inset-0 w-full h-full object-cover opacity-50" />
  
         {/* Go Back Button & Logo */}
-        <div className="absolute top-20 md:top-20 left-6 md:left-12 z-20 flex items-center gap-4 md:gap-6">
+        <div className="absolute top-20 md:top-20 lg:top-32 xl:to-20  left-6 md:left-12 lg:left-4  xl:left-12 z-20 flex items-center gap-4 md:gap-6">
           <button
             onClick={() => navigate(-1)}
             className="
