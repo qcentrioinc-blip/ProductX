@@ -52,6 +52,13 @@ const FaqSection: React.FC = () => {
         "Find answers to common questions about Conciliare's reconciliation platform, features, implementation, and how it transforms financial operations.",
       cta: "Learn More"
     },
+    "/industries/banking-and-finance/products/almanac": {
+      heading: "Frequently asked questions",
+      description:
+        "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
+      cta: "Check FAQs"
+    },
+    
   };
 
 
@@ -185,6 +192,40 @@ const FaqSection: React.FC = () => {
     ],
 
     "/industries/banking-and-finance/products/kyc": [
+      {
+        question: "What is the difference between CDD and EDD?",
+        answer:
+          "CDD is standard due diligence for most customers to verify identity and assess risk. EDD is deeper investigation for high-risk customers like PEPs requiring additional documentation and approvals.  ",
+      },
+      {
+        question: "How does Diligent help with regulatory compliance?",
+        answer:
+          "The platform configures policies to meet local regulations, automates name screening against watchlists, maintains version-controlled audit trails, and ensures consistent execution across all customer segments.  ",
+      },
+      {
+        question: " What customer segments does Diligent support?",
+        answer:
+          "Diligent supports both individual and corporate customers including private limited companies, partnerships, trusts, and complex ownership structures with beneficial ownership identification.    ",
+      },
+      {
+        question: "What integrations are available with Diligent?",
+        answer:
+          "Diligent integrates via APIs with data sources, name screening engines, core banking systems, CRMs, data warehouses, and frontend applications for seamless data flow.    ",
+      },
+
+      {
+        question: " How does the platform handle beneficial ownership identification?",
+        answer:
+          "The system automatically unwraps complex ownership structures based on configured thresholds, identifies connected parties and UBOs, and screens them against sanctions and watchlists.    ",
+      },
+      {
+        question: "How long does implementation typically take??",
+        answer:
+          "Implementation typically takes three to five months, depending on customer segments, regulatory requirements, and integration complexity with existing systems.  ",
+      },
+    ],
+
+    "/industries/banking-and-finance/products/almanac": [
       {
         question: "What is the difference between CDD and EDD?",
         answer:

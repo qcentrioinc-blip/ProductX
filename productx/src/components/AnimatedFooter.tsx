@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { H4, P } from "../styles/Typography";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function AnimatedFooter() {
   const [email, setEmail] = useState("");
@@ -87,12 +88,12 @@ export default function AnimatedFooter() {
               </li> */}
 
               <li>
-                <a
-                  href="/marketplace"
+                <Link
+                  to="/marketplace"
                   className="inline-block hover:text-black hover:underline font-quicksand "
                 >
                   Marketplace
-                </a>
+                </Link>
               </li>
             </ul>
 

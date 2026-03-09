@@ -13,6 +13,7 @@ import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import BNFNav from "../Navbar/BNFnav"
 // import ContactSection from "../ProductBankfair/ContactSection"
 import ContactUS from "../ProductRemitree/ContactUS"
+import DetailCards from "./DeatilCards";
 
 
 
@@ -41,9 +42,10 @@ const AML = () => {
       <Testimonial />
       <Description />
       <Banks />
+      <DetailCards/>
       <HWD />
 
-      <FaqSection />
+      <FaqSection />  
       <InsightThought />
       <div className="relative">
 

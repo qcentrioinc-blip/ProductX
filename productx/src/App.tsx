@@ -15,6 +15,9 @@ import Terms from './components/Banking&Finance/Policy/Terms';
 import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
 import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
 import BankingAndFinance from './routes/industries/BankingAndFinance'
+// import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
+import AML from './components/Banking&Finance/ProductAML/AML';
+import Blogs from './components/Banking&Finance/Blogs/Blogs';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -101,7 +104,7 @@ const App = () => {
     const { productId } = useParams();
     if (productId === "conciliare") return <ProductsPage1 />;
     // if (productId === "remitree") return <ProductsPage2 />;
-    // if (productId === "almanac") return <AML />;
+    if (productId === "almanac") return <AML />; 
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
     // if (productId === "customer-onboarding-solutions") return <Cos_Page />
@@ -190,7 +193,7 @@ const App = () => {
             <Route path="/industries/banking" element={<About />} />
             <Route path="/industries/ehr-and-pms/:page" element={<EhrPmsPageRouter />} />
             <Route path='/contact' element={<Connect />} />
-            {/* <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} /> */}
+            <Route path="/industries/banking-and-finance/blogs" element={<Blogs />} />
             <Route path='/industries/banking-and-finance/about-us' element={<AboutUs />} />
             <Route path="/industries/banking-and-finance/blogs/:slug" element={<BlogDetailBNF />} />
 
