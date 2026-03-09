@@ -75,6 +75,19 @@ const AINavbar = () => {
 
   // ---------- HOVER TIMEOUT LOGIC ----------
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTouchRef = useRef(false);
+
+  // Detect touch vs mouse input
+  useEffect(() => {
+    const onTouch = () => { isTouchRef.current = true; };
+    const onMouse = () => { isTouchRef.current = false; };
+    window.addEventListener('touchstart', onTouch, { passive: true });
+    window.addEventListener('mousemove', onMouse);
+    return () => {
+      window.removeEventListener('touchstart', onTouch);
+      window.removeEventListener('mousemove', onMouse);
+    };
+  }, []);
 
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
@@ -340,10 +353,19 @@ const AINavbar = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
                         setResourcesMenuOpen(false);
+                        handlePrefetch("builtfor", prefetch.builtfor);
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuBuiltFor((prev) => !prev);
+                        setMegaMenuOpen(false);
+                        setResourcesMenuOpen(false);
+                        setLogoDropdownOpen(false);
                         handlePrefetch("builtfor", prefetch.builtfor);
                       }}
                     >
@@ -483,6 +505,7 @@ const AINavbar = () => {
             showTopBar={showTopBar}
             handleKeepOpen={handleKeepOpen}
             handleCloseMenus={handleCloseMenus}
+            onLinkClick={closeAllMenus}
           />
         )}
       </Suspense>
