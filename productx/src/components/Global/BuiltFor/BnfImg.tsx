@@ -66,7 +66,7 @@ export default function BnfImg() {
                 <div
                     className="xl:absolute z-0 w-full flex justify-center xl:block"
                 >
-                    <div className="w-full max-w-[500px] aspect-square aspect-auto absolute top-[250px] left-[20px] w-[250px] h-[250px] sm:aspect-auto sm:absolute sm:top-[200px] sm:left-[400px] sm:w-[350px] sm:h-[350px] md:aspect-auto md:absolute md:top-[220px] md:left-[400px] md:w-[350px] md:h-[350px] lg:max-w-max-w-none lg:aspect-auto lg:absolute lg:top-[140px] lg:left-[530px] lg:w-[450px] lg:h-[400px] xl:max-w-none xl:aspect-auto xl:absolute xl:top-[200px] xl:left-[790px] xl:w-[700px] xl:h-[600px]">
+                    <div className="w-full max-w-[500px] aspect-square absolute top-[250px] left-[20px] h-[250px] sm:aspect-auto sm:absolute sm:top-[200px] sm:left-[400px] sm:w-[350px] sm:h-[350px] md:aspect-auto md:absolute md:top-[220px] md:left-[400px] md:w-[350px] md:h-[350px] lg:max-w-max-w-none lg:aspect-auto lg:absolute lg:top-[140px] lg:left-[530px] lg:w-[450px] lg:h-[400px] xl:max-w-none xl:aspect-auto xl:absolute xl:top-[200px] xl:left-[700px] xl:w-[700px] xl:h-[600px]">
                         <img
                             src={content.imgSrc}
                             alt="Enterprise banking solutions"

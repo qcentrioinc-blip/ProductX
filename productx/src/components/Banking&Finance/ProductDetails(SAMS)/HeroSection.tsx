@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { ScrollContext } from '../../../context/ScrollContext';
+import { Link } from 'react-router-dom';
 
 /* -----------------------------------------------------------
     Animation + Component Utilities (Corrected)
@@ -31,8 +32,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3
+      staggerChildren: 0.08,
+      delayChildren: 0.05
     }
   }
 };
@@ -44,9 +45,8 @@ const itemVariants = {
     y: 0,
     transition: {
       type: "spring" as const,
-      damping: 12,
-      stiffness: 100,
-      duration: 0.8
+      damping: 20,
+      stiffness: 120,
     }
   }
 };
@@ -54,7 +54,7 @@ const itemVariants = {
 const floatingAnimation = {
   y: [-15, 15, -15],
   transition: {
-    duration: 6,
+    duration: 4,
     repeat: Infinity,
     ease: "easeInOut" as const
   }
@@ -63,7 +63,7 @@ const floatingAnimation = {
 const rotateAnimation = {
   rotate: [0, 8, 0, -8, 0],
   transition: {
-    duration: 12,
+    duration: 8,
     repeat: Infinity,
     ease: "easeInOut" as const
   }
@@ -83,7 +83,7 @@ const scalePulseAnimation = {
 ------------------------------------------------------------ */
 const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, index = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
+  const isInView = useInView(ref, { once: true });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -117,11 +117,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, inde
       });
     } else {
       // Fallback to window scroll if ScrollContext not available
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
+     window.scrollTo(0, 0);
     }
   }, [scrollableContainerRef]);
 
@@ -133,7 +129,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({ src, alt, className, inde
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { type: "spring" as const, damping: 15, stiffness: 100, delay: index * 0.1 }
+        transition: { type: "spring" as const, damping: 15, stiffness: 100, delay: index * 0.04 }
       } : {}}
       whileHover={{ scale: 1.03, y: -8 }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" as const }}
@@ -211,10 +207,10 @@ const ScrollAnimatedCircle: React.FC<ScrollAnimatedCircleProps> = ({
   size,
   border,
   color,
-  translate,
   className = "",
   parallaxIntensity = 100
 }) => {
+
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
 
@@ -223,9 +219,13 @@ const ScrollAnimatedCircle: React.FC<ScrollAnimatedCircleProps> = ({
   return (
     <motion.div
       ref={ref}
-      style={{ y }}
+      style={{
+        y,
+        transform: "translate3d(0,0,0)", // Safari GPU fix
+        willChange: "transform"
+      }}
       animate={floatingAnimation}
-      className={`absolute rounded-full ${size} ${border} ${color} ${translate} ${className}`}
+      className={`absolute rounded-full ${size} ${border} ${color} ${className}`}
     />
   );
 };
@@ -240,15 +240,15 @@ const HeroSection: React.FC = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const carouselImages = [
-    { id: 1, src: "/SAMS/img2.png", alt: "Dashboard 1" },
-    { id: 2, src: "/SAMS/img1.png", alt: "Dashboard 2" },
+    { id: 1, src: "/SAMS/img1.png", alt: "Dashboard 1" },
+    { id: 2, src: "/SAMS/img3.png", alt: "Dashboard 2" },
     { id: 3, src: "/SAMS/img2.png", alt: "Dashboard 3" },
   ];
 
   const carouselSettings = {
     dots: true, infinite: true, speed: 500,
     slidesToShow: 1, slidesToScroll: 1,
-    autoplay: true, autoplaySpeed: 3000, arrows: false
+    autoplay: true, autoplaySpeed: 3000, arrows: false 
   };
 
   return (
@@ -268,22 +268,36 @@ const HeroSection: React.FC = () => {
       <div className="relative w-full flex flex-col">
 
         <ScrollAnimatedCircle
-          size="w-[500px] h-[500px]"
+          size="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px] lg:w-[500px] lg:h-[500px]"
           border="border-[8px]"
           color="border-[#7087e933]"
-          translate="translate-x-1/4 -translate-y-1/4"
-          className="opacity-60 top-0 right-0"
-          parallaxIntensity={150}
-        />
+          className="opacity-60 top-[-120px] right-[-120px]"
+          parallaxIntensity={150} translate={''}        />
 
         <ScrollAnimatedCircle
-          size="w-[450px] h-[450px]"
+          size="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[380px] md:h-[380px] lg:w-[450px] lg:h-[450px]"
           border="border-[6px]"
           color="border-[#FED60033]"
-          translate="translate-x-1/4 -translate-y-1/4"
-          className="opacity-60 top-0 right-0"
-          parallaxIntensity={100}
-        />
+          className="opacity-60 top-[-120px] right-[-120px]"
+          parallaxIntensity={100} translate={''}        />
+
+          <motion.div
+  className="absolute top-[-40px] right-[120px] z-20"
+  animate={{
+    y: [0, -10, 0]
+  }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut"
+  }}
+>
+  <img
+    src="/SAMS/circle.svg"
+    alt="center"
+    className="w-[120px] md:w-[160px] lg:w-[200px]"
+  />
+</motion.div>
 
         <motion.div
           animate={rotateAnimation}
@@ -296,13 +310,13 @@ const HeroSection: React.FC = () => {
         />
 
         {/* ✅ WRAPPER ADDED HERE */}
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Main Content */}
           <motion.div
             style={{ y: contentY }}
             variants={containerVariants}
-            className="relative pt-24 z-10 w-full lg:mx-20 xl:mx-30 mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
+            className="relative pt-24 z-10 w-full mx-auto max-w-[1400px] mt-20 py-16 flex flex-col items-center md:items-start gap-6 text-center md:text-left"
           >
             <motion.div variants={itemVariants}>
               <H1>Lorem ipsum dolor , <br /> consectetur adipis</H1>
@@ -315,7 +329,18 @@ const HeroSection: React.FC = () => {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <ContactUs className="mt-6">CONTACT US</ContactUs>
+              <Link
+            to="#contact-us"
+            onClick={(e) => {
+              const el = document.getElementById("contact-us");
+              if (el) {
+                e.preventDefault();
+                el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <ContactUs>Contact Us </ContactUs>
+          </Link>
             </motion.div>
           </motion.div>
 
@@ -348,7 +373,10 @@ const HeroSection: React.FC = () => {
                   src={src}
                   alt={`Dashboard ${index + 1}`}
                   index={index}
-                  className="flex-shrink-0 rounded-lg w-[400px] h-[480px]"
+                  className="flex-shrink-0 rounded-lg 
+w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[400px]
+h-[320px] sm:h-[360px] md:h-[420px] lg:h-[460px] xl:h-[480px]"
+                
                 />
               ))}
             </motion.div>
@@ -361,6 +389,9 @@ const HeroSection: React.FC = () => {
       </div>
     </motion.section>
   );
+
 };
+
+
 
 export default HeroSection;

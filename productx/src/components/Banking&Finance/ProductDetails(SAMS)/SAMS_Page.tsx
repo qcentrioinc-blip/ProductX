@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
 import InsightThought from "../InsightThought";
-import FaqSection from "../ProductKYC/FAQ";
+// import FaqSection from "../ProductKYC/FAQ";
 import Cards from "./Cards";
 import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";
@@ -43,23 +43,20 @@ const Sams_Page = () => {
       <Cards />
       <ThreeTab />
       <HWD />
-      <FaqSection />
+      {/* <FaqSection /> */}
       <InsightThought />
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
 
     </div>

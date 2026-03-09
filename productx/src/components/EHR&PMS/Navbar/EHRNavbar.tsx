@@ -306,7 +306,7 @@ const EHRNavbar = () => {
                 }}
               >
                 <div className="text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
+                  <img className="h-full w-full" src="/QEHRLogo.svg" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
