@@ -22,6 +22,19 @@ const EHRNavbar = () => {
 
   // ---------- HOVER TIMEOUT LOGIC ----------
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTouchRef = useRef(false);
+
+  // Detect touch vs mouse input
+  useEffect(() => {
+    const onTouch = () => { isTouchRef.current = true; };
+    const onMouse = () => { isTouchRef.current = false; };
+    window.addEventListener('touchstart', onTouch, { passive: true });
+    window.addEventListener('mousemove', onMouse);
+    return () => {
+      window.removeEventListener('touchstart', onTouch);
+      window.removeEventListener('mousemove', onMouse);
+    };
+  }, []);
 
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
@@ -345,9 +358,21 @@ const EHRNavbar = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuOpen(true);
                         // setResourcesMenuOpen(false);
+                        setMegaMenuBuiltFor(false);
+                        setLogoDropdownOpen(false);
+                        prefetchPhysicianImages();
+                        prefetchAdminImages();
+                        prefetchInsuranceCoordinatorImages();
+                        prefetchReceptionistImages();
+                        prefetchNurseImages();
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuOpen((prev) => !prev);
                         setMegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                         prefetchPhysicianImages();
@@ -386,6 +411,7 @@ const EHRNavbar = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
@@ -394,6 +420,12 @@ const EHRNavbar = () => {
                         prefetchLongTermCareImages();
                         prefetchHomeHealthcareImages();
                         prefetchClinicsAndHospitalsImages();
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuBuiltFor((prev) => !prev);
+                        setMegaMenuOpen(false);
+                        setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -540,6 +572,7 @@ const EHRNavbar = () => {
             prefetchLongTermCareImages={prefetchLongTermCareImages}
             prefetchHomeHealthcareImages={prefetchHomeHealthcareImages}
             prefetchClinicsAndHospitalsImages={prefetchClinicsAndHospitalsImages}
+            onLinkClick={closeAllMenus}
           />
         )}
       </Suspense>

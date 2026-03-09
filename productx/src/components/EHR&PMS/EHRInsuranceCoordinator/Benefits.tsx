@@ -56,7 +56,7 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] xl:min-h-[300vh] py-10 px-6 lg:px-0"
+      className="relative w-full min-h-[150vh] lg:min-h-fit xl:min-h-[300vh] py-10 px-6 lg:px-0"
     >
       <div className="xl:sticky xl:top-0 xl:h-screen flex flex-col justify-center items-center">
         

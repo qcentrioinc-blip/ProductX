@@ -91,26 +91,24 @@ const Capabilities = () => {
                 key={card.number}
                 className="w-full max-w-[971px] rounded-2xl p-6 bg-white border border-[#E0E0E0]"
               >
-                <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex flex-row items-center gap-6 lg:gap-10">
 
                   {/* Number */}
-                  <div className="text-[clamp(32px,8vw,58px)] font-bold text-gray-800 flex-shrink-0">
+                  <div className="text-[clamp(48px,8vw,80px)] font-bold text-gray-600 flex-shrink-0 leading-none">
                     {card.number}
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    <H3 className="text-[#2B68C3] xl:mt-5">
-                      {card.title}
-                    </H3>
-
-                    <P className="leading-[150%] text-black mt-4">
-                      {card.description}
-                    </P>
-
-                  </div>
+                  {/* Title */}
+                  <H3 className="text-[#2B68C3] m-0">
+                    {card.title}
+                  </H3>
 
                 </div>
+
+                {/* Description */}
+                <P className="leading-[150%] text-black mt-6">
+                  {card.description}
+                </P>
               </div>
             ))}
           </div>
