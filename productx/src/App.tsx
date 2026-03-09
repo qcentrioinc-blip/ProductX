@@ -16,18 +16,18 @@ import Cookies from './components/Banking&Finance/Policy/CookiePolicy';
 import BlogDetailBNF from './components/Banking&Finance/BNFBlogs/BlogDetailBNF';
 import BankingAndFinance from './routes/industries/BankingAndFinance'
 // import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
-import AML from './components/Banking&Finance/ProductAML/AML';
+ 
 import Blogs from './components/Banking&Finance/Blogs/Blogs';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
-// const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
+const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 // const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
-// const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
+const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
-// const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
+const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
 // const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
 // const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
 const Platform = lazy(() => import('./components/Global/Platform/Platform'));
@@ -107,8 +107,8 @@ const App = () => {
     if (productId === "almanac") return <AML />; 
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
-    // if (productId === "customer-onboarding-solutions") return <Cos_Page />
-    // if (productId === "sams") return <Sams_Page />
+    if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    if (productId === "sams") return <Sams_Page />
     // if (productId === "internet-banking-system") return <PDPage9 />
     // if (productId === "loan-origination-system") return <ProductsPage7 />
     return <ProductNotFound/>;

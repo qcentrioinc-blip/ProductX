@@ -39,7 +39,7 @@ const locations: Location[] = [
     {
         id: 'singapore',
         name: 'Singapore',
-        position: { top: '61%', left: '81%' },
+        position: { top: '61%', left: '84%' },
         description: '1 Raffles Place, #34-04, One Raffles Place, Singapore - 048616'
     },
     {

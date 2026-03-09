@@ -22,6 +22,19 @@ const EHRNavbar = () => {
 
   // ---------- HOVER TIMEOUT LOGIC ----------
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTouchRef = useRef(false);
+
+  // Detect touch vs mouse input
+  useEffect(() => {
+    const onTouch = () => { isTouchRef.current = true; };
+    const onMouse = () => { isTouchRef.current = false; };
+    window.addEventListener('touchstart', onTouch, { passive: true });
+    window.addEventListener('mousemove', onMouse);
+    return () => {
+      window.removeEventListener('touchstart', onTouch);
+      window.removeEventListener('mousemove', onMouse);
+    };
+  }, []);
 
   const handleCloseMenus = () => {
     timeoutRef.current = setTimeout(() => {
@@ -293,7 +306,7 @@ const EHRNavbar = () => {
                 }}
               >
                 <div className="text-white flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
-                  <img className="h-full w-full" src="/QEHRLogo.png" alt="Company Logo" />
+                  <img className="h-full w-full" src="/QEHRLogo.svg" alt="Company Logo" />
                 </div>
                 {/* ROTATING X ICON */}
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
@@ -345,9 +358,21 @@ const EHRNavbar = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuOpen(true);
                         // setResourcesMenuOpen(false);
+                        setMegaMenuBuiltFor(false);
+                        setLogoDropdownOpen(false);
+                        prefetchPhysicianImages();
+                        prefetchAdminImages();
+                        prefetchInsuranceCoordinatorImages();
+                        prefetchReceptionistImages();
+                        prefetchNurseImages();
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuOpen((prev) => !prev);
                         setMegaMenuBuiltFor(false);
                         setLogoDropdownOpen(false);
                         prefetchPhysicianImages();
@@ -386,6 +411,7 @@ const EHRNavbar = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => {
+                        if (isTouchRef.current) return;
                         handleKeepOpen();
                         setMegaMenuBuiltFor(true);
                         setMegaMenuOpen(false);
@@ -394,6 +420,12 @@ const EHRNavbar = () => {
                         prefetchLongTermCareImages();
                         prefetchHomeHealthcareImages();
                         prefetchClinicsAndHospitalsImages();
+                      }}
+                      onClick={() => {
+                        handleKeepOpen();
+                        setMegaMenuBuiltFor((prev) => !prev);
+                        setMegaMenuOpen(false);
+                        setLogoDropdownOpen(false);
                       }}
                     >
                       <div className="flex items-center gap-1 cursor-pointer">
@@ -540,6 +572,7 @@ const EHRNavbar = () => {
             prefetchLongTermCareImages={prefetchLongTermCareImages}
             prefetchHomeHealthcareImages={prefetchHomeHealthcareImages}
             prefetchClinicsAndHospitalsImages={prefetchClinicsAndHospitalsImages}
+            onLinkClick={closeAllMenus}
           />
         )}
       </Suspense>

@@ -19,7 +19,7 @@ const PhysicianHeroSection = () => {
       z-0
     "
   />
-      <div className="  max-w-7xl  px-4 xl:mx-auto">
+      <div className="  max-w-7xl  px-4 xl:mx-auto lg:pt-20 xl:pt-0">
         {/* Top Content */}
         <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
