@@ -243,7 +243,7 @@ const AINavbar = () => {
                 className="flex items-center gap-1"
               >
                 <div className="w-full h-12 flex justify-center items-center">
-                  <img src="/QCloudLogo.png" className="w-auto h-10" alt="Cloud FinOps AI" />
+                  <img src="/QCloudLogo.svg" className="w-auto h-10" alt="Cloud FinOps AI" />
                 </div>
 
                 {/* Chevron */}
