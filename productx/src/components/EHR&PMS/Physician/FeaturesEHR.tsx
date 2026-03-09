@@ -56,7 +56,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white py-10 px-4 sm:px-8 lg:px-8">
+    <div className="min-h-screen md:min-h-fit lg:min-h-fit xl:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl xl:mx-auto">
         <div className="border-2 border-[#166D48] rounded-3xl p-6 md:p-10 lg:p-10 xl:p-12">
 

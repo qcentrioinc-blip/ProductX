@@ -9,6 +9,7 @@ interface BuiltForMenuProps {
     prefetchLongTermCareImages: () => void;
     prefetchHomeHealthcareImages: () => void;
     prefetchClinicsAndHospitalsImages: () => void;
+    onLinkClick?: () => void;
 }
 
 const BuiltForMenu = ({
@@ -18,7 +19,8 @@ const BuiltForMenu = ({
     handleCloseMenus,
     prefetchLongTermCareImages,
     prefetchHomeHealthcareImages,
-    prefetchClinicsAndHospitalsImages
+    prefetchClinicsAndHospitalsImages,
+    onLinkClick,
 }: BuiltForMenuProps) => {
     const industry = "ehr-and-pms";
     const base = `/industries/${industry}`;
@@ -64,6 +66,7 @@ ${isScrolled
                     <Link
                         key={index}
                         to={item.path}
+                        onClick={onLinkClick}
                         onMouseEnter={() => {
                             if (item.title === "Long Term Care") prefetchLongTermCareImages();
                             if (item.title === "Home Healthcare") prefetchHomeHealthcareImages();
