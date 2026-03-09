@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
+import { Link } from "react-router-dom";
  
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
@@ -243,7 +244,20 @@ export default function Workflow() {
             <div className=" md:pl-4 ">
  
  
-              <ContactUs>Book A Demo</ContactUs>
+               <Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
+            <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+       Book A Demo
+            </ContactUs>
+            </Link>
             </div>
           </div>
         </div>

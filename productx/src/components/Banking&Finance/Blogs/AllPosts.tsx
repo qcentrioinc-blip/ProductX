@@ -66,6 +66,15 @@ const posts = [
     category: "AML",
     image: "/Blog/RealTime.webp",
   },
+  {
+    id: 7,
+     slug: "how-to-automate-regulatory-reporting-for-liquidity",
+    title: "How To Automate Regulatory Reporting For Liquidity And Asset Management",
+    description: "When it comes to managing money and risk, banks face constant pressure to follow strict rules like Basel III and ...",
+    date: "8 March 2026",
+    category: "AML",
+    image: "/Blog/RealTime.webp",
+  },
 ];
 
 export default function BlogGridSection() {
@@ -255,5 +264,6 @@ export default function BlogGridSection() {
         </div>
       )}
     </section>
+    
   );
 }

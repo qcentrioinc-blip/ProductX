@@ -10,14 +10,17 @@ import ImageGrid from "./ImageGrid"
 import Workflow from "./Workflow"
 import Cards from "./Cards"
 // import PagoNavbar from "./PagoNavbar"
-
-import InsightThought from "../InsightThought"
+ 
 import ContactUS from "../ProductRemitree/ContactUS"
 
 import BNFNav from "../Navbar/BNFnav"
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import HeroBottomNavbar from "./HeroBottomNav";
-import FaqSection from "../ProductKYC/FAQ";
+import ImageCard from "../BNFBlogs/ImageCard";
+import CTABanner from "./CTABanner";
+import Testimonial from "./Testimonial";
+import ImageChange from "./ImageChange";
+// import FaqSection from "../ProductKYC/FAQ";
 
 const ProductDetailthree = () => {
   const location = useLocation();
@@ -61,34 +64,33 @@ const ProductDetailthree = () => {
       <div >
         <ImageGrid />
       </div>
-
+      <Testimonial/>
+      <ImageChange/>
+<CTABanner/>
       <div id="usecases">
         <HWD />
       </div>
       <div id="faq">
-        <FaqSection />
+        {/* <FaqSection /> */}
       </div>
-      <div id="blogs">
-        <InsightThought />
-      </div>
+     
+<div id="blogs">
+  <ImageCard/>
+</div>
 
 
-
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+       <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
 
     </div>

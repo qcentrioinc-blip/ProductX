@@ -6,7 +6,6 @@ import HeroSection from "./HeroSection"
 import Testimonial from "./Testimonial"
 import Banks from "./Banks"
 import HWD from "../HWD"
-import InsightThought from "../InsightThought"
 
 import FaqSection from "../ProductKYC/FAQ"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
@@ -14,6 +13,8 @@ import BNFNav from "../Navbar/BNFnav"
 // import ContactSection from "../ProductBankfair/ContactSection"
 import ContactUS from "../ProductRemitree/ContactUS"
 import DetailCards from "./DeatilCards";
+import Cards from "./Cards";
+import ImageCard from "../BNFBlogs/ImageCard";
 
 
 
@@ -43,25 +44,23 @@ const AML = () => {
       <Description />
       <Banks />
       <DetailCards/>
+      <Cards/>
       <HWD />
 
       <FaqSection />  
-      <InsightThought />
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+      <ImageCard />
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
 
     </div>

@@ -14,12 +14,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
     const base = `/industries/${industry}`;
 
     const megaMenuItems = [
-        // {
-        //     title: "Almanac",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P1.png",
-        //     path: `${base}/products/almanac`,
-        // },
+        {
+            title: "Almanac",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/almanac`,
+        },
         {
             title: "Conciliare",
             desc: "Advanced reconciliation for financial accuracy",
@@ -44,12 +44,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     img: "/BNFHOME/P5.jpg",
         //     path: `${base}/products/loan-origination-system`,
         // },
-        // {
-        //     title: "Pago",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P6.jpg",
-        //     path: `${base}/products/pago`,
-        // },
+        {
+            title: "Pago",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P6.jpg",
+            path: `${base}/products/pago`,
+        },
         // {
         //     title: "Remitree",
         //     desc: "Lorem ipsum dolor sit amet consectetur",

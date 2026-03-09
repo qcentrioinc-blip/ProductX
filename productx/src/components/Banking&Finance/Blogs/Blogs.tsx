@@ -19,21 +19,23 @@ const Blogs = () => {
       {/* <HeroSection /> */}
       {/* <FeaturedCards /> */}
       <AllPosts />
-     <div className="hidden lg:block relative">
-       {/* Footer sits at bottom, ContactUS scrolls over it */}
-       <div id="contact-us">
-         <ContactUS />
-       </div>
-       <NewOneFooter />
-     </div>
      
-     {/* MOBILE */}
-     <div className="lg:hidden">
-       <ContactUS />
-       <NewOneFooter />
+           <div id="contact-us">
+             <div className="hidden lg:block relative">
+               {/* Footer sits at bottom, ContactUS scrolls over it */}
+               <div>
+                 <ContactUS />
+               </div>
+               <NewOneFooter />
+             </div>
      
-      </div>
-    </div>
+             {/* MOBILE */}
+             <div className="lg:hidden">
+               <ContactUS />
+               <NewOneFooter />
+             </div>
+           </div>
+           </div>
   )
 }
 

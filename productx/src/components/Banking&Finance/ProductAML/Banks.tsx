@@ -5,7 +5,7 @@ const Banks = () => {
   return (
     <div className="relative w-full min-h-screen pt-12 py-20 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-28">
       {/* Background image layer with low opacity */}
-      <div className="absolute inset-0 bg-[url('/UpscaleImage.png')] bg-cover bg-center bg-no-repeat opacity-40"></div>
+      {/* <div className="absolute inset-0 bg-[url('/UpscaleImage.png')] bg-cover bg-center bg-no-repeat opacity-40"></div> */}
 
       {/* Main content above the background */}
       <div className="relative z-10">
