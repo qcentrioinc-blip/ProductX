@@ -11,12 +11,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
     const base = `/industries/${industry}`;
 
     const megaMenuItems = [
-        // {
-        //     title: "Almanac",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P1.png",
-        //     path: `${base}/products/almanac`,
-        // },
+        {
+            title: "Bankfair",
+            desc: "Complete core banking & loan management system ",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/bankfair`,
+        },
         {
             title: "Conciliare",
             desc: "Advanced reconciliation for financial accuracy",

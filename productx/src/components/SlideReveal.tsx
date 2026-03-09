@@ -145,7 +145,7 @@ export default function SlideReveal() {
             className="absolute inset-0 z-10 pointer-events-none"
           >
             <img
-              src="/Img1.png"
+              src="/Img5.webp"
               alt="Wind Energy"
               className="w-full h-full object-cover"
             />

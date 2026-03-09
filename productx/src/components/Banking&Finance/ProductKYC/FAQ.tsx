@@ -52,6 +52,13 @@ const FaqSection: React.FC = () => {
         "Find answers to common questions about Conciliare's reconciliation platform, features, implementation, and how it transforms financial operations.",
       cta: "Learn More"
     },
+
+    "/industries/banking-and-finance/products/bankfair": {
+      heading: "Common Questions About Bankfair ",
+      description:
+        "Find answers to common questions about Bankfair's capabilities, implementation, and how it supports financial institutions across retail banking and loan management. ",
+      cta: "View All "
+    },
     "/industries/banking-and-finance/products/almanac": {
       heading: "Frequently asked questions",
       description:
@@ -223,6 +230,47 @@ const FaqSection: React.FC = () => {
         answer:
           "Implementation typically takes three to five months, depending on customer segments, regulatory requirements, and integration complexity with existing systems.  ",
       },
+    ],
+
+    "/industries/banking-and-finance/products/bankfair": [
+      {
+        question: "What types of financial institutions can use Bankfair?",
+        answer:
+          "Bankfair serves retail banks, commercial banks, credit unions, and financial cooperatives. The platform scales for small institutions with single branches and large banks with hundreds of locations. ",
+      },
+      {
+        question: "Does Bankfair support multi-currency transactions? ",
+        answer:
+          "Yes, Bankfair provides robust multi-currency capabilities. Branches can handle transactions in different currencies seamlessly with proper exchange rate management and reporting.   ",
+      },
+      {
+        question: " Can we configure our own loan products without coding? ",
+        answer:
+          "Yes, Bankfair's parameterization lets you create and modify loan products through configuration. Set interest rates, repayment schedules, charges, and approval workflows without developer involvement.  ",
+      },
+      {
+        question: "How does Bankfair ensure regulatory compliance? ",
+        answer:
+          "Bankfair automates regulatory checks during onboarding and transactions. The system maintains comprehensive audit trails, generates required reports, and adapts to changing compliance requirements. ",
+      },
+
+      {
+        question: "What security features does Bankfair include? ",
+        answer:
+          "Bankfair offers role-based access control, detailed user privileges, and transaction-level permissions. Activity logs track all user actions and data encryption protects sensitive customer information.  ",
+      },
+      {
+        question: "Can Bankfair integrate with our existing systems? ",
+        answer:
+          "Yes, Bankfair provides APIs and integration capabilities for connecting with core systems, payment gateways, AML solutions, and third-party applications for seamless data flow.  ",
+      },
+      {
+
+        question: "How long does Bankfair implementation typically take? ",
+        answer:
+          "Implementation timelines vary based on institution size and requirements. Bankfair's parameterized approach typically enables faster deployment compared to custom-coded core banking systems.  ",
+      },
+      
     ],
 
     "/industries/banking-and-finance/products/almanac": [

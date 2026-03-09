@@ -24,6 +24,8 @@ const HWD = () => {
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
+  const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
+
 
   const COLORS = {
     ehr: {
@@ -66,6 +68,13 @@ const HWD = () => {
         "See how organizations use CloudDIET and AI-driven FinOps to reduce cloud spend, improve governance, and retain savings long term."
     },
 
+    bankfair: {
+      eyebrow: " ",
+      title: " Real-World Banking Applications ",
+      description:
+        ""
+    },
+ 
     conciliare: {
       eyebrow: " ",
       title: " Common Reconciliation Use Cases",
@@ -143,6 +152,48 @@ const HWD = () => {
       },
     ],
 
+    bankfair: [
+      {
+        title: "Retail Banking Operations ",
+        image: "/icon1.svg",
+        description:
+          "Manage daily retail banking activities for individual customers across multiple branches. ",
+        points: [
+          "Onboard new customers with streamlined digital data capture and verification ",
+          "Create and manage savings accounts, fixed deposits, and transaction accounts  ",
+          "Process teller transactions with automated denomination tally and reconciliation ",
+          "Handle standing instructions, lien noting, and payroll services efficiently ",
+          "Generate account statements and transaction histories on demand  ",
+        ],
+      },
+      {
+        title: "Loan Management Lifecycle",
+        image: "/icon2.svg",
+        description:
+          "Originate, disburse, and track loans from application to closure. ",
+        points: [
+          "Configure multiple loan products with customized interest rates and repayment terms  ",
+          "Automate EMI calculations, penalty applications, and repayment scheduling ",
+          "Track collateral details and manage lien marking against loan accounts ",
+          "Monitor overdue payments and generate alerts for collections teams ",
+          "Classify assets and calculate provisions per regulatory requirements  ",
+        ],
+      },
+      {
+        title: "Multi-Branch Administration ",
+        image: "/icon3.svg",
+        description:
+          "Centralize control and reporting across a geographically distributed branch network.  ",
+        points: [
+          "Set up branch-specific holiday calendars and business hour configurations ",
+          "Manage inter-branch fund transfers and reconciliation seamlessly  ",
+          "Assign role-based system access for branch managers, tellers, and officers ",
+          "Monitor branch performance through centralized dashboards and reports ",
+          "Maintain a unified customer view across all branches and product holdings ",
+        ],
+      },
+    ],
+ 
     conciliare: [
       {
         title: "Bank Account Reconciliation",
@@ -321,6 +372,7 @@ const HWD = () => {
   let cards;
   if (isConciliare) cards = CARD_CONTENT.conciliare;
   else if (isKYC) cards = CARD_CONTENT.kyc;
+  else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
   else cards = CARD_CONTENT.banking;
@@ -329,6 +381,7 @@ const HWD = () => {
   let headingContent;
   if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
   else if (isKYC) headingContent = HEADING_CONTENT.kyc;
+  else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
@@ -336,7 +389,7 @@ const HWD = () => {
 
   // PALETTE
   let palette;
-  if (isConciliare || isKYC) palette = COLORS.banking;
+  if (isConciliare || isKYC || isBankfair) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;

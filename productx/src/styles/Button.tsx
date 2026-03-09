@@ -201,6 +201,7 @@ export const ContactUs = ({ children, className = "", onClick }: ButtonProps) =>
             hover:border-[#010101]
             hover:border-b-[4px]
             hover:-translate-y-[2px]
+            cursor-pointer
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
             ${className}
           `}
