@@ -5,8 +5,8 @@ const ThirdCards = () => {
         w-full flex flex-col items-center justify-center
         bg-white
         px-5 sm:px-10
-        py-12 sm:py-16 xl:py-[60px]
-        min-h-[240px] xl:min-h-[320px]
+        py-4 sm:py-6 xl:py-8
+        min-h-auto xl:min-h-auto
       "
     >
       <div className="flex flex-col items-center w-full max-w-[900px] gap-5 xl:gap-6">
