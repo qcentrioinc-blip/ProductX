@@ -155,7 +155,7 @@ const HWD = () => {
     bankfair: [
       {
         title: "Retail Banking Operations ",
-        image: "/icon1.svg",
+        image: "/ProductBankfair/hwd_i1.svg",
         description:
           "Manage daily retail banking activities for individual customers across multiple branches. ",
         points: [
@@ -168,7 +168,7 @@ const HWD = () => {
       },
       {
         title: "Loan Management Lifecycle",
-        image: "/icon2.svg",
+        image: "/ProductBankfair/hwd_i2.svg",
         description:
           "Originate, disburse, and track loans from application to closure. ",
         points: [
@@ -181,7 +181,7 @@ const HWD = () => {
       },
       {
         title: "Multi-Branch Administration ",
-        image: "/icon3.svg",
+        image: "/ProductBankfair/hwd_i3.svg",
         description:
           "Centralize control and reporting across a geographically distributed branch network.  ",
         points: [

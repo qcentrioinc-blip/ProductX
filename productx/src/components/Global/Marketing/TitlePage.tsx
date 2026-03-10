@@ -8,6 +8,10 @@ import { Search, ArrowRight } from "lucide-react";
 const products = [
   { name: "Conciliare", path: "/industries/banking-and-finance/products/conciliare" },
   { name: "KYC & CDD", path: "/industries/banking-and-finance/products/kyc" },
+  { name: "Bankfair", path: "/industries/banking-and-finance/products/bankfair" },
+  { name: "ALManac", path: "/industries/banking-and-finance/products/almanac" },
+  { name: "Remitree", path: "/industries/banking-and-finance/products/remitree" },
+  { name: "PAGO", path: "/industries/banking-and-finance/products/pago" },
   { name: "Unified EHR", path: "/industries/ehr-and-pms" },
   { name: "CloudDIET", path: "/industries/cloud-finops-ai" },
 ];

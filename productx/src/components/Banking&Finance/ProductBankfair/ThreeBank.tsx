@@ -5,25 +5,25 @@ const CARDS = [
         number: "01",
         title: "Parameterization",
         description:
-            "Configure products, transactions, charges, and collateral types without coding. Define branch-specific holidays, currency setups, and general ledger structures. Modify settings independently without vendor support for faster adaptation to market changes.",
+            "Configure products, transactions, charges, and collateral without coding. Set branch holidays, currencies, and ledger structures. Modify settings independently without vendor support for faster market adaptation. ",
     },
     {
         number: "02",
         title: "Automation",
         description:
-            "Automate account creation, transaction processing, and regulatory compliance checks. Streamline member onboarding, lien noting, limit setting, and payroll management. Reduce manual errors while improving operational efficiency across all banking functions.",
+            "Automate account creation, transaction processing, and compliance checks. Streamline onboarding, lien noting, and payroll. Reduce manual errors while improving operational efficiency across banking functions. ",
     },
     {
         number: "03",
         title: "Scalability ",
         description:
-            "Support unlimited branches, multiple currencies, and growing transaction volumes. Add new financial products, modify existing ones, and expand into new regions. Architecture designed to grow with your institution without performance degradation. ",
+            "Support unlimited branches, multiple currencies, and growing volumes. Add new products and expand regions. Architecture grows with your institution without performance degradation. ",
     },
 ];
 
 const ThreeBank = () => {
     return (
-        <div className="relative w-full bg-white py-16">
+        <div className="relative w-full bg-white py-16 xl:py-20">
             <div className="max-w-7xl xl:mx-auto mx-4 px-4 xl:px-0">
 
                 {/* Header Section */}
@@ -31,12 +31,12 @@ const ThreeBank = () => {
                     <div className="flex-1 w-full relative">
                         <H1>
                             <div className="text-[#2B68C3] leading-[1.1]">Complete Core</div>
-                            <div className="text-gray-600 leading-[1.1]">Banking Platform </div>
+                            <div className= "leading-[1.1]">Banking Platform </div>
                         </H1>
                     </div>
                     <div className="flex-1 w-full">
                         <P className="text-gray-700 leading-relaxed max-w-5xl">
-Bankfair is Qnest’s comprehensive core banking and loan management system designed for financial institutions. It centralizes bank information management, automates processes, and provides extensive parameterization capabilities. The platform supports multi-currency operations, regulatory compliance, and scalable growth across branches.                         </P>
+Bankfair is Qnest’s comprehensive core banking and loan management system designed for financial institutions. It centralizes bank information management, automates processes, and provides extensive parameterization capabilities. The platform supports multi-currency operations, regulatory compliance, and scalable growth across branches.                          </P>
                     </div>
                 </div>
 
@@ -49,9 +49,9 @@ Bankfair is Qnest’s comprehensive core banking and loan management system desi
                         >
                             <div className="flex flex-row items-center gap-6">
                                 {/* Number */}
-                                <div className="text-[clamp(40px,6vw,56px)] font-bold text-gray-600 flex-shrink-0 leading-none">
+                                <H3 className="flex-shrink-0 leading-none">
                                     {card.number}
-                                </div>
+                                </H3>
 
                                 {/* Title */}
                                 <H3 className="text-[#2B68C3] m-0">

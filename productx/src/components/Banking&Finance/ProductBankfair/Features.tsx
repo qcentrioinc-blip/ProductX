@@ -17,8 +17,8 @@ interface TabContentData {
   image: string
   imageAlt: string
   stats: {
-    left: { label: string;}
-    right: { label: string;}
+    left: { label: string; icon:string }
+    right: { label: string; icon: string}
   }
 }
 
@@ -32,11 +32,11 @@ const tabContent: Record<FilterKey, TabContentData> = {
       "Configure general ledger structures for streamlined financial management ",
       "Set up currency parameters for seamless multi-currency transaction handling ",
     ],
-    image: "/Products/img3.webp",
+    image: "/ProductBankfair/f1.webp",
     imageAlt: "Table",
     stats: {
-      left: { label: "Centralize branch management with unified holiday calendars and office account configurations "},
-      right: { label: "Support multi-currency operations through flexible currency setup and exchange rate management "},
+      left: { icon: "/ProductBankfair/f1i1.svg", label: "Centralize branch management with unified holiday calendars and office account configurations "},
+      right: { icon: "/ProductBankfair/f1i2.svg", label: "Support multi-currency operations through flexible currency setup and exchange rate management "},
     },
   },
   "Parameterization  ": {
@@ -48,11 +48,11 @@ const tabContent: Record<FilterKey, TabContentData> = {
       "Configure amount-based and transaction-based charges with historical versioning ",
       "Set up collateral types and exception handling rules for compliance ",
     ],
-    image: "/Products/img4.webp",
+    image: "/ProductBankfair/f2.webp",
     imageAlt: "Analytics Dashboard",
     stats: {
-      left: { label: " Modify banking rules and product configurations without vendor involvement or coding ", },
-      right: { label: "Maintain historical versions of charges and policies for complete audit transparency " },
+      left: { icon: "/ProductBankfair/f2i1.svg", label: " Modify banking rules and product configurations without vendor involvement or coding ", },
+      right: { icon: "/ProductBankfair/f2i2.svg", label: "Maintain historical versions of charges and policies for complete audit transparency " },
     },
   },
   "User Management    ": {
@@ -64,11 +64,11 @@ const tabContent: Record<FilterKey, TabContentData> = {
       "Assign read-only, write-only, or both access types based on responsibilities ",
       "Control access down to individual transaction types and product levels ",
     ],
-    image: "/Products/img1.webp",
+    image: "/ProductBankfair/f3.webp",
     imageAlt: "Compliance Overview",
     stats: {
-      left: { label: "Enforce least-privilege access with granular permissions down to transaction levels "},
-      right: { label: "Simplify user administration through role-based groupings and privilege templates " },
+      left: { icon: "/ProductBankfair/f3i1.svg", label: "Enforce least-privilege access with granular permissions down to transaction levels "},
+      right: { icon: "/ProductBankfair/f3i2.svg", label: "Simplify user administration through role-based groupings and privilege templates " },
     },
   },
   "Account Operations  ": {
@@ -80,11 +80,11 @@ const tabContent: Record<FilterKey, TabContentData> = {
       "Support for share issuance, modification, redemption, and lien noting ",
       "Teller denomination tracking for accurate cash tally and reconciliation ",
     ],
-    image: "/Products/img5.webp",
+    image: "/ProductBankfair/f4.webp",
     imageAlt: "Risk Management",
     stats: {
-      left: { label: "Accelerate customer onboarding with streamlined data capture and verification workflows ",},
-      right: { label: "Ensure accurate cash management through teller denomination tracking and reconciliation "},
+      left: { icon: "/ProductBankfair/f4i1.svg", label: "Accelerate customer onboarding with streamlined data capture and verification workflows ",},
+      right: { icon: "/ProductBankfair/f4i2.svg", label: "Ensure accurate cash management through teller denomination tracking and reconciliation "},
     },
   },
   "Regulatory Compliance ": {
@@ -96,11 +96,11 @@ const tabContent: Record<FilterKey, TabContentData> = {
       "Maintain complete transparency with comprehensive audit trails ",
       "Automate regulatory checks during onboarding and account management ",
     ],
-    image: "/Products/img2.webp",
+    image: "/ProductBankfair/f5.webp",
     imageAlt: "Risk Management",
     stats: {
-      left: { label: "Stay audit-ready with comprehensive logs of all user actions and system events "},
-      right: { label: "Automate regulatory reporting to meet central bank and authority requirements "},
+      left: { icon: "/ProductBankfair/f5i1.svg", label: "Stay audit-ready with comprehensive logs of all user actions and system events "},
+      right: { icon: "/ProductBankfair/f5i2.svg", label: "Automate regulatory reporting to meet central bank and authority requirements "},
     },
   },
 }
@@ -254,10 +254,10 @@ const Features = () => {
               {/* Arrow + Value */}
               <div className="flex items-center gap-2 xl:gap-3">
                 <img
-                  src="/TrendUp.svg"
-                  alt="Trend Up"
-                  className="w-7 sm:w-9 md:w-10 lg:w-12 xl:w-[60px] h-auto object-contain shrink-0"
-                />
+  src={currentContent.stats.left.icon}
+  alt=""
+  className="w-7 sm:w-9 md:w-10 lg:w-12  h-auto object-contain shrink-0"
+/>
                 
               </div>                
 
@@ -283,10 +283,10 @@ const Features = () => {
               {/* Arrow + Value */}
               <div className="flex items-center gap-2 xl:gap-3">
                 <img
-                  src="/TrendUp.svg"
-                  alt="Trend Up"
-                  className="w-7 sm:w-9 md:w-10 lg:w-12 xl:w-[60px] h-auto object-contain shrink-0"
-                />
+  src={currentContent.stats.right.icon}
+  alt=""
+  className="w-7 sm:w-9 md:w-10 lg:w-12  h-auto object-contain shrink-0"
+/>
                 
               </div>                  
 
