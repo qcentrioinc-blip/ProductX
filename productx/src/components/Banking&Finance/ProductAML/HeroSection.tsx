@@ -3,6 +3,16 @@ import { H1, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 
 export default function HeroSection() {
+  const bullets = [
+  {
+    icon: "/AML/Dollar.svg",
+    text: "Multi-currency compliant platform that generates regulatory reports and uses predictive analytics for capital planning and funding strategies."
+  },
+  {
+    icon: "/AML/Vector.svg",
+    text: "Comprehensive toolkit for interest rate risk analysis, stress testing, government securities management, and liquidity monitoring."
+  }
+];
   return (
     <section className="w-full bg-gray-100 py-16 relative overflow-hidden">
       <div className="max-w-full  lg:pt-24 px-6 mx-auto xl:px-20">
@@ -10,8 +20,7 @@ export default function HeroSection() {
         {/* Heading */}
         <div className="max-w-2xl mb-12">
           <H1 className="text-[#2B68C3] leading-tight">
-            Lorem ipsum dolor, <br />
-            consectetur adipis
+           Asset Liability Management System
           </H1>
         </div>
 
@@ -21,7 +30,7 @@ export default function HeroSection() {
           {/* Left Image */}
           <div className="relative w-full h-full">
             <img
-              src="/AML/image73.png"
+              src="/AML/Almanac11.webp"
               alt="hero image"
               className="w-full h-full object-cover"
             />
@@ -33,9 +42,7 @@ export default function HeroSection() {
             {/* White floating card */}
             <div className="bg-gray-100 text-[#141414] p-6 rounded-xl shadow-md ">
               <P className="leading-relaxed max-w-2xl">
-                Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu Excepteur sint occaecat cupidatat
-                non proident, sunt in culpa qui officia
+               ALMANAC integrates risk management, liquidity forecasting, and regulatory reporting into a single platform for financial institutions. 
               </P>
 
               <Link
@@ -49,33 +56,31 @@ export default function HeroSection() {
                                          }}
                                      >
                          <ContactUs className="w-full mt-4 flex items-center justify-center gap-2 text-black">
-                           CONTACT US
+                       Explore Almanac
                          </ContactUs>
                          </Link>
             </div>
 
             {/* Bullet points */}
-            <div className="space-y-10 mt-10">
+           <div className="space-y-10 mt-10">
+  {bullets.map((item, index) => (
+    <div key={index} className="flex gap-5 items-start">
 
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-gray-200 rounded-full shrink-0 mt-1" />
-                <P className="text-[#CCCCCC] max-w-full leading-normal">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia
-                </P>
-              </div>
+      <div className="w-16 h-16 bg-white/10   rounded-full  flex items-center justify-center shrink-0 mt-1">
+        <img
+          src={item.icon}
+          alt=""
+          className="w-10 h-10 object-contain"
+        />
+      </div>
 
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-gray-200 rounded-full shrink-0 mt-1" />
-                <P className="text-[#CCCCCC] max-w-[420px] leading-relaxed">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia
-                </P>
-              </div>
+      <P className="text-[#CCCCCC] max-w-full leading-normal">
+        {item.text}
+      </P>
 
-            </div>
+    </div>
+  ))}
+</div>
           </div>
         </div>
       </div>

@@ -44,12 +44,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     img: "/BNFHOME/P4.png",
         //     path: `${base}/products/internet-banking-system`,
         // },
-        // {
-        //     title: "Loan Origination Sytem",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P5.jpg",
-        //     path: `${base}/products/loan-origination-system`,
-        // },
+        {
+            title: "Loan Origination Sytem",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P5.jpg",
+            path: `${base}/products/loan-origination-system`,
+        },
         {
             title: "Pago",
             desc: "Lorem ipsum dolor sit amet consectetur",

@@ -1,21 +1,18 @@
+import { H2 } from "../../../styles/Typography"
+
 export default function ThreeCards() {
   return (
-    <div className="w-full flex items-center justify-center bg-[#F3F3F3]">
+    <div className="w-full flex items-center justify-center bg-white">
       {/* Desktop Layout - Responsive */}
-      <div className="hidden lg:flex w-full max-w-8xl mx-10 px-10 py-20 flex-col gap-8">
-        <h1
-          className="w-full text-[40px] xl:text-[48px] font-bold text-[#2A2A2A] leading-[120%]"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Lorem ipsum dolor , consectetur adipis
-        </h1>
+      <div className="hidden lg:flex w-full max-w-8xl mx-10 px-10 py-10 flex-col gap-8">
+        <H2>Lorem ipsum dolor , consectetur adipis</H2>
 
         <div className="flex w-full gap-8 h-auto xl:h-[458px]">
           {/* Left Card */}
           <div
-            className="flex-1 xl:w-[685px] rounded-lg bg-[#E4F0FF] p-8 flex flex-col gap-4 relative"
+            className="flex-1 xl:w-[685px]  border-2 border-[#666666] rounded-lg  p-8 flex flex-col gap-4 relative"
           >
-            <div className="w-12 h-12 bg-white rounded-full shrink-0" />
+            <div className="w-12 h-12 bg-[#2B68C3] rounded-full shrink-0" />
             <div className="flex flex-col gap-2">
               <h2
                 className="font-bold text-2xl text-[#2A2A2A] leading-[140%]"
@@ -32,18 +29,18 @@ export default function ThreeCards() {
             </div>
 
             <div
-              className="mt-auto w-full h-[200px] xl:h-[227px] bg-white rounded-t-lg mx-auto"
+              className="mt-auto w-full h-[200px] xl:h-[227px] bg-[#666666] rounded-t-lg mx-auto"
             />
           </div>
 
           {/* Right Cards */}
-          <div className="flex-1 xl:w-[566px] flex flex-col gap-6">
+          <div className="flex-1   flex flex-col gap-4">
             {[1, 2].map((_, idx) => (
               <div
                 key={idx}
-                className="flex-1 rounded-lg bg-[#E4F0FF] p-8 flex flex-col gap-4"
+                className="flex-1 rounded-lg  border-2 border-[#666666] py-6  px-8 flex flex-col gap-4"
               >
-                <div className="w-12 h-12 bg-white rounded-full shrink-0" />
+                <div className="w-12 h-12 bg-[#2B68C3] rounded-full shrink-0" />
                 <div className="flex flex-col gap-2">
                   <h2
                     className="font-bold text-2xl text-[#2A2A2A] leading-[140%]"

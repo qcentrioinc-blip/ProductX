@@ -3,18 +3,32 @@ import { H4, P } from "../../../styles/Typography";
 export default function Cards() {
   const cards = [
     {
-      title: "Strategic Capital Distribution Across Business Lines",
+      title: "Lorem ipsum dolor gamis consecte ipsum",
       content:
-        "Optimize capital allocation to meet strategic objectives using predictive analytics and long-term funding planning tools.",
-      shape: "/AML/Group.svg",
-      illustration: "/AML/Group.svg",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+      shape: "/ProductDetails4/gridShape1.png",
+      illustration: "/ProductDetails4/gridShape1.png",
     },
     {
-      title: " Regulatory Compliance with Business Management",
+      title: "Lorem ipsum dolor gamis consecte ipsum",
       content:
-        " Calculate LCR and NSFR ratios accurately while integrating compliance reporting into daily business operations. ",
-      shape: "/AML/Agree.svg",
-      illustration: "/AML/Agree.svg",
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+      shape: "/ProductDetails4/gridShape2.png",
+      illustration: "/ProductDetails4/gridShape2.png",
+    },
+     {
+      title: "Lorem ipsum dolor gamis consecte ipsum",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+      shape: "/ProductDetails4/gridShape1.png",
+      illustration: "/ProductDetails4/gridShape1.png",
+    },
+    {
+      title: "Lorem ipsum dolor gamis consecte ipsum",
+      content:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+      shape: "/ProductDetails4/gridShape2.png",
+      illustration: "/ProductDetails4/gridShape2.png",
     },
   ];
 
