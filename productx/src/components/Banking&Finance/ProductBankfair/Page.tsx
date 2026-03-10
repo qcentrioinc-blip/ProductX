@@ -1,5 +1,5 @@
 import BNFNav from "../Navbar/BNFnav"
-import ColourBoard from "./ColourBoard"
+// import ColourBoard from "./ColourBoard"
 import ThreeBank from "./ThreeBank"
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav"
 import GridSec from "./GridSec"
@@ -11,6 +11,7 @@ import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import HeroSec1 from "./HeroSec1"
 import FaqSection from "../ProductKYC/FAQ"
 import ImageCard from "../BNFBlogs/ImageCard"
+import ImgSec from "./ImgSec"
 
 const Bankfair = () => {
   return (
@@ -23,7 +24,8 @@ const Bankfair = () => {
         <div id="overview"><ThreeBank/></div>
         <div id="benefits">
         <GridSec/>
-        <ColourBoard/>
+        <ImgSec/>
+        {/* <ColourBoard/> */}
         <Features/>
         </div>
         <div id="process">

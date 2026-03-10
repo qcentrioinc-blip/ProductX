@@ -31,25 +31,19 @@ const GlossaryPage = ({ industry }: GlossaryPageProps) => {
       {/* <AlphabetSec/> */}
       {industry === "finance" && (
         <>
-          <div className="relative">
+          <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
 
-            <div className=" lg:h-[200vh]"></div>
-
-
-
-            <div className="sticky bottom-0 inset-0 z-30">
-              <NewOneFooter />
-            </div>
-
-
-            <div
-              className="absolute inset-0 z-40 pointer-events-none"
-
-            >
-              <ContactUS />
-            </div>
-
-          </div>
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
         </>
       )}
 
