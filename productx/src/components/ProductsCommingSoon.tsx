@@ -1,107 +1,94 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function ProductsCommingSoon() {
+export default function ProductsComingSoon() {
   return (
-    <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-6 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-[#F4F8FF] flex items-center justify-center px-6 overflow-hidden">
 
-      {/* Subtle Background Accent */}
-      <div className="absolute right-0 top-0 w-[40%] h-full bg-[#F4F8FF] hidden xl:block"></div>
+      {/* Background Accent */}
+      <div className="absolute right-0 top-0 w-[45%] h-full bg-[#F4F8FF] hidden lg:block rounded-l-[120px]" />
 
-      <div className="max-w-5xl w-full grid xl:grid-cols-2 gap-12 items-center relative z-10">
+      {/* Decorative blur circle */}
+      <div className="absolute -top-24 -left-24 w-[320px] h-[320px] bg-blue-100 rounded-full blur-3xl opacity-60" />
 
-        {/* Left Content */}
-        <div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-[24px] md:text-[32px] lg:text-[48px]
+      <div className="max-w-4xl text-center relative z-10">
 
-      font-bricolageEHR
-        leading-[120%] text-[#2B68C3]"
-          >
-            Comming Soon..
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-6 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
-        font-quicksand
-        leading-[120%] max-w-xl"
-          >
-            We’re working on something exciting. This product is currently under development and will be available soon.
-
-In the meantime, feel free to explore our existing solutions or return to the previous page.
-          </motion.p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-6">
-            <Link
-              to="/industries/banking-and-finance"
-              className="px-6 py-3 bg-[#2B68C3] text-white rounded-lg  font-bricolage hover:bg-blue-700 transition"
+        {/* Icon */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="w-24 h-24 rounded-full bg-[#2B68C3]/10 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-12 h-12 text-[#2B68C3]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
             >
-              View All Banking Products
-            </Link>
-
-            <Link
-              to="/contact"
-              className="px-6 py-3 border border-[#2B68C3] text-[#2B68C3] rounded-lg  font-bricolage hover:bg-blue-50 transition"
-            >
-              Contact Our Team
-            </Link>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 6v6l4 2"
+              />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Suggested Products */}
-        <div className="bg-white shadow-xl border border-gray-100 rounded-2xl p-8">
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-[28px] md:text-[36px] lg:text-[48px]
+                     font-bricolageEHR
+                     leading-[120%] text-[#2B68C3]"
+        >
+          Coming Soon
+        </motion.h1>
 
-          <h3 className="text-[16px] md:text-[20px] lg:text-[24px]
-        font-bricolage
-        font-bold
-        leading-[120%] text-black mb-6">
-            Recommended Solutions
-          </h3>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mt-6 text-[14px] md:text-[16px] lg:text-[18px]
+                     font-quicksand
+                     leading-[140%]
+                     max-w-2xl mx-auto text-[#141414]"
+        >
+          We’re working on something exciting. This product is currently under
+          development and will be available soon.
 
-          <div className="space-y-6">
-            <Link
-              to="/industries/banking-and-finance/products/conciliare"
-              className="block p-5 border border-gray-100 rounded-xl hover:border-[#2B68C3] hover:shadow-md transition"
-            >
-              <h4 className="font-semibold  text-[16px] md:text-[20px] lg:text-[24px]
-        font-bricolageEHR
-     
-        leading-[120%] text-[#2B68C3]">
-                Reconciliation
-              </h4>
-              <p className="text-sm text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
-        font-quicksand
-        leading-[120%]
-        text-[#141414] mt-2">
-                Enterprise-grade financial workflow and compliance management platform.
-              </p>
-            </Link>
+          In the meantime, feel free to explore our existing solutions or
+          return to the product marketplace.
+        </motion.p>
 
-            <Link
-              to="/industries/banking-and-finance/products/kyc"
-              className="block p-5 border border-gray-100 rounded-xl hover:border-[#2B68C3] hover:shadow-md transition"
-            >
-              <h4 className="font-semibold  text-[16px] md:text-[20px] lg:text-[24px]
-        font-bricolageEHR
-       
-        leading-[120%] text-[#2B68C3]">
-                KYC
-              </h4>
-              <p className="text-sm text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
-        font-quicksand
-        leading-[120%]
-        text-[#141414] mt-2">
-                Advanced fraud detection and risk intelligence for financial institutions.
-              </p>
-            </Link>
-          </div>
-        </div>
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mt-10 flex flex-col sm:flex-row gap-6 justify-center"
+        >
+          <Link
+            to="/industries/banking-and-finance/marketplace"
+            className="px-6 py-3 bg-[#2B68C3] text-white rounded-lg font-bricolage hover:bg-blue-700 transition"
+          >
+            View All Banking Products
+          </Link>
+
+          <Link
+            to="/contact"
+            className="px-6 py-3 border border-[#2B68C3] text-[#2B68C3] rounded-lg font-bricolage hover:bg-blue-50 transition"
+          >
+            Contact Our Team
+          </Link>
+        </motion.div>
 
       </div>
     </section>

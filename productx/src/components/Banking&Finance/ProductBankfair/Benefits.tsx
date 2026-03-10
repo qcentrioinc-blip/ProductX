@@ -38,7 +38,7 @@ const CARDS = [
 
 const Benefits = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative h-auto">
       <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-0">
         <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
 
@@ -87,9 +87,9 @@ Financial institutions choose Bankfair to streamline operations, ensure complian
                 <div className="flex flex-row items-center gap-6 lg:gap-10">
 
                   {/* Number */}
-                  <div className="text-[clamp(42px,8vw,70px)] font-bold text-gray-600 flex-shrink-0 leading-none">
+                  <H3 className=" flex-shrink-0 leading-none">
                     {card.number}
-                  </div>
+                  </H3>
 
                   {/* Title */}
                   <H3 className="text-[#2B68C3] m-0">

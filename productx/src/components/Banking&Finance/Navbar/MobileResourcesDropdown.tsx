@@ -11,21 +11,21 @@ const MobileResourcesDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpe
     const base = `/industries/${industry}`;
 
     const resourceItems = [
-        {
-            title: "Newsletter",
-            desc: "Stay updated with curated insights and announcements.",
-            path: `${base}/news`
-        },
-        {
-            title: "Case Studies",
-            desc: "Upcoming webinars, conferences, and live sessions.",
-            path: `${base}/events`
-        },
-        {
-            title: "Whitepapers",
-            desc: "Deep technical insights and strategic research.",
-            path: `${base}/whitepapers`
-        },
+        // {
+        //     title: "Newsletter",
+        //     desc: "Stay updated with curated insights and announcements.",
+        //     path: `${base}/news`
+        // },
+        // {
+        //     title: "Case Studies",
+        //     desc: "Upcoming webinars, conferences, and live sessions.",
+        //     path: `${base}/events`
+        // },
+        // {
+        //     title: "Whitepapers",
+        //     desc: "Deep technical insights and strategic research.",
+        //     path: `${base}/whitepapers`
+        // },
         {
             title: "Blogs",
             desc: "Expert commentary, tips, and industry knowledge.",

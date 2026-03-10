@@ -33,11 +33,11 @@ const ResourcesMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenu
             desc: "Expert commentary, tips, and industry knowledge.",
             path: `${base}/blogs`
         },
-        // {
-        //     title: "Glossary",
-        //     desc: "Expert commentary, tips, and industry knowledge.",
-        //     path: `${base}/glossary`
-        // },
+        {
+            title: "Glossary",
+            desc: "Expert commentary, tips, and industry knowledge.",
+            path: `${base}/glossary`
+        },
     ];
 
     return (

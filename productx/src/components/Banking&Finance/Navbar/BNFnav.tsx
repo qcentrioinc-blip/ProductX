@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import MobileProductsDropdown from "./MobileProductsDropdown";
-// import MobileResourcesDropdown from "./MobileResourcesDropdown";
+import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 import { ContactUs } from "../../../styles/Button";
@@ -513,11 +513,11 @@ const BNFNav = () => {
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
           />
-          {/* <MobileResourcesDropdown
+          <MobileResourcesDropdown
             mobileDropdown={mobileDropdown}
             setMobileDropdown={setMobileDropdown}
             setMenuOpen={setMenuOpen}
-          /> */}
+          />
 
           {/* <div className="border-b border-gray-200 pb-3">
             <Link to={`${base}/careers`} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">

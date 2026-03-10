@@ -72,14 +72,14 @@ const NewOneFooter = () => {
   document.body
 ) : null;
   const products = [
-    { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
-    { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
-    { label: "KYC", url: "/industries/banking-and-finance/products/kyc" },
-     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
+    { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
     { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
+    { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
+    { label: "KYC & CDD", url: "/industries/banking-and-finance/products/kyc" },
+    { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
+     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
     // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
     // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
-    { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
     // { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
     // { label: "Internet Banking Solution", url: "/industries/banking-and-finance/products/internet-banking-system" },
   ];
@@ -96,6 +96,7 @@ const NewOneFooter = () => {
     // { label: "Contact", url: "/industries/banking-and-finance/contactform" },
     // { label: "Platform", url: "/platform" },
     { label: "Market Place", url: "/marketplace" },
+    { label: "Glossary", url: "/industries/banking-and-finance/glossary" },
   ];
 
    const BuiltFor = [
@@ -117,7 +118,7 @@ const NewOneFooter = () => {
     >
 
  {toastPortal}
-      <div className='relative   z-50'>
+      <div className='relative z-50'>
         <footer className="relative w-full lg:pt-10   overflow-hidden" id="financeContainer">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
@@ -185,17 +186,17 @@ const NewOneFooter = () => {
               {/* Vertical Divider - Moved to border-r on left column */}
 
               {/* Right Section - Products + Quick Links */}
-              <div className="lg:col-span-5  grid grid-cols-1 sm:grid-cols-3 lg:gap-x-8 xl:gap-x-6 pl-2 lg:pl-10 gap-y-8 lg:py-10">
+              <div className="lg:col-span-5  grid grid-cols-1 sm:grid-cols-3 lg:gap-x-8 xl:gap-x-6 pl-2 lg:pl-6 gap-y-8 lg:py-10">
 
                 {/* Products */}
                 <div>
                   <H4>Products</H4>
-                  <ul className="space-y-0 mt-2 font-quicksand">
+                  <ul className="space-y-1 mt-2 font-quicksand">
                     {products.map((item) => (
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
+                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
@@ -207,12 +208,12 @@ const NewOneFooter = () => {
                 {/* Quick Links */}
                 <div>
                   <H4>Quick Links</H4>
-                  <ul className="space-y-0 mt-2 font-quicksand">
+                  <ul className="space-y-1 mt-2 font-quicksand">
                     {quickLinks.map((item) => (
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
@@ -222,12 +223,12 @@ const NewOneFooter = () => {
                 </div>
                 <div> 
                   <H4>Built For</H4>
-                  <ul className="space-y-0 mt-2 font-quicksand">
+                  <ul className="space-y-1 mt-2 font-quicksand">
                     {BuiltFor.map((item) => (
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[15px] leading-[1.6] hover:text-gray-600 cursor-pointer transition-colors"
+                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
