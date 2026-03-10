@@ -2,51 +2,62 @@ import { useState } from "react";
 import { H2, H3, P } from "../../../styles/Typography";
 
 const images = [
-  "/AML/image73.png",
-  "/AML/image64.png",
-  "/AML/image74.png",
-  "/Career/image57.png",
-  "/Career/image59.png"
+  "/AML/Almanac1.webp",
+  "/AML/Almanac4.webp",
+  "/AML/Almanac10.webp",
+ "/AML/Almanac8.webp",
+"/AML/Almanac7.webp",
 ];
+const tabs=[
+  "Currency compliance ", 
+
+"Report generation ", 
+
+"Stress testing  ",
+
+"Rate analysis", 
+
+"G-Sec tools  "
+]
 
 const Description = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const textData = [
-    "Button 1 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 2 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 3 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 4 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non ",
-    "Button 5 in reprehenderit in voluptate velit esse cillum dolore eu. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia Excepteur sint occaecat cupidatat non "
+    "System fully compliant with multiple currencies for global banking operations. Handles transactions, reporting, and analysis across different currencies seamlessly.  ",
+    "Generates reports required by regulatory authorities including liquidity statements, interest rate sensitivity analysis, and Basel-compliant submissions. ",
+    "Simulates impact of large withdrawals and credit defaults. Assesses liquidity coverage ratio and available funding ratio under various stress conditions. ",
+    "Measures interest rate sensitivity and calculates net interest income. Includes traditional gap analysis and modified duration calculations for balance sheet impacts ",
+    "Manages government securities portfolios with bond registers, duration analysis, and value at risk calculations. Simulates portfolio impacts under varying rates.  "
   ];
 
 
   return (
     <div className="w-full bg-[#ffffff] h-full ">
-      <div className="max-w-8xl lg:mx-10 px-10 xl:py-0">
+      <div className="max-w-8xl lg:mx-10  px-4 xl:px-10 xl:py-0">
 
         {/* Top Heading */}
         <div className="md:py-16 md:3xl lg:w-[95%] xl:w-4xl w-full pb-8">
           <H2 className="text-left">
-            Lorem ipsum dolor , consectetur adipis, Lorem ipsum dolor ,
+           Key Features of ALMANAC for Financial Institutions 
           </H2>
         </div>
 
         {/* Mobile pill buttons - top */}
         <div className="xl:hidden mb-8">
           <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
-            {[0, 1, 2, 3, 4].map((index) => (
+             {tabs.map((label, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`snap-center shrink-0 lg:w-[18vw] md:w-[24vw] w-[36vw] md:py-4 py-2 rounded-full text-lg font-semibold
+                className={`snap-center shrink-0 lg:w-[20vw] md:w-[28vw] w-[48vw] md:py-4 py-2 px-2 rounded-full text-lg font-semibold
                   ${activeIndex === index
                     ? "bg-(--primary-color) text-black"
                     : "border-2 border-neutral-700 text-black bg-white"
                   }`}
               >
-                Duis aute irure
+                {label}
               </button>
             ))}
           </div>
@@ -58,39 +69,38 @@ const Description = () => {
           <img
             src={images[activeIndex]}
             alt="Description"
-            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[350px] object-cover rounded-2xl"
+            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[450px] object-fill rounded-2xl"
           />
 
           {/* Right Overlay Box - Desktop only */}
-          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-10 xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] xl:px-14">
+          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-20 xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] xl:px-14">
             <H3 className="text-[#2B68C3]">
-              Lorem ipsum dolor <br /> consectetur
+             Proven Performance <br/>Metrics
             </H3>
 
             <div className="flex gap-8 font-bricolage items-start mt-auto">
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col  items-start">
                 <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">32%</span>
-                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
+                <span className="text-xs  sm:text-sm text-[#141414]"> Reduction in <br/>  manual effort</span>
               </div>
               <div className="flex flex-col items-start">
-                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">4x%</span>
-                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
+                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">4x</span>
+                <span className="text-xs sm:text-sm text-[#141414]">Faster regulatory <br/> reporting</span>
               </div>
               <div className="flex flex-col items-start">
-                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">80%</span>
-                <span className="text-xs sm:text-sm text-[#141414]">Lorem Ipsum</span>
+                <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">80+</span>
+                <span className="text-xs sm:text-sm text-[#141414]">Banks and institutions <br/> worldwide</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Content Card - Desktop only (replaces overlay) */}
-        <div className="hidden lg:flex flex-row justify-between items-start gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
+        <div className="hidden lg:flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
           {/* Left Text */}
           <div className="w-full xl:w-1/2">
-            <H3 className="text-black">
-             Lorem ipsum dolor , consectetur 
-consectetur adipis,Lorem ipsum 
+            <H3 className="text-black ">
+            Comprehensive Toolkit for <br className="xl:block hidden"/> Asset Liability Management
             </H3>
           </div>
 
@@ -103,54 +113,50 @@ consectetur adipis,Lorem ipsum
         {/* Mobile Content - Below Image */}
         <div className="lg:hidden mt-6 space-y-6">
           {/* Stats Box for Mobile */}
-          <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-6">
+          <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-0">
             <H3 className="mb-4">
-              Lorem ipsum dolor <br />consectetur
+           Proven Performance Metrics
             </H3>
             <div className="flex justify-around gap-4 mt-10">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-start">
                 <span className="text-2xl font-bold">32%</span>
-                <span className="text-xs">Lorem Ipsum</span>
+                <span className="text-xs">Reduction in manual effort</span>
               </div>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl font-bold">4x%</span>
-                <span className="text-xs">Lorem Ipsum</span>
+              <div className="flex flex-col items-start">
+                <span className="text-2xl font-bold">4x</span>
+                <span className="text-xs">Faster regulatory reporting</span>
               </div>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl font-bold">80%</span>
-                <span className="text-xs">Lorem Ipsum</span>
+              <div className="flex flex-col items-start">
+                <span className="text-2xl font-bold">80+</span>
+                <span className="text-xs">Banks and institutions worldwide</span>
               </div>
             </div>
           </div>
 
           {/* Content Section for Mobile */}
-          <div className="bg-white rounded-lg p-6 space-y-4">
+          <div className="bg-white rounded-lg p-0 space-y-4">
             <H3 className="text-(--primary-color)">
-              Lorem ipsum dolor , consectetur adipis
+             Comprehensive Toolkit for Asset Liability Management
             </H3>
             <P className="text-black">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia. Duis aute irure dolor in reprehenderit
-              in voluptate velit esse cillum dolore eu Excepteur sint occaecat
-              cupidatat non proident.
+            ALMANAC integrates liquidity forecasting, interest rate risk analysis, and regulatory compliance. The platform provides tools for dynamic liquidity statements, stress testing, gap analysis, and government securities management. Predictive analytics enable proactive capital planning and informed strategic decisions. 
             </P>
           </div>
         </div>
 
         {/* Bottom Pill Buttons - Desktop */}
         <div className="hidden xl:flex md:flex-wrap md:justify-between mt-8">
-          {[0, 1, 2, 3, 4].map((index) => (
+          {tabs.map((label,index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`px-4 py-4 w-[14vw] text-[20px] font-schibsted rounded-full transition duration-300
+              className={`px-4 py-4 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
                 ${activeIndex === index
                   ? "bg-(--primary-color) text-black"
                   : "border border-[#2B68C3] text-black"
                 }`}
             >
-              Duis aute irure
+              {label}
             </button>
           ))}
         </div>

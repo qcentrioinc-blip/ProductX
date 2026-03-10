@@ -2,16 +2,19 @@ import { useContext, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import BNFNav from "../Navbar/BNFnav"
 import HWD from "../HWD"
-import InsightThought from "../InsightThought"
+ 
 import AboutFeaturesSection from "../ProductDetails(SAMS)/Feature"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
-import FaqSection from "../ProductKYC/FAQ"
+// import FaqSection from "../ProductKYC/FAQ"
 import FirstPage from "./FirstPage"
 import Harper from "./Harper"
 import SecondSection from "./SecondSection"
 import ThreeCards from "./ThreeCards"
 import { ScrollContext } from "../../../context/ScrollContext"
+import ImageCard from "../BNFBlogs/ImageCard"
+import Cards from "./Cards"
+import CTABanner from "./CTABanner"
 
 const ProductsPage7 = () => {
   const scrollableContainerRef = useContext(ScrollContext);
@@ -53,24 +56,23 @@ const ProductsPage7 = () => {
       <ThreeCards />
       <AboutFeaturesSection />
       <Harper />
+      <Cards/>
+      <CTABanner/>
       <HWD />
-      <FaqSection />
-      <InsightThought />
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+      {/* <FaqSection /> */}
+     <ImageCard/>
+     <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
     </div>
   )

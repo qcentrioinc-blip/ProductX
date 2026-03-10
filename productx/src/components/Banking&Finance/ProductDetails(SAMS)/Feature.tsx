@@ -20,7 +20,7 @@ const features = [
 
 const AboutFeaturesSection = () => {
   return (
-    <section className="w-full bg-white py-16 px-6 md:px-12 lg:px-12">
+    <section className="w-full bg-white py-10 px-6 md:px-12 lg:px-20">
       {/* Section Title */}
       <div className="max-w-8xl mx-10 text-left mb-12">
         <H2 className="text-gray-900">Sed ut perspiciatis</H2>

@@ -60,10 +60,10 @@ const FaqSection: React.FC = () => {
       cta: "View All "
     },
     "/industries/banking-and-finance/products/almanac": {
-      heading: "Frequently asked questions",
+      heading: "ALMANAC Frequently Asked Questions",
       description:
-        "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
-      cta: "Check FAQs"
+        "Find answers to common questions about ALMANAC's asset liability management capabilities, regulatory reporting, and how it supports financial institutions globally.",
+      cta: "View All"
     },
 
   };
@@ -275,36 +275,40 @@ const FaqSection: React.FC = () => {
 
     "/industries/banking-and-finance/products/almanac": [
       {
-        question: "What is the difference between CDD and EDD?",
+        question: "What types of financial institutions can use ALMANAC? ",
         answer:
-          "CDD is standard due diligence for most customers to verify identity and assess risk. EDD is deeper investigation for high-risk customers like PEPs requiring additional documentation and approvals.  ",
+          "ALMANAC serves commercial banks, retail banks, credit unions, and financial cooperatives. The platform scales for small institutions and large multinational banks with complex multi-currency operations.  ",
       },
       {
-        question: "How does Diligent help with regulatory compliance?",
+        question: "Does ALMANAC support multi-currency compliance? ",
         answer:
-          "The platform configures policies to meet local regulations, automates name screening against watchlists, maintains version-controlled audit trails, and ensures consistent execution across all customer segments.  ",
+          "Yes, ALMANAC is fully compliant with multiple currencies. The platform handles transactions, reporting, and analysis across different currencies for global banking operations.  ",
       },
       {
-        question: " What customer segments does Diligent support?",
+        question: " What regulatory reports does ALMANAC generate? ",
         answer:
-          "Diligent supports both individual and corporate customers including private limited companies, partnerships, trusts, and complex ownership structures with beneficial ownership identification.    ",
+          "ALMANAC generates liquidity reports, interest rate sensitivity statements, structural liquidity statements, and Basel-compliant reports required by central banks and regulatory authorities.    ",
       },
       {
-        question: "What integrations are available with Diligent?",
+        question: "Can ALMANAC perform stress testing? ",
         answer:
-          "Diligent integrates via APIs with data sources, name screening engines, core banking systems, CRMs, data warehouses, and frontend applications for seamless data flow.    ",
+          "Yes, ALMANAC simulates the impact of large withdrawals, credit defaults, and interest rate changes. It assesses the liquidity coverage ratio and available funding ratio under stress conditions.  ",
       },
 
       {
-        question: " How does the platform handle beneficial ownership identification?",
+        question: "How does ALMANAC help with strategic planning? ",
         answer:
-          "The system automatically unwraps complex ownership structures based on configured thresholds, identifies connected parties and UBOs, and screens them against sanctions and watchlists.    ",
+          "The platform provides scenario simulation, long-term forecasting, and predictive analytics for capital distribution and funding strategies. Management gains insights for informed decision-making. ",
       },
       {
-        question: "How long does implementation typically take??",
+        question: "What government securities tools are included?",
         answer:
-          "Implementation typically takes three to five months, depending on customer segments, regulatory requirements, and integration complexity with existing systems.  ",
+          "ALMANAC includes a bonds register, duration analysis, value at risk calculations, and portfolio simulations. It manages fixed income portfolios with market data integration.  ",
       },
+      {
+        question:"How does ALMANAC integrate with existing systems? ",
+        answer:"ALMANAC integrates data from core banking, treasury, and market rate systems through APIs. It consolidates information for comprehensive analysis and reporting. "
+      }
     ],
   };
 

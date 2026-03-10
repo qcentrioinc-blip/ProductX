@@ -24,6 +24,7 @@ const HWD = () => {
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
+  const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
 
 
@@ -87,6 +88,14 @@ const HWD = () => {
       description:
         ""
     },
+
+     Almanac: {
+      eyebrow: " ",
+      title: "Where ALMANAC Delivers Value",
+      description:
+        ""
+    },
+
     banking: {
       eyebrow: " ",
       title: " Common Reconciliation Use Cases",
@@ -190,6 +199,60 @@ const HWD = () => {
           "Assign role-based system access for branch managers, tellers, and officers ",
           "Monitor branch performance through centralized dashboards and reports ",
           "Maintain a unified customer view across all branches and product holdings ",
+        ],
+      },
+    ],
+
+     Almanac: [
+      {
+        title: "Liquidity Risk Management ",
+        image: "/AML/SecurityRisk.svg",
+        description:
+          "Monitor and manage short-term and structural liquidity positions across the organization. ",
+        points: [
+          "Calculate dynamic liquidity statements with predefined values and automated reporting ",
+
+"Assess structural liquidity by balancing inflows and outflows over long-term horizons ",
+
+"Perform stress tests simulating large withdrawals and credit default scenarios ",
+
+"Evaluate the liquidity coverage ratio and the net stable funding ratio accurately ",
+
+"Generate regulatory liquidity reports aligned with central bank requirements  ",
+        ],
+      },
+      {
+        title: " G-Sec Portfolio Management ",  
+        image: "/AML/MoneyWings.svg",
+        description:
+          "Manage fixed income portfolios and optimize investment strategies for government securities.",
+        points: [
+          "Track bond portfolios with a complete register of buy, sell, and transfer operations ",
+
+"Calculate duration and value at risk for individual securities and portfolios ",
+
+"Upload market data for accurate pricing and performance analysis ",
+
+"Simulate portfolio rearrangements under varying interest rate conditions", 
+
+"Generate accounting entries and regulatory reports for securities holdings "
+        ],
+      },
+      {
+        title: "Interest Rate Risk Analysis ",
+        image: "/AML/BriefCase.svg",
+        description:
+          "Measure and manage exposure to interest rate fluctuations across assets and liabilities.",
+        points: [
+          "Classify assets and liabilities by maturity using traditional gap sensitivity analysis. ",
+
+"Calculate modified duration to evaluate rate change impacts on the balance sheet." ,
+
+"Segment portfolios into interest rate risk buckets for detailed analysis.", 
+
+"Assess the impact of rate changes on net interest income and economic value.", 
+
+"Run simulations for different interest rate scenarios and hedge strategies." 
         ],
       },
     ],
@@ -373,6 +436,7 @@ const HWD = () => {
   if (isConciliare) cards = CARD_CONTENT.conciliare;
   else if (isKYC) cards = CARD_CONTENT.kyc;
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
+  else if(isAlmanac) cards = CARD_CONTENT.Almanac;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
   else cards = CARD_CONTENT.banking;
@@ -382,6 +446,7 @@ const HWD = () => {
   if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
   else if (isKYC) headingContent = HEADING_CONTENT.kyc;
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
+   else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;
@@ -427,7 +492,7 @@ const HWD = () => {
 
 
         <h3
-          className={`${headingFontClass} mb-4 text-[16px]  whitespace-wrap md:text-[20px] lg:text-[24px] font-bold`}
+          className={`${headingFontClass} mb-4 text-[16px]  whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}
