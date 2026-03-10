@@ -12,6 +12,7 @@ import GoalsSection from "./GoalsSection"
 import InnovationCards from "./InnovationCards"
 import Centric from "./Centric"
 import ImgSec from "./ImgSec"
+import RotatingGlobe from "./RotatingGlobe"
 
 // Below-the-fold: lazy load to speed up initial page render
 // const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
@@ -53,6 +54,10 @@ const GlobalLandingPage = () => {
                 </div>
                 <div id="map" className="gpu-optimized">
                     <Map />
+                </div>
+
+                <div className="gpu-optimized">
+                    <RotatingGlobe />
                 </div>
                
                 {/* <div id="businessvaluessection" className="gpu-optimized">

@@ -289,7 +289,7 @@ const FiveCards = () => {
   ];
 
   return (
-    <div className="bg-white text-black py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden">
+    <div className="bg-white text-black px-4 sm:px-6 md:px-8 overflow-hidden">
       <div className="max-w-8xl mx-auto px-10">
         <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center">
           Sed ut perspiciatis unde
@@ -301,7 +301,7 @@ const FiveCards = () => {
             {smallCards.map((card, index) => (
               <ParticleCard
                 key={index}
-                className="bg-white text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-9 flex flex-col h-full border border-gray-500"
+                className="bg-[#fafafa] text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-9 flex flex-col h-full border border-gray-300"
                 enableTilt={true}
                 enableMagnetism={true}
                 clickEffect={true}
@@ -320,7 +320,7 @@ const FiveCards = () => {
           {/* Right Section - Large Card with MagicBento animations */}
           <div className="xl:col-span-6 mt-4 sm:mt-6 xl:mt-0">
             <ParticleCard
-              className="bg-white text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-8 h-full flex flex-col border border-gray-500"
+              className="bg-[#fafafa] text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-8 h-full flex flex-col border border-gray-300"
               enableTilt={true}
               enableMagnetism={true}
               clickEffect={true}
