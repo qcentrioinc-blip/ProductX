@@ -20,6 +20,7 @@ import BankingAndFinance from './routes/industries/BankingAndFinance'
 import Blogs from './components/Banking&Finance/Blogs/Blogs';
 import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
+import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -31,7 +32,7 @@ const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsP
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
 const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
 // const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
-const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
+// const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
 const Platform = lazy(() => import('./components/Global/Platform/Platform'));
 const Career = lazy(() => import('./components/Banking&Finance/Career/Career'));
 const About = lazy(() => import('./components/EHR&PMS/AboutUs/About'));
@@ -109,12 +110,13 @@ const App = () => {
     if (productId === "almanac") return <AML />; 
     if (productId === "pago") return <ProductDetailthree />
     if (productId === "bankfair") return <Bankfair/>
+    if (productId === "sherlock") return <Sherlock/>
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
     if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />
     // if (productId === "internet-banking-system") return <PDPage9 />
-    if (productId === "loan-origination-system") return <ProductsPage7 />
+    // if (productId === "loan-origination-system") return <ProductsPage7 />
     return <ProductNotFound/>;
   }
 

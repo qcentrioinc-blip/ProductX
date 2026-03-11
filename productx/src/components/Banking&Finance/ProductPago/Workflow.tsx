@@ -20,35 +20,35 @@ const steps = [
   {
     id: 1,
     title:
-      "Duis aute irure dolor in voluptate velit esse reprehenderit in voluptate velit esse",
+      "Supports e-cash, e-wallets, and e-cheques for modern payment needs ",
     image:
       "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop",
   },
   {
     id: 2,
     title:
-      "Duis aute irure dolor in voluptate velit esse reprehenderit in voluptate velit esse",
+      "Atomicity ensures that payments either complete or fail immediately ",
     image:
       "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
   },
   {
     id: 3,
     title:
-      "Duis aute irure dolor in voluptate velit esse reprehenderit in voluptate velit esse",
+      "Real-time monitoring with advanced fraud detection and security protocols ",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
   },
   {
     id: 4,
     title:
-      "Duis aute irure dolor in voluptate velit esse reprehenderit in voluptate velit esse",
+      "Seamless integration with core banking and existing financial systems ",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
   },
   {
     id: 5,
     title:
-      "Duis aute irure dolor in voluptate velit esse reprehenderit in voluptate velit esse",
+      "Detailed audit trails and transparent reporting for all transactions ",
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
   },
@@ -129,12 +129,12 @@ export default function Workflow() {
 >
 
       {/* Header Section */}
-      <div className="w-full flex flex-col items-center justify-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
+      <div className="w-full flex flex-col items-center justify-center text-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
  
           className="  text-[#2B68C3]  mb-6 leading-snug"
         >
-          Lorem ipsum dolor gamis consecte ipsum
+          Complete Payment and Settlement System <br/>for Financial Institutions
         </H2>
         <motion.p
           style={{
@@ -142,7 +142,7 @@ export default function Workflow() {
           }}
           className="text-sm   md:text-base leading-relaxed max-w-4xl transition-colors duration-300"
         >
-          Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate velit esse Duis aute irure dolor in voluptate velit esse voluptate velit essereprehenderit in voluptate velit esse voluptate
+          PAGO is a versatile payment platform designed to streamline and secure payment processes. It supports multiple transaction methods, including e-cash and e-cheques. The system integrates seamlessly with existing financial infrastructure while providing real-time monitoring and detailed reporting. 
         </motion.p>
       </div>
  
@@ -255,7 +255,7 @@ export default function Workflow() {
                             }}
                         >
             <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
-       Book A Demo
+       Explore PAGO Features
             </ContactUs>
             </Link>
             </div>

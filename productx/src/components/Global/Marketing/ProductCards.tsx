@@ -54,7 +54,7 @@ const sampleData: CardItem[] = [
     description:
       "An advanced anti-money laundering solution that monitors customer transactions and financial messages in real-time. It screens transactions against global watch lists, performs KYC verification, and generates alerts for suspicious activities. The system integrates with core banking platforms to ensure regulatory compliance and enhance operational efficiency. ",
     category: "Banking and Finance",
-    link: "/industries/:industry/products/commingsoon",
+    link: "/industries/banking-and-finance/products/sherlock",
   },
   {
     id: "5",
