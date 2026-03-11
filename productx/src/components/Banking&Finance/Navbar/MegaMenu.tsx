@@ -38,13 +38,13 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         //     img: "/BNFHOME/P3.jpg",
         //     path: `${base}/products/customer-onboarding-solutions`
         // },
-        // {
-        //     title: "Internet Banking System",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P4.png",
-        //     path: `${base}/products/internet-banking-system`,
-        // },
         {
+            title: "KYC & CDD",
+            desc: "Digital due diligence and onboarding automation ",
+            img: "/BNFHOME/P9.jpg",
+            path: `${base}/products/kyc`,
+        },
+         {
             title: "Loan Origination Sytem",
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P5.jpg",
@@ -56,24 +56,28 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P6.jpg",
             path: `${base}/products/pago`,
         },
-        {
+         {
             title: "Remitree",
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P7.jpg",
             path: `${base}/products/remitree`,
         },
+        {
+            title: "Sherlock",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P4.png",
+            path: `${base}/products/sherlock`,
+        },
+       
+        
+       
         // {
         //     title: "Sams",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
         //     img: "/BNFHOME/P8.jpg",
         //     path: `${base}/products/sams`,
         // },
-        {
-            title: "KYC & CDD",
-            desc: "Digital due diligence and onboarding automation ",
-            img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/kyc`,
-        },
+        
     ];
 
     return (

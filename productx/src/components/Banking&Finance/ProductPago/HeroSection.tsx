@@ -13,14 +13,12 @@ const HeroSection = () => {
           <div className="max-w-xl text-center lg:text-left">
 
             <H1 className="text-white mb-6">
-              Lorem ipsum dolor ,<br />
-              consectetur adipisc
+              Complete Payment and Settlement <br />
+               System for Banks
             </H1>
 
             <P className="text-white/90 mb-8">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+              PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems. 
             </P>
 
          <Link
@@ -34,7 +32,7 @@ const HeroSection = () => {
                             }}
                         >
             <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
-              Learn More
+              Explore PAGO Now 
             </ContactUs>
             </Link>
 

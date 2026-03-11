@@ -4,31 +4,31 @@ export default function Testimonial() {
   const testimonials = [
     {
       id: 1,
-      name: "Duis aute irure dolor in",
-      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore"
+      name: "Commercial Banks Direct Integration ",
+      text: "Connect directly to central bank payment gateways for high-value RTGS transactions. "
     },
     {
       id: 2,
-      name: "Duis aute irure dolor in",
-      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore"
+      name: "Credit Unions League Participation ",
+      text: "Aggregate transactions through intermediary leagues as single network participants. "
     },
       {
       id: 3,
-      name: "Duis aute irure dolor in",
-      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore"
+      name: "All Institution Types Supported ",
+      text: "Handle both high-value and low-value payments without intermediaries when needed. "
     },
      
   ];
 
   return (
     <div className="bg-white py-10">
-      <div className="max-w-8xl mx-auto  px-6 lg:px-8 xl:px-20">
+      <div className="max-w-7xl mx-auto">
 
 
         {/* Header */}
         <div className="text-center mb-12">
           <H2 className="font-bold text-gray-900">
-            Lorem ipsum dolor, consectetur adipis
+            Designed for Banks and Credit Unions 
           </H2>
         </div>
 
@@ -37,7 +37,7 @@ export default function Testimonial() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-         className="bg-white rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[210px] lg:h-[280px] xl:h-[200px]"
+         className="bg-white rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[210px] lg:h-[260px]"
             >
               <div className="flex justify-start mb-4">
                 <div className="w-10 h-10 rounded-full bg-gray-200"></div>

@@ -7,7 +7,7 @@ import Image2 from "/ProductDetailsThree/Rectangle284.png";
 const ImageGrid = () => {
   return (
     <div className="w-full min-h-screen bg-white">
-      <div className="max-w-8xl lg:mx-10 px-4 xl:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16 md:pb-20 xl:pb-28">
+      <div className="max-w-7xl mx-auto py-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start" >
          
           {/* Left Column - Content */}
@@ -16,23 +16,21 @@ const ImageGrid = () => {
  
   <div className="flex flex-col gap-3">   
     <span className="px-3 py-1 text-xs sm:text-sm rounded-full border border-black w-fit">
-      Duis aute
+      Benefits
     </span>
  
-    <H2><span className="text-[#2B68C3]">Lorem ipsum dolor</span>  gamis consecte ipsum</H2>
+    <H2><span className="text-[#2B68C3]">Key Benefits of PAGO </span>  Payment System </H2>
  
     <P className="xl:max-w-md">
-      Duis aute irure dolor in voluptate velit esse voluptate velit esse
-      reprehenderit in voluptate velit esse voluptate velit esse
+      Financial institutions gain efficiency, security, and reliability across all payment types with lower operational costs. 
     </P>
   </div>
  
   {/* Big Card */}
   <div className=" mt-10 lg:mt-20  bg-[#EAEAEA] rounded-md p-4 sm:p-5 md:p-6 lg:p-8 xl:py-24 flex flex-col  lg:h-[485px] justify-center">
-    <H3>Lorem ipsum dolor gamis consecte ipsum ipsum lorem</H3>
+    <H3>End-to-End Payment Processing with Lower Fees and Real-Time Monitoring </H3>
     <P className="mt-2 sm:mt-3 lg:mt-10 mb-10">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse,
-      Duis aute irure dolor in reprehenderit in voluptate velit esse
+      PAGO handles e-cash, e-cheques, and ACH transactions with atomicity. Lower transaction fees and real-time fraud monitoring reduce operational costs. 
     </P>
  
      <Link
@@ -46,7 +44,7 @@ const ImageGrid = () => {
                             }}
                         >
             <ContactUs className="w-full flex  mt-4 items-center justify-center gap-2 text-black">
-              CONTACT US
+              Learn More 
             </ContactUs>
             </Link>
   </div>
@@ -71,9 +69,9 @@ const ImageGrid = () => {
               <div className="flex-[0.55] bg-[#C7DDFF] space-y-10  rounded-md p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
               <div className="h-20 w-20 rounded-full  bg-gray-200"/>
                   <div className="space-y-8">
-                      <H4>Lorem ipsum dolor</H4>
+                      <H4>Seamless Integration </H4>
                 <P className="">
-                Duis aute irure dolor in reprehenderit in voluptate velit Duis aute irure dolor in 
+                Connects with core banking systems, SWIFT, and existing financial infrastructure without disruption. 
                 </P>
                   </div>
             </div>
@@ -86,10 +84,9 @@ const ImageGrid = () => {
                
                   <div className="h-20 w-20 rounded-full  bg-gray-200"/>
                   <div className="space-y-8">
-                      <H4>Lorem ipsum dolor</H4>
+                      <H4>Complete Visibility</H4>
                 <P className="">
-                 Duis aute irure dolor in reprehenderit in voluptate velit 
-reprehenderit in voluptate velit 
+                 Real-time dashboards and detailed audit trails provide transparency across all payment transactions.
                 </P>
                   </div>
                  
