@@ -46,9 +46,9 @@ const HeroSection = () => {
         
 
             <img
-              src="/ProductDetailsThree/PagoHero.webp"
+              src="/HeroPago.webp"
               alt="Hero visual"
-              className="relative z-10   xl:w-[700px] object-cover "
+              className="relative z-10    object-contain "
             />
 
           </div>
