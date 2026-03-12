@@ -15,12 +15,12 @@ import ContactUS from "../ProductRemitree/ContactUS"
 
 import BNFNav from "../Navbar/BNFnav"
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
-import HeroBottomNavbar from "./HeroBottomNav";
+// import HeroBottomNavbar from "./HeroBottomNav";
 import ImageCard from "../BNFBlogs/ImageCard";
 import CTABanner from "./CTABanner";
 import Testimonial from "./Testimonial";
 import ImageChange from "./ImageChange";
-// import FaqSection from "../ProductKYC/FAQ";
+import FaqSection from "../ProductKYC/FAQ";
 
 const ProductDetailthree = () => {
   const location = useLocation();
@@ -46,7 +46,7 @@ const ProductDetailthree = () => {
 
       <HeroSection />
 
-      <HeroBottomNavbar />
+      {/* <HeroBottomNavbar /> */}
 
 
       <div id="overview">
@@ -71,7 +71,7 @@ const ProductDetailthree = () => {
         <HWD />
       </div>
       <div id="faq">
-        {/* <FaqSection /> */}
+        <FaqSection />
       </div>
      
 <div id="blogs">

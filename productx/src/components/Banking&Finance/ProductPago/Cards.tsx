@@ -3,16 +3,16 @@ import { H4, P } from "../../../styles/Typography";
 export default function Cards() {
   const cards = [
     {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "Central Hub for Secure Transaction Management ",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+        "The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. ",
       shape: "/ProductDetails4/gridShape1.png",
       illustration: "/ProductDetails4/gridShape1.png",
     },
     {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "User-Facing Cube for Participant Interaction ",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
+        "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. ",
       shape: "/ProductDetails4/gridShape2.png",
       illustration: "/ProductDetails4/gridShape2.png",
     },

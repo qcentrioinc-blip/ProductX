@@ -12,8 +12,14 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
 
     const megaMenuItems = [
         {
-            title: "Bankfair",
-            desc: "Complete core banking & loan management system ",
+            title: "Almanac",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P1.png",
+            path: `${base}/products/almanac`,
+         
+        },
+        {   title: "Bankfair",
+            desc: "Complete core banking & loan management system  ",
             img: "/BNFHOME/P1.png",
             path: `${base}/products/bankfair`,
         },
@@ -30,18 +36,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         //     path: `${base}/products/customer-onboarding-solutions`
         // },
         {
-            title: "Almanac",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P3.jpg",
-            path: `${base}/products/almanac`
+            title: "KYC & CDD",
+            desc: "Digital due diligence and onboarding automation ",
+            img: "/BNFHOME/P9.jpg",
+            path: `${base}/products/kyc`,
         },
-        // {
-        //     title: "Internet Banking System",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P4.png",
-        //     path: `${base}/products/internet-banking-system`,
-        // },
-        {
+         {
             title: "Loan Origination Sytem",
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P5.jpg",
@@ -53,24 +53,27 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
             img: "/BNFHOME/P6.jpg",
             path: `${base}/products/pago`,
         },
-        {
+         {
             title: "Remitree",
-            desc: "Cross-border remittance platform for seamless global transactions",
+            desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P7.jpg",
             path: `${base}/products/remitree`,
         },
+        {
+            title: "Sherlock",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P4.png",
+            path: `${base}/products/sherlock`,
+        },
+       
+        
+       
         // {
         //     title: "Sams",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
         //     img: "/BNFHOME/P8.jpg",
         //     path: `${base}/products/sams`,
         // },
-        {
-            title: "KYC & CDD",
-            desc: "Digital due diligence and onboarding automation",
-            img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/kyc`,
-        },
     ];
 
     return (
