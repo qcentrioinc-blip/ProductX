@@ -16,7 +16,7 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
     const megaMenuItems = [
         {
             title: "Almanac",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Asset liability management with predictive analytics and reporting ",
             img: "/BNFHOME/P1.png",
             path: `${base}/products/almanac`,
          
@@ -50,27 +50,35 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P9.jpg",
             path: `${base}/products/kyc`,
         },
+        // {
+        //     title: "Internet Banking Solutions",
+        //     desc: "Secure online banking with real-time account access  ",
+        //     img: "/BNFHOME/P9.jpg",
+        //     path: `${base}/products/internet-banking-solutions`,
+        // },
+        
+
          {
             title: "Loan Origination Sytem",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Digital loan processing with e-verification and approvals ",
             img: "/BNFHOME/P5.jpg",
             path: `${base}/products/loan-origination-system`,
         },
         {
             title: "Pago",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Complete payment and settlement system for banks ",
             img: "/BNFHOME/P6.jpg",
             path: `${base}/products/pago`,
         },
          {
             title: "Remitree",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Cross-border remittance middleware bridging core banking with Swift ",
             img: "/BNFHOME/P7.jpg",
             path: `${base}/products/remitree`,
         },
         {
             title: "Sherlock",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Advanced anti-money laundering detection and compliance system ",
             img: "/BNFHOME/P4.png",
             path: `${base}/products/sherlock`,
         }, 

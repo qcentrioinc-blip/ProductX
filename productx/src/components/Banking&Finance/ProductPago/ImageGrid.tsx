@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { ContactUs } from "../../../styles/Button";
 import { H2, H3, H4, P } from "../../../styles/Typography";
-import Image1 from "/ProductDetailsThree/Rectangle283.png";
-import Image2 from "/ProductDetailsThree/Rectangle284.png";
+import Image1 from "/Pago/ImageGrid1.webp";
+import Image2 from "/Pago/ImageGrid2.webp";
  
 const ImageGrid = () => {
   return (
     <div className="w-full min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto py-10">
+      <div className="max-w-7xl mx-auto px-6 xl:px-0 py-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start" >
          
           {/* Left Column - Content */}
@@ -67,7 +67,9 @@ const ImageGrid = () => {
  
               {/* Card 1 */}
               <div className="flex-[0.55] bg-[#C7DDFF] space-y-10  rounded-md p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
-              <div className="h-20 w-20 rounded-full  bg-gray-200"/>
+              <div className="h-20 w-20 flex items-center justify-center rounded-full  bg-gray-200">
+              <img src="/Pago/Card.svg" alt="pago" className=""/>
+              </div>
                   <div className="space-y-8">
                       <H4>Seamless Integration </H4>
                 <P className="">
@@ -82,7 +84,9 @@ const ImageGrid = () => {
               {/* Card 2 */}
               <div className="flex-[0.55] bg-[#FAFAFA] space-y-10  border-2 border-[#2B68C3] rounded-md p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
                
-                  <div className="h-20 w-20 rounded-full  bg-gray-200"/>
+                   <div className="h-20 w-20 rounded-full flex items-center justify-center bg-black">
+              <img src="/Pago/Eye.svg" alt="pago" className=""/>
+              </div>
                   <div className="space-y-8">
                       <H4>Complete Visibility</H4>
                 <P className="">
@@ -97,7 +101,7 @@ const ImageGrid = () => {
                 <img
                   src={Image2}
                   alt="Secondary"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full  h-full xl:h-[460px] object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>

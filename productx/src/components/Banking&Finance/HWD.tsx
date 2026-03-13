@@ -416,7 +416,7 @@ const HWD = () => {
         ],
       },
       {
-        title: " High-Value Interbank Settlements",
+        title: "Interbank Settlements",
         image: "/icon2.svg",
         description:
           "Facilitate large-value fund transfers between banks through real-time gross settlement systems.",
@@ -429,7 +429,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Credit Union Payment Aggregation",
+        title: "Credit Union Aggregation",
         image: "/icon3.svg",
         description:
           "Enable credit unions to participate in national payment networks through league aggregation.",
@@ -540,7 +540,7 @@ const HWD = () => {
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if (isAlmanac) cards = CARD_CONTENT.Almanac;
   else if (isSAMS) cards = CARD_CONTENT.SAMS;
-  else if(isAlmanac) cards = CARD_CONTENT.Almanac;
+  // else if(isAlmanac) cards = CARD_CONTENT.Almanac;
   else if(isPAGO) cards = CARD_CONTENT.PAGO;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
@@ -553,7 +553,7 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
-   else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
+  //  else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
    else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
