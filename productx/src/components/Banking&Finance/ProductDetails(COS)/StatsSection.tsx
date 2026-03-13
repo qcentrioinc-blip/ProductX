@@ -1,4 +1,4 @@
-import { H2, P } from "../../../styles/Typography";
+import {H3, P } from "../../../styles/Typography";
 import CountUp from "../CountUp";
 
 export default function StatsSection() {
@@ -8,7 +8,7 @@ export default function StatsSection() {
 
         {/* Left content */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
-          <H2 className="mb-4">Lorem ipsum dolor sit amet</H2>
+          <H3 className="mb-4">Lorem ipsum dolor sit amet</H3>
           <P className="text-gray-800">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -21,7 +21,7 @@ export default function StatsSection() {
           
           {/* 100+ */}
           <div className="text-center">
-            <span className="text-5xl font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
               <CountUp from={0} to={100} direction="up" duration={1} />
               +
             </span>
@@ -30,7 +30,7 @@ export default function StatsSection() {
 
           {/* 4x */}
           <div className="text-center">
-            <span className="text-5xl font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
               <CountUp from={0} to={4} direction="up" duration={1} />
               x
             </span>
@@ -39,7 +39,7 @@ export default function StatsSection() {
 
           {/* 85% */}
           <div className="text-center">
-            <span className="text-5xl font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
               <CountUp from={0} to={85} direction="up" duration={1} />
               %
             </span>

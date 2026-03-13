@@ -5,9 +5,8 @@ import { ScrollContext } from "../../../context/ScrollContext";
 import InsightThought from "../InsightThought";
 // import FaqSection from "../ProductKYC/FAQ";
 import Cards from "./Cards";
-import ThreeTab from "../ProductRemitree/ThreeTab";
 import Feature from "./Feature";
-import HeroSection from "./HeroSection";
+// import HeroSection from "./HeroSection";
 // import NewFooter from "../Products2/NewFooter";
 // Import ScrollProvider
 
@@ -17,6 +16,10 @@ import BNFNav from "../Navbar/BNFnav";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 // import ContactSection from "../ProductBankfair/ContactSection";
 import ContactUS from "../ProductRemitree/ContactUS";
+import LandingSams from "./LandingSams";
+import BlueBox from "./BlueBox";
+import ThreeTab1 from "./ThreeTab1";
+import FaqSection from "../ProductKYC/FAQ";
 
 const Sams_Page = () => {
   const location = useLocation();
@@ -36,13 +39,17 @@ const Sams_Page = () => {
   }, [location, lenis]);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <BNFNav />
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <LandingSams />
       <Feature />
+      <ThreeTab1 />
       <Cards />
-      <ThreeTab />
+      <BlueBox />
       <HWD />
+
+      <FaqSection />
       {/* <FaqSection /> */}
       <InsightThought />
       <div id="contact-us">

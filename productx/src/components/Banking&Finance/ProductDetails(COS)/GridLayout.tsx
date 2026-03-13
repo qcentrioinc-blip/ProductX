@@ -56,7 +56,7 @@ export default function GridLayout() {
             </div>
 
             {/* CARD 3 */}
-            <div className="bg-[#F5DDA9] p-4 sm:p-6 rounded-xl border border-[#B5B5B5] flex flex-col md:h-[320px]">
+            <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#B5B5B5] flex flex-col md:h-[320px]">
               <H3 className="mb-4 font-semibold">Lorem ipsum</H3>
               <P className="text-gray-800 mb-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -75,7 +75,7 @@ export default function GridLayout() {
           <div className="flex flex-col gap-6 w-full md:w-1/2">
 
             {/* CARD 2 */}
-            <div className="bg-[#F5DDA9] p-4 sm:p-6 rounded-xl border border-[#B5B5B5] flex flex-col md:h-[320px]">
+            <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#B5B5B5] flex flex-col md:h-[320px]">
               <H3 className="mb-4 font-semibold">Lorem ipsum</H3>
               <P className="text-gray-800 mb-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

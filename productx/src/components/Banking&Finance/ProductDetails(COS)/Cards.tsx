@@ -26,17 +26,22 @@ const defaultColumns: ColumnData[] = [
 ];
 
 const InfoColumns: React.FC<InfoColumnsProps> = ({ columns = defaultColumns }) => (
-  <div className="relative bg-gray-100 w-full py-10 xl:py-20">
-
-    {/* Vertical Lines (full height, desktop only) */}
-    <div className="hidden md:block absolute inset-y-0 left-1/3 w-[0.3px] bg-[#2B68C3]" />
-    <div className="hidden md:block absolute inset-y-0 left-2/3 w-[0.3px] bg-[#2B68C3]" />
-
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+  <div className="bg-white w-full border border-gray-500">
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-500">
       {columns.map((col, idx) => (
-        <div key={idx} className="flex-1 max-w-xs text-center mx-auto">
-          <H3 className="mb-4">{col.heading}</H3>
-          <P className="text-gray-600 text-base">{col.text}</P>
+        <div key={idx} className="w-full flex flex-col items-center justify-start px-6 md:px-12 py-10 xl:py-20">
+          
+          <div className="w-full max-w-[320px] flex flex-col items-center">
+            {/* Blue Square */}
+            <div
+              className="bg-[#2B68C3] mb-5 shrink-0"
+              style={{ width: "75px", height: "75px", borderRadius: "20px" }}
+            />
+
+            <H3 className="mb-4 text-center w-full">{col.heading}</H3>
+            <P className="text-gray-600 text-base text-center w-full">{col.text}</P>
+          </div>
+
         </div>
       ))}
     </div>

@@ -32,12 +32,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P2.jpg",
             path: `${base}/products/conciliare`,
         },
-        // {
-        //     title: "Customer Onboarding Solutions",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P3.jpg",
-        //     path: `${base}/products/customer-onboarding-solutions`
-        // },
+        {
+            title: "Customer Onboarding Solutions",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/customer-onboarding-solutions`
+        },
         // {
         //     title: "Internet Banking System",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
@@ -62,12 +62,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P7.jpg",
             path: `${base}/products/remitree`,
         },
-        // {
-        //     title: "Sams",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P8.jpg",
-        //     path: `${base}/products/sams`,
-        // },
+        {
+            title: "Sams",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P8.jpg",
+            path: `${base}/products/sams`,
+        },
         {
             title: "KYC & CDD",
             desc: "Digital due diligence and onboarding automation ",
