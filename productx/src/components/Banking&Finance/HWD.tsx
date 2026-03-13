@@ -27,6 +27,7 @@ const HWD = () => {
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
   const isSAMS = path.toLowerCase().includes("sams");
+  const isPAGO = path.startsWith("/industries/banking-and-finance/products/pago");
 
 
   const COLORS = {
@@ -90,7 +91,14 @@ const HWD = () => {
         ""
     },
 
-    Almanac: {
+    PAGO: {
+      eyebrow: " ",
+      title: "Where PAGO Delivers Value ",
+      description:
+        ""
+    },
+
+     Almanac: {
       eyebrow: " ",
       title: "Where ALMANAC Delivers Value",
       description:
@@ -393,6 +401,51 @@ const HWD = () => {
         ],
       },
     ],
+    PAGO: [
+      {
+        title: "Retail Payment Processing",
+        image: "/icon1.svg",
+        description:
+          "Handle diverse retail payment types for individual customers across digital and traditional channels.",
+        points: [
+          "Process e-cash and e-wallet transactions with immediate confirmation and settlement ",
+          "Accept and clear e-cheques electronically with automated verification and reconciliation  ",
+          "Support card-not-present transactions for online and mobile banking customers ",
+          "Manage recurring bill payments and standing instructions for utility services  ",
+          "Generate detailed transaction receipts and statements for customer reference ",
+        ],
+      },
+      {
+        title: " High-Value Interbank Settlements",
+        image: "/icon2.svg",
+        description:
+          "Facilitate large-value fund transfers between banks through real-time gross settlement systems.",
+        points: [
+          "Process RTGS transactions using SWIFT messaging formats for interbank transfers ",
+          "Handle MT103 and MT202 messages for cross-border and domestic fund movements ",
+          "Ensure atomicity with immediate completion or failure of high-value payments ",
+          "Maintain audit trails for all interbank transactions with regulatory reporting ",
+          "Integrate with central bank payment gateways for direct settlement access ",
+        ],
+      },
+      {
+        title: "Credit Union Payment Aggregation",
+        image: "/icon3.svg",
+        description:
+          "Enable credit unions to participate in national payment networks through league aggregation.",
+        points: [
+          " Aggregate multiple credit union transactions into single network participant batches ",
+
+          "Process ACH transactions with configurable intervals for batch settlement cycles ",
+
+          "Handle low-value high-volume payments efficiently through consolidated processing ",
+
+          "Maintain individual transaction records while presenting consolidated settlement files ",
+
+          "Provide league-level dashboards for monitoring aggregated payment flows ",
+        ],
+      },
+    ],
 
     banking: [
       {
@@ -487,6 +540,8 @@ const HWD = () => {
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if (isAlmanac) cards = CARD_CONTENT.Almanac;
   else if (isSAMS) cards = CARD_CONTENT.SAMS;
+  else if(isAlmanac) cards = CARD_CONTENT.Almanac;
+  else if(isPAGO) cards = CARD_CONTENT.PAGO;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
   else cards = CARD_CONTENT.banking;
@@ -498,6 +553,8 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
+   else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
+   else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;

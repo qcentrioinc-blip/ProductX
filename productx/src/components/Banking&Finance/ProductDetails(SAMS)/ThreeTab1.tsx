@@ -13,7 +13,7 @@ const ThreeTab1 = () => {
             title2: 'Rules Engine',
             text2: 'Configurable rules for overdrawn accounts, installment overdue, bills overdue, and interest not served. Non-financial parameters include limit expiry and drawing power updates.',
             features: ['Days Past Due', 'Financial Parameters'],
-            image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: '/BNFCos/1st.webp'
         },
         {
             title: 'Customer Unification',
@@ -22,7 +22,7 @@ const ThreeTab1 = () => {
             title2: 'Unique Identification',
             text2: 'Uniform Customer Code assigned across all products and systems using SSN, National ID, or Customer Code. Provides a unified view of all credit facilities held by each customer.',
             features: ['Exception Reporting', 'Automated Process'],
-            image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: '/BNFCos/2nd.webp'
         },
         {
             title: 'Asset Classification',
@@ -31,7 +31,7 @@ const ThreeTab1 = () => {
             title2: 'Collateral Distribution',
             text2: 'Uploads securities and collaterals data feeds automatically. Excludes loans against securities if sufficient margin available as per regulatory guidelines.',
             features: ['Sub-Standard Assets', 'Doubtful Categories'],
-            image: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=800'
+            image: '/BNFCos/3rd.webp'
         },
     ];
 
@@ -144,7 +144,7 @@ const ThreeTab1 = () => {
                                 grid grid-cols-2
                                 gap-y-3 gap-x-3
                                 lg:gap-y-4 lg:gap-x-5
-                                xl:gap-y-5 xl:gap-x-8
+                                xl:gap-y-5 xl:gap-x-4
                                 mt-1
                             ">
                                 {tabContents[activeTab].features.map((feature, i) => (

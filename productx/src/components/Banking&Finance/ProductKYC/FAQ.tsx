@@ -71,6 +71,12 @@ const FaqSection: React.FC = () => {
         "Find answers to common questions about SAMS capabilities, NPA identification, customer data unification, provisioning calculations, and regulatory reporting for banks.",
       cta: "View All"
     },
+    "/industries/banking-and-finance/products/pago": {
+      heading: "Everything You Need to Know ",
+      description:
+        "Find answers to common questions about PAGO's payment processing capabilities, integration, security features, and how it serves banks and credit unions. ",
+      cta: "View All"
+    },
 
   };
 
@@ -345,6 +351,43 @@ const FaqSection: React.FC = () => {
       {
         question: "Does SAMS support auto-upload of data files?",
         answer: "Yes, SAMS provides auto-upload facility from source databases or SFTP pull from network devices. Upload status displays processed, uploaded, and rejected records."
+      },
+    ],
+    "/industries/banking-and-finance/products/pago": [
+      {
+        question: "What payment methods does PAGO support?  ",
+        answer:
+          "PAGO supports e-cash, e-wallets, e-cheques, ACH batch processing, and RTGS real-time settlements. The platform handles both high-value and low-value transactions through SWIFT messaging and direct gateway integration.  ",
+      },
+      {
+        question: "How does PAGO ensure transaction security? ",
+        answer:
+          "PAGO employs advanced encryption protocols, real-time transaction monitoring, and AML screening. The platform cross-references beneficiary data against watch lists and generates alerts for suspicious activities. ",
+      },
+      {
+        question: " Can credit unions use PAGO for payments? ",
+        answer:
+          "Yes, PAGO's dual-ring structure allows credit unions to participate through intermediary leagues. Transactions are aggregated and presented as single participant entries to central payment networks.   ",
+      },
+      {
+        question: "How does PAGO integrate with existing systems?  ",
+        answer:
+          "PAGO integrates seamlessly with core banking systems, SWIFT Alliance Gateway, and AML platforms through APIs. The Hub and Cube architecture ensures smooth data flow without disrupting current operations.  ",
+      },
+
+      {
+        question: "What is atomicity in payment processing?  ",
+        answer:
+          "Atomicity means payments are either completed fully or fail immediately with no partial states. This eliminates reconciliation ambiguities and ensures data consistency across all connected systems. ",
+      },
+      {
+        question: "Does PAGO support real-time gross settlement? ",
+        answer:
+          "Yes, PAGO includes RTGS modules using SWIFT messaging formats for real-time settlement. Banks can connect directly to central bank payment gateways for high-value interbank transfers.  ",
+      },
+      {
+        question:"What reporting capabilities does PAGO offer? ",
+        answer:"PAGO provides real-time dashboards, detailed audit trails, and configurable reports. Users can track transaction statuses, monitor volumes, and generate custom reports for regulatory compliance.  "
       }
     ],
   };
