@@ -33,6 +33,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             path: `${base}/products/conciliare`,
         },
         {
+            title: "Internet Banking System",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/internet-banking-system`
+        },
+        {
             title: "Customer Onboarding Solutions",
             desc: "Lorem ipsum dolor sit amet consectetur",
             img: "/BNFHOME/P3.jpg",
