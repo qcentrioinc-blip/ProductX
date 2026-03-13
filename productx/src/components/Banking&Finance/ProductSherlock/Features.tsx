@@ -7,43 +7,47 @@ type FeatureSwitcherProps = {};
 const FEATURES = [
   {
     id: "feature_a",
-    buttonLabel: "Policy Configuration Engine",
-    title: "Zero code policy configuration engine",
-    p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality. No training required for frontline staff when policies update. ",
-    
-    imageSrc: "/ProductDetails4/PD4_img1(2).webp",
+    buttonLabel: "Transaction monitoring ",
+    title: "Real-Time Transaction Monitoring System ",
+    p1: "SHERLOCK integrates with core banking systems to extract transaction data continuously. Configurable rules detect anomalies in customer transaction patterns automatically. ",
+    p2: "The system generates alerts for transactions that deviate from set rules. Historical data analysis identifies long-term trends and suspicious patterns over time. ",
+    imageSrc: "/ProductSherlock/1.webp",
   },
   {
     id: "feature_b",
-    buttonLabel: "Smart Data Capture",
-    title: "Smart forms for data capture",
-    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile. Captures data for customers and connected parties with built-in validations for accuracy. ",
+    buttonLabel: "Message screening ",
+    title: "Financial Message Screening Module ",
+    p1: "The module scrutinizes incoming and outgoing SWIFT messages for AML compliance. Real-time analysis detects and prevents suspicious activities before processing. ",
+    p2: "Seamless integration intercepts financial messages automatically. Violations are highlighted with detailed information about the nature of each issue. ",
     
-    imageSrc: "/ProductDetails4/PD4_img2(2).webp",
+    imageSrc: "/ProductSherlock/2.webp",
   },
   {
     id: "feature_c",
-    buttonLabel: "Automated Screening",
-    title: "Automated name screening integration",
-    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists. Integrates with leading screening engines during onboarding and ongoing monitoring.  ",
+    buttonLabel: "Watch list checking ",
+    title: "Automated Watch List Checking",
+    p1: "Web crawlers update banned entity lists regularly from UN, OFAC, and Federal Reserve sources. Institutions can create and manage their own custom watch lists. ",
+    p2: "New transactions are checked instantly against updated lists. Alerts are generated immediately for any matches found with banned entities. ",
    
-    imageSrc: "/ProductDetails4/PD4_img3.webp",
+    imageSrc: "/ProductSherlock/3.webp",
   },
   {
     id: "feature_d",
-    buttonLabel: "Risk Assessment",
-    title: "Risk assessment and decisioning",
-    p1: "Automatically compute risk ratings based on configured attributes and rules. Workflow rules drive consistent decisioning with options for approval routing and case management. ",
+    buttonLabel: "KYC verification ",
+    title: "Complete KYC Verification Module ",
+    p1: "Customer profiles are managed with detailed personal information, financial data, and transaction history. Risk profiles are assigned based on predefined criteria and customer data.  ",
+    p2: "Ongoing monitoring tracks customer activity for any changes in risk status. KYC documents are stored and managed with automated renewal tracking. ",
   
-    imageSrc: "/ProductDetails4/PD4_img4.webp",
+    imageSrc: "/ProductSherlock/4.webp",
   },
   {
     id: "feature_e",
-    buttonLabel: "Lifecycle Management",
+    buttonLabel: "Risk profiling ",
     title: "Full client lifecycle management",
-    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.  ",
+    p1: "The module assesses and categorizes customers for money laundering risk systematically. Risk attributes and rating outcomes drive workflow rules and decisioning.  ",
+    p2: "Customer risk profiles are updated continuously based on transaction behavior. Alerts are triggered when customer activity exceeds defined risk thresholds. ",
     
-    imageSrc: "/ProductDetails4/PD4_img5.webp",
+    imageSrc: "/ProductSherlock/5.webp",
   },
 ];
 
@@ -220,7 +224,7 @@ useEffect(() => {
   return (
     <section
   ref={sectionRef}
-  className="w-full bg-white relative md:h-auto md:pb-5 md:px-5"
+  className="w-full bg-white relative md:h-auto md:px-5"
   style={{
     height: isMobile ? `${FEATURES.length * window.innerHeight}px` : "auto",
   }}
@@ -229,7 +233,7 @@ useEffect(() => {
       <div className="md:hidden sticky top-20 xl:top-0  w-full overflow-hidden flex flex-col z-10 bg-white pt-2 pb-2">
         <div className="px-4 mb-8 shrink-0">
             <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug text-[18px]">
-                Key features of Diligent platform
+                Key features of SHERLOCK AML System 
             </H2>
         </div>
 
@@ -287,8 +291,11 @@ useEffect(() => {
                   {item.title}
                 </H3>
                 <div className="flex flex-col gap-3 text-center">
-                    <P className="text-sm leading-relaxed">
+                    <P className="leading-relaxed">
                     {item.p1}
+                    </P>
+                    <P className="leading-relaxed">
+                    {item.p2}
                     </P>
                     {/* <P className="text-sm leading-relaxed">
                     {item.p2}
@@ -306,7 +313,7 @@ useEffect(() => {
 
   {/* Heading */}
   <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug mb-8">
-    Key features of Diligent platform
+    Key features of SHERLOCK AML System 
   </H2>
 
   {/* Tabs BELOW heading */}
@@ -352,8 +359,11 @@ useEffect(() => {
         {activeContent.title}
       </H3>
 
-      <P className="text-gray-600 leading-relaxed">
+      <P className=" leading-relaxed">
         {activeContent.p1}
+      </P>
+      <P className=" leading-relaxed">
+        {activeContent.p2}
       </P>
     </div>
 

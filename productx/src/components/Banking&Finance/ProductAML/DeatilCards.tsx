@@ -34,11 +34,11 @@ const DetailCards = () => {
        
 
         {/* Text Content */}
-        <div className="relative z-10 px-6 md:px-12 lg:px-16 pb-24 pt-40 w-full xl:max-w-[55%]">
+        <div className="relative z-10 px-6 md:px-12 lg:px-16 pb-24 pt-10 md:pt-40 w-full xl:max-w-[55%]">
           <H2 className="text-white mb-4">
            Challenges ALMANAC <br className="xl:block hidden "/> Solves for Banks 
           </H2>
-          <P className="text-white/85 max-w-[82%] text-sm md:text-base leading-relaxed">
+          <P className=" bg-black/60 xl:bg-transparent max-w-[100%]  p-4 text-white/85 md:max-w-[82%]  leading-relaxed">
            Financial institutions face complex asset liability management issues daily. ALMANAC addresses these challenges through automated tools, predictive analytics, and integrated regulatory reporting across multi-currency operations
           </P>
         </div>

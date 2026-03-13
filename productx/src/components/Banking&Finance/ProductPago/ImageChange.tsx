@@ -3,7 +3,7 @@ import { H3, H4, P } from "../../../styles/Typography";
 const ImageChange = () => {
   return (
     <section className="w-full bg-white py-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl px-6  xl:px-0 mx-auto">
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-center">
 
@@ -39,7 +39,9 @@ const ImageChange = () => {
 
           {/* CENTER IMAGE */}
           <div className="flex justify-center">
-            <div className="w-full max-w-sm h-[500px] bg-gray-300 rounded-2xl"></div>
+            <div className="w-full max-w-sm h-[600px]  bg-gray-300 rounded-2xl">
+              <img src="/Pago/RealPayment.webp" alt="payment" className=" rounded-2xl h-full w-full"/>
+            </div>
           </div>
 
           {/* RIGHT CONTENT */}

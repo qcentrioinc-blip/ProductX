@@ -1,19 +1,21 @@
-import StatsSection from "../ProductDetails(COS)/StatsSection";
 import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
 import FeatureGridSection from "./FeatureGridSection";
-import HeroSection from "./HeroSection";
-import Cards from "./Cards";
 import ImgTextSec from "./ImgTextSec";
 import HWD from "../HWD";
 import FaqSection from "../ProductKYC/FAQ";
-import InsightThought from "../InsightThought";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../Navbar/BNFnav";
 // import KeytomStickyScroll from "./KeytomStickyScroll";
 
 import ContactUS from "../ProductRemitree/ContactUS";
+import StatsSection from "./StatsSection";
+import CardsSection from "./CardsSection";
+import ContentInfo from "./ContentInfo";
+import ImageCard from "../BNFBlogs/ImageCard";
+import ImgSec from "./ImgSec";
+import Hero3 from "./Hero3";
 
 const PDPage9 = () => {
   const location = useLocation();
@@ -35,32 +37,29 @@ const PDPage9 = () => {
   return (
     <>
       <BNFNav />
-      <HeroSection />
+      <Hero3 />
       <FeatureGridSection />
-      <StatsSection />
-
-
-      <Cards />
+      <StatsSection/>
+      <CardsSection/>
       {/* <KeytomStickyScroll/> */}
       <ImgTextSec />
+      <ImgSec/>
+      <ContentInfo/>
       <HWD />
       <FaqSection />
-      <InsightThought />
-      <div className="relative">
-
-        <div className="hidden lg:block lg:h-[200vh]"></div>
-
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+      <ImageCard/>
+      <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
 
     </>

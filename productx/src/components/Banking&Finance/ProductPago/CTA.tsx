@@ -4,27 +4,31 @@ const features = [
   {
     id: 1,
     text: "Automated Clearing House (ACH) for batch processing",
+    icon: "/Pago/Vector.svg"
   },
   {
     id: 2,
     text: "Real-time payment processing with secure authentication",
+    icon: "/Pago/Time.svg"
   },
   {
     id: 3,
-    text: "NACHA framework for harmonized standards and practices ",
+    text: "NACHA framework for harmonized practices ",
+    icon: "/Pago/Grid.svg"
   },
   {
     id: 4,
     text: "AML monitoring for cross-referencing beneficiary data ",
+     icon: "/Pago/Group.svg"
   },
 ];
 
 const CTA = () => {
   return (
-    <section className="pt-12 lg:pt-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="pt-20">
+      <div className="mx-auto max-w-8xl  px-6 lg:px-16  xl:px-26">
 
-        <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr] gap-12 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr]  gap-4 xl:gap-12  items-center xl:items-start">
 
           {/* Column 1 */}
           <div>
@@ -33,25 +37,29 @@ const CTA = () => {
             </span>
 
             <H2 className="leading-tight">
-              Built for All Payment Types
+              Built for All <br className="xl:block hidden"/> Payment Types
             </H2>
           </div>
 
           {/* Column 2 */}
-          <div className="space-y-10">
+          <div className="space-y-6 xl:space-y-10">
             {features.slice(0, 2).map((item) => (
-              <div key={item.id} className="flex gap-4">
-                <div className="w-14 h-14 bg-gray-300 rounded-full flex-shrink-0" />
+              <div key={item.id} className="flex gap-4 items-center">
+            <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
+  <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
+</div>
                 <P className="leading-tight pt-2">{item.text}</P>
               </div>
             ))}
           </div>
 
           {/* Column 3 */}
-          <div className="space-y-10">
+        <div className="space-y-6 xl:space-y-10">
             {features.slice(2, 4).map((item) => (
-              <div key={item.id} className="flex gap-4">
-                <div className="w-14 h-14 bg-gray-300 rounded-full flex-shrink-0" />
+              <div key={item.id} className="flex gap-4 items-center">
+           <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
+  <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
+</div>
                 <P className="leading-tight pt-2">{item.text}</P>
               </div>
             ))}

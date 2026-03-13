@@ -69,12 +69,12 @@ const sampleData: CardItem[] = [
   {
     id: "6",
     logo: "/kycLogo.png",
-    title: "Customer Onboarding Solutions",
+    title: "Internet Banking System",
     // tags: ["Core", "Cloud"],
     description:
       "Digital onboarding platform that streamlines customer application processes across web and mobile channels. It features dynamic forms, SSN auto-fill, document verification through OCR, and role-based sales manager assistance. The solution reduces drop-off rates, ensures data accuracy, and provides real-time application tracking for financial institutions. ",
     category: "Banking and Finance",
-    link: "/industries/:industry/products/commingsoon",
+    link: "/industries/banking-and-finance/products/internet-banking-system",
   }, {
     id: "7",
     logo: "QBnFLogo.svg",

@@ -6,15 +6,15 @@ export default function Cards() {
       title: "Central Hub for Secure Transaction Management ",
       content:
         "The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. ",
-      shape: "/ProductDetails4/gridShape1.png",
-      illustration: "/ProductDetails4/gridShape1.png",
+    
+      illustration: "/Pago/OnlineBanking.svg",
     },
     {
       title: "User-Facing Cube for Participant Interaction ",
       content:
         "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. ",
-      shape: "/ProductDetails4/gridShape2.png",
-      illustration: "/ProductDetails4/gridShape2.png",
+      
+      illustration: "/Pago/WebDesign.svg",
     },
   ];
 
@@ -30,17 +30,13 @@ export default function Cards() {
   key={i}
   className="bg-white rounded-xl border-2 border-[#666666] shadow-md
              flex flex-col md:flex-col md:items-center  xl:flex-row
-             p-6 sm:p-8 md:px-0 md:py-8 py-10 xl:py-20 gap-6 sm:gap-10"
+             p-6 sm:p-8  md:py-8 py-10 xl:py-14 gap-6 sm:gap-10"
 >
 
 
               {/* LEFT IMAGE */}
               <div className="relative w-full sm:w-1/3 flex justify-center items-center">
-                <img
-                  src={card.shape}
-                  alt=""
-                  className="absolute w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 object-contain opacity-40 -z-10"
-                />
+                 
 
                 <img
                   src={card.illustration}
@@ -50,9 +46,9 @@ export default function Cards() {
               </div>
 
               {/* RIGHT CONTENT */}
-              <div className="flex flex-col gap-3 sm:gap-4 w-full sm:w-2/3">
-                <H4 >{card.title}</H4>
-                <P className="text-sm sm:text-base leading-relaxed">
+              <div className="flex flex-col gap-3 w-full sm:gap-4">
+                <H4 className="max-w-xs">{card.title}</H4>
+                <P className="text-sm  max-w-sm sm:text-base leading-relaxed">
                   {card.content}
                 </P>
               </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Check } from "lucide-react"
+import { P } from "../../../styles/Typography"
 
 type FilterKey =
   | "Bank Setup  "
@@ -160,7 +161,7 @@ const Features = () => {
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`
-                rounded-full font-medium whitespace-nowrap transition-all border border-[#E0E0E0] cursor-pointer
+                rounded-full font-medium whitespace-nowrap transition-all border border-[#8b8888] cursor-pointer
                 px-3 py-1.5 text-[11px]
                 sm:px-4 sm:py-2 sm:text-xs lg:text-sm lg:px-8 lg:py-4
                 xl:px-8 xl:py-4 xl:text-sm
@@ -208,13 +209,13 @@ const Features = () => {
             </h2>
 
             {/* Description: 12→13→14→16px */}
-            <p
+            <P
               className="font-normal text-[#141414] m-0 leading-[150%]
-                         text-[12px] sm:text-[13px] md:text-sm xl:text-base"
+                         "
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
               {currentContent.description}
-            </p>
+            </P>
 
             {/* Check Items */}
             <div className="flex flex-col gap-3 sm:gap-3.5 xl:gap-6">
@@ -224,13 +225,13 @@ const Features = () => {
                     size={18}
                     style={{ color: '#000000', flexShrink: 0, marginTop: '2px' }}
                   />
-                  <p
+                  <P
                     className="text-[#2A2A2A] leading-[140%] m-0
-                               text-[12px] sm:text-[13px] xl:text-sm"
+                               "
                     style={{ fontFamily: "'Quicksand', sans-serif" }}
                   >
                     {item}
-                  </p>
+                  </P>
                 </div>
               ))}
             </div>
@@ -262,14 +263,14 @@ const Features = () => {
               </div>                
 
               {/* Label: 11→13→14→15→18px */}
-              <p
+              <P
                 className="font-normal text-[#141414] leading-[140%]  m-0
                            xl:w-[290px]
-                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                           "
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
                 {currentContent.stats.left.label}
-              </p>
+              </P>
 
               
             </div>
@@ -291,14 +292,14 @@ const Features = () => {
               </div>                  
 
               {/* Label: 11→13→14→15→18px */}
-              <p
+              <P
                 className="font-normal text-[#141414] leading-[140%] m-0
                            xl:w-[290px]
-                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                           "
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
                 {currentContent.stats.right.label}
-              </p>
+              </P>
 
               
             </div>
