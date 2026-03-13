@@ -30,6 +30,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
             path: `${base}/products/conciliare`,
         },
         {
+            title: "Internet Banking Solutions",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/internet-banking-system`
+        },
+        {
             title: "KYC & CDD",
             desc: "Digital due diligence and onboarding automation",
             img: "/BNFHOME/P9.jpg",

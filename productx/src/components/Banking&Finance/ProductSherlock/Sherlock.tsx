@@ -1,14 +1,16 @@
 import ImageCard from "../BNFBlogs/ImageCard"
 import HWD from "../HWD"
 import BNFNav from "../Navbar/BNFnav"
+import FaqSection from "../ProductKYC/FAQ"
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
+import CardInfo from "./CardInfo"
 import ContentInfo from "./ContentInfo"
 import Feature from "./Features"
 import Grid from "./Grid"
 import HeroSec from "./HeroSec"
-import ImgSec from "./ImgSec"
+import ImgSec1 from "./ImgSec1"
 import ThreeCards from "./ThreeCards"
 
 const Sherlock = () => {
@@ -21,13 +23,17 @@ const Sherlock = () => {
       <div id="benefits">
       <Feature/>
       <ContentInfo/>
+      <CardInfo/>
       </div>
       <div id="process">
+        <ImgSec1/>
       <Grid/>
-      <ImgSec/>
       </div>
       <div id="usecases">
         <HWD />
+      </div>
+      <div id="faq">
+        <FaqSection />
       </div>
       <ImageCard/>
       <div id="contact-us">
