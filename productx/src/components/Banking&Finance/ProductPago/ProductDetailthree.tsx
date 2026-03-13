@@ -52,14 +52,14 @@ const ProductDetailthree = () => {
       <div id="overview">
         <CTA />
       </div>
-      <div id="benefits" >
-        <Cards />
-      </div>
+      
 
       <div id="process">
         <Workflow />
       </div>
-
+<div id="benefits" >
+        <Cards />
+      </div>
 
       <div >
         <ImageGrid />
