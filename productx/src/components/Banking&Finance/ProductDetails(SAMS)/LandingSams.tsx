@@ -27,9 +27,9 @@ const LandingSams = () => {
                 {/* Right chevron — lg AND desktop */}
                 <div className="
                     hidden lg:block
-                    absolute w-[1072px] h-[917px] top-[11px] left-[400px] z-[1]
+                    absolute w-[1070px] h-[917px] top-[11px] left-[450px] z-[1]
                     bg-[url('/BNFCos/Rect2.png')] bg-cover bg-center bg-no-repeat
-                    [clip-path:polygon(30%_0%,100%_0%,100%_100%,30%_100%,14%_50%)]
+                    [clip-path:polygon(30%_0%,100%_0%,120%_100%,30%_100%,14%_80%)]
                 " />
 
                 {/* Subtle decorative bg — Mobile & Tablet only (below lg) */}
@@ -74,7 +74,7 @@ const LandingSams = () => {
                         </h1>
 
                         <p className="
-                            font-['Schibsted_Grotesk',sans-serif] font-normal text-[#FAFAFA] leading-[1.3]
+                            font-['Quicksand',sans-serif] font-normal text-[#FAFAFA] leading-[1.3]
                             text-sm mt-4 w-full
                             sm:text-[15px] sm:mt-5
                             md:text-base md:mt-6
@@ -84,7 +84,7 @@ const LandingSams = () => {
                             SAMS automates NPA tracking, provisioning calculations, and regulatory reporting. Integrates customer data across multiple loan products for unified management.
                         </p>
 
-                        <ContactUs 
+                        <ContactUs
                             className="!bg-[#2B68C3] !text-[#FAFAFA] !border-none mt-6 xl:mt-[32px] hover:!bg-[#1e4e94]"
                             onClick={(e) => {
                                 e.preventDefault();
@@ -108,7 +108,7 @@ const LandingSams = () => {
                             md:text-base
                             lg:text-[16px] lg:w-[360px] lg:relative lg:left-0 lg:top-3
                             xl:text-[18px] xl:w-[390px] xl:h-[88px]
-                            xl:relative xl:left-[20px] xl:top-[50px]
+                            xl:relative xl:left-[40px] xl:top-[50px]
                         ">
                             System identifies NPA records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic for financial and non-financial parameters ensures accurate classification and provisioning.
                         </p>
@@ -162,7 +162,7 @@ const LandingSams = () => {
                     md:mx-8 md:h-52 md:mt-0
                     lg:absolute lg:w-[904px] lg:h-[220px] lg:top-[530px] lg:left-[60px]
                     lg:mx-0 lg:mt-0 lg:mb-0 lg:rounded-[10px]
-                    xl:absolute xl:w-full xl:h-[323px] xl:top-[605px] xl:left-[80px]
+                    xl:absolute xl:w-7xl xl:h-[323px] xl:top-[605px] xl:left-[80px]
                     xl:mx-0 xl:mt-0 xl:mb-0 xl:rounded-[10px]
                 ">
                     <img src="/BNFCos/hero.webp" alt="Pen" className="w-full h-full object-cover" />
