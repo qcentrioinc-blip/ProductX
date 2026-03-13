@@ -2,7 +2,7 @@ import Tabs from "./Tabs";
 import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
-import HeroSection from "./HeroSection";
+// import HeroSection from "./HeroSection";
 import StatsSection from "./StatsSection";
 import Cards from "./Cards";
 import GridLayout from "./GridLayout";
@@ -19,6 +19,8 @@ import BNFNav from "../Navbar/BNFnav";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 
 import ContactUS from "../ProductRemitree/ContactUS";
+import LongCard from "./LongCard";
+import CosLanding from "./CosLanding";
 
 const Cos_Page = () => {
   const location = useLocation();
@@ -40,12 +42,14 @@ const Cos_Page = () => {
   return (
     <div>
       <BNFNav />
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <CosLanding />
       <HeroBottomNavbar />
       <StatsSection />
       <Cards />
       <Tabs />
       <GridLayout />
+      <LongCard />
       <FeatureGrid />
       {/* <FeatureGrid2/> */}
       <HWD />
