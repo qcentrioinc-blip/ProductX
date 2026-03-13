@@ -32,11 +32,17 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P2.jpg",
             path: `${base}/products/conciliare`,
         },
+        {
+            title: "Customer Onboarding Solutions",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/customer-onboarding-solutions`
+        },
         // {
-        //     title: "Customer Onboarding Solutions",
+        //     title: "Internet Banking System",
         //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P3.jpg",
-        //     path: `${base}/products/customer-onboarding-solutions`
+        //     img: "/BNFHOME/P4.png",
+        //     path: `${base}/products/internet-banking-system`,
         // },
         {
             title: "KYC & CDD",
@@ -75,16 +81,13 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             desc: "Advanced anti-money laundering detection and compliance system ",
             img: "/BNFHOME/P4.png",
             path: `${base}/products/sherlock`,
+        }, 
+        {
+            title: "Sams",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P8.jpg",
+            path: `${base}/products/sams`,
         },
-       
-        
-       
-        // {
-        //     title: "Sams",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P8.jpg",
-        //     path: `${base}/products/sams`,
-        // },
         
     ];
 

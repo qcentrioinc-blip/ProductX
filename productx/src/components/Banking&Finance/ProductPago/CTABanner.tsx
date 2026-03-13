@@ -21,7 +21,7 @@ const CTABanner = () => {
         backgroundImage: "url('/Pago/CTABanner.webp')",  
       }}
     >
-      <div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-10 pt-10 xl:pt-32  w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12   lg:px-10  xl:px-0 pt-10 xl:pt-32  w-full">
 
         {/* Heading */}
         <h1 className="text-[#002459] font-bricolage text-[24px]  md:text-[56px] lg:text-[72px] ">

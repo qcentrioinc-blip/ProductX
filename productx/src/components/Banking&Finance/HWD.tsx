@@ -26,6 +26,7 @@ const HWD = () => {
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
+  const isSAMS = path.toLowerCase().includes("sams");
   const isPAGO = path.startsWith("/industries/banking-and-finance/products/pago");
 
 
@@ -76,7 +77,7 @@ const HWD = () => {
       description:
         ""
     },
- 
+
     conciliare: {
       eyebrow: " ",
       title: " Common Reconciliation Use Cases",
@@ -100,6 +101,12 @@ const HWD = () => {
      Almanac: {
       eyebrow: " ",
       title: "Where ALMANAC Delivers Value",
+      description:
+        ""
+    },
+    SAMS: {
+      eyebrow: " ",
+      title: "Real-World NPA Scenarios",
       description:
         ""
     },
@@ -211,7 +218,7 @@ const HWD = () => {
       },
     ],
 
-     Almanac: [
+    Almanac: [
       {
         title: "Liquidity Risk Management ",
         image: "/AML/SecurityRisk.svg",
@@ -220,30 +227,30 @@ const HWD = () => {
         points: [
           "Calculate dynamic liquidity statements with predefined values and automated reporting ",
 
-"Assess structural liquidity by balancing inflows and outflows over long-term horizons ",
+          "Assess structural liquidity by balancing inflows and outflows over long-term horizons ",
 
-"Perform stress tests simulating large withdrawals and credit default scenarios ",
+          "Perform stress tests simulating large withdrawals and credit default scenarios ",
 
-"Evaluate the liquidity coverage ratio and the net stable funding ratio accurately ",
+          "Evaluate the liquidity coverage ratio and the net stable funding ratio accurately ",
 
-"Generate regulatory liquidity reports aligned with central bank requirements  ",
+          "Generate regulatory liquidity reports aligned with central bank requirements  ",
         ],
       },
       {
-        title: " G-Sec Portfolio Management ",  
+        title: " G-Sec Portfolio Management ",
         image: "/AML/MoneyWings.svg",
         description:
           "Manage fixed income portfolios and optimize investment strategies for government securities.",
         points: [
           "Track bond portfolios with a complete register of buy, sell, and transfer operations ",
 
-"Calculate duration and value at risk for individual securities and portfolios ",
+          "Calculate duration and value at risk for individual securities and portfolios ",
 
-"Upload market data for accurate pricing and performance analysis ",
+          "Upload market data for accurate pricing and performance analysis ",
 
-"Simulate portfolio rearrangements under varying interest rate conditions", 
+          "Simulate portfolio rearrangements under varying interest rate conditions",
 
-"Generate accounting entries and regulatory reports for securities holdings "
+          "Generate accounting entries and regulatory reports for securities holdings "
         ],
       },
       {
@@ -254,17 +261,59 @@ const HWD = () => {
         points: [
           "Classify assets and liabilities by maturity using traditional gap sensitivity analysis. ",
 
-"Calculate modified duration to evaluate rate change impacts on the balance sheet." ,
+          "Calculate modified duration to evaluate rate change impacts on the balance sheet.",
 
-"Segment portfolios into interest rate risk buckets for detailed analysis.", 
+          "Segment portfolios into interest rate risk buckets for detailed analysis.",
 
-"Assess the impact of rate changes on net interest income and economic value.", 
+          "Assess the impact of rate changes on net interest income and economic value.",
 
-"Run simulations for different interest rate scenarios and hedge strategies." 
+          "Run simulations for different interest rate scenarios and hedge strategies."
         ],
       },
     ],
- 
+
+    SAMS: [
+      {
+        title: "Retail Loan NPA Management",
+        image: "/BNFCos/Document.svg",
+        description:
+          "Automate identification and tracking of NPAs across retail loan portfolios for individual customers.",
+        points: [
+          "Monitor installment overdue for personal, auto, and home loans",
+          "Track overdrawn accounts and bills overdue for retail customers",
+          "Apply IRAC financial and non-financial parameters automatically",
+          "Calculate days past due for agriculture and non-agriculture cases",
+          "Generate provisioning reports based on collateral values"
+        ],
+      },
+      {
+        title: "Corporate Credit Monitoring",
+        image: "/BNFCos/credit-card.svg",
+        description:
+          "Track stressed assets across working capital, term loans, and corporate credit facilities.",
+        points: [
+          "Identify expired limits and drawing power not updated accounts",
+          "Monitor interest not served days for corporate loan accounts",
+          "Classify assets as sub-standard or doubtful based on security",
+          "Upload and distribute collateral values for secured portfolios",
+          "Generate exception reports for regulatory compliance reviews"
+        ],
+      },
+      {
+        title: "Agriculture Loan Classification",
+        image: "/BNFCos/money-bag.svg",
+        description:
+          "Manage NPA identification and provisioning for agriculture and allied activities loan portfolios.",
+        points: [
+          "Apply 365 days DPD threshold for agriculture loan customers",
+          "Track stock statement submission within 180 days",
+          "Monitor pledged equity invocation and trading status",
+          "Classify secured and unsecured portions separately",
+          "Calculate provisions based on collateral and classification"
+        ],
+      },
+    ],
+
     conciliare: [
       {
         title: "Bank Account Reconciliation",
@@ -489,7 +538,9 @@ const HWD = () => {
   if (isConciliare) cards = CARD_CONTENT.conciliare;
   else if (isKYC) cards = CARD_CONTENT.kyc;
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
-  else if(isAlmanac) cards = CARD_CONTENT.Almanac;
+  else if (isAlmanac) cards = CARD_CONTENT.Almanac;
+  else if (isSAMS) cards = CARD_CONTENT.SAMS;
+  // else if(isAlmanac) cards = CARD_CONTENT.Almanac;
   else if(isPAGO) cards = CARD_CONTENT.PAGO;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
@@ -500,7 +551,9 @@ const HWD = () => {
   if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
   else if (isKYC) headingContent = HEADING_CONTENT.kyc;
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
-   else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
+  else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
+  else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
+  //  else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
    else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
@@ -509,7 +562,7 @@ const HWD = () => {
 
   // PALETTE
   let palette;
-  if (isConciliare || isKYC || isBankfair) palette = COLORS.banking;
+  if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;

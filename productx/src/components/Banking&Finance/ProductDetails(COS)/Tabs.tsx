@@ -109,7 +109,7 @@ const ResponsiveTabs: React.FC = () => {
         <div className="md:w-1/2 flex justify-center relative">
 
           {/* Decorative shape behind image */}
-          <img
+          {/* <img
             src="/ProductDetails(COS)/shape.png"
             alt=""
             aria-hidden="true"
@@ -117,11 +117,11 @@ const ResponsiveTabs: React.FC = () => {
               absolute 
               top-1/2 left-1/2 
               -translate-x-1/2 -translate-y-1/2 
-              w-[100%]   /* bigger than image */
+              w-[100%] 
               max-w-none
               opacity-100
             "
-          />
+          /> */}
 
           {/* Main image (15% smaller) */}
           <img
