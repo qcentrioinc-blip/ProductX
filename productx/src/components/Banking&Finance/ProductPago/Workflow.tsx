@@ -54,12 +54,26 @@ const steps = [
   },
 ];
  
+
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scrollableContainerRef = useContext(ScrollContext);
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768); // md breakpoint
+  };
+
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
  
   useEffect(() => {
     const lenis = scrollableContainerRef;
@@ -93,15 +107,14 @@ export default function Workflow() {
     };
   }, [scrollableContainerRef]);
  
-  const backgroundColor = useMemo(() => {
-  // Clamp scroll progress between 0 and 1
-  const p = Math.min(Math.max(scrollProgress, 0), 1);
+ const backgroundColor = useMemo(() => {
+  if (isMobile) return "#C1D7F3"; // fixed light color for mobile
 
-  // Convert progress to index
+  const p = Math.min(Math.max(scrollProgress, 0), 1);
   const index = Math.floor(p * BG_COLORS.length);
 
   return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
-}, [scrollProgress]);
+}, [scrollProgress, isMobile]);
 
  
   // const backgroundGradient = useMemo(() => {
