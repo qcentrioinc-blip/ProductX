@@ -17,18 +17,15 @@ export default function ContentInfo() {
           </H1>
 
           <P className="text-white/80 max-w-lg md:text-base">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia
+            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions. 
           </P>
 
           <Link to="/marketplace">
-            <ContactUs> Explore </ContactUs>
+            <ContactUs> Explore SHERLOCK </ContactUs>
           </Link>
 
           <P className="text-white/80 max-w-sm pt-10 xl:pt-38">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore
+            Risk profiling and KYC verification integrated with core banking systems for end-to-end compliance.
           </P>
 
         </div>
@@ -36,9 +33,9 @@ export default function ContentInfo() {
         {/* BIG IMAGE FOR MD & SMALL SCREENS */}
         <div className="flex justify-center lg:hidden">
           <img
-            src="/images/big-box.png"
+            src="/ProductSherlock/hero.webp"
             alt="big shape"
-            className="w-[350px] md:w-[420px]"
+            className="w-[350px] md:w-[370px]"
           />
         </div>
 
@@ -49,24 +46,24 @@ export default function ContentInfo() {
 
       {/* LARGE IMAGE */}
       <img
-        src="/images/big-box.png"
+        src="/ProductSherlock/hero.webp"
         alt="big shape"
         className="
         hidden lg:block
         xl:absolute xl:top-16 xl:right-10
         lg:absolute lg:top-20 lg:right-4
-        lg:w-[480px] xl:w-[600px]
+        lg:w-[400px] xl:w-[500px]
         z-10
         "
       />
 
       {/* SMALL IMAGE (only lg and xl) */}
       <img
-        src="/images/small-box.png"
+        src="/sherlock1.png"
         alt="small shape"
         className="
         hidden lg:block
-        xl:absolute xl:bottom-20 xl:left-[42%]
+        xl:absolute xl:bottom-20 xl:left-[46%]
         lg:absolute lg:bottom-16 lg:left-[46%]
         lg:w-[140px] xl:w-[180px]
         z-20

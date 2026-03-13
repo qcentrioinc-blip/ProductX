@@ -27,6 +27,8 @@ const HWD = () => {
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
   const isPAGO = path.startsWith("/industries/banking-and-finance/products/pago");
+  const isSherlock = path.startsWith("/industries/banking-and-finance/products/sherlock");
+  const isIBS = path.startsWith("/industries/banking-and-finance/products/internet-banking-system");
 
 
   const COLORS = {
@@ -93,6 +95,19 @@ const HWD = () => {
     PAGO: {
       eyebrow: " ",
       title: "Where PAGO Delivers Value ",
+      description:
+        ""
+    },
+
+     Sherlock: {
+      eyebrow: " ",
+      title: "How SHERLOCK Detects Risk ",
+      description:
+        ""
+    },
+    IBS: {
+      eyebrow: " ",
+      title: "Practical Banking Applications",
       description:
         ""
     },
@@ -397,6 +412,97 @@ const HWD = () => {
         ],
       },
     ],
+    Sherlock: [
+      {
+        title: "Retail Transaction Monitoring ",
+        image: "/ProductSherlock/icon21.svg",
+        description:
+          "Detect suspicious patterns in high-volume retail banking transactions across multiple channels. ",
+        points: [
+          "Monitor deposits, withdrawals, and transfers in real-time ",
+          "Detect structuring through configurable threshold alert rules  ",
+          "Flag patterns deviating from customer's historical behavior ",
+          "Track cross-border remittances for money laundering indicators ",
+          "Generate alerts for regulator-specified limits and violations ",
+        ],
+      },
+      {
+        title: " Trade Finance Surveillance",
+        image: "/ProductSherlock/icon22.svg",
+        description:
+          "Screen import and export transactions for trade-based money laundering activities. ",
+        points: [
+          "Monitor letters of credit and bills for over and under-invoicing patterns  ",
+          "Detect commodity description mismatches between shipping documents ",
+          "Flag unusual routing or transshipment through high-risk jurisdictions  ",
+          "Screen counterparties against denied party and sanctions lists  ",
+          "Track repetitive trade patterns inconsistent with business profile  ",
+        ],
+      },
+      {
+        title: "Correspondent Banking ",
+        image: "/ProductSherlock/icon23.svg",
+        description:
+          "Monitor cross-border payment flows through nostro and vostro accounts for risks. ",
+        points: [
+          " Screen SWIFT MT103 and MT202 messages for sanctioned entities  ",
+
+          "Monitor outgoing and incoming wire transfers for suspicious beneficiaries  ",
+
+          "Track transaction volumes and values against established baselines ",
+
+          "Flag nested transactions hiding original originator information ",
+
+          "Generate regulatory reports for cross-border fund movement analysis ",
+        ],
+      },
+    ],
+    IBS: [
+      {
+        title: "Retail Customer Self-Service Banking",
+        image: "/ProductIBS/icon10.svg",
+        description:
+          "Individual customers manage accounts, transfer funds, and pay bills online without branch visits.",
+        points: [
+          "View savings, current, and fixed deposit account balances  ",
+          "Download account statements for selected periods  ",
+          "Transfer funds between own accounts instantly  ",
+          "Pay utility bills and view payment history  ",
+          "Request checkbooks and stop payments online  ",
+        ],
+      },
+      {
+        title: " Corporate Treasury Management",
+        image: "/ProductIBS/icon11.svg",
+        description:
+          "Business customers handle bulk payments, approvals, and account monitoring through a secure portal. ",
+        points: [
+          "Initiate bulk fund transfers for salary and vendor payments  ",
+          "Set transaction limits and approval workflows for users ",
+          "View consolidated balances across multiple business accounts   ",
+          "Download transaction reports for reconciliation   ",
+          "Schedule recurring payments for regular obligations  ",
+        ],
+      },
+      {
+        title: "Multi-Branch Account Access",
+        image: "/ProductIBS/icon12.svg",
+        description:
+          "Customers with accounts across branches manage all relationships through a single login. ",
+        points: [
+          " Link accounts from different branches to one dashboard   ",
+
+          "View consolidated financial position across all accounts  ",
+
+          "Transfer funds between branch accounts seamlessly ",
+
+          "Access transaction history for each linked account  ",
+
+          "Manage payees and favorite transactions centrally ",
+        ],
+      },
+    ],
+
 
     banking: [
       {
@@ -491,6 +597,8 @@ const HWD = () => {
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if(isAlmanac) cards = CARD_CONTENT.Almanac;
   else if(isPAGO) cards = CARD_CONTENT.PAGO;
+  else if(isSherlock) cards = CARD_CONTENT.Sherlock;
+  else if(isIBS) cards = CARD_CONTENT.IBS;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
   else cards = CARD_CONTENT.banking;
@@ -502,6 +610,8 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
    else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
    else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
+    else if(isSherlock) headingContent = HEADING_CONTENT.Sherlock;
+  else if(isIBS) headingContent = HEADING_CONTENT.IBS;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;

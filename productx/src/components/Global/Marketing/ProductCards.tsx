@@ -69,13 +69,13 @@ const sampleData: CardItem[] = [
   {
     id: "6",
     logo: "/kycLogo.png",
-    title: "Customer Onboarding Solutions",
+    title: "Internet Banking System",
     // tags: ["Core", "Cloud"],
     description:
       "Digital onboarding platform that streamlines customer application processes across web and mobile channels. It features dynamic forms, SSN auto-fill, document verification through OCR, and role-based sales manager assistance. The solution reduces drop-off rates, ensures data accuracy, and provides real-time application tracking for financial institutions. ",
     category: "Banking and Finance",
-    link: "/industries/:industry/products/commingsoon",
-  },{
+    link: "/industries/banking-and-finance/products/internet-banking-system",
+  }, {
     id: "7",
     logo: "QBnFLogo.svg",
     title: "PAGO",
@@ -151,12 +151,12 @@ export const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   const filteredData = useMemo(
-  () =>
-    sampleData
-      .filter((item) => item.category === selectedCategory)
-      .sort((a, b) => a.title.localeCompare(b.title)),
-  [selectedCategory]
-);
+    () =>
+      sampleData
+        .filter((item) => item.category === selectedCategory)
+        .sort((a, b) => a.title.localeCompare(b.title)),
+    [selectedCategory]
+  );
 
   const handleCardClick = (item: CardItem) => {
     if (item.link) {
@@ -167,50 +167,49 @@ export const App: React.FC = () => {
   const sectionRef = React.useRef<HTMLElement | null>(null);
 
   const [isScrollUp, setIsScrollUp] = useState(false);
-const lastScrollY = React.useRef(0);
+  const lastScrollY = React.useRef(0);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const currentY = window.scrollY;
-    setIsScrollUp(currentY < lastScrollY.current);
-    lastScrollY.current = currentY;
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setIsScrollUp(currentY < lastScrollY.current);
+      lastScrollY.current = currentY;
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section ref={sectionRef} className="w-full pb-10">
       {/* Category Pills */}
       <div
-  className={`
-    sticky 
-    ${isScrollUp ? "top-16 lg:top-16" : "top-0 lg:top-16"} 
-    z-40 
-    bg-white 
-    py-3 
-    shadow-sm 
-    transition-all 
-    duration-300
-  `}
->
+        className={`
+          sticky 
+          ${isScrollUp ? "top-14 lg:top-[130px]" : "top-0 lg:top-20"} 
+          z-40 
+          bg-white 
+          py-3 
+          shadow-sm 
+          transition-all 
+          duration-300
+        `}
+      >
         <div className="flex justify-start sm:justify-center gap-4 py-2 overflow-x-auto px-4 sm:px-0">
           {categories.map((c) => (
             <button
               key={c}
               onClick={() => {
-    setSelectedCategory(c);
-    sectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }}
+                setSelectedCategory(c);
+                sectionRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               className={`px-5 py-4 text-sm sm:text-base rounded-full border transition-all duration-300 whitespace-nowrap
-                ${
-                  c === selectedCategory
-                    ? "bg-[#5d8ef0] text-white shadow-md"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
+                ${c === selectedCategory
+                  ? "bg-[#5d8ef0] text-white shadow-md"
+                  : "bg-white text-gray-700 hover:bg-gray-100"
                 }
               `}
             >
@@ -233,10 +232,10 @@ useEffect(() => {
         "
       >
         {filteredData.map((item) => (
-  <article
-    key={item.id}
-    onClick={() => handleCardClick(item)}
-    className="
+          <article
+            key={item.id}
+            onClick={() => handleCardClick(item)}
+            className="
       group
       relative bg-[#F2F2F2] 
       rounded-2xl 
@@ -251,20 +250,20 @@ useEffect(() => {
       min-h-[400px] 
       lg:min-h-[450px]
     "
-  >
-    {/* Title + Arrow */}
-    <div className="flex items-start justify-between mb-3">
-      <H3 className="">
-        {item.title}
-      </H3>
+          >
+            {/* Title + Arrow */}
+            <div className="flex items-start justify-between mb-3">
+              <H3 className="">
+                {item.title}
+              </H3>
 
-      {/* Arrow Icon */}
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-          handleCardClick(item);
-        }}
-        className="
+              {/* Arrow Icon */}
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick(item);
+                }}
+                className="
           flex items-center justify-center
           w-8 h-8 
           rounded-full 
@@ -272,51 +271,51 @@ useEffect(() => {
           transition-all duration-300
           group-hover:translate-x-2
         "
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 transition-transform duration-300"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </div>
-    </div>
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 transition-transform duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
 
-    {/* Tags */}
-    <div className="flex gap-2 flex-wrap mb-5">
-      {item.tags?.map((t) => (
-        <span
-          key={t}
-          className="text-xs px-3 py-1 bg-white border rounded-full"
-        >
-          {t}
-        </span>
-      ))}
-    </div>
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap mb-5">
+              {item.tags?.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-3 py-1 bg-white border rounded-full"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
 
-    {/* Description */}
-    <P className="text-sm text-gray-600 flex-1 leading-relaxed">
-      {item.description}
-    </P>
+            {/* Description */}
+            <P className="text-sm text-gray-600 flex-1 leading-relaxed">
+              {item.description}
+            </P>
 
-    {/* CTA */}
-    <div className="mt-8">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleCardClick(item);
-        }}
-        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition"
-      >
-        Explore Product
-      </button>
-    </div>
-  </article>
-))}
+            {/* CTA */}
+            <div className="mt-8">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick(item);
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition"
+              >
+                Explore Product
+              </button>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

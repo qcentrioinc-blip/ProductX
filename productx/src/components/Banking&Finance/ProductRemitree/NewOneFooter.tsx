@@ -75,6 +75,7 @@ const NewOneFooter = () => {
     { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
     { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
     { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
+    { label: "Internet Banking System", url: "/industries/banking-and-finance/products/internet-banking-system" },
     { label: "KYC & CDD", url: "/industries/banking-and-finance/products/kyc" },
     { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
@@ -82,7 +83,6 @@ const NewOneFooter = () => {
     // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
     // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
     // { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
-    // { label: "Internet Banking Solution", url: "/industries/banking-and-finance/products/internet-banking-system" },
   ];
 
   const quickLinks = [

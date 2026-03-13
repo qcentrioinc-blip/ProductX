@@ -71,6 +71,19 @@ const FaqSection: React.FC = () => {
         "Find answers to common questions about PAGO's payment processing capabilities, integration, security features, and how it serves banks and credit unions. ",
       cta: "View All"
     },
+    "/industries/banking-and-finance/products/sherlock": {
+      heading: "SHERLOCK AML Queries",
+      description:
+        "Find answers to common questions about SHERLOCK's transaction monitoring, watch list screening, case management, and how it ensures regulatory compliance for banks.",
+      cta: "View All"
+    },
+     "/industries/banking-and-finance/products/internet-banking-system": {
+      heading: "Common Questions About IBS  ",
+      description:
+        "Find answers to common questions about IBS capabilities, security features, account management, fund transfers, and integration with core banking systems for financial institutions. ",
+      cta: "View All"
+    },
+    
 
   };
 
@@ -351,6 +364,80 @@ const FaqSection: React.FC = () => {
       {
         question:"What reporting capabilities does PAGO offer? ",
         answer:"PAGO provides real-time dashboards, detailed audit trails, and configurable reports. Users can track transaction statuses, monitor volumes, and generate custom reports for regulatory compliance.  "
+      }
+    ],
+    "/industries/banking-and-finance/products/sherlock": [
+      {
+        question: "What types of transactions does SHERLOCK monitor?  ",
+        answer:
+          "SHERLOCK monitors retail deposits and withdrawals, trade finance transactions, cross-border remittances, and SWIFT financial messages for money laundering indicators.  ",
+      },
+      {
+        question: "How does SHERLOCK screen against watch lists?  ",
+        answer:
+          "Web crawlers update banned entity lists automatically from UN, OFAC, and Federal Reserve sources. Custom watch lists can be created and managed by institutions.  ",
+      },
+      {
+        question: "Can SHERLOCK integrate with our core banking system? ",
+        answer:
+          "Yes, SHERLOCK integrates seamlessly with core banking systems to extract transaction data and customer information for real-time monitoring and analysis.   ",
+      },
+      {
+        question: "What is the case management workflow in SHERLOCK?  ",
+        answer:
+          "Every violation is treated as a case with five-pillar workflow: profile, detect, investigate, manage, and report for complete regulatory compliance.  ",
+      },
+
+      {
+        question: "Does SHERLOCK support FATCA compliance?  ",
+        answer:
+          "Yes, SHERLOCK includes retail and trade finance transaction monitoring capabilities specifically designed to ensure compliance with FATCA regulatory requirements.  ",
+      },
+      {
+        question: "How are suspicious activity alerts generated? ",
+        answer:
+          "Configurable rules detect anomalies in transaction patterns. Alerts are generated automatically for transactions deviating from set rules or customer behavior.  ",
+      },
+      {
+        question:"What reporting capabilities does SHERLOCK offer? ",
+        answer:"SHERLOCK generates comprehensive audit trails, regulatory reports, and detailed case investigation records for transparency and compliance with AML regulations.  "
+      }
+    ],
+     "/industries/banking-and-finance/products/internet-banking-system": [
+      {
+        question: "What account types can customers access through IBS?  ",
+        answer:
+          "Customers can access savings accounts, current accounts, fixed deposits, installment accounts, and borrowing accounts. All accounts are displayed in a unified dashboard with real-time balances.  ",
+      },
+      {
+        question: "How secure is the Internet Banking Solution?  ",
+        answer:
+          "IBS provides secure login with IDs and passwords, two-factor authentication, data encryption, transaction limits, and activity logs. All data transmission is encrypted for customer protection.  ",
+      },
+      {
+        question: "Can customers transfer funds to other banks? ",
+        answer:
+          "Yes, IBS supports domestic and international fund transfers. Users can choose from standard, express, or scheduled transfers with integration to payment gateways for secure processing. ",
+      },
+      {
+        question: "Does IBS integrate with core banking systems?  ",
+        answer:
+          "Yes, IBS integrates seamlessly with various core banking systems for real-time transaction updates, account synchronization, and secure data exchange across all banking platforms.  ",
+      },
+
+      {
+        question: "What bill payment features are available?  ",
+        answer:
+          "Customers can pay utility bills directly from their accounts, fetch bill details easily, view payment history, and download receipts. Recurring payments can be scheduled for convenience.   ",
+      },
+      {
+        question: "Can customers download account statements? ",
+        answer:
+          "Yes, users can download account statements for various periods. Statements can be filtered by date range, transaction type, and amount for easy reconciliation and record keeping.  ",
+      },
+      {
+        question:"What device types does IBS support? ",
+        answer:" IBS is fully responsive and works on desktops, tablets, and smartphones. Customers can access their accounts from any device with internet connectivity for true anywhere banking.  "
       }
     ],
   };

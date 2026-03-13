@@ -32,12 +32,12 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
             img: "/BNFHOME/P2.jpg",
             path: `${base}/products/conciliare`,
         },
-        // {
-        //     title: "Customer Onboarding Solutions",
-        //     desc: "Lorem ipsum dolor sit amet consectetur",
-        //     img: "/BNFHOME/P3.jpg",
-        //     path: `${base}/products/customer-onboarding-solutions`
-        // },
+        {
+            title: "Internet Banking System",
+            desc: "Lorem ipsum dolor sit amet consectetur",
+            img: "/BNFHOME/P3.jpg",
+            path: `${base}/products/internet-banking-system`
+        },
         {
             title: "KYC & CDD",
             desc: "Digital due diligence and onboarding automation ",

@@ -30,22 +30,22 @@ export default function ThreeCards() {
 
   const cards = [
     {
-      title: "Configure policies without code",
+      title: "Real-Time Transaction Monitoring System ",
       description:
-        "Set up and modify due diligence rules and parameters instantly without any vendor support.",
-      icon: "/ProductDetails4/icon1.svg",
+        "Analyzes customer transactions against configurable rules to detect suspicious patterns instantly. ",
+      icon: "/ProductSherlock/icon1.svg",
     },
     {
-      title: " End-to-end client lifecycle management",
+      title: "Financial Message Screening Module ",
       description:
-        "Handle onboarding, periodic reviews, and trigger events seamlessly in one unified platform.",
-      icon: "/ProductDetails4/icon2.svg",
+        "Monitors SWIFT and other financial messages for potential money laundering activities. ",
+      icon: "/ProductSherlock/icon2.svg",
     },
     {
-      title: "Connect Seamlessly via Open APIs",
+      title: "Customer Risk Profiling Engine ",
       description:
-        "Integrate with data sources, screening tools, and core banking systems through standard APIs.",
-      icon: "/ProductDetails4/icon3.svg",
+        "Assesses and categorizes customers based on risk profiles for ongoing compliance monitoring. ",
+      icon: "/ProductSherlock/icon3.svg",
     },
   ];
 
@@ -53,7 +53,7 @@ export default function ThreeCards() {
     <section className="w-full bg-white py-10">
       <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center mb-12">
-           Intelligent KYC and due diligence platform
+           Complete Anti-Money Laundering Solution for Banks 
         </H2>
 
         <motion.div
