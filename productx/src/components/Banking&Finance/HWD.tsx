@@ -367,7 +367,7 @@ const HWD = () => {
         ],
       },
       {
-        title: " High-Value Interbank Settlements",
+        title: "Interbank Settlements",
         image: "/icon2.svg",
         description:
           "Facilitate large-value fund transfers between banks through real-time gross settlement systems.",
@@ -380,7 +380,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Credit Union Payment Aggregation",
+        title: "Credit Union Aggregation",
         image: "/icon3.svg",
         description:
           "Enable credit unions to participate in national payment networks through league aggregation.",

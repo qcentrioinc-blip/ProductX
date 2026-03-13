@@ -124,7 +124,7 @@ export default function BlogGridSection() {
   }, [currentPage, sortedPosts]);
 
   return (
-    <section className="w-full pt-36 pb-10 bg-white">
+    <section className="w-full pt-24 xl:pt-36 pb-10 bg-white">
 
       <div className="sticky  top-0 xl:top-[64px] z-40 px-6 md:px-16 bg-white pt-4 pb-2 shadow-sm">
 

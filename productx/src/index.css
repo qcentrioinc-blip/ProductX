@@ -496,7 +496,31 @@ video {
   animation: spin-slow 4s linear infinite;
 }
 
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-sloww {
+  animation: spinSlow 40s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 50s linear infinite;
+}
 /* ── Falling Waterfall Grid Background ── */
 /* Add this to your global CSS or a CSS module */
 

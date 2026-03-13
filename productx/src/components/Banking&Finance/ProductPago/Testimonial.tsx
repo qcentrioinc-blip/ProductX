@@ -5,24 +5,27 @@ export default function Testimonial() {
     {
       id: 1,
       name: "Commercial Banks Direct Integration ",
-      text: "Connect directly to central bank payment gateways for high-value RTGS transactions. "
+      text: "Connect directly to central bank payment gateways for high-value RTGS transactions. ",
+      icon:"/Pago/Balance.svg"
     },
     {
       id: 2,
       name: "Credit Unions League Participation ",
-      text: "Aggregate transactions through intermediary leagues as single network participants. "
+      text: "Aggregate transactions through intermediary leagues as single network participants. ",
+      icon:"/Pago/Card.svg"
     },
       {
       id: 3,
       name: "All Institution Types Supported ",
-      text: "Handle both high-value and low-value payments without intermediaries when needed. "
+      text: "Handle both high-value and low-value payments without intermediaries when needed. ",
+      icon: "/Pago/Arrow.svg"
     },
      
   ];
 
   return (
     <div className="bg-white py-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl px-6 xl:px-0 mx-auto">
 
 
         {/* Header */}
@@ -37,10 +40,12 @@ export default function Testimonial() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-         className="bg-white rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[210px] lg:h-[260px]"
+         className="bg-white rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[270px]"
             >
               <div className="flex justify-start mb-4">
-                <div className="w-10 h-10 rounded-full bg-gray-200"></div>
+              <div className="  rounded-full   flex items-center justify-center">
+  <img src={testimonial.icon} alt="" className="w-12 h-12 object-contain" />
+</div>
               </div>
 
               <H4 className="font-semibold mb-2 ">

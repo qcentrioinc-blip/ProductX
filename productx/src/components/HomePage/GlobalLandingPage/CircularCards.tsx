@@ -421,7 +421,7 @@ export default function CircularCards() {
     });
 
   return (
-    <FallingGridBg>
+   <FallingGridBg  >
       <div className="w-full relative flex z-0 flex-col items-center justify-start pt-4   overflow-hidden ">
 
         <div className="mt-16 text-center px-4">
@@ -431,7 +431,7 @@ export default function CircularCards() {
         {/* ── 4 Tabs ── */}
         <div
           ref={tabsRef}
-          className="mt-6  w-full lg:max-w-3xl xl:max-w-4xl bg-white rounded-full p-2 flex gap-2 mx-auto
+          className="mt-6  w-full lg:max-w-3xl xl:max-w-4xl bg-gray-50   rounded-full p-2 flex gap-2 mx-auto
           overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
           xl:overflow-visible xl:justify-center"
           style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
@@ -501,6 +501,8 @@ export default function CircularCards() {
         </div>
 
       </div>
-    </FallingGridBg>
+
+    </FallingGridBg>  
+    
   );
 }

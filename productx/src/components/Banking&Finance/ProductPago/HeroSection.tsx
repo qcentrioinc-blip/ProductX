@@ -4,21 +4,20 @@ import { H1, P } from '../../../styles/Typography';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-[#2B68C3] overflow-hidden">
-      <div className="max-w-7xl mx-auto py-10 xl:py-16 pt-16 xl:pt-36">
+    <section className="w-full bg-[#2B68C3] xl:h-screen overflow-hidden">
+      <div className="max-w-7xl mx-auto  px-4 lg:px-0   xl:py-16 pt-16 xl:pt-36">
 
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col-reverse xl:flex-row items-center pt-24 justify-between gap-12">
 
           {/* LEFT CONTENT */}
-          <div className="max-w-xl text-center lg:text-left">
+          <div className="  max-w-4xl xl:max-w-xl text-center xl:text-left">
 
             <H1 className="text-white mb-6">
-              Complete Payment and Settlement <br />
-               System for Banks
+              Complete Payment and Settlement System for Banks
             </H1>
 
             <P className="text-white/90 mb-8">
-              PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems. 
+              PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems.
             </P>
 
          <Link
@@ -32,29 +31,73 @@ const HeroSection = () => {
                             }}
                         >
             <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
-              Explore PAGO Now 
+              Learn More
             </ContactUs>
             </Link>
 
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative flex justify-center items-center">
+      <div className="xl:w-1/2 flex justify-center">
+  <div className="relative flex items-center justify-center">
 
-        
+    {/* WHITE ROTATING CIRCLE */}
+    <div className="absolute xl:-top-22 xl:left-14 animate-spin-sloww">
+  <svg
+    width="520"
+    height="520"
+    viewBox="0 0 520 520"
+    className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[580px] lg:h-[580px] xl:w-[520px] xl:h-[520px]"
+  >
+    <circle
+      cx="260"
+      cy="260"
+      r="250"
+      fill="none"
+      stroke="white"
+      strokeWidth="2"
+      strokeDasharray="14 10"
+    />
+  </svg>
+</div>
 
-            <img
-              src="/HeroPago.webp"
-              alt="Hero visual"
-              className="relative z-10    object-contain "
-            />
+    {/* BLACK ROTATING CIRCLE */}
+   <div className="absolute xl:-top-14 xl:left-20 animate-spin-reverse">
+  <svg
+    width="460"
+    height="460"
+    viewBox="0 0 460 460"
+    className="w-[250px] h-[250px] md:w-[480px] md:h-[480px] lg:w-[550px] lg:h-[550px] xl:w-[460px] xl:h-[460px]"
+  >
+    <circle
+      cx="230"
+      cy="230"
+      r="220"
+      fill="none"
+      stroke="black"
+      strokeWidth="2"
+      strokeDasharray="14 10"
+    />
+  </svg>
+</div>
 
-          </div>
+    {/* IMAGE (UNCHANGED SIZE) */}
+    <img
+      src="/HeroPago.webp"
+      alt="Hero visual"
+      className="relative z-10  pl-2 pt-2  md:pt-16 md:pl-10 xl:pt-3  xl:pl-4  xl:scale-115 object-contain"
+    />
+
+  </div>
+</div>
+
+
 
         </div>
 
       </div>
     </section>
+    
   );
 };
 

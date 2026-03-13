@@ -29,7 +29,7 @@ const AboutFeaturesSection = () => {
       {/* Section Title */}
       <div className="max-w-7xl mx-auto text-left mb-12">
         <H2 className="text-gray-900 ">
-          Lorem ipsum dolor, consectetur adipis
+          Key Benefits of SAMS for Financial Institutions
         </H2>
       </div>
 

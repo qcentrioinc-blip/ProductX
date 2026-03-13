@@ -22,35 +22,35 @@ const steps = [
     title:
       "Supports e-cash, e-wallets, and e-cheques for modern payment needs ",
     image:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop",
+      "/Pago/Feature1pago.webp",
   },
   {
     id: 2,
     title:
       "Atomicity ensures that payments either complete or fail immediately ",
     image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
+       "/Pago/Feature2pago.webp",
   },
   {
     id: 3,
     title:
       "Real-time monitoring with advanced fraud detection and security protocols ",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "/Pago/Feature3pago.webp",
   },
   {
     id: 4,
     title:
       "Seamless integration with core banking and existing financial systems ",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+       "/Pago/Feature4pago.webp",
   },
   {
     id: 5,
     title:
       "Detailed audit trails and transparent reporting for all transactions ",
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+       "/Pago/Feature5pago.webp",
   },
 ];
  
@@ -125,7 +125,7 @@ export default function Workflow() {
     backgroundColor: backgroundColor,
     transition: "background-color 0.4s ease-out",
   }}
-  className="w-full relative pb-20 min-h-[400vh]"
+  className="w-full relative pb-10  min-h-full md:min-h-[200vh] xl:min-h-[400vh]"
 >
 
       {/* Header Section */}
@@ -140,18 +140,57 @@ export default function Workflow() {
           style={{
             color: scrollProgress > 0.3 ? '#374151' : '#141414'
           }}
-          className="text-sm   md:text-base leading-relaxed max-w-4xl transition-colors duration-300"
+          className="  font-quicksand text-[18px]     max-w-4xl transition-colors duration-300"
         >
           PAGO is a versatile payment platform designed to streamline and secure payment processes. It supports multiple transaction methods, including e-cash and e-cheques. The system integrates seamlessly with existing financial infrastructure while providing real-time monitoring and detailed reporting. 
         </motion.p>
       </div>
  
+ {/* MOBILE LAYOUT */}
+<div className="md:hidden px-6 space-y-10">
+  {steps.map((step) => (
+    <div key={step.id} className="flex flex-col items-center text-center space-y-4">
+
+      {/* Step Title */}
+      <h3 className="text-[16px] font-bricolage leading-snug text-[#111827]">
+        {step.title}
+      </h3>
+
+      {/* Step Image */}
+      <div className="w-full h-[220px] rounded-xl overflow-hidden shadow-md">
+        <img
+          src={step.image}
+          alt={`Step ${step.id}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+    </div>
+  ))}
+
+  {/* CTA */}
+  <Link
+    to="#contact-us"
+    onClick={(e) => {
+      const el = document.getElementById("contact-us");
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+  >
+    <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+      Explore PAGO Features
+    </ContactUs>
+  </Link>
+</div>
+
       {/* Sticky Content Container */}
-      <div className="sticky top-10 xl:h-screen flex items-center justify-center">
+      <div className="sticky top-10 xl:h-screen hidden md:flex items-center justify-center">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 items-center px-6 xl:px-10">
  
           {/* LEFT SIDE - Sticky Image */}
-          <div className="h-[400px] md:h-[550px] xl:h-[600px] pb-6 xl:pb-0 order-1 md:order-0">
+          <div className="h-[400px] md:h-[550px] xl:h-[650px] pb-6 xl:pb-0 order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.img
