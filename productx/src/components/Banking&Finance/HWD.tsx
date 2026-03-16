@@ -399,7 +399,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Commodity trading compliance",
+        title: "Commodity trading",
         image: "/icon3.svg",
         description:
           "Coverage for private limited companies, firms, and other entity types.",
@@ -508,7 +508,7 @@ const HWD = () => {
     ],
     IBS: [
       {
-        title: "Retail Customer Self-Service Banking",
+        title: "Retail Self-Service Banking",
         image: "/ProductIBS/icon10.svg",
         description:
           "Individual customers manage accounts, transfer funds, and pay bills online without branch visits.",
@@ -521,7 +521,7 @@ const HWD = () => {
         ],
       },
       {
-        title: " Corporate Treasury Management",
+        title: "Treasury Management",
         image: "/ProductIBS/icon11.svg",
         description:
           "Business customers handle bulk payments, approvals, and account monitoring through a secure portal. ",
