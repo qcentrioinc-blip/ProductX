@@ -15,6 +15,7 @@ import { ScrollContext } from "../../../context/ScrollContext"
 import ImageCard from "../BNFBlogs/ImageCard"
 import Cards from "./Cards"
 import CTABanner from "./CTABanner"
+import FaqSection from "../ProductKYC/FAQ"
 
 const ProductsPage7 = () => {
   const scrollableContainerRef = useContext(ScrollContext);
@@ -59,6 +60,7 @@ const ProductsPage7 = () => {
       <Cards/>
       <CTABanner/>
       <HWD />
+      <FaqSection/>
       {/* <FaqSection /> */}
      <ImageCard/>
      <div id="contact-us">

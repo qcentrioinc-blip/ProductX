@@ -1,120 +1,127 @@
 "use client";
- 
+
+import {   useRef } from "react";
+import { Link } from "react-router-dom";
+
 const logos = [
-  { label: "Bankfair", tagline: "Core Banking" },
-  { label: "PAGO", tagline: "Payment System" },
-  { label: "Sherlock", tagline: "AML Monitoring" },
-  { label: "Remitree", tagline: "Cross-border Remittance" },
-  { label: "LOS", tagline: "Loan Origination System" },
-  { label: "ALMANAC", tagline: "Asset Management" },
-  { label: "SAMS", tagline: "NPA Tracking" },
-  { label: "Conciliare", tagline: "AI Reconciliation" },
-  { label: "IOS", tagline: "Internet & Mobile Banking" },
-  { label: "Diligent", tagline: "KYC & CDD Platform" },
-  { label: "Cloud Diet", tagline: "Cloud Optimization AI" },
-  { label: "Unified Health", tagline: "EHR & PMS" },
-  { label: "HRMS", tagline: "Human Resource Platform" },
-  { label: "DMS", tagline: "Document & Contract Management" },
+  { img: "/ProductLogo/Almanac.webp", link: "/industries/banking-and-finance/products/almanac" , tagline:"Asset Management",newTab: true},
+  { img: "/ProductLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline:"Core Bankfair" ,newTab: true},
+  { img: "/ProductLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai" , newTab: true ,tagline:"Cloud Optimization AI",},
+  { img: "/ProductLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline:"AI Reconciliation", newTab: true },
+  { img: "/ProductLogo/IBS.webp", link: "/industries/banking-and-finance/products/internet-banking-system", tagline:"Internet and Mobile Banking", newTab: true },
+  { img: "/ProductLogo/Kyc.webp", link: "/industries/banking-and-finance/products/kyc" ,tagline:"Diligent", newTab: true },
+  { img: "/ProductLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline:"Loan Origination" , newTab: true},
+  { img: "/ProductLogo/Pago.webp", link: "/industries/banking-and-finance/products/pago" ,tagline:"Payment System", newTab: true},
+  { img: "/ProductLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree" ,tagline:"Cross-Border Remittance", newTab: true},
+  { img: "/ProductLogo/Sams.webp", link: "/industries/banking-and-finance/products/sams",tagline:"NPA Tracking", newTab: true },
+  { img: "/ProductLogo/Sherlock.webp", link: "/industries/banking-and-finance/products/sherlock",tagline:"AML" , newTab: true},
+  { img: "/ProductLogo/Unified.webp", link: "/industries/ehr-and-pms",  newTab: true ,tagline:"EHR and PMS" },
+  
 ];
- 
+
+const doubled = [...logos, ...logos];
+
 export default function LogoMarquee() {
-  const doubled = [...logos, ...logos];
- 
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  // const animXRef = useRef(0);
+  // const lastTsRef = useRef<number | null>(null);
+  const pausedRef = useRef(false);
+  // const halfWRef = useRef(0);
+  // const rafRef = useRef<number>(0);
+
+  // const SPEED = 60;
+
+//   useEffect(() => {
+//     const track = trackRef.current;
+//     const root = rootRef.current;
+//     if (!track || !root) return;
+
+//   const updateWidth = () => {
+//   if (trackRef.current) {
+//     halfWRef.current = trackRef.current.scrollWidth / 2;
+//   }
+// };
+
+// updateWidth();
+
+// window.addEventListener("resize", updateWidth);
+
+//     function step(ts: number) {
+//       if (!lastTsRef.current) lastTsRef.current = ts;
+
+//       const dt = (ts - lastTsRef.current) / 1000;
+//       lastTsRef.current = ts;
+
+//       if (!pausedRef.current) {
+//         animXRef.current += SPEED * dt;
+
+//         if (halfWRef.current > 0 && animXRef.current >= halfWRef.current) {
+//           animXRef.current -= halfWRef.current;
+//         }
+
+//  track?.style.setProperty(
+//   "transform",
+//   `translate3d(-${animXRef.current}px, 0, 0)`
+// );
+//       }
+
+//       rafRef.current = requestAnimationFrame(step);
+//     }
+
+//     rafRef.current = requestAnimationFrame(step);
+
+//     return () => cancelAnimationFrame(rafRef.current);
+//     window.removeEventListener("resize", updateWidth);
+//   }, []);
+
   return (
     <div
-      className="w-full bg-[#fcfcfc] mt-1 overflow-hidden"
+      ref={rootRef}
+      className="w-full bg-white  mt-1 overflow-hidden"
       style={{
         borderTop: "2px solid #a9a9a9",
         borderBottom: "2px solid #a9a9a9",
-       
       }}
     >
-      <div className="relative flex">
-        {/* Left fade */}
-        <div
-          className="absolute left-0 top-0 bottom-0 z-10  "
-          style={{
-            width: "60px",
-            background:
-              "linear-gradient(to right, #ffffff 0%, transparent 100%)",
-          }}
-        />
- 
-        {/* Scrolling track */}
-        <div
-          className="flex items-center"
-          style={{ animation: "marquee 38s linear infinite" }}
-        >
-          {doubled.map((logo, i) => (
-            <div
-              key={i}
-              className="flex items-center space-y-4 justify-center flex-shrink-0"
-              style={{
-                // Desktop: 350×200, Mobile: 160×80
-              width: "clamp(220px, 40vw, 350px)",
-height: "clamp(110px, 18vw, 200px)",
-                borderRight: "2px solid #a9a9a9 ",
-                padding: "0 clamp(16px, 2vw, 40px)",
-              }}
-            >
-             <div className="text-center leading-tight">
-  <div
-    className="product-name text-gray-500  text-[18px] xl:text-[28px]"
-    style={{
-      fontWeight: 600,
-      letterSpacing: "1px",
-     
-      filter: "grayscale(100%)",
-      transition: "all 0.3s ease",
-      cursor: "pointer",
-      userSelect: "none",
-      fontFamily: "bricolage, sans-serif",
-   
-    }}
-  >
-    {logo.label}
-  </div>
- 
-  <div
-    className="text-[12px]  text-[#1C59A1] font-bricolage  xl:text-[20px]"
-    style={{
-       
-      marginTop: "8px",
-      fontWeight: 400,
-      letterSpacing: "0.5px",
-      transition: "all 0.3s ease",
-    }}
-  >
-    {logo.tagline}
-  </div>
-</div>
-            </div>
-          ))}
-        </div>
- 
-        {/* Right fade */}
-        <div
-          className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
-          style={{
-            width: "60px",
-            background:
-              "linear-gradient(to left, #ffffff 0%, transparent 100%)",
-          }}
-        />
+     <div
+  ref={trackRef}
+  className="flex items-center marquee-track"
+>
+        {doubled.map((logo, i) => (
+          <Link
+            key={i}
+            to={logo.link}
+             target={logo.newTab ? "_blank" : "_self"}
+  rel={logo.newTab ? "noopener noreferrer" : undefined}
+          className="flex flex-col relative items-center justify-center flex-shrink-0 text-center
+        
+w-[160px] h-[80px]
+sm:w-[200px] sm:h-[100px]
+md:w-[240px] md:h-[120px]
+lg:w-[280px] lg:h-[140px]
+xl:w-[350px] xl:h-[200px]"
+            style={{
+           
+              borderRight: "2px solid #a9a9a9",
+              padding: "0 clamp(16px,2vw,40px)",
+            }}
+            onMouseEnter={() => (pausedRef.current = true)}
+            onMouseLeave={() => (pausedRef.current = false)}
+          >
+            <img
+              src={logo.img}
+              alt="product"
+              width={220}
+              height={80}
+              className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
+            />
+            <span className=" absolute bottom-4 font-bricolage text-[20px] font-extrabold text-blue-800 leading-tight">
+  {logo.tagline}
+</span>
+          </Link>
+        ))}
       </div>
- 
-      <style>{`
-        .product-name:hover {
-          filter: grayscale(0%);
-          opacity: 1;
-          color: #000;
-        }
- 
-        @keyframes marquee {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 }

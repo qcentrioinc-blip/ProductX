@@ -7,7 +7,7 @@ const Hero3 = () => {
         <img
           src="/ProductIBS/HERO.webp"
           alt="section image"
-          className="w-full h-screen object-cover"
+          className="w-full h-auto object-cover"
         />
 
       </div>

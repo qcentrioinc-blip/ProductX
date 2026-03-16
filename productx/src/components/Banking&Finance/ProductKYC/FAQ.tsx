@@ -90,7 +90,12 @@ const FaqSection: React.FC = () => {
       cta: "View All"
     },
     
-
+"/industries/banking-and-finance/products/loan-origination-system": {
+      heading: "Common Questions About LOS ",
+      description:
+        "Find answers to common questions about LOS capabilities, digital applications, pre-approved offers, e-verification, OCR features, approval workflows, and group lending support.",
+      cta: "View All"
+    },
   };
 
 
@@ -477,6 +482,45 @@ const FaqSection: React.FC = () => {
         answer:" IBS is fully responsive and works on desktops, tablets, and smartphones. Customers can access their accounts from any device with internet connectivity for true anywhere banking.  "
       }
     ],
+
+    "/industries/banking-and-finance/products/loan-origination-system":[
+      {
+        question: "What types of loans can be processed through LOS?  ",
+        answer:
+          "LOS processes personal loans, auto loans, home loans, group loans, and corporate credit facilities. The system supports retail and commercial lending with configurable product rules.  ",
+      },
+      {
+        question: "How does LOS handle pre-approved loan offers?  ",
+        answer:
+          "Back-office users upload pre-approved offers for selected customers. Customers submit quickly with minimal data entry, and offers can be auto-approved based on configured screening rules.  ",
+      },
+      {
+        question: "What verification features does LOS include? ",
+        answer:
+          "LOS provides e-verification for KYC, utility bills, employment, assets, and banking details. OCR capabilities read government IDs and detect mismatches in name, birth date, and address.  ",
+      },
+      {
+        question: "Can LOS integrate with core banking systems?   ",
+        answer:
+          "Yes, LOS inherits product rules configured in core systems. Additional rules can be set for enhanced checks and controls. Real-time data synchronization ensures accurate loan processing.  ",
+      },
+      {
+        question: "How are loan approval decisions made in LOS?   ",
+        answer:
+          "Approval matrix is configured based on products, score parameters, and loan amounts. Applications progress through multiple approval levels, with final authority approval required.  ",
+      },
+      {
+        question: "Does LOS support group lending models?   ",
+        answer:
+          "Yes, LOS includes complete group lending features, including member management, meeting recordings, bulk collection, fund transfers, multilingual support, and center evaluation capabilities.   ",
+      },
+      {
+        question: "What documents can be verified through OCR?   ",
+        answer:
+          "OCR reads standard document images, including SSN cards, driving licenses, and government-issued IDs. AI enhances accuracy by learning from multiple document images over time.  ",
+      },
+
+    ]
   };
 
 

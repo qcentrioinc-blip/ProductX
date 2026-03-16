@@ -34,16 +34,16 @@ const MegaMenu = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, pr
         },
         {
             title: "Internet Banking System",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+            desc: "Secure online banking with real-time account access",
             img: "/BNFHOME/P3.jpg",
             path: `${base}/products/internet-banking-system`
         },
-        {
-            title: "Customer Onboarding Solutions",
-            desc: "Lorem ipsum dolor sit amet consectetur",
-            img: "/BNFHOME/P3.jpg",
-            path: `${base}/products/customer-onboarding-solutions`
-        },
+        // {
+        //     title: "Customer Onboarding Solutions",
+        //     desc: "Lorem ipsum dolor sit amet consectetur",
+        //     img: "/BNFHOME/P3.jpg",
+        //     path: `${base}/products/customer-onboarding-solutions`
+        // },
         // {
         //     title: "Internet Banking System",
         //     desc: "Lorem ipsum dolor sit amet consectetur",

@@ -1,293 +1,218 @@
-"use client"
-
-import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ContactUs } from "../../../styles/Button";
-
+import { H1, H4, P } from "../../../styles/Typography";
+ 
+const bulletItems = [
+  {
+    text: "Customers apply for loans online through device-agnostic forms with auto-filled SSN details",
+    icon: "/LOS/HeroIcon2.svg"
+  },
+  {
+    text: "Back-office users upload pre-approved offers for quick screening and potential auto-approval",
+    icon: "/LOS/HeroIcon1.svg"
+  }
+];
+ 
 const FirstPage = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const autoScrollInterval = useRef<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+    return (
+        <>
+            
+ 
+            <section className="w-full overflow-hidden bg-[#2B68C3] max-w-8xl mx-auto">
+ 
+                {/* ════════════════════════════════════════
+                    MOBILE + TABLET + LG iPad Pro Layout
+                    Visible: < 1280px  |  Hidden: ≥ 1280px
+                ════════════════════════════════════════ */}
+                <div className="xl:hidden flex flex-col px-5 py-14 gap-6 sm:px-8 sm:py-16 sm:gap-7 md:px-18 md:py-12 lg:px-14 lg:pt-36 lg:gap-8">
+ 
+                    {/* Row 1 — Heading left, Para right */}
+                    <div className="flex flex-col gap-4  justify-between lg:gap-10">
+ 
+                        {/* Heading */}
+                        <H1 className="text-white mt-4"
+                             
+                        >
+                           Digital Loan Origination System for Banks and NBFCs
+                        </H1>
+ 
+                        {/* Paragraph */}
+                        <P className="text-white"
+                          
+                        >
+                            LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                        </P>
+                    </div>
+ 
+                    {/* Row 2 — Card left, Image right */}
+                    <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:gap-6">
+ 
+                        {/* Card */}
+                        <div
+                            className="flex flex-col border border-white bg-[#15386C33] rounded-[17px] shrink-0
+                                w-full max-w-[374px]
+                                p-[14px] gap-[20px]
+                                sm:p-[16px] sm:gap-[22px]
+                                lg:w-[300px] lg:p-[17px] lg:gap-[20px]"
+                        >
+                            {/* White Box */}
+                            <div className="flex flex-col bg-white rounded-[7px] p-5 gap-3">
+                                <P
+                                    className="text-[#2B68C3] leading-none
+                                        text-[20px]
+                                        sm:text-[22px]
+                                        lg:text-[22px]"
+                                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 500 }}
+                                >
+                                   Simplify Applications with Digital Forms and Pre-Approved Offers
+                                </P>
+                                 <Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
+                                <ContactUs>Explore LOS</ContactUs>
+                                </Link>
+                            </div>
+ 
+                            {/* Bullets */}
+                            <div className="flex flex-col gap-4 sm:gap-5 lg:gap-5">
+                               {bulletItems.map((item, i) => (
+  <div key={i} className="flex items-center gap-3">
 
-  const carouselImages = [
-    { id: 1, src: "/Products/Products7/MainImage.png", alt: "Dashboard 1" },
-    { id: 2, src: "/Products/Products7/MainImage.png", alt: "Dashboard 2" },
-    { id: 3, src: "/Products/Products7/MainImage.png", alt: "Dashboard 3" },
-    { id: 4, src: "/Products/Products7/MainImage.png", alt: "Dashboard 4" },
-    { id: 5, src: "/Products/Products7/MainImage.png", alt: "Dashboard 5" },
-  ];
+    {/* ICON CIRCLE */}
+    <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
+      <img
+        src={item.icon}
+        alt="icon"
+        className="w-10 h-10 object-contain"
+      />
+    </div>
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    {/* TEXT */}
+    <P className="text-white">
+      {item.text}
+    </P>
 
-  useEffect(() => {
-    if (!isMobile) return;
-
-    const startAutoScroll = () => {
-      if (autoScrollInterval.current) clearInterval(autoScrollInterval.current);
-      autoScrollInterval.current = window.setInterval(() => {
-        setCurrentSlide(prev => {
-          const nextSlide = (prev + 1) % carouselImages.length;
-          if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollTo({
-              left: scrollContainerRef.current.clientWidth * nextSlide,
-              behavior: 'smooth'
-            });
-          }
-          return nextSlide;
-        });
-      }, 3000);
-    };
-    startAutoScroll();
-    const container = scrollContainerRef.current;
-    const pauseAutoScroll = () => {
-      if (autoScrollInterval.current) clearInterval(autoScrollInterval.current);
-    };
-    const resumeAutoScroll = () => {
-      setTimeout(startAutoScroll, 1000);
-    };
-    if (container) {
-      container.addEventListener('mouseenter', pauseAutoScroll);
-      container.addEventListener('mouseleave', resumeAutoScroll);
-      container.addEventListener('touchstart', pauseAutoScroll);
-      container.addEventListener('touchend', resumeAutoScroll);
-    }
-    return () => {
-      if (autoScrollInterval.current) {
-        clearInterval(autoScrollInterval.current);
-      }
-      if (container) {
-        container.removeEventListener('mouseenter', pauseAutoScroll);
-        container.removeEventListener('mouseleave', resumeAutoScroll);
-        container.removeEventListener('touchstart', pauseAutoScroll);
-        container.removeEventListener('touchend', resumeAutoScroll);
-      }
-    };
-  }, [isMobile, carouselImages.length]);
-
-  const handleScroll = () => {
-    if (scrollContainerRef.current && isMobile) {
-      const scrollLeft = scrollContainerRef.current.scrollLeft;
-      const slideWidth = scrollContainerRef.current.clientWidth;
-      const slideIndex = Math.round(scrollLeft / slideWidth);
-      if (slideIndex !== currentSlide) {
-        setCurrentSlide(slideIndex);
-      }
-    }
-  };
-
-  return (
-    <main
-      className="bg-[#2B68C3] pt-16 sm:pt-24 md:pt-32 lg:pt-44 relative overflow-hidden w-full"
-      style={{
-        minHeight: 'auto',
-        margin: '0 auto',
-      }}
-    >
-
-      {/* RIGHT Decorative Sphere - Desktop Only */}
-      <div
-        className="hidden lg:block absolute w-[250px] h-[410px] lg:top-[400px] lg:-right-[40px] xl:top-[250px] z-[6] pointer-events-none"
-      >
-        <img
-          src="/Products/Products7/Circle7.png"
-          alt="Decorative Sphere"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            borderRadius: '50%'
-          }}
-        />
-      </div>
-
-      {/* LEFT Decorative Circles - Desktop Only */}
-      <div
-        className="hidden lg:block"
-        style={{
-          position: 'absolute',
-          width: '226.68px',
-          height: '205.60px',
-          top: '970px',
-          left: '15.5px',
-          border: '5px solid #0C4BA8',
-          borderRadius: '50%',
-          zIndex: 0,
-          pointerEvents: 'none'
-        }} />
-      <div
-        className="hidden lg:block"
-        style={{
-          position: 'absolute',
-          width: '154.30px',
-          height: '145.81px',
-          top: '1005px',
-          left: '46.69px',
-          border: '2px solid #FBFBFB',
-          borderRadius: '50%',
-          zIndex: 0,
-          pointerEvents: 'none'
-        }} />
-
-      {/* Yellow Title Band - Fully Responsive */}
-      <div
-        className="w-full relative z-5"
-        style={{
-          minHeight: 'auto',
-          height: 'auto'
-        }}
-      >
-        <div className="max-w-8xl mx-10 px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-10 lg:py-12 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center justify-between relative z-2">
-
-          {/* Left: Title */}
-          <h1
-            className="max-w-full md:max-w-[620px] lg:max-w-[500px] xl:max-w-[750px] font-bold text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[48px] xl:text-[66px] leading-[110%] sm:leading-[120%] text-white m-0"
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              letterSpacing: '-0.5px',
-            }}
-          >
-            Lorem ipsum dolor, consectetur adipis
-          </h1>
-
-          {/* Right: Description + Button */}
-          <div className="max-w-full md:max-w-[400px] lg:max-w-[420px] xl:max-w-[600px] w-full lg:w-auto flex flex-col gap-4 sm:gap-6 lg:gap-8">
-            <p
-              className="text-[14px] xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-xl leading-[140%] sm:leading-[150%]"
-              style={{
-                fontFamily: "'Schibsted Grotesk', sans-serif",
-                color: "#fff"
-              }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            </p>
-
-            {/* Contact Button */}
-            <div className="w-full sm:w-auto">
-              <ContactUs>Contact Us</ContactUs>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Dashboard Images Grid/Carousel */}
-      <div className="px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16 lg:py-20">
-
-        {/* Mobile/Tablet Carousel */}
-        <div className="lg:hidden">
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              WebkitOverflowScrolling: 'touch'
-            }}
-          >
-            {carouselImages.map((image) => (
-              <div
-                key={image.id}
-                className="flex-shrink-0 w-full snap-center px-2"
-              >
-                <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-[200px] xs:h-[250px] sm:h-[320px] md:h-[400px] w-full object-cover"
-                  />
+  </div>
+))}
+                            </div>
+                        </div>
+ 
+                        {/* Corner Image */}
+                        <div className="w-full lg:flex-1 lg:self-end">
+                            <img
+                                src="/LOS/hero.webp"
+                                alt="Team circles"
+                                className="w-full object-contain object-bottom
+                                    max-h-[240px]
+                                    sm:max-h-[300px]
+                                    lg:max-h-[340px]"
+                            />
+                        </div>
+                    </div>
                 </div>
-              </div>
-            ))}
-          </div>
+ 
+                {/* ════════════════════════════════════════
+                    DESKTOP XL Layout  (≥ 1280px)
+                    Exact pixel-perfect absolute positions
+                    Hidden: < 1280px
+                ════════════════════════════════════════ */}
+                <div className="hidden max-w-8xl mx-auto  px-22  xl:block relative min-h-screen">
+                  <div className="grid grid-cols-[1fr_1fr] xl:gap-x-20   mt-44 justify-center items-center">
+                    {/* Heading */}
+                    <H1
+                        className="text-white"
+                    >  Complete Digital Loan <br/> Origination System for Banks and NBFC's
+                    </H1>
+ 
+                    {/* Paragraph */}
+                <P className="text-white"
+                    >
+                     LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                    </P>
+                    </div>
+ 
+                    {/* Left Card */}
+                    <div
+                        className="absolute flex flex-col border mt-10 border-white bg-[#15386C33] rounded-2xl px-6 py-6 max-w-sm"
+                        // style={{
+                        //     top: "250px", left: "95px",
+                        //     width: "374.1px", height: "420px",
+                        //     padding: "17.04px", gap: "30.68px",
+                        //     borderRadius: "17.04px",
+                        // }}
+                    >
+                        {/* White Box */}
+                        <div
+                            className="flex flex-col bg-white shrink-0 p-4  space-y-6 rounded-md"
+                           
+                        >
+                            <H4
+                                className="text-[#2B68C3] "
+                                
+                            >
+                            Simplify Applications with Digital Forms and Pre-Approved Offers
+                            </H4>
+                <Link
+                            to="#contact-us"
+                            onClick={(e) => {
+                                const el = document.getElementById("contact-us");
+                                if (el) {
+                                    e.preventDefault();
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        >
+                                <ContactUs>Explore LOS</ContactUs>
+                                </Link>
+                        </div>
+ 
+                        {/* Bullets */}
+                        <div className="flex flex-col pt-6" style={{ gap: "20px" }}>
+                           {bulletItems.map((item, i) => (
+  <div key={i} className="flex items-start gap-3">
 
-          {/* Carousel Dots */}
-          <div className="flex justify-center items-center gap-2 mt-6 sm:mt-8">
-            {carouselImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentSlide(index);
-                  if (scrollContainerRef.current) {
-                    scrollContainerRef.current.scrollTo({
-                      left: scrollContainerRef.current.clientWidth * index,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className={`transition-all duration-300 rounded-full ${currentSlide === index
-                  ? "w-8 h-3 bg-white"
-                  : "w-3 h-3 bg-white/40 hover:bg-white/60"
-                  }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+    {/* ICON CIRCLE */}
+    <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
+      <img
+        src={item.icon}
+        alt="icon"
+        className="w-8 h-8 object-contain"
+      />
+    </div>
 
-        {/* Desktop Dashboard Grid */}
-        <div className="hidden lg:grid relative gap-6 lg:gap-8 xl:gap-10 grid-cols-[1fr_2fr_1fr] max-w-8xl mx-10 z-6">
+    {/* TEXT */}
+    <P className="text-white">
+      {item.text}
+    </P>
 
-          {/* Left Column */}
-          <div className="flex flex-col gap-6 lg:gap-8">
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img
-                src="/Products/Products7/MainImage.png"
-                alt="Dashboard analytics view"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img
-                src="/Products/Products7/MainImage.png"
-                alt="Dashboard analytics view"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Center Column */}
-          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-            <img
-              src="/Products/Products7/MainImage.png"
-              alt="Main dashboard"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* Right Column */}
-          <div className="flex flex-col gap-6 lg:gap-8">
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img
-                src="/Products/Products7/MainImage.png"
-                alt="Dashboard analytics view"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-white/20 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02]">
-              <img
-                src="/Products/Products7/MainImage.png"
-                alt="Dashboard analytics view"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-    </main>
-  );
+  </div>
+))}
+                        </div>
+                    </div>
+ 
+                    {/* Corner Image */}
+                    <div
+                        className="absolute bottom-0"
+                        style={{ left: "580px", top: "250px", width: "900px", height: "450px" }}
+                    >
+                        <img
+                            src="/LOS/hero.webp"
+                            alt="Team circles"
+                            className="w-full h-full object-contain object-top"
+                        />
+                    </div>
+                </div>
+ 
+            </section>
+        </>
+    );
 };
-
+ 
 export default FirstPage;

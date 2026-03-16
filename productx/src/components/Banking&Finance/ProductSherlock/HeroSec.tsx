@@ -12,19 +12,18 @@ export default function ContentInfo() {
         <div className="text-white space-y-8 xl:pt-20">
 
           <H1 className="leading-tight">
-            Lorem ipsum dolor
-            consectetur adipis
+           Advanced Anti-Money Laundering Detection
           </H1>
 
           <P className="text-white/80 max-w-lg md:text-base">
-            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions. 
+            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions.
           </P>
 
           <Link to="/marketplace">
             <ContactUs> Explore SHERLOCK </ContactUs>
           </Link>
 
-          <P className="text-white/80 max-w-sm pt-10 xl:pt-38">
+          <P className="text-white/80 max-w-sm pt-4 ">
             Risk profiling and KYC verification integrated with core banking systems for end-to-end compliance.
           </P>
 

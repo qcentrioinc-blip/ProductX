@@ -21,6 +21,7 @@ import Blogs from './components/Banking&Finance/Blogs/Blogs';
 import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
 import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
+import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -116,7 +117,7 @@ const App = () => {
     if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />
     if (productId === "internet-banking-system") return <PDPage9 />
-    // if (productId === "loan-origination-system") return <ProductsPage7 />
+    if (productId === "loan-origination-system") return <ProductsPage7 />
     return <ProductNotFound/>;
   }
 
