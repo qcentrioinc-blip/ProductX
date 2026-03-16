@@ -237,6 +237,12 @@ const RotatingGlobe = () => {
                 <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%, -16%)" }}>
                     <Globe
                         ref={globeRef}
+                        // globeImageUrl="https://unpkg.com/three-globe/example/img/earth-water.png"
+                        // globeImageUrl="https://unpkg.com/three-globe/example/img/earth-day.jpg"
+                        // globeImageUrl="https://raw.githubusercontent.com/chrisrzhou/react-globe/main/textures/globe_dark.jpg"
+                        // globeImageUrl="https://raw.githubusercontent.com/chrisrzhou/react-globe/main/textures/globe_dark.jpg"
+                        // globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+                        // globeImageUrl="https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg"
                         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
                         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
                         backgroundColor="rgba(0,0,0,0)"

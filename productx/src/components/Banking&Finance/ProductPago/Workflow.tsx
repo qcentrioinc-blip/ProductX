@@ -4,18 +4,18 @@ import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import { Link } from "react-router-dom";
- 
+
 const PRIMARY_COLOR = "#2B68C3";
 // const LIGHT_BLUE_BG = "#C1D7F3";
- const BG_COLORS = [
-  "#C1D7F3", 
+const BG_COLORS = [
+  "#C1D7F3",
   "#9FB9DA",
-  "#4A6D9B",  
+  "#4A6D9B",
   "#284F82",
-  "#174075",  
+  "#174075",
 ];
 
- 
+
 const steps = [
   {
     id: 1,
@@ -29,7 +29,7 @@ const steps = [
     title:
       "Atomicity ensures that payments either complete or fail immediately ",
     image:
-       "/Pago/Feature2pago.webp",
+      "/Pago/Feature2pago.webp",
   },
   {
     id: 3,
@@ -43,14 +43,14 @@ const steps = [
     title:
       "Seamless integration with core banking and existing financial systems ",
     image:
-       "/Pago/Feature4pago.webp",
+      "/Pago/Feature4pago.webp",
   },
   {
     id: 5,
     title:
       "Detailed audit trails and transparent reporting for all transactions ",
     image:
-       "/Pago/Feature5pago.webp",
+      "/Pago/Feature5pago.webp",
   },
 ];
  
@@ -78,30 +78,30 @@ useEffect(() => {
   useEffect(() => {
     const lenis = scrollableContainerRef;
     if (!lenis) return;
- 
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
- 
+
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const viewportCenter = window.innerHeight / 2;
- 
+
       const sectionProgress = (viewportCenter - sectionRect.top) / sectionRect.height;
- 
+
       setScrollProgress(sectionProgress);
- 
+
       // Map progress to step (1 to 5)
       const stepProgress = Math.min(
         Math.max(sectionProgress * steps.length, 0),
         steps.length - 0.01
       );
       const newActiveStep = Math.floor(stepProgress) + 1;
- 
+
       setActiveStep(newActiveStep);
     };
- 
+
     lenis.on("scroll", handleScroll);
     handleScroll();
- 
+
     return () => {
       lenis.off("scroll", handleScroll);
     };
@@ -116,38 +116,37 @@ useEffect(() => {
   return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
 }, [scrollProgress, isMobile]);
 
- 
   // const backgroundGradient = useMemo(() => {
   //   const progress = scrollProgress;
- 
+
   //   const start = { r: 193, g: 215, b: 243 };
- 
+
   //   const end = { r: 100, g: 100, b: 255 };
- 
+
   //   const r = Math.round(start.r + (end.r - start.r) * progress);
   //   const g = Math.round(start.g + (end.g - start.g) * progress);
   //   const b = Math.round(start.b + (end.b - start.b) * progress);
- 
+
   //   return `rgb(${r}, ${g}, ${b})`;
   // }, [scrollProgress]);
- 
+
   return (
-   <motion.div
-  ref={sectionRef}
-  style={{
-    backgroundColor: backgroundColor,
-    transition: "background-color 0.4s ease-out",
-  }}
-  className="w-full relative pb-10  min-h-full md:min-h-[200vh] xl:min-h-[400vh]"
->
+    <motion.div
+      ref={sectionRef}
+      style={{
+        backgroundColor: backgroundColor,
+        transition: "background-color 0.4s ease-out",
+      }}
+      className="w-full relative pb-10  min-h-full md:min-h-[200vh] xl:min-h-[400vh]"
+    >
 
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center text-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
- 
+
           className="  text-[#2B68C3]  mb-6 leading-snug"
         >
-          Complete Payment and Settlement System <br/>for Financial Institutions
+          Complete Payment and Settlement System <br />for Financial Institutions
         </H2>
         <motion.p
           style={{
@@ -155,53 +154,53 @@ useEffect(() => {
           }}
           className="  font-quicksand text-[18px]     max-w-4xl transition-colors duration-300"
         >
-          PAGO is a versatile payment platform designed to streamline and secure payment processes. It supports multiple transaction methods, including e-cash and e-cheques. The system integrates seamlessly with existing financial infrastructure while providing real-time monitoring and detailed reporting. 
+          PAGO is a versatile payment platform designed to streamline and secure payment processes. It supports multiple transaction methods, including e-cash and e-cheques. The system integrates seamlessly with existing financial infrastructure while providing real-time monitoring and detailed reporting.
         </motion.p>
       </div>
- 
- {/* MOBILE LAYOUT */}
-<div className="md:hidden px-6 space-y-10">
-  {steps.map((step) => (
-    <div key={step.id} className="flex flex-col items-center text-center space-y-4">
 
-      {/* Step Title */}
-      <h3 className="text-[16px] font-bricolage leading-snug text-[#111827]">
-        {step.title}
-      </h3>
+      {/* MOBILE LAYOUT */}
+      <div className="md:hidden px-6 space-y-10">
+        {steps.map((step) => (
+          <div key={step.id} className="flex flex-col items-center text-center space-y-4">
 
-      {/* Step Image */}
-      <div className="w-full h-[220px] rounded-xl overflow-hidden shadow-md">
-        <img
-          src={step.image}
-          alt={`Step ${step.id}`}
-          className="w-full h-full object-cover"
-        />
+            {/* Step Title */}
+            <h3 className="text-[16px] font-bricolage leading-snug text-[#111827]">
+              {step.title}
+            </h3>
+
+            {/* Step Image */}
+            <div className="w-full h-[220px] rounded-xl overflow-hidden shadow-md">
+              <img
+                src={step.image}
+                alt={`Step ${step.id}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+          </div>
+        ))}
+
+        {/* CTA */}
+        <Link
+          to="#contact-us"
+          onClick={(e) => {
+            const el = document.getElementById("contact-us");
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+            Explore PAGO Features
+          </ContactUs>
+        </Link>
       </div>
-
-    </div>
-  ))}
-
-  {/* CTA */}
-  <Link
-    to="#contact-us"
-    onClick={(e) => {
-      const el = document.getElementById("contact-us");
-      if (el) {
-        e.preventDefault();
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }}
-  >
-    <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
-      Explore PAGO Features
-    </ContactUs>
-  </Link>
-</div>
 
       {/* Sticky Content Container */}
       <div className="sticky top-10 xl:h-screen hidden md:flex items-center justify-center">
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 items-center px-6 xl:px-10">
- 
+
           {/* LEFT SIDE - Sticky Image */}
           <div className="h-[400px] md:h-[550px] xl:h-[650px] pb-6 xl:pb-0 order-1 md:order-0">
             <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
@@ -226,7 +225,7 @@ useEffect(() => {
               style={{ backgroundColor: "black" }}
               className="absolute left-8 md:top-8 lg:top-2 bottom-30 w-[2px] rounded-full   hidden md:block"
             />
- 
+
             {steps.map((step, index) => {
               const isActive = step.id === activeStep;
               return (
@@ -258,7 +257,7 @@ useEffect(() => {
                   >
                     {step.id}
                   </motion.div>
- 
+
                   {/* Step Content */}
                   <motion.div
                     animate={{
@@ -291,25 +290,25 @@ useEffect(() => {
                 </motion.div>
               );
             })}
- 
+
             {/* Book A Demo Button */}
             <div className=" md:pl-4 ">
- 
- 
-               <Link
-                            to="#contact-us"
-                            onClick={(e) => {
-                                const el = document.getElementById("contact-us");
-                                if (el) {
-                                    e.preventDefault();
-                                    el.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
-                        >
-            <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
-       Explore PAGO Features
-            </ContactUs>
-            </Link>
+
+
+              <Link
+                to="#contact-us"
+                onClick={(e) => {
+                  const el = document.getElementById("contact-us");
+                  if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+                  Explore PAGO Features
+                </ContactUs>
+              </Link>
             </div>
           </div>
         </div>
@@ -317,4 +316,3 @@ useEffect(() => {
     </motion.div>
   );
 }
- 

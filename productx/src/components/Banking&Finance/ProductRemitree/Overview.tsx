@@ -1,7 +1,17 @@
 import { ContactUs } from "../../../styles/Button";
 import { H1 } from "../../../styles/Typography";
 
-const cardItems = [1, 2, 3];
+const column1Images = [
+    "/Remitree/1.webp",
+    "/Remitree/2.webp",
+    "/Remitree/3.webp"
+];
+
+const column2Images = [
+    "/Remitree/4.webp",
+    "/Remitree/5.webp",
+    "/Remitree/6.webp"
+];
 
 const Overview = () => {
     return (
@@ -41,7 +51,7 @@ const Overview = () => {
                             xl:text-[56px]
                             2xl:text-[64px]
                         ">
-                            Smart Banking,<br />Simplified
+                            Cross-Border Remittance<br />Middleware Solution
                         </H1>
 
                         {/* Description */}
@@ -56,9 +66,7 @@ const Overview = () => {
                             xl:text-[16px] xl:max-w-[480px]
                             2xl:max-w-[520px]
                         ">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit.
+                            Remitree bridges core banking systems with the Swift Alliance Gateway for seamless international payments. Automates message creation, validation, and transmission with built-in compliance screening.
                         </p>
 
                         {/* CTA Buttons */}
@@ -67,7 +75,12 @@ const Overview = () => {
                             justify-center lg:justify-start
                             mb-8 lg:mb-12 xl:mb-16
                         ">
-                            <ContactUs>Contact Sales</ContactUs>
+                            <ContactUs
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });
+                                }}
+                            >Explore Remitree</ContactUs>
                             <button className="
                                 bg-transparent text-[#2B68C3]
                                 h-[44px] xl:h-[48px]
@@ -92,7 +105,7 @@ const Overview = () => {
 
                         {/* Bottom Stats — 2 Blue Circles */}
                         <div className="relative xl:top-15 flex gap-4 xl:gap-26 justify-center lg:justify-start">
-                            {['Consecte\nadipiscing', 'Consecte\nadipiscing'].map((label, i) => (
+                            {['Outward remittance\nautomation', 'Inward remittance\nprocessing'].map((label, i) => (
                                 <div key={i} className="flex items-center gap-2 xl:gap-3">
                                     <div className="
                                         rounded-full bg-[#2B68C3] flex-shrink-0
@@ -125,16 +138,18 @@ const Overview = () => {
                     ">
                         {/* Column 1 — Scrolls UP */}
                         <div className="flex flex-col gap-4 xl:gap-6 animate-cards-up">
-                            {[...cardItems, ...cardItems].map((_, i) => (
+                            {[...column1Images, ...column1Images].map((imgSrc, i) => (
                                 <div
                                     key={`col1-${i}`}
                                     className="
-                                        flex-shrink-0 bg-[#D9D9D9] rounded-[10px]
+                                        flex-shrink-0 bg-[#D9D9D9] rounded-[10px] overflow-hidden relative
                                         w-[190px]  h-[260px]
                                         xl:w-[240px] xl:h-[340px]
                                         2xl:w-[301px] 2xl:h-[419px]
                                     "
-                                />
+                                >
+                                    <img src={imgSrc} alt={`Remitree Use Case ${i}`} className="w-full h-full object-cover" />
+                                </div>
                             ))}
                         </div>
 
@@ -143,16 +158,18 @@ const Overview = () => {
                             flex flex-col gap-4 xl:gap-6 animate-cards-down
                             mt-14 xl:mt-20 2xl:mt-24
                         ">
-                            {[...cardItems, ...cardItems].map((_, i) => (
+                            {[...column2Images, ...column2Images].map((imgSrc, i) => (
                                 <div
                                     key={`col2-${i}`}
                                     className="
-                                        flex-shrink-0 bg-[#D9D9D9] rounded-[10px]
+                                        flex-shrink-0 bg-[#D9D9D9] rounded-[10px] overflow-hidden relative
                                         w-[190px]  h-[260px]
                                         xl:w-[240px] xl:h-[340px]
                                         2xl:w-[301px] 2xl:h-[419px]
                                     "
-                                />
+                                >
+                                    <img src={imgSrc} alt={`Remitree Feature ${i}`} className="w-full h-full object-cover" />
+                                </div>
                             ))}
                         </div>
                     </div>

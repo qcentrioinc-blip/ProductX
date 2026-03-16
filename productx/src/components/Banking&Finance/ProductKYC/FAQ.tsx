@@ -89,6 +89,12 @@ const FaqSection: React.FC = () => {
         "Find answers to common questions about IBS capabilities, security features, account management, fund transfers, and integration with core banking systems for financial institutions. ",
       cta: "View All"
     },
+    "/industries/banking-and-finance/products/remitree": {
+      heading: "Quick Answers About Remitree",
+      description:
+        "Find answers to common questions about REMITREE's message handling, Swift compliance, AML integration, dashboards, and how it streamlines cross-border remittance processing.",
+      cta: "View All"
+    },
     
 "/industries/banking-and-finance/products/loan-origination-system": {
       heading: "Common Questions About LOS ",
@@ -520,7 +526,45 @@ const FaqSection: React.FC = () => {
           "OCR reads standard document images, including SSN cards, driving licenses, and government-issued IDs. AI enhances accuracy by learning from multiple document images over time.  ",
       },
 
-    ]
+    ],
+    
+    "/industries/banking-and-finance/products/remitree": [
+      {
+        question: "What Swift message types does REMITREE support?",
+        answer:
+          "REMITREE supports various Swift MT messages, including MT103 for customer transfers, MT202 for financial institution transfers, MT700 for letters of credit, and MT760 for guarantees.",
+      },
+      {
+        question: "How does REMITREE ensure regulatory compliance?",
+        answer:
+          "REMITREE integrates with AML systems to screen transactions against banned entities and countries. Automated compliance checks occur before message transmission to prevent fraud.",
+      },
+      {
+        question: "Can REMITREE handle both inward and outward remittances?",
+        answer:
+          "Yes, REMITREE manages bi-directional message flow comprehensively. It processes outward remittances from creation to transmission and inward remittances from receipt to crediting.",
+      },
+      {
+        question: "How does REMITREE integrate with core banking systems?",
+        answer:
+          "REMITREE connects with core banking systems through APIs for real-time data synchronization. It automatically populates Swift message templates with customer and transaction details.",
+      },
+      {
+        question: "What reporting capabilities does REMITREE offer?",
+        answer:
+          "REMITREE provides a comprehensive dashboard for monitoring all messages with real-time status tracking. Detailed audit logs and custom reports are available for compliance and reconciliation.",
+      },
+      {
+        question: "How does REMITREE reduce operational costs?",
+        answer:
+          "REMITREE automates compliance checks and message validation, minimizing Swift licensing needs. Straight-through processing reduces manual intervention and associated labor costs significantly.",
+      },
+      {
+        question: "What happens when a transaction fails validation?",
+        answer:
+          "REMITREE flags exceptions during remittance processing with detailed error information. The system provides tools for review and resolution before allowing retransmission.",
+      },
+    ],
   };
 
 
