@@ -1,16 +1,16 @@
 // ── Card Data ─────────────────────────────────────────────────
 const cards = [
   {
-    title: "Duis aute irure",
-    text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su",
+    title: "Bi-Directional Flow",
+    text: "Manages both outward and inward remittances comprehensively with automated creation, validation, and transmission of Swift messages.",
   },
   {
-    title: "Duis aute irure",
-    text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su",
+    title: "Integrated Compliance",
+    text: "Screens transactions against banned entities and countries using AML integration for fraud prevention and regulatory adherence.",
   },
   {
-    title: "Duis aute irure",
-    text: "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, su",
+    title: "Real-Time Tracking",
+    text: "Comprehensive dashboard provides real-time overview of all messages with status tracking for pending, approved, and transmitted items.",
   },
 ];
 
@@ -89,7 +89,7 @@ const ThreeCircle = () => {
                     lg:text-[50px]
                     xl:text-[64px]
                 ">
-          Sed ut perspiciatis
+          What Makes REMITREE Unique
         </h1>
 
         {/* ── Cards Grid ──

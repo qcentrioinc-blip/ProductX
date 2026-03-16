@@ -27,6 +27,7 @@ const HWD = () => {
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
   const isSAMS = path.toLowerCase().includes("sams");
+  const isRemitree = path.toLowerCase().includes("remitree");
   const isPAGO = path.startsWith("/industries/banking-and-finance/products/pago");
   const isSherlock = path.startsWith("/industries/banking-and-finance/products/sherlock");
   const isIBS = path.startsWith("/industries/banking-and-finance/products/internet-banking-system");
@@ -122,6 +123,13 @@ const HWD = () => {
     SAMS: {
       eyebrow: " ",
       title: "Real-World NPA Scenarios",
+      description:
+        ""
+    },
+
+    Remitree: {
+      eyebrow: " ",
+      title: "Real-World Remittance Scenarios with REMITREE",
       description:
         ""
     },
@@ -325,6 +333,48 @@ const HWD = () => {
           "Monitor pledged equity invocation and trading status",
           "Classify secured and unsecured portions separately",
           "Calculate provisions based on collateral and classification"
+        ],
+      },
+    ],
+
+    Remitree: [
+      {
+        title: "Outward Remittance for Retail Customers",
+        image: "/BNFCos/Document.svg",
+        description:
+          "Process individual customer cross-border payments efficiently with automated SWIFT message creation and compliance screening.",
+        points: [
+          "Initiate transactions from core banking systems",
+          "Create and enrich Swift MT103 messages automatically",
+          "Screen beneficiaries against AML watch lists",
+          "Validate fields for format and limit compliance",
+          "Transmit messages via Swift Alliance Gateway"
+        ],
+      },
+      {
+        title: "Inward Remittance Processing for Banks",
+        image: "/BNFCos/credit-card.svg",
+        description:
+          "Handle incoming international payments with automatic matching and crediting to customer accounts without manual intervention.",
+        points: [
+          "Receive incoming Swift MT messages from banks",
+          "Match payments with NOSTRO account details",
+          "Identify and auto-settle transactions accurately",
+          "Post accounting entries to core banking system",
+          "Generate exception reports for unmatched items"
+        ],
+      },
+      {
+        title: "Corporate Bulk Payment Processing",
+        image: "/BNFCos/money-bag.svg",
+        description:
+          "Manage high-volume remittances for corporate clients with automated batch processing and detailed reporting capabilities.",
+        points: [
+          "Handle bulk outward remittance files from corporate systems",
+          "Apply treasury rates for real-time currency conversion",
+          "Screen all transactions against compliance lists",
+          "Track message status through comprehensive dashboard",
+          "Generate detailed transaction reports for reconciliation"
         ],
       },
     ],
@@ -646,6 +696,7 @@ const HWD = () => {
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if (isAlmanac) cards = CARD_CONTENT.Almanac;
   else if (isSAMS) cards = CARD_CONTENT.SAMS;
+  else if (isRemitree) cards = CARD_CONTENT.Remitree;
   // else if(isAlmanac) cards = CARD_CONTENT.Almanac;
   else if(isPAGO) cards = CARD_CONTENT.PAGO;
   else if(isSherlock) cards = CARD_CONTENT.Sherlock;
@@ -661,6 +712,7 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
+  else if (isRemitree) headingContent = HEADING_CONTENT.Remitree;
   //  else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
    else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
     else if(isSherlock) headingContent = HEADING_CONTENT.Sherlock;
@@ -672,7 +724,7 @@ const HWD = () => {
 
   // PALETTE
   let palette;
-  if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS) palette = COLORS.banking;
+  if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;

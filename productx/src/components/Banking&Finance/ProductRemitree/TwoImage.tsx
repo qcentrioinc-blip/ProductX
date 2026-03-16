@@ -22,18 +22,27 @@ const CheckIcon = () => (
 
 // ── Shared Content ────────────────────────────────────────────
 const content = {
-    title: <>Consecte adipisc <br /> ing werd kuwerd</>,
-    description:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
-    features: [
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum",
+    title1: <>Outward Remittance Processing <br /> Challenges Solved</>,
+    description1:
+        "Banks face difficulties in manual message creation, compliance screening, and transmission of cross-border payments. REMITREE automates these processes for efficiency and accuracy.",
+    features1: [
+        "Manual message creation causes delays and errors",
+        "Compliance screening requires multiple system checks",
+        "Transmission failures due to format validation issues",
+    ],
+
+    title2: <>Inward Remittance Processing <br /> Challenges Solved</>,
+    description2:
+        "Financial institutions struggle with matching incoming payments, manual reconciliation, and delayed crediting. REMITREE automates identification and posting to core systems.",
+    features2: [
+        "Manual matching of payments with NOSTRO accounts",
+        "Delayed crediting affects customer satisfaction",
+        "Reconciliation errors from manual data entry",
     ],
 };
 
 // ── Reusable Text Block ───────────────────────────────────────
-const TextBlock = () => (
+const TextBlock = ({ title, description, features }: { title: React.ReactNode, description: string, features: string[] }) => (
     <div className="flex flex-col gap-4 md:gap-5 xl:gap-6">
 
         {/* Heading */}
@@ -46,7 +55,7 @@ const TextBlock = () => (
             lg:text-[44px]
             xl:text-[62px]
         ">
-            {content.title}
+            {title}
         </H2>
 
         {/* Description */}
@@ -59,12 +68,12 @@ const TextBlock = () => (
             lg:text-[15px]
             xl:text-[16px]
         ">
-            {content.description}
+            {description}
         </p>
 
         {/* Checklist */}
         <div className="flex flex-col gap-3 md:gap-4 xl:gap-5 mt-1">
-            {content.features.map((feat, i) => (
+            {features.map((feat, i) => (
                 <div key={i} className="flex items-start gap-2">
                     <CheckIcon />
                     <span className="
@@ -110,20 +119,30 @@ const TwoImage = () => {
                     lg:gap-10
                     xl:gap-12
                 ">
-                    {/* Image Placeholder */}
+                    {/* Image Placeholder 1 */}
                     <div className="
-                        w-full flex-shrink-0
+                        w-full flex-shrink-0 relative overflow-hidden
                         md:w-[48%] lg:w-[48%] xl:w-[50%]
                         aspect-[687/503]
                         bg-[#E3E3E3]
                         rounded-xl
                         md:rounded-2xl
                         xl:rounded-[20px]
-                    " />
+                    ">
+                        <img 
+                            src="https://images.pexels.com/photos/5405054/pexels-photo-5405054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                            alt="Outward Remittance Process" 
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
 
                     {/* Text — right */}
                     <div className="w-full md:w-[52%] lg:w-[52%] xl:w-[50%]">
-                        <TextBlock />
+                        <TextBlock 
+                            title={content.title1} 
+                            description={content.description1} 
+                            features={content.features1} 
+                        />
                     </div>
                 </div>
             </div>
@@ -152,19 +171,29 @@ const TwoImage = () => {
                 ">
                     {/* Text — left */}
                     <div className="w-full md:w-[52%] lg:w-[52%] xl:w-[50%]">
-                        <TextBlock />
+                        <TextBlock 
+                            title={content.title2} 
+                            description={content.description2} 
+                            features={content.features2} 
+                        />
                     </div>
 
-                    {/* Image Placeholder */}
+                    {/* Image Placeholder 2 */}
                     <div className="
-                        w-full flex-shrink-0
+                        w-full flex-shrink-0 relative overflow-hidden
                         md:w-[48%] lg:w-[48%] xl:w-[50%]
                         aspect-[687/503]
                         bg-[#E3E3E3]
                         rounded-xl
                         md:rounded-2xl
                         xl:rounded-[20px]
-                    " />
+                    ">
+                        <img 
+                            src="https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                            alt="Inward Remittance Process" 
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
                 </div>
             </div>
 

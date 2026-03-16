@@ -267,33 +267,37 @@ const ParticleCard = ({
 const FiveCards = () => {
   const smallCards = [
     {
-      title: "Lorem Ipsum",
-      description: "Duis qute irure dolor in reprehenderit in reprehenderit Duis qute irure dolor in",
+      title: "Time Savings",
+      description: "Automates message creation and validation reducing processing time from days to minutes.",
       image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
     },
     {
-      title: "Lorem Ipsum",
-      description: "Duis qute irure dolor in reprehenderit in reprehenderit Duis qute irure dolor in",
+      title: "Cost Reduction",
+      description: "Minimizes Swift licensing needs and operational costs through automated compliance checks.",
       image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
     },
     {
-      title: "Lorem Ipsum",
-      description: "Duis qute irure dolor in reprehenderit in reprehenderit Duis qute irure dolor in",
+      title: "Error Prevention",
+      description: "Strict field validation and format checks eliminate manual errors in message creation",
       image: "https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
     },
     {
-      title: "Lorem Ipsum",
-      description: "Duis qute irure dolor in reprehenderit in reprehenderit Duis qute irure dolor in",
+      title: "Compliance Assurance",
+      description: "Integrated AML screening ensures transactions comply with international regulations and standards.",
       image: "https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
     }
   ];
 
   return (
     <div className="bg-white text-black px-4 sm:px-6 md:px-8 overflow-hidden">
-      <div className="max-w-8xl mx-auto px-10">
-        <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center">
-          Sed ut perspiciatis unde
+      <div className="max-w-8xl mx-auto">
+        <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:mb-4 text-center">
+          Key Benefits of REMITREE Platform
         </H1>
+
+        <P className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-8 text-center max-w-3xl mx-auto">
+          Financial institutions gain efficiency, accuracy, and compliance in cross-border payments through automated remittance processing and integrated screening capabilities.
+        </P>
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 sm:gap-5 md:gap-6">
           {/* Left Section - 4 Small Cards with MagicBento animations */}
