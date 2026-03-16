@@ -12,8 +12,7 @@ export default function ContentInfo() {
         <div className="text-white space-y-8 xl:pt-20">
 
           <H1 className="leading-tight">
-            Lorem ipsum dolor
-            consectetur adipis
+           Advanced Anti-Money Laundering Detection
           </H1>
 
           <P className="text-white/80 max-w-lg md:text-base">
@@ -24,7 +23,7 @@ export default function ContentInfo() {
             <ContactUs> Explore SHERLOCK </ContactUs>
           </Link>
 
-          <P className="text-white/80 max-w-sm pt-10 xl:pt-38">
+          <P className="text-white/80 max-w-sm pt-10 xl:pt-28">
             Risk profiling and KYC verification integrated with core banking systems for end-to-end compliance.
           </P>
 
@@ -52,23 +51,40 @@ export default function ContentInfo() {
         hidden lg:block
         xl:absolute xl:top-16 xl:right-10
         lg:absolute lg:top-20 lg:right-4
-        lg:w-[400px] xl:w-[500px]
+        lg:w-[550px] xl:w-[700px]
         z-10
         "
       />
 
-      {/* SMALL IMAGE (only lg and xl) */}
-      <img
-        src="/sherlock1.png"
-        alt="small shape"
-        className="
-        hidden lg:block
-        xl:absolute xl:bottom-20 xl:left-[46%]
-        lg:absolute lg:bottom-16 lg:left-[46%]
-        lg:w-[140px] xl:w-[180px]
-        z-20
-        "
-      />
+      {/* SMALL TEXT (only lg and xl) */}
+      <div
+  className="
+  hidden lg:block
+  xl:absolute xl:bottom-20 xl:left-[46%]
+  lg:absolute lg:bottom-16 lg:left-[46%]
+  z-20
+  bg-[#E6E6E6]
+  rounded-xl
+  shadow-md
+  px-6 py-5
+  max-w-[280px]
+  relative
+  "
+>
+  {/* Icon Circle */}
+  <div className="absolute -top-5 -left-5 w-12 h-12 bg-gray-600 border border-gray-400 rounded-full flex items-center justify-center shadow-md">
+    <img className="w-9 h-9"
+    src="/ProductSherlock/icon24.svg"
+    alt="Create Account"/>
+  </div>
+
+  <p className="text-[#2B68C3] text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+        font-quicksand
+        leading-[120%]">
+    Screens SWIFT messages and customer transactions against global watch
+    lists automatically.
+  </p>
+</div>
 
     </section>
   );

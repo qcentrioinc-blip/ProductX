@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    title: "Customer Dashboard and Accounts ",
+    title: "Dashboard & Accounts",
     description:
-      "User-friendly dashboard displays savings, deposits, and borrowings with visual representations. Drill-down capability provides detailed transaction history, account statements, and real-time balance updates for all account types. ",
+      "User-friendly dashboard displays savings, deposits, and borrowings with visual representations. The capability provides detailed transaction history, account statements, & real-time balance updates for all account types.",
     icon: "/ProductIBS/icon1.svg"
   },
   {
-    title: "Payments and Fund Transfers",
+    title: "Payments & Fund Transfers",
     description:
-      "Send money between accounts, pay utility bills, and transfer funds domestically or internationally. Integration with Pago payment gateway ensures enhanced security and immediate confirmation for all transactions.",
+      "Send money between accounts, pay utility bills, and transfer funds domestically or internationally. Integration with Pago payment gateway ensures enhanced security and for all transactions.",
     icon: "/ProductIBS/icon2.svg"
   },
 ];
