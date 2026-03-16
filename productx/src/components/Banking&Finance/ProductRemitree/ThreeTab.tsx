@@ -3,23 +3,23 @@ import { useState } from "react";
 const ThreeTab = () => {
     const [activeTab, setActiveTab] = useState(0);
 
-    const tabs = ['Suwrepher', 'Adipiscing', 'Consecte'];
+    const tabs = ['Creation', 'Compliance', 'Integration'];
 
     const tabContents = [
         {
-            title: 'Suwrepher adipiscing',
-            text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            features: ['Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing'],
+            title: 'Message Creation and Enrichment',
+            text: 'Swift message templates automatically enrich data from core banking systems. Fields undergo strict Swift validation, including limits and formats. Supports various Swift MT messages, including MT103, MT202, MT700, and MT760. Bi-directional flow manages outward and inward remittances comprehensively with creation, validation, and transmission capabilities.',
+            features: ['Automatic data population', 'Swift MT message support', 'Field validation rules', 'Bi-directional message flow'],
         },
         {
-            title: 'Adipiscing consecte',
-            text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            features: ['Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing'],
+            title: 'Compliance and Screening',
+            text: 'Transactions are screened for compliance using integrated AML systems. Performs checks against banned entities and countries to prevent fraud. Ensures regulatory adherence with automated alerts for suspicious activities. Strict Swift validation ensures messages meet international standards before transmission.',
+            features: ['AML system integration', 'Banned entity screening', 'Regulatory compliance checks', 'Automated alert generation'],
         },
         {
-            title: 'Consecte adipiscing',
-            text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            features: ['Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing', 'Consecte adipiscing'],
+            title: 'System Integration Capabilities',
+            text: 'Effortlessly integrates with existing banking infrastructure for smooth data flow. Connects with core banking systems for real-time data synchronization. Treasury system integration fetches real-time currency rates. Corporate banking integration handles bulk processing and detailed reporting.',
+            features: ['Core banking synchronization', 'Treasury rate integration', 'Corporate bulk processing', 'Real-time data flow'],
         },
     ];
 
@@ -41,7 +41,7 @@ const ThreeTab = () => {
                     lg:text-[40px]  lg:max-w-2xl
                     xl:text-[44px]  xl:max-w-4xl
                 ">
-                    Sed ut perspiciatis unde
+                    Key Features of REMITREE Remittance Platform
                 </h1>
                 <p className="
                     font-['Quicksand'] font-normal text-[#252525] mt-3 w-full
@@ -51,7 +51,7 @@ const ThreeTab = () => {
                     lg:text-[15px] lg:max-w-[560px]
                     xl:text-[16px] xl:max-w-[650px]
                 ">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui official
+                    REMITREE automates cross-border payment processing with comprehensive message handling, compliance screening, and real-time monitoring for financial institutions.
                 </p>
             </div>
 

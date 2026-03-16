@@ -27,9 +27,9 @@ const BlueBox = () => {
 
                     {/* Ghost pill button */}
                     <button className="
-                        mt-6 xl:mt-8
+                        mt-6 lg:mt-4 xl:mt-8 lg:mb-4 xl:mb-0
                         flex items-center justify-center
-                        px-7 xl:px-8 h-10 xl:h-[44px]
+                        px-7 xl:px-8 h-10 xl:h-[40px]
                         rounded-full
                         border border-white bg-transparent
                         text-white
