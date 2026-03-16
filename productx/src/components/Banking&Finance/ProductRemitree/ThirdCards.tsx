@@ -27,7 +27,7 @@ const ThirdCards = () => {
             xl:text-[64px]
           "
         >
-          Lorem ipsum dolor sit amet
+          Complete Cross-Border Remittance Platform
         </h1>
 
         {/* ── Description ── */}
@@ -46,9 +46,7 @@ const ThirdCards = () => {
             max-w-[600px] xl:max-w-[700px]
           "
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip .magna aliqua. Ut enim
+          REMITREE is an advanced middleware solution that facilitates seamless cross-border remittance transactions. It acts as an intermediary between core banking systems and the Swift Alliance Gateway, enabling efficient bi-directional message handling with full compliance to MT and MX standards.
         </p>
 
       </div>
