@@ -21,6 +21,7 @@ const HWD = () => {
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   // const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
+  const isLOS =path.startsWith("/industries/banking-and-finance/products/loan-origination-system")
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
@@ -127,9 +128,16 @@ const HWD = () => {
         ""
     },
 
+      LOS: {
+      eyebrow: "Use Cases",
+      title: "Real-World Lending Scenarios with LOS",
+      description:
+        ""
+    },
     Remitree: {
       eyebrow: " ",
       title: "Real-World Remittance Scenarios with REMITREE",
+ 
       description:
         ""
     },
@@ -237,6 +245,60 @@ const HWD = () => {
           "Assign role-based system access for branch managers, tellers, and officers ",
           "Monitor branch performance through centralized dashboards and reports ",
           "Maintain a unified customer view across all branches and product holdings ",
+        ],
+      },
+    ],
+
+ LOS: [
+      {
+        title: "Retail Loan Processing ",
+        image: "/LOS/HWDLOS.svg",
+        description:
+          "Banks process personal, auto, and home loans digitally for individual customers with faster turnaround.",
+        points: [
+          "Submit online applications with auto-filled SSN details." ,
+
+          "Upload documents for OCR-based verification .",
+
+          "Track application status through customer dashboard .",
+
+"Receive sanction letters digitally upon approval.", 
+
+"Access loans across web and mobile platforms ",
+        ],
+      },
+      {
+        title: " Pre-Approved Offers",
+        image: "/LOS/HWDLOS1.svg",
+        description:
+          "Financial institutions target existing customers with customized pre-approved loan offers for quick uptake.",
+        points: [
+          "Upload pre-approved offers for selected customers.",
+
+"Enable one-click submission for quick acceptance .",
+
+"Auto-approve offers based on configured rules .",
+
+"Screen applications faster with minimal data entry .",
+
+"Improve customer loyalty through personalized offers ."
+        ],
+      },
+      {
+        title: "Community Group Lending",
+         image: "/LOS/HWDLOS2.svg",
+        description:
+          "Support joint liability groups and community lending with collaborative loan management features. ",
+        points: [
+          "Register group members with detailed information.", 
+
+"Conduct group meetings and maintain minutes .",
+
+"Process bulk collections from all members .",
+
+"Transfer funds to individual or group accounts .",
+
+"Generate center-wise evaluation reports for monitoring  ",
         ],
       },
     ],
@@ -703,6 +765,7 @@ const HWD = () => {
   else if(isIBS) cards = CARD_CONTENT.IBS;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
+  else if (isLOS) cards =CARD_CONTENT.LOS;
   else cards = CARD_CONTENT.banking;
 
   // HEADING
@@ -712,6 +775,7 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
+   else if (isLOS) headingContent =HEADING_CONTENT.LOS;
   else if (isRemitree) headingContent = HEADING_CONTENT.Remitree;
   //  else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
    else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;

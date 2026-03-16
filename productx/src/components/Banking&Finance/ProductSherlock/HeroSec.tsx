@@ -16,7 +16,7 @@ export default function ContentInfo() {
           </H1>
 
           <P className="text-white/80 max-w-lg md:text-base">
-            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions. 
+            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions.
           </P>
 
           <Link to="/marketplace">

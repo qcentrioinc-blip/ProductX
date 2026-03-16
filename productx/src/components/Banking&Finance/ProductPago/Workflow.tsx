@@ -53,7 +53,7 @@ const steps = [
       "/Pago/Feature5pago.webp",
   },
 ];
-
+ 
 
 export default function Workflow() {
   const [activeStep, setActiveStep] = useState(1);
@@ -63,18 +63,18 @@ export default function Workflow() {
   const scrollableContainerRef = useContext(ScrollContext);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
-    };
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768); // md breakpoint
+  };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
 
-
+ 
   useEffect(() => {
     const lenis = scrollableContainerRef;
     if (!lenis) return;
@@ -106,16 +106,15 @@ export default function Workflow() {
       lenis.off("scroll", handleScroll);
     };
   }, [scrollableContainerRef]);
+ 
+ const backgroundColor = useMemo(() => {
+  if (isMobile) return "#C1D7F3"; // fixed light color for mobile
 
-  const backgroundColor = useMemo(() => {
-    if (isMobile) return "#C1D7F3"; // fixed light color for mobile
+  const p = Math.min(Math.max(scrollProgress, 0), 1);
+  const index = Math.floor(p * BG_COLORS.length);
 
-    const p = Math.min(Math.max(scrollProgress, 0), 1);
-    const index = Math.floor(p * BG_COLORS.length);
-
-    return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
-  }, [scrollProgress, isMobile]);
-
+  return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
+}, [scrollProgress, isMobile]);
 
   // const backgroundGradient = useMemo(() => {
   //   const progress = scrollProgress;

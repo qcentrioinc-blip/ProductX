@@ -29,9 +29,9 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
             img: "/BNFHOME/P2.jpg",
             path: `${base}/products/conciliare`,
         },
-        {
-            title: "Internet Banking Solutions",
-            desc: "Lorem ipsum dolor sit amet consectetur",
+         {
+            title: "Internet Banking System",
+            desc: "Secure online banking with real-time account access",
             img: "/BNFHOME/P3.jpg",
             path: `${base}/products/internet-banking-system`
         },

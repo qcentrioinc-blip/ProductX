@@ -23,44 +23,44 @@ const Harper = () => {
     const content = [
         {
             id: 1,
-            desktopImage: "/Products/Products7/Harper0.png",
-            mobileImage: "/Products/Products7/Harper0.png",
+            desktopImage: "/LOS/1.webp",
+            mobileImage: "/LOS/1.webp",
             alt: "Harper-1",
-            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            title: "Comprehensive Features for End-to-End Loan Origination and Management",
             description:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+                "LOS includes digital applications, pre-approved offers, e-verification, OCR scanning, score parameter configuration, and multi-level approval workflows. Group lending support, dropout management, and customer relationship tools enhance overall lending operations efficiency.",
         },
         {
             id: 2,
-            desktopImage: "/Products/Products7/Harper0.png",
-            mobileImage: "/Products/Products7/Harper0.png",
+            desktopImage: "/LOS/2.webp",
+            mobileImage: "/LOS/2.webp",
             alt: "Harper-2",
-            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            title: "Complete Document Verification with OCR and AI-Powered Mismatch Detection ",
             description:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+                " LOS includes built-in OCR capabilities for scanning government IDs, driving licenses, and SSN cards. AI enhances accuracy by learning from multiple document images and detecting mismatches in name, birth date, and address.",
         },
         {
             id: 3,
-            desktopImage: "/Products/Products7/Harper0.png",
-            mobileImage: "/Products/Products7/Harper0.png",
+            desktopImage: "/LOS/3.webp",
+            mobileImage: "/LOS/3.webp",
             alt: "Harper-3",
-            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            title: "Configurable Multi-Level Approval Matrix Based on Products and Scores",
             description:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+                " Define approval parameters based on loan products, credit scores, and amounts. Applications progress through multiple levels with final authority approval. Generates sanction letters automatically upon approval.",
         },
         {
             id: 4,
-            desktopImage: "/Products/Products7/Harper0.png",
-            mobileImage: "/Products/Products7/Harper0.png",
+            desktopImage: "/LOS/4.webp",
+            mobileImage: "/LOS/4.webp",
             alt: "Harper-4",
-            title: "Sed ut perspiciatis Sed ut perspiciatisSed ut perspiciatis",
+            title: "Dropout Tracking and Customer Relationship Management Tools Included",
             description:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+                "Monitors application dropout rates and implements retention strategies. Manages customer interactions throughout loan lifecycle. Supports collection tracking and recovery processes for delinquent loans.",
         },
     ];
 
     return (
-        <div className="font-sans">
+        <div className=" ">
 
             {/* ---------------------------------------- */}
             {/* MOBILE / TABLET (Vertical layout)        */}
@@ -68,7 +68,7 @@ const Harper = () => {
             <div className="block lg:hidden bg-white py-8 px-4">
                 <div className="mb-8">
                     <H1 className="font-bold text-gray-900 text-left ml-2 sm:ml-16 lg:ml-20">
-                        Sed ut perspiciatis Sed ut
+                        Complete Loan Origination System Feature Set
                     </H1>
                 </div>
 
@@ -79,7 +79,7 @@ const Harper = () => {
                                 <img
                                     src={item.mobileImage}
                                     alt={item.alt}
-                                    className="w-full h-full object-contain"
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
 
@@ -107,18 +107,11 @@ const Harper = () => {
                 <div className="sticky top-0 flex flex-col overflow-hidden">
 
                     {/* Title */}
-                    <div className="pt-16 pb-6 px-20 z-20">
-                        <h1
-                            style={{
-                                fontFamily: "'Bricolage Grotesque', sans-serif",
-                                fontWeight: 700,
-                                fontSize: "64px",
-                                lineHeight: "100%",
-                                color: "#2A2A2A",
-                            }}
+                    <div className="py-6 px-20 z-20">
+                        <H2
                         >
-                            Sed ut perspiciatis Sed ut
-                        </h1>
+                            The Complete Loan Origination System Feature Set
+                        </H2>
                     </div>
 
                     {/* Reverted justify-center to justify-start to fix first card visibility. Changed items-center to items-start + pt-8 to pull cards up. */}
@@ -148,7 +141,7 @@ const Harper = () => {
                                         <img
                                             src={item.desktopImage}
                                             alt={item.alt}
-                                            className="w-full h-full object-contain"
+                                            className="w-full h-full object-cover"
                                         />
                                     </div>
 

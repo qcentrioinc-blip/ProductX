@@ -2,14 +2,14 @@ const Hero3 = () => {
   return (
     <section className="w-full mt-10 xl:mt-0">
       <div className="w-full overflow-hidden relative">
-
+ 
         {/* Hero Image */}
         <img
           src="/ProductIBS/HERO.webp"
           alt="section image"
           className="w-full h-auto object-cover"
         />
-
+ 
         {/* Rotating SVG Icon */}
         <img
           src="/ProductIBS/icon13.svg"
@@ -28,14 +28,14 @@ const Hero3 = () => {
             animate-spin-slow
           "
         />
-
+ 
       </div>
-
+ 
       <style>{`
         .animate-spin-slow {
           animation: spin 6s linear infinite;
         }
-
+ 
         @keyframes spin {
           from {
             transform: rotate(0deg);
@@ -45,9 +45,9 @@ const Hero3 = () => {
           }
         }
       `}</style>
-
+ 
     </section>
   );
 };
-
+ 
 export default Hero3;

@@ -1,71 +1,67 @@
-import { H4, P } from "../../../styles/Typography";
+import { H2, H4, P } from "../../../styles/Typography";
 
 export default function Cards() {
   const cards = [
     {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "Faster Loan Processing and Approvals",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      shape: "/ProductDetails4/gridShape1.png",
-      illustration: "/ProductDetails4/gridShape1.png",
+        "Digital applications and automated workflows reduce loan processing time from days to hours, improving customer experience and operational efficiency.",
+      icons: "/LOS/Approved.svg",
+       
     },
     {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "Reduced Manual Data Entry Errors",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      shape: "/ProductDetails4/gridShape2.png",
-      illustration: "/ProductDetails4/gridShape2.png",
+        "OCR technology auto-fills customer details from SSN and government IDs, minimizing manual entry mistakes and ensuring accurate data capture.",
+      icons: "/LOS/Benefit1.svg",
+       
     },
      {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "Consistent Credit Decision Making",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      shape: "/ProductDetails4/gridShape1.png",
-      illustration: "/ProductDetails4/gridShape1.png",
+        " Configurable score parameters ensure uniform loan approval decisions based on predefined criteria for individual and corporate customers.",
+       icons: "/LOS/Benefit2.svg",
+      
     },
     {
-      title: "Lorem ipsum dolor gamis consecte ipsum",
+      title: "Enhanced Customer Retention Rates",
       content:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse, Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      shape: "/ProductDetails4/gridShape2.png",
-      illustration: "/ProductDetails4/gridShape2.png",
+        "Pre-approved offers and quick turnaround times improve customer loyalty and increase repeat business through positive lending experiences",
+      icons: "/LOS/Target.svg",
+ 
     },
   ];
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 xl:py-10">
-      <div className="max-w-8xl xl:mx-10 px-4  sm:px-8 lg:px-16">
-
+    <section className="w-full bg-white py-10 md:py-16 xl:pt-10 xl:pb-0" >
+      <div className="max-w-8xl  xl:mx-10 px-4  sm:px-8 lg:px-16">
+        <H2 className="pb-6">Key Benefits of Loan Origination System </H2>
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  xl:py-10 xl:gap-14">
-
+      
           {cards.map((card, i) => (
            <div
   key={i}
-  className="bg-white rounded-xl border-2 border-[#666666] shadow-md
+  className="bg-[#F3F3F3] rounded-xl border-2 border-[#666666] shadow-md
              flex flex-col md:flex-col md:items-center  xl:flex-row
-             p-6 sm:p-8 md:px-0 md:py-8 py-10 xl:py-20 gap-6 sm:gap-10"
+             p-6 sm:p-8   md:py-8 py-10 xl:py-14 gap-6 " 
 >
 
 
               {/* LEFT IMAGE */}
-              <div className="relative w-full sm:w-1/3 flex justify-center items-center">
+              <div className="relative w-full sm:w-1/3 py-10 flex justify-center items-center">
                 <img
-                  src={card.shape}
+                  src={card.icons}
                   alt=""
-                  className="absolute w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 object-contain opacity-40 -z-10"
+                  className="absolute w-20 h-20 sm:w-36 sm:h-36 lg:w-32 lg:h-32 object-contain "
                 />
 
-                <img
-                  src={card.illustration}
-                  alt=""
-                  className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-contain"
-                />
+                
               </div>
 
               {/* RIGHT CONTENT */}
               <div className="flex flex-col gap-3 sm:gap-4 w-full sm:w-2/3">
-                <H4 >{card.title}</H4>
+                <H4 className="text-[#2B68C3]">{card.title}</H4>
                 <P className="text-sm sm:text-base leading-relaxed">
                   {card.content}
                 </P>
