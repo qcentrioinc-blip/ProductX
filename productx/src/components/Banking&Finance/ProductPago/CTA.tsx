@@ -1,5 +1,5 @@
 import { H2, P } from "../../../styles/Typography";
-
+ 
 const features = [
   {
     id: 1,
@@ -22,25 +22,24 @@ const features = [
      icon: "/Pago/Group.svg"
   },
 ];
-
+ 
 const CTA = () => {
   return (
     <section className="py-10">
       <div className="mx-auto max-w-7xl  px-6 lg:px-16  xl:px-0">
-
         <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr]  gap-4 xl:gap-12  items-center xl:items-start">
-
+ 
           {/* Column 1 */}
           <div>
-            <span className="inline-block mb-4 px-4 py-1.5 border border-gray-300 rounded-full text-sm">
+            <span className="inline-block font-quicksand mb-4 px-4 py-1.5 border border-gray-300 rounded-full text-sm">
               Overview
             </span>
-
+ 
             <H2 className="leading-tight">
               Built for All <br className="xl:block hidden"/> Payment Types
             </H2>
           </div>
-
+ 
           {/* Column 2 */}
           <div className="space-y-6  xl:space-y-10">
             {features.slice(0, 2).map((item) => (
@@ -52,7 +51,7 @@ const CTA = () => {
               </div>
             ))}
           </div>
-
+ 
           {/* Column 3 */}
         <div className="space-y-6 xl:space-y-10">
             {features.slice(2, 4).map((item) => (
@@ -64,11 +63,11 @@ const CTA = () => {
               </div>
             ))}
           </div>
-
+ 
         </div>
       </div>
     </section>
   );
 };
-
+ 
 export default CTA;

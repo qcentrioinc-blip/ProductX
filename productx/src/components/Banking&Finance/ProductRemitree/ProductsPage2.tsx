@@ -20,6 +20,7 @@ import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
 import TwoImage from "./TwoImage";
 import ThreeCircle from "./ThreeCircle";
+import CTARemitree from "./CTARemitree";
 
 const ProductsPage2 = () => {
 
@@ -81,7 +82,7 @@ const ProductsPage2 = () => {
       <ThreeCircle />
       {/* <ArrowBuilding /> */}
       {/* <div id="process"> <NewsLetter /></div> */}
-
+      <CTARemitree />
       <div id="usecases">
         <HWD />
       </div>

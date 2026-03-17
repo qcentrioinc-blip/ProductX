@@ -21,7 +21,7 @@ const HWD = () => {
   const isEHR = path.startsWith("/industries/ehr-and-pms");
   // const isBanking = path.startsWith("/industries/banking-and-finance");
   const isHighTech = path.startsWith("/industries/high-tech");
-  const isLOS =path.startsWith("/industries/banking-and-finance/products/loan-origination-system")
+  const isLOS = path.startsWith("/industries/banking-and-finance/products/loan-origination-system")
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
@@ -102,7 +102,7 @@ const HWD = () => {
         ""
     },
 
-     Sherlock: {
+    Sherlock: {
       eyebrow: " ",
       title: "How SHERLOCK Detects Risk ",
       description:
@@ -115,7 +115,7 @@ const HWD = () => {
         ""
     },
 
-     Almanac: {
+    Almanac: {
       eyebrow: " ",
       title: "Where ALMANAC Delivers Value",
       description:
@@ -128,7 +128,7 @@ const HWD = () => {
         ""
     },
 
-      LOS: {
+    LOS: {
       eyebrow: "Use Cases",
       title: "Real-World Lending Scenarios with LOS",
       description:
@@ -137,7 +137,7 @@ const HWD = () => {
     Remitree: {
       eyebrow: " ",
       title: "Real-World Remittance Scenarios with REMITREE",
- 
+
       description:
         ""
     },
@@ -249,22 +249,22 @@ const HWD = () => {
       },
     ],
 
- LOS: [
+    LOS: [
       {
         title: "Retail Loan Processing ",
         image: "/LOS/HWDLOS.svg",
         description:
           "Banks process personal, auto, and home loans digitally for individual customers with faster turnaround.",
         points: [
-          "Submit online applications with auto-filled SSN details." ,
+          "Submit online applications with auto-filled SSN details.",
 
           "Upload documents for OCR-based verification .",
 
           "Track application status through customer dashboard .",
 
-"Receive sanction letters digitally upon approval.", 
+          "Receive sanction letters digitally upon approval.",
 
-"Access loans across web and mobile platforms ",
+          "Access loans across web and mobile platforms ",
         ],
       },
       {
@@ -275,30 +275,30 @@ const HWD = () => {
         points: [
           "Upload pre-approved offers for selected customers.",
 
-"Enable one-click submission for quick acceptance .",
+          "Enable one-click submission for quick acceptance .",
 
-"Auto-approve offers based on configured rules .",
+          "Auto-approve offers based on configured rules .",
 
-"Screen applications faster with minimal data entry .",
+          "Screen applications faster with minimal data entry .",
 
-"Improve customer loyalty through personalized offers ."
+          "Improve customer loyalty through personalized offers ."
         ],
       },
       {
         title: "Community Group Lending",
-         image: "/LOS/HWDLOS2.svg",
+        image: "/LOS/HWDLOS2.svg",
         description:
           "Support joint liability groups and community lending with collaborative loan management features. ",
         points: [
-          "Register group members with detailed information.", 
+          "Register group members with detailed information.",
 
-"Conduct group meetings and maintain minutes .",
+          "Conduct group meetings and maintain minutes .",
 
-"Process bulk collections from all members .",
+          "Process bulk collections from all members .",
 
-"Transfer funds to individual or group accounts .",
+          "Transfer funds to individual or group accounts .",
 
-"Generate center-wise evaluation reports for monitoring  ",
+          "Generate center-wise evaluation reports for monitoring  ",
         ],
       },
     ],
@@ -402,7 +402,7 @@ const HWD = () => {
     Remitree: [
       {
         title: "Outward Remittance for Retail Customers",
-        image: "/BNFCos/Document.svg",
+        image: "/Remitree/gear.svg",
         description:
           "Process individual customer cross-border payments efficiently with automated SWIFT message creation and compliance screening.",
         points: [
@@ -415,7 +415,7 @@ const HWD = () => {
       },
       {
         title: "Inward Remittance Processing for Banks",
-        image: "/BNFCos/credit-card.svg",
+        image: "/Remitree/payment.svg",
         description:
           "Handle incoming international payments with automatic matching and crediting to customer accounts without manual intervention.",
         points: [
@@ -427,8 +427,8 @@ const HWD = () => {
         ],
       },
       {
-        title: "Corporate Bulk Payment Processing",
-        image: "/BNFCos/money-bag.svg",
+        title: "Corporate Bulk Payment",
+        image: "/Remitree/briefcase.svg",
         description:
           "Manage high-volume remittances for corporate clients with automated batch processing and detailed reporting capabilities.",
         points: [
@@ -760,12 +760,12 @@ const HWD = () => {
   else if (isSAMS) cards = CARD_CONTENT.SAMS;
   else if (isRemitree) cards = CARD_CONTENT.Remitree;
   // else if(isAlmanac) cards = CARD_CONTENT.Almanac;
-  else if(isPAGO) cards = CARD_CONTENT.PAGO;
-  else if(isSherlock) cards = CARD_CONTENT.Sherlock;
-  else if(isIBS) cards = CARD_CONTENT.IBS;
+  else if (isPAGO) cards = CARD_CONTENT.PAGO;
+  else if (isSherlock) cards = CARD_CONTENT.Sherlock;
+  else if (isIBS) cards = CARD_CONTENT.IBS;
   else if (isAI) cards = CARD_CONTENT.ai;
   else if (isEHR) cards = CARD_CONTENT.ehr;
-  else if (isLOS) cards =CARD_CONTENT.LOS;
+  else if (isLOS) cards = CARD_CONTENT.LOS;
   else cards = CARD_CONTENT.banking;
 
   // HEADING
@@ -775,12 +775,12 @@ const HWD = () => {
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
-   else if (isLOS) headingContent =HEADING_CONTENT.LOS;
+  else if (isLOS) headingContent = HEADING_CONTENT.LOS;
   else if (isRemitree) headingContent = HEADING_CONTENT.Remitree;
   //  else if(isAlmanac) headingContent = HEADING_CONTENT.Almanac;
-   else if(isPAGO) headingContent = HEADING_CONTENT.PAGO;
-    else if(isSherlock) headingContent = HEADING_CONTENT.Sherlock;
-  else if(isIBS) headingContent = HEADING_CONTENT.IBS;
+  else if (isPAGO) headingContent = HEADING_CONTENT.PAGO;
+  else if (isSherlock) headingContent = HEADING_CONTENT.Sherlock;
+  else if (isIBS) headingContent = HEADING_CONTENT.IBS;
   else if (isAI) headingContent = HEADING_CONTENT.ai;
   else if (isEHR) headingContent = HEADING_CONTENT.ehr;
   else if (isHighTech) headingContent = HEADING_CONTENT.hightech;

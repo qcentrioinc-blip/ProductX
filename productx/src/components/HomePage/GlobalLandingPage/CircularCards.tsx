@@ -13,9 +13,6 @@ const industries = [
 
   { label: "High Tech", link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
   { label: "Unified Healthcare", link: "/industries/ehr-and-pms", comingSoon: false, launch: null as Date | null },
-
-
-
 ];
 
 // 7 cards — duplicates fill the arc so it always looks full
@@ -226,7 +223,7 @@ export default function CircularCards() {
       });
       return best === TOTAL ? prev : prev + best;
     });
-    setTimeout(() => startAuto(), 2000);
+    setTimeout(() => startAuto(), 2500);
   }, [stopAuto, startAuto]);
 
   // ── Drag / swipe ──────────────────────────────────────────────────────────────

@@ -3,19 +3,22 @@ const cards = [
   {
     title: "Bi-Directional Flow",
     text: "Manages both outward and inward remittances comprehensively with automated creation, validation, and transmission of Swift messages.",
+    image: "/Remitree/workflow.svg",
   },
   {
     title: "Integrated Compliance",
     text: "Screens transactions against banned entities and countries using AML integration for fraud prevention and regulatory adherence.",
+    image: "/Remitree/integrations.svg",
   },
   {
     title: "Real-Time Tracking",
     text: "Comprehensive dashboard provides real-time overview of all messages with status tracking for pending, approved, and transmitted items.",
+    image: "/Remitree/time.svg",
   },
 ];
 
 // ── Single Card ───────────────────────────────────────────────
-const CircleCard = ({ title, text }: any) => (
+const CircleCard = ({ title, text, image }: any) => (
   <div className="
         flex flex-col items-start
         gap-4
@@ -23,9 +26,9 @@ const CircleCard = ({ title, text }: any) => (
         xl:gap-6
         w-full
     ">
-    {/* Circle */}
-    <div className="
-            rounded-full bg-[#D9D9D9] flex-shrink-0
+    {/* Image instead of Circle */}
+    <img src={image} alt={title} className="
+            flex-shrink-0 object-contain
             w-10 h-10
             sm:w-12 sm:h-12
             lg:w-14 lg:h-14
@@ -105,7 +108,7 @@ const ThreeCircle = () => {
                     xl:grid-cols-3   xl:gap-16
                 ">
           {cards.map((card, i) => (
-            <CircleCard key={i} title={card.title} text={card.text} />
+            <CircleCard key={i} title={card.title} text={card.text} image={card.image} />
           ))}
         </div>
 

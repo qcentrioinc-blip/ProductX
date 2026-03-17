@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { ContactUs } from "../../styles/Button";
 import { H2, P } from "../../styles/Typography";
 
@@ -6,17 +6,17 @@ const Intro = () => {
   return (
     <section className="w-full bg-gray-50  py-6 xl:py-10">
       <div className="max-w-8xl mx-auto xl:mx-18 px-4 sm:px-8 lg:px-10 xl:px-0">
-        
+
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-center">
-          
+
           {/* LEFT SIDE */}
           <div>
             <H2 className="mb-6 leading-tight">
               <span className="text-[#2B68C3]">
                 Complete banking technology stack{" "}
               </span>
-              <span className="text-[#666666]">
+              <span className="text-[#141414]">
                 for modern institutions
               </span>
             </H2>
@@ -28,7 +28,7 @@ const Intro = () => {
             <P className="text-base md:text-lg text-[#141414] mb-8 leading-relaxed">
               We offer specialized products including Bankfair, PAGO, Sherlock, and Remitree. Each solution integrates seamlessly with your infrastructure.
             </P>
-{/* <Link
+            {/* <Link
                             to="/marketplace"
                             onClick={(e) => {
                                 const el = document.getElementById("contact-us");
@@ -43,7 +43,7 @@ const Intro = () => {
             </ContactUs>
             </Link> */}
 
-            <Link to="/marketplace">
+            {/* <Link to="/marketplace">
                <button
           className="
             group
@@ -77,9 +77,9 @@ const Intro = () => {
             </span>
           </span>
         </button>
-        </Link>
+        </Link> */}
           </div>
-          
+
 
           {/* RIGHT SIDE IMAGE */}
           <div className="flex ">

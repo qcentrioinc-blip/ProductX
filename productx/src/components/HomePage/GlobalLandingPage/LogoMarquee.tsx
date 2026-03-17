@@ -114,7 +114,7 @@ xl:w-[350px] xl:h-[190px]"
               src={logo.img}
               alt="product"
               width={220}
-              height={80}
+              height={70}
               className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
             />
        <span className=" absolute bottom-4 font-bricolage text-[14px] md:text-[16px] lg:text-[20px] font-extrabold text-blue-800 leading-tight">
