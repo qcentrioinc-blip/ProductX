@@ -177,7 +177,7 @@ export default function CircularCards() {
   // ── Auto-rotate ──────────────────────────────────────────────────────────────
   const startAuto = useCallback(() => {
     if (autoTimer.current) clearInterval(autoTimer.current);
-    autoTimer.current = setInterval(() => setStepCount(p => p + 1), 1500);
+    autoTimer.current = setInterval(() => setStepCount(p => p + 1), 2000);
   }, []);
   const stopAuto = useCallback(() => {
     if (autoTimer.current) { clearInterval(autoTimer.current); autoTimer.current = null; }

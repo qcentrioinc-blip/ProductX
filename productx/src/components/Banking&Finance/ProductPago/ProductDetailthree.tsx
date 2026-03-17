@@ -40,7 +40,9 @@ const ProductDetailthree = () => {
   }, [location, lenis]);
 
   return (
-    <div>
+   
+  <div className="bg-white dark:bg-gray-950  dark:text-white transition-colors duration-300">
+
 
       <BNFNav />
 

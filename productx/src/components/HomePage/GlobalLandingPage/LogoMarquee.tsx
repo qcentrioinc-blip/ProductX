@@ -9,7 +9,7 @@ const logos = [
   { img: "/ProductLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai" , newTab: true ,tagline:"Cloud Optimization AI",},
   { img: "/ProductLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline:"AI Reconciliation", newTab: true },
   { img: "/ProductLogo/IBS.webp", link: "/industries/banking-and-finance/products/internet-banking-system", tagline:"Internet and Mobile Banking", newTab: true },
-  { img: "/ProductLogo/Kyc.webp", link: "/industries/banking-and-finance/products/kyc" ,tagline:"Diligent", newTab: true },
+  { img: "/ProductLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc" ,tagline:"Diligent", newTab: true },
   { img: "/ProductLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline:"Loan Origination" , newTab: true},
   { img: "/ProductLogo/Pago.webp", link: "/industries/banking-and-finance/products/pago" ,tagline:"Payment System", newTab: true},
   { img: "/ProductLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree" ,tagline:"Cross-Border Remittance", newTab: true},
@@ -20,6 +20,7 @@ const logos = [
 ];
 
 const doubled = [...logos, ...logos];
+
 
 export default function LogoMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -96,11 +97,11 @@ export default function LogoMarquee() {
   rel={logo.newTab ? "noopener noreferrer" : undefined}
           className="flex flex-col relative items-center justify-center flex-shrink-0 text-center
         
-w-[160px] h-[80px]
+w-[200px] h-[120px]
 sm:w-[200px] sm:h-[100px]
-md:w-[240px] md:h-[120px]
-lg:w-[280px] lg:h-[140px]
-xl:w-[350px] xl:h-[200px]"
+md:w-[240px] md:h-[150px]
+lg:w-[290px] lg:h-[180px]
+xl:w-[350px] xl:h-[190px]"
             style={{
            
               borderRight: "2px solid #a9a9a9",
@@ -116,7 +117,7 @@ xl:w-[350px] xl:h-[200px]"
               height={80}
               className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
             />
-            <span className=" absolute bottom-4 font-bricolage text-[20px] font-extrabold text-blue-800 leading-tight">
+       <span className=" absolute bottom-4 font-bricolage text-[14px] md:text-[16px] lg:text-[20px] font-extrabold text-blue-800 leading-tight">
   {logo.tagline}
 </span>
           </Link>

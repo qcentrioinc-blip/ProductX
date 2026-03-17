@@ -6,13 +6,17 @@ import { BrowserRouter } from 'react-router-dom'
 import { ScrollProvider } from './context/ScrollContext.tsx'
 
 import '@fontsource/space-grotesk/700.css';
+import { ThemeProvider } from './components/Global/ThemeContext.tsx'
+ 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       {/* <SmoothScroll/> */}
       <ScrollProvider>
+        <ThemeProvider>
         <App />
+        </ThemeProvider>
       </ScrollProvider>
     </BrowserRouter>
   </StrictMode>,

@@ -826,7 +826,7 @@ const HWD = () => {
 
 
         <h3
-          className={`${headingFontClass} mb-4 text-[16px]  whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
+          className={`${headingFontClass} mb-4 text-[16px] whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
           style={{ color: headingColor }}
         >
           {title}

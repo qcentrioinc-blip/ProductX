@@ -26,7 +26,7 @@ const features = [
 const CTA = () => {
   return (
     <section className="py-10">
-      <div className="mx-auto max-w-8xl  px-6 lg:px-16  xl:px-26">
+      <div className="mx-auto max-w-7xl  px-6 lg:px-16  xl:px-0">
 
         <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr]  gap-4 xl:gap-12  items-center xl:items-start">
 
@@ -42,13 +42,13 @@ const CTA = () => {
           </div>
 
           {/* Column 2 */}
-          <div className="space-y-6 xl:space-y-10">
+          <div className="space-y-6  xl:space-y-10">
             {features.slice(0, 2).map((item) => (
-              <div key={item.id} className="flex gap-4 items-center">
+              <div key={item.id} className="flex gap-4  items-center">
             <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
   <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
 </div>
-                <P className="leading-tight pt-2">{item.text}</P>
+                <P className="leading-tight pt-2 dark:text-white">{item.text}</P>
               </div>
             ))}
           </div>
@@ -60,7 +60,7 @@ const CTA = () => {
            <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
   <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
 </div>
-                <P className="leading-tight pt-2">{item.text}</P>
+                <P className="leading-tight pt-2 dark:text-white">{item.text}</P>
               </div>
             ))}
           </div>
