@@ -6,7 +6,7 @@ import Image2 from "/Pago/ImageGrid2.webp";
  
 const ImageGrid = () => {
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen dark:bg-black  bg-white">
       <div className="max-w-7xl mx-auto px-6 xl:px-0 py-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start" >
          
@@ -15,20 +15,20 @@ const ImageGrid = () => {
 <div className="flex flex-col self-start ">
  
   <div className="flex flex-col gap-3">   
-    <span className="px-3 py-1 text-xs sm:text-sm rounded-full border border-black w-fit">
+    <span className="px-3 py-1 text-xs dark:border-white font-quicksand sm:text-sm dark:text-white  rounded-full border border-black w-fit">
       Benefits
     </span>
  
     <H2><span className="text-[#2B68C3]">Key Benefits of PAGO </span>  Payment System </H2>
  
-    <P className="xl:max-w-md">
+    <P className="xl:max-w-md dark:text-white ">
       Financial institutions gain efficiency, security, and reliability across all payment types with lower operational costs. 
     </P>
   </div>
  
   {/* Big Card */}
   <div className=" mt-10 lg:mt-20  bg-[#EAEAEA] rounded-md p-4 sm:p-5 md:p-6 lg:p-8 xl:py-24 flex flex-col  lg:h-[485px] justify-center">
-    <H3>End-to-End Payment Processing with Lower Fees and Real-Time Monitoring </H3>
+    <H3 className="dark:text-black ">End-to-End Payment Processing with Lower Fees and Real-Time Monitoring </H3>
     <P className="mt-2 sm:mt-3 lg:mt-10 mb-10">
       PAGO handles e-cash, e-cheques, and ACH transactions with atomicity. Lower transaction fees and real-time fraud monitoring reduce operational costs. 
     </P>
@@ -71,7 +71,7 @@ const ImageGrid = () => {
               <img src="/Pago/Card.svg" alt="pago" className=""/>
               </div>
                   <div className="space-y-8">
-                      <H4>Seamless Integration </H4>
+                      <H4 className="dark:text-black ">Seamless Integration </H4>
                 <P className="">
                 Connects with core banking systems, SWIFT, and existing financial infrastructure without disruption. 
                 </P>
@@ -88,7 +88,7 @@ const ImageGrid = () => {
               <img src="/Pago/Eye.svg" alt="pago" className=""/>
               </div>
                   <div className="space-y-8">
-                      <H4>Complete Visibility</H4>
+                      <H4 className="dark:text-black ">Complete Visibility</H4>
                 <P className="">
                  Real-time dashboards and detailed audit trails provide transparency across all payment transactions.
                 </P>

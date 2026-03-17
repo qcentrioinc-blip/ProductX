@@ -6,6 +6,7 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 import { ContactUs } from "../../../styles/Button";
+import DayNightToggle from "../../Global/DayNightToggle";
 
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -218,9 +219,10 @@ const BNFNav = () => {
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
-
+const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
   return createPortal(
     <>
+    
       {/* TOP TRANSPARENT BAR */}
       <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
@@ -232,6 +234,7 @@ const BNFNav = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
+        {isPagoPage && <DayNightToggle />}
           {/* <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link> */}
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Marketplace</Link>
         </div>
@@ -253,6 +256,7 @@ const BNFNav = () => {
         onMouseEnter={handleKeepOpen}
         className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none pointer-events-none`}
       >
+        
         <div
           className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
@@ -525,13 +529,15 @@ const BNFNav = () => {
             </Link>
           </div> */}
         </div>
+        
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
           {/* <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link> */}
           <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-blue-600 text-lg font-semibold">Marketplace</Link>
         </div>
-
+ 
         <div className="mt-6 flex justify-start items-center gap-4">
+          
           <ContactUs onClick={(e) => {
             e.preventDefault();
             setMenuOpen(false);
