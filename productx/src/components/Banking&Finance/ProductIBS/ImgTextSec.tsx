@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { P, H4, H3 } from "../../../styles/Typography";
+import { P, H4, H2 } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 
 
@@ -53,10 +53,10 @@ const ImgTextSec = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
 
           <div>
-            <H3>
-              <span className="text-[#2B68C3]">Powerful Features of </span>
-              <span className="text-black/80">Internet Banking Solution</span>
-            </H3>
+            <H2>
+              <span className="text-[#2B68C3]">Powerful Features of </span> 
+              <span className="text-black/80"> Internet <br className="hidden sm:block"/> Banking Solution</span>
+            </H2>
 
             <P className="mt-4 max-w-2xl font-bold ">
               IBS delivers comprehensive online banking capabilities with secure access, real-time updates, and seamless core banking integration.

@@ -21,12 +21,12 @@ const ResourcesMenu = ({
   const resourceItems = [
     {
       title: "Blogs",
-      desc: "Expert commentary, tips, and industry knowledge.",
+      desc: "Expert analysis and industry trends",
       path: `${base}/blogs`,
     },
     {
       title: "Glossary",
-      desc: "Expert commentary, tips, and industry knowledge.",
+      desc: "Key terms and definitions explained",
       path: `${base}/glossary`,
     },
   ];
@@ -65,10 +65,10 @@ const ResourcesMenu = ({
           : "w-[88%] max-w-8xl rounded-xl"
       }`}
     >
-      <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
+      <H3>Resource Center for Banking and Finance Professionals</H3>
 
-      <P className="text-gray-700 text-lg mt-2 mb-4">
-        Comprehensive tools and insights for success.
+      <P className=" text-lg mt-2 mb-4">
+        Insights, guides, and tools for industry success
       </P>
 
       <hr className="border-gray-300 h-1 mb-8" />

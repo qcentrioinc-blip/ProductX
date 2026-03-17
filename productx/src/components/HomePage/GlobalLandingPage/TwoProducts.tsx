@@ -35,10 +35,61 @@ export default function TwoProducts() {
   return (
     <section className="max-w-7xl  mx-auto xl:mx-18 bg-white  py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
       
-      <H2 className="text-[#2B68C3] leading-tight">
-        Banking and finance Products
-      </H2>
-      <H2 className=" text-[#666666] leading-tight">Built For Scale</H2>
+      <div className="flex items-start justify-between flex-wrap gap-4">
+
+  {/* LEFT SIDE (HEADINGS) */}
+  <div>
+    <H2 className="text-[#2B68C3] leading-tight">
+      Banking and finance Products
+    </H2>
+    <H2 className="text-[#141414] leading-tight">
+      Built For Scale
+    </H2>
+  </div>
+
+  {/* RIGHT SIDE (VIEW ALL BUTTON) */}
+  <a href="/marketplace">
+    <button
+      className="
+        group
+        flex items-center justify-center
+        w-auto h-[44px] sm:h-[48px]
+        px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
+        rounded-[8px]
+        font-quicksand font-bold text-[14px] sm:text-[16px]
+        bg-[#141414] text-white
+        transition-all duration-300 ease-in-out
+        border border-transparent
+        hover:bg-white hover:text-[#141414]
+        hover:border-[#010101]
+        hover:border-b-[4px]
+        hover:-translate-y-[2px]
+        shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+      "
+    >
+      View All
+      <span className="flex items-center gap-[8px]">
+        <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+            <path d="M7 7h10v10" />
+            <path d="M7 17L17 7" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
+      </span>
+    </button>
+  </a>
+
+</div>
 
 
 
