@@ -269,27 +269,27 @@ const FiveCards = () => {
     {
       title: "Time Savings",
       description: "Automates message creation and validation reducing processing time from days to minutes.",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
+      image: "/Remitree/time.svg"
     },
     {
       title: "Cost Reduction",
       description: "Minimizes Swift licensing needs and operational costs through automated compliance checks.",
-      image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
+      image: "/Remitree/dollar.svg"
     },
     {
       title: "Error Prevention",
       description: "Strict field validation and format checks eliminate manual errors in message creation",
-      image: "https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
+      image: "/Remitree/error.svg"
     },
     {
       title: "Compliance Assurance",
       description: "Integrated AML screening ensures transactions comply with international regulations and standards.",
-      image: "https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg?auto=compress&cs=tinysrgb&w=100&h=100"
+      image: "/Remitree/insurance.svg"
     }
   ];
 
   return (
-    <div className="bg-white text-black px-4 sm:px-6 md:px-8 overflow-hidden">
+    <div className="bg-white text-black px-4 sm:px-4 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
       <div className="max-w-8xl mx-auto">
         <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:mb-4 text-center">
           Key Benefits of REMITREE Platform
@@ -312,7 +312,7 @@ const FiveCards = () => {
                 particleCount={8}
                 glowColor="59, 130, 246" // Blue color matching your theme
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-blue-500 rounded-full mb-3 sm:mb-4"></div>
+                <img src={card.image} alt={card.title} className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-3 sm:mb-4 object-contain" />
                 <H3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">{card.title}</H3>
                 <P className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                   {card.description}
@@ -332,14 +332,14 @@ const FiveCards = () => {
               glowColor="59, 130, 246" // Blue color matching your theme
             >
               <H2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4">
-                Conse adipiscing werdas
+                Complete Remittance Automation
               </H2>
               <P className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
-                Duis qute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                non proident, sunt in culpa qui officia deserunt
+                REMITREE automates the entire remittance process from message creation to transmission. Straight-through processing ensures compliance and accuracy with minimal manual intervention, leading to faster processing times and reduced operational costs.
               </P>
-              <div className="flex-1 bg-gray-300 rounded-lg mt-2 sm:mt-4 min-h-32 sm:min-h-40 md:min-h-48"></div>
+              <div className="flex-1 bg-gray-300 rounded-lg mt-2 sm:mt-4 min-h-auto sm:min-h-auto md:min-h-auto">
+                <img src="/Remitree/Tab5.webp" alt="Complete Remittance Automation" className="w-full h-full object-fit" />
+              </div>
             </ParticleCard>
           </div>
         </div>
