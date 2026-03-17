@@ -17,9 +17,9 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
 
       {/* Large step number watermark */}
       <motion.span
-        className="absolute text-[100px] font-bold text-blue-500/40 select-none leading-none z-0"
-        initial={{ opacity: 0, scale: 0.7 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        className="absolute text-[100px] font-bold text-[#2B68C3] select-none leading-none z-2"
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 0.7 }}
         transition={{ duration: 0.7, delay: index * 0.12 }}
         viewport={{ once: true }}
       >
@@ -31,7 +31,7 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
         {dots.map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-blue-400"
+            className="absolute w-1.5 h-1.5 rounded-full bg-gray-800"
             style={{
               left: `${(i % 5) * 23}%`,
               top:  `${Math.floor(i / 5) * 28}%`,
@@ -53,16 +53,16 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
 
       {/* Subtle concentric rings */}
       <motion.div
-        className="absolute rounded-full z-20 border border-blue-300/80"
-        style={{ width: 140, height: 140 }}
+        className="absolute rounded-full z-20 border border-gray-900"
+        style={{ width: 120, height: 120 }}
         initial={{ scale: 0.5, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, delay: index * 0.12 }}
         viewport={{ once: true }}
       />
       <motion.div
-        className="absolute rounded-full border border-blue-300/40"
-        style={{ width: 200, height: 200 }}
+        className="absolute rounded-full border border-gray-900"
+        style={{ width: 180, height: 180 }}
         initial={{ scale: 0.5, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, delay: index * 0.12 + 0.1 }}

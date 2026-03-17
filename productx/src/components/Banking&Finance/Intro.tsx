@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { ContactUs } from "../../styles/Button";
 import { H2, P } from "../../styles/Typography";
 
@@ -16,7 +16,7 @@ const Intro = () => {
               <span className="text-[#2B68C3]">
                 Complete banking technology stack{" "}
               </span>
-              <span className="text-[#666666]">
+              <span className="text-[#141414]">
                 for modern institutions
               </span>
             </H2>
@@ -43,7 +43,7 @@ const Intro = () => {
             </ContactUs>
             </Link> */}
 
-            <Link to="/marketplace">
+            {/* <Link to="/marketplace">
                <button
           className="
             group
@@ -77,7 +77,7 @@ const Intro = () => {
             </span>
           </span>
         </button>
-        </Link>
+        </Link> */}
           </div>
           
 

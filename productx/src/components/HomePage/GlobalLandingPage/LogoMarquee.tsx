@@ -100,7 +100,7 @@ w-[160px] h-[80px]
 sm:w-[200px] sm:h-[100px]
 md:w-[240px] md:h-[120px]
 lg:w-[280px] lg:h-[140px]
-xl:w-[350px] xl:h-[200px]"
+xl:w-[350px] xl:h-[190px]"
             style={{
            
               borderRight: "2px solid #a9a9a9",
@@ -113,10 +113,10 @@ xl:w-[350px] xl:h-[200px]"
               src={logo.img}
               alt="product"
               width={220}
-              height={80}
+              height={70}
               className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
             />
-            <span className=" absolute bottom-4 font-bricolage text-[20px] font-extrabold text-blue-800 leading-tight">
+            <span className=" absolute bottom-4 font-bricolage text-[20px] pb-4 font-extrabold text-blue-800 leading-tight">
   {logo.tagline}
 </span>
           </Link>
