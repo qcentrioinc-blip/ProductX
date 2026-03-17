@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import { ContactUs } from "../../styles/Button";
 import { H2, P } from "../../styles/Typography";
 
@@ -16,7 +16,7 @@ const Intro = () => {
               <span className="text-[#2B68C3]">
                 Complete banking technology stack{" "}
               </span>
-              <span className="text-[#666666]">
+              <span className="text-[#141414]">
                 for modern institutions
               </span>
             </H2>
@@ -43,9 +43,9 @@ const Intro = () => {
             </ContactUs>
             </Link> */}
 
-            <Link to="/marketplace">
-              <button
-                className="
+            {/* <Link to="/marketplace">
+               <button
+          className="
             group
             flex items-center justify-center
             w-auto h-[44px] sm:h-[48px]
@@ -61,23 +61,23 @@ const Intro = () => {
             hover:-translate-y-[2px]
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
             "
-              >
-                View All
-                <span className="flex items-center gap-[8px]">
-
-                  <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                      <path d="M7 7h10v10" />
-                      <path d="M7 17L17 7" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </span>
-                </span>
-              </button>
-            </Link>
+        > 
+        View All
+          <span className="flex items-center gap-[8px]">
+         
+            <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </span>
+        </button>
+        </Link> */}
           </div>
 
 

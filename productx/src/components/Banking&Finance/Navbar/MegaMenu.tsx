@@ -29,13 +29,13 @@ const MegaMenu = ({
     },
     {
       title: "Bankfair",
-      desc: "Lorem ipsum dolor sit amet",
+      desc: "Complete Banking and LMS",
       img: "/BNFHOME/P1.png",
       path: `${base}/products/bankfair`,
     },
     {
       title: "Conciliare",
-      desc: "Lorem ipsum dolor sit amet",
+      desc: "Advance reconcilation for Finances",
       img: "/BNFHOME/P2.jpg",
       path: `${base}/products/conciliare`,
     },
@@ -54,7 +54,7 @@ const MegaMenu = ({
     
     {
       title: "KYC & CDD",
-      desc: "Lorem ipsum dolor sit amet",
+      desc: "Digital Due Diligence",
       img: "/BNFHOME/P9.jpg",
       path: `${base}/products/kyc`,
     },
@@ -84,7 +84,7 @@ const MegaMenu = ({
     },
     {
       title: "Sherlock",
-      desc: "Lorem ipsum dolor sit amet",
+      desc: "Anti-money Laundering Detection",
       img: "/BNFHOME/P4.png",
       path: `${base}/products/sherlock`,
     },

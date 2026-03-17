@@ -157,7 +157,7 @@ const WhatWeDoIn = () => {
           <div className="shrink-0 flex justify-between items-start gap-8">
             <div className="max-w-4xl">
               <H2 className="font-bold text-[#2B68C3]">
-                Who <span className="text-[#666666]"> We </span> Serve
+                Who <span className="text-[#141414]"> We </span> Serve
               </H2>
               <P className="pt-2 text-justify xl:pr-20  leading-tight">
                 Financial institutions of all sizes trust our solutions to
