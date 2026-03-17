@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { H1 } from "../../../styles/Typography";
 
 const ThreeTab = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -9,17 +10,35 @@ const ThreeTab = () => {
         {
             title: 'Message Creation and Enrichment',
             text: 'Swift message templates automatically enrich data from core banking systems. Fields undergo strict Swift validation, including limits and formats. Supports various Swift MT messages, including MT103, MT202, MT700, and MT760. Bi-directional flow manages outward and inward remittances comprehensively with creation, validation, and transmission capabilities.',
-            features: ['Automatic data population', 'Swift MT message support', 'Field validation rules', 'Bi-directional message flow'],
+            image: '/Remitree/Tab1.webp',
+            features: [
+                { text: 'Automatic data population', icon: '/Remitree/big-data.svg' },
+                { text: 'Swift MT message support', icon: '/Remitree/chatting.svg' },
+                { text: 'Field validation rules', icon: '/Remitree/direction.svg' },
+                { text: 'Bi-directional message flow', icon: '/Remitree/file.svg' }
+            ],
         },
         {
             title: 'Compliance and Screening',
             text: 'Transactions are screened for compliance using integrated AML systems. Performs checks against banned entities and countries to prevent fraud. Ensures regulatory adherence with automated alerts for suspicious activities. Strict Swift validation ensures messages meet international standards before transmission.',
-            features: ['AML system integration', 'Banned entity screening', 'Regulatory compliance checks', 'Automated alert generation'],
+            image: '/Remitree/Tab2.webp',
+            features: [
+                { text: 'AML system integration', icon: '/Remitree/integration.svg' },
+                { text: 'Banned entity screening', icon: '/Remitree/job-search.svg' },
+                { text: 'Regulatory compliance checks', icon: '/Remitree/file.svg' },
+                { text: 'Automated alert generation', icon: '/Remitree/bell.svg' }
+            ],
         },
         {
             title: 'System Integration Capabilities',
             text: 'Effortlessly integrates with existing banking infrastructure for smooth data flow. Connects with core banking systems for real-time data synchronization. Treasury system integration fetches real-time currency rates. Corporate banking integration handles bulk processing and detailed reporting.',
-            features: ['Core banking synchronization', 'Treasury rate integration', 'Corporate bulk processing', 'Real-time data flow'],
+            image: '/Remitree/Tab3.webp',
+            features: [
+                { text: 'Core banking synchronization', icon: '/Remitree/bell.svg' },
+                { text: 'Treasury rate integration', icon: '/Remitree/bank.svg' },
+                { text: 'Corporate bulk processing', icon: '/Remitree/settings.svg' },
+                { text: 'Real-time data flow', icon: '/Remitree/time-management.svg' }
+            ],
         },
     ];
 
@@ -33,7 +52,7 @@ const ThreeTab = () => {
                 flex flex-col items-center text-center w-full
                 px-4 py-4
             ">
-                <h1 className="
+                <H1 className="
                     font-bold font-['Space_Grotesk'] leading-[1.1] text-[#232323] w-full
                     text-[22px]     max-w-[280px]
                     sm:text-[30px]  sm:max-w-md
@@ -42,7 +61,7 @@ const ThreeTab = () => {
                     xl:text-[44px]  xl:max-w-4xl
                 ">
                     Key Features of REMITREE Remittance Platform
-                </h1>
+                </H1>
                 <p className="
                     font-['Quicksand'] font-normal text-[#252525] mt-3 w-full
                     text-[13px]  max-w-[280px]
@@ -135,12 +154,15 @@ const ThreeTab = () => {
                                 {tabContents[activeTab].features.map((feature, i) => (
                                     <div key={i} className="flex items-center gap-2 xl:gap-4">
                                         <div className="
-                                            rounded-full bg-[#D9D9D9] flex-shrink-0
+                                            rounded-full bg-[#2B68C3] flex-shrink-0
+                                            flex items-center justify-center
                                             w-7 h-7
                                             md:w-8 md:h-8
                                             lg:w-9 lg:h-9
                                             xl:w-12 xl:h-12
-                                        " />
+                                        " >
+                                            <img src={feature.icon} alt="icon" className="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain" />
+                                        </div>
                                         <span className="
                                             font-['Quicksand'] text-[#333]
                                             text-[11px]
@@ -148,7 +170,7 @@ const ThreeTab = () => {
                                             lg:text-[13px]
                                             xl:text-[18px]
                                         ">
-                                            {feature}
+                                            {feature.text}
                                         </span>
                                     </div>
                                 ))}
@@ -164,8 +186,8 @@ const ThreeTab = () => {
                             xl:min-h-[528px]
                         ">
                             <img
-                                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                alt="Business meeting"
+                                src={tabContents[activeTab].image}
+                                alt={tabContents[activeTab].title}
                                 className="w-full h-full lg:object-cover xl:object-contain block"
                             />
                         </div>
@@ -222,9 +244,11 @@ const ThreeTab = () => {
                         <div className="grid grid-cols-2 gap-y-[14px] gap-x-4">
                             {tabContents[activeTab].features.map((feature, i) => (
                                 <div key={i} className="flex items-center gap-[10px]">
-                                    <div className="w-9 h-9 rounded-full bg-[#D9D9D9] flex-shrink-0" />
+                                    <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#2B68C3] flex-shrink-0">
+                                        <img src={feature.icon} alt="icon" className="w-5 h-5 object-contain" />
+                                    </div>
                                     <span className="font-['Quicksand'] text-[#333] text-[12px] sm:text-[14px]">
-                                        {feature}
+                                        {feature.text}
                                     </span>
                                 </div>
                             ))}

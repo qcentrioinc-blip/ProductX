@@ -3,7 +3,7 @@ import {  Suspense } from "react"
 import CircularCards from "./CircularCards"
 import Navbar from "../../Global/Navbar/Navbar"
 // import LandingPage1 from "./LandingPage1"
-import Map from "./Map"
+// import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
 import AnimatedFooter from "../../AnimatedFooter"
 import LogoMarquee from "./LogoMarquee"
@@ -52,9 +52,9 @@ const GlobalLandingPage = () => {
                  <div>
                     <SlideReveal/>
                 </div>
-                <div id="map" className="gpu-optimized">
+                {/* <div id="map" className="gpu-optimized">
                     <Map />
-                </div>
+                </div> */}
 
                 <div className="gpu-optimized">
                     <RotatingGlobe />

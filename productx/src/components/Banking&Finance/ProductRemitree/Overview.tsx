@@ -102,28 +102,6 @@ const Overview = () => {
                                 </span>
                             </button>
                         </div>
-
-                        {/* Bottom Stats — 2 Blue Circles */}
-                        <div className="relative xl:top-15 flex gap-4 xl:gap-26 justify-center lg:justify-start">
-                            {['Outward remittance\nautomation', 'Inward remittance\nprocessing'].map((label, i) => (
-                                <div key={i} className="flex items-center gap-2 xl:gap-3">
-                                    <div className="
-                                        rounded-full bg-[#2B68C3] flex-shrink-0
-                                        w-9 h-9
-                                        xl:w-11 xl:h-11
-                                    " />
-                                    <span className="
-                                        font-['Bricolage_Grotesque'] font-semibold
-                                        leading-[1.3] whitespace-pre-line text-[#141414]
-                                        text-[13px]
-                                        xl:text-[15px]
-                                        2xl:text-[16px]
-                                    ">
-                                        {label}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
                     </div>
 
                     {/* ── Right Content — Animated Card Columns ── */}
@@ -188,10 +166,10 @@ const Overview = () => {
                     100% { transform: translateY(0); }
                 }
                 .animate-cards-up {
-                    animation: cards-up 10s linear infinite;
+                    animation: cards-up 30s linear infinite;
                 }
                 .animate-cards-down {
-                    animation: cards-down 10s linear infinite;
+                    animation: cards-down 30s linear infinite;
                 }
                 .animate-cards-up:hover,
                 .animate-cards-down:hover {
