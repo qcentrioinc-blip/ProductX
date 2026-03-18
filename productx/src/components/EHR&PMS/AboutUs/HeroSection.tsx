@@ -1,5 +1,5 @@
 import { H1 } from "../../../styles/Typography";
-import Image1 from "/AboutUs/image81.png";
+// import Image1 from "/AboutUs/image81.png";
 const HeroSection = () => {
   return (
     <div className="w-full   ">
@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div 
         className="  h-[40vh] lg:h-[60vh]  w-full flex items-center justify-center" 
         style={{
-            backgroundImage: 'url("/EHR-PMS/Careers/bg_img1.png")',
+            // backgroundImage: 'url("/EHR-PMS/Careers/bg_img1.png")',
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -21,11 +21,11 @@ const HeroSection = () => {
 
 
       <div className=" w-full flex  h-full justify-center bg-gray-100  ">
-        <img
+        {/* <img
           src={Image1}
           alt="Hero Image"
           className="   w-full h-auto object-cover  "
-        />
+        /> */}
       </div>
     </div>
   );

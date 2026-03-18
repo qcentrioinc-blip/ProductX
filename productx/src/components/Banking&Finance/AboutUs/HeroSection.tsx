@@ -1,6 +1,6 @@
 import { H1 } from '../../../styles/Typography';
 import BNFNav from '../Navbar/BNFnav';
-import Title_img from '/AboutUs/Title_img.jpg';
+// import Title_img from '/AboutUs/Title_img.jpg';
 
 const HeroSection = () => {
     return (
@@ -8,11 +8,11 @@ const HeroSection = () => {
             <BNFNav />
             <div className="relative w-full h-screen">
                 {/* Background Image */}
-                <img
+                {/* <img
                     src={Title_img}
                     alt="Hero"
                     className="w-full h-full object-cover object-center"
-                />
+                /> */}
 
                 {/* Text Overlay */}
                 <div className="absolute inset-0 flex items-center justify-start">

@@ -192,7 +192,7 @@ export default function CircularCards() {
       });
       return best === TOTAL ? prev : prev + best;
     });
-    setTimeout(() => startAuto(), 2500);
+    setTimeout(() => startAuto(), 1500);
   }, [stopAuto, startAuto]);
 
   // ── Drag / swipe ──────────────────────────────────────────────────────────────
@@ -247,7 +247,7 @@ export default function CircularCards() {
 
   // ── Container dimensions ──────────────────────────────────────────────────────
   const containerW = RX * 3 + CW + 80;
-  const containerH = RY + CH / 2 + 30;
+  const containerH = RY + CH / 2 + 100;
   const containerW_M = RX_M * 2 + CW_M + 80;
   const containerH_M = RY_M + CH_M / 2 + 20;
 

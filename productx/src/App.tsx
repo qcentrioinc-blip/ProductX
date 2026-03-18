@@ -22,13 +22,14 @@ import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
 import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7';
+import AllProducts from './components/HomePage/GlobalLandingPage/AllProducts';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
 const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
-const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
+// const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
 const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
@@ -114,7 +115,7 @@ const App = () => {
     if (productId === "sherlock") return <Sherlock/>
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
-    if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    // if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />
     if (productId === "internet-banking-system") return <PDPage9 />
     if (productId === "loan-origination-system") return <ProductsPage7 />
@@ -194,6 +195,7 @@ const App = () => {
             <Route path="/industries/:industry/careers" element={<IndustryCareersPage />} />
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path="/industries/banking-and-finance/all-products" element={<AllProducts />} />
             <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             <Route path="/industries/banking-and-finance/terms-and-conditions" element={<Terms />} />
             <Route path="/industries/banking-and-finance/cookies-policies" element={<Cookies />} />

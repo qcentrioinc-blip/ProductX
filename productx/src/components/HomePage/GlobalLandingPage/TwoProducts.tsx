@@ -33,7 +33,9 @@ const products = [
 
 export default function TwoProducts() {
   return (
-    <section className="max-w-7xl  mx-auto xl:mx-18 bg-white  py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
+    <section
+    id="two-products"
+    className="max-w-7xl  mx-auto xl:mx-18 bg-white  py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
       
       <div className="flex items-start justify-between flex-wrap gap-4">
 
@@ -48,7 +50,7 @@ export default function TwoProducts() {
   </div>
 
   {/* RIGHT SIDE (VIEW ALL BUTTON) */}
-  <a href="/marketplace">
+  <a href="/industries/banking-and-finance/all-products#two-products">
     <button
       className="
         group

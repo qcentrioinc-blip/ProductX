@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {   H3, P } from "../../../styles/Typography";
  
-import linkedinLogo from "/AboutUs/HighLinkedin.png";
-import xLogo from "/AboutUs/HighXLogo.png";
+// import linkedinLogo from "/AboutUs/HighLinkedin.png";
+// import xLogo from "/AboutUs/HighXLogo.png";
 import { ContactUsHighYellow } from "../../../styles/Button";
 const Content = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -66,11 +66,11 @@ const Content = () => {
               
                
                 <div className="flex justify-center mt-6">
-                  <img 
+                  {/* <img 
                     src="/AboutUs/ResourceDetailPic.png" 
                     alt="Virtualization illustration" 
                     className="w-full rounded-md h-auto"
-                  />
+                  /> */}
                
               </div>
             </div>
@@ -111,11 +111,11 @@ const Content = () => {
               </P>
 
               {/* Second Highlighted Box */}
-             <img 
+             {/* <img 
                     src="/AboutUs/ResourceDetailPic.png" 
                     alt="Virtualization illustration" 
                     className="w-full rounded-md h-auto"
-                  />
+                  /> */}
             </div>
           </div>
 
@@ -158,8 +158,8 @@ const Content = () => {
              <div className="mt-2 space-x-4 flex flex-row  items-center ">
             <p className="text-[#CCCCCC] pl-2 font-light">Share Article</p>
             <div className="flex items-center  gap-2">
-              <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8  cursor-pointer hover:opacity-80" />
-              <img src={xLogo} alt="X" className="w-8 h-8 cursor-pointer hover:opacity-80" />
+              {/* <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8  cursor-pointer hover:opacity-80" />
+              <img src={xLogo} alt="X" className="w-8 h-8 cursor-pointer hover:opacity-80" /> */}
             </div>
           </div>
               </div>

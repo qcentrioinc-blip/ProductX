@@ -2,7 +2,6 @@ import HWD from "../HWD";
 import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ScrollContext } from "../../../context/ScrollContext";
-import InsightThought from "../InsightThought";
 // import FaqSection from "../ProductKYC/FAQ";
 import Cards from "./Cards";
 import Feature from "./Feature";
@@ -20,6 +19,7 @@ import LandingSams from "./LandingSams";
 import BlueBox from "./BlueBox";
 import ThreeTab1 from "./ThreeTab1";
 import FaqSection from "../ProductKYC/FAQ";
+import ImageCard from "../BNFBlogs/ImageCard";
 
 const Sams_Page = () => {
   const location = useLocation();
@@ -51,8 +51,12 @@ const Sams_Page = () => {
 
       <FaqSection />
       {/* <FaqSection /> */}
-      <InsightThought />
-      <div id="contact-us">
+     <div id="blogs">
+  <ImageCard/>
+</div>
+
+
+       <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">
           <ContactUS />

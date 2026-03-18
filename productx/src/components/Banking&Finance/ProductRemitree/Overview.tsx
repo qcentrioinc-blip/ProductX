@@ -23,7 +23,7 @@ const Overview = () => {
                 sm:px-8    sm:py-12
                 md:px-10   md:py-12
                 lg:px-16   lg:py-12
-                xl:px-24   xl:py-12
+                xl:px-24   xl:py-0 xl:pt-24
             ">
                 <div className="
                     grid grid-cols-1 lg:grid-cols-2
@@ -81,7 +81,7 @@ const Overview = () => {
                                     document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });
                                 }}
                             >Explore Remitree</ContactUs>
-                            <button className="
+                            {/* <button className="
                                 bg-transparent text-[#2B68C3]
                                 h-[44px] xl:h-[48px]
                                 px-5 sm:px-6
@@ -100,7 +100,7 @@ const Overview = () => {
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </span>
-                            </button>
+                            </button> */}
                         </div>
                     </div>
 
@@ -111,7 +111,8 @@ const Overview = () => {
                         gap-4 xl:gap-6 2xl:gap-8
                         overflow-hidden
                         h-[460px]
-                        xl:h-[580px]
+                        lg:h-[600px]
+                        xl:h-[700px]
                         2xl:h-[700px]
                     ">
                         {/* Column 1 — Scrolls UP */}
