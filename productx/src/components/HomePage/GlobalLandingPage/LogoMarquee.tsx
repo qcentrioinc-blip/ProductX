@@ -9,7 +9,7 @@ const logos = [
   { img: "/ProductLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai" , newTab: true ,tagline:"Cloud Optimization AI",},
   { img: "/ProductLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline:"AI Reconciliation", newTab: true },
   { img: "/ProductLogo/IBS.webp", link: "/industries/banking-and-finance/products/internet-banking-system", tagline:"Internet and Mobile Banking", newTab: true },
-  { img: "/ProductLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc" ,tagline:"Diligent", newTab: true },
+  { img: "/ProductLogo/Kyc.webp", link: "/industries/banking-and-finance/products/kyc" ,tagline:"Diligent", newTab: true },
   { img: "/ProductLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline:"Loan Origination" , newTab: true},
   { img: "/ProductLogo/Pago.webp", link: "/industries/banking-and-finance/products/pago" ,tagline:"Payment System", newTab: true},
   { img: "/ProductLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree" ,tagline:"Cross-Border Remittance", newTab: true},

@@ -385,7 +385,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Agriculture Loan Classification",
+        title: "Agriculture Loan ",
         image: "/BNFCos/money-bag.svg",
         description:
           "Manage NPA identification and provisioning for agriculture and allied activities loan portfolios.",
@@ -401,7 +401,7 @@ const HWD = () => {
 
     Remitree: [
       {
-        title: "Outward Remittance for Retail Customers",
+        title: "Outward Remittance ",
         image: "/Remitree/gear.svg",
         description:
           "Process individual customer cross-border payments efficiently with automated SWIFT message creation and compliance screening.",
@@ -414,7 +414,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Inward Remittance Processing for Banks",
+        title: "Inward Remittance ",
         image: "/Remitree/payment.svg",
         description:
           "Handle incoming international payments with automatic matching and crediting to customer accounts without manual intervention.",

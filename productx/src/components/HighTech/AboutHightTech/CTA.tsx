@@ -2,16 +2,16 @@
  
 import {   ContactUsHigh } from "../../../styles/Button";
 import { H2 } from "../../../styles/Typography";
-import redLight from "/AboutUs/UpScale.png"
+// import redLight from "/AboutUs/UpScale.png"
 const CTA = () => {
   return (
     <section className="relative bg-black text-center text-white py-16 m-0">
       {/* Red gradient image at top-left */}
-      <img
+      {/* <img
         src={redLight}
         alt="Red glow"
         className="absolute top-[-200px] left-[-100px] w-[300px] sm:w-[400px] md:w-[300px] rotate-[1deg] opacity-90 pointer-events-none select-none"
-      />
+      /> */}
 
       {/* Text Content */}
       <div className="relative   max-w-5xl   mx-auto ">

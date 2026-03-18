@@ -1,24 +1,24 @@
 "use client";
-
+ 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 // import { ScrollContext } from "../../../context/ScrollContext";
 import { H1, H2, P } from "../../../styles/Typography";
-
+ 
 const Harper = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     // const scrollContext = useContext(ScrollContext);
-
+ 
     // Horizontal Scroll Animation (Same logic as Process)
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
     });
-
+ 
     // Move horizontally based on scroll progress
     // Adjusted to match your card width (80vw)
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
-
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-72%"]);
+ 
     // Your content array
     const content = [
         {
@@ -58,10 +58,10 @@ const Harper = () => {
                 "Monitors application dropout rates and implements retention strategies. Manages customer interactions throughout loan lifecycle. Supports collection tracking and recovery processes for delinquent loans.",
         },
     ];
-
+ 
     return (
         <div className=" ">
-
+ 
             {/* ---------------------------------------- */}
             {/* MOBILE / TABLET (Vertical layout)        */}
             {/* ---------------------------------------- */}
@@ -71,7 +71,7 @@ const Harper = () => {
                         Complete Loan Origination System Feature Set
                     </H1>
                 </div>
-
+ 
                 <div className="flex flex-col gap-y-10">
                     {content.map((item) => (
                         <div key={item.id} className="w-full">
@@ -82,7 +82,7 @@ const Harper = () => {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-
+ 
                             <div className="mx-auto max-w-[600px] px-4">
                                 <H2 className="text-xl font-bold text-gray-900 mb-4">
                                     {item.title}
@@ -95,7 +95,7 @@ const Harper = () => {
                     ))}
                 </div>
             </div>
-
+ 
             {/* ---------------------------------------- */}
             {/* DESKTOP (Horizontal Scroll with Process Logic) */}
             {/* ---------------------------------------- */}
@@ -105,7 +105,7 @@ const Harper = () => {
                 style={{ height: "200vh" }} // Reduced height further
             >
                 <div className="sticky top-0 flex flex-col overflow-hidden">
-
+ 
                     {/* Title */}
                     <div className="py-6 px-20 z-20">
                         <H2
@@ -113,7 +113,7 @@ const Harper = () => {
                             The Complete Loan Origination System Feature Set
                         </H2>
                     </div>
-
+ 
                     {/* Reverted justify-center to justify-start to fix first card visibility. Changed items-center to items-start + pt-8 to pull cards up. */}
                     <div className="flex-1 flex items-start justify-start overflow-hidden pt-15 pb-8">
                         <motion.div
@@ -137,14 +137,14 @@ const Harper = () => {
                                     }}
                                 >
                                     {/* IMAGE - Changed to flex: 1 to share space properly with gap */}
-                                    <div style={{ flex: "1" }}>
-                                        <img
-                                            src={item.desktopImage}
-                                            alt={item.alt}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-
+                                   <div style={{ flex: "1", height: "100%" }}>
+    <img
+        src={item.desktopImage}
+        alt={item.alt}
+        className="w-full h-full object-cover"
+    />
+</div>
+ 
                                     {/* TEXT - Changed to flex: 1 */}
                                     <div style={{
                                         flex: "1",
@@ -164,7 +164,7 @@ const Harper = () => {
                                         >
                                             {item.title}
                                         </h2>
-
+ 
                                         {/* Divider Line - Changed width to 100% */}
                                         <div
                                             style={{
@@ -172,10 +172,10 @@ const Harper = () => {
                                                 height: "2px",
                                                 backgroundColor: "gray",
                                                 borderRadius: "2px",
-                                                marginBottom: "20px",
+                                                marginBottom: "32px",
                                             }}
                                         />
-
+ 
                                         <p
                                             style={{
                                                 fontFamily: "'Quicksand', sans-serif",
@@ -189,7 +189,7 @@ const Harper = () => {
                                             {item.description}
                                         </p>
                                     </div>
-
+ 
                                 </div>
                             ))}
                         </motion.div>
@@ -199,5 +199,5 @@ const Harper = () => {
         </div>
     );
 };
-
+ 
 export default Harper;

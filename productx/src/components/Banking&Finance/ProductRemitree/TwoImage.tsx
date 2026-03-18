@@ -47,26 +47,16 @@ const TextBlock = ({ title, description, features }: { title: React.ReactNode, d
 
         {/* Heading */}
         <H2 className="
-            font-['Bricolage_Grotesque'] font-semibold
             leading-none tracking-normal text-[#2B68C3]
-            text-[24px]
-            sm:text-[30px]
-            md:text-[34px]
-            lg:text-[44px]
-            xl:text-[62px]
+            
         ">
             {title}
         </H2>
 
         {/* Description */}
         <p className="
-            font-['Quicksand'] font-normal
             leading-[1.6] tracking-normal text-[#141414]
-            text-[13px]
-            sm:text-[14px]
-            md:text-[14px]
-            lg:text-[15px]
-            xl:text-[16px]
+            
         ">
             {description}
         </p>
@@ -109,7 +99,7 @@ const TwoImage = () => {
                 sm:pt-10 sm:pb-10
                 md:pt-10 md:pb-12
                 lg:pt-12 lg:pb-14
-                xl:pt-14 xl:pb-16
+                xl:pt-14 xl:pb-0
             ">
                 <div className="
                     flex flex-col md:flex-row

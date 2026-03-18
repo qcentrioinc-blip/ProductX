@@ -8,7 +8,7 @@ import CTA from "./CTA"
 import Feature from "./Feature"
 
 import Gallery from "./Gallery"
-import HeroSection from "./HeroSection"
+// import HeroSection from "./HeroSection"
  
 
 const AboutUs = () => {
@@ -16,7 +16,7 @@ const AboutUs = () => {
     <div>
       <HighTechNavbar />
       <div className="relative  ">
-        <HeroSection />
+        {/* <HeroSection /> */}
         <CTA />
       </div>
 
