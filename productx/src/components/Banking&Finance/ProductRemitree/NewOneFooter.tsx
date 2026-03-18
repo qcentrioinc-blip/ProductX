@@ -114,14 +114,14 @@ const NewOneFooter = () => {
 
   return (
     <div
-      className='lg:relative bg-white h-full '
+      className='lg:relative bg-white  dark:bg-black h-full '
 
     >
 
  {toastPortal}
       <div className='relative z-50'>
         <footer className="relative w-full lg:pt-10   overflow-hidden" id="financeContainer">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10  xl:px-0">
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
               {/* Left Section - Newsletter (7 columns) */}
@@ -151,21 +151,24 @@ const NewOneFooter = () => {
     value={footerEmail}
     onChange={(e) => setFooterEmail(e.target.value)}
     onKeyDown={(e) => e.key === 'Enter' && handleFooterSubmit()}
-    className={`w-full max-w-[350px] font-quicksand px-7 py-4 rounded-full border-1 
-      focus:outline-none text-[16px] placeholder:text-black transition-colors duration-300
-      ${isFooterEmailValid 
-        ? 'border-[#2B68C3] focus:border-[#2B68C3]' 
-        : 'border-black focus:border-black'
-      }`}
+    className={`w-full max-w-[350px] font-quicksand px-7 py-4 rounded-full border 
+  focus:outline-none text-[16px] 
+  placeholder:text-gray-400 dark:placeholder:text-gray-400
+  dark:bg-transparent dark:text-white dark:border-white 
+  transition-colors duration-300
+  ${isFooterEmailValid 
+    ? 'border-[#2B68C3] focus:border-[#2B68C3]' 
+    : 'border-black focus:border-black'
+  }`}
   />
   <button
     onClick={handleFooterSubmit}
     className={`
-      group flex items-center justify-center
+      group flex items-end justify-center
       w-auto h-[44px] sm:h-[48px] mt-2 xl:mt-0
       px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
       rounded-[8px] font-quicksand font-bold text-[14px]
-      transition-all duration-300 ease-in-out
+      transition-all duration-300 ease-in-out dark:border-white
       border border-transparent
       ${isFooterEmailValid
         ? 'bg-[#2B68C3] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
@@ -197,7 +200,7 @@ const NewOneFooter = () => {
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
+                          className="text-black dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
@@ -214,7 +217,7 @@ const NewOneFooter = () => {
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
+                          className="text-black  dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>
@@ -254,13 +257,13 @@ const NewOneFooter = () => {
                   </div> */}
 
                   <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center mt-4 mb-10 lg:gap-8">
-                    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Terms and Conditions
                     </a>
-                    <a href="/industries/banking-and-finance/cookies-policies" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/cookies-policies" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Cookies Policy
                     </a>
-                    <a href="/industries/banking-and-finance/policy" className="text-black text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
+                    <a href="/industries/banking-and-finance/policy" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
                       Privacy Policy
                     </a>
 

@@ -4,9 +4,12 @@ const Check = ({ className = "", size = 24, style }: { className?: string; size?
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
+import { useTheme } from '../Global/ThemeContext';
 
 
 const HWD = () => {
+   const { theme } = useTheme();
+  const isDark = theme === "dark";
   const location = useLocation();
   const path = location.pathname;
 
@@ -51,6 +54,7 @@ const HWD = () => {
       textcolor: "#000000",
       CheckColor: "#254D70"
     },
+    
     hightech: {
       topBg: "#141414",
       bottomBg: "#E7D6FF",
@@ -65,7 +69,14 @@ const HWD = () => {
       textcolor: "#141414",
       CheckColor: "#254D70"
 
-    }
+    },
+     pago: {
+    topBg:        isDark ? "#1a1a2e" : "#F5F5F5",
+    bottomBg:     isDark ? "#0f0f1a" : "#FFFFFF",
+    headingColor: isDark ? "#5b9cf6" : "#2B68C3",
+    textcolor:    isDark ? "#e0e0e0" : "#000000",
+    CheckColor:   isDark ? "#5b9cf6" : "#254D70",
+  },
   };
   const HEADING_CONTENT = {
     ai: {
@@ -788,7 +799,8 @@ const HWD = () => {
 
   // PALETTE
   let palette;
-  if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
+  if (isPAGO)      palette = COLORS.pago;  
+  else if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;
@@ -896,15 +908,16 @@ const HWD = () => {
       </div>
 
       {/* ===== DESKTOP/TABLET: Original grid layout ===== */}
-      <div className="hidden md:block">
-        <div className="w-full relative shadow-md flex flex-col items-center py-10 md:py-8 px-4 sm:px-6 md:px-10">
-          <div className="max-w-7xl w-full">
+      <div className="hidden md:block dark:bg-black">
+        <div className="w-full relative shadow-md flex flex-col items-center py-10 md:py-8 px-4 sm:px-6 md:px-10 ">
+          <div className="max-w-7xl   mx-auto w-full">
 
             {/* HEADINGS */}
             <div className="flex flex-col space-y-4 sm:space-y-6 mb-6">
               <h2
                 className={`text-[#2A2A2A] ${headingFontClass}
        text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
+        style={{ color: isDark && isPAGO ? "#2B68C3" : "#2A2A2A" }}
               >
                 {headingContent.title}
               </h2>
@@ -915,12 +928,12 @@ const HWD = () => {
 
             {/* CARDS — DESKTOP GRID */}
             <div
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory xl:overflow-visible xl:grid xl:grid-cols-3 sm:gap-14 pb-4 scrollbar-hide"
+              className="flex gap-6 overflow-x-auto snap-x   snap-mandatory xl:overflow-visible xl:grid xl:grid-cols-3 sm:gap-14 pb-4 scrollbar-hide"
             >
               {cards.map((card, i) => (
                 <motion.div
                   key={i}
-                  className="relative rounded-md overflow-hidden shadow-lg snap-center flex-shrink-0
+                  className="relative rounded-md  overflow-hidden shadow-lg snap-center flex-shrink-0
                    w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
                   style={{ backgroundColor: bottomBg }}
                   initial={{ opacity: 0, y: 30 }}
