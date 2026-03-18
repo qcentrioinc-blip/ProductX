@@ -1,3 +1,5 @@
+import { H2 } from "../../../styles/Typography";
+
 const ThirdCards = () => {
   return (
     <section className="w-full bg-white py-6 xl:py-10">
@@ -7,24 +9,17 @@ const ThirdCards = () => {
           
           {/* LEFT SIDE */}
           <div>
-            <h1
+            <H2
               className="
                 text-left
-                font-['Bricolage_Grotesque']
-                font-semibold
-                leading-tight
-                tracking-normal
+                
                 text-[#2B68C3]
-                text-[26px]
-                sm:text-[34px]
-                md:text-[40px]
-                lg:text-[44px]
-                xl:text-[64px]
+                
                 mb-6
               "
             >
               Complete Cross-Border Remittance Platform
-            </h1>
+            </H2>
 
             <p
               className="

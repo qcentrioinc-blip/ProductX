@@ -1,3 +1,5 @@
+import { H2 } from "../../../styles/Typography";
+
 // ── Card Data ─────────────────────────────────────────────────
 const cards = [
   {
@@ -83,17 +85,12 @@ const ThreeCircle = () => {
             ">
 
         {/* ── Title ── */}
-        <h1 className="
-                    font-['Bricolage_Grotesque'] font-semibold
+        <H2 className="
                     leading-none tracking-normal text-center text-[#2B68C3] w-full
-                    text-[26px]
-                    sm:text-[34px]
-                    md:text-[42px]
-                    lg:text-[50px]
-                    xl:text-[64px]
+                    
                 ">
           What Makes REMITREE Unique
-        </h1>
+        </H2>
 
         {/* ── Cards Grid ──
                     Uses grid at ALL breakpoints — no flex switch.

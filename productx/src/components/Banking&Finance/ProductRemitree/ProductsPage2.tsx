@@ -13,7 +13,6 @@ import BNFNav from "../Navbar/BNFnav";
 // import TwoPart from "./TwoPart";
 import HWD from "../HWD";
 import FaqSection from "../ProductKYC/FAQ";
-import InsightThought from "../InsightThought";
 import HeroBottomNavbar from "../ProductPago/HeroBottomNav";
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -21,6 +20,7 @@ import { ScrollContext } from "../../../context/ScrollContext";
 import TwoImage from "./TwoImage";
 import ThreeCircle from "./ThreeCircle";
 import CTARemitree from "./CTARemitree";
+import ImageCard from "../BNFBlogs/ImageCard";
 
 const ProductsPage2 = () => {
 
@@ -76,13 +76,17 @@ const ProductsPage2 = () => {
       <div id="benefits">
         <ThreeTab />
       </div>
+
+      <div id="process">
       <FiveCards />
       {/* <TwoPart /> */}
+
       <TwoImage />
       <ThreeCircle />
       {/* <ArrowBuilding /> */}
       {/* <div id="process"> <NewsLetter /></div> */}
       <CTARemitree />
+      </div>
       <div id="usecases">
         <HWD />
       </div>
@@ -90,24 +94,25 @@ const ProductsPage2 = () => {
         <FaqSection />
       </div>
       <div id="blogs">
-        <InsightThought />
-      </div>
-      <div className="relative">
+  <ImageCard/>
+</div>
 
-        <div className="hidden lg:block lg:h-[200vh]"></div>
 
-        <div
-          id="contact-us"
-          className="lg:absolute lg:inset-0 z-40 lg:pointer-events-none"
-        >
+       <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
           <ContactUS />
-        </div>
-
-        <div className="lg:sticky lg:bottom-0 lg:inset-0 z-30">
           <NewOneFooter />
         </div>
 
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
       </div>
+
+    
     </>
     // </ScrollProvider>
   )

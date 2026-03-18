@@ -29,7 +29,7 @@ const HighTech = lazy(() => import('./routes/industries/HighTech'));
 const AML = lazy(() => import('./components/Banking&Finance/ProductAML/AML'));
 const ProductDetailthree = lazy(() => import('./components/Banking&Finance/ProductPago/ProductDetailthree'));
 const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/ProductKYC/ProductDetails_4_Page'));
-const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
+// const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
 const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
@@ -115,7 +115,7 @@ const App = () => {
     if (productId === "sherlock") return <Sherlock/>
     // if (productId === "pago") return <ProductDetailthree />
     if (productId === "kyc") return <ProductDetails_4_page />
-    if (productId === "customer-onboarding-solutions") return <Cos_Page />
+    // if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />
     if (productId === "internet-banking-system") return <PDPage9 />
     if (productId === "loan-origination-system") return <ProductsPage7 />

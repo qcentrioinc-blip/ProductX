@@ -29,12 +29,12 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
       img: "/Products/img4.webp",
       path: `${base}/products/conciliare`,
     },
-    {
-      title: "COS",
-      desc: "Customer Onboarding System",
-      img: "/BNFHOME/P3.jpg",
-      path: `${base}/products/customer-onboarding-solutions`,
-    },
+    // {
+    //   title: "COS",
+    //   desc: "Customer Onboarding System",
+    //   img: "/BNFHOME/P3.jpg",
+    //   path: `${base}/products/customer-onboarding-solutions`,
+    // },
     {
       title: "Internet Banking System",
       desc: "Secure online banking access",
