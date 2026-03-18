@@ -37,7 +37,7 @@ const AboutFeaturesSection = () => {
             className="bg-gray-50 p-6 rounded-xl transition-all duration-300 flex flex-col"
           >
             {/* Circle Icon */}
-            <img src={item.icon} alt={item.title} className="w-12 h-12 mb-4" />
+            <img src={item.icon} alt={item.title} className="w-10 h-10 mb-4" />
 
             {/* Title */}
             <H4 className="text-gray-900 text-lg font-semibold mb-4">

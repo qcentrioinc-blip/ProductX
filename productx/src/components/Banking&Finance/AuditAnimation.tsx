@@ -59,7 +59,7 @@ export default function AuditAnimation() {
           
           <div className="hidden xl:flex items-start    w-full xl:h-full">
             <motion.img
-              src="/AuditAnimate.webp"
+              src="/AuditSectionImage.webp"
               alt="Audit"
               
               className="object-cover h-[400px] md:h-[500px] lg:h-[700px] mt-0"

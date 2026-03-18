@@ -614,29 +614,29 @@ const FaqSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative w-full py-6 px-10 xl:px-0 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto  md:px-10 xl:px-0 flex flex-col lg:flex-row gap-12 relative z-10">
+      <section className="relative w-full py-6 md:px-10 xl:px-0 dark:bg-black bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-0 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
-            <div className="mb-4 text-sm text-gray-700 flex items-center">
-              <span className="w-8 h-1 rounded-full bg-gray-400 mr-2"></span>
-              <h3 className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px]`}> FAQ</h3>
+            <div className="mb-4 text-sm text-gray-700  dark:text-white flex items-center">
+              <span className="w-8 h-1 rounded-full  dark:bg-[#2B68C3] bg-gray-400  mr-2"></span>
+              <h3 className={`${headingFontClass} dark:text-[#2B68C3] text-[20px] md:text-[24px] lg:text-[32px]`}> FAQ</h3>
             </div>
             <h2
-              className={`mb-4 ${headingFontClass}   text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#008280]" : "text-black"
+              className={`mb-4 ${headingFontClass}   dark:text-white text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#008280]" : "text-black"
                 }`}
             >
               {introContent.heading}
             </h2>
 
 
-            <P className="mb-6 max-w-lg">
+            <P className="mb-6 dark:text-white max-w-lg">
               {introContent.description}
             </P>
 
             {isBnF ? (
-              <Link to="#contact-us">
-                <ContactUs>{introContent.cta}</ContactUs>
+              <Link to="#contact-us" >
+                <ContactUs className="dark:border-white">{introContent.cta}</ContactUs>
               </Link>
             ) : (
               <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
@@ -652,12 +652,12 @@ const FaqSection: React.FC = () => {
                     className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
                     onClick={() => handleToggle(index)}
                   >
-                    <span className="text-black font-quicksand font-bold">{item.question}</span>
-                    <span className={`text-2xl text-gray-500 font-quicksand  transition-all ${isOpen ? "rotate-180 text-blue-600" : ""}`}>
+                    <span className="text-black font-quicksand dark:text-white font-bold">{item.question}</span>
+                    <span className={`text-2xl text-gray-500 white font-quicksand  transition-all ${isOpen ? "rotate-180 text-blue-600" : "dark:text-white"}`}>
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} text-gray-600`}>
+                  <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"} text-gray-600 : dark:text-white`}>
                     <div className="pb-4 pr-4">{item.answer}</div>
                   </div>
                 </div>
