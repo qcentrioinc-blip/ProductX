@@ -124,24 +124,23 @@ const TwoImage = () => {
                         w-full flex-shrink-0 relative overflow-hidden
                         md:w-[48%] lg:w-[48%] xl:w-[50%]
                         aspect-[687/503]
-                        bg-[#E3E3E3]
                         rounded-xl
                         md:rounded-2xl
                         xl:rounded-[20px]
                     ">
-                        <img 
-                            src="https://images.pexels.com/photos/5405054/pexels-photo-5405054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                            alt="Outward Remittance Process" 
-                            className="w-full h-full object-cover"
+                        <img
+                            src="/Remitree/outward.webp"
+                            alt="Outward Remittance Process"
+                            className="w-full h-full object-fit"
                         />
                     </div>
 
                     {/* Text — right */}
                     <div className="w-full md:w-[52%] lg:w-[52%] xl:w-[50%]">
-                        <TextBlock 
-                            title={content.title1} 
-                            description={content.description1} 
-                            features={content.features1} 
+                        <TextBlock
+                            title={content.title1}
+                            description={content.description1}
+                            features={content.features1}
                         />
                     </div>
                 </div>
@@ -171,10 +170,10 @@ const TwoImage = () => {
                 ">
                     {/* Text — left */}
                     <div className="w-full md:w-[52%] lg:w-[52%] xl:w-[50%]">
-                        <TextBlock 
-                            title={content.title2} 
-                            description={content.description2} 
-                            features={content.features2} 
+                        <TextBlock
+                            title={content.title2}
+                            description={content.description2}
+                            features={content.features2}
                         />
                     </div>
 
@@ -183,15 +182,14 @@ const TwoImage = () => {
                         w-full flex-shrink-0 relative overflow-hidden
                         md:w-[48%] lg:w-[48%] xl:w-[50%]
                         aspect-[687/503]
-                        bg-[#E3E3E3]
                         rounded-xl
                         md:rounded-2xl
                         xl:rounded-[20px]
                     ">
-                        <img 
-                            src="https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                            alt="Inward Remittance Process" 
-                            className="w-full h-full object-cover"
+                        <img
+                            src="/Remitree/inward.webp"
+                            alt="Inward Remittance Process"
+                            className="w-full h-full object-fit"
                         />
                     </div>
                 </div>
