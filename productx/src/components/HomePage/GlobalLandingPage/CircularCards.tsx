@@ -36,6 +36,15 @@ const cards = [
 const TOTAL = cards.length; // 7
 
 
+// Preload images immediately on client load
+if (typeof window !== 'undefined') {
+  const uniqueImages = Array.from(new Set(cards.map(c => c.image)));
+  uniqueImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
+
 // ── Geometry — tweak these to adjust the arc ──────────────────────────────────
 const RX = 340; const RY = 220;   // ellipse radii (desktop)
 const CW = 230; const CH = 375;   // card size (desktop)
