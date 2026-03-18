@@ -9,7 +9,7 @@ const images = [
 "/AML/Almanac7.webp",
 ];
 const tabs=[
-  "Currency compliance ", 
+  "Compliance ", 
 
 "Report generation ", 
 

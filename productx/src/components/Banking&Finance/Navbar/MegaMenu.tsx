@@ -24,19 +24,19 @@ const MegaMenu = ({
     {
       title: "Almanac",
       desc: "Asset liability management",
-      img: "/BNFHOME/P1.png",
+      img: "/AML/Almanac6.webp",
       path: `${base}/products/almanac`,
     },
     {
       title: "Bankfair",
       desc: "Complete Banking and LMS",
-      img: "/BNFHOME/P1.png",
+      img: "/ProductBankfair/f3.webp",
       path: `${base}/products/bankfair`,
     },
     {
       title: "Conciliare",
       desc: "Advance reconcilation for Finances",
-      img: "/BNFHOME/P2.jpg",
+      img: "/Products/img4.webp",
       path: `${base}/products/conciliare`,
     },
     {
@@ -48,44 +48,44 @@ const MegaMenu = ({
     {
       title: "Internet Banking System",
       desc: "Secure online banking access",
-      img: "/BNFHOME/P3.jpg",
+      img: "/ProductIBS/4.webp",
       path: `${base}/products/internet-banking-system`,
     },
     
     {
       title: "KYC & CDD",
       desc: "Digital Due Diligence",
-      img: "/BNFHOME/P9.jpg",
+      img: "/Blog/CoreBankingBlog.webp",
       path: `${base}/products/kyc`,
     },
     {
       title: "Loan Origination System",
       desc: "Digital loan processing automation",
-      img: "/BNFHOME/P5.jpg",
+      img: "/LOS/4.webp",
       path: `${base}/products/loan-origination-system`,
     },
     {
       title: "Pago",
       desc: "Complete payment for banks",
-      img: "/BNFHOME/P6.jpg",
+      img: "/Pago/Feature3pago.webp",
       path: `${base}/products/pago`,
     },
     {
       title: "Remitree",
       desc: "Global remittance middleware",
-      img: "/BNFHOME/P7.jpg",
+      img: "/LOS/3.webp",
       path: `${base}/products/remitree`,
     },
     {
       title: "Sams",
       desc: "Stressed asset management system",
-      img: "/BNFHOME/P8.jpg",
+      img: "/BNFCos/2nd.webp",
       path: `${base}/products/sams`,
     },
     {
       title: "Sherlock",
       desc: "Anti-money Laundering Detection",
-      img: "/BNFHOME/P4.png",
+      img: "/ProductSherlock/3.webp",
       path: `${base}/products/sherlock`,
     },
     

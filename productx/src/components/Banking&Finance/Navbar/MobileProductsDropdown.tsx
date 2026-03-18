@@ -12,65 +12,72 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
 
     const megaMenuItems = [
         {
-            title: "Almanac",
-            desc: "Asset liability management with predictive analytics and reporting",
-            img: "/BNFHOME/P1.png",
-            path: `${base}/products/almanac`,
-        },
-        {
-            title: "Bankfair",
-            desc: "Complete core banking & loan management system",
-            img: "/BNFHOME/P1.png",
-            path: `${base}/products/bankfair`,
-        },
-        {
-            title: "Conciliare",
-            desc: "Advanced reconciliation for financial accuracy",
-            img: "/BNFHOME/P2.jpg",
-            path: `${base}/products/conciliare`,
-        },
-         {
-            title: "Internet Banking System",
-            desc: "Secure online banking with real-time account access",
-            img: "/BNFHOME/P3.jpg",
-            path: `${base}/products/internet-banking-system`
-        },
-        {
-            title: "KYC & CDD",
-            desc: "Digital due diligence and onboarding automation",
-            img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/kyc`,
-        },
-          // {
-        //     title: "Internet Banking Solutions",
-        //     desc: "Secure online banking with real-time account access  ",
-        //     img: "/BNFHOME/P9.jpg",
-        //     path: `${base}/products/internet-banking-solutions`,
-        // },
-        {
-            title: "Loan Origination System",
-            desc: "Digital loan processing with e-verification and approvals",
-            img: "/BNFHOME/P5.jpg",
-            path: `${base}/products/loan-origination-system`,
-        },
-        {
-            title: "Pago",
-            desc: "Complete payment and settlement system for banks",
-            img: "/BNFHOME/P6.jpg",
-            path: `${base}/products/pago`,
-        },
-        {
-            title: "Remitree",
-            desc: "Cross-border remittance middleware bridging core banking with Swift",
-            img: "/BNFHOME/P7.jpg",
-            path: `${base}/products/remitree`,
-        },
-        {
-            title: "Sherlock",
-            desc: "Advanced anti-money laundering detection and compliance system",
-            img: "/BNFHOME/P4.png",
-            path: `${base}/products/sherlock`,
-        },
+      title: "Almanac",
+      desc: "Asset liability management",
+      img: "/AML/Almanac6.webp",
+      path: `${base}/products/almanac`,
+    },
+    {
+      title: "Bankfair",
+      desc: "Complete Banking and LMS",
+      img: "/ProductBankfair/f3.webp",
+      path: `${base}/products/bankfair`,
+    },
+    {
+      title: "Conciliare",
+      desc: "Advance reconcilation for Finances",
+      img: "/Products/img4.webp",
+      path: `${base}/products/conciliare`,
+    },
+    {
+      title: "COS",
+      desc: "Customer Onboarding System",
+      img: "/BNFHOME/P3.jpg",
+      path: `${base}/products/customer-onboarding-solutions`,
+    },
+    {
+      title: "Internet Banking System",
+      desc: "Secure online banking access",
+      img: "/ProductIBS/4.webp",
+      path: `${base}/products/internet-banking-system`,
+    },
+    
+    {
+      title: "KYC & CDD",
+      desc: "Digital Due Diligence",
+      img: "/Blog/CoreBankingBlog.webp",
+      path: `${base}/products/kyc`,
+    },
+    {
+      title: "Loan Origination System",
+      desc: "Digital loan processing automation",
+      img: "/LOS/4.webp",
+      path: `${base}/products/loan-origination-system`,
+    },
+    {
+      title: "Pago",
+      desc: "Complete payment for banks",
+      img: "/Pago/Feature3pago.webp",
+      path: `${base}/products/pago`,
+    },
+    {
+      title: "Remitree",
+      desc: "Global remittance middleware",
+      img: "/LOS/3.webp",
+      path: `${base}/products/remitree`,
+    },
+    {
+      title: "Sams",
+      desc: "Stressed asset management system",
+      img: "/BNFCos/2nd.webp",
+      path: `${base}/products/sams`,
+    },
+    {
+      title: "Sherlock",
+      desc: "Anti-money Laundering Detection",
+      img: "/ProductSherlock/3.webp",
+      path: `${base}/products/sherlock`,
+    },
     ];
 
     return (

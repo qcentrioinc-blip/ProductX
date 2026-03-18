@@ -298,7 +298,7 @@ export default function CircularCards() {
   // Anchor at bottom:0 means ellipse center is at container bottom
   // Cards at top of arc (y = -RY) are fully in view; bottom (y = +RY) are clipped
   const containerW = RX * 3 + CW + 80;
-  const containerH = RY + CH / 2 + 30;
+  const containerH = RY + CH / 2 + 100;
   const containerW_M = RX_M * 2 + CW_M + 80;
   const containerH_M = RY_M + CH_M / 2 + 20;
 
@@ -419,7 +419,7 @@ export default function CircularCards() {
 
   return (
    <FallingGridBg  >
-      <div className="w-full relative flex z-0 flex-col items-center justify-start pt-4   overflow-hidden ">
+      <div className="w-full relative flex z-0 flex-col items-center justify-start pt-4 xl:h-scren  overflow-hidden ">
 
         <div className="mt-16 text-center px-4">
           <H1 className="text-black">Shaping The Future Across Every Sector</H1>
