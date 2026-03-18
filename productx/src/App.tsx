@@ -22,6 +22,7 @@ import Bankfair from './components/Banking&Finance/ProductBankfair/Page';
 import ProductsPage2 from './components/Banking&Finance/ProductRemitree/ProductsPage2';
 import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7';
+import AllProducts from './components/HomePage/GlobalLandingPage/AllProducts';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -194,6 +195,7 @@ const App = () => {
             <Route path="/industries/:industry/careers" element={<IndustryCareersPage />} />
             <Route path='/' element={<HeroSection />} />
             <Route path="/industries/banking-and-finance/products/:productId" element={<ProductsPage />} />
+            <Route path="/industries/banking-and-finance/all-products" element={<AllProducts />} />
             <Route path='/industries/banking-and-finance/policy' element={<PolicyPage />} />
             <Route path="/industries/banking-and-finance/terms-and-conditions" element={<Terms />} />
             <Route path="/industries/banking-and-finance/cookies-policies" element={<Cookies />} />

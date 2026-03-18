@@ -223,7 +223,7 @@ export default function CircularCards() {
       });
       return best === TOTAL ? prev : prev + best;
     });
-    setTimeout(() => startAuto(), 2500);
+    setTimeout(() => startAuto(), 1500);
   }, [stopAuto, startAuto]);
 
   // ── Drag / swipe ──────────────────────────────────────────────────────────────

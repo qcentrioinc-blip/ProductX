@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Link } from "react-router-dom";
 import { H2, P } from "../../../styles/Typography";
 
@@ -9,18 +8,17 @@ export default function ImgSec() {
   return (
     <section className="max-w-8xl mx-auto px-6 md:px-12 lg:px-16">
       <div
-        className="relative overflow-hidden rounded-[32px] min-h-[320px] flex items-center"
+        // Added 'justify-center' to center the content box horizontally
+        className="relative overflow-hidden rounded-[32px] min-h-[320px] flex items-center justify-center"
         style={{
           backgroundImage: "url('/digital.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay for better text visibility (optional but recommended) */}
-        {/* <div className="absolute inset-0 bg-black/20 rounded-[32px]" /> */}
-
         {/* Content */}
-        <div className="relative z-10 max-w-3xl px-8 md:px-16 py-16 text-white">
+        {/* Added 'text-center', 'flex', 'flex-col', and 'items-center' to center text and button */}
+        <div className="relative z-10 max-w-5xl px-8 md:px-16 py-16 text-white text-center flex flex-col items-center">
           <H2 className="leading-tight mb-6">
             Ready to Transform Your<br />
              Business Operations
