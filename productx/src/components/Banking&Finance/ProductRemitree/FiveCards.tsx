@@ -299,13 +299,13 @@ const FiveCards = () => {
           Financial institutions gain efficiency, accuracy, and compliance in cross-border payments through automated remittance processing and integrated screening capabilities.
         </P>
 
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 sm:gap-5 md:gap-6 items-stretch">
           {/* Left Section - 4 Small Cards with MagicBento animations */}
-          <div className="xl:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="xl:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 md:gap-6 h-full">
             {smallCards.map((card, index) => (
               <ParticleCard
                 key={index}
-                className="bg-[#fafafa] text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-9 flex flex-col h-full border border-gray-300"
+                className="bg-[#fafafa] text-black rounded-lg p-5 sm:p-6 lg:p-8 flex flex-col h-full border border-gray-300"
                 enableTilt={true}
                 enableMagnetism={true}
                 clickEffect={true}
@@ -322,9 +322,9 @@ const FiveCards = () => {
           </div>
 
           {/* Right Section - Large Card with MagicBento animations */}
-          <div className="xl:col-span-6 mt-4 sm:mt-6 xl:mt-0">
+          <div className="xl:col-span-6 mt-4 sm:mt-6 xl:mt-0 h-full">
             <ParticleCard
-              className="bg-[#fafafa] text-black rounded-lg p-4 sm:p-6 md:p-7 lg:p-8 h-full flex flex-col border border-gray-300"
+              className="bg-[#fafafa] text-black rounded-lg p-5 sm:p-6 lg:p-8 h-full flex flex-col border border-gray-300"
               enableTilt={true}
               enableMagnetism={true}
               clickEffect={true}
@@ -337,8 +337,8 @@ const FiveCards = () => {
               <P className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
                 REMITREE automates the entire remittance process from message creation to transmission. Straight-through processing ensures compliance and accuracy with minimal manual intervention, leading to faster processing times and reduced operational costs.
               </P>
-              <div className="flex-1 bg-gray-300 rounded-lg mt-2 sm:mt-4 min-h-auto sm:min-h-auto md:min-h-auto">
-                <img src="/Remitree/Tab5.webp" alt="Complete Remittance Automation" className="w-full h-full object-fit" />
+              <div className="flex-1 bg-gray-300 rounded-lg mt-2 sm:mt-4 relative min-h-[200px] overflow-hidden">
+                <img src="/Remitree/Tab5.webp" alt="Complete Remittance Automation" className="w-full h-full object-cover absolute inset-0" />
               </div>
             </ParticleCard>
           </div>
