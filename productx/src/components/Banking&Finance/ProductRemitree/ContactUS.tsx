@@ -139,7 +139,7 @@ useEffect(() => {
     */
     <div
       ref={targetRef}
-      className="relative z-50  xl:pb-10 xl:pt-32  overflow-hidden  pointer-events-auto bg-white"
+      className="relative z-50  xl:pb-10 xl:pt-32  overflow-hidden  pointer-events-auto dark:bg-black bg-white"
       id='ContactUs'
     >
       {/* TOAST */}
@@ -185,18 +185,18 @@ useEffect(() => {
           overlap with the blue header section actually shows outside the
           motion div's bounds. overflow-hidden was clipping it.
         */
-        className="hidden xl:block overflow-visible bg-white"
+        className="hidden xl:block overflow-visible bg-white dark:bg-black"
       >
         <div className="relative w-full overflow-visible">
 
           {/* Blue background band */}
-          <div className="absolute top-0 left-0 w-full h-[70vh] pt-10 bg-[#2B68C3]">
+          <div className="absolute top-0 left-0 w-full h-[71vh] pt-10 bg-[#2B68C3]">
             <img
               src="/FormLineWHite.png"
               alt="curve"
               className="absolute left-18 -top-9 w-[1440px] h-[555px]  inset-0 object-fit pointer-events-none"
             />
-            <div className="max-w-[1400px] mx-auto h-full flex items-center px-20">
+            <div className="max-w-[1400px] mx-auto h-full flex items-center px-16">
               <H2 className="text-white text-5xl font-bold leading-tight max-w-xl">
                 Ready to transform
                 <br />
@@ -314,7 +314,7 @@ useEffect(() => {
               alt="Background curve graphic"
               className="absolute top-10 left-0  md:-top-4 lg:top-20 w-[100%] h-[200px] md:h-[380px] lg:h-[380px] -rotate-20  md:-rotate-11 lg:-rotate-10 object-fit pointer-events-none"
             /> */}
-            <div className="relative ml-6 mt-0 md:mt-32 md:ml-20 lg:mt-52 lg:ml-24 z-10 pt-8">
+            <div className="relative ml-6 mt-0 md:mt-32 md:ml-20 lg:mt-52 lg:ml-24 z-10 pt-4 md:pt-8">
               <H2 className="text-white text-3xl font-bold leading-tight">
                 Ready to transform
                 <br />

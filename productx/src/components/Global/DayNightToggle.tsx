@@ -6,38 +6,61 @@ import { useTheme } from "./ThemeContext";
 
 const DayNightToggle = () => {
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
     <button
       onClick={toggleTheme}
       aria-label="Toggle day/night mode"
-      className="relative w-14 h-7 rounded-full transition-colors duration-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       style={{
-        background: theme === 'dark'
-          ? 'linear-gradient(135deg, #1a1a2e, #16213e)'
-          : 'linear-gradient(135deg, #87CEEB, #FDB813)',
+        position: "relative",
+        width: 52,
+        height: 28,
+        borderRadius: 14,
+        background: isDark ? "#1e293b" : "#e2e8f0",
+        border: `0.5px solid ${isDark ? "#334155" : "#cbd5e1"}`,
+        cursor: "pointer",
+        transition: "background 0.3s, border-color 0.3s",
+        outline: "none",
+        flexShrink: 0,
       }}
     >
-      {/* Track stars (dark mode) */}
-      {theme === 'dark' && (
-        <>
-          <span className="absolute top-1 left-2 w-0.5 h-0.5 bg-white rounded-full opacity-80" />
-          <span className="absolute top-2 left-5 w-0.5 h-0.5 bg-white rounded-full opacity-60" />
-          <span className="absolute bottom-1.5 left-3 w-0.5 h-0.5 bg-white rounded-full opacity-70" />
-        </>
-      )}
-
-      {/* Thumb — Sun or Moon */}
       <span
-        className="absolute top-0.5 w-6 h-6 rounded-full shadow-md flex items-center justify-center text-sm transition-all duration-500"
         style={{
-          left: theme === 'dark' ? 'calc(100% - 1.75rem)' : '0.125rem',
-          background: theme === 'dark'
-            ? 'linear-gradient(135deg, #e2e8f0, #cbd5e1)'
-            : 'linear-gradient(135deg, #FDB813, #F97316)',
+          position: "absolute",
+          top: 3,
+          left: isDark ? 27 : 3,
+          width: 22,
+          height: 22,
+          borderRadius: "50%",
+          background: isDark ? "#1e293b" : "#ffffff",
+          border: `0.5px solid ${isDark ? "#475569" : "#cbd5e1"}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "left 0.3s, background 0.3s",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.15)",
         }}
       >
-        {theme === 'dark' ? '🌙' : '☀️'}
+        {isDark ? (
+          // Moon — filled crescent SVG
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#e2e8f0" stroke="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        ) : (
+          // Sun — outline SVG
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="2" x2="12" y2="4" />
+            <line x1="12" y1="20" x2="12" y2="22" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="2" y1="12" x2="4" y2="12" />
+            <line x1="20" y1="12" x2="22" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        )}
       </span>
     </button>
   );

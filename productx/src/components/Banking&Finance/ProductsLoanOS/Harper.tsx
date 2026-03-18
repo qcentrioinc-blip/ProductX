@@ -18,7 +18,6 @@ const Harper = () => {
     // Move horizontally based on scroll progress
     // Adjusted to match your card width (80vw)
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-72%"]);
- 
     // Your content array
     const content = [
         {
@@ -68,7 +67,7 @@ const Harper = () => {
             <div className="block lg:hidden bg-white py-8 px-4">
                 <div className="mb-8">
                     <H1 className="font-bold text-gray-900 text-left ml-2 sm:ml-16 lg:ml-20">
-                        Complete Loan Origination System Feature Set
+                        Complete Loan Origination System Feature 
                     </H1>
                 </div>
  
@@ -110,7 +109,7 @@ const Harper = () => {
                     <div className="py-6 px-20 z-20">
                         <H2
                         >
-                            The Complete Loan Origination System Feature Set
+                            The Complete Loan Origination System Feature 
                         </H2>
                     </div>
  
@@ -144,7 +143,6 @@ const Harper = () => {
         className="w-full h-full object-cover"
     />
 </div>
- 
                                     {/* TEXT - Changed to flex: 1 */}
                                     <div style={{
                                         flex: "1",

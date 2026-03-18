@@ -97,10 +97,10 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
                 />
             </div>
             {/* Text Content */}
-            <P className="text-gray-600 my-2 text-sm">{date}</P>
+            <P className="text-gray-600  my-2 text-sm dark:text-white">{date}</P>
             {/*<H2 className="text-2xl font-bold leading-tight mb-1">{title}</H2> */}
-            <H4 className=" mb-4 ">{subtitle}</H4>
-            <P className="text-gray-700 mb-4 ">{description}</P>
+            <H4 className=" mb-4 dark:text-[#2B68C3] ">{subtitle}</H4>
+            <P className="text-gray-700 dark:text-white mb-4 ">{description}</P>
 
             {/* Image Container: Responsive scaling */}
            
@@ -134,7 +134,7 @@ const ImageCard: React.FC = () => {
             hover:border-[#010101]
             hover:border-b-[4px]
             hover:-translate-y-[2px]
-            cursor-pointer
+            cursor-pointer dark:border-white
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
            "
         > View All

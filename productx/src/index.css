@@ -494,8 +494,7 @@ video {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 40s linear infinite;
-  
+  animation: none !important;
 }
 .marquee-track:hover {
   animation-play-state: paused;

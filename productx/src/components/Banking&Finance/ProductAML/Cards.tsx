@@ -19,8 +19,8 @@ export default function Cards() {
   ];
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 xl:py-10">
-      <div className="max-w-8xl xl:mx-10 px-4  sm:px-8 lg:px-16">
+    <section className="w-full bg-white py-10 md:py-10 xl:py-6">
+      <div className="max-w-7xl mx-auto px-4  sm:px-8 lg:px-12 xl:px-0">
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  xl:py-10 xl:gap-14">
@@ -30,7 +30,7 @@ export default function Cards() {
   key={i}
   className="bg-white rounded-xl border-2 border-[#666666] shadow-md
              flex flex-col md:flex-col md:items-center  xl:flex-row
-             p-6 sm:p-8 md:px-0 md:py-8 py-10 xl:py-20 gap-6 sm:gap-10"
+             p-6 sm:p-8 md:px-0 md:py-8 py-10 xl:py-20 xl:px-6 gap-6 sm:gap-10"
 >
 
 

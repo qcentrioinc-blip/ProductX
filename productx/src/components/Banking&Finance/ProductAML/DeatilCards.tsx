@@ -33,31 +33,31 @@ const DetailCards = () => {
         {/* Blue overlay */}
        
 
-        {/* Text Content */}
-        <div className="relative z-10 px-6 md:px-12 lg:px-16 pb-24 pt-10 md:pt-40 w-full xl:max-w-[55%]">
+        {/* Text Content */} 
+        <div className="relative z-10 px-6 md:px-12 lg:px-10  xl:px-28 pb-24 pt-10 md:pt-40 w-full xl:max-w-[55%]">
           <H2 className="text-white mb-4">
            Challenges ALMANAC <br className="xl:block hidden "/> Solves for Banks 
           </H2>
-          <P className=" bg-black/60 xl:bg-transparent max-w-[100%]  p-4 text-white/85 md:max-w-[82%]  leading-relaxed">
+          <P className=" bg-black/60 xl:bg-transparent max-w-[100%]  p-4 xl:p-2 text-white/85 md:max-w-[82%]  leading-relaxed">
            Financial institutions face complex asset liability management issues daily. ALMANAC addresses these challenges through automated tools, predictive analytics, and integrated regulatory reporting across multi-currency operations
           </P>
         </div>
       </div>
 
       {/* Cards - overlap banner using negative margin, stays in normal flow */}
-      <div className="relative z-10 -mt-20 px-4 md:px-8 lg:px-12 xl:px-16 pb-12">
+      <div className="relative z-10 -mt-20 px-4 md:px-8  max-w-7xl mx-auto lg:px-12 xl:px-0 pb-4 xl:pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl border py-20 border-neutral-300 shadow-md px-6   flex flex-col items-center text-center"
+              className="bg-white rounded-2xl border py-10 xl:py-20 border-neutral-300 shadow-md px-6   flex flex-col items-center text-center"
             >
               {/* Icon placeholder circle */}
               <div className="w-20 h-20 mb-5 rounded-full  flex items-center justify-center">
   <img
     src={card.icon}
     alt={card.title}
-    className="w-14 h-14 object-contain"
+    className=" w-12 h-12 xl:w-14 xl:h-14 object-contain"
   />
 </div>
               {/* Title */}

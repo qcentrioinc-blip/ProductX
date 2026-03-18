@@ -35,7 +35,7 @@ const Description = () => {
 
   return (
     <div className="w-full bg-[#ffffff] h-full ">
-      <div className="max-w-8xl lg:mx-10  px-4 xl:px-10 xl:py-0">
+      <div className="max-w-7xl mx-auto  px-6 lg:px-10   xl:py-0  xl:px-0">
 
         {/* Top Heading */}
         <div className="md:py-16 md:3xl lg:w-[95%] xl:w-4xl w-full pb-8">
@@ -69,7 +69,7 @@ const Description = () => {
           <img
             src={images[activeIndex]}
             alt="Description"
-            className="w-4xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[450px] object-fill rounded-2xl"
+            className="w-3xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[475px] object-fit  rounded-2xl"
           />
 
           {/* Right Overlay Box - Desktop only */}
