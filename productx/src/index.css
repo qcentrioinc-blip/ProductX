@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *)); 
+
 @font-face {
   font-family: 'Bricolage Grotesque';
   font-style: normal;
@@ -493,9 +495,14 @@ video {
   display: flex;
   width: max-content;
   animation: marquee-scroll 40s linear infinite;
+  
 }
 .marquee-track:hover {
   animation-play-state: paused;
+}
+.marquee-track.dragging {
+  animation: none !important; /* 🔥 THIS is the fix */
+  cursor: grabbing;
 }
 
 @keyframes spin-slow {

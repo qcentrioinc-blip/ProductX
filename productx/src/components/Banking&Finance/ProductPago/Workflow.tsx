@@ -137,14 +137,14 @@ useEffect(() => {
         backgroundColor: backgroundColor,
         transition: "background-color 0.4s ease-out",
       }}
-      className="w-full relative pb-10  min-h-full md:min-h-[200vh] xl:min-h-[400vh]"
+      className="w-full relative  pb-10  min-h-full md:min-h-[200vh] xl:min-h-[400vh]"
     >
 
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center text-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
 
-          className="  text-[#2B68C3]  mb-6 leading-snug"
+          className="  text-[#2B68C3]  dark:text-black mb-6 leading-snug"
         >
           Complete Payment and Settlement System <br />for Financial Institutions
         </H2>

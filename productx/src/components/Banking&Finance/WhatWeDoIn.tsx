@@ -90,36 +90,36 @@ const WhatWeDoIn = () => {
   //   handleScroll();
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, [accordionData.length, isDesktop]);
-useEffect(() => {
-  const handleScroll = () => {
-    if (!isDesktop || !targetRef.current) return;
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isDesktop || !targetRef.current) return;
 
-    const rect = targetRef.current.getBoundingClientRect();
-    const totalScrollable =
-      targetRef.current.offsetHeight - window.innerHeight;
+      const rect = targetRef.current.getBoundingClientRect();
+      const totalScrollable =
+        targetRef.current.offsetHeight - window.innerHeight;
 
-    if (totalScrollable <= 0) return;
+      if (totalScrollable <= 0) return;
 
-    const scrolled = Math.min(
-      Math.max(-rect.top, 0),
-      totalScrollable
-    );
+      const scrolled = Math.min(
+        Math.max(-rect.top, 0),
+        totalScrollable
+      );
 
-    const progress = scrolled / totalScrollable; // 0 → 1
+      const progress = scrolled / totalScrollable; // 0 → 1
 
-    const newIndex = Math.min(
-      accordionData.length - 1,
-      Math.floor(progress * accordionData.length)
-    );
+      const newIndex = Math.min(
+        accordionData.length - 1,
+        Math.floor(progress * accordionData.length)
+      );
 
-    setOpenIndex(newIndex);
-  };
+      setOpenIndex(newIndex);
+    };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [accordionData.length, isDesktop]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [accordionData.length, isDesktop]);
 
   return (
     <div
@@ -128,7 +128,7 @@ useEffect(() => {
       id="benefits"
       style={
         isDesktop
-          ? { height: `calc(100vh + ${accordionData.length *100}vh)` }
+          ? { height: `calc(115vh + ${accordionData.length * 40}vh)` }
           : { height: "auto" }
       }
     >
@@ -142,15 +142,15 @@ useEffect(() => {
           style={
             isDesktop
               ? {
-                  height: "100%",
-                  paddingTop: "clamp(1.25rem, 3vh, 2.5rem)",
-                  paddingBottom: "clamp(0.75rem, 2vh, 1.5rem)",
-                }
+                height: "100%",
+                paddingTop: "clamp(1.25rem, 3vh, 2.5rem)",
+                paddingBottom: "clamp(0.75rem, 2vh, 1.5rem)",
+              }
               : {
-                  height: "auto",
-                  paddingTop: "0.5rem",
-                  paddingBottom: "2rem",
-                }
+                height: "auto",
+                paddingTop: "0.5rem",
+                paddingBottom: "2rem",
+              }
           }
         >
           {/* ── Heading ── */}
@@ -166,37 +166,37 @@ useEffect(() => {
                 needs.
               </P>
             </div>
- <Link
-                            to="#contact-us"
-                            onClick={(e) => {
-                                const el = document.getElementById("contact-us");
-                                if (el) {
-                                    e.preventDefault();
-                                    el.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
-                        >
-            <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
-              Learn More
-            </ContactUs>
+            <Link
+              to="#contact-us"
+              onClick={(e) => {
+                const el = document.getElementById("contact-us");
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
+                Learn More
+              </ContactUs>
             </Link>
           </div>
 
           {/* Mobile Button */}
           <div className="xl:hidden mt-4 shrink-0">
             <Link
-                            to="#contact-us"
-                            onClick={(e) => {
-                                const el = document.getElementById("contact-us");
-                                if (el) {
-                                    e.preventDefault();
-                                    el.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
-                        >
-            <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
-              CONTACT US
-            </ContactUs>
+              to="#contact-us"
+              onClick={(e) => {
+                const el = document.getElementById("contact-us");
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              <ContactUs className="w-full flex items-center justify-center gap-2 text-black">
+                CONTACT US
+              </ContactUs>
             </Link>
           </div>
 
@@ -211,7 +211,7 @@ useEffect(() => {
               className="shrink-0 object-contain object-top"
               style={{
                 width: "550px",
-                
+
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -224,24 +224,22 @@ useEffect(() => {
               className="flex-1 flex flex-col justify-center gap-3 min-h-0"
             >
               {accordionData.map((item, index) => {
-              const isOpen = !isDesktop ? true : openIndex === index;
+                const isOpen = !isDesktop ? true : openIndex === index;
 
                 return (
                   <div
                     key={item.id}
-                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${
-                      isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
-                    }`}
+                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
+                      }`}
                     style={{ minHeight: isOpen ? "auto" : "100px" }}
-                   onClick={() => {
-  if (isDesktop) setOpenIndex(index);
-}}
+                    onClick={() => {
+                      if (isDesktop) setOpenIndex(index);
+                    }}
                   >
                     {/* Number */}
                     <span
-                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${
-                        isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
-                      }`}
+                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                        }`}
                     >
                       {String(item.id).padStart(2, "0")}
                     </span>
@@ -336,42 +334,42 @@ useEffect(() => {
                           </H3>
                         </div>
 
-                      
-                          <motion.a
-                            href={item.link}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md shrink-0"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <img
-                              src="/Arrowright.svg"
-                              alt="Arrow Right"
-                              className="w-4 h-4"
-                            />
-                          </motion.a>
-                        
+
+                        <motion.a
+                          href={item.link}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md shrink-0"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <img
+                            src="/Arrowright.svg"
+                            alt="Arrow Right"
+                            className="w-4 h-4"
+                          />
+                        </motion.a>
+
                       </div>
 
-                   
-                        <motion.div
-                          layout
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="px-4 pb-4"
-                        >
-                          {Array.isArray(item.content)
-                            ? item.content.map((para, i) => (
-                                <P key={i} className="mb-3 text-sm leading-relaxed">
-                                  {para}
-                                </P>
-                              ))
-                            : <P>{item.content}</P>}
-                        </motion.div>
-               
+
+                      <motion.div
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-4 pb-4"
+                      >
+                        {Array.isArray(item.content)
+                          ? item.content.map((para, i) => (
+                            <P key={i} className="mb-3 text-sm leading-relaxed">
+                              {para}
+                            </P>
+                          ))
+                          : <P>{item.content}</P>}
+                      </motion.div>
+
                     </div>
                   </div>
                 );

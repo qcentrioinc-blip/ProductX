@@ -24,13 +24,13 @@ export default function Testimonial() {
   ];
 
   return (
-    <div className="bg-white py-10">
+    <div className="bg-white dark:bg-black py-10">
       <div className="max-w-7xl px-6 xl:px-0 mx-auto">
 
 
         {/* Header */}
         <div className="text-center mb-12">
-          <H2 className="font-bold text-gray-900">
+          <H2 className="font-bold text-gray-900 dark:text-white">
             Designed for Banks and Credit Unions 
           </H2>
         </div>
@@ -40,7 +40,7 @@ export default function Testimonial() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-         className="bg-white rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[270px]"
+         className="bg-white  dark:bg-[#151515] rounded-lg border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[270px]"
             >
               <div className="flex justify-start mb-4">
               <div className="  rounded-full   flex items-center justify-center">
@@ -52,7 +52,7 @@ export default function Testimonial() {
                 {testimonial.name}
               </H4>
 
-              <P2 className="text-black  leading-relaxed ">
+              <P2 className="text-black dark:text-white leading-relaxed ">
                 {testimonial.text}
               </P2>
             </div>
