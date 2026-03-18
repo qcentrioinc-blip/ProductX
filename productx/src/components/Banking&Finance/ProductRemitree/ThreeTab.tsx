@@ -96,7 +96,7 @@ const ThreeTab = () => {
                                 key={tab}
                                 onClick={() => setActiveTab(index)}
                                 className={`
-                                    flex-1 font-semibold transition-all duration-300 text-left relative
+                                    flex-1 font-semibold transition-all duration-300 text-center relative
                                     h-[48px]  text-[14px] pl-4
                                     md:h-[56px]  md:text-[16px] md:pl-5
                                     lg:h-[68px]  lg:text-[22px] lg:pl-8
@@ -180,15 +180,12 @@ const ThreeTab = () => {
                         {/* Right Image */}
                         <div className="
                             w-full md:w-1/2 overflow-hidden
-                            min-h-[180px]
-                            md:min-h-[280px]
-                            lg:min-h-[380px]
-                            xl:min-h-[528px]
+                            pt-5 md:pt-6 lg:pt-10 xl:pt-14
                         ">
                             <img
                                 src={tabContents[activeTab].image}
                                 alt={tabContents[activeTab].title}
-                                className="w-full h-full lg:object-cover xl:object-contain block"
+                                className="w-full h-full lg:object-cover xl:object-cover rounded-tl-xl md:rounded-tl-2xl rounded-tr-xl border-t border-l border-gray-100 md:border-t-0 md:rounded-tr-none"
                             />
                         </div>
                     </div>

@@ -12,7 +12,10 @@ const ThreeTab1 = () => {
             text1: 'System identifies NPA records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic applies for financial and non-financial parameters automatically.',
             title2: 'Rules Engine',
             text2: 'Configurable rules for overdrawn accounts, installment overdue, bills overdue, and interest not served. Non-financial parameters include limit expiry and drawing power updates.',
-            features: ['Days Past Due', 'Financial Parameters'],
+            features: [
+                { text: 'Days Past Due', icon: '/SAMS/clock-time.svg' },
+                { text: 'Financial Parameters', icon: '/SAMS/money-bag.svg' }
+            ],
             image: '/BNFCos/1st.webp'
         },
         {
@@ -21,7 +24,10 @@ const ThreeTab1 = () => {
             text1: 'Daily upload of candidate data files, including outstanding, arrears, and customer information from various systems. Auto-upload facility streamlines data collection process.',
             title2: 'Unique Identification',
             text2: 'Uniform Customer Code assigned across all products and systems using SSN, National ID, or Customer Code. Provides a unified view of all credit facilities held by each customer.',
-            features: ['Exception Reporting', 'Automated Process'],
+            features: [
+                { text: 'Exception Reporting', icon: '/BNFCos/Document.svg' },
+                { text: 'Automated Process', icon: '/BNFCos/Setting.svg' }
+            ],
             image: '/BNFCos/2nd.webp'
         },
         {
@@ -30,7 +36,10 @@ const ThreeTab1 = () => {
             text1: 'Based on asset classification provisioning master and uploaded security details. Secured principal calculated as the lesser of security value or the principal outstanding.',
             title2: 'Collateral Distribution',
             text2: 'Uploads securities and collaterals data feeds automatically. Excludes loans against securities if sufficient margin available as per regulatory guidelines.',
-            features: ['Sub-Standard Assets', 'Doubtful Categories'],
+            features: [
+                { text: 'Sub-Standard Assets', icon: '/SAMS/categories.svg' },
+                { text: 'Doubtful Categories', icon: '/SAMS/asset.svg' }
+            ],
             image: '/BNFCos/3rd.webp'
         },
     ];
@@ -83,7 +92,7 @@ const ThreeTab1 = () => {
                                 key={tab}
                                 onClick={() => setActiveTab(index)}
                                 className={`
-                                    flex-1 font-semibold transition-all duration-300 text-left relative
+                                    flex-1 font-semibold transition-all duration-300 text-center relative
                                     h-[48px]  text-[14px] pl-4
                                     md:h-[56px]  md:text-[16px] md:pl-5
                                     lg:h-[68px]  lg:text-[22px] lg:pl-8
@@ -150,12 +159,14 @@ const ThreeTab1 = () => {
                                 {tabContents[activeTab].features.map((feature, i) => (
                                     <div key={i} className="flex items-center gap-2 xl:gap-4">
                                         <div className="
-                                            rounded-full bg-[#D9D9D9] flex-shrink-0
+                                            rounded-full flex-shrink-0 flex items-center justify-center p-1.5
                                             w-7 h-7
                                             md:w-8 md:h-8
                                             lg:w-9 lg:h-9
                                             xl:w-12 xl:h-12
-                                        " />
+                                        ">
+                                            <img src={feature.icon} alt={feature.text} className="w-full h-full object-contain" />
+                                        </div>
                                         <span className="
                                             font-['Quicksand'] text-[#333]
                                             text-[11px]
@@ -163,7 +174,7 @@ const ThreeTab1 = () => {
                                             lg:text-[13px]
                                             xl:text-[18px]
                                         ">
-                                            {feature}
+                                            {feature.text}
                                         </span>
                                     </div>
                                 ))}
@@ -173,15 +184,12 @@ const ThreeTab1 = () => {
                         {/* Right Image */}
                         <div className="
                             w-full md:w-1/2 overflow-hidden
-                            min-h-[180px]
-                            md:min-h-[280px]
-                            lg:min-h-[380px]
-                            xl:min-h-[528px]
+                            pt-5 md:pt-6 lg:pt-10 xl:pt-14
                         ">
                             <img
                                 src={tabContents[activeTab].image}
                                 alt={tabContents[activeTab].title}
-                                className="w-full h-full lg:object-cover xl:object-contain block"
+                                className="w-full h-full lg:object-cover xl:object-cover rounded-tl-xl md:rounded-tl-2xl rounded-tr-xl border-t border-l border-gray-100 md:border-t-0 md:rounded-tr-none"
                             />
                         </div>
                     </div>
@@ -249,9 +257,11 @@ const ThreeTab1 = () => {
                         <div className="grid grid-cols-2 gap-y-[14px] gap-x-4">
                             {tabContents[activeTab].features.map((feature, i) => (
                                 <div key={i} className="flex items-center gap-[10px]">
-                                    <div className="w-9 h-9 rounded-full bg-[#D9D9D9] flex-shrink-0" />
+                                    <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center p-1.5">
+                                        <img src={feature.icon} alt={feature.text} className="w-full h-full object-contain" />
+                                    </div>
                                     <span className="font-['Quicksand'] text-[#333] text-[12px] sm:text-[14px]">
-                                        {feature}
+                                        {feature.text}
                                     </span>
                                 </div>
                             ))}
@@ -260,7 +270,7 @@ const ThreeTab1 = () => {
                         <img
                             src={tabContents[activeTab].image}
                             alt={tabContents[activeTab].title}
-                            className="w-full h-auto rounded-lg object-cover max-h-[300px]"
+                            className="w-full h-auto rounded-lg object-cover"
                         />
                     </div>
                 </div>
