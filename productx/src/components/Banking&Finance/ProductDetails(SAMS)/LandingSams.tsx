@@ -1,4 +1,5 @@
 import { ContactUs } from "../../../styles/Button";
+import { H1, P } from "../../../styles/Typography";
 
 const LandingSams = () => {
     return (
@@ -66,27 +67,27 @@ const LandingSams = () => {
                         xl:absolute xl:left-[80px] xl:top-[180px] xl:z-[4] xl:w-[700px] xl:p-[20px]
                     ">
 
-                        <h1 className="
-                            relative z-10 m-0 font-['Bricolage_Grotesque',sans-serif] font-bold text-[#FAFAFA]
-                            text-[32px] leading-[1.15]
-                            sm:text-[40px] sm:leading-[1.15]
-                            md:text-[44px] md:leading-[1.15]
-                            lg:text-[46px] lg:w-full lg:leading-[1.15]
-                            xl:text-[64px] xl:w-full xl:leading-[1.1]
+                        <H1 className="
+                            relative z-10 m-0 text-[#FAFAFA]
+                             leading-[1.15]
+                             sm:leading-[1.15]
+                             md:leading-[1.15]
+                             lg:w-full lg:leading-[1.15]
+                             xl:w-full xl:leading-[1.1]
                         ">
                             Stressed Asset <br /> Management <br /> Solution for Banks
-                        </h1>
+                        </H1>
 
-                        <p className="
-                            relative z-10 font-['Quicksand',sans-serif] font-normal text-[#FAFAFA] leading-[1.5]
-                            text-[14px] w-full opacity-90 mt-3
-                            sm:text-[15px] sm:mt-4
-                            md:text-[15px] md:mt-4
-                            lg:text-[15px] lg:w-[95%] lg:mt-4
-                            xl:text-[18px] xl:w-[95%] xl:mt-4
+                        <P className="
+                            relative z-10 font-normal text-[#FAFAFA] leading-[1.5]
+                             w-full opacity-90 mt-3
+                             sm:mt-4
+                            md:mt-4
+                             lg:w-[95%] lg:mt-4
+                            xl:w-[95%] xl:mt-4
                         ">
                             SAMS automates NPA tracking, provisioning calculations, and regulatory reporting. Integrates customer data across multiple loan products for unified management.
-                        </p>
+                        </P>
 
                         <ContactUs
                             className="relative z-10 !bg-[#2B68C3] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-6 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
@@ -107,17 +108,15 @@ const LandingSams = () => {
                         lg:absolute lg:left-[580px] lg:top-[160px] lg:z-[50] lg:mt-0
                         xl:absolute xl:left-[880px] xl:top-[222px] xl:z-[50] xl:mt-0
                     ">
-                        <p className="
+                        <P className="
                             relative z-10 
-                            font-['Schibsted_Grotesk',sans-serif] font-normal text-[#FAFAFA] leading-[1.3] m-0
-                            text-[15px] w-full
-                            sm:text-[16px]
-                            md:text-[15px]
-                            lg:text-[15px] lg:w-[320px] lg:left-[15px] lg:top-[50px]
-                            xl:text-[18px] xl:w-[390px] xl:h-[88px] xl:left-[40px] xl:top-[50px]
+                            font-normal text-[#FAFAFA] leading-[1.3] m-0
+                            w-full
+                            lg:w-[320px] lg:left-[15px] lg:top-[50px]
+                            xl:w-[390px] xl:h-[88px] xl:left-[40px] xl:top-[50px]
                         ">
                             System identifies NPA records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic for financial and non-financial parameters ensures accurate classification and provisioning.
-                        </p>
+                        </P>
 
                         {/* Card */}
                         <div className="

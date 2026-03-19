@@ -36,7 +36,12 @@ const BlueBox = () => {
                         font-['Schibsted_Grotesk',sans-serif] font-normal
                         text-[14px] xl:text-[15px]
                         cursor-pointer
-                    ">
+                    "
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
                         Start
                     </button>
                 </div>

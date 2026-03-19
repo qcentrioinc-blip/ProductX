@@ -206,7 +206,7 @@ const AINavbar = () => {
       {/* TOP TRANSPARENT BAR - Scrolls away */}
       <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
-          <img className="h-10 w-full" src="/QnestCloudLogo.svg" alt="Company Logo" />
+          <img className="h-10 w-full" src="/WhiteQnestLogo.webp" alt="Company Logo" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
