@@ -11,17 +11,14 @@ const logos = [
   { img: "/ProductsLogo/IBS.webp",        link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
   { img: "/ProductsLogo/KYC.webp",        link: "/industries/banking-and-finance/products/kyc",                    tagline: "Diligent",                    newTab: true },
   { img: "/ProductsLogo/LOS.webp",        link: "/industries/banking-and-finance/products/loan-origination-system", tagline: "Loan Origination",           newTab: true },
-  // { img: "/ProductsLogo/pago.webp",       link: "/industries/banking-and-finance/products/pago",                   tagline: "Payment System",              newTab: true },
   { img: "/ProductsLogo/Remitree.webp",   link: "/industries/banking-and-finance/products/remitree",               tagline: "Cross-Border Remittance",     newTab: true },
   { img: "/ProductsLogo/Sams.webp",       link: "/industries/banking-and-finance/products/sams",                   tagline: "NPA Tracking",                newTab: true },
   { img: "/ProductsLogo/sherlock.webp",   link: "/industries/banking-and-finance/products/sherlock",               tagline: "AML",                         newTab: true },
-  { img: "/ProductsLogo/UHN.webp",    link: "/industries/ehr-and-pms",                                         tagline: "EHR and PMS",                 newTab: true },
+  { img: "/ProductsLogo/UHN.webp",        link: "/industries/ehr-and-pms",                                         tagline: "EHR and PMS",                 newTab: true },
 ];
 
-const doubled = [...logos, ...logos, ...logos]; // tripled for smooth loop buffer
+const doubled = [...logos, ...logos, ...logos];
 
-// Fixed pixels per frame at 60fps — no dt multiplication so no jerk on frame drops
-// At 60fps: 0.8px/frame = ~48px/sec. Feels smooth on all devices.
 const PX_PER_FRAME   = 0.8;
 const DRAG_THRESHOLD = 4;
 
@@ -31,7 +28,6 @@ export default function LogoMarquee() {
   const halfW    = useRef(0);
   const rafId    = useRef(0);
 
-  // drag
   const isDragging   = useRef(false);
   const wasDragged   = useRef(false);
   const downX        = useRef(0);
@@ -39,38 +35,32 @@ export default function LogoMarquee() {
   const isHorizontal = useRef<boolean | null>(null);
   const lastDragX    = useRef(0);
   const dragVel      = useRef(0);
-  // momentum after drag release
   const momentum     = useRef(0);
 
-  // ── RAF loop — fixed px/frame, no time delta, no jerk ────────────────────
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
+    const track     = trackRef.current;
+    const container = track?.parentElement;
+    if (!track || !container) return;
 
-    // Init halfW after paint
     const initRaf = requestAnimationFrame(() => {
-      halfW.current = track.scrollWidth / 3; // 1/3 because tripled
+      halfW.current = track.scrollWidth / 3;
 
       function step() {
         if (!trackRef.current) return;
 
         if (isDragging.current) {
-          // During drag: posX is set directly by drag handlers
-          // Just apply and loop
+          // posX updated directly by drag handlers
         } else if (Math.abs(momentum.current) > 0.1) {
-          // After drag release: apply momentum with friction
-          posX.current  += momentum.current;
-          momentum.current *= 0.92; // friction — slows down naturally
+          posX.current    += momentum.current;
+          momentum.current *= 0.92;
           if (Math.abs(momentum.current) < 0.1) momentum.current = 0;
         } else {
-          // Auto scroll — fixed px per frame, completely smooth
           posX.current -= PX_PER_FRAME;
         }
 
-        // Seamless loop
         if (halfW.current > 0) {
           if (posX.current <= -halfW.current) posX.current += halfW.current;
-          if (posX.current > 0) posX.current = 0;
+          if (posX.current > 0)               posX.current  = 0;
         }
 
         trackRef.current.style.transform = `translate3d(${posX.current}px, 0, 0)`;
@@ -80,10 +70,8 @@ export default function LogoMarquee() {
       rafId.current = requestAnimationFrame(step);
     });
 
-    // ── Mouse drag ────────────────────────────────────────────────────────
+    // ── Mouse ────────────────────────────────────────────────────────────
     function onMouseDown(e: MouseEvent) {
-      const t = trackRef.current;
-      if (!t || !t.parentElement?.contains(e.target as Node)) return;
       isDragging.current = true;
       wasDragged.current = false;
       momentum.current   = 0;
@@ -95,7 +83,6 @@ export default function LogoMarquee() {
     function onMouseMove(e: MouseEvent) {
       if (!isDragging.current) return;
       const dx = e.clientX - lastDragX.current;
-      // Smooth the velocity with a small lerp so momentum feels natural
       dragVel.current   = dragVel.current * 0.6 + dx * 0.4;
       lastDragX.current = e.clientX;
       if (!wasDragged.current && Math.abs(e.clientX - downX.current) > DRAG_THRESHOLD) {
@@ -104,19 +91,20 @@ export default function LogoMarquee() {
       posX.current += dx;
       if (halfW.current > 0) {
         if (posX.current <= -halfW.current) posX.current += halfW.current;
-        if (posX.current > 0) posX.current = 0;
+        if (posX.current > 0)               posX.current  = 0;
       }
     }
 
     function onMouseUp() {
       if (!isDragging.current) return;
       isDragging.current = false;
-      // Hand off velocity to momentum so RAF carries it forward smoothly
-      momentum.current = dragVel.current * 0.8;
+      momentum.current   = dragVel.current * 0.8;
       setTimeout(() => { wasDragged.current = false; }, 50);
     }
 
-    // ── Touch drag — horizontal only, vertical scroll untouched ──────────
+    // ── Touch — FIX: attach touchmove to CONTAINER only (not window) ─────
+    // This way { passive: false } only applies to touches on the marquee,
+    // so vertical scrolling everywhere else on the page is never blocked.
     function onTouchStart(e: TouchEvent) {
       isDragging.current   = false;
       isHorizontal.current = null;
@@ -135,61 +123,72 @@ export default function LogoMarquee() {
       const totalDX = Math.abs(tx - downX.current);
       const totalDY = Math.abs(ty - downY.current);
 
-      // Decide direction once
+      // Determine direction once
       if (isHorizontal.current === null && (totalDX > DRAG_THRESHOLD || totalDY > DRAG_THRESHOLD)) {
         isHorizontal.current = totalDX >= totalDY;
       }
 
-      if (isHorizontal.current === false) return; // vertical — let browser scroll
+      // If vertical (or undecided) — do NOT preventDefault, let page scroll
+      if (isHorizontal.current !== true) return;
 
-      if (isHorizontal.current === true) {
-        e.preventDefault(); // block page scroll for horizontal swipe
-        isDragging.current = true;
-        wasDragged.current = true;
-        // Lerp velocity for smooth momentum
-        dragVel.current   = dragVel.current * 0.6 + dx * 0.4;
-        lastDragX.current = tx;
-        posX.current     += dx;
-        if (halfW.current > 0) {
-          if (posX.current <= -halfW.current) posX.current += halfW.current;
-          if (posX.current > 0) posX.current = 0;
-        }
+      // Confirmed horizontal swipe — block page scroll and drive marquee
+      e.preventDefault();
+      isDragging.current = true;
+      wasDragged.current = true;
+      dragVel.current    = dragVel.current * 0.6 + dx * 0.4;
+      lastDragX.current  = tx;
+      posX.current      += dx;
+      if (halfW.current > 0) {
+        if (posX.current <= -halfW.current) posX.current += halfW.current;
+        if (posX.current > 0)               posX.current  = 0;
       }
     }
 
     function onTouchEnd() {
-      if (!isDragging.current) {
-        isHorizontal.current = null;
-        return;
-      }
+      // FIX: always reset isDragging and isHorizontal regardless of state,
+      // so a touch that starts on the marquee and ends elsewhere never
+      // leaves isDragging stuck as true (which paused the auto-scroll).
+      const wasActive    = isDragging.current;
       isDragging.current   = false;
       isHorizontal.current = null;
-      // Hand off to momentum
-      momentum.current = dragVel.current * 0.8;
-      setTimeout(() => { wasDragged.current = false; }, 50);
+      if (wasActive) {
+        momentum.current = dragVel.current * 0.8;
+        setTimeout(() => { wasDragged.current = false; }, 50);
+      } else {
+        wasDragged.current = false;
+      }
     }
 
-    const container = trackRef.current?.parentElement;
-    if (container) {
-      container.addEventListener("mousedown",  onMouseDown);
-      container.addEventListener("touchstart", onTouchStart, { passive: true });
+    function onTouchCancel() {
+      // FIX: also handle touchcancel (fired when system interrupts the touch,
+      // e.g. incoming call, scroll takeover) — same reset as touchend.
+      isDragging.current   = false;
+      isHorizontal.current = null;
+      momentum.current     = 0;
+      wasDragged.current   = false;
     }
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup",   onMouseUp);
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("touchend",  onTouchEnd);
+
+    // Mouse events on window so drag works even if cursor leaves container
+    container.addEventListener("mousedown",  onMouseDown);
+    window.addEventListener("mousemove",     onMouseMove);
+    window.addEventListener("mouseup",       onMouseUp);
+
+    // Touch events on CONTAINER only (not window) — critical for passive fix
+    container.addEventListener("touchstart",  onTouchStart,  { passive: true });
+    container.addEventListener("touchmove",   onTouchMove,   { passive: false }); // passive:false only on marquee
+    container.addEventListener("touchend",    onTouchEnd,    { passive: true });
+    container.addEventListener("touchcancel", onTouchCancel, { passive: true });
 
     return () => {
       cancelAnimationFrame(initRaf);
       cancelAnimationFrame(rafId.current);
-      if (container) {
-        container.removeEventListener("mousedown",  onMouseDown);
-        container.removeEventListener("touchstart", onTouchStart);
-      }
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup",   onMouseUp);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend",  onTouchEnd);
+      container.removeEventListener("mousedown",  onMouseDown);
+      window.removeEventListener("mousemove",     onMouseMove);
+      window.removeEventListener("mouseup",       onMouseUp);
+      container.removeEventListener("touchstart",  onTouchStart);
+      container.removeEventListener("touchmove",   onTouchMove);
+      container.removeEventListener("touchend",    onTouchEnd);
+      container.removeEventListener("touchcancel", onTouchCancel);
     };
   }, []);
 
@@ -223,7 +222,7 @@ export default function LogoMarquee() {
             rel={logo.newTab ? "noopener noreferrer" : undefined}
             onClick={onLinkClick}
             draggable={false}
-            className="flex flex-col relative items-center  justify-center xl:justify-start flex-shrink-0 text-center
+            className="flex flex-col relative items-center justify-center xl:justify-start flex-shrink-0 text-center
               w-[200px]  h-[120px]
               sm:w-[200px] sm:h-[100px]
               md:w-[240px] md:h-[150px]
