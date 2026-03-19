@@ -15,7 +15,7 @@ interface HoverExpandImageProps {
   fetchPriority?: "high" | "low" | "auto"
 }
 
-export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandImageProps>(({
+export const HoverExpand = React.forwardRef<HTMLImageElement, HoverExpandImageProps>(({
   src,
   alt = "",
   className = "",
@@ -89,7 +89,7 @@ export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandIm
               exit={{ opacity: 0 }}
               className="
                 fixed inset-0 z-[9999]
-                bg-black/20
+                bg-black/60 backdrop-blur-md
                 flex items-center justify-center
                 p-4
               "
@@ -113,20 +113,20 @@ export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandIm
                     max-h-[85vh]
                     object-contain
                     rounded-2xl
-                    bg-white
-                    shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]
                   "
                 />
+                {/* bg-white
+                    shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)] */}
 
                 {/* Close Button */}
-                 <motion.button
-                onClick={handleClose}
-                className="absolute -top-4 -right-4 bg-white text-gray-900 p-2 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:bg-indigo-600 hover:text-white transition-colors duration-300 z-[101]"
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </motion.button>
+                <motion.button
+                  onClick={handleClose}
+                  className="absolute -top-4 -right-4 bg-white text-gray-900 p-2 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:bg-indigo-600 hover:text-white transition-colors duration-300 z-[101]"
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                </motion.button>
               </motion.div>
             </motion.div>
           </AnimatePresence>,

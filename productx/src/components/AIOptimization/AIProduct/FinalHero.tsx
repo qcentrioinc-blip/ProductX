@@ -1,22 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { H1, P } from "../../../styles/Typography";
-import ContactModal from "../Navbar/ContactModal";
-
-const ArrowUpRightIcon = ({ className = "" }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M7 7h10v10" /><path d="M7 17L17 7" />
-  </svg>
-);
-
-const ArrowRightIcon = ({ className = "" }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-  </svg>
-);
+import { useEffect, useRef } from "react";
+import { H1 } from "../../../styles/Typography";
 
 const FinalHero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     let rafId: number;
@@ -49,32 +35,8 @@ const FinalHero = () => {
           <H1 className="text-center pt-10 leading-tight bg-gradient-to-b from-[#8DC1FB] to-[#FFFFFF] bg-clip-text text-transparent">
             AI-Powered Cloud Cost <br /> Optimization Platform
           </H1>
-          <P className="mt-6 mx-auto md:max-w-4xl text-center text-white/90">
-            CloudDIET profiles, analyzes, and optimizes your Azure, AWS, and Google Cloud spend, ensuring faster ROI with guaranteed savings and no data access. Our performance-based pricing means you only pay for the savings we deliver.
-          </P>
-          <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <button className="group flex items-center justify-center w-52 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand text-[16px] bg-transparent text-white border-white border-2 shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-black" onClick={() => setModalOpen(true)}>
-              Request A Demo
-              <span className="flex items-center gap-4 ml-2">
-                <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </span>
-              </span>
-            </button>
-            <a href="https://login.clouddiet.app/..." target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-44 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#254D70]">
-              Login
-              <span className="flex items-center gap-2 ml-2">
-                <span className="relative flex items-center w-[20px] h-[20px]">
-                  <ArrowUpRightIcon className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-                  <ArrowRightIcon className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </span>
-              </span>
-            </a>
-          </div>
         </div>
       </div>
-      {modalOpen && <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />}
     </section>
   );
 };
