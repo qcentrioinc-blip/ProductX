@@ -51,7 +51,7 @@ export default function ContentInfo() {
         hidden lg:block
         xl:absolute xl:top-16 xl:right-10
         lg:absolute lg:top-20 lg:right-4
-        lg:w-[550px] xl:w-[700px]
+        lg:w-[550px] xl:w-[550px]
         z-10
         "
       />

@@ -1,190 +1,324 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { H2, H3, P } from "../../../styles/Typography";
+import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { H3, P } from "../../../styles/Typography";
 
-const products = [
+type CardItem = {
+  id: string;
+  logo: string;
+  title: string;
+  tags?: string[];
+  description: string;
+  category: string;
+  link?: string;
+};
+
+const sampleData: CardItem[] = [
+  // --- Banking and Finance (2 Products Only) ---
   {
-    id: 1,
-    title: "KYC and CDD",
-    link: "/industries/banking-and-finance/products/kyc",
-    logo: "/ProductsLogo/KYC.webp",
-    description:
-      "Digitizes customer onboarding with automated risk assessment, compliance workflows, identity verification, and centralized customer data management for seamless regulatory adherence.",
-  },
-  {
-    id: 2,
+    id: "1",
+    logo: "QBnFLogo.svg",
     title: "Conciliare",
+    // tags: ["AML", "AI", "Security"],
+    description:
+      "Automated reconciliation platform designed to streamline complex financial data matching. It consolidates data from disparate sources, applies advanced algorithms for high automatic matching rates, and generates detailed reports. The solution reduces manual effort, ensures accuracy, and provides transparent audit trails for regulatory compliance. ",
+    category: "Banking and Finance",
     link: "/industries/banking-and-finance/products/conciliare",
-    logo: "/ProductsLogo/Conciliare.webp",
-    description:
-      "Automates financial reconciliation across systems, ensuring high match accuracy, reduced manual effort, faster settlements, and detailed reporting for audit compliance.",
   },
   {
-    id: 3,
-    title: "SAMS",
-    link: "/industries/banking-and-finance/products/sams",
-    logo: "/ProductsLogo/Sams.webp",
+    id: "2",
+    logo: "/kycLogo.png",
+    title: "KYC & CDD",
+    // tags: ["Core", "Cloud"],
     description:
-      "Stressed asset management system providing NPA tracking, risk analysis, automated provisioning, predictive insights, and centralized monitoring for better asset control.",
+      "Policy-driven due diligence automation platform that digitizes customer onboarding and lifecycle management. It replaces manual document-based processes with system-configured policies, automated risk assessment, and name screening. The solution ensures consistent KYC compliance, reduces re-work, and maintains audit-ready customer profiles across jurisdictions. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/kyc",
   },
   {
-    id: 4,
-    title: "Sherlock",
-    link: "/industries/banking-and-finance/products/sherlock",
-    logo: "/ProductsLogo/sherlock.webp",
-    description:
-      "Advanced AML monitoring solution with real-time transaction tracking, suspicious activity detection, compliance checks, and automated alerts for fraud prevention.",
-  },
-  {
-    id: 5,
-    title: "ALMANAC",
-    link: "/industries/banking-and-finance/products/almanac",
-    logo: "/ProductsLogo/Almanac.webp",
-    description:
-      "Asset and liability management system with forecasting tools, liquidity tracking, risk analysis, regulatory reporting, and strategic financial planning insights.",
-  },
-  {
-    id: 6,
-    title: "Internet Banking Solutions",
-    link: "/industries/banking-and-finance/products/internet-banking-system",
-    logo: "/ProductsLogo/IBS.webp",
-    description:
-      "Comprehensive digital banking platform offering real-time account access, secure transactions, customer onboarding, and seamless integration with core banking systems.",
-  },
-  {
-    id: 7,
-    title: "Loan Origination System",
-    link: "/industries/banking-and-finance/products/loan-origination-system",
-    logo: "/ProductsLogo/LOS.webp",
-    description:
-      "End-to-end loan processing system with automated workflows, credit evaluation, document management, approval tracking, and faster disbursement processes.",
-  },
-  {
-    id: 8,
-    title: "Remitree",
-    link: "/industries/banking-and-finance/products/remitree",
-    logo: "/ProductsLogo/Remitree.webp",
-    description:
-      "Cross-border remittance platform enabling secure international transfers, compliance validation, real-time settlement, and seamless banking integrations.",
-  },
-  {
-    id: 9,
-    title: "PAGO",
-    link: "/industries/banking-and-finance/products/pago",
-    logo: "/ProductsLogo/pago.webp",
-    description:
-      "Payment and settlement system supporting multiple transaction modes with high security, real-time processing, scalability, and seamless integration.",
-  },
-  {
-    id: 10,
+    id: "3",
+    logo: "QBnFLogo.svg",
     title: "Bankfair",
-    link: "/industries/banking-and-finance/products/bankfair",
-    logo: "/ProductsLogo/Bankfair.webp",
+    // tags: ["AML", "AI", "Security"],
     description:
-      "Core banking platform enabling account management, transactions, compliance, product configuration, and scalable banking operations with enhanced security.",
+      "Core banking and loan management system with comprehensive parameterization capabilities. It enables centralized management of branch setup, currency handling, general ledger, and financial products. The system automates processes, ensures regulatory compliance, and supports scalability. Advanced security features protect sensitive customer data while enabling tailored financial product offerings. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/bankfair",
   },
+  {
+    id: "4",
+    logo: "/kycLogo.png",
+    title: "Sherlock",
+    // tags: ["Core", "Cloud"],
+    description:
+      "An advanced anti-money laundering solution that monitors customer transactions and financial messages in real-time. It screens transactions against global watch lists, performs KYC verification, and generates alerts for suspicious activities. The system integrates with core banking platforms to ensure regulatory compliance and enhance operational efficiency. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/sherlock",
+  },
+  {
+    id: "5",
+    logo: "QBnFLogo.svg",
+    title: "Remitree",
+    // tags: ["AML", "AI", "Security"],
+    description:
+      "Cross-border remittance middleware that bridges core banking systems with the Swift Alliance Gateway. It supports bi-directional message handling, validates MT and MX formats, and automates compliance checks through AML integration. The solution enables straight-through processing, reduces manual intervention, and ensures timely settlement of international transactions. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/remitree",
+  },
+  {
+    id: "6",
+    logo: "/kycLogo.png",
+    title: "Internet Banking System",
+    // tags: ["Core", "Cloud"],
+    description:
+      "Digital onboarding platform that streamlines customer application processes across web and mobile channels. It features dynamic forms, SSN auto-fill, document verification through OCR, and role-based sales manager assistance. The solution reduces drop-off rates, ensures data accuracy, and provides real-time application tracking for financial institutions. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/internet-banking-system",
+  }, {
+    id: "7",
+    logo: "QBnFLogo.svg",
+    title: "PAGO",
+    // tags: ["AML", "AI", "Security"],
+    description:
+      "Versatile payment and settlement system supporting multiple transaction methods, including e-cash and e-cheques. It ensures atomicity with immediate payment decisions, integrates seamlessly with existing infrastructure, and provides real-time monitoring. Advanced security protocols protect transactions while lower fees make it economical for high-volume processing. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/pago",
+  },
+  {
+    id: "8",
+    logo: "/kycLogo.png",
+    title: "SAMS",
+    // tags: ["Core", "Cloud"],
+    description:
+      "Stressed asset management solution that automates NPA tracking and provisioning calculations. It consolidates customer data across multiple loan products, applies regulatory classification rules based on days past due, and generates comprehensive MIS reports. Predictive analytics enable early identification of potential NPAs for proactive risk management.",
+    category: "Banking and Finance",
+    link: "/industries/:industry/products/commingsoon",
+  },
+
+  {
+    id: "9",
+    logo: "/kycLogo.png",
+    title: "ALMANAC",
+    // tags: ["Core", "Cloud"],
+    description:
+      "An asset and liability management system that integrates risk management, liquidity forecasting, and regulatory reporting. It provides tools for interest rate sensitivity analysis, stress testing, and government securities management. Multi-currency compliant with predictive analytics for capital planning. Generates regulatory reports and supports informed strategic decision-making for financial institutions. ",
+    category: "Banking and Finance",
+    link: "/industries/banking-and-finance/products/almanac",
+  },
+
+  // --- EHR and PMS (1 Product) ---
+  {
+    id: "10",
+    logo: "QBnFLogo.svg",
+    title: "Unified HealthCare",
+    // tags: ["EHR", "Interoperability"],
+    description:
+      "All-in-one EMR/EHR and practice management solution that integrates clinical workflows with revenue cycle management. It streamlines patient care from scheduling to treatment follow-ups, tracks billing and payments, and supports any practice size. HIPAA-compliant with enterprise-grade security for protecting sensitive patient data. ",
+    category: "EHR and PMS",
+    link: "/industries/ehr-and-pms",
+  },
+
+  // --- Cloud Finops AI (CloudDIET) ---
+  {
+    id: "11",
+    logo: "QBnFLogo.svg",
+    title: "CloudDIET",
+    // tags: ["FinOps", "Savings", "Cloud"],
+    description:
+      "AI-powered cloud financial optimization platform that profiles resource configuration, utilization, and cost across AWS, Azure, and Google Cloud. It identifies misconfigurations, over-provisioning, and waste. Provides detailed recommendations and savings assurance with a pay-for-performance model. Reduces cloud expenditure by up to 30% without impacting outcomes. ",
+    category: "Cloud Finops AI",
+    link: "/industries/cloud-finops-ai",
+  },
+
+  // HIGH TECH INDUSTRY COMMENTED OUT
+  // {
+  //   id: "5",
+  //   ...
+  //   category: "High Tech",
+  // },
 ];
 
-export default function AllProducts() {
-  // ✅ Sort products alphabetically
-  const sortedProducts = [...products].sort((a, b) =>
-    a.title.toLowerCase().localeCompare(b.title.toLowerCase())
+export const App: React.FC = () => {
+  const navigate = useNavigate();
+
+  const categories = [
+    "Banking and Finance",
+    "EHR and PMS",
+    "Cloud Finops AI",
+  ];
+
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+  const filteredData = useMemo(
+    () =>
+      sampleData
+        .filter((item) => item.category === selectedCategory)
+        .sort((a, b) => a.title.localeCompare(b.title)),
+    [selectedCategory]
   );
 
-  return (
-    <section className="max-w-7xl mx-auto xl:px-0 bg-white py-8 md:py-12 px-4 sm:px-6 lg:px-12">
+  const handleCardClick = (item: CardItem) => {
+    if (item.link) {
+      navigate(item.link);
+    }
+  };
 
-      {/* HEADER */}
-      <div className="mb-8">
-        <H2 className="text-[#2B68C3] leading-tight">
-          Banking and Finance Products
-        </H2>
-        <H2 className="text-[#141414] leading-tight">
-          Built For Scale
-        </H2>
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+
+  const [isScrollUp, setIsScrollUp] = useState(false);
+  const lastScrollY = React.useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setIsScrollUp(currentY < lastScrollY.current);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="w-full pb-10">
+      {/* Category Pills */}
+      <div
+        className={`
+          sticky 
+          ${isScrollUp ? "top-14 lg:top-[130px]" : "top-0 lg:top-20"} 
+          z-40 
+          bg-white 
+          py-3 
+          shadow-sm 
+          transition-all 
+          duration-300
+        `}
+      >
+        <div className="flex justify-start sm:justify-center gap-4 py-2 overflow-x-auto px-4 sm:px-0">
+          {categories.map((c) => (
+            <button
+              key={c}
+              onClick={() => {
+                setSelectedCategory(c);
+                sectionRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
+              className={`px-5 py-4 text-sm sm:text-base rounded-full border transition-all duration-300 whitespace-nowrap
+                ${c === selectedCategory
+                  ? "bg-[#5d8ef0] text-white shadow-md"
+                  : "bg-white text-gray-700 hover:bg-gray-100"
+                }
+              `}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* GRID */}
-      <div className="
-        grid 
-        grid-cols-1 
-        sm:grid-cols-2 
-        lg:grid-cols-2 
-        xl:grid-cols-3 
-        gap-6 md:gap-8 lg:gap-10
-      ">
-        {sortedProducts.map((product) => (
-          <a
-            key={product.id}
-            href={product.link}
+      {/* Cards Grid */}
+      <div
+        className="
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          lg:grid-cols-3 
+          gap-12 
+          px-6 sm:px-10 lg:px-20 
+          mt-12
+        "
+      >
+        {filteredData.map((item) => (
+          <article
+            key={item.id}
+            onClick={() => handleCardClick(item)}
             className="
-              group relative rounded-xl bg-[#F2F2F2] border border-gray-200
-              flex flex-col justify-between
-              p-5 md:p-6
-              min-h-[340px]
-              transition-all duration-300
-              hover:shadow-xl hover:-translate-y-2
-              cursor-pointer
-            "
+      group
+      relative bg-[#F2F2F2] 
+      rounded-2xl 
+      p-8 
+      flex flex-col 
+      shadow-md 
+      transition-all duration-300 
+      cursor-pointer 
+      hover:shadow-md 
+      hover:-translate-y-2
+      
+      min-h-[400px] 
+      lg:min-h-[450px]
+    "
           >
-
-            {/* TOP */}
-            <div>
-
-              {/* LOGO + ARROW */}
-              <div className="flex justify-between items-start mb-6">
-                
-                <img
-                  src={product.logo}
-                  alt={product.title}
-                  className="h-10 md:h-12 object-contain max-w-[70%]"
-                />
-
-                <div className="
-                  w-9 h-9 md:w-10 md:h-10
-                  flex items-center justify-center
-                  rounded-full bg-white shadow-md
-                  group-hover:scale-110 transition
-                ">
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#2B68C3]" />
-                </div>
-              </div>
-
-              {/* TITLE */}
-              <H3 className="text-base md:text-lg font-semibold mb-2">
-                {product.title}
+            {/* Title + Arrow */}
+            <div className="flex items-start justify-between mb-3">
+              <H3 className="">
+                {item.title}
               </H3>
 
-              {/* DESCRIPTION (7 lines) */}
-              <P className="text-sm text-gray-600 mb-6 line-clamp-7">
-                {product.description}
-              </P>
+              {/* Arrow Icon */}
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick(item);
+                }}
+                className="
+          flex items-center justify-center
+          w-8 h-8 
+          rounded-full 
+          bg-white 
+          transition-all duration-300
+          group-hover:translate-x-2
+        "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 transition-transform duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
 
-            {/* CTA BUTTON */}
-            <div
-              className="
-                flex items-center justify-center
-                w-full h-[44px] md:h-[48px]
-                rounded-[8px]
-                font-quicksand font-bold text-sm md:text-base
-                bg-[#141414] text-white
-                transition-all duration-300
-                border border-transparent
-                hover:bg-white hover:text-[#141414]
-                hover:border-[#010101]
-                hover:border-b-[4px]
-                hover:-translate-y-[2px]
-                shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
-              "
-            >
-              Get Started
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap mb-5">
+              {item.tags?.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-3 py-1 bg-white border rounded-full"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
 
-          </a>
+            {/* Description */}
+            <P className="text-sm text-gray-600 flex-1 leading-relaxed">
+              {item.description}
+            </P>
+
+            {/* CTA */}
+            <div className="mt-8">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick(item);
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition"
+              >
+                Explore Product
+              </button>
+            </div>
+          </article>
         ))}
       </div>
     </section>
   );
-}
+};
+
+export default App;
