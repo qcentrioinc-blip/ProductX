@@ -1,4 +1,4 @@
-import { H2 } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 // ── Check Icon ────────────────────────────────────────────────
 const CheckIcon = () => (
@@ -54,12 +54,12 @@ const TextBlock = ({ title, description, features }: { title: React.ReactNode, d
         </H2>
 
         {/* Description */}
-        <p className="
+        <P className="
             leading-[1.6] tracking-normal text-[#141414]
             
         ">
             {description}
-        </p>
+        </P>
 
         {/* Checklist */}
         <div className="flex flex-col gap-3 md:gap-4 xl:gap-5 mt-1">
