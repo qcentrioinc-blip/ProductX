@@ -235,7 +235,7 @@ const NewOneFooter = () => {
                       <li key={item.label}>
                         <a
                           href={item.url}
-                          className="text-black text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
+                          className="text-black dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
                         >
                           • {item.label}
                         </a>

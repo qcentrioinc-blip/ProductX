@@ -71,7 +71,7 @@ const MarketPage = () => {
 
        <div id="contact-us">
         {/* DESKTOP */}
-        <div className="hidden lg:block relative">
+        <div className="hidden lg:block relative">gi
           <ContactUS />
           <NewOneFooter />
         </div>
