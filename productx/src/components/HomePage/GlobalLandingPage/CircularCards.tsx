@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { H1, } from "../../../styles/Typography";
+import { H1 } from "../../../styles/Typography";
 import FallingGridBg from "./FallingGridBg";
 
 
@@ -17,19 +17,18 @@ const industries = [
 // 7 cards — duplicates fill the arc so it always looks full
 const cards = [
   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/Banking.webp", industryIndex: 1 },
+  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
   { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/Banking.webp", industryIndex: 1 },
+  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
   { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
 ];
 
 const TOTAL = cards.length;
-
 
 // Preload images immediately on client load
 if (typeof window !== 'undefined') {
@@ -92,11 +91,12 @@ function getCardStyle(
       : [
         "transform 0.70s cubic-bezier(0.34,1.4,0.64,1)",
         "opacity 0.50s ease",
-        "filter 0.40s ease",
+        "filter 0.15s linear",
       ].join(", "),
     borderRadius: "1.25rem",
     overflow: "hidden",
     cursor: "pointer",
+    userSelect: "none", 
   };
 }
 
@@ -118,21 +118,6 @@ export default function CircularCards() {
   const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  // const videoPreloaded = useRef(false);
-  // ── ref for the scoped background video ──────────────────────────────────────
-  // const bgVideoRef = useRef<HTMLVideoElement>(null);
-
-  // const preloadBnfVideo = useCallback(() => {
-  //   if (videoPreloaded.current) return;
-  //   videoPreloaded.current = true;
-  //   const vid = document.createElement("video");
-  //   vid.preload = "auto";
-  //   vid.muted = true;
-  //   vid.src = "/Video/HeroVideo.mp4";
-  //   vid.style.display = "none";
-  //   document.body.appendChild(vid);
-  //   vid.load();
-  // }, []);
 
   // ── Responsive ───────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -149,7 +134,7 @@ export default function CircularCards() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDisplayTopIndex(topCardIndex);
-    }, 680);
+    }, 350);
     return () => clearTimeout(timer);
   }, [topCardIndex]);
 
@@ -164,11 +149,18 @@ export default function CircularCards() {
   // ── Auto-rotate ──────────────────────────────────────────────────────────────
   const startAuto = useCallback(() => {
     if (autoTimer.current) clearInterval(autoTimer.current);
-    autoTimer.current = setInterval(() => setStepCount(p => p + 1), 1500);
+    autoTimer.current = setInterval(() => {
+      setStepCount(p => p + 1);
+    }, 1800);
   }, []);
+
   const stopAuto = useCallback(() => {
-    if (autoTimer.current) { clearInterval(autoTimer.current); autoTimer.current = null; }
+    if (autoTimer.current) {
+      clearInterval(autoTimer.current);
+      autoTimer.current = null;
+    }
   }, []);
+
   useEffect(() => { startAuto(); return () => stopAuto(); }, [startAuto, stopAuto]);
 
   const goToIndustry = useCallback((industryIdx: number) => {
@@ -201,25 +193,35 @@ export default function CircularCards() {
       });
       return best === TOTAL ? prev : prev + best;
     });
-    setTimeout(() => startAuto(), 1500);
+    setTimeout(() => startAuto(), 1800);
   }, [stopAuto, startAuto]);
 
-  // ── Drag / swipe ──────────────────────────────────────────────────────────────
+  // ── Unified Drag / swipe Logic ────────────────────────────────────────────────
   const dragPx = isMobile ? DRAG_STEP_PX_M : DRAG_STEP_PX;
 
-  const onDragStart = useCallback((x: number) => {
+  const onDragStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    
+    // ✅ REMOVED the check for 'coming-soon'. 
+    // Now dragging works on ALL cards.
+
     isDragging.current = true;
-    dragStartX.current = x;
-    lastDragX.current = x;
+    dragStartX.current = clientX;
+    lastDragX.current = clientX;
     dragVelocity.current = 0;
     stopAuto();
   }, [stopAuto]);
 
-  const onDragMove = useCallback((x: number) => {
+  const onDragMove = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+
     if (!isDragging.current) return;
-    dragVelocity.current = -(x - lastDragX.current) / dragPx;
-    lastDragX.current = x;
-    setDragOffset(-(x - dragStartX.current) / dragPx);
+    
+    if (e.cancelable) e.preventDefault();
+
+    dragVelocity.current = -(clientX - lastDragX.current) / dragPx;
+    lastDragX.current = clientX;
+    setDragOffset(-(clientX - dragStartX.current) / dragPx);
   }, [dragPx]);
 
   const onDragEnd = useCallback(() => {
@@ -231,8 +233,16 @@ export default function CircularCards() {
     startAuto();
   }, [dragOffset, startAuto]);
 
-  const onMouseDown = (e: React.MouseEvent) => { e.preventDefault(); onDragStart(e.clientX); };
-  const onTouchStart = (e: React.TouchEvent) => { onDragStart(e.touches[0].clientX); };
+  // Desktop Handlers
+  const onMouseDown = (e: React.MouseEvent) => onDragStart(e);
+  const onMouseMove = (e: React.MouseEvent) => onDragMove(e);
+  const onMouseUp = onDragEnd;
+  const onMouseLeave = onDragEnd;
+
+  // Mobile Handlers
+  const onTouchStart = (e: React.TouchEvent) => onDragStart(e);
+  const onTouchMove = (e: React.TouchEvent) => onDragMove(e);
+  const onTouchEnd = onDragEnd;
 
   // ── Countdown timers ─────────────────────────────────────────────────────────
   useEffect(() => {
@@ -254,6 +264,35 @@ export default function CircularCards() {
     return () => clearInterval(t);
   }, []);
 
+  const hasRestored = useRef(false);
+
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted && !hasRestored.current) {
+        hasRestored.current = true;
+        stopAuto();
+        startAuto();
+        setStepCount(prev => prev + 1);
+        const imgs = document.querySelectorAll("img");
+        imgs.forEach((img) => {
+          img.style.opacity = "0.99";
+          requestAnimationFrame(() => { img.style.opacity = "1"; });
+        });
+      }
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, [startAuto, stopAuto]);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") startAuto();
+      else stopAuto();
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, [startAuto, stopAuto]);
+
   // ── Container dimensions ──────────────────────────────────────────────────────
   const containerW = RX * 3 + CW + 80;
   const containerH = RY + CH / 2 + 100;
@@ -268,8 +307,17 @@ export default function CircularCards() {
 
       const style = {
         ...baseStyle,
-        filter: isActive ? "grayscale(0%)" : "grayscale(100%)",
+       filter: "none"
       };
+      <div
+  className="absolute inset-0 transition-opacity duration-200"
+  style={{
+    background: "rgba(0,0,0,0.4)",
+    opacity: isActive ? 0 : 1,
+    willChange: "transform, opacity",
+  }}
+/>
+      
       const step2 = (2 * Math.PI) / TOTAL;
       const angle2 = -Math.PI / 2 + index * step2 - (stepCount + dragOffset) * step2;
       const isTop = Math.sin(angle2) < -0.6;
@@ -282,13 +330,20 @@ export default function CircularCards() {
           key={index}
           style={style}
           className="group"
-          onMouseDown={onMouseDown}
-          onTouchStart={onTouchStart}
-          // onMouseEnter={card.industryIndex === 0 ? preloadBnfVideo : undefined}
+          // ✅ Still needed for the "not clickable" logic (onClick handler)
+          data-coming-soon={ind.comingSoon ? "true" : "false"}
           onClick={() => {
-            if (Math.abs(dragOffset) > 0.15) return;
-            if (!isTop) { goToIndustry(card.industryIndex); return; }
-            if (!ind.comingSoon) window.open(ind.link, "_blank");
+            // ✅ This remains: blocks the link opening for coming soon cards
+            if (ind.comingSoon) return; 
+
+            if (Math.abs(dragOffset) > 0.15) return; 
+
+            if (!isTop) {
+              goToIndustry(card.industryIndex);
+              return;
+            }
+
+            window.open(ind.link, "_blank");
           }}
         >
           <img
@@ -302,7 +357,6 @@ export default function CircularCards() {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              userSelect: "none",
             }}
           />
 
@@ -370,30 +424,9 @@ export default function CircularCards() {
     });
 
   return (
-    /*
-     * ── Outer wrapper: position:relative so the bg video is scoped ONLY to
-     *    this section and does NOT bleed into the rest of the page.
-     * ────────────────────────────────────────────────────────────────────── */
-    <div className="relative  overflow-hidden">
-
-      {/* ── Background video — scoped to this section only ─────────────────── */}
-      {/* <div className="relative w-full h-screen overflow-hidden"> */}
-
-  {/* 🎥 Video */}
-  {/* <div className="absolute inset-0 z-0">
-    <video
-      className="w-full h-full object-cover"
-      src="/Video/MainVideo.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-    />
-  </div> */}
-
-  {/* 🔵 Falling circles */}
-  <FallingGridBg >
-        <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4  overflow-hidden">
+    <div className="relative overflow-hidden min-h-screen xl:min-h-[auto]">
+      <FallingGridBg>
+        <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 
           <div className="mt-16 text-center px-4">
             <H1 className="text-black">Shaping The Future Across Every Sector</H1>
@@ -427,7 +460,7 @@ export default function CircularCards() {
             ))}
           </div>
 
-          {/* ── DESKTOP ── */}
+          {/* ── DESKTOP CONTAINER ── */}
           <div
             className="relative mt-10 hidden xl:block select-none"
             style={{
@@ -436,16 +469,17 @@ export default function CircularCards() {
               overflow: "hidden",
               cursor: isDragging.current ? "grabbing" : "grab",
             }}
-            onMouseMove={(e) => onDragMove(e.clientX)}
-            onMouseUp={onDragEnd}
-            onMouseLeave={onDragEnd}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseLeave}
           >
             <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
               {renderCards(false)}
             </div>
           </div>
 
-          {/* ── MOBILE ── */}
+          {/* ── MOBILE CONTAINER ── */}
           <div
             className="relative mt-6 xl:hidden select-none"
             style={{
@@ -453,11 +487,11 @@ export default function CircularCards() {
               height: containerH_M,
               overflow: "hidden",
               cursor: "default",
-              touchAction: "pan-y",
+              touchAction: "none", 
             }}
-            onTouchEnd={() => {
-              if (!autoTimer.current) startAuto();
-            }}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <div style={{ position: "absolute", left: "50%", bottom: 0 }}>
               {renderCards(true)}
@@ -466,7 +500,6 @@ export default function CircularCards() {
 
         </div>
       </FallingGridBg>
-      </div>
-    // </div>
+    </div>
   );
 }

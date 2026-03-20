@@ -17,7 +17,7 @@ export default function HeroSection() {
     <section className="w-full bg-gray-100 py-16 relative overflow-hidden">
       <div className="max-w-7xl lg:pt-24 px-6 lg:px-10 xl:px-0 mx-auto ">
 
-        {/* Heading */}
+        {/* Heading */} 
         <div className="max-w-2xl mb-12">
           <H1 className="text-[#2B68C3] leading-tight">
            Asset Liability Management System
@@ -56,7 +56,7 @@ export default function HeroSection() {
                                          }}
                                      >
                          <ContactUs className="w-full mt-4 flex items-center justify-center gap-2 text-black">
-                       Explore Almanac
+                                          Request A Demo
                          </ContactUs>
                          </Link>
             </div>

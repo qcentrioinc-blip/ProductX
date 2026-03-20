@@ -325,7 +325,7 @@ useEffect(() => {
         <button
           key={item.id}
           onClick={() => handleTabClick(item.id, index)}
-          className={`px-6 py-4 rounded-full text-sm font-semibold transition-all
+          className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand
           ${
             isActive
               ? "bg-[#2B68C3] text-white shadow-md"

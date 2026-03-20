@@ -341,4 +341,3 @@ const RotatingGlobe = () => {
 };
 
 export default RotatingGlobe;
-

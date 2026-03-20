@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import { H2, H3, P } from "../../../styles/Typography";
 
@@ -5,165 +7,176 @@ const products = [
   {
     id: 1,
     title: "KYC and CDD",
-    link: "#",
-    description: "Digitizes and standardizes customer onboarding with automated risk assessment.",
-    image: "/ProductKYC.webp",
-    imageWidth: "w-[46%]",
-    imageHeight: "h-auto",
-    imagePosition: "right-[-16px] bottom-[0px]",
+    link: "/industries/banking-and-finance/products/kyc",
+    logo: "/ProductsLogo/KYC.webp",
+    description:
+      "Digitizes customer onboarding with automated risk assessment, compliance workflows, identity verification, and centralized customer data management for seamless regulatory adherence.",
   },
   {
     id: 2,
     title: "Conciliare",
-    link: "#",
-    description: "Automates financial reconciliation with high matching rates.",
-    image: "/Conciliare.webp",
-    imageWidth: "w-[60%]",
-    imagePosition: "right-[-80px] bottom-[0px]",
+    link: "/industries/banking-and-finance/products/conciliare",
+    logo: "/ProductsLogo/Conciliare.webp",
+    description:
+      "Automates financial reconciliation across systems, ensuring high match accuracy, reduced manual effort, faster settlements, and detailed reporting for audit compliance.",
   },
   {
     id: 3,
-    title: "Fraud Detection",
-    link: "#",
-    description: "Real-time fraud detection using AI-powered transaction monitoring.",
-    image: "/fraud.webp",
-    imageWidth: "w-[55%]",
-    imagePosition: "right-[-40px] bottom-[0px]",
+    title: "SAMS",
+    link: "/industries/banking-and-finance/products/sams",
+    logo: "/ProductsLogo/Sams.webp",
+    description:
+      "Stressed asset management system providing NPA tracking, risk analysis, automated provisioning, predictive insights, and centralized monitoring for better asset control.",
   },
   {
     id: 4,
-    title: "AML Monitoring",
-    link: "#",
-    description: "Ensures compliance with anti-money laundering regulations.",
-    image: "/aml.webp",
-    imageWidth: "w-[50%]",
-    imagePosition: "right-[-30px] bottom-[0px]",
+    title: "Sherlock",
+    link: "/industries/banking-and-finance/products/sherlock",
+    logo: "/ProductsLogo/sherlock.webp",
+    description:
+      "Advanced AML monitoring solution with real-time transaction tracking, suspicious activity detection, compliance checks, and automated alerts for fraud prevention.",
   },
   {
     id: 5,
-    title: "Risk Management",
-    link: "#",
-    description: "Centralized risk analytics for smarter decision making.",
-    image: "/risk.webp",
-    imageWidth: "w-[50%]",
-    imagePosition: "right-[-20px] bottom-[0px]",
+    title: "ALMANAC",
+    link: "/industries/banking-and-finance/products/almanac",
+    logo: "/ProductsLogo/Almanac.webp",
+    description:
+      "Asset and liability management system with forecasting tools, liquidity tracking, risk analysis, regulatory reporting, and strategic financial planning insights.",
   },
   {
     id: 6,
-    title: "Payment Gateway",
-    link: "#",
-    description: "Secure and scalable digital payment infrastructure.",
-    image: "/payment.webp",
-    imageWidth: "w-[55%]",
-    imagePosition: "right-[-30px] bottom-[0px]",
+    title: "IBS",
+    link: "/industries/banking-and-finance/products/internet-banking-system",
+    logo: "/ProductsLogo/IBS.webp",
+    description:
+      "Comprehensive digital banking platform offering real-time account access, secure transactions, customer onboarding, and seamless integration with core banking systems.",
   },
   {
     id: 7,
-    title: "Loan Processing",
-    link: "#",
-    description: "End-to-end automation for loan approval workflows.",
-    image: "/loan.webp",
-    imageWidth: "w-[50%]",
-    imagePosition: "right-[-20px] bottom-[0px]",
+    title: "Loan Origination System",
+    link: "/industries/banking-and-finance/products/loan-origination-system",
+    logo: "/ProductsLogo/LOS.webp",
+    description:
+      "End-to-end loan processing system with automated workflows, credit evaluation, document management, approval tracking, and faster disbursement processes.",
   },
   {
     id: 8,
-    title: "Customer Insights",
-    link: "#",
-    description: "Advanced analytics to understand customer behavior.",
-    image: "/insights.webp",
-    imageWidth: "w-[55%]",
-    imagePosition: "right-[-25px] bottom-[0px]",
+    title: "Remitree",
+    link: "/industries/banking-and-finance/products/remitree",
+    logo: "/ProductsLogo/Remitree.webp",
+    description:
+      "Cross-border remittance platform enabling secure international transfers, compliance validation, real-time settlement, and seamless banking integrations.",
   },
   {
     id: 9,
-    title: "RegTech Suite",
-    link: "#",
-    description: "Regulatory technology tools for compliance automation.",
-    image: "/regtech.webp",
-    imageWidth: "w-[50%]",
-    imagePosition: "right-[-20px] bottom-[0px]",
+    title: "PAGO",
+    link: "/industries/banking-and-finance/products/pago",
+    logo: "/ProductsLogo/pago.webp",
+    description:
+      "Payment and settlement system supporting multiple transaction modes with high security, real-time processing, scalability, and seamless integration.",
   },
   {
     id: 10,
-    title: "Wealth Management",
-    link: "#",
-    description: "Digital tools for portfolio and asset management.",
-    image: "/wealth.webp",
-    imageWidth: "w-[50%]",
-    imagePosition: "right-[-20px] bottom-[0px]",
-  },
-  {
-    id: 11,
-    title: "Core Banking",
-    link: "#",
-    description: "Modern core banking platform for scalable operations.",
-    image: "/core.webp",
-    imageWidth: "w-[55%]",
-    imagePosition: "right-[-30px] bottom-[0px]",
+    title: "Bankfair",
+    link: "/industries/banking-and-finance/products/bankfair",
+    logo: "/ProductsLogo/Bankfair.webp",
+    description:
+      "Core banking platform enabling account management, transactions, compliance, product configuration, and scalable banking operations with enhanced security.",
   },
 ];
 
 export default function AllProducts() {
   return (
-    <section className="max-w-7xl mx-auto xl:mx-18 bg-white py-6 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
+    <section className="max-w-7xl mx-auto xl:px-0 bg-white py-8 md:py-12 px-4 sm:px-6 lg:px-12">
 
       {/* HEADER */}
-      <div className="flex items-start justify-between flex-wrap gap-4">
-        <div>
-          <H2 className="text-[#2B68C3] leading-tight">
-            Banking and Finance Products
-          </H2>
-          <H2 className="text-[#141414] leading-tight">
-            Built For Scale
-          </H2>
-        </div>
+      <div className="mb-8">
+        <H2 className="text-[#2B68C3] leading-tight">
+          Banking and Finance Products
+        </H2>
+        <H2 className="text-[#141414] leading-tight">
+          Built For Scale
+        </H2>
       </div>
 
       {/* GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 py-10">
+      <div className="
+        grid 
+        grid-cols-1 
+        sm:grid-cols-2 
+        lg:grid-cols-2 
+        xl:grid-cols-3 
+        gap-6 md:gap-8 lg:gap-10
+      ">
         {products.map((product) => (
           <a
             key={product.id}
             href={product.link}
-            className="relative rounded-xl bg-white
-              border border-gray-200
-              flex items-center transition-all duration-300
-              hover:shadow-sm
-              group overflow-hidden
-              min-h-[180px]
+            className="
+              group relative rounded-xl bg-white border border-gray-200
+              flex flex-col justify-between
+              p-5 md:p-6
+              min-h-[340px]
+              transition-all duration-300
+              hover:shadow-xl hover:-translate-y-2
+              cursor-pointer
             "
           >
-            {/* TEXT */}
-            <div className="relative z-20 p-6 w-full">
-              <div className="relative mb-3">
-                <H3 className="text-xl font-semibold">
-                  {product.title}
-                </H3>
 
-                {/* Arrow */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md transition-all group-hover:scale-110">
-                  <ArrowRight className="w-5 h-5 text-[#2B68C3]" />
+            {/* TOP */}
+            <div>
+
+              {/* LOGO + ARROW */}
+              <div className="flex justify-between items-start mb-6">
+                
+                <img
+                  src={product.logo}
+                  alt={product.title}
+                  className="h-10 md:h-12 object-contain max-w-[70%]"
+                />
+
+                <div className="
+                  w-9 h-9 md:w-10 md:h-10
+                  flex items-center justify-center
+                  rounded-full bg-white shadow-md
+                  group-hover:scale-110 transition
+                ">
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#2B68C3]" />
                 </div>
               </div>
 
-              <P className="text-sm leading-relaxed">
+              {/* TITLE */}
+              <H3 className="text-base md:text-lg font-semibold mb-2">
+                {product.title}
+              </H3>
+
+              {/* DESCRIPTION (7 lines) */}
+              <P className="text-sm text-gray-600 mb-6 line-clamp-7">
                 {product.description}
               </P>
             </div>
 
-            {/* IMAGE */}
-            {/* <img
-              src={product.image}
-              alt={product.title}
-              className={`
-                absolute hidden xl:block
-                pointer-events-none object-contain
-                ${product.imageWidth}
-                ${product.imageHeight}
-                ${product.imagePosition}
-              `}
-            /> */}
+            {/* CTA BUTTON */}
+            <div
+              className="
+                flex items-center justify-center
+                w-full h-[44px] md:h-[48px]
+                rounded-[8px]
+                font-quicksand font-bold text-sm md:text-base
+                bg-[#141414] text-white
+                transition-all duration-300
+                border border-transparent
+                hover:bg-white hover:text-[#141414]
+                hover:border-[#010101]
+                hover:border-b-[4px]
+                hover:-translate-y-[2px]
+                shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+              "
+            >
+              Get Started
+            </div>
+
           </a>
         ))}
       </div>

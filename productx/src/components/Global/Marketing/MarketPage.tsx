@@ -17,6 +17,8 @@ import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 import EHRNavbar from "../../EHR&PMS/Navbar/EHRNavbar";
 import HighTechNavbar from "../../HighTech/Navbar/HighTechNavbar";
 import AINavbar from "../../AIOptimization/Navbar/AINavbar";
+import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
+import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
 // import NewFooter from "../NewFooter/NewFooter";
 
 const MarketPage = () => {
@@ -66,6 +68,20 @@ const MarketPage = () => {
       </div> */}
       {/* Footer */}
       {/* {getFooter()} */}
+
+       <div id="contact-us">
+        {/* DESKTOP */}
+        <div className="hidden lg:block relative">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+
+        {/* MOBILE */}
+        <div className="lg:hidden">
+          <ContactUS />
+          <NewOneFooter />
+        </div>
+      </div>
     </div>
   );
 }
