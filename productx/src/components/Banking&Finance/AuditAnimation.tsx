@@ -92,7 +92,7 @@ export default function AuditAnimation() {
               className="w-full  mx-auto"
             >
               <img
-                src="/AuditAnimate.webp"
+                src="/AuditSectionImage.webp"
                 alt="Audit"
                 className="w-full h-full lg:h-[500px]  "
               />
