@@ -15,7 +15,7 @@ const column2Images = [
 
 const Overview = () => {
     return (
-        <div className="w-full h-auto bg-white relative font-sans">
+        <div className="w-full h-auto bg-white relative font-sans" style={{ backgroundImage: "url('/Remitree/hero-transformed.webp')" }}>
 
             <section className="
                 relative
