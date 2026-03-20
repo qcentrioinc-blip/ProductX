@@ -77,16 +77,16 @@ const ImgTextSec = () => {
               {/* Accordion Title */}
               <div
                 className={`grid grid-cols-1 md:grid-cols-3 gap-6 py-6 cursor-pointer transition
-                ${index === openIndex ? "bg-white" : "hover:bg-gray-50"}`}
+                ${index === openIndex ? "bg-[#2B68C3]/20" : "hover:bg-gray-200"}`}
                 onClick={() => setOpenIndex(index)}
               >
                 {/* Title */}
                 <H4 className="flex items-center text-lg font-semibold">
                   <svg
-                    className={`w-4 h-4 mr-3 transition-transform duration-300 ${
+                    className={`w-10 h-10 mr-3 transition-transform duration-300 ${
                       index === openIndex
                         ? "rotate-90 text-[#2B68C3]"
-                        : "text-gray-400"
+                        : "text-black"
                     }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"

@@ -76,17 +76,18 @@ const MegaMenu = ({
       img: "/LOS/3.webp",
       path: `${base}/products/remitree`,
     },
-    {
-      title: "Sams",
-      desc: "Stressed asset management system",
-      img: "/BNFCos/2nd.webp",
-      path: `${base}/products/sams`,
-    },
+    
     {
       title: "Sherlock",
       desc: "Anti-money Laundering Detection",
       img: "/ProductSherlock/3.webp",
       path: `${base}/products/sherlock`,
+    },
+    {
+      title: "Sams",
+      desc: "Stressed asset management system",
+      img: "/BNFCos/2nd.webp",
+      path: `${base}/products/sams`,
     },
     
   ];
