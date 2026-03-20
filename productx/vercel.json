@@ -1,8 +1,7 @@
 {
   "framework": "vite",
-  "buildCommand": "cd productx && npm install && npm run build",
-  "outputDirectory": "productx/dist",
-  "installCommand": "cd productx && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/(.*)",
