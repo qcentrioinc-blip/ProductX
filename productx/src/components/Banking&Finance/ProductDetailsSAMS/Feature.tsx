@@ -25,12 +25,12 @@ const AboutFeaturesSection = () => {
   return (
     <section className="w-full bg-white py-10 px-6 md:px-12 lg:px-20">
       {/* Section Title */}
-      <div className="max-w-8xl mx-auto text-left mb-12">
+      <div className="max-w-7xl mx-auto text-left mb-12">
         <H2 className="text-gray-900">What Makes LOS Platform Unique</H2>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {features.map((item, index) => (
           <div
             key={index}

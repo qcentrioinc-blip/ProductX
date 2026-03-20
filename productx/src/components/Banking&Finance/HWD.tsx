@@ -8,7 +8,7 @@ import { useTheme } from '../Global/ThemeContext';
 
 
 const HWD = () => {
-   const { theme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === "dark";
   const location = useLocation();
   const path = location.pathname;
@@ -30,8 +30,8 @@ const HWD = () => {
   const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
-  const isSAMS = path.toLowerCase().includes("sams");
-  const isRemitree = path.toLowerCase().includes("remitree");
+  const isSAMS = path.startsWith("/industries/banking-and-finance/products/sams");
+  const isRemitree = path.startsWith("/industries/banking-and-finance/products/remitree");
   const isPAGO = path.startsWith("/industries/banking-and-finance/products/pago");
   const isSherlock = path.startsWith("/industries/banking-and-finance/products/sherlock");
   const isIBS = path.startsWith("/industries/banking-and-finance/products/internet-banking-system");
@@ -54,7 +54,7 @@ const HWD = () => {
       textcolor: "#000000",
       CheckColor: "#254D70"
     },
-    
+
     hightech: {
       topBg: "#141414",
       bottomBg: "#E7D6FF",
@@ -70,13 +70,13 @@ const HWD = () => {
       CheckColor: "#254D70"
 
     },
-     pago: {
-    topBg:        isDark ? "#1a1a2e" : "#F5F5F5",
-    bottomBg:     isDark ? "#0f0f1a" : "#FFFFFF",
-    headingColor: isDark ? "#5b9cf6" : "#2B68C3",
-    textcolor:    isDark ? "#e0e0e0" : "#000000",
-    CheckColor:   isDark ? "#5b9cf6" : "#254D70",
-  },
+    pago: {
+      topBg: isDark ? "#1a1a2e" : "#F5F5F5",
+      bottomBg: isDark ? "#0f0f1a" : "#FFFFFF",
+      headingColor: isDark ? "#5b9cf6" : "#2B68C3",
+      textcolor: isDark ? "#e0e0e0" : "#000000",
+      CheckColor: isDark ? "#5b9cf6" : "#254D70",
+    },
   };
   const HEADING_CONTENT = {
     ai: {
@@ -799,7 +799,7 @@ const HWD = () => {
 
   // PALETTE
   let palette;
-  if (isPAGO)      palette = COLORS.pago;  
+  if (isPAGO) palette = COLORS.pago;
   else if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
@@ -852,7 +852,7 @@ const HWD = () => {
 
       {/* Bottom Section */}
       <div
-        className="pl-6 pr-10 py-10"
+        className={`${isSAMS ? "pl-6 pr-10 py-10" : "pl-6 pr-10 py-10"}`}
         style={{ backgroundColor: bottomBg }}
       >
         <ul className="space-y-4">
@@ -869,42 +869,63 @@ const HWD = () => {
 
   return (
     <>
-      {/* ===== MOBILE: Horizontal scroll on vertical scroll (same pattern as Process.tsx) ===== */}
+      {/* ===== MOBILE ===== */}
       <div className="block md:hidden">
-        <div
-          ref={containerRef}
-          className="relative h-[200vh]"
-        >
-          {/* Sticky container */}
-          <div className="sticky top-13 xl:top-0 h-screen flex flex-col justify-center overflow-hidden w-full shadow-md">
-            {/* Header */}
-            <div className="px-4 pt-6 pb-4">
+        {isSAMS ? (
+          /* --- SAMS: Simple horizontal swipe (no sticky, no tall container) --- */
+          <div className="w-full py-6">
+            <div className="px-4 pb-4">
               <h2
                 className={`text-[#2A2A2A] ${headingFontClass} text-[24px] leading-none`}
               >
                 {headingContent.title}
               </h2>
             </div>
-
-            {/* Horizontal scroll section */}
-            <div className="flex-1 flex items-start overflow-hidden w-full pt-4">
-              <motion.div
-                style={{ x }}
-                className="flex gap-6 pl-4"
-              >
-                {cards.map((card, i) => (
-                  <div
-                    key={i}
-                    className="relative rounded-md overflow-hidden shadow-lg flex-shrink-0 w-[85vw] min-h-[420px]"
-                    style={{ backgroundColor: bottomBg }}
-                  >
-                    <CardContent {...card} />
-                  </div>
-                ))}
-              </motion.div>
+            <div className="flex gap-4 pl-4 pr-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+              {cards.map((card, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-md overflow-hidden shadow-lg flex-shrink-0 w-[85vw] snap-center"
+                  style={{ backgroundColor: bottomBg }}
+                >
+                  <CardContent {...card} />
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        ) : (
+          /* --- Other products: Original sticky scroll pattern --- */
+          <div
+            ref={containerRef}
+            className="relative h-[200vh]"
+          >
+            <div className="sticky top-13 xl:top-0 h-screen flex flex-col justify-center overflow-hidden w-full shadow-md">
+              <div className="px-4 pt-6 pb-4">
+                <h2
+                  className={`text-[#2A2A2A] ${headingFontClass} text-[24px] leading-none`}
+                >
+                  {headingContent.title}
+                </h2>
+              </div>
+              <div className="flex-1 flex items-start overflow-hidden w-full pt-4">
+                <motion.div
+                  style={{ x }}
+                  className="flex gap-6 pl-4"
+                >
+                  {cards.map((card, i) => (
+                    <div
+                      key={i}
+                      className="relative rounded-md overflow-hidden shadow-lg flex-shrink-0 w-[85vw] min-h-[420px]"
+                      style={{ backgroundColor: bottomBg }}
+                    >
+                      <CardContent {...card} />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* ===== DESKTOP/TABLET: Original grid layout ===== */}
@@ -917,7 +938,7 @@ const HWD = () => {
               <h2
                 className={`text-[#2A2A2A] ${headingFontClass}
        text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
-        style={{ color: isDark && isPAGO ? "#2B68C3" : "#2A2A2A" }}
+                style={{ color: isDark && isPAGO ? "#2B68C3" : "#2A2A2A" }}
               >
                 {headingContent.title}
               </h2>
