@@ -8,7 +8,7 @@ export default function CardInfo() {
         {/* Heading */}
         <div className="text-center mb-16">
           <H2 className="text-[#2B68C3]">
-            Lorem ipsum dolor , consectetur adipis
+             Core Modules of SHERLOCK Platform
           </H2>
         </div>
 
