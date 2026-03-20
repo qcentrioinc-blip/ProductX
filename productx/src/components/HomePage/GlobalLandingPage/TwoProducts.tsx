@@ -50,7 +50,7 @@ export default function TwoProducts() {
   </div>
 
   {/* RIGHT SIDE (VIEW ALL BUTTON) */}
-  <a href="/industries/banking-and-finance/all-products#two-products">
+  {/* <a href="/industries/banking-and-finance/all-products#two-products">
     <button
       className="
         group
@@ -89,7 +89,7 @@ export default function TwoProducts() {
         </span>
       </span>
     </button>
-  </a>
+  </a> */}
 
 </div>
 

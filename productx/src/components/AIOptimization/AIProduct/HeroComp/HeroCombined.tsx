@@ -71,6 +71,6 @@ const HeroCombined = () => {
             <ImageContainer />
         </section>
     );
-};
+};  
  
 export default memo(HeroCombined);

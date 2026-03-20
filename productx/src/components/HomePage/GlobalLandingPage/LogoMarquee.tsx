@@ -11,6 +11,7 @@ const logos = [
   { img: "/ProductsLogo/IBS.webp", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
   { img: "/ProductsLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc", tagline: "Diligent", newTab: true },
   { img: "/ProductsLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline: "Loan Origination", newTab: true },
+   { img: "/ProductsLogo/Pago.png", link: "/industries/banking-and-finance/products/pago", tagline: "Payment System", newTab: true },
   { img: "/ProductsLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree", tagline: "Cross-Border Remittance", newTab: true },
   { img: "/ProductsLogo/Sams.webp", link: "/industries/banking-and-finance/products/sams", tagline: "NPA Tracking", newTab: true },
   { img: "/ProductsLogo/sherlock.webp", link: "/industries/banking-and-finance/products/sherlock", tagline: "AML", newTab: true },
@@ -40,8 +41,9 @@ export default function LogoMarquee() {
   const momentum = useRef(0);
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
+    const track     = trackRef.current;
+    const container = track?.parentElement;
+    if (!track || !container) return;
 
     const initRaf = requestAnimationFrame(() => {
       halfW.current = track.scrollWidth / 3;
@@ -61,7 +63,7 @@ export default function LogoMarquee() {
 
         if (halfW.current > 0) {
           if (posX.current <= -halfW.current) posX.current += halfW.current;
-          if (posX.current > 0) posX.current = 0;
+          if (posX.current > 0)               posX.current  = 0;
         }
 
         trackRef.current.style.transform = `translate3d(${posX.current}px,0,0)`;
@@ -71,7 +73,7 @@ export default function LogoMarquee() {
       rafId.current = requestAnimationFrame(step);
     });
 
-    const container = trackRef.current?.parentElement;
+    // const container = trackRef.current?.parentElement;
 
     // 🖱 Mouse
     function onMouseDown(e: MouseEvent) {
@@ -98,7 +100,7 @@ export default function LogoMarquee() {
 
       if (halfW.current > 0) {
         if (posX.current <= -halfW.current) posX.current += halfW.current;
-        if (posX.current > 0) posX.current = 0;
+        if (posX.current > 0)               posX.current  = 0;
       }
     }
 

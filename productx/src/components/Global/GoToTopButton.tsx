@@ -34,7 +34,7 @@ const GoToTopButton = () => {
   // using opacity/scale for transition
   const baseClasses = `
     fixed 
-    bottom-20 sm:bottom-24 
+    bottom-20 sm:bottom-36 
     right-4 sm:right-6 
     z-[10000]
     flex items-center

@@ -6,7 +6,7 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 import { ContactUs } from "../../../styles/Button";
-import DayNightToggle from "../../Global/DayNightToggle";
+// import DayNightToggle from "../../Global/DayNightToggle";
 
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
@@ -219,7 +219,7 @@ const BNFNav = () => {
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
-const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
+// const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
   return createPortal(
     <>
     
@@ -234,7 +234,7 @@ const isPagoPage = location.pathname === "/industries/banking-and-finance/produc
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-        {isPagoPage && <DayNightToggle />}
+        {/* {isPagoPage && <DayNightToggle />} */}
           {/* <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link> */}
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Marketplace</Link>
         </div>
@@ -424,7 +424,7 @@ const isPagoPage = location.pathname === "/industries/banking-and-finance/produc
 
             <ContactUs onClick={(e) => {
               e.preventDefault();
-              const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/");
+              const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/")|| location.pathname.includes("/industries/banking-and-finance/blogs")||location.pathname.includes("/industries/banking-and-finance/marketplace");
               const target = hasContactSection ? "#contact-us" : `${base}#contact-us`;
               navigate(target);
               setTimeout(() => {
