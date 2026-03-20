@@ -424,7 +424,7 @@ const BNFNav = () => {
 
             <ContactUs onClick={(e) => {
               e.preventDefault();
-              const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/");
+              const hasContactSection = location.pathname.includes("/products/") || location.pathname.includes("/built-for/")|| location.pathname.includes("/industries/banking-and-finance/blogs")||location.pathname.includes("/industries/banking-and-finance/marketplace");
               const target = hasContactSection ? "#contact-us" : `${base}#contact-us`;
               navigate(target);
               setTimeout(() => {

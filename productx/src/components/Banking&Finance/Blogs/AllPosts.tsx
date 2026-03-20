@@ -74,7 +74,7 @@ const posts = [
     description: "When it comes to managing money and risk, banks face constant pressure to follow strict rules like Basel III and ...",
     date: "8 March 2026",
     category: "AML",
-    image: "/Blog/RealTime.webp",
+    image: "/Blog/regulatoryreporting.webp",
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ const posts = [
     description: "These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely  ...",
     date: "8 March 2026",
     category: "Sams",
-    image: "/Blog/RealTime.webp",
+    image: "/Blog/npatracking.webp",
   },
 ];
 
