@@ -30,7 +30,7 @@ export default function ThreeCards() {
         <div className="flex w-full gap-8 h-auto xl:h-[458px]">
           {/* Left Card */}
           <div
-            className="flex-1 xl:w-[685px]  border-2 border-[#666666] rounded-lg  p-8 flex flex-col gap-4 relative"
+            className="flex-1 xl:w-[685px] bg-[#F3F3F3] border-2 border-[#666666] rounded-lg  p-8 flex flex-col gap-4 relative"
           >
             <div className="w-18 h-18 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
               <img src="/LOS/sign.svg" alt="" className="object-contain h-12 w-12"/>
@@ -62,7 +62,7 @@ export default function ThreeCards() {
        {cards.slice(1).map((card, idx) => (
   <div
     key={idx}
-    className="flex-1 rounded-lg border-2 border-[#666666] py-6 px-8 flex flex-col gap-4"
+    className="flex-1 rounded-lg border-2 bg-[#F3F3F3] border-[#666666] py-6 px-8 flex flex-col gap-4"
   >
      <div className="w-14 h-14 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
               <img src={card.icon} alt="" className="object-contain h-8 w-8"/>

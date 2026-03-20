@@ -239,9 +239,9 @@ useEffect(() => {
                     <div ref={dropdownRef} className="relative">
                       <div
                         onClick={() => setShowDropdown((prev) => !prev)}
-                        className="w-full px-5 py-3.5 rounded-full border-2 border-gray-200 cursor-pointer flex items-center justify-between"
+                        className="w-full px-5 py-3.5 rounded-full border-2 font-quicksand border-gray-200 cursor-pointer flex items-center justify-between"
                       >
-                        <span className="text-sm truncate">
+                        <span className="text-md  font-quicksand truncate">
                           {formData.interest.length > 0 ? formData.interest.join(', ') : 'What are you looking for?'}
                         </span>
                         <svg className={`w-4 h-4 transition-transform flex-shrink-0 ${showDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

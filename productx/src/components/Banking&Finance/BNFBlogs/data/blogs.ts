@@ -1160,7 +1160,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "10 March 2026",
     readTime: "6 min read",
-    heroImage: "/Blog/KYCBlog.webp",
+    heroImage: "/Blog/regulatoryreporting.webp",
 
     intro: [
       "When it comes to managing money and risk, banks face constant pressure to follow strict rules like Basel III and local liquidity norms. These rules require precise and timely reporting, but the old way of manual reporting is both slow and prone to errors. In this blog post, we discuss the importance of moving from manual spreadsheets to automated systems. Automation allows banks to save time, minimize errors, and produce accurate reports effortlessly. It has become a necessity for effective liquidity and asset management to keep the functions running smoothly.   "
@@ -1297,7 +1297,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "10 March 2026",
     readTime: "6 min read",
-    heroImage: "/Blog/KYCBlog.webp",
+    heroImage: "/Blog/npatracking.webp",
 
     intro: [
       "Did you know that your bank or financial institution is actually required to track overdue loans with perfect accuracy? These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely on manual processes or semi-automated systems for tracking their defaults. This creates daily challenges for officers who spend hours on data entry instead of analysis. This blog post explores these common challenges and explains how adopting an automated NPA tracking solution provides tangible relief for your team.  "

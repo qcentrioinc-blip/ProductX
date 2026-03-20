@@ -77,8 +77,10 @@ const NewOneFooter = () => {
     { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
     { label: "IBS", url: "/industries/banking-and-finance/products/internet-banking-system" },
     { label: "KYC & CDD", url: "/industries/banking-and-finance/products/kyc" },
+    { label: "LOS", url: "/industries/banking-and-finance/products/loan-origination-system" },
     { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
+     { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
     { label: "Sherlock", url: "/industries/banking-and-finance/products/sherlock" },
     // { label: "Customer Onboarding Solution", url: "/industries/banking-and-finance/products/customer-onboarding-solutions" },
     // { label: "Loan Origination System", url: "/industries/banking-and-finance/products/loan-origination-system" },
@@ -97,6 +99,7 @@ const NewOneFooter = () => {
     // { label: "Contact", url: "/industries/banking-and-finance/contactform" },
     // { label: "Platform", url: "/platform" },
     { label: "Market Place", url: "/marketplace" },
+      { label: "Blogs", url: "/industries/banking-and-finance/blogs" },
     { label: "Glossary", url: "/industries/banking-and-finance/glossary" },
   ];
 
