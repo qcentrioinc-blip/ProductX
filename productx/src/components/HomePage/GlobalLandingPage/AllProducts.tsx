@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { H2, H3, P } from "../../../styles/Typography";
+import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 
 const products = [
   {
@@ -88,7 +89,9 @@ const products = [
 
 export default function AllProducts() {
   return (
-    <section className="max-w-7xl mx-auto xl:px-0 bg-white py-8 md:py-12 px-4 sm:px-6 lg:px-12">
+    <>
+    <BNFNav/>
+    <section className="max-w-7xl mx-auto xl:px-0 bg-white pt-24 py-8 md:py-12 px-4 sm:px-6 lg:px-12">
 
       {/* HEADER */}
       <div className="mb-8">
@@ -181,5 +184,6 @@ export default function AllProducts() {
         ))}
       </div>
     </section>
+    </>
   );
 }
