@@ -17,12 +17,12 @@ const industries = [
 // 7 cards — duplicates fill the arc so it always looks full
 const cards = [
   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/Banking.webp", industryIndex: 1 },
+  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
   { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/Banking.webp", industryIndex: 1 },
+  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
   { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
@@ -91,7 +91,7 @@ function getCardStyle(
       : [
         "transform 0.70s cubic-bezier(0.34,1.4,0.64,1)",
         "opacity 0.50s ease",
-        "filter 0.40s ease",
+        "filter 0.15s linear",
       ].join(", "),
     borderRadius: "1.25rem",
     overflow: "hidden",
@@ -134,7 +134,7 @@ export default function CircularCards() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDisplayTopIndex(topCardIndex);
-    }, 680);
+    }, 350);
     return () => clearTimeout(timer);
   }, [topCardIndex]);
 
@@ -307,8 +307,16 @@ export default function CircularCards() {
 
       const style = {
         ...baseStyle,
-        filter: isActive ? "grayscale(0%)" : "grayscale(100%)",
+       filter: "none"
       };
+      <div
+  className="absolute inset-0 transition-opacity duration-200"
+  style={{
+    background: "rgba(0,0,0,0.4)",
+    opacity: isActive ? 0 : 1,
+    willChange: "transform, opacity",
+  }}
+/>
       
       const step2 = (2 * Math.PI) / TOTAL;
       const angle2 = -Math.PI / 2 + index * step2 - (stepCount + dragOffset) * step2;
@@ -416,7 +424,7 @@ export default function CircularCards() {
     });
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden min-h-screen xl:min-h-[auto]">
       <FallingGridBg>
         <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 

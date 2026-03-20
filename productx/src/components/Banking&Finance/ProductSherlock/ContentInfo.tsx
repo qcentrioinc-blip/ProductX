@@ -109,7 +109,7 @@ export default function ContentInfo() {
                     />
                   </div>
 
-                  <H4>Lorum Ipsum</H4>
+                  <H4>Cost Efficiency</H4>
 
                   <P className="mt-3 text-white">
                     Lowers compliance operational costs by automating watch list checks, KYC verification, and regulatory reporting processes.

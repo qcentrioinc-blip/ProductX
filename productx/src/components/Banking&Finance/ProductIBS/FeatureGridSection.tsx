@@ -6,13 +6,13 @@ const cards = [
   {
     title: "Dashboard & Accounts",
     description:
-      "User-friendly dashboard displays savings, deposits, and borrowings with visual representations. The capability provides detailed transaction history, account statements, & real-time balance updates for all account types.",
+      "Dashboard with visual insights, transaction history, statements, and real-time balances across all accounts.",
     icon: "/ProductIBS/icon1.svg"
   },
   {
     title: "Payments & Fund Transfers",
     description:
-      "Send money between accounts, pay utility bills, and transfer funds domestically or internationally. Integration with Pago payment gateway ensures enhanced security and for all transactions.",
+      "Send money, pay bills, and transfer funds locally or globally with secure, real-time processing.",
     icon: "/ProductIBS/icon2.svg"
   },
 ];
