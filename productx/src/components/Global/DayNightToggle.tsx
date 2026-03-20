@@ -14,8 +14,8 @@ const DayNightToggle = () => {
       aria-label="Toggle day/night mode"
       style={{
          position: "fixed",            // ✅ IMPORTANT CHANGE
-        bottom: "20px",              // adjust like chatbot
-        left: "40px",
+        bottom: "100px",              // adjust like chatbot
+        right: "20px",
         zIndex: 9999,                 // ensure it's above everything
 
         width: 65,

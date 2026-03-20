@@ -263,7 +263,7 @@ const ImageContainer = () => {
         <div className="flex justify-center items-center py-8 md:py-12 min-h-[250px]">
           <div
             ref={wrapperRef}
-            className="relative w-[65%] xl:w-[60%] grid grid-cols-3   overflow-hidden md:will-change-transform transform-gpu shadow-[0_32px_80px_-20px_rgba(0,0,0,0.55)]"
+            className="relative w-[65%] xl:w-[60%] grid grid-cols-3 rounded-xl overflow-hidden md:will-change-transform transform-gpu shadow-[0_32px_80px_-20px_rgba(0,0,0,0.55)]"
           >
             {PANELS.map((panel) => (
               <PanelTile

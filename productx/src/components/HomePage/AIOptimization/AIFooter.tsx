@@ -139,7 +139,7 @@ const AIFooter = () => {
                 <li><a href={`${base}/features`} className="hover:underline">• Features</a></li>
                 <li><a href={`${base}/pricing`} className="hover:underline">• Pricing</a></li>
                 <li><a href={`${base}/resources/whyclouddiet/clouddiet`} className="hover:underline">• Resources</a></li>
-                <li><a href="/industries/cloud-finops-ai/privacy-policy" className="hover:underline">• Privacy Policy</a></li>
+                <li><a href="/industries/cloud-finops-ai/privacy-policy" className="hover:underline">• Policy</a></li>
               </ul>
             </div>
 
@@ -149,7 +149,7 @@ const AIFooter = () => {
               <ul className="space-y-2 text-[#F5F5F5]">
                 <li><a href={`${base}/built-for/enterprises`} className="hover:underline">• Enterprises</a></li>
                 <li><a href={`${base}/built-for/digital-native`} className="hover:underline">• Digital Natives</a></li>
-                <li><a href={`${base}/built-for/smb`} className="hover:underline">• Large Enterprises</a></li>
+                <li><a href={`${base}/built-for/smb`} className="hover:underline">• Large Firms </a></li>
               </ul>
             </div>
 

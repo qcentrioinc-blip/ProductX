@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 import BNFNav from "../Navbar/BNFnav"
 import HWD from "../HWD"
  
-import AboutFeaturesSection from "../ProductDetails(SAMS)/Feature"
+import AboutFeaturesSection from "../ProductDetailsSAMS/Feature"
 import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 // import FaqSection from "../ProductKYC/FAQ"

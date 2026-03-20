@@ -33,7 +33,7 @@ const ProductDetails_4_page = lazy(() => import('./components/Banking&Finance/Pr
 // const Cos_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(COS)/Cos_Page'));
 const AboutUs = lazy(() => import('./components/Banking&Finance/AboutUs/AboutUsPage'));
 const Marketing = lazy(() => import('./components/Global/Marketing/MarketPage'));
-const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetails(SAMS)/SAMS_Page'));
+const Sams_Page = lazy(() => import('./components/Banking&Finance/ProductDetailsSAMS/SAMS_Page'));
 const PDPage9 = lazy(() => import('./components/Banking&Finance/ProductIBS/PDPage9'));
 // const ProductsPage7 = lazy(() => import('./components/Banking&Finance/ProductsLoanOS/ProductsPage7'));
 const Platform = lazy(() => import('./components/Global/Platform/Platform'));
@@ -298,7 +298,10 @@ const App = () => {
         loader={() => import('./components/Global/Chatbot/ChatbotButton')}
         delay={2500}
       />
-      {isPagoPage && <DayNightToggle />}
+      
+         {isPagoPage && <DayNightToggle />}
+    
+     
       <FontLoader />
 
     </>
