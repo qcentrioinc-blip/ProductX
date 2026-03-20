@@ -1,5 +1,5 @@
 import { ContactUs } from "../../../styles/Button";
-import { H1 } from "../../../styles/Typography";
+import { H1, P } from "../../../styles/Typography";
 
 const column1Images = [
     "/Remitree/1.webp",
@@ -15,7 +15,7 @@ const column2Images = [
 
 const Overview = () => {
     return (
-        <div className="w-full h-auto bg-white relative font-sans" style={{ backgroundImage: "url('/Remitree/hero-transformed.webp')" }}>
+        <div className="w-full h-auto bg-white relative font-sans" style={{ backgroundImage: "url('/Remitree/hero-transformed.webp')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
             <section className="
                 relative
@@ -41,33 +41,25 @@ const Overview = () => {
                     ">
                         {/* Heading */}
                         <H1 className="
-                            font-['Space_Grotesk'] font-bold
-                            leading-[110%] tracking-[-0.5px] text-[#2B68C3]
+                            leading-[110%] tracking-[-0.5px] text-black
                             mb-4 sm:mb-6
-                            text-[28px]
-                            sm:text-[38px]
-                            md:text-[46px]
-                            lg:text-[40px]
-                            xl:text-[56px]
-                            2xl:text-[64px]
                         ">
                             Cross-Border Remittance<br />Middleware Solution
                         </H1>
 
                         {/* Description */}
-                        <p className="
-                            font-['Quicksand'] leading-[160%] text-black
+                        <P className="
+                            leading-[160%] text-black
                             mx-auto lg:mx-0
                             mb-6 sm:mb-8 lg:mb-10
-                            text-[13px]   max-w-full
-                            sm:text-[14px]
-                            md:text-[15px] md:max-w-lg
-                            lg:text-[14px] lg:max-w-[380px]
-                            xl:text-[16px] xl:max-w-[480px]
+                            max-w-full
+                            md:max-w-lg
+                            lg:max-w-[380px]
+                            xl:max-w-[480px]
                             2xl:max-w-[520px]
                         ">
                             Remitree bridges core banking systems with the Swift Alliance Gateway for seamless international payments. Automates message creation, validation, and transmission with built-in compliance screening.
-                        </p>
+                        </P>
 
                         {/* CTA Buttons */}
                         <div className="

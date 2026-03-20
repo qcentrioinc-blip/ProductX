@@ -1,3 +1,5 @@
+import { H1, H3, P } from "../../../styles/Typography";
+
 const BlueBox = () => {
     return (
         <div className="relative w-full overflow-hidden xl:w-8xl xl:mx-auto xl:flex xl:h-[730px]">
@@ -8,32 +10,28 @@ const BlueBox = () => {
                 sm:p-10 sm:pt-14 sm:pb-12
                 lg:p-16
                 xl:w-5xl xl:min-w-4xl xl:h-[730px]
-                xl:pt-[60px] xl:pb-[60px] xl:pl-[80px] xl:pr-[80px]
+                xl:pt-[60px] xl:pb-[60px] xl:pl-[120px] xl:pr-[80px]
             ">
 
                 {/* ─── TOP: Heading + Ghost Button ─── */}
                 <div>
                     {/* Heading — Bricolage Grotesque Bold (matches LandingSams h1) */}
-                    <h1 className="
-                        m-0 font-['Bricolage_Grotesque',sans-serif] font-bold
+                    <H1 className="
+                        m-0
                         text-white leading-none
-                        text-[36px]
-                        sm:text-[48px]
-                        lg:text-[56px]
-                        xl:text-[64px]
                     ">
                         Ready to Automate<br />Your NPA Management
-                    </h1>
+                    </H1>
 
                     {/* Ghost pill button */}
                     <button className="
-                        mt-6 lg:mt-4 xl:mt-8 lg:mb-4 xl:mb-0
+                        mt-6 lg:mt-4 xl:mt-8 mb-4 lg:mb-4 xl:mb-0
                         flex items-center justify-center
                         px-7 xl:px-8 h-10 xl:h-[40px]
                         rounded-full
                         border border-white bg-transparent
                         text-white
-                        font-['Schibsted_Grotesk',sans-serif] font-normal
+                        font-['Quicksand',sans-serif] font-normal
                         text-[14px] xl:text-[15px]
                         cursor-pointer
                     "
@@ -52,21 +50,18 @@ const BlueBox = () => {
 
                     {/* Column 1 */}
                     <div className="flex-1 sm:pr-8 xl:pr-10">
-                        <h3 className="
-                            m-0 font-['Bricolage_Grotesque',sans-serif] font-bold
+                        <H3 className="
+                            m-0
                             text-white leading-none
-                            text-[20px] sm:text-[24px] xl:text-[28px]
                         ">
                             See Demo
-                        </h3>
-                        <p className="
+                        </H3>
+                        <P className="
                             mt-3 xl:mt-4
-                            font-['Schibsted_Grotesk',sans-serif] font-normal
-                            text-white leading-[1.5]
-                            text-[13px] sm:text-[14px] xl:text-[16px]
+                            text-white leading-[150%]
                         ">
                             Schedule a personalized walkthrough to see how SAMS automates NPA tracking and provisioning for your bank.
-                        </p>
+                        </P>
 
                         {/* White solid pill button */}
                         <button className="
@@ -76,7 +71,7 @@ const BlueBox = () => {
                             rounded-full
                             bg-white border-none
                             text-[#131313]
-                            font-['Schibsted_Grotesk',sans-serif] font-semibold
+                            font-['Quicksand',sans-serif] font-semibold
                             text-[14px] xl:text-[15px]
                             cursor-pointer
                         " onClick={(e) => {
@@ -92,21 +87,18 @@ const BlueBox = () => {
 
                     {/* Column 2 */}
                     <div className="flex-1 sm:pl-8 xl:pl-10">
-                        <h3 className="
-                            m-0 font-['Bricolage_Grotesque',sans-serif] font-bold
+                        <H3 className="
+                            m-0
                             text-white leading-none
-                            text-[20px] sm:text-[24px] xl:text-[28px]
                         ">
                             Contact Us
-                        </h3>
-                        <p className="
+                        </H3>
+                        <P className="
                             mt-3 xl:mt-4
-                            font-['Schibsted_Grotesk',sans-serif] font-normal
-                            text-white leading-[1.5]
-                            text-[13px] sm:text-[14px] xl:text-[16px]
+                            text-white leading-[150%]
                         ">
                             Speak with our product experts to discuss your stressed asset management requirements and compliance needs.
-                        </p>
+                        </P>
                     </div>
 
                 </div>
