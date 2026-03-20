@@ -38,14 +38,14 @@ const Description = () => {
       <div className="max-w-7xl mx-auto  px-6 lg:px-10   xl:py-0  xl:px-0">
 
         {/* Top Heading */}
-        <div className="md:py-16 md:3xl lg:w-[95%] xl:w-4xl w-full pb-8">
+        <div className="pb-4 md:pt-10 md:pb-6  md:3xl lg:w-[95%] xl:w-4xl w-full ">
           <H2 className="text-left">
            Key Features of ALMANAC for Financial Institutions 
           </H2>
         </div>
 
         {/* Mobile pill buttons - top */}
-        <div className="xl:hidden mb-8">
+        <div className="xl:hidden mb-2">
           <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
              {tabs.map((label, index) => (
               <button
@@ -62,7 +62,22 @@ const Description = () => {
             ))}
           </div>
         </div>
-
+ {/* Bottom Pill Buttons - Desktop */}
+        <div className="hidden xl:flex md:flex-wrap md:justify-between my-4">
+          {tabs.map((label,index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`px-4 py-3 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
+                ${activeIndex === index
+                  ? "bg-(--primary-color) text-white"
+                  : "border border-[#2B68C3] text-black"
+                }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
         {/* Image + Overlay Content */}
         <div className="relative w-full rounded-2xl overflow-hidden ">
           {/* Background Image */}
@@ -138,28 +153,13 @@ const Description = () => {
             <H3 className="text-(--primary-color)">
              Comprehensive Toolkit for Asset Liability Management
             </H3>
-            <P className="text-black">
-            ALMANAC integrates liquidity forecasting, interest rate risk analysis, and regulatory compliance. The platform provides tools for dynamic liquidity statements, stress testing, gap analysis, and government securities management. Predictive analytics enable proactive capital planning and informed strategic decisions. 
-            </P>
+             <P className="text-black">
+  {textData[activeIndex]}
+</P>
           </div>
         </div>
 
-        {/* Bottom Pill Buttons - Desktop */}
-        <div className="hidden xl:flex md:flex-wrap md:justify-between mt-8">
-          {tabs.map((label,index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`px-4 py-4 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
-                ${activeIndex === index
-                  ? "bg-(--primary-color) text-black"
-                  : "border border-[#2B68C3] text-black"
-                }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
+       
 
       </div>
     </div>

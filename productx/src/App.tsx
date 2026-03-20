@@ -1,5 +1,5 @@
 
-import { Link, Route, Routes, useParams } from 'react-router-dom'
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { lazy, Suspense } from 'react';
@@ -23,6 +23,7 @@ import ProductsPage2 from './components/Banking&Finance/ProductRemitree/Products
 import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7';
 import AllProducts from './components/HomePage/GlobalLandingPage/AllProducts';
+import DayNightToggle from './components/Global/DayNightToggle';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -93,8 +94,9 @@ const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then
 
 
 const App = () => {
-  // const location = useLocation();
+  const location = useLocation();
   // const showNavbar = location.pathname === '/';
+  const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
   const IndustryPage = () => {
     const { industry } = useParams();
     if (industry === "banking-and-finance") return <BankingAndFinance />;
@@ -174,7 +176,7 @@ const App = () => {
       <div data-scroll-container>
 
         {/* {showNavbar && <Navbar />} */}
-        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">...Loading</div>}>
+        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">...Loading </div>}>
           <Routes>
             <Route path="/industries/cloud-finops-ai" element={<AIOptimization />} />
             <Route path="/industries/cloud-finops-ai/about-us" element={<AboutAI />} />
@@ -296,6 +298,7 @@ const App = () => {
         loader={() => import('./components/Global/Chatbot/ChatbotButton')}
         delay={2500}
       />
+      {isPagoPage && <DayNightToggle />}
       <FontLoader />
 
     </>

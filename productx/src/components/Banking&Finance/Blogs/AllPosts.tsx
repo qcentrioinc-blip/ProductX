@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
-import { P, H2 } from "../../../styles/Typography";
+import { P, H2, H4 } from "../../../styles/Typography";
 import { Link } from "react-router-dom";
 
 const categories = [
@@ -9,6 +9,7 @@ const categories = [
   "AML",
   "Banking",
   "Pago",
+  "Sams",
 ];
 
 const posts = [
@@ -73,6 +74,15 @@ const posts = [
     description: "When it comes to managing money and risk, banks face constant pressure to follow strict rules like Basel III and ...",
     date: "8 March 2026",
     category: "AML",
+    image: "/Blog/RealTime.webp",
+  },
+  {
+    id: 8,
+     slug: "common-challenges-in-manual-np-tracking",
+    title: "Common Challenges In Manual NPA Tracking & How Automation Can Solve Them ",
+    description: "These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely  ...",
+    date: "8 March 2026",
+    category: "Sams",
     image: "/Blog/RealTime.webp",
   },
 ];
@@ -226,7 +236,7 @@ export default function BlogGridSection() {
                   <span className="text-xs font-semibold text-[#1A4ABE] uppercase tracking-wide">
                     {post.category}
                   </span>
-                  <P className="font-semibold text-gray-900 leading-snug">{post.title}</P>
+                  <H4 className="font-semibold text-gray-900 leading-snug">{post.title}</H4>
                   <P className="text-[#141414] text-sm leading-snug">{post.description}</P>
                   <div className="pt-2 text-gray-400 text-sm">
                     📅 {post.date}

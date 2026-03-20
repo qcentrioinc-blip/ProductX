@@ -13,12 +13,16 @@ const DayNightToggle = () => {
       onClick={toggleTheme}
       aria-label="Toggle day/night mode"
       style={{
-        position: "relative",
-        width: 52,
-        height: 28,
-        borderRadius: 14,
-        background: isDark ? "#1e293b" : "#e2e8f0",
-        border: `0.5px solid ${isDark ? "#334155" : "#cbd5e1"}`,
+         position: "fixed",            // ✅ IMPORTANT CHANGE
+        bottom: "20px",              // adjust like chatbot
+        left: "40px",
+        zIndex: 9999,                 // ensure it's above everything
+
+        width: 65,
+        height: 35,
+        borderRadius: 20,
+        background: isDark ? "#1e293b" : "#efefef",
+        border: `0.5px solid ${isDark ? "#334155" : "#141414"}`,
         cursor: "pointer",
         transition: "background 0.3s, border-color 0.3s",
         outline: "none",
@@ -28,13 +32,13 @@ const DayNightToggle = () => {
       <span
         style={{
           position: "absolute",
-          top: 3,
-          left: isDark ? 27 : 3,
-          width: 22,
-          height: 22,
+          top: 5,
+          left: isDark ? 30 : 3,
+          width: 24,
+          height: 24,
           borderRadius: "50%",
           background: isDark ? "#1e293b" : "#ffffff",
-          border: `0.5px solid ${isDark ? "#475569" : "#cbd5e1"}`,
+          border: `0.5px solid ${isDark ? "#475569" : "#141414"}`,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

@@ -21,7 +21,7 @@ const para=[
 
 const Banks = () => {
   return (
-    <div className="relative max-w-7xl mx-auto min-h-screen pt-20 pb-20 px-6 sm:px-12 md:px-16 lg:px-10 xl:px-0">
+    <div className="relative max-w-7xl mx-auto min-h-screen  py-10 xl:py-16 px-6 sm:px-12 md:px-16 lg:px-10 xl:px-0">
       <div className="relative z-10">
         <H2 className="font-semibold ">
                   Key Benefits of Implementing <br/> ALMANAC Platform
