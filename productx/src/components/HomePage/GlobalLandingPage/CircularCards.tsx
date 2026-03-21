@@ -429,7 +429,7 @@ export default function CircularCards() {
         <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 
           <div className="mt-16 text-center px-4">
-            <H1 className="text-black">Shaping The Future Across Every Sector</H1>
+            <H1 className="text-white">Shaping The Future Across Every Sector</H1>
           </div>
 
           {/* ── 5 Tabs ── */}

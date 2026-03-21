@@ -5,7 +5,7 @@
 
 export default function FallingGridBg({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="relative  h-full   " style={{ background: "#efefef" }}>
+    <div className="relative  h-full   " style={{ background: "#141414" }}>
 
       {/* ── Waterfall grid layer ── */}
       <div
@@ -27,8 +27,8 @@ export default function FallingGridBg({ children }: { children?: React.ReactNode
             height: "400%",        // 4× viewport height → seamless loop
 
             backgroundImage: `
-              linear-gradient(to right,  rgba(0,0,0,0.055) 2px, transparent 2px),
-              linear-gradient(to bottom, rgba(0,0,0,0.055) 2px, transparent 2px)
+         linear-gradient(to right,  rgba(255,255,255,0.08) 2px, transparent 2px),
+  linear-gradient(to bottom, rgba(255,255,255,0.08) 2px, transparent 2px)
             `,
             backgroundSize: "40px 40px",   /* ← square size — tweak here */
 
