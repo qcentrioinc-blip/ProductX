@@ -75,9 +75,9 @@ const NewOneFooter = () => {
     { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
     { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
     { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
-    { label: "IBS", url: "/industries/banking-and-finance/products/internet-banking-system" },
+    { label: "Internet Banking", url: "/industries/banking-and-finance/products/internet-banking-system" },
     { label: "KYC & CDD", url: "/industries/banking-and-finance/products/kyc" },
-    { label: "LOS", url: "/industries/banking-and-finance/products/loan-origination-system" },
+    { label: "Loan Origination", url: "/industries/banking-and-finance/products/loan-origination-system" },
     { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
      { label: "Sams", url: "/industries/banking-and-finance/products/sams" },
@@ -108,7 +108,7 @@ const NewOneFooter = () => {
 
     { label: "Banks", url: "/industries/banking-and-finance/built-for/banks" },
       { label: "Credit Unions", url: "/industries/banking-and-finance/built-for/credit-union" },
-        { label: "Financials", url: "/industries/banking-and-finance/built-for/financial-unions" },
+        { label: "Financial Institutions", url: "/industries/banking-and-finance/built-for/financial-unions" },
   ];
 
 
@@ -127,8 +127,8 @@ const NewOneFooter = () => {
           <div className="max-w-7xl mx-auto px-6 sm:px-10  xl:px-0">
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 
-              {/* Left Section - Newsletter (7 columns) */}
-              <div className="lg:col-span-7 flex flex-col xl:border-r xl:border-black xl:pr-10">
+              {/* Left Section - 40% */}
+<div className="lg:col-span-5 flex flex-col xl:border-r xl:border-black xl:pr-10">
 
                 {/* LOGO */}
                 <div className="">
@@ -169,7 +169,7 @@ const NewOneFooter = () => {
     className={`
       group flex items-end justify-center
       w-auto h-[44px] sm:h-[48px] mt-2 xl:mt-0
-      px-[20px] sm:px-[44px] py-[10px] sm:py-[12px]
+      px-[20px] sm:px-[44px] py-[10px] sm:py-[16px]
       rounded-[8px] font-quicksand font-bold text-[14px]
       transition-all duration-300 ease-in-out dark:border-white
       border border-transparent
@@ -192,87 +192,140 @@ const NewOneFooter = () => {
 
               {/* Vertical Divider - Moved to border-r on left column */}
 
-              {/* Right Section - Products + Quick Links */}
-              <div className="lg:col-span-5  grid grid-cols-1 sm:grid-cols-3 lg:gap-x-8 xl:gap-x-6 pl-2 lg:pl-6 gap-y-8 lg:py-10">
+              {/* Right Section - 60% */}
+<div className="lg:col-span-7 pl-2 lg:pl-6">
 
-                {/* Products */}
-                <div>
-                  <H4>Products</H4>
-                  <ul className="space-y-1 mt-2 font-quicksand">
-                    {products.map((item) => (
-                      <li key={item.label}>
-                        <a
-                          href={item.url}
-                          className="text-black dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
-                        >
-                          • {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+  {/* ================= MOBILE LAYOUT ================= */}
+  <div className="grid grid-cols-2 gap-6 lg:hidden">
 
-                {/* Quick Links */}
-                <div>
-                  <H4>Quick Links</H4>
-                  <ul className="space-y-1 mt-2 font-quicksand">
-                    {quickLinks.map((item) => (
-                      <li key={item.label}>
-                        <a
-                          href={item.url}
-                          className="text-black  dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
-                        >
-                          • {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div> 
-                  <H4>Built For</H4>
-                  <ul className="space-y-1 mt-2 font-quicksand">
-                    {BuiltFor.map((item) => (
-                      <li key={item.label}>
-                        <a
-                          href={item.url}
-                          className="text-black dark:text-white text-[14px] lg:text-[18px] leading-[1.6] hover:text-gray-600 cursor-pointer   transition-colors"
-                        >
-                          • {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    {/* LEFT - PRODUCTS */}
+    <div>
+      <H4>Products</H4>
+      <ul className="space-y-1 mt-2 font-quicksand">
+        {products.map((item) => (
+          <li key={item.label}>
+            <a href={item.url} className="text-black dark:text-white text-[14px]">
+              • {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-                <div className="flex  flex-col-reverse lg:flex-col font-quicksand items-start  lg:space-y-10 gap-8">
+    {/* RIGHT SIDE */}
+    <div className="flex flex-col gap-6">
 
-                  {/* Socials */}
-                  {/* <div className="flex lg:-ml-4 items-start gap-7">
-                    <a href="#" className="hover:opacity-60 transition-opacity">
-                      <FaXTwitter className="w-[24px] h-[24px] text-black" />
-                    </a>
-                    <a href="#" className="hover:opacity-60 transition-opacity">
-                      <FaInstagram className="w-[24px] h-[24px] text-black" />
-                    </a>
-                    <a href="#" className="hover:opacity-60 transition-opacity">
-                      <FaLinkedinIn className="w-[24px] h-[24px] text-black" />
-                    </a>
-                  </div> */}
+      {/* Quick Links */}
+      <div>
+        <H4>Quick Links</H4>
+        <ul className="space-y-1 mt-2 font-quicksand">
+          {quickLinks.map((item) => (
+            <li key={item.label}>
+              <a href={item.url} className="text-black dark:text-white text-[14px]">
+                • {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-                  <div className="flex-col md:flex-row md:gap-x-4 flex lg:-ml-6  items-start lg:items-center mt-4 mb-10 lg:gap-8">
-                    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
-                      Terms and Conditions
-                    </a>
-                    <a href="/industries/banking-and-finance/cookies-policies" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
-                      Cookies Policy
-                    </a>
-                    <a href="/industries/banking-and-finance/policy" className="text-black dark:text-white text-[14px] lg:text-[18px] font-quicksand whitespace-nowrap">
-                      Privacy Policy
-                    </a>
+      {/* Built For */}
+      <div>
+        <H4>Built For</H4>
+        <ul className="space-y-1 mt-2 font-quicksand">
+          {BuiltFor.map((item) => (
+            <li key={item.label}>
+              <a href={item.url} className="text-black dark:text-white text-[14px]">
+                • {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-                  </div>
-                </div>
-              </div>
+    </div>
+
+  </div>
+
+  {/* ✅ MOBILE POLICIES */}
+  <div className="lg:hidden flex flex-col gap-2 pt-4 border-t my-6">
+    <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black dark:text-white text-[14px]">
+      Terms and Conditions
+    </a>
+    <a href="/industries/banking-and-finance/cookies-policies" className="text-black dark:text-white text-[14px]">
+      Cookies Policy
+    </a>
+    <a href="/industries/banking-and-finance/policy" className="text-black dark:text-white text-[14px]">
+      Privacy Policy
+    </a>
+  </div>
+
+  {/* ================= DESKTOP (UNCHANGED) ================= */}
+  <div className="hidden lg:grid lg:grid-cols-3 lg:gap-x-8 xl:gap-x-6 gap-y-8 mb-10">
+
+  {/* PRODUCTS */}
+  <div>
+    <H4>Products</H4>
+    <ul className="space-y-1 mt-2 font-quicksand overflow-visible">
+      {products.map((item) => (
+        <li key={item.label}>
+          <a href={item.url} className="text-black dark:text-white text-[18px]">
+            • {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* RIGHT SIDE WRAPPER (Quick Links + Built For + Policies) */}
+  <div className="col-span-2 grid grid-cols-2 gap-x-8">
+
+    {/* Quick Links */}
+    <div>
+      <H4>Quick Links</H4>
+      <ul className="space-y-1 mt-2 font-quicksand">
+        {quickLinks.map((item) => (
+          <li key={item.label}>
+            <a href={item.url} className="text-black dark:text-white text-[18px]">
+              • {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Built For */}
+    <div>
+      <H4>Built For</H4>
+      <ul className="space-y-1 mt-2 font-quicksand">
+        {BuiltFor.map((item) => (
+          <li key={item.label}>
+            <a href={item.url} className="text-black dark:text-white text-[18px]">
+              • {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* ✅ POLICIES BELOW BOTH */}
+    <div className="col-span-2 mt-46 flex gap-x-6 flex-wrap">
+      <a href="/industries/banking-and-finance/terms-and-conditions" className="text-black dark:text-white text-[18px]">
+        Terms and Conditions
+      </a>
+      <a href="/industries/banking-and-finance/cookies-policies" className="text-black dark:text-white text-[18px]">
+        Cookies Policy
+      </a>
+      <a href="/industries/banking-and-finance/policy" className="text-black dark:text-white text-[18px]">
+        Privacy Policy
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
             </div>
 
 
