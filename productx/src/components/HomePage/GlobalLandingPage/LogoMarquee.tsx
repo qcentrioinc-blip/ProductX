@@ -60,12 +60,10 @@ export default function LogoMarquee() {
         } else {
           posX.current -= PX_PER_FRAME;
         }
- 
        if (halfW.current > 0) {
   if (posX.current <= -halfW.current) posX.current += halfW.current;
   if (posX.current >= 0) posX.current -= halfW.current;
 }
- 
         trackRef.current.style.transform = `translate3d(${posX.current}px,0,0)`;
         rafId.current = requestAnimationFrame(step);
       }
@@ -157,7 +155,6 @@ export default function LogoMarquee() {
         dragVel.current = dragVel.current * 0.6 + dx * 0.4;
         lastDragX.current = tx;
         posX.current += dx;
- 
       if (halfW.current > 0) {
   if (posX.current <= -halfW.current) posX.current += halfW.current;
   if (posX.current >= 0) posX.current -= halfW.current;

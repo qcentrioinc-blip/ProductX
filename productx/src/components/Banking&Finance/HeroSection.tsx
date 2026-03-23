@@ -84,6 +84,7 @@ const HeroSection = () => {
         muted
         loop
         playsInline
+  webkit-playsinline="true"
         preload="auto"
         controls={false}
       >

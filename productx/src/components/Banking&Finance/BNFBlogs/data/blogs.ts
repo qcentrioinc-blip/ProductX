@@ -438,7 +438,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "13 Feb 2026",
     readTime: "6 min read",
-    heroImage: '/Blog/CoreBankingBlog.webp',
+    heroImage: '/Blog/CoreBanking.webp',
 
     intro: [
       "If your financial institution is still working on old, outdated systems and functions, there is a high chance that you are falling behind your competitors. Banking technology has changed significantly over the past decade, and customer expectations have changed with it. Institutions that rely on legacy core banking systems face slower processing, higher costs, and limited ability to offer modern digital services. In this blog post, we will break down what a core banking system is, how it works, and the clear signs that tell you it is time to upgrade.  "
@@ -635,7 +635,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "5 Feb 2026",
     readTime: "6 min read",
-    heroImage: '/Blog/CoreBankingBlog.webp',
+    heroImage: '/Blog/PaymenetProcess.webp',
 
     intro: [
       "Most of the financial institutions face challenges from high transaction fees charged by traditional card networks. These costs directly impact the bottom line and make it harder to offer competitive services to customers. The good news is that modern payment methods can help lower these expenses significantly. In this blog post, we will explore practical ways to reduce payment processing costs using options like ACH and electronic cash systems that cost a fraction of what card networks charge.  "
@@ -839,7 +839,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "3 Feb 2026",
     readTime: "6 min read",
-    heroImage: "/Blog/KYCBlog.webp",
+    heroImage: "/Blog/RiskManagemenrt.webp",
 
     intro: [
       "If there is one top concern for community bankers in 2026, it is interest rate risk. Even small shifts in rates can directly impact a bank’s earnings and stability. This makes asset liability management a critical discipline for protecting your balance sheet. However, many smaller institutions lack the resources of larger banks. In this blog post, we break down the basics of interest rate risk in the banking book. We also explain how practical tools like gap analysis and an NII calculator can help you understand and manage your exposure effectively.   "
@@ -1012,7 +1012,7 @@ keyTakeaways: [
     author: "Dr. John Carter",
     date: "6 March 2026",
     readTime: "6 min read",
-    heroImage: "/Blog/KYCBlog.webp",
+    heroImage: "/Blog/RealTime.webp",
 
     intro: [
       "Dealing with fraud and financial crime is one of the biggest challenges banks face today. The global payment fraud losses are expected to exceed $40 billion by 2027, and yet many banks still rely on outdated systems that catch problems only after the damage is done. As payment volumes grow and transaction speeds increase, the gaps in traditional monitoring become harder to ignore. In this blog post, we outline five actionable strategies banks can implement to improve real-time payment monitoring and fraud prevention, before any suspicious actions are missed.   "

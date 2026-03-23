@@ -54,13 +54,13 @@ const DATA = [
   },
   {
     id: 3,
-    title: "Billing & Insurance ",
+    title: " Turn Claims into Revenue, Faster ",
     description: "Streamline your entire revenue cycle with integrated billing tools. Submit clean claims, track payments in real time, and reduce denials for a healthier bottom line.",
     items: [
       {
-        title: "Turn Claims into Revenue, Faster",
+        title: "Integrated Revenue Cycle Management",
         content:
-          "Streamline your entire revenue cycle with integrated billing tools. Submit clean claims, track payments in real time, and reduce denials for a healthier bottom line.",
+          " Automate coding, claims submission, and payment posting from a single platform, ensuring a seamless financial workflow from patient visit to final reimbursement.",
         image: "/EHR-PMS/Image3.webp",
       },
       {
@@ -104,7 +104,7 @@ const DATA = [
   },
   {
     id: 5,
-    title: "Reports & Analytics ",
+    title: "Make Confident, Data Driven Decisions  ",
     description: "Gain clear insights into your practice’s clinical and financial performance with unified dashboards and customizable reports for smarter planning.",
     items: [
       {

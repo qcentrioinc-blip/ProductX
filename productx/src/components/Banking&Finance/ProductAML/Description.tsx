@@ -1,6 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { useScroll } from "framer-motion";
-import { H2, H3, P } from "../../../styles/Typography";
+import { useEffect, useRef, useState } from "react";
+import { H2, H3, H4, P } from "../../../styles/Typography";
 
 const images = [
   "/AML/Almanac1.webp",
@@ -9,142 +8,123 @@ const images = [
   "/AML/Almanac8.webp",
   "/AML/Almanac7.webp",
 ];
+
 const tabs = [
-  "Compliance ",
-
-  "Report generation ",
-
-  "Stress testing  ",
-
+  "Compliance",
+  "Report generation",
+  "Stress testing",
   "Rate analysis",
+  "G-Sec tools",
+];
 
-  "G-Sec tools  "
-]
+const contentData = [
+  {
+    title: "Multi-Currency Compliance for Global Operations",
+    description:
+      "The platform is fully multi-currency compliant, enabling banks to manage assets and liabilities across different currencies. All liquidity and interest rate tools work seamlessly with multiple currencies for global banking operations.",
+      head:" Fully Multi-Currency Compliant Platform",
+    para: "ALMANAC supports global banking operations with seamless multi-currency transaction handling, reporting, and analysis capabilities",
+    para2:"Handles transactions, reporting, and analysis across different currencies seamlessly"
+  },
+  {
+    title: " Comprehensive Regulatory Reporting for Compliance Requirements ",
+    description:
+      " ALMANAC generates complete reports for regulatory authorities including Statement of Structural Liquidity, Statement of Short-term Dynamic Liquidity, and Statement of Interest Rate Sensitivity with Traditional Gap and Modified Duration Gap analysis. ",
+       head:" Automated Regulatory Report Generation",
+    para: "Generates liquidity statements, interest rate sensitivity reports, and Basel-compliant submissions required by regulatory authorities.",
+    para2:"Generates reports required by regulatory authorities including liquidity statements"
+  },
+  {
+    title: "Stress Testing for Liquidity Risk Management",
+    description:
+      " ALMANAC performs stress tests to simulate impact on liquidity during credit defaults, large withdrawals, and market disruptions. Assesses liquidity coverage ratio and available funding ratio to ensure banks maintain adequate liquidity under stress scenarios.",
+     head:"  Comprehensive Liquidity Stress Testing",
+    para: "Simulates impact of large withdrawals, credit defaults, and assesses liquidity coverage ratio and available funding ratio.",
+    para2:"Simulates impact of large withdrawals and credit defaults under stress conditions"
+  },
+  {
+    title: "Statement of Interest Rate Sensitivity with Gap Analysis",
+    description:
+      "Classifies interest sensitive assets and liabilities into user-defined time buckets based on maturities. Points out mismatches to help ALCO measure gaps, set limits, and decide strategy for deposit acceptance, lending periods, and investments. ",
+    head:" Interest Rate Risk Analysis Tools",
+    para: " Measures interest rate sensitivity with traditional gap and modified duration gap methods for balance sheet impacts. ",
+    para2:"Includes traditional gap analysis and modified duration calculations "
+  },
+  {
+    title: "Bonds Register with Duration and VaR Analysis ",
+    description:
+      "ALMANAC maintains fixed income bonds portfolio and provides upload of market data for analysis. Performs duration analysis, value at risk calculations, and adjusted income calculations. Simulates portfolio rearrangements under varying interest rate scenarios.",
+     head:" Government Securities Portfolio Managemen",
+    para: "Manages fixed income bonds portfolio with bond register, duration analysis, and value at risk calculations.",
+    para2:" Manages government securities portfolios with bond registers and duration analysis "
+  },
+];
 
 const Description = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const navScrollRef = useRef<HTMLDivElement>(null);
-  const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const { scrollYProgress } = useScroll({
-      target: containerRef,
-      offset: ["start start", "end end"],
-  });
+  const tabsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-      return scrollYProgress.onChange((latest) => {
-          const numItems = tabs.length;
-          const index = Math.min(Math.floor(latest * numItems), numItems - 1);
-          setActiveIndex(index);
-      });
-  }, [scrollYProgress]);
+    const handleScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
 
-  useEffect(() => {
-      const container = navScrollRef.current;
-      const activeBtn = navBtnRefs.current[activeIndex];
-      if (!container || !activeBtn) return;
+      const rect = el.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      const total = el.offsetHeight - viewportH;
+      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      const newIndex = Math.floor(progress * contentData.length);
 
-      const containerLeft = container.getBoundingClientRect().left;
-      const containerWidth = container.getBoundingClientRect().width;
-      const activeLeft = activeBtn.getBoundingClientRect().left;
-      const activeWidth = activeBtn.getBoundingClientRect().width;
+      if (newIndex !== activeIndex && newIndex < contentData.length) {
+        setActiveIndex(newIndex);
+      }
+    };
 
-      const activeCenterRelative = activeLeft - containerLeft + activeWidth / 2;
-      const containerCenter = containerWidth / 2;
-      const scrollAdjustment = activeCenterRelative - containerCenter;
-
-      container.scrollBy({ left: scrollAdjustment, behavior: "smooth" });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [activeIndex]);
 
-  const handleNavClick = (index: number) => {
-      if (!containerRef.current) return;
-      const container = containerRef.current;
-      const containerTop = container.offsetTop;
-      const scrollableDistance = container.offsetHeight - window.innerHeight;
+  useEffect(() => {
+    const container = tabsRef.current;
+    if (!container) return;
 
-      // adding a tiny offset to ensure it snaps to the exact right panel
-      const targetScroll = containerTop + (index / tabs.length) * scrollableDistance + 10;
-      window.scrollTo({ top: targetScroll, behavior: "smooth" });
-  };
+    const activeTab = container.children[activeIndex] as HTMLElement;
+    if (!activeTab) return;
 
-  const contentData = [
-    {
-      title: "Compliant with multiple currencies for global operations ",
-      description:
-        "System fully compliant with multiple currencies for global banking operations. Handles transactions, reporting, and analysis across different currencies seamlessly.",
-      stats: [
-        { value: "3", label: "Currencies supported" },
-        { value: "2", label: "Additional Currencies" },
-        { value: "15%", label: "Faster Multi-Currency" },
-      ],
-    },
-    {
-      title: "Automated reporting for regulatory and compliance requirements ",
-      description:
-        "Generates reports required by regulatory authorities including liquidity statements, interest rate sensitivity analysis, and Basel-compliant submissions.",
-      stats: [
-        { value: "2", label: "Regulatory Report" },
-        { value: "4", label: "Report Formats" },
-        { value: "20%", label: "Time saved on report creation" },
-      ],
-    },
-    {
-      title: "Simulation of large withdrawals and credit defaults ",
-      description:
-        "Simulates impact of large withdrawals and credit defaults. Assesses liquidity coverage ratio and available funding ratio under various stress conditions.",
-      stats: [
-        { value: "2", label: "Stress scenarios pre-configured" },
-        { value: "3", label: "Risk Monitored" },
-        { value: "25%", label: "Faster liquidity assessment" },
-      ],
-    },
-    {
-      title: "Measurement of interest rate sensitivity and net income ",
-      description:
-        "Measures interest rate sensitivity and calculates net interest income. Includes traditional gap analysis and modified duration calculations for balance sheet impacts.",
-      stats: [
-        { value: "2", label: "Rate sensitivity " },
-        { value: "3", label: "Interest rate configured" },
-        { value: "15%", label: "Improves analysis accuracy" },
-      ],
-    },
-    {
-      title: "Management of government securities portfolios and risks ",
-      description:
-        "Manages government securities portfolios with bond registers, duration analysis, and value at risk calculations. Simulates portfolio impacts under varying rates.",
-      stats: [
-        { value: "2", label: "Government security supported" },
-        { value: "3", label: "Portfolio metrics calculated" },
-        { value: "10%", label: "Faster valuation" },
-      ],
-    },
-  ];
+    activeTab.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [activeIndex]);
 
   return (
-    <div ref={containerRef} className="w-full bg-[#ffffff] h-[200vh]">
-      <div className="sticky top-24 w-full">
-        <div className="max-w-7xl mx-auto  px-6 lg:px-10   xl:py-0  xl:px-0">
-
-        {/* Top Heading */}
-        <div className="pb-4 md:pt-10 md:pb-6  md:3xl lg:w-[95%] xl:w-4xl w-full ">
+    <div ref={containerRef} className="w-full bg-[#ffffff] h-full">
+      <div className="relative h-[150vh] md:h-[200vh] xl:h-[300vh]">
+        {/* Heading */}
+        <div className="pb-4 md:pt-10 md:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:py-6 xl:px-0 md:3xl lg:w-[95%]">
           <H2 className="text-left">
             Key Features of ALMANAC for Financial Institutions
           </H2>
         </div>
 
-        {/* Mobile pill buttons - top */}
-        <div className="xl:hidden mb-2">
-          <div ref={navScrollRef} className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth">
+        {/* Mobile sticky pill bar */}
+        <div className="xl:hidden sticky top-0 z-20 bg-white border-b border-neutral-100 py-3 px-4 sm:px-6">
+          <div
+            ref={tabsRef}
+            className="flex gap-2 overflow-x-auto scrollbar-hide"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             {tabs.map((label, index) => (
               <button
                 key={index}
-                ref={(el) => { navBtnRefs.current[index] = el; }}
-                onClick={() => handleNavClick(index)}
-                className={`snap-center shrink-0 lg:w-[20vw] md:w-[28vw] w-[48vw] md:py-4 py-2 px-2 rounded-full text-lg font-semibold
-                  ${activeIndex === index
-                    ? "bg-(--primary-color) text-black"
-                    : "border-2 border-neutral-700 text-black bg-white"
+                onClick={() => setActiveIndex(index)}
+                className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200
+                  ${
+                    activeIndex === index
+                      ? "bg-[#2B68C3] text-white"
+                      : "border border-neutral-400 bg-white text-neutral-700"
                   }`}
               >
                 {label}
@@ -152,99 +132,101 @@ const Description = () => {
             ))}
           </div>
         </div>
-        {/* Bottom Pill Buttons - Desktop */}
-        <div className="hidden xl:flex md:flex-wrap md:justify-between my-4">
-          {tabs.map((label, index) => (
-            <button
-              key={index}
-              onClick={() => handleNavClick(index)}
-              className={`px-4 py-3 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
-                ${activeIndex === index
-                  ? "bg-(--primary-color) text-white"
-                  : "border border-[#2B68C3] text-black"
-                }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        {/* Image + Overlay Content */}
-        <div className="relative w-full rounded-2xl overflow-hidden ">
-          {/* Background Image */}
-          <img
-            src={images[activeIndex]}
-            alt="Description"
-            className="w-3xl h-[250px] md:h-[450px] lg:h-[450px] xl:h-[475px] object-fit  rounded-2xl"
-          />
 
-          {/* Right Overlay Box - Desktop only */}
-          <div className="hidden lg:flex flex-col absolute lg:top-8 lg:right-8 xl:top-20 xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] ">
+        {/* Mobile sticky content */}
+        <div className="xl:hidden sticky top-[57px] z-10 bg-white px-4 sm:px-6 pt-4 pb-6 space-y-5">
+          {/* Image */}
+          <div className="relative w-full rounded-2xl overflow-hidden">
+            <img
+              src={images[activeIndex]}
+              alt="Description"
+              className="w-full h-[220px] sm:h-[300px] object-cover rounded-2xl"
+            />
+          </div>
+
+          {/* Para */}
+         
+                  <div className=" flex flex-col space-y-6">
+            <H4>{contentData[activeIndex].head}</H4>
+            <P className="text-[#141414]">{contentData[activeIndex].para}</P>
+          
+            <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
+              <img src="/CheckIcon.svg" alt="alt"/>
+              <P className="text-white ">{contentData[activeIndex].para2}</P>
+              </div>
+              </div>
+              
+
+
+          {/* Title + Description */}
+          <div className="space-y-2">
             <H3 className="text-[#2B68C3]">
-              Proven Performance Metrics
+              {contentData[activeIndex].title}
             </H3>
+            <P>{contentData[activeIndex].description}</P>
+          </div>
+        </div>
 
-            <div className="flex gap-8 font-bricolage items-start mt-auto">
-              {contentData[activeIndex].stats.map((stat, i) => (
-                <div key={i} className="flex  max-w-md flex-col items-start">
-                  <span className="text-xl  sm:text-2xl text-[#2B68C3] font-bold">
-                    {stat.value}
-                  </span>
-                  <span className="text-xs sm:text-sm text-[#141414]">
-                    {stat.label}
-                  </span>
-                </div>
+        {/* Desktop layout */}
+        <div className="hidden xl:flex xl:sticky xl:top-0 xl:h-screen xl:items-center">
+          <div className="w-full max-w-7xl mx-auto px-6 lg:px-10 xl:px-0 xl:py-0">
+
+            {/* Desktop pill buttons */}
+            <div className="flex flex-wrap justify-between my-4">
+              {tabs.map((label, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`px-4 py-3 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
+                    ${
+                      activeIndex === index
+                        ? "bg-(--primary-color) text-white"
+                        : "border border-[#2B68C3] text-black"
+                    }`}
+                >
+                  {label}
+                </button>
               ))}
             </div>
-          </div>
-        </div>
 
-        {/* Bottom Content Card - Desktop only (replaces overlay) */}
-        <div className="hidden lg:flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
-          {/* Left Text */}
-          <div className="w-full xl:w-1/2">
-            <H3 className="text-[#2B68C3]">
-              {contentData[activeIndex].title}
-            </H3>
+            {/* Image + Overlay Content */}
+            <div className="relative w-full rounded-2xl overflow-hidden">
+              <img
+                src={images[activeIndex]}
+                alt="Description"
+                className="w-full xl:w-3xl h-[450px] xl:h-[475px] object-cover rounded-2xl"
+              />
+
+              {/* Right Overlay Box — para replaces stats */}
+              <div className="flex flex-col absolute top-8 right-8 xl:top-[10%] xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] max-w-[460px]">
+                  <div className=" flex flex-col space-y-6">
+            <H4>{contentData[activeIndex].head}</H4>
+            <P className="text-[#141414]">{contentData[activeIndex].para}</P>
+             
+            <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
+              <img src="/CheckIcon.svg" alt="alt"/>
+              <P className="text-white ">{contentData[activeIndex].para2}</P></div>
+            
+
           </div>
 
-          {/* Right Text */}
-          <div className="w-full xl:w-2/5">
-            <P>{contentData[activeIndex].description}</P>
-          </div>
-        </div>
-
-        {/* Mobile Content - Below Image */}
-        <div className="lg:hidden mt-6 space-y-6">
-          {/* Stats Box for Mobile */}
-          <div className="bg-[#FFFFFF78] text-(--primary-color) rounded-lg p-0">
-            <H3 className="mb-4">
-              Proven Performance Metrics
-            </H3>
-            <div className="flex justify-around gap-4 mt-10">
-              <div className="flex gap-8 font-bricolage items-start mt-auto">
-                {contentData[activeIndex].stats.map((stat, i) => (
-                  <div key={i} className="flex flex-col items-start">
-                    <span className="text-xl sm:text-2xl text-[#2B68C3] font-bold">
-                      {stat.value}
-                    </span>
-                    <span className="text-xs sm:text-sm text-[#141414]">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
-          </div>
 
-          {/* Content Section for Mobile */}
-          <div className="bg-white rounded-lg p-0 space-y-4">
-            <H3 className="text-(--primary-color)">
-              {contentData[activeIndex].title}
-            </H3>
-            <P>{contentData[activeIndex].description}</P>
+            {/* Bottom Content Card */}
+            <div className="flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
+              <div className="w-1/2">
+                <H3 className="text-[#2B68C3]">
+                  {contentData[activeIndex].title}
+                </H3>
+              </div>
+              <div className="w-2/5">
+                <P>{contentData[activeIndex].description}</P>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

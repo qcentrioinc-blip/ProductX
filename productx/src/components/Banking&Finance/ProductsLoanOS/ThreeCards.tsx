@@ -46,12 +46,9 @@ export default function ThreeCards() {
             </div>
 
            <div className="mt-auto w-full h-[200px] xl:h-[227px] rounded-t-lg mx-auto overflow-hidden">
-  <video
-    src="/LOS/LOSVideo.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
+  <img
+    src="/LOS/LosImage.webp"
+     
     className="w-full h-full object-cover"
   />
 </div>
@@ -108,13 +105,11 @@ export default function ThreeCards() {
               </P>
             </div>
             {idx === 0 && (
-              <div className="mt-4 w-full h-[200px] bg-white rounded-md mx-auto" > <video
-    src="/LOS/LOSVideo.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-full rounded-md  object-cover"
+              <div className="mt-4 w-full h-[200px] bg-white rounded-md mx-auto" > 
+              <img
+    src="/LOS/LosImage.webp"
+     
+    className="w-full h-full object-cover"
   /></div>
             )}
           </div>
