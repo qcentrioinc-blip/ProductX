@@ -1,380 +1,321 @@
 "use client";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { H2, H3, P } from "../../../styles/Typography";
-
-type FeatureSwitcherProps = {};
 
 const FEATURES = [
   {
     id: "feature_a",
     buttonLabel: "Policy Configuration Engine",
     title: "Zero code policy configuration engine",
-    p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality. No training required for frontline staff when policies update. ",
-    
+    p1: "Configure all due diligence parameters without coding. Changes to regulations or policies can be made in minutes with version control and checker functionality. No training required for frontline staff when policies update.",
     imageSrc: "/ProductDetails4/PD4_img1(2).webp",
   },
   {
     id: "feature_b",
     buttonLabel: "Smart Data Capture",
     title: "Smart forms for data capture",
-    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile. Captures data for customers and connected parties with built-in validations for accuracy. ",
-    
+    p1: "Client-specific smart forms automatically generate requirements based on entity type, jurisdiction, and risk profile. Captures data for customers and connected parties with built-in validations for accuracy.",
     imageSrc: "/ProductDetails4/PD4_img2(2).webp",
   },
   {
     id: "feature_c",
     buttonLabel: "Automated Screening",
     title: "Automated name screening integration",
-    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists. Integrates with leading screening engines during onboarding and ongoing monitoring.  ",
-   
+    p1: "Seamlessly screen customers and connected parties against sanctions, PEP lists, and watchlists. Integrates with leading screening engines during onboarding and ongoing monitoring.",
     imageSrc: "/ProductDetails4/PD4_img3.webp",
   },
   {
     id: "feature_d",
     buttonLabel: "Risk Assessment",
     title: "Risk assessment and decisioning",
-    p1: "Automatically compute risk ratings based on configured attributes and rules. Workflow rules drive consistent decisioning with options for approval routing and case management. ",
-  
+    p1: "Automatically compute risk ratings based on configured attributes and rules. Workflow rules drive consistent decisioning with options for approval routing and case management.",
     imageSrc: "/ProductDetails4/PD4_img4.webp",
   },
   {
     id: "feature_e",
     buttonLabel: "Lifecycle Management",
     title: "Full client lifecycle management",
-    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.  ",
-    
+    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.",
     imageSrc: "/ProductDetails4/PD4_img5.webp",
   },
 ];
 
-const Feature: React.FC<FeatureSwitcherProps> = () => {
-  const [activeFeatureId, setActiveFeatureId] = useState(FEATURES[0].id);
-  const [mobileScrollProgress, setMobileScrollProgress] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const mobileTabsContainerRef = useRef<HTMLDivElement>(null);
-  const desktopTextRef = useRef<HTMLDivElement>(null);
+const COUNT = FEATURES.length;
 
-  const [isMobile, setIsMobile] = useState(false);
+// ── AnimatedLayer ─────────────────────────────────────────────────────
+// Mounts in the "out" state, then on next frame flips to "in" —
+// this guarantees the browser always sees a before→after to animate.
+const AnimatedLayer = ({
+  feature,
+  isLeaving,
+}: {
+  feature: (typeof FEATURES)[0];
+  isLeaving: boolean;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
 
-useEffect(() => {
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
+  useEffect(() => {
+    if (isLeaving) return;
+    const el = ref.current;
+    if (!el) return;
 
-  checkMobile();
-  window.addEventListener("resize", checkMobile);
+    // Start fully out
+    el.style.transition = "none";
+    el.style.opacity = "0";
+    el.style.transform = "translateY(22px) scale(0.96)";
+    el.style.filter = "blur(8px)";
 
-  return () => window.removeEventListener("resize", checkMobile);
-}, []);
-
-  const handleTabClick = (id: string, index: number) => {
-    if (window.innerWidth < 768 && sectionRef.current) {
-      const sectionTop =
-        sectionRef.current.getBoundingClientRect().top + window.scrollY;
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-
-      const scrollableDistance = sectionHeight - viewportHeight;
-      
-      // Safety check to avoid division by zero or negative distance
-      if (scrollableDistance <= 0) return;
-
-      const targetProgress = index / (FEATURES.length - 1);
-      const targetScrollY = sectionTop + targetProgress * scrollableDistance;
-
-      window.scrollTo({
-        top: targetScrollY,
-        behavior: "smooth",
+    // Next frame: animate in with premium spring-like easing
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transition = [
+          "opacity 750ms cubic-bezier(0.16,1,0.3,1)",
+          "transform 750ms cubic-bezier(0.16,1,0.3,1)",
+          "filter 750ms cubic-bezier(0.16,1,0.3,1)",
+        ].join(", ");
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0px) scale(1)";
+        el.style.filter = "blur(0px)";
       });
-    } else {
-      setActiveFeatureId(id);
-    }
-  };
-
-  /* ============================= */
-  /* 🔥 SMOOTH SCROLL OPTIMIZATION */
-  /* ============================= */
-  useLayoutEffect(() => {
-    let ticking = false;
-
-    const updateScroll = () => {
-      if (!sectionRef.current || window.innerWidth >= 768) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      // Calculate the total scrollable distance of the section
-      const endOffset = rect.height - viewportHeight;
-      const currentScroll = -rect.top;
-
-      let progress = 0;
-
-      // Safety: Only calculate if we have valid positive dimensions
-      if (endOffset > 0) {
-        if (currentScroll <= 0) progress = 0;
-        else if (currentScroll >= endOffset) progress = 1;
-        else progress = currentScroll / endOffset;
-      }
-
-      setMobileScrollProgress(progress);
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScroll);
-        ticking = true;
-      }
-    };
-
-    const handleResize = () => {
-        // Force update on resize
-        updateScroll();
-    }
-
-    // Attach listeners
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    // Initial calculation
-    updateScroll();
-
-    // Use ResizeObserver to catch layout shifts
-    const resizeObserver = new ResizeObserver(() => {
-        updateScroll();
     });
 
-    if (sectionRef.current) {
-        resizeObserver.observe(sectionRef.current);
-    }
+    return () => cancelAnimationFrame(raf);
+  }, [isLeaving]);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-      if (sectionRef.current) {
-          resizeObserver.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  /* ============================= */
-  /* 🔥 STABLE TAB SWITCHING FIX  */
-  /* ============================= */
-  useLayoutEffect(() => {
-    if (window.innerWidth < 768) {
-      const index = Math.min(
-        FEATURES.length - 1,
-        Math.max(
-          0,
-          Math.floor(mobileScrollProgress * FEATURES.length)
-        )
-      );
-      setActiveFeatureId(FEATURES[index].id);
-    }
-  }, [mobileScrollProgress]);
-
-  /* ============================= */
-  /* AUTO CENTER ACTIVE TAB       */
-  /* ============================= */
+  // Leaving: animate out immediately
   useEffect(() => {
-    if (mobileTabsContainerRef.current && window.innerWidth < 768) {
-      const container = mobileTabsContainerRef.current;
-      const activeElement = container.querySelector(
-        `[data-active="true"]`
-      ) as HTMLElement;
+    if (!isLeaving) return;
+    const el = ref.current;
+    if (!el) return;
 
-      if (activeElement) {
-        const scrollPos =
-          activeElement.offsetLeft -
-          container.offsetWidth / 2 +
-          activeElement.offsetWidth / 2;
-
-        container.scrollTo({
-          left: scrollPos,
-          behavior: "smooth",
-        });
-      }
-    }
-  }, [activeFeatureId]);
-
-  /* ============================= */
-  /* RESET DESKTOP SCROLL ON TAB CHANGE */
-  /* ============================= */
-  useEffect(() => {
-    if (desktopTextRef.current && window.innerWidth >= 768) {
-      desktopTextRef.current.scrollTop = 0;
-    }
-  }, [activeFeatureId]);
-
-  useEffect(() => {
-  if (isMobile) {
-    setTimeout(() => {
-      window.dispatchEvent(new Event("scroll"));
-    }, 50);
-  }
-}, [isMobile]);
-
-  const activeContent =
-    FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
+    el.style.transition = [
+      "opacity 500ms cubic-bezier(0.16,1,0.3,1)",
+      "transform 500ms cubic-bezier(0.16,1,0.3,1)",
+      "filter 500ms cubic-bezier(0.16,1,0.3,1)",
+    ].join(", ");
+    el.style.opacity = "0";
+    el.style.transform = "translateY(-14px) scale(1.02)";
+    el.style.filter = "blur(6px)";
+  }, [isLeaving]);
 
   return (
-    <section
-  ref={sectionRef}
-  className="w-full bg-white relative md:h-auto md:pb-5 md:px-5"
-  style={{
-    height: isMobile ? `${FEATURES.length * window.innerHeight}px` : "auto",
-  }}
->
-      {/* MOBILE VIEW */}
-      <div className="md:hidden sticky top-20 xl:top-0  w-full overflow-hidden flex flex-col z-10 bg-white pt-2 pb-2">
-        <div className="px-4 mb-8 shrink-0">
-            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug text-[18px]">
-                Key features of Diligent platform
+    <div
+      ref={ref}
+      style={{
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        willChange: "opacity, transform, filter",
+        pointerEvents: isLeaving ? "none" : "auto",
+        // Start hidden — useEffect animates it in
+        opacity: isLeaving ? 1 : 0,
+      }}
+    >
+      {/* MOBILE */}
+      <div className="flex flex-col gap-4 md:hidden">
+        <img
+          src={feature.imageSrc}
+          alt={feature.title}
+          className="w-full h-52 object-contain rounded-xl"
+        />
+        <H3 className="text-gray-900 tracking-tight leading-tight text-lg">
+          {feature.title}
+        </H3>
+        <P className="text-sm leading-relaxed text-gray-600">{feature.p1}</P>
+      </div>
+
+      {/* DESKTOP */}
+      <div className="hidden md:grid md:grid-cols-9 md:gap-8 lg:gap-12 items-center h-full">
+        <div className="col-span-5 flex items-center justify-center">
+          <img
+            src={feature.imageSrc}
+            alt={feature.title}
+            className="w-full max-h-[460px] object-contain rounded-xl"
+          />
+        </div>
+        <div className="col-span-4 flex flex-col gap-5">
+          <H3 className="text-gray-900 tracking-tight leading-tight text-2xl">
+            {feature.title}
+          </H3>
+          <P className="text-gray-600 leading-relaxed">{feature.p1}</P>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── Feature ───────────────────────────────────────────────────────────
+const Feature = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mobileTabsRef = useRef<HTMLDivElement>(null);
+  const isClickScrolling = useRef(false);
+  const prevIndexRef = useRef(0);
+  const cleanupTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const transitionTo = (index: number) => {
+    if (index === prevIndexRef.current) return;
+    if (cleanupTimer.current) clearTimeout(cleanupTimer.current);
+    setPrevIndex(prevIndexRef.current);
+    prevIndexRef.current = index;
+    setActiveIndex(index);
+    // Remove outgoing layer slightly after exit animation (500ms) ends
+    cleanupTimer.current = setTimeout(() => setPrevIndex(null), 520);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isClickScrolling.current) return;
+      const container = containerRef.current;
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      if (total <= 0) return;
+
+      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      const index = Math.min(Math.floor(progress * COUNT), COUNT - 1);
+      transitionTo(index);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const container = mobileTabsRef.current;
+    if (!container) return;
+    const active = container.querySelector("[data-active='true']") as HTMLElement;
+    if (!active) return;
+    container.scrollTo({
+      left: active.offsetLeft - container.offsetWidth / 2 + active.offsetWidth / 2,
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
+  const handleTabClick = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    if (total <= 0) {
+      transitionTo(index);
+      return;
+    }
+
+    const bandSize = 1 / COUNT;
+    const targetProgress = bandSize * index + bandSize * 0.5;
+    const targetY = window.scrollY + rect.top + targetProgress * total;
+
+    isClickScrolling.current = true;
+    transitionTo(index);
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+    setTimeout(() => { isClickScrolling.current = false; }, 700);
+  };
+
+  return (
+    <section className="relative bg-white">
+      <div
+        ref={containerRef}
+        style={{ height: `${COUNT * 100}vh` }}
+        className="relative"
+      >
+        <div className="sticky top-0 py-10 bg-white">
+          <div className="w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+
+            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug my-4 xl:mb-20 xl:mt-6">
+              Key features of Diligent platform
             </H2>
-        </div>
 
-        <div
-          ref={mobileTabsContainerRef}
-          className="w-full overflow-x-auto scrollbar-hide shrink-0 mb-2"
-        >
-          <div className="flex gap-3 px-4 snap-x snap-mandatory pb-1">
-            {FEATURES.map((item, index) => {
-              const isActive = item.id === activeFeatureId;
-              return (
-                <button
-                  key={item.id}
-                  data-active={isActive.toString()}
-                  onClick={() => handleTabClick(item.id, index)}
-                  className={`flex-shrink-0 snap-start whitespace-nowrap
-                  py-2 px-4 rounded-full text-[12px] font-semibold transition-colors
-                  ${
-                    isActive
-                      ? "bg-[#2B68C3] text-white shadow-md"
-                      : "bg-white border border-gray-300 text-gray-700"
-                  }`}
-                >
-                  {item.buttonLabel}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+            {/* ── MOBILE ── */}
+            <div className="block md:hidden">
+              <div
+                ref={mobileTabsRef}
+                className="flex gap-3 overflow-x-auto pb-3 mb-6"
+                style={{ scrollbarWidth: "none" }}
+              >
+                {FEATURES.map((item, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <button
+                      key={item.id}
+                      data-active={isActive.toString()}
+                      onClick={() => handleTabClick(index)}
+                      className={`flex-shrink-0 whitespace-nowrap py-2 px-4 rounded-full text-xs font-semibold transition-colors duration-300
+                        ${isActive
+                          ? "bg-[#2B68C3] text-white"
+                          : "bg-white border border-gray-300 text-gray-700"
+                        }`}
+                    >
+                      {item.buttonLabel}
+                    </button>
+                  );
+                })}
+              </div>
 
-        {/* 🔥 FIXED SLIDER */}
-        <div
-          className="flex w-[500%] will-change-transform"
-          style={{
-            transform: `translate3d(-${mobileScrollProgress * 80}%, 0, 0)`,
-          }}
-        >
-          {FEATURES.map((item) => (
-            <div
-              key={item.id}
-              className="w-1/5 h-full flex flex-col justify-start items-start px-4 pb-4"
-            >
-              {/* Reduced image height to 25vh for better text visibility */}
-              <div className="w-full flex justify-center items-center mb-2 shrink-0">
-                <img
-                  src={item.imageSrc}
-                  alt={item.title}
-                  className="w-full my-10  h-[40vh] md:h-full object-fill"
+              <div className="relative" style={{ minHeight: "340px" }}>
+                {prevIndex !== null && (
+                  <AnimatedLayer
+                    key={`out-${prevIndex}`}
+                    feature={FEATURES[prevIndex]}
+                    isLeaving={true}
+                  />
+                )}
+                <AnimatedLayer
+                  key={`in-${activeIndex}`}
+                  feature={FEATURES[activeIndex]}
+                  isLeaving={false}
+                />
+              </div>
+            </div>
+
+            {/* ── DESKTOP ── */}
+            <div className="hidden md:grid md:grid-cols-12 md:gap-8 lg:gap-12 items-center">
+
+              <div className="col-span-3 flex flex-col gap-6">
+                {FEATURES.map((item, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleTabClick(index)}
+                      className={`w-full p-5 rounded-full text-sm font-semibold transition-all duration-300 text-center
+                        ${isActive
+                          ? "bg-[#2B68C3] text-white shadow-md"
+                          : "border border-gray-300 text-gray-700 hover:border-[#2B68C3] hover:text-[#2B68C3]"
+                        }`}
+                    >
+                      {item.buttonLabel}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="col-span-9 relative" style={{ minHeight: "460px" }}>
+                {prevIndex !== null && (
+                  <AnimatedLayer
+                    key={`out-${prevIndex}`}
+                    feature={FEATURES[prevIndex]}
+                    isLeaving={true}
+                  />
+                )}
+                <AnimatedLayer
+                  key={`in-${activeIndex}`}
+                  feature={FEATURES[activeIndex]}
+                  isLeaving={false}
                 />
               </div>
 
-              {/* Text container with overflow-y-auto */}
-              <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
-                <H3 className="text-gray-900 tracking-tight leading-tight text-[18px]">
-                  {item.title}
-                </H3>
-                <div className="flex flex-col gap-3 text-center">
-                    <P className="text-sm leading-relaxed">
-                    {item.p1}
-                    </P>
-                    {/* <P className="text-sm leading-relaxed">
-                    {item.p2}
-                    </P> */}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* DESKTOP VIEW */}
-      <div className="hidden md:block max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
-        <H2 className=" text-center text-[#2B68C3] tracking-tight leading-snug">
-          Key features of Diligent platform
-        </H2>
-
-        {/* Grid: Buttons (3) | Image (5) | Text (4) */}
-        <div className="grid grid-cols-12 items-stretch gap-x-6 lg:gap-x-10">
-          <div className="col-span-4 lg:col-span-3 flex flex-col justify-center space-y-4">
-            {FEATURES.map((item, index) => {
-              const isActive = item.id === activeFeatureId;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleTabClick(item.id, index)}
-                  className={`py-4 px-6 rounded-full text-base font-semibold transition-all text-center
-                  ${
-                    isActive
-                      ? "bg-[#2B68C3] text-white shadow-md"
-                      : "border border-gray-400 text-black"
-                  }`}
-                >
-                  {item.buttonLabel}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="col-span-4 lg:col-span-5 flex justify-center items-center">
-            <img
-              src={activeContent.imageSrc}
-              alt={activeContent.title}
-              className="w-full object-contain rounded-xl max-h-[500px] transition-opacity duration-300"
-            />
-          </div>
-
-          {/* Text column */}
-          {/* Changed justify-center to justify-center to ensure title is always at top */}
-          <div 
-            ref={desktopTextRef}
-            className="col-span-4 lg:col-span-4 flex flex-col justify-center space-y-6 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar"
-          >
-            <H3 className="text-gray-900 tracking-tight leading-tight text-2xl">
-              {activeContent.title}
-            </H3>
-            <div className="flex flex-col space-y-6">
-                <P className="text-gray-600 leading-relaxed text-left">{activeContent.p1}</P>
-                {/* <P className="text-gray-600 leading-relaxed text-left">{activeContent.p2}</P> */}
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
-        
-        /* Custom scrollbar for the text area */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #94a3b8;
-            border-radius: 4px;
-            border: 2px solid #f1f5f9;
-        }
-        .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-            background-color: #64748b;
-        }
-        
-        html { scroll-behavior: smooth; }
+        div::-webkit-scrollbar { display: none; }
       `}</style>
     </section>
   );
