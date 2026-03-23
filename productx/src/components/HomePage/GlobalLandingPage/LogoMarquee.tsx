@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 const logos = [
   { img: "/ProductsLogo/Almanac.webp", link: "/industries/banking-and-finance/products/almanac", tagline: "Asset Management", newTab: true },
-  { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Bankfair", newTab: true },
+  { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Banking", newTab: true },
   { img: "/ProductsLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai", tagline: "Cloud Optimization AI", newTab: true },
   { img: "/ProductsLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline: "AI Reconciliation", newTab: true },
   { img: "/ProductsLogo/IBS.webp", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
-  { img: "/ProductsLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc", tagline: "Diligent", newTab: true },
+  { img: "/ProductsLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc", tagline: "Due Diligent", newTab: true },
   { img: "/ProductsLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline: "Loan Origination", newTab: true },
    { img: "/ProductsLogo/Pago.png", link: "/industries/banking-and-finance/products/pago", tagline: "Payment System", newTab: true },
   { img: "/ProductsLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree", tagline: "Cross-Border Remittance", newTab: true },
-  { img: "/ProductsLogo/Sams.webp", link: "/industries/banking-and-finance/products/sams", tagline: "NPA Tracking", newTab: true },
+  { img: "/ProductsLogo/Sams.webp", link: "/industries/banking-and-finance/products/sams", tagline: "NPL Tracking", newTab: true },
   { img: "/ProductsLogo/sherlock.webp", link: "/industries/banking-and-finance/products/sherlock", tagline: "AML", newTab: true },
   { img: "/ProductsLogo/UHN.webp", link: "/industries/ehr-and-pms", tagline: "EHR and PMS", newTab: true },
 ];
@@ -61,10 +61,10 @@ export default function LogoMarquee() {
           posX.current -= PX_PER_FRAME;
         }
 
-        if (halfW.current > 0) {
-          if (posX.current <= -halfW.current) posX.current += halfW.current;
-          if (posX.current > 0)               posX.current  = 0;
-        }
+       if (halfW.current > 0) {
+  if (posX.current <= -halfW.current) posX.current += halfW.current;
+  if (posX.current >= 0) posX.current -= halfW.current;
+}
 
         trackRef.current.style.transform = `translate3d(${posX.current}px,0,0)`;
         rafId.current = requestAnimationFrame(step);
@@ -99,9 +99,9 @@ export default function LogoMarquee() {
       posX.current += dx;
 
       if (halfW.current > 0) {
-        if (posX.current <= -halfW.current) posX.current += halfW.current;
-        if (posX.current > 0)               posX.current  = 0;
-      }
+  if (posX.current <= -halfW.current) posX.current += halfW.current;
+  if (posX.current >= 0) posX.current -= halfW.current;
+}
     }
 
     function onMouseUp() {
@@ -158,10 +158,10 @@ export default function LogoMarquee() {
         lastDragX.current = tx;
         posX.current += dx;
 
-        if (halfW.current > 0) {
-          if (posX.current <= -halfW.current) posX.current += halfW.current;
-          if (posX.current > 0) posX.current = 0;
-        }
+      if (halfW.current > 0) {
+  if (posX.current <= -halfW.current) posX.current += halfW.current;
+  if (posX.current >= 0) posX.current -= halfW.current;
+}
       }
     }
 

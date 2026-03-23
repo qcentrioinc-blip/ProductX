@@ -139,7 +139,7 @@ useEffect(() => {
     */
     <div
       ref={targetRef}
-      className="relative z-50  xl:pb-10 xl:pt-32  overflow-hidden  pointer-events-auto dark:bg-black bg-white"
+      className="relative z-50  xl:pb-10 xl:pt-16 overflow-hidden  pointer-events-auto dark:bg-black bg-white"
       id='ContactUs'
     >
       {/* TOAST */}

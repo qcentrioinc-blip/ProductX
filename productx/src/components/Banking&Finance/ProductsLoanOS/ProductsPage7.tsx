@@ -63,6 +63,7 @@ const ProductsPage7 = () => {
       <FaqSection/>
       {/* <FaqSection /> */}
      <ImageCard/>
+     
      <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">

@@ -10,6 +10,7 @@ const categories = [
   "Banking",
   "Pago",
   "Sams",
+  "KYC",
 ];
 
 const posts = [
@@ -28,16 +29,16 @@ const posts = [
     title: "KYC vs. CDD: What's the Difference and Why Both Matter",
     description: "When it comes to banking compliance, there are two terms that are important, used every day, and still mixed...",
     date: "10 Feb 2026",
-    category: "Banking",
+    category: "KYC",
     image: "/Blog/KYCBlog.webp",
   },
   {
     id: 3,
     slug: "what-is-core-banking-and-when-should",
-    title: "What Is Pago and When Should a Financial Institution..",
+    title: "What Is Core Banking and When Should a Financial Institution Upgrade Their System?",
     description: "If your financial institution is still working on old, outdated systems and functions, there is a high chance...",
     date: "8 Feb 2026",
-    category: "Pago",
+    category: "Banking",
     image: "/Blog/CoreBanking.webp",
   },
   {
@@ -46,7 +47,7 @@ const posts = [
     title: "How to Reduce Process Payment Costs for Your Financial Institution",
     description: "Most of the financial institutions face challenges from high transaction fees charged by traditional card networks...",
     date: "5 Feb 2026",
-    category: "Banking",
+    category: "Pago",
     image: "/Blog/PaymenetProcess.webp",
   },
   {
@@ -55,16 +56,16 @@ const posts = [
     title: "A Beginner's Guide To Interest Rate Risk Management",
     description: "If there is one top concern for community bankers in 2026, it is interest rate risk. Even small shifts in rates...",
     date: "3 Feb 2026",
-    category: "Banking",
+    category: "AML",
     image: "/Blog/RiskManagemenrt.webp",
   },
   {
     id: 6,
     slug: "ways-to-improve-real-time-payment",
-    title: "5 Ways to Improve Real-Time Payment Monitoring and Fraud Prevention ",
+    title: "Ways to Improve Real-Time Payment Monitoring and ... ",
     description: "Dealing with fraud and financial crime is one of the biggest challenges banks face today. The global payment fraud losses ...",
     date: "6 March 2026",
-    category: "AML",
+    category: "Pago",
     image: "/Blog/RealTime.webp",
   },
   {
@@ -82,7 +83,7 @@ const posts = [
     title: "Common Challenges In Manual NPA Tracking & How Automation Can Solve Them ",
     description: "These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely  ...",
     date: "8 March 2026",
-    category: "Sams",
+    category: "Sams",         
     image: "/Blog/npatracking.webp",
   },
 ];

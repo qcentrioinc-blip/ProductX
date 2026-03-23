@@ -23,7 +23,7 @@ const Banks = () => {
   return (
     <div className="relative max-w-7xl mx-auto min-h-screen  py-10 xl:py-16 px-6 sm:px-12 md:px-16 lg:px-10 xl:px-0">
       <div className="relative z-10">
-        <H2 className="font-semibold ">
+        <H2 className="font-semibold md:mb-10 ">
                   Key Benefits of Implementing <br/> ALMANAC Platform
                 </H2>
         <div className="grid grid-cols-1 lg:grid-cols-2">
