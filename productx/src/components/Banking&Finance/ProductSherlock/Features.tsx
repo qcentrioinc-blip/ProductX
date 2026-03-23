@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useScroll } from "framer-motion";
 import { H2, H3, P } from "../../../styles/Typography";
 
 type FeatureSwitcherProps = {};
@@ -19,7 +20,6 @@ const FEATURES = [
     title: "Financial Message Screening Module ",
     p1: "The module scrutinizes incoming and outgoing SWIFT messages for AML compliance. Real-time analysis detects and prevents suspicious activities before processing. ",
     p2: "Seamless integration intercepts financial messages automatically. Violations are highlighted with detailed information about the nature of each issue. ",
-    
     imageSrc: "/ProductSherlock/2.webp",
   },
   {
@@ -28,7 +28,6 @@ const FEATURES = [
     title: "Automated Watch List Checking",
     p1: "Web crawlers update banned entity lists regularly from UN, OFAC, and Federal Reserve sources. Institutions can create and manage their own custom watch lists. ",
     p2: "New transactions are checked instantly against updated lists. Alerts are generated immediately for any matches found with banned entities. ",
-   
     imageSrc: "/ProductSherlock/3.webp",
   },
   {
@@ -37,7 +36,6 @@ const FEATURES = [
     title: "Complete KYC Verification Module ",
     p1: "Customer profiles are managed with detailed personal information, financial data, and transaction history. Risk profiles are assigned based on predefined criteria and customer data.  ",
     p2: "Ongoing monitoring tracks customer activity for any changes in risk status. KYC documents are stored and managed with automated renewal tracking. ",
-  
     imageSrc: "/ProductSherlock/4.webp",
   },
   {
@@ -46,329 +44,177 @@ const FEATURES = [
     title: "Full client lifecycle management",
     p1: "The module assesses and categorizes customers for money laundering risk systematically. Risk attributes and rating outcomes drive workflow rules and decisioning.  ",
     p2: "Customer risk profiles are updated continuously based on transaction behavior. Alerts are triggered when customer activity exceeds defined risk thresholds. ",
-    
     imageSrc: "/ProductSherlock/5.webp",
   },
 ];
 
 const Feature: React.FC<FeatureSwitcherProps> = () => {
-  const [activeFeatureId, setActiveFeatureId] = useState(FEATURES[0].id);
-  const [mobileScrollProgress, setMobileScrollProgress] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const mobileTabsContainerRef = useRef<HTMLDivElement>(null);
-  const desktopTextRef = useRef<HTMLDivElement>(null);
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const navScrollRef = useRef<HTMLDivElement>(null);
+  const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ["start start", "end end"],
+  });
 
-useEffect(() => {
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-
-  checkMobile();
-  window.addEventListener("resize", checkMobile);
-
-  return () => window.removeEventListener("resize", checkMobile);
-}, []);
-
-  const handleTabClick = (id: string, index: number) => {
-    if (window.innerWidth < 768 && sectionRef.current) {
-      const sectionTop =
-        sectionRef.current.getBoundingClientRect().top + window.scrollY;
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-
-      const scrollableDistance = sectionHeight - viewportHeight;
-      
-      // Safety check to avoid division by zero or negative distance
-      if (scrollableDistance <= 0) return;
-
-      const targetProgress = index / (FEATURES.length - 1);
-      const targetScrollY = sectionTop + targetProgress * scrollableDistance;
-
-      window.scrollTo({
-        top: targetScrollY,
-        behavior: "smooth",
+  useEffect(() => {
+      return scrollYProgress.onChange((latest) => {
+          const numItems = FEATURES.length;
+          const index = Math.min(Math.floor(latest * numItems), numItems - 1);
+          setActiveFeatureIndex(index);
       });
-    } else {
-      setActiveFeatureId(id);
-    }
+  }, [scrollYProgress]);
+
+  useEffect(() => {
+      const activeIndex = activeFeatureIndex;
+      const container = navScrollRef.current;
+      const activeBtn = navBtnRefs.current[activeIndex];
+      if (!container || !activeBtn) return;
+
+      const containerLeft = container.getBoundingClientRect().left;
+      const containerWidth = container.getBoundingClientRect().width;
+      const activeLeft = activeBtn.getBoundingClientRect().left;
+      const activeWidth = activeBtn.getBoundingClientRect().width;
+
+      const activeCenterRelative = activeLeft - containerLeft + activeWidth / 2;
+      const containerCenter = containerWidth / 2;
+      const scrollAdjustment = activeCenterRelative - containerCenter;
+
+      container.scrollBy({ left: scrollAdjustment, behavior: "smooth" });
+  }, [activeFeatureIndex]);
+
+  const handleNavClick = (index: number) => {
+      if (!containerRef.current) return;
+      const container = containerRef.current;
+      const containerTop = container.offsetTop;
+      const scrollableDistance = container.offsetHeight - window.innerHeight;
+
+      const targetScroll = containerTop + (index / FEATURES.length) * scrollableDistance + 10;
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
   };
 
-  /* ============================= */
-  /* 🔥 SMOOTH SCROLL OPTIMIZATION */
-  /* ============================= */
-  useLayoutEffect(() => {
-    let ticking = false;
-
-    const updateScroll = () => {
-      if (!sectionRef.current || window.innerWidth >= 768) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      // Calculate the total scrollable distance of the section
-      const endOffset = rect.height - viewportHeight;
-      const currentScroll = -rect.top;
-
-      let progress = 0;
-
-      // Safety: Only calculate if we have valid positive dimensions
-      if (endOffset > 0) {
-        if (currentScroll <= 0) progress = 0;
-        else if (currentScroll >= endOffset) progress = 1;
-        else progress = currentScroll / endOffset;
-      }
-
-      setMobileScrollProgress(progress);
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScroll);
-        ticking = true;
-      }
-    };
-
-    const handleResize = () => {
-        // Force update on resize
-        updateScroll();
-    }
-
-    // Attach listeners
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    // Initial calculation
-    updateScroll();
-
-    // Use ResizeObserver to catch layout shifts
-    const resizeObserver = new ResizeObserver(() => {
-        updateScroll();
-    });
-
-    if (sectionRef.current) {
-        resizeObserver.observe(sectionRef.current);
-    }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-      if (sectionRef.current) {
-          resizeObserver.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  /* ============================= */
-  /* 🔥 STABLE TAB SWITCHING FIX  */
-  /* ============================= */
-  useLayoutEffect(() => {
-    if (window.innerWidth < 768) {
-      const index = Math.min(
-        FEATURES.length - 1,
-        Math.max(
-          0,
-          Math.floor(mobileScrollProgress * FEATURES.length)
-        )
-      );
-      setActiveFeatureId(FEATURES[index].id);
-    }
-  }, [mobileScrollProgress]);
-
-  /* ============================= */
-  /* AUTO CENTER ACTIVE TAB       */
-  /* ============================= */
-  useEffect(() => {
-    if (mobileTabsContainerRef.current && window.innerWidth < 768) {
-      const container = mobileTabsContainerRef.current;
-      const activeElement = container.querySelector(
-        `[data-active="true"]`
-      ) as HTMLElement;
-
-      if (activeElement) {
-        const scrollPos =
-          activeElement.offsetLeft -
-          container.offsetWidth / 2 +
-          activeElement.offsetWidth / 2;
-
-        container.scrollTo({
-          left: scrollPos,
-          behavior: "smooth",
-        });
-      }
-    }
-  }, [activeFeatureId]);
-
-  /* ============================= */
-  /* RESET DESKTOP SCROLL ON TAB CHANGE */
-  /* ============================= */
-  useEffect(() => {
-    if (desktopTextRef.current && window.innerWidth >= 768) {
-      desktopTextRef.current.scrollTop = 0;
-    }
-  }, [activeFeatureId]);
-
-  useEffect(() => {
-  if (isMobile) {
-    setTimeout(() => {
-      window.dispatchEvent(new Event("scroll"));
-    }, 50);
-  }
-}, [isMobile]);
-
-  const activeContent =
-    FEATURES.find((f) => f.id === activeFeatureId) || FEATURES[0];
+  const activeContent = FEATURES[activeFeatureIndex];
 
   return (
-    <section
-  ref={sectionRef}
-  className="w-full bg-white relative md:h-auto md:px-5"
-  style={{
-    height: isMobile ? `${FEATURES.length * window.innerHeight}px` : "auto",
-  }}
->
-      {/* MOBILE VIEW */}
-      <div className="md:hidden sticky top-20 xl:top-0  w-full overflow-hidden flex flex-col z-10 bg-white pt-2 pb-2">
-        <div className="px-4 mb-8 shrink-0">
-            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug text-[18px]">
+    <section className="w-full bg-white relative md:h-auto">
+      <div ref={containerRef} className="w-full h-[200vh]">
+        <div className="sticky top-24 w-full bg-white z-10 pt-4 pb-4">
+          
+          {/* Included Sticky Title */}
+          <div className="w-full px-4 mb-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug mb-2 md:mb-8">
                 Key features of SHERLOCK AML System 
             </H2>
-        </div>
-
-        <div
-          ref={mobileTabsContainerRef}
-          className="w-full overflow-x-auto scrollbar-hide shrink-0 mb-2"
-        >
-          <div className="flex gap-3 px-4 snap-x snap-mandatory pb-1">
-            {FEATURES.map((item, index) => {
-              const isActive = item.id === activeFeatureId;
-              return (
-                <button
-                  key={item.id}
-                  data-active={isActive.toString()}
-                  onClick={() => handleTabClick(item.id, index)}
-                  className={`flex-shrink-0 snap-start whitespace-nowrap
-                  py-2 px-4 rounded-full text-[12px] font-semibold transition-colors
-                  ${
-                    isActive
-                      ? "bg-[#2B68C3] text-white shadow-md"
-                      : "bg-white border border-gray-300 text-gray-700"
-                  }`}
-                >
-                  {item.buttonLabel}
-                </button>
-              );
-            })}
           </div>
-        </div>
 
-        {/* 🔥 FIXED SLIDER */}
-        <div
-          className="flex w-[500%] will-change-transform"
-          style={{
-            transform: `translate3d(-${mobileScrollProgress * 80}%, 0, 0)`,
-          }}
-        >
-          {FEATURES.map((item) => (
+          {/* MOBILE VIEW */}
+          <div className="md:hidden w-full overflow-hidden flex flex-col z-10 bg-white">
             <div
-              key={item.id}
-              className="w-1/5 h-full flex flex-col justify-start items-start px-4 pb-4"
+              ref={navScrollRef}
+              className="w-full overflow-x-auto scrollbar-hide shrink-0 mb-4 scroll-smooth"
             >
-              {/* Reduced image height to 25vh for better text visibility */}
-              <div className="w-full flex justify-center items-center mb-2 shrink-0">
+              <div className="flex gap-3 px-4 snap-x snap-mandatory pb-1">
+                {FEATURES.map((item, index) => {
+                  const isActive = index === activeFeatureIndex;
+                  return (
+                    <button
+                      key={item.id}
+                      ref={(el) => { navBtnRefs.current[index] = el; }}
+                      onClick={() => handleNavClick(index)}
+                      className={`flex-shrink-0 snap-start whitespace-nowrap
+                      py-2 px-4 rounded-full text-[12px] font-semibold transition-colors border
+                      ${
+                        isActive
+                          ? "bg-[#2B68C3] text-white border-transparent shadow-md"
+                          : "bg-white border-gray-300 text-gray-700"
+                      }`}
+                    >
+                      {item.buttonLabel}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile CSS Slider Translation */}
+            <div
+              className="flex w-[500%] transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translate3d(-${activeFeatureIndex * 20}%, 0, 0)`,
+              }}
+            >
+              {FEATURES.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-1/5 h-full flex flex-col justify-start items-start px-4 pb-4"
+                >
+                  <div className="w-full flex justify-center items-center mb-2 shrink-0">
+                    <img
+                      src={item.imageSrc}
+                      alt={item.title}
+                      className="w-full my-6 h-[40vh] md:h-full object-fill"
+                    />
+                  </div>
+                  <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
+                    <H3 className="text-gray-900 tracking-tight leading-tight text-[18px]">
+                      {item.title}
+                    </H3>
+                    <div className="flex flex-col gap-3 text-center">
+                        <P className="leading-relaxed">{item.p1}</P>
+                        <P className="leading-relaxed">{item.p2}</P>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DESKTOP VIEW */}
+          <div className="hidden md:block max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            {/* Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {FEATURES.map((item, index) => {
+                const isActive = index === activeFeatureIndex;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(index)}
+                    className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand border
+                    ${
+                      isActive
+                        ? "bg-[#2B68C3] text-white shadow-md border-transparent"
+                        : "bg-white border-gray-300 text-gray-700"
+                    }`}
+                  >
+                    {item.buttonLabel}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Image LEFT + Content RIGHT */}
+            <div className="grid grid-cols-12 gap-10 items-center">
+              <div className="col-span-6 flex justify-center">
                 <img
-                  src={item.imageSrc}
-                  alt={item.title}
-                  className="w-full my-10  h-[40vh] md:h-full object-fill"
+                  src={activeContent.imageSrc}
+                  alt={activeContent.title}
+                  className="w-full max-h-[450px] object-contain transition-opacity duration-500"
                 />
               </div>
 
-              {/* Text container with overflow-y-auto */}
-              <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
-                <H3 className="text-gray-900 tracking-tight leading-tight text-[18px]">
-                  {item.title}
+              <div className="col-span-6 flex flex-col gap-6 max-h-[450px] overflow-y-auto custom-scrollbar">
+                <H3 className="text-gray-900 text-2xl leading-tight">
+                  {activeContent.title}
                 </H3>
-                <div className="flex flex-col gap-3 text-center">
-                    <P className="leading-relaxed">
-                    {item.p1}
-                    </P>
-                    <P className="leading-relaxed">
-                    {item.p2}
-                    </P>
-                    {/* <P className="text-sm leading-relaxed">
-                    {item.p2}
-                    </P> */}
-                </div>
+                <P className="leading-relaxed">{activeContent.p1}</P>
+                <P className="leading-relaxed">{activeContent.p2}</P>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
-
-      {/* DESKTOP VIEW */}
-      {/* DESKTOP VIEW */}
-<div className="hidden md:block max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-
-  {/* Heading */}
-  <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug mb-8">
-    Key features of SHERLOCK AML System 
-  </H2>
-
-  {/* Tabs BELOW heading */}
-  <div className="flex flex-wrap justify-center gap-4 mb-12">
-    {FEATURES.map((item, index) => {
-      const isActive = item.id === activeFeatureId;
-
-      return (
-        <button
-          key={item.id}
-          onClick={() => handleTabClick(item.id, index)}
-          className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand
-          ${
-            isActive
-              ? "bg-[#2B68C3] text-white shadow-md"
-              : "border border-gray-300 text-gray-700"
-          }`}
-        >
-          {item.buttonLabel}
-        </button>
-      );
-    })}
-  </div>
-
-  {/* Image LEFT + Content RIGHT */}
-  <div className="grid grid-cols-12 gap-10 items-center">
-
-    {/* Image */}
-    <div className="col-span-6 flex justify-center">
-      <img
-        src={activeContent.imageSrc}
-        alt={activeContent.title}
-        className="w-full max-h-[450px] object-contain"
-      />
-    </div>
-
-    {/* Content */}
-    <div
-      ref={desktopTextRef}
-      className="col-span-6 flex flex-col gap-6 max-h-[450px] overflow-y-auto custom-scrollbar"
-    >
-      <H3 className="text-gray-900 text-2xl leading-tight">
-        {activeContent.title}
-      </H3>
-
-      <P className=" leading-relaxed">
-        {activeContent.p1}
-      </P>
-      <P className=" leading-relaxed">
-        {activeContent.p2}
-      </P>
-    </div>
-
-  </div>
-</div>
 
       <style>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
+import { useScroll } from "framer-motion"
 import { Check } from "lucide-react"
 import { P } from "../../../styles/Typography"
 
@@ -117,12 +118,57 @@ const Features = () => {
     "Regulatory Compliance ",
   ]
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const navScrollRef = useRef<HTMLDivElement>(null);
+  const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+      return scrollYProgress.onChange((latest) => {
+          const numItems = filters.length;
+          const index = Math.min(Math.floor(latest * numItems), numItems - 1);
+          setActiveFilter(filters[index]);
+      });
+  }, [scrollYProgress]);
+
+  useEffect(() => {
+      const activeIndex = filters.indexOf(activeFilter);
+      const container = navScrollRef.current;
+      const activeBtn = navBtnRefs.current[activeIndex];
+      if (!container || !activeBtn) return;
+
+      const containerLeft = container.getBoundingClientRect().left;
+      const containerWidth = container.getBoundingClientRect().width;
+      const activeLeft = activeBtn.getBoundingClientRect().left;
+      const activeWidth = activeBtn.getBoundingClientRect().width;
+
+      const activeCenterRelative = activeLeft - containerLeft + activeWidth / 2;
+      const containerCenter = containerWidth / 2;
+      const scrollAdjustment = activeCenterRelative - containerCenter;
+
+      container.scrollBy({ left: scrollAdjustment, behavior: "smooth" });
+  }, [activeFilter]);
+
+  const handleNavClick = (index: number) => {
+      if (!containerRef.current) return;
+      const container = containerRef.current;
+      const containerTop = container.offsetTop;
+      const scrollableDistance = container.offsetHeight - window.innerHeight;
+
+      // adding a tiny offset to ensure it snaps to the exact right panel
+      const targetScroll = containerTop + (index / filters.length) * scrollableDistance + 10;
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
+  };
+
   const currentContent = tabContent[activeFilter]
 
   return (
-    <div className="w-full bg-white px-3.5 sm:px-4 md:px-5 pt-4">
-
-      {/* Everything below remains EXACTLY the same as your original code */}
+    <div className="w-full bg-white">
+      <div className="w-full px-3.5 sm:px-4 md:px-5 pt-4">
 
       {/* Title Section */}
       <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
@@ -147,19 +193,24 @@ const Features = () => {
           Bankfair combines parameterization, automation, and security to streamline core banking and loan management for financial institutions of all sizes. 
           </p>
       </div>
+      </div>
 
+      <div ref={containerRef} className="w-full h-[200vh]">
+        <div className="sticky top-24 w-full px-3.5 sm:px-4 md:px-5 pb-4 bg-white z-10">
       {/* Tabs */}
       <div
-        className="overflow-x-auto mb-6 [&::-webkit-scrollbar]:hidden"
+        ref={navScrollRef}
+        className="overflow-x-auto mb-6 [&::-webkit-scrollbar]:hidden scroll-smooth"
         style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
       >
         <div className="flex gap-[19px] pb-1.5 xl:pb-0
                         min-w-max lg:min-w-0 xl:min-w-0
                         lg:flex-wrap lg:justify-center lg:max-w-7xl lg:mx-auto xl:flex-wrap xl:justify-center xl:max-w-7xl xl:mx-auto">
-          {filters.map((filter) => (
+          {filters.map((filter, index) => (
             <button
               key={filter}
-              onClick={() => setActiveFilter(filter)}
+              ref={(el) => { navBtnRefs.current[index] = el; }}
+              onClick={() => handleNavClick(index)}
               className={`
                 rounded-full font-medium whitespace-nowrap transition-all border border-[#8b8888] cursor-pointer
                 px-3 py-1.5 text-[11px]
@@ -306,6 +357,8 @@ const Features = () => {
 
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </div>
   )

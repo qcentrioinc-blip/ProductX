@@ -1,8 +1,8 @@
 "use client";
-
+ 
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+ 
 const logos = [
   { img: "/ProductsLogo/Almanac.webp", link: "/industries/banking-and-finance/products/almanac", tagline: "Asset Management", newTab: true },
   { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Banking", newTab: true },
@@ -17,40 +17,40 @@ const logos = [
   { img: "/ProductsLogo/sherlock.webp", link: "/industries/banking-and-finance/products/sherlock", tagline: "AML", newTab: true },
   { img: "/ProductsLogo/UHN.webp", link: "/industries/ehr-and-pms", tagline: "EHR and PMS", newTab: true },
 ];
-
+ 
 const doubled = [...logos, ...logos, ...logos];
-
+ 
 const PX_PER_FRAME = 1.2;
 const DRAG_THRESHOLD = 4;
-
+ 
 export default function LogoMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
   const posX = useRef(0);
   const halfW = useRef(0);
   const rafId = useRef(0);
-
+ 
   const isDragging = useRef(false);
   const wasDragged = useRef(false);
   const isPaused = useRef(false);
-
+ 
   const downX = useRef(0);
   const downY = useRef(0);
   const isHorizontal = useRef<boolean | null>(null);
   const lastDragX = useRef(0);
   const dragVel = useRef(0);
   const momentum = useRef(0);
-
+ 
   useEffect(() => {
     const track     = trackRef.current;
     const container = track?.parentElement;
     if (!track || !container) return;
-
+ 
     const initRaf = requestAnimationFrame(() => {
       halfW.current = track.scrollWidth / 3;
-
+ 
       function step() {
         if (!trackRef.current) return;
-
+ 
         if (isDragging.current || isPaused.current) {
           // pause
         } else if (Math.abs(momentum.current) > 0.5) {
@@ -60,21 +60,19 @@ export default function LogoMarquee() {
         } else {
           posX.current -= PX_PER_FRAME;
         }
-
        if (halfW.current > 0) {
   if (posX.current <= -halfW.current) posX.current += halfW.current;
   if (posX.current >= 0) posX.current -= halfW.current;
 }
-
         trackRef.current.style.transform = `translate3d(${posX.current}px,0,0)`;
         rafId.current = requestAnimationFrame(step);
       }
-
+ 
       rafId.current = requestAnimationFrame(step);
     });
-
+ 
     // const container = trackRef.current?.parentElement;
-
+ 
     // 🖱 Mouse
     function onMouseDown(e: MouseEvent) {
       if (!container?.contains(e.target as Node)) return;
@@ -85,25 +83,25 @@ export default function LogoMarquee() {
       downX.current = e.clientX;
       lastDragX.current = e.clientX;
     }
-
+ 
     function onMouseMove(e: MouseEvent) {
       if (!isDragging.current) return;
       const dx = e.clientX - lastDragX.current;
       dragVel.current = dragVel.current * 0.6 + dx * 0.4;
       lastDragX.current = e.clientX;
-
+ 
       if (!wasDragged.current && Math.abs(e.clientX - downX.current) > DRAG_THRESHOLD) {
         wasDragged.current = true;
       }
-
+ 
       posX.current += dx;
-
+ 
       if (halfW.current > 0) {
   if (posX.current <= -halfW.current) posX.current += halfW.current;
   if (posX.current >= 0) posX.current -= halfW.current;
 }
     }
-
+ 
     function onMouseUp() {
       if (!isDragging.current) return;
       isDragging.current = false;
@@ -111,15 +109,15 @@ export default function LogoMarquee() {
       momentum.current = dragVel.current * 0.8;
       setTimeout(() => (wasDragged.current = false), 50);
     }
-
+ 
     function onMouseEnter() {
       isPaused.current = true;
     }
-
+ 
     function onMouseLeave() {
       isPaused.current = false;
     }
-
+ 
     // 📱 Touch
     function onTouchStart(e: TouchEvent) {
       isPaused.current = true;
@@ -127,59 +125,58 @@ export default function LogoMarquee() {
       isHorizontal.current = null;
       wasDragged.current = false;
       momentum.current = 0;
-
+ 
       downX.current = e.touches[0].clientX;
       downY.current = e.touches[0].clientY;
       lastDragX.current = e.touches[0].clientX;
     }
-
+ 
     function onTouchMove(e: TouchEvent) {
       if (!container?.contains(e.target as Node)) return;
-
+ 
       const tx = e.touches[0].clientX;
       const ty = e.touches[0].clientY;
       const dx = tx - lastDragX.current;
-
+ 
       const totalDX = Math.abs(tx - downX.current);
       const totalDY = Math.abs(ty - downY.current);
-
+ 
       if (isHorizontal.current === null && (totalDX > DRAG_THRESHOLD || totalDY > DRAG_THRESHOLD)) {
         isHorizontal.current = totalDX >= totalDY;
       }
-
+ 
       if (isHorizontal.current === false) return;
-
+ 
       if (isHorizontal.current === true) {
         e.preventDefault();
         isDragging.current = true;
         wasDragged.current = true;
-
+ 
         dragVel.current = dragVel.current * 0.6 + dx * 0.4;
         lastDragX.current = tx;
         posX.current += dx;
-
       if (halfW.current > 0) {
   if (posX.current <= -halfW.current) posX.current += halfW.current;
   if (posX.current >= 0) posX.current -= halfW.current;
 }
       }
     }
-
+ 
     function onTouchEnd() {
       isPaused.current = false;
-
+ 
       if (!isDragging.current) {
         isHorizontal.current = null;
         return;
       }
-
+ 
       isDragging.current = false;
       isHorizontal.current = null;
       momentum.current = dragVel.current * 0.8;
-
+ 
       setTimeout(() => (wasDragged.current = false), 50);
     }
-
+ 
     // Attach
     if (container) {
       container.addEventListener("mousedown", onMouseDown);
@@ -189,14 +186,14 @@ export default function LogoMarquee() {
       container.addEventListener("touchmove", onTouchMove, { passive: false });
       container.addEventListener("touchend", onTouchEnd);
     }
-
+ 
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
-
+ 
     return () => {
       cancelAnimationFrame(initRaf);
       cancelAnimationFrame(rafId.current);
-
+ 
       if (container) {
         container.removeEventListener("mousedown", onMouseDown);
         container.removeEventListener("mouseenter", onMouseEnter);
@@ -205,19 +202,19 @@ export default function LogoMarquee() {
         container.removeEventListener("touchmove", onTouchMove);
         container.removeEventListener("touchend", onTouchEnd);
       }
-
+ 
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", onMouseUp);
     };
   }, []);
-
+ 
   const onLinkClick = (e: React.MouseEvent) => {
     if (wasDragged.current) {
       e.preventDefault();
       e.stopPropagation();
     }
   };
-
+ 
   return (
     <div
       className="w-full bg-white mt-1 overflow-hidden relative"
@@ -264,3 +261,4 @@ export default function LogoMarquee() {
     </div>
   );
 }
+ 
