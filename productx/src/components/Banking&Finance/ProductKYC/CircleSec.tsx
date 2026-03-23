@@ -1,25 +1,25 @@
 "use client";
- 
+
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion"; // Added import
+import { motion } from "framer-motion";
 import { H1, H4, P } from "../../../styles/Typography";
- 
+
 type Feature = {
   icon: string;
   title: string;
   text: string;
 };
- 
+
 type ProductTab = {
   label: string;
   description: string;
   para?: string;
   image?: string;
-mobileImage?: string; // 👈 add this
+  mobileImage?: string;
   features?: Feature[];
   intro?: string;
 };
- 
+
 const products: ProductTab[] = [
   {
     label: "Enterprise CDD",
@@ -27,7 +27,7 @@ const products: ProductTab[] = [
     description:
       "Re-configure on the GO! No more expensive, time consuming system change requests.",
     image: "/ProductDetails4/KYC1.webp",
-    mobileImage: "/ProductDetails4/KYC1_mobile.webp", // 👈 Mobile image
+    mobileImage: "/ProductDetails4/KYC1_mobile.webp",
   },
   {
     label: "ID and V Monitor",
@@ -39,17 +39,17 @@ const products: ProductTab[] = [
       {
         icon: "/ProductDetails4/icon7.svg",
         title: "Requirement Generator",
-        text: "Single click generation of data and documents required  data and documents.",
+        text: "Single click generation of data and documents required data and documents.",
       },
       {
         icon: "/ProductDetails4/icon5.svg",
         title: "Configuration Studio",
-        text: "Re-configure ID&V policy changes to Entities, Countrien of data and documents required .",
+        text: "Re-configure ID&V policy changes to Entities, Countries of data and documents required.",
       },
       {
         icon: "/ProductDetails4/icon4.svg",
         title: "API Integration",
-        text: "Seamless data exchange with external and internal systems.ration of data and documents required for Clients.",
+        text: "Seamless data exchange with external and internal systems for Clients.",
       },
     ],
   },
@@ -63,323 +63,333 @@ const products: ProductTab[] = [
       {
         icon: "/ProductDetails4/icon7.svg",
         title: "Ownership Mapping",
-        text: "Seamless data exchange with external and internal systems to clicknd docfor dwef frg ger ger vreg gregg .",
+        text: "Seamless data exchange with external and internal systems.",
       },
       {
         icon: "/ProductDetails4/icon5.svg",
         title: "Risk Evaluation",
-        text: "Seamless data exchange with external and internal systems.Single Clients.",
+        text: "Seamless data exchange with external and internal systems. Single Clients.",
       },
       {
         icon: "/ProductDetails4/icon4.svg",
         title: "Global Coverage",
-        text: "Access cross-border data sources for comprehensive ownership analysis.Single of data and documents ",
+        text: "Access cross-border data sources for comprehensive ownership analysis.",
       },
     ],
   },
 ];
- 
-export default function CircleSec() {
-  const [activeTab, setActiveTab] = useState(products[0]);
-  const [mobileScrollProgress, setMobileScrollProgress] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Detect Mobile
+const COUNT = products.length;
+
+// ── AnimatedLayer ─────────────────────────────────────────────────────
+// Reports its own rendered height via onHeightChange so the
+// container can size itself correctly — fixes mobile clip.
+const AnimatedLayer = ({
+  product,
+  isLeaving,
+  onHeightChange,
+}: {
+  product: ProductTab;
+  isLeaving: boolean;
+  onHeightChange?: (h: number) => void;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Measure and report height after render
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
- 
-  // Handle Click for Desktop AND Mobile
-  const handleTabClick = (product: ProductTab, index: number) => {
-    setActiveTab(product);
+    if (isLeaving || !onHeightChange) return;
+    const el = ref.current;
+    if (!el) return;
 
-    // Mobile specific logic: Scroll to the tab's position
-    if (isMobile && sectionRef.current) {
-      const sectionTop = sectionRef.current.getBoundingClientRect().top + window.scrollY;
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      
-      const scrollableDistance = sectionHeight - viewportHeight;
-      const targetProgress = index / (products.length - 1); 
-      
-      const targetScrollY = sectionTop + (targetProgress * scrollableDistance);
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        onHeightChange(entry.contentRect.height);
+      }
+    });
+    ro.observe(el);
+    // Report immediately too
+    onHeightChange(el.getBoundingClientRect().height);
+    return () => ro.disconnect();
+  }, [isLeaving, onHeightChange]);
 
-      window.scrollTo({
-        top: targetScrollY,
-        behavior: 'auto'
+  // Enter animation
+  useEffect(() => {
+    if (isLeaving) return;
+    const el = ref.current;
+    if (!el) return;
+
+    el.style.transition = "none";
+    el.style.opacity = "0";
+    el.style.transform = "translateY(24px) scale(0.97)";
+    el.style.filter = "blur(8px)";
+
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transition = [
+          "opacity 750ms cubic-bezier(0.16,1,0.3,1)",
+          "transform 750ms cubic-bezier(0.16,1,0.3,1)",
+          "filter 750ms cubic-bezier(0.16,1,0.3,1)",
+        ].join(", ");
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0px) scale(1)";
+        el.style.filter = "blur(0px)";
       });
-    }
-  };
- 
-  // Handle Mobile Scroll Mapping with RequestAnimationFrame for smoothness
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, [isLeaving]);
+
+  // Exit animation
   useEffect(() => {
-    let ticking = false;
+    if (!isLeaving) return;
+    const el = ref.current;
+    if (!el) return;
 
-    const updateScroll = () => {
-      if (!sectionRef.current || !isMobile) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      
-      const endOffset = rect.height - viewportHeight;
-      const currentScroll = -rect.top; 
-
-      if (currentScroll >= 0 && currentScroll <= endOffset) {
-        const progress = currentScroll / endOffset;
-        setMobileScrollProgress(Math.min(1, Math.max(0, progress)));
-      } else if (currentScroll < 0) {
-        setMobileScrollProgress(0);
-      } else {
-        setMobileScrollProgress(1);
-      }
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScroll);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    
-    // Initial calculation
-    updateScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [isMobile]);
-
-  // Determine which tab is active on mobile based on scroll progress
-  useEffect(() => {
-    if (isMobile) {
-      const index = Math.min(
-        products.length - 1,
-        Math.floor(mobileScrollProgress * products.length)
-      );
-      setActiveTab(products[index]);
-    }
-  }, [mobileScrollProgress, isMobile]);
+    el.style.transition = [
+      "opacity 500ms cubic-bezier(0.16,1,0.3,1)",
+      "transform 500ms cubic-bezier(0.16,1,0.3,1)",
+      "filter 500ms cubic-bezier(0.16,1,0.3,1)",
+    ].join(", ");
+    el.style.opacity = "0";
+    el.style.transform = "translateY(-16px) scale(1.02)";
+    el.style.filter = "blur(6px)";
+  }, [isLeaving]);
 
   return (
-    <section 
-      ref={sectionRef}
-      className={`
-        w-full xl:bg-gradient-to-b from-[#E1EDFF] to-[#FFFFFF]
-        text-center relative
-        ${isMobile ? 'h-[250vh]' : 'py-8 px-4 sm:px-6 xl:px-20'} 
-      `}
+    <div
+      ref={ref}
+      style={{
+        // KEY FIX: incoming layer is relative (not absolute) so it
+        // contributes to normal flow and the container grows with it.
+        // Outgoing layer is absolute so it overlays without pushing layout.
+        position: isLeaving ? "absolute" : "relative",
+        inset: isLeaving ? 0 : undefined,
+        width: "100%",
+        willChange: "opacity, transform, filter",
+        pointerEvents: isLeaving ? "none" : "auto",
+        opacity: isLeaving ? 1 : 0,
+      }}
     >
-      
-      {/* MOBILE STICKY WRAPPER */}
-      <div className="md:hidden sticky top-15 xl:top-0 w-full overflow-hidden flex flex-col z-10">
-        
-        {/* Mobile Header & Tabs */}
-        <div className="pt-4 pb-2 px-4 shrink-0  z-20">
-          <H1 className="text-[#2f5fb3] mb-2 text-lg font-bold leading-tight">Solution Components</H1>
-          
-          {/* Tabs */}
-          <div className="flex justify-center gap-2 overflow-x-auto scrollbar-hide px-1">
-            {products.map((product, index) => {
-              const isActive = activeTab.label === product.label;
-              return (
-                <button
-                  key={product.label}
-                  onClick={() => handleTabClick(product, index)}
-                  className={`
-                    relative whitespace-nowrap px-3 py-1.5 text-[10px] rounded-full transition-colors duration-300 border
-                    ${isActive ? "text-white border-transparent" : "text-gray-600 border-gray-200 bg-white/80"}
-                  `}
-                >
-                  {/* Animated Background Pill */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activePill"
-                      className="absolute inset-0 bg-[#2f5fb3] rounded-full shadow-md z-[-1]"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                  {product.label}
-                </button>
-              );
-            })}
-          </div>
+      {/* Image tab */}
+      {product.image && (
+        <div className="w-full flex justify-center">
+          <img
+            src={product.mobileImage || product.image}
+            alt={product.label}
+            className="block md:hidden w-full object-contain"
+            style={{ maxHeight: "60vh" }}
+          />
+          <img
+            src={product.image}
+            alt={product.label}
+            className="hidden md:block object-contain w-full"
+            style={{ maxWidth: "820px", maxHeight: "55vh" }}
+          />
         </div>
+      )}
 
-        {/* Mobile Horizontal Slider Wrapper */}
-        <div className="relative overflow-hidden min-h-0 bg-white">
-          <div 
-            className="flex h-full w-[300%] will-change-transform" 
-            style={{ transform: `translateX(-${mobileScrollProgress * (200 / 3)}%)` }}
-          >
-            {products.map((product) => (
-              <div key={product.label} className="w-1/3 h-full flex flex-col justify-start px-8 shrink-0">
-                 
-                {/* Description */}
-                <div className="shrink-0">
-                  <H4 className="text-[#2f5fb3] mb-6 mt-4 text-xs font-bold leading-tight">
-                    {product.description}
-                  </H4>
-                </div>
+      {/* Features tab */}
+      {product.features && (
+        <div className="w-full max-w-6xl mx-auto">
+          {product.intro && (
+            <P className="text-gray-700 text-xs md:text-base mb-6 md:mb-8 max-w-4xl mx-auto text-center">
+              {product.intro}
+            </P>
+          )}
 
-                {/* SCROLLABLE CONTENT AREA */}
-                <div className="overflow-y-auto custom-scrollbar flex flex-col items-center w-full">
-                  
-                  {/* TAB 1: Para + Image */}
-                  {product.para && (
-                    <>
-                      {/* <P className="text-[10px] leading-relaxed mb-12 text-center w-full text-gray-700">
-                        {product.para}
-                      </P> */}
-                      <div className="w-full flex items-center justify-center min-h-[200px]">
-                        <img
-                          src={product.mobileImage || product.image}
-                          alt={product.label}
-                          className="w-full h-auto object-cover max-w-full"
-                        />
-                      </div>
-                    </>
-                  )}
-                  
-                  {/* TABS 2 & 3: Intro + Features in Individual Boxes */}
-                  {product.features && (
-                    <>
-                      {product.intro && (
-                        <P className="text-[10px] mb-4 leading-relaxed text-center text-gray-700 font-medium">
-                          {product.intro}
-                        </P>
-                      )}
-                      
-                      {/* Grid of Individual Boxes */}
-                      <div className="w-full flex flex-col gap-4">
-                        {product.features.map((feature, i) => (
-                          <div key={i} className="border border-blue-200 bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center">
-                            {/* Icon Top */}
-                            <img src={feature.icon} alt={feature.title} className="h-8 w-8 mb-2 object-contain" />
-                            
-                            {/* Title */}
-                            <H4 className="font-bold text-[11px] mb-1 text-gray-900 leading-tight w-full">{feature.title}</H4>
-                            
-                            {/* Para */}
-                            <P className="text-gray-600 text-[10px] leading-snug">{feature.text}</P>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
+          {/* Mobile: stacked cards — full height, nothing clipped */}
+          <div className="flex flex-col gap-3 md:hidden pb-4">
+            {product.features.map((feature, i) => (
+              <div
+                key={i}
+                className="border border-blue-200 bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center"
+              >
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className="h-8 w-8 mb-2 object-contain"
+                />
+                <H4 className="font-bold text-xs mb-1 text-gray-900 leading-tight">
+                  {feature.title}
+                </H4>
+                <P className="text-gray-600 text-xs leading-snug">{feature.text}</P>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: 3-col grid */}
+          <div className="hidden md:grid grid-cols-3 gap-8 md:gap-6 items-start text-center">
+            {product.features.map((feature, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center px-6 md:border-l md:border-blue-300 first:md:border-l-0"
+              >
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className="h-16 mb-6"
+                />
+                <H4 className="font-semibold text-lg mb-3">{feature.title}</H4>
+                <P className="text-gray-600 text-sm">{feature.text}</P>
               </div>
             ))}
           </div>
         </div>
-      </div>
- 
-      {/* DESKTOP VIEW */}
-      <div className="hidden md:block">
-        <H1 className="text-[#2f5fb3] mb-6">
-           Solution Components
-        </H1>
- 
-        <div className="mb-8 overflow-x-auto scrollbar-hide">
-          <div className="flex w-max min-w-full lg:w-full lg:min-w-0 justify-start md:justify-center gap-4 sm:gap-6 lg:gap-10 px-4 sm:px-6">
-            {products.map((product, index) => {
-              const isActive = activeTab.label === product.label;
- 
-              return (
-                <button
-                  key={product.label}
-                  onClick={() => handleTabClick(product, index)}
-                  className={`
-                    whitespace-nowrap
-                    px-6 sm:px-10 lg:px-16 xl:px-20
-                    py-3 sm:py-4
-                    text-sm sm:text-base lg:text-lg
-                    rounded-full
-                    transition-all duration-300
-                    ${
-                      isActive
-                        ? "bg-[#2f5fb3] text-white shadow-md"
-                        : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
-                    }
-                  `}
-                >
-                  {product.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
- 
-        <H4 className="text-[#2f5fb3] mb-8 max-w-3xl mx-auto transition-all duration-300 px-2">
-          {activeTab.description}
-        </H4>
- 
-        <div className="w-full flex justify-center">
-          {activeTab.image && (
-            <img
-              src={activeTab.image}
-              alt={activeTab.label}
-              className="w-full max-w-5xl lg:max-w-6xl object-contain transition-opacity duration-300"
-            />
-          )}
- 
-          {activeTab.features && (
-            <div className="w-full max-w-6xl mx-auto">
-              {activeTab.intro && (
-                <P className="text-gray-700 text-sm sm:text-base mb-8 max-w-4xl mx-auto">
-                  {activeTab.intro}
-                </P>
-              )}
- 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-start text-center">
-                {activeTab.features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center px-6 md:border-l md:border-blue-300 first:md:border-l-0"
+      )}
+    </div>
+  );
+};
+
+// ── CircleSec ─────────────────────────────────────────────────────────
+export default function CircleSec() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  // Measured height of the incoming (active) layer
+  const [contentHeight, setContentHeight] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isClickScrolling = useRef(false);
+  const prevIndexRef = useRef(0);
+  const cleanupTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const transitionTo = (index: number) => {
+    if (index === prevIndexRef.current) return;
+    if (cleanupTimer.current) clearTimeout(cleanupTimer.current);
+    setPrevIndex(prevIndexRef.current);
+    prevIndexRef.current = index;
+    setActiveIndex(index);
+    cleanupTimer.current = setTimeout(() => setPrevIndex(null), 520);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isClickScrolling.current) return;
+      const container = containerRef.current;
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      if (total <= 0) return;
+
+      const scrolled = -rect.top;
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
+      const index = Math.min(Math.floor(progress * COUNT), COUNT - 1);
+      transitionTo(index);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleTabClick = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    if (total <= 0) {
+      transitionTo(index);
+      return;
+    }
+
+    const bandSize = 1 / COUNT;
+    const targetProgress = bandSize * index + bandSize * 0.5;
+    const targetY = window.scrollY + rect.top + targetProgress * total;
+
+    isClickScrolling.current = true;
+    transitionTo(index);
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+    setTimeout(() => { isClickScrolling.current = false; }, 700);
+  };
+
+  const active = products[activeIndex];
+
+  return (
+    <section className="relative bg-white xl:bg-gradient-to-b xl:from-[#E1EDFF] xl:to-[#FFFFFF]">
+      <div
+        ref={containerRef}
+        style={{ height: `${COUNT * 100}vh` }}
+        className="relative"
+      >
+        <div className="sticky top-0 py-8 md:py-10 bg-white xl:bg-transparent">
+          <div className="w-full px-4 sm:px-6 xl:px-20 max-w-7xl mx-auto">
+
+            <H1 className="text-[#2f5fb3] mb-4 md:mb-6 text-center text-lg md:text-3xl font-bold leading-tight">
+              Solution Components
+            </H1>
+
+            {/* Pill tabs */}
+            <div
+              className="flex justify-center gap-2 md:gap-4 lg:gap-10 overflow-x-auto pb-2 mb-6 md:mb-8"
+              style={{ scrollbarWidth: "none" }}
+            >
+              {products.map((product, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <button
+                    key={product.label}
+                    onClick={() => handleTabClick(index)}
+                    className={`
+                      relative whitespace-nowrap
+                      px-3 md:px-6 lg:px-10 xl:px-16
+                      py-1.5 md:py-3
+                      text-[10px] md:text-sm lg:text-base
+                      rounded-full transition-colors duration-300 border flex-shrink-0
+                      ${isActive
+                        ? "text-white border-transparent bg-[#2f5fb3] shadow-md"
+                        : "text-gray-600 border-gray-300 bg-white hover:bg-gray-100"
+                      }
+                    `}
                   >
-                    <img
-                      src={feature.icon}
-                      alt={feature.title}
-                      className="h-16 mb-6"
-                    />
-                    <H4 className="font-semibold text-lg mb-3">
-                      {feature.title}
-                    </H4>
-                    <P className="text-gray-600 text-sm">
-                      {feature.text}
-                    </P>
-                  </div>
-                ))}
-              </div>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activePill"
+                        className="absolute inset-0 bg-[#2f5fb3] rounded-full z-[-1]"
+                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                      />
+                    )}
+                    {product.label}
+                  </button>
+                );
+              })}
             </div>
-          )}
+
+            {/* Description */}
+            <H4 className="text-[#2f5fb3] mb-6 md:mb-8 max-w-3xl mx-auto text-center text-xs md:text-base font-bold leading-tight px-2">
+              {active.description}
+            </H4>
+
+            {/*
+              Crossfade container.
+              Height is driven by the measured incoming layer height —
+              so it always fits content exactly with no clipping.
+              The outgoing layer is absolute (overlays on top during fade),
+              the incoming layer is relative (drives the container height).
+            */}
+            <div
+              className="relative w-full transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{ minHeight: contentHeight > 0 ? `${contentHeight}px` : undefined }}
+            >
+              {prevIndex !== null && (
+                <AnimatedLayer
+                  key={`out-${prevIndex}`}
+                  product={products[prevIndex]}
+                  isLeaving={true}
+                />
+              )}
+              <AnimatedLayer
+                key={`in-${activeIndex}`}
+                product={products[activeIndex]}
+                isLeaving={false}
+                onHeightChange={setContentHeight}
+              />
+            </div>
+
+          </div>
         </div>
       </div>
 
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
-        
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 20px;
-        }
+        div::-webkit-scrollbar { display: none; }
       `}</style>
     </section>
   );
