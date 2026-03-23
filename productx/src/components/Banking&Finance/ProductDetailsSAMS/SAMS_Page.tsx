@@ -39,7 +39,7 @@ const Sams_Page = () => {
   }, [location, lenis]);
 
   return (
-    <div className="overflow-hidden">
+    <div>
       <BNFNav />
       {/* <HeroSection /> */}
       <LandingSams />
@@ -51,12 +51,12 @@ const Sams_Page = () => {
 
       <FaqSection />
       {/* <FaqSection /> */}
-     <div id="blogs">
-  <ImageCard/>
-</div>
+      <div id="blogs">
+        <ImageCard />
+      </div>
 
 
-       <div id="contact-us">
+      <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">
           <ContactUS />

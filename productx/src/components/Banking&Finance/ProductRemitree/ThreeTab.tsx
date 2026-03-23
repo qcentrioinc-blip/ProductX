@@ -1,10 +1,54 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useScroll } from "framer-motion";
 import { H1 } from "../../../styles/Typography";
 
 const ThreeTab = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const navScrollRef = useRef<HTMLDivElement>(null);
+    const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
     const tabs = ['Creation', 'Compliance', 'Integration'];
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"],
+    });
+
+    useEffect(() => {
+        return scrollYProgress.onChange((latest) => {
+            const numItems = tabs.length;
+            const index = Math.min(Math.floor(latest * numItems), numItems - 1);
+            setActiveTab(index);
+        });
+    }, [scrollYProgress]);
+
+    useEffect(() => {
+        const container = navScrollRef.current;
+        const activeBtn = navBtnRefs.current[activeTab];
+        if (!container || !activeBtn) return;
+
+        const containerLeft = container.getBoundingClientRect().left;
+        const containerWidth = container.getBoundingClientRect().width;
+        const activeLeft = activeBtn.getBoundingClientRect().left;
+        const activeWidth = activeBtn.getBoundingClientRect().width;
+
+        const activeCenterRelative = activeLeft - containerLeft + activeWidth / 2;
+        const containerCenter = containerWidth / 2;
+        const scrollAdjustment = activeCenterRelative - containerCenter;
+
+        container.scrollBy({ left: scrollAdjustment, behavior: "smooth" });
+    }, [activeTab]);
+
+    const handleNavClick = (index: number) => {
+        if (!containerRef.current) return;
+        const container = containerRef.current;
+        const containerTop = container.offsetTop;
+        const scrollableDistance = container.offsetHeight - window.innerHeight;
+
+        const targetScroll = containerTop + (index / tabs.length) * scrollableDistance + 10;
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+    };
 
     const tabContents = [
         {
@@ -74,6 +118,9 @@ const ThreeTab = () => {
                 </p>
             </div>
 
+            <div ref={containerRef} className="w-full h-[200vh]">
+              <div className="sticky top-24 w-full bg-white z-10 pt-4 pb-4">
+
             {/* ── TABLET + DESKTOP CARD (md and above) ───────────
                 NO scaling, NO absolute — pure responsive Tailwind
             ─────────────────────────────────────────────────── */}
@@ -94,7 +141,7 @@ const ThreeTab = () => {
                         {tabs.map((tab, index) => (
                             <button
                                 key={tab}
-                                onClick={() => setActiveTab(index)}
+                                onClick={() => handleNavClick(index)}
                                 className={`
                                     flex-1 font-semibold transition-all duration-300 text-center relative
                                     h-[48px]  text-[14px] pl-4
@@ -197,11 +244,12 @@ const ThreeTab = () => {
                 <div className="w-full max-w-[700px] rounded-xl overflow-hidden bg-white border-[1.5px] border-[#D5D5D5] min-h-[500px]">
 
                     {/* Tab Header */}
-                    <div className="flex w-full overflow-x-auto scrollbar-hide border-b-[1.5px] border-b-[#D5D5D5]">
+                    <div ref={navScrollRef} className="flex w-full overflow-x-auto scrollbar-hide border-b-[1.5px] border-b-[#D5D5D5] scroll-smooth">
                         {tabs.map((tab, index) => (
                             <button
                                 key={tab}
-                                onClick={() => setActiveTab(index)}
+                                ref={(el) => { navBtnRefs.current[index] = el; }}
+                                onClick={() => handleNavClick(index)}
                                 className={`
                                     flex-1 py-4 px-5 min-w-[110px]
                                     text-sm font-bold whitespace-nowrap transition-colors
@@ -241,8 +289,8 @@ const ThreeTab = () => {
                         <div className="grid grid-cols-2 gap-y-[14px] gap-x-4">
                             {tabContents[activeTab].features.map((feature, i) => (
                                 <div key={i} className="flex items-center gap-[10px]">
-                                    <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#2B68C3] flex-shrink-0">
-                                        <img src={feature.icon} alt="icon" className="w-5 h-5 object-contain" />
+                                    <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-[#2B68C3] flex-shrink-0">
+                                        <img src={feature.icon} alt="icon" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                                     </div>
                                     <span className="font-['Quicksand'] text-[#333] text-[12px] sm:text-[14px]">
                                         {feature.text}
@@ -252,12 +300,14 @@ const ThreeTab = () => {
                         </div>
 
                         <img
-                            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            alt="Business meeting"
+                            src={tabContents[activeTab].image}
+                            alt={tabContents[activeTab].title}
                             className="w-full h-auto rounded-lg object-cover max-h-[300px]"
                         />
                     </div>
                 </div>
+            </div>
+              </div>
             </div>
         </div>
     );
