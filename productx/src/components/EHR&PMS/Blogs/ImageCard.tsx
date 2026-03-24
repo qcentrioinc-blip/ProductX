@@ -43,6 +43,15 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
         title: 'Sed ut perspiciatis Unde',
         subtitle: 'Why Cloud-Based EHR Is the Gold Standard for Data Security',
         description: 'But if you work in healthcare, moving patient records to the cloud raises one major question. Is it secure enough... ',
+    },
+    {
+        id: 8,
+        slug: "five-ways-to-use-loan-origination-data-to-manage-customer-dropout",
+        date: '24 March 2026',
+        imageSrc: '/Blog/LOSBlog.webp',
+        title: 'Sed ut perspiciatis Unde',
+        subtitle: 'Five Ways To Use Loan Origination Data To Manage Customer Dropout',
+        description: 'In today\'s times, a significant percentage of loan applicants start the process but never finish it, leading to lost revenue...',
     }
 ];
 

@@ -11,6 +11,8 @@ const categories = [
   "Pago",
   "Sams",
   "KYC",
+  "LOS",
+  "Remittance",
 ];
 
 const posts = [
@@ -70,7 +72,7 @@ const posts = [
   },
   {
     id: 7,
-     slug: "how-to-automate-regulatory-reporting-for-liquidity",
+    slug: "how-to-automate-regulatory-reporting-for-liquidity",
     title: "How To Automate Regulatory Reporting For Liquidity And Asset Management",
     description: "When it comes to managing money and risk, banks face constant pressure to follow strict rules like Basel III and ...",
     date: "8 March 2026",
@@ -79,12 +81,30 @@ const posts = [
   },
   {
     id: 8,
-     slug: "common-challenges-in-manual-np-tracking",
+    slug: "common-challenges-in-manual-np-tracking",
     title: "Common Challenges In Manual NPA Tracking & How Automation Can Solve Them ",
     description: "These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely  ...",
     date: "8 March 2026",
-    category: "Sams",         
+    category: "Sams",
     image: "/Blog/npatracking.webp",
+  },
+  {
+    id: 9,
+    slug: "five-ways-to-use-loan-origination-data-to-manage-customer-dropout",
+    title: "Five Ways To Use Loan Origination Data To Manage Customer Dropout",
+    description: "In today's times, a significant percentage of loan applicants start the process but never finish it, leading to lost revenue...",
+    date: "24 March 2026",
+    category: "LOS",
+    image: "/Blog/LOSBLOG.webp",
+  },
+  {
+    id: 10,
+    slug: "outward-vs-inward-remittances",
+    title: "Outward vs. Inward Remittances: How Banks Can Automate Both Sides Of The Transaction",
+    description: "For banks to efficiently manage cross-border remittance automation, they must handle two distinct transaction sides...",
+    date: "24 March 2026",
+    category: "Remittance",
+    image: "/Blog/RemitreeBlog.webp",
   },
 ];
 
@@ -168,11 +188,10 @@ export default function BlogGridSection() {
                   setActiveCategory(cat);
                   setCurrentPage(1);
                 }}
-                className={`px-4 py-2 rounded-full border flex-none transition-colors duration-200 ${
-                  activeCategory === cat
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border-gray-300 hover:border-gray-500"
-                }`}
+                className={`px-4 py-2 rounded-full border flex-none transition-colors duration-200 ${activeCategory === cat
+                  ? "bg-black text-white border-black"
+                  : "bg-white text-black border-gray-300 hover:border-gray-500"
+                  }`}
               >
                 {cat}
               </button>
@@ -198,9 +217,8 @@ export default function BlogGridSection() {
                       setSortOpen(false);
                       setCurrentPage(1);
                     }}
-                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                      sortType === opt ? "font-semibold" : ""
-                    }`}
+                    className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${sortType === opt ? "font-semibold" : ""
+                      }`}
                   >
                     {opt}
                   </button>
@@ -262,11 +280,10 @@ export default function BlogGridSection() {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`w-10 h-10 flex items-center justify-center rounded-md border ${
-                  currentPage === page
-                    ? "bg-blue-600 text-white border-blue-600"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                }`}
+                className={`w-10 h-10 flex items-center justify-center rounded-md border ${currentPage === page
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                  }`}
               >
                 {page}
               </button>
@@ -275,6 +292,6 @@ export default function BlogGridSection() {
         </div>
       )}
     </section>
-    
+
   );
 }
