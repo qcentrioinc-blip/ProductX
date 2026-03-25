@@ -12,6 +12,7 @@ import HeroSec1 from "./HeroSec1"
 import FaqSection from "../ProductKYC/FAQ"
 import ImageCard from "../BNFBlogs/ImageCard"
 import ImgSec from "./ImgSec"
+import CardsSec from "./CardsSec"
 
 const Bankfair = () => {
   return (
@@ -30,6 +31,7 @@ const Bankfair = () => {
         </div>
         <div id="process">
         <Benefits/>
+        <CardsSec/>
         </div>
          <div id="usecases">
         <HWD />
