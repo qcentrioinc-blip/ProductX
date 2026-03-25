@@ -12,30 +12,32 @@ import HeroSec1 from "./HeroSec1"
 import FaqSection from "../ProductKYC/FAQ"
 import ImageCard from "../BNFBlogs/ImageCard"
 import ImgSec from "./ImgSec"
+import SingleCard from "./SingleCard"
 
 const Bankfair = () => {
   return (
     <div>
-        <BNFNav/>
-        <div id="Landing">
-        <HeroSec1/>
-        </div>
-        <HeroBottomNavbar/>
-        <div id="overview"><ThreeBank/></div>
-        <div id="benefits">
-        <GridSec/>
-        <ImgSec/>
+      <BNFNav />
+      <div id="Landing">
+        <HeroSec1 />
+      </div>
+      <HeroBottomNavbar />
+      <div id="overview"><ThreeBank /></div>
+      <div id="benefits">
+        <GridSec />
+        <ImgSec />
         {/* <ColourBoard/> */}
-        <Features/>
-        </div>
-        <div id="process">
-        <Benefits/>
-        </div>
-         <div id="usecases">
+        <Features />
+      </div>
+      <div id="process">
+        <Benefits />
+      </div>
+      <SingleCard />
+      <div id="usecases">
         <HWD />
       </div>
-      <div id="faq"> <FaqSection/></div>
-      <ImageCard/>
+      <div id="faq"> <FaqSection /></div>
+      <ImageCard />
       <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">
@@ -49,8 +51,8 @@ const Bankfair = () => {
           <NewOneFooter />
         </div>
       </div>
-        
-      
+
+
     </div>
   )
 }

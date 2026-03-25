@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { H3, P } from "../../../styles/Typography";
 
 type CardItem = {
@@ -165,6 +165,14 @@ export const App: React.FC = () => {
   };
 
   const sectionRef = React.useRef<HTMLElement | null>(null);
+  const { pathname } = useLocation();
+
+  // Detect if a tall industry navbar (BNFNav etc.) is active
+  const hasTallNavbar =
+    pathname.startsWith("/industries/banking-and-finance") ||
+    pathname.startsWith("/industries/ehr-and-pms") ||
+    pathname.startsWith("/industries/high-tech") ||
+    pathname.startsWith("/industries/cloud-finops-ai");
 
   const [isScrollUp, setIsScrollUp] = useState(false);
   const lastScrollY = React.useRef(0);
@@ -180,13 +188,19 @@ export const App: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Scroll-up top: tall navbar = 130px, global navbar = 16 (64px)
+  // Scroll-down top: tall navbar = top-20 (80px), global navbar = top-0
+  const stickyTopClass = isScrollUp
+    ? hasTallNavbar ? "top-14 lg:top-[130px]" : "top-14 lg:top-16"
+    : hasTallNavbar ? "top-0 lg:top-20" : "top-18";
+
   return (
     <section ref={sectionRef} className="w-full pb-10">
       {/* Category Pills */}
       <div
         className={`
           sticky 
-          ${isScrollUp ? "top-14 lg:top-[130px]" : "top-0 lg:top-20"} 
+          ${stickyTopClass} 
           z-40 
           bg-white 
           py-3 
