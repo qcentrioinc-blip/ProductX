@@ -169,7 +169,7 @@ const NewOneFooter = () => {
     className={`
       group flex items-end justify-center
       w-auto h-[44px] sm:h-[48px] mt-2 xl:mt-0
-      px-[20px] sm:px-[44px] py-[10px] sm:py-[16px]
+      px-[20px] sm:px-[44px] py-[10px]
       rounded-[8px] font-quicksand font-bold text-[14px]
       transition-all duration-300 ease-in-out dark:border-white
       border border-transparent

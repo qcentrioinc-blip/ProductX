@@ -454,7 +454,7 @@ const HWD = () => {
 
     conciliare: [
       {
-        title: "Bank Account Reconciliation",
+        title: "Bank Account ",
         image: "/icon1.svg",
         description:
           "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
@@ -467,7 +467,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "NOSTRO Message Reconciliation",
+        title: "NOSTRO Message ",
         image: "/icon2.svg",
         description:
           "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
@@ -480,7 +480,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Payment Channel Reconciliation",
+        title: "Payment Channel ",
         image: "/icon3.svg",
         description:
           "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
