@@ -15,6 +15,8 @@ import ContactUS from "../ProductRemitree/ContactUS"
 import DetailCards from "./DeatilCards";
 import Cards from "./Cards";
 import ImageCard from "../BNFBlogs/ImageCard";
+import Highlights from "./Highlights";
+import ProcessALM from "./ProcessALM";
 
 
 
@@ -44,7 +46,9 @@ const AML = () => {
       <Description />
       <Banks />
       <DetailCards/>
+      <ProcessALM/>
       <Cards/>
+      <Highlights/>
       <HWD />
 
       <FaqSection />  

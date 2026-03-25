@@ -233,16 +233,17 @@ const HWD = () => {
         ],
       },
       {
-        title: "Loan Management Lifecycle",
+        title: "Loan Management with NPA ",
         image: "/ProductBankfair/hwd_i2.svg",
         description:
-          "Originate, disburse, and track loans from application to closure. ",
+          "Originate, disburse, track loans, and manage non-performing assets from classification to recovery. ",
         points: [
           "Configure multiple loan products with customized interest rates and repayment terms  ",
           "Automate EMI calculations, penalty applications, and repayment scheduling ",
           "Track collateral details and manage lien marking against loan accounts ",
-          "Monitor overdue payments and generate alerts for collections teams ",
+          
           "Classify assets and calculate provisions per regulatory requirements  ",
+          "Monitor overdue accounts and generate alerts for collections and recovery teams"
         ],
       },
       {
