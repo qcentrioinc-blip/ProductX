@@ -1,22 +1,43 @@
-// src/components/DayNightToggle.tsx
-
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "./ThemeContext";
-
- 
 
 const DayNightToggle = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
+  const [position, setPosition] = useState(0);
+  const targetRef = useRef(0);
+  const currentRef = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      targetRef.current = window.scrollY + window.innerHeight / 2 - 20;
+    };
+
+    const animate = () => {
+      // 🔥 smooth interpolation (lerp)
+      currentRef.current += (targetRef.current - currentRef.current) * 0.1;
+
+      setPosition(currentRef.current);
+      requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initialize
+
+    animate(); // start loop
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <button
       onClick={toggleTheme}
-      aria-label="Toggle day/night mode"
       style={{
-         position: "fixed",            // ✅ IMPORTANT CHANGE
-        bottom: "100px",              // adjust like chatbot
-        right: "20px",
-        zIndex: 9999,                 // ensure it's above everything
+        position: "absolute",
+        top: position,
+        left: "10px",
+        zIndex: 9999,
 
         width: 65,
         height: 35,
@@ -24,9 +45,9 @@ const DayNightToggle = () => {
         background: isDark ? "#1e293b" : "#efefef",
         border: `0.5px solid ${isDark ? "#334155" : "#141414"}`,
         cursor: "pointer",
+
+        // optional extra smoothness
         transition: "background 0.3s, border-color 0.3s",
-        outline: "none",
-        flexShrink: 0,
       }}
     >
       <span
