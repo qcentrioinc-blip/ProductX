@@ -101,7 +101,7 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
             {mobileDropdown === "products" && (
                 <div
                     className="mt-2 pl-3 pr-2 space-y-1 scrollbar-hide  overflow-y-auto pb-6 overscroll-contain"
-                style={{ maxHeight: "60dvh" }}
+                    style={{ maxHeight: "65dvh", paddingBottom: "28px" }}
                 >
                     {megaMenuItems.map((item, index) => (
                         <Link

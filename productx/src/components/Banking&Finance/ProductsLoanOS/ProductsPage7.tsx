@@ -16,6 +16,10 @@ import ImageCard from "../BNFBlogs/ImageCard"
 import Cards from "./Cards"
 import CTABanner from "./CTABanner"
 import FaqSection from "../ProductKYC/FAQ"
+import Layout from "./Layout"
+import Automate from "./Automate"
+import Transform from "./Transform"
+// import MFI from "./MFI"
 
 const ProductsPage7 = () => {
   const scrollableContainerRef = useContext(ScrollContext);
@@ -59,6 +63,11 @@ const ProductsPage7 = () => {
       <Harper />
       <Cards/>
       <CTABanner/>
+    
+      <Layout/>
+        <Automate/>
+        <Transform/>
+        {/* <MFI/> */}
       <HWD />
       <FaqSection/>
       {/* <FaqSection /> */}
