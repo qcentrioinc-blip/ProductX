@@ -18,6 +18,7 @@ import ImageCard from "../BNFBlogs/ImageCard";
 import Hero3 from "./Hero3";
 import ImgSec2 from "./ImgSec2";
 import Roadmap from "./Roadmap";
+import Timeline from "./Timeline";
 
 const PDPage9 = () => {
   const location = useLocation();
@@ -48,6 +49,7 @@ const PDPage9 = () => {
       <ImgSec2/>
       <ContentInfo/>
       <Roadmap/>
+      <Timeline/>
       <HWD />
       <FaqSection />
       <ImageCard/>
