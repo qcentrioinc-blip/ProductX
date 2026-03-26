@@ -17,6 +17,7 @@ import ImageCard from "../BNFBlogs/ImageCard";
 // import ImgSec from "./ImgSec";
 import Hero3 from "./Hero3";
 import ImgSec2 from "./ImgSec2";
+import Roadmap from "./Roadmap";
 
 const PDPage9 = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const PDPage9 = () => {
       <ImgTextSec />
       <ImgSec2/>
       <ContentInfo/>
+      <Roadmap/>
       <HWD />
       <FaqSection />
       <ImageCard/>
