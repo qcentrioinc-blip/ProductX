@@ -14,14 +14,13 @@ const XIcon = ({ size = 28 }: { size?: number }) => (
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isLightNavbar = location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace')|| location.pathname.startsWith('/contact');
- 
+  const isLightNavbar = location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace') || location.pathname.startsWith('/contact');
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg">
       <div className="max-w-8xl mx-4 px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        
+
         <Link to="/">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
 
@@ -31,7 +30,7 @@ const Navbar = () => {
 
         {/* Desktop nav (unchanged) */}
         <nav className="hidden md:flex items-center gap-8">
-           {/* <Link
+          {/* <Link
             to="/"
             className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
@@ -48,7 +47,7 @@ const Navbar = () => {
 
           <Link
             to="/marketplace"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
+            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-black/80"
               }`}
           >
             Marketplace
@@ -56,7 +55,7 @@ const Navbar = () => {
 
           <Link to="/contact">
             <button
-          className={`
+              className={`
             group
             flex items-center justify-center
             w-auto h-[44px] sm:h-[48px]
@@ -73,21 +72,21 @@ const Navbar = () => {
             shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
             
           `}
-        >
-          <span className="flex items-center gap-[8px]">
-              CONTACT US
-            <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                <path d="M7 7h10v10" />
-                <path d="M7 17L17 7" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </span>
-          </span>
-        </button>
+            >
+              <span className="flex items-center gap-[8px]">
+                CONTACT US
+                <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </span>
+            </button>
           </Link>
         </nav>
 
