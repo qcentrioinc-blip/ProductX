@@ -12,7 +12,7 @@ const products = [
     link: "/industries/banking-and-finance/products/kyc",
     logo: "/AllProductLogos/KYC.webp",
     description:
-      "Digitizes customer onboarding with automated risk assessment, compliance workflows, identity verification, and centralized customer data management for seamless regulatory adherence.",
+      "Policy-driven platform digitizing customer onboarding and lifecycle management with automated risk assessment, compliance workflows, and centralized data managemen ",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const products = [
     link: "/industries/banking-and-finance/products/conciliare",
     logo: "/AllProductLogos/Conciliare.webp",
     description:
-      "Automates financial reconciliation across systems, ensuring high match accuracy, reduced manual effort, faster settlements, and detailed reporting for audit compliance.",
+      "Automates financial reconciliation across systems with high matching accuracy, straight-through processing, automatic report generation, and reduced manual effort. ",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const products = [
     link: "/industries/banking-and-finance/products/sams",
     logo: "/AllProductLogos/SAMS.webp",
     description:
-      "Stressed asset management system providing NPA tracking, risk analysis, automated provisioning, predictive insights, and centralized monitoring for better asset control.",
+      "Stressed asset management system providing NPA tracking, automated provisioning, regulatory compliance, real-time dashboards, and predictive analytics for early detection. ",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const products = [
     link: "/industries/banking-and-finance/products/sherlock",
     logo: "/AllProductLogos/Sherlock.webp",
     description:
-      "Advanced AML monitoring solution with real-time transaction tracking, suspicious activity detection, compliance checks, and automated alerts for fraud prevention.",
+      "Advanced AML monitoring solution with transaction screening, customer risk profiling, banned entity checks, automated alerts, and regulatory compliance management. ",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const products = [
     link: "/industries/banking-and-finance/products/almanac",
     logo: "/AllProductLogos/Almanac.webp",
     description:
-      "Asset and liability management system with forecasting tools, liquidity tracking, risk analysis, regulatory reporting, and strategic financial planning insights.",
+      "Asset and liability management system integrating risk management, liquidity forecasting, multi-currency operations, regulatory reporting, and scenario simulation. ",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const products = [
     link: "/industries/banking-and-finance/products/internet-banking-system",
     logo: "/AllProductLogos/IBS.webp",
     description:
-      "Comprehensive digital banking platform offering real-time account access, secure transactions, customer onboarding, and seamless integration with core banking systems.",
+      "Comprehensive digital banking platform offering real-time account access, secure transactions, seamless core banking integration, and a user-friendly dashboard. ",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const products = [
     link: "/industries/banking-and-finance/products/loan-origination-system",
     logo: "/AllProductLogos/LOS.webp",
     description:
-      "End-to-end loan processing system with automated workflows, credit evaluation, document management, approval tracking, and faster disbursement processes.",
+      "End-to-end loan processing system with digital applications, pre-approved offers, eVerification, OCR document processing, and configurable approval workflows. ",
   },
   {
     id: 8,
@@ -68,7 +68,7 @@ const products = [
     link: "/industries/banking-and-finance/products/remitree",
     logo: "/AllProductLogos/Remitree.webp",
     description:
-      "Cross-border remittance platform enabling secure international transfers, compliance validation, real-time settlement, and seamless banking integrations.",
+      "Middleware bridging core banking systems and Swift Alliance Gateway for cross-border remittances with bi-directional message handling and real-time monitoring. ",
   },
   {
     id: 9,
@@ -76,7 +76,7 @@ const products = [
     link: "/industries/banking-and-finance/products/pago",
     logo: "/AllProductLogos/PAGO.webp",
     description:
-      "Payment and settlement system supporting multiple transaction modes with high security, real-time processing, scalability, and seamless integration.",
+      "Payment and settlement system supporting multiple transaction modes with atomicity, real-time monitoring, robust security, seamless integration, and user-friendly interface. ",
   },
   {
     id: 10,
@@ -84,7 +84,7 @@ const products = [
     link: "/industries/banking-and-finance/products/bankfair",
     logo: "/AllProductLogos/Bankfair.webp",
     description:
-      "Core banking platform enabling account management, transactions, compliance, product configuration, and scalable banking operations with enhanced security.",
+      "Core banking and loan management system enabling account management, transactions, product parameterization, advanced security features, and scalable banking operations. ",
   },
 ];
 
