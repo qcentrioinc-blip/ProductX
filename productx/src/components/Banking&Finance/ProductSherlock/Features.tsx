@@ -86,14 +86,16 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
   }, [activeFeatureIndex]);
 
   const handleNavClick = (index: number) => {
-      if (!containerRef.current) return;
-      const container = containerRef.current;
-      const containerTop = container.offsetTop;
-      const scrollableDistance = container.offsetHeight - window.innerHeight;
+  if (!containerRef.current) return;
 
-      const targetScroll = containerTop + (index / FEATURES.length) * scrollableDistance + 10;
-      window.scrollTo({ top: targetScroll, behavior: "smooth" });
-  };
+  const container = containerRef.current;
+  const containerRect = container.getBoundingClientRect();
+  const containerTop = window.scrollY + containerRect.top;
+  const scrollableDistance = container.offsetHeight - window.innerHeight;
+
+  const targetScroll = containerTop + (index / FEATURES.length) * scrollableDistance + 10;
+  window.scrollTo({ top: targetScroll, behavior: "smooth" });
+};
 
   const activeContent = FEATURES[activeFeatureIndex];
 
@@ -123,7 +125,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                       key={item.id}
                       ref={(el) => { navBtnRefs.current[index] = el; }}
                       onClick={() => handleNavClick(index)}
-                      className={`flex-shrink-0 snap-start whitespace-nowrap
+                      className={`flex-shrink-0 snap-start whitespace-nowrap cursor-pointer
                       py-2 px-4 rounded-full text-[12px] font-semibold transition-colors border
                       ${
                         isActive
@@ -181,7 +183,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(index)}
-                    className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand border
+                    className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand border cursor-pointer
                     ${
                       isActive
                         ? "bg-[#2B68C3] text-white shadow-md border-transparent"

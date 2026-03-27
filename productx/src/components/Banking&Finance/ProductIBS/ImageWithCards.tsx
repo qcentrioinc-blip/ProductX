@@ -18,9 +18,9 @@ const ImageWithCards = () => {
             className="rounded-sm overflow-hidden order-2 lg:order-1"
           >
             <img
-              src="/EHR-PMS/InsuranceCoordinator/imgwithcards.webp"
+              src="/ProductIBS/img1.webp"
               alt="Professional interaction"
-              className="w-full h-full object-cover"
+              className="w-full h-150 md:h-203 xl:h-190 object-cover"
               loading="lazy"
               decoding="async"
             />
@@ -75,10 +75,10 @@ const ImageWithCards = () => {
 >
   {/* Icon */}
   <img
-    src=""
+    src="/ProductIBS/icon14.svg"
     alt="Faster Patient Intake"
     loading="lazy"
-    className="w-8 h-8 mb-4 object-contain"
+    className="w-10 h-10 mb-4 object-contain rounded-2xl"
   />
 
   <H4 className="font-semibold mb-2">Account Summary View</H4>
@@ -103,10 +103,10 @@ const ImageWithCards = () => {
               >
                 {/* Icon */}
   <img
-    src=""
+    src="/ProductIBS/icon15.svg"
     alt="Faster Patient Intake"
     loading="lazy"
-    className="w-8 h-8 mb-4 object-contain"
+    className="w-10 h-10 mb-4 object-contain"
   />
                 <H4 className="font-semibold mb-2">Statement Download Options</H4>
                 <P className="text-sm text-gray-600">
@@ -128,10 +128,10 @@ const ImageWithCards = () => {
               >
                 {/* Icon */}
   <img
-    src=""
+    src="/ProductIBS/icon16.svg"
     alt="Faster Patient Intake"
     loading="lazy"
-    className="w-8 h-8 mb-4 object-contain"
+    className="w-10 h-10 mb-4 object-contain"
   />
                 <H4 className="font-semibold mb-2">Cheque Book Requests </H4>
                 <P className="">

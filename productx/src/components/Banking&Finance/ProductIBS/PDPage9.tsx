@@ -17,6 +17,8 @@ import ImgSec2 from "./ImgSec2";
 import ImageWithCards from "./ImageWithCards";
 import TechSection from "./TechSection";
 import HeroSec from "./HeroSec";
+import Roadmap from "./Roadmap";
+import Timeline from "./Timeline";
 
 const PDPage9 = () => {
   const location = useLocation();
@@ -46,8 +48,12 @@ const PDPage9 = () => {
       <ImgTextSec />
       <ImgSec2/>
       <ContentInfo/>
-      <ImageWithCards/>
+      <Roadmap/>
+      
       <TechSection/>
+      
+      <Timeline/>
+      <ImageWithCards/>
       <HWD />
       <FaqSection />
       <ImageCard/>

@@ -23,16 +23,16 @@ export default function TechSection() {
   const SPEED = 1.4;
 
   const logos = [
-    { src: "/logos/angular.png", heightClass: "h-18" },
-    { src: "/logos/bootstrap.png", heightClass: "h-18" },
-    { src: "/logos/ionic.png", heightClass: "h-18" },
-    { src: "/logos/spring.png", heightClass: "h-18" },
-    { src: "/logos/postgres.png", heightClass: "h-18" },
-    { src: "/logos/angular.png", heightClass: "h-18" },
-    { src: "/logos/bootstrap.png", heightClass: "h-18" },
-    { src: "/logos/ionic.png", heightClass: "h-18" },
-    { src: "/logos/spring.png", heightClass: "h-18" },
-    { src: "/logos/postgres.png", heightClass: "h-18" },
+    { src: "/ProductIBS/Tech1.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech2.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech3.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech5.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech4.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech1.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech2.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech3.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech5.svg", heightClass: "h-32" },
+    { src: "/ProductIBS/Tech4.svg", heightClass: "h-32" },
   ];
 
   // ── DESKTOP vertical scroll ──────────────────────────────────────────
@@ -203,10 +203,10 @@ export default function TechSection() {
         <div className="relative hidden lg:block w-full lg:w-[320px] xl:w-[360px] shrink-0">
           <div className="absolute left-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
           <div className="absolute right-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
-          <div className="bg-white mx-[10px] py-10">
+          <div className="bg-white mx-[10px]">
             <div
               ref={scrollRef}
-              className="h-[320px] overflow-hidden cursor-grab select-none px-6"
+              className="h-[400px] overflow-hidden cursor-grab select-none px-6"
             >
               {/* ✅ Fixed uniform gap — no gap-12, use py on each logo wrapper */}
               <div

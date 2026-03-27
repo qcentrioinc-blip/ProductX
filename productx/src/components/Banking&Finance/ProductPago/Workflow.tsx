@@ -4,15 +4,28 @@ import { ScrollContext } from "../../../context/ScrollContext";
 import { H2 } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Global/ThemeContext";
 
 const PRIMARY_COLOR = "#2B68C3";
+
+ 
+
+
 // const LIGHT_BLUE_BG = "#C1D7F3";
-const BG_COLORS = [
-  "#C1D7F3",
-  "#9FB9DA",
-  "#4A6D9B",
-  "#284F82",
-  "#174075",
+const LIGHT_BG_COLORS = [
+  "#FFFFFF",
+  "#DCEAFF",
+  "#ADCEFF",
+  "#78A6EC",
+  "#2B68C3",
+];
+
+const DARK_BG_COLORS = [
+  "#1A3E75",
+  "#112A4E",
+  "#0D1F3B",
+  "#091527",
+  "#040A14",
 ];
 
 
@@ -56,6 +69,8 @@ const steps = [
  
 
 export default function Workflow() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [activeStep, setActiveStep] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -107,14 +122,35 @@ useEffect(() => {
     };
   }, [scrollableContainerRef]);
  
- const backgroundColor = useMemo(() => {
-  if (isMobile) return "#C1D7F3"; // fixed light color for mobile
+const backgroundColor = useMemo(() => {
+  if (isMobile) return isDark ? "#1A3E75" : "#C1D7F3";
 
   const p = Math.min(Math.max(scrollProgress, 0), 1);
-  const index = Math.floor(p * BG_COLORS.length);
 
-  return BG_COLORS[Math.min(index, BG_COLORS.length - 1)];
-}, [scrollProgress, isMobile]);
+  const colors = isDark ? DARK_BG_COLORS : LIGHT_BG_COLORS;
+
+  const index = Math.floor(p * colors.length);
+
+  return colors[Math.min(index, colors.length - 1)];
+}, [scrollProgress, isMobile, isDark]);
+
+const textColor = useMemo(() => {
+  if (isDark) return "#FFFFFF";
+
+  const p = Math.min(Math.max(scrollProgress, 0), 1);
+  const index = Math.floor(p * LIGHT_BG_COLORS.length);
+
+  // Map each bg to correct text
+  const TEXT_COLORS = [
+    "#111827", // #FFFFFF
+    "#111827", // #DCEAFF
+    "#111827", // #ADCEFF
+    "#111827", // #78A6EC (still light!)
+    "#111827", // #2B68C3 (dark → white text)
+  ];
+
+  return TEXT_COLORS[Math.min(index, TEXT_COLORS.length - 1)];
+}, [scrollProgress, isDark]);
 
   // const backgroundGradient = useMemo(() => {
   //   const progress = scrollProgress;
@@ -143,16 +179,14 @@ useEffect(() => {
       {/* Header Section */}
       <div className="w-full flex flex-col items-center justify-center text-center  pt-16 pb-10 lg:pb-16 px-6 md:px-20">
         <H2
-
-          className="  text-[#2B68C3]  dark:text-black mb-6 leading-snug"
+ style={{ color: textColor }} 
+          className="   mb-6 leading-snug"
         >
           Complete Payment and Settlement System <br />for Financial Institutions
         </H2>
         <motion.p
-          style={{
-            color: scrollProgress > 0.3 ? '#374151' : '#141414'
-          }}
-          className="  font-quicksand text-[18px]     max-w-4xl transition-colors duration-300"
+         style={{ color: textColor }} 
+          className="  font-quicksand text-[18px] text-white    max-w-4xl transition-colors duration-300"
         >
           PAGO is a versatile payment platform designed to streamline and secure payment processes. It supports multiple transaction methods, including e-cash and e-cheques. The system integrates seamlessly with existing financial infrastructure while providing real-time monitoring and detailed reporting.
         </motion.p>
@@ -164,7 +198,7 @@ useEffect(() => {
           <div key={step.id} className="flex flex-col items-center text-center space-y-4">
 
             {/* Step Title */}
-            <h3 className="text-[16px] font-bricolage leading-snug text-[#111827]">
+            <h3 style={{color:textColor}} className="text-[16px] font-bricolage leading-snug text-[#111827]">
               {step.title}
             </h3>
 
@@ -276,11 +310,10 @@ useEffect(() => {
                       }`}
                   >
                     <motion.h3
-                      style={{
-                        color: isActive
-                          ? '#111827'
-                          : scrollProgress > 0.4 ? 'text-[#4B5563]' : 'text-[#4B5563]'
-                      }}
+                      
+                         style={{
+   color: isActive ? "#111827" : textColor
+  }}
                       className={`  leading-tight  lg:text-[18px]   transition-colors duration-300 ${isActive ? "font-bricolage" : ""
                         }`}
                     >
