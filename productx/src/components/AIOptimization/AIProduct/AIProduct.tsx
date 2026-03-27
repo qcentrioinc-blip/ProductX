@@ -4,9 +4,10 @@ import { memo, Suspense, lazy, useState, useEffect } from 'react';
 import DeferredLoader from "../../Global/DeferredLoader";
 import HWD from "../../Banking&Finance/HWD";
 import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
+import HeroCombined from './HeroComp/HeroCombined';
 // import HeroCombined from './HeroComp/HeroCombined';
-import BloomHero from './BloomHero';
-import BloomHero2 from './BloomHero2';
+// import BloomHero from './BloomHero';
+// import BloomHero2 from './BloomHero2';
 // Lazy load middle components
 const CTA = lazy(() => import("./CTA"));
 const Onboarding = lazy(() => import('./Onboarding'));
@@ -32,9 +33,9 @@ const AIProduct = () => {
   return (
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
-        {/* <HeroCombined /> */}
-        <BloomHero2/>
-        <BloomHero/>
+        <HeroCombined />
+        {/* <BloomHero2/>
+        <BloomHero/> */}
         
       </div>
 
