@@ -6,7 +6,7 @@ export default function ContentInfo() {
   return (
     <section className="w-full bg-[#2B68C3] overflow-hidden xl:h-screen relative">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-32 pb-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-0 pt-16 lg:pt-32 pb-10 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT CONTENT */}
         <div className="text-white space-y-8 xl:pt-20">
@@ -23,7 +23,7 @@ export default function ContentInfo() {
             <ContactUs> Explore SHERLOCK </ContactUs>
           </Link>
 
-          <P className="text-white/80 max-w-sm pt-10 xl:pt-28">
+          <P className="text-white/80 max-w-sm pt-10 xl:pt-32">
             Risk profiling and KYC verification integrated with core banking systems for end-to-end compliance.
           </P>
 
@@ -51,7 +51,7 @@ export default function ContentInfo() {
         hidden lg:block
         xl:absolute xl:top-16 xl:right-10
         lg:absolute lg:top-20 lg:right-4
-        lg:w-[550px] xl:w-[550px]
+        lg:w-[550px] xl:w-[530px]
         z-10
         "
       />

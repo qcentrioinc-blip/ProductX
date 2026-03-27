@@ -7,16 +7,17 @@ import HWD from "../HWD";
 import FaqSection from "../ProductKYC/FAQ";
 import NewOneFooter from "../ProductRemitree/NewOneFooter";
 import BNFNav from "../Navbar/BNFnav";
-// import KeytomStickyScroll from "./KeytomStickyScroll";
 
 import ContactUS from "../ProductRemitree/ContactUS";
 import StatsSection from "./StatsSection";
 import CardsSection from "./CardsSection";
 import ContentInfo from "./ContentInfo";
 import ImageCard from "../BNFBlogs/ImageCard";
-// import ImgSec from "./ImgSec";
-import Hero3 from "./Hero3";
 import ImgSec2 from "./ImgSec2";
+import ImageWithCards from "./ImageWithCards";
+import TechSection from "./TechSection";
+import HeroSec from "./HeroSec";
+import Roadmap from "./Roadmap";
 import Timeline from "./Timeline";
 
 const PDPage9 = () => {
@@ -39,7 +40,7 @@ const PDPage9 = () => {
   return (
     <>
       <BNFNav />
-      <Hero3 />
+      <HeroSec />
       <FeatureGridSection />
       <StatsSection/>
       <CardsSection/>
@@ -47,7 +48,12 @@ const PDPage9 = () => {
       <ImgTextSec />
       <ImgSec2/>
       <ContentInfo/>
+      <Roadmap/>
+      
+      <TechSection/>
+      
       <Timeline/>
+      <ImageWithCards/>
       <HWD />
       <FaqSection />
       <ImageCard/>
