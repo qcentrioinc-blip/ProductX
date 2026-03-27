@@ -4,21 +4,21 @@ import { H2, H4, P } from '../../../styles/Typography'
 const features = [
   {
     id: 1,
-    title: 'Slow Customer Approval Decisions',
+    title: ' Group Lending Management',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+      ' Supports joint liability groups and self-help groups with center meetings and bulk collection features ',
   },
   {
     id: 2,
-    title: 'Slow Customer Approval Decisions',
+    title: 'Collection and Recovery',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+      'Routes outstanding cases to agents with Google Maps integration and legal case tracking',
   },
   {
     id: 3,
-    title: 'Slow Customer Approval Decisions',
+    title: 'Dropout Management ',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+      'Logs potential customers who drop out and pushes data to relationship managers ',
   },
 ]
 
@@ -48,7 +48,7 @@ const Layout = () => {
         {/* Left Column */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
           <H2 className="  leading-tight">
-            Sed ut per piciatis dut perspiciatis
+           Capabilities Beyond Loan Origination 
           </H2>
 
           {/* Image Placeholder */}
