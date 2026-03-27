@@ -425,7 +425,7 @@ export default function CircularCards() {
 
   return (
     <div className="relative overflow-hidden  ">
-      <FallingGridBg>
+     <FallingGridBg >
         <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 
           <div className="mt-16 text-center px-4">

@@ -24,32 +24,32 @@ const cards = [
     id: 1,
     variant: 'dark',       // dark navy background
     iconBg: 'blue',        // blue icon circle
-    title: 'Slow Customer Approval',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+    title: 'Digital Loan Application',
+    description: 'Simplified application form with a subset of fields for quick submission across all devices',
     showBadge: false,
   },
   {
     id: 2,
     variant: 'light',      // light blue background
     iconBg: 'dark',        // dark icon circle
-    title: 'Slow Customer Approval',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+    title: ' Pre-Approved Offers',
+    description: ' Manage and upload pre-approved offers for selected customers with quick screening and auto-approval ',
     showBadge: true,       // "S" badge on this card
   },
   {
     id: 3,
     variant: 'dark',
     iconBg: 'blue',
-    title: 'Slow Customer Approval',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+    title: ' Product Rule Enrichment',
+    description: ' Inherits core system product rules with provision to add additional checks and controls',
     showBadge: false,
   },
   {
     id: 4,
     variant: 'light',
     iconBg: 'dark',
-    title: 'Slow Customer Approval',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+    title: 'Score Parameter Configuration ',
+    description: 'Configure built-in and custom score parameters for individual and corporate customers',
     showBadge: false,
   },
 ]
@@ -134,7 +134,7 @@ const Automate = () => {
           }`}
         >
           <H2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mx-auto">
-            Ready to Automate Your NPA Management
+           Digital Application and Intelligent Loan Processing 
           </H2>
         </div>
 
