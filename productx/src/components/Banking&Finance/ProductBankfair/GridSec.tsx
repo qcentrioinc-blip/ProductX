@@ -110,7 +110,7 @@ const GridSec = () => {
 
 
             {/* Card 4 - Background Image */}
-            <div className="relative rounded-2xl overflow-hidden bg-[#FFEEDA] border border-gray-300 min-h-[180px] sm:min-h-[200px] md:min-h-[230px] lg:min-h-[260px]">
+            <div className="relative rounded-2xl overflow-hidden  border border-gray-300 min-h-[180px] sm:min-h-[200px] md:min-h-[230px] lg:min-h-[260px]">
 
               <img
                 src="/ProductBankfair/circles.webp"
