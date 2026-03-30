@@ -22,15 +22,15 @@ const HourglassIcon = () => (
 const features = [
   {
     id: 1,
-    title: 'Slow Customer Approval Decisions',
+    title: 'eVerification and OCR ',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+      ' Built-in OCR reads standard documents with AI learning and mismatch detection capabilities',
   },
   {
     id: 2,
-    title: 'Slow Customer Approval Decisions',
+    title: 'Corporate Loan Screening',
     description:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+      'Analyzes CMA data for ratio analysis, funds flow, and highlights observed deviations',
   },
 ]
 
@@ -49,13 +49,12 @@ const Transform = () => {
 
           {/* Heading */}
           <H2 className="text-3xl sm:text-4xl font-extrabold  leading-tight">
-            Ready to Transform Your Loan Origination
+            Verification, Corporate Screening, and Approval Workflows
           </H2>
 
           {/* Subtitle */}
           <P className=" text-sm sm:text-base leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse,{' '}
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
+           System enables eVerification of documents, screens corporate loans with CMA data analysis, and routes applications through configurable approval matrix with multiple levels.
           </P>
 
           {/* Feature Cards */}
