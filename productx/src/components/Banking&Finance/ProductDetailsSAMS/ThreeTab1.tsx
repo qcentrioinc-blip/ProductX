@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useScroll } from "framer-motion";
+import { H1, P } from "../../../styles/Typography";
 
 const ThreeTab1 = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -100,18 +101,18 @@ const ThreeTab1 = () => {
                 pt-8 pb-6
                 text-left
             ">
-                <h1 className="
-                    font-bold font-['Bricolage_Grotesque'] leading-[1.1] text-[#232323]
+                <H1 className="
+                     leading-[1.1] text-[#232323]
                     text-[36px] md:text-[44px] lg:text-[50px]
                 ">
                     Key Features of SAMS Platform
-                </h1>
-                <p className="
-                    font-['Quicksand'] font-normal text-[#555] mt-4 
+                </H1>
+                <P className="
+                    text-[#555] mt-4 
                     text-[15px] md:text-[16px] xl:text-[18px] max-w-3xl
                 ">
                     SAMS automates NPA tracking, customer data unification, and provisioning calculations. Real-time dashboards and predictive analytics enable proactive risk management for financial institutions.
-                </p>
+                </P>
             </div>
 
             <div ref={containerRef} className="w-full h-[200vh]">
@@ -256,17 +257,12 @@ const ThreeTab1 = () => {
                                         onClick={() => handleNavClick(index)}
                                         className={`
                                     flex-1 py-4 px-5 min-w-[110px]
-                                    text-sm font-bold whitespace-nowrap transition-colors
+                                    text-sm font-semibold whitespace-nowrap transition-colors
                                     ${activeTab === index
                                                 ? 'bg-[#2B68C3] text-white'
                                                 : 'bg-transparent text-[#2B68C3]'
                                             }
                                 `}
-                                        style={{
-                                            clipPath: activeTab === index
-                                                ? 'polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%)'
-                                                : 'none',
-                                        }}
                                     >
                                         {tab}
                                     </button>
