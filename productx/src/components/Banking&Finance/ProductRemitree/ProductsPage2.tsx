@@ -21,6 +21,10 @@ import TwoImage from "./TwoImage";
 import ThreeCircle from "./ThreeCircle";
 import CTARemitree from "./CTARemitree";
 import ImageCard from "../BNFBlogs/ImageCard";
+import CircleArrow from "./CircleArrow";
+import RemitreeCard from "./RemitreeCard";
+import Exception from "./Exception";
+import Seven from "./Seven";
 
 const ProductsPage2 = () => {
 
@@ -66,26 +70,26 @@ const ProductsPage2 = () => {
 
       <HeroBottomNavbar />
 
-
-      <div id="overview">
-        <ThirdCards />
-
-      </div>
-
-
       <div id="benefits">
         <ThreeTab />
       </div>
 
       <div id="process">
-      <FiveCards />
-      {/* <TwoPart /> */}
+        <FiveCards />
+        {/* <TwoPart /> */}
+        <CircleArrow />
+        <TwoImage />
+        <ThreeCircle />
+        {/* <ArrowBuilding /> */}
+        {/* <div id="process"> <NewsLetter /></div> */}
+        <CTARemitree />
+        <Exception />
+        <RemitreeCard />
+        <Seven />
+        <div id="overview">
+          <ThirdCards />
 
-      <TwoImage />
-      <ThreeCircle />
-      {/* <ArrowBuilding /> */}
-      {/* <div id="process"> <NewsLetter /></div> */}
-      <CTARemitree />
+        </div>
       </div>
       <div id="usecases">
         <HWD />
@@ -94,11 +98,11 @@ const ProductsPage2 = () => {
         <FaqSection />
       </div>
       <div id="blogs">
-  <ImageCard/>
-</div>
+        <ImageCard />
+      </div>
 
 
-       <div id="contact-us">
+      <div id="contact-us">
         {/* DESKTOP */}
         <div className="hidden lg:block relative">
           <ContactUS />
@@ -112,7 +116,7 @@ const ProductsPage2 = () => {
         </div>
       </div>
 
-    
+
     </>
     // </ScrollProvider>
   )

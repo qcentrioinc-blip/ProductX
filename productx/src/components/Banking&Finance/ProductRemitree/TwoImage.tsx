@@ -22,22 +22,22 @@ const CheckIcon = () => (
 
 // ── Shared Content ────────────────────────────────────────────
 const content = {
-    title1: <>Outward Remittance Processing <br /> Challenges Solved</>,
+    title1: <> Inward Remittance Key<br />Features and Capabilities</>,
     description1:
-        "Banks face difficulties in manual message creation, compliance screening, and transmission of cross-border payments. REMITREE automates these processes for efficiency and accuracy.",
+        " The platform automates inward remittance processing with straight-through processing, exceptions handling, and seamless integration with core banking and treasury systems.",
     features1: [
-        "Manual message creation causes delays and errors",
-        "Compliance screening requires multiple system checks",
-        "Transmission failures due to format validation issues",
+        "Automated straight-through processing for inward remittances",
+        "Exceptions handling for unmatched messages and settlements",
+        "Integration with CBS and treasury systems",
     ],
 
-    title2: <>Inward Remittance Processing <br /> Challenges Solved</>,
+    title2: <>Outward Remittance Key<br />Features and Capabilities</>,
     description2:
-        "Financial institutions struggle with matching incoming payments, manual reconciliation, and delayed crediting. REMITREE automates identification and posting to core systems.",
+        "The platform enables secure outward remittance processing with message creation, banned entity screening, authorization workflows, and seamless SWIFT integration for global payments.",
     features2: [
-        "Manual matching of payments with NOSTRO accounts",
-        "Delayed crediting affects customer satisfaction",
-        "Reconciliation errors from manual data entry",
+        "Create and enrich messages with edit and submit functionality",
+        "Screen banned entities using Sherlock integration for compliance",
+        "Generate MT message files and push to SWIFT with response handling",
     ],
 };
 

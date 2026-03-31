@@ -13,6 +13,7 @@ const categories = [
   "KYC",
   "LOS",
   "Remittance",
+  "IBS",
 ];
 
 const posts = [
@@ -105,6 +106,15 @@ const posts = [
     date: "24 March 2026",
     category: "Remittance",
     image: "/Blog/RemitreeBlog.webp",
+  },
+  {
+    id: 11,
+    slug: "guide-to-secure-fund-transfers",
+    title: "A Customer's Guide to Secure Fund Transfers: Domestic, International, and Between Accounts",
+    description: "When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...",
+    date: "27 March 2026",
+    category: "IBS",
+    image: "/Blog/CoreBankingBlog.webp",
   },
 ];
 

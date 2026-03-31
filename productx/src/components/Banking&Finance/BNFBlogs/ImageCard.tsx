@@ -114,6 +114,16 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     description: 'For banks to efficiently manage cross-border remittance automation, they must handle two distinct transaction sides...',
     category: 'Remittance',
   },
+  {
+    id: 14,
+    slug: "guide-to-secure-fund-transfers",
+    date: '27 March 2026',
+    imageSrc: '/Blog/CoreBankingBlog.webp',
+    title: 'Sed ut perspiciatis Unde',
+    subtitle: "A Customer's Guide to Secure Fund Transfers: Domestic, International, and Between Accounts",
+    description: 'When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...',
+    category: 'IBS',
+  },
 ];
 
 // Map product slug in URL → blog category
@@ -127,6 +137,7 @@ const PRODUCT_TO_CATEGORY: Record<string, string> = {
   remittance: "Remittance",
   "remittance-workflow": "Remittance",
   remitree: "Remittance",
+  "internet-banking-system": "IBS"
 };
 
 const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, description }) => {
