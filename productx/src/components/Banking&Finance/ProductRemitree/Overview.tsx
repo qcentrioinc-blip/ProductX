@@ -18,11 +18,11 @@ const Overview = () => {
         <div className="w-full h-auto bg-white relative font-sans" style={{ backgroundImage: "url('/Remitree/hero-transformed.webp')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
 
             <section className="
-                relative
+                relative pt-20 md:pt:0 lg:pt-0
                 px-5       py-14
                 sm:px-8    sm:py-12
                 md:px-10   md:py-12
-                lg:px-16   lg:py-12
+                lg:px-20   lg:py-16 lg:pt-16
                 xl:px-24   xl:py-0 xl:pt-24
             ">
                 <div className="

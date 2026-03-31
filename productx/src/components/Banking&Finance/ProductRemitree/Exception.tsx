@@ -1,0 +1,151 @@
+// import React from 'react';
+import { H2, P } from '../../../styles/Typography';
+
+const Exception = () => {
+  const nodes = [
+    { id: 1, label: "Read MT\nMessages", hasDash: false },
+    { id: 2, label: "Match MT\nMessages", hasDash: true },
+    { id: 3, label: "Identify\nSettlement\nBranch", hasDash: true },
+    { id: 4, label: "Auto Settle\nTransaction", hasDash: true },
+    { id: 5, label: "Post CBS\nEntry", hasDash: false },
+  ];
+
+  return (
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[50vh] bg-white font-sans p-4 md:p-12 overflow-hidden lg:overflow-visible">
+
+      {/* 1. Header Area */}
+      <div className="w-full max-w-7xl mx-auto bg-[#2E68C6] py-3 text-center mb-10 shadow-sm flex items-center justify-center">
+        <H2 className="text-white text-[32px] md:text-[38px] lg:text-[42px] font-medium mb-0">
+          Inward Remittance Processing Workflow
+        </H2>
+      </div>
+
+      {/* Responsive Scroll Container for Mobile/Tablet */}
+      <div className="w-full overflow-x-auto pb-8 hide-scrollbar">
+        {/* Main Flowchart Wrapper - Fixed width to preserve Desktop structure on smaller screens */}
+        <div className="w-[780px] md:w-full max-w-[780px] mx-auto flex flex-col items-center relative">
+
+        {/* 2. Top "Straight through Process" Indicator */}
+        <div className="flex items-center justify-center mb-8">
+          {/* Left Arrow */}
+          <div className="flex items-center">
+            <div className="w-0 h-0 border-y-[7px] border-y-transparent border-r-[13px] border-r-[#3b71ca]"></div>
+            <div className="w-[115px] h-[3px] bg-[#3b71ca]"></div>
+          </div>
+          {/* Text */}
+          <P className="mx-4 text-[17px] font-bold text-black tracking-wide">
+            Straight through Process
+          </P>
+          {/* Right Arrow */}
+          <div className="flex items-center">
+            <div className="w-[115px] h-[3px] bg-[#3b71ca]"></div>
+            <div className="w-0 h-0 border-y-[7px] border-y-transparent border-l-[13px] border-l-[#3b71ca]"></div>
+          </div>
+        </div>
+
+        {/* 3. The Core Grid */}
+        <div className="grid grid-cols-5 w-full">
+
+          {/* Row A: Numbered Nodes, Connecting Arrows & Top Labels */}
+          {nodes.map((n, i) => (
+            <div key={`node-${n.id}`} className="relative flex flex-col items-center z-10">
+
+              {/* Node Circle */}
+              <div className="w-[58px] h-[58px] rounded-full bg-[#3b71ca] text-white flex items-center justify-center text-[24px] font-semibold relative z-10">
+                {n.id}
+              </div>
+
+              {/* Perfect Math Connecting Arrow - Automatically shortens with the grid */}
+              {i < 4 && (
+                <div
+                  className="absolute top-[29px] flex items-center -translate-y-1/2 z-0"
+                  style={{
+                    left: 'calc(50% + 29px)',
+                    width: 'calc(100% - 58px)'
+                  }}
+                >
+                  {/* Thicker black line to match target image */}
+                  <div className="h-[3px] bg-black flex-grow"></div>
+                  {/* Larger arrowhead to match target image */}
+                  <div className="w-0 h-0 border-y-[7px] border-y-transparent border-l-[13px] border-l-black shrink-0"></div>
+                </div>
+              )}
+
+              {/* Top Label */}
+              <P className="text-[15.5px] font-medium text-center mt-4 whitespace-pre-line leading-snug text-black min-h-[80px]">
+                {n.label}
+              </P>
+            </div>
+          ))}
+
+          {/* Row B: Top Dashed Lines (Thickness Increased to 3.5px) */}
+          {nodes.map((n) => (
+            <div key={`dash1-${n.id}`} className="flex justify-center h-[60px]">
+              {n.hasDash && <div className="border-l-[3.5px] border-dashed border-[#3b71ca] h-full"></div>}
+            </div>
+          ))}
+
+          {/* Row C: Exceptions Handling Box */}
+          <div className="col-span-5 grid grid-cols-5 relative z-20 -my-2">
+            <div className="col-start-2 col-span-3 flex justify-center w-full px-4">
+              <P className="w-full rounded-full bg-gradient-to-b from-[#ffb8b8] to-[#ff7e7e] border border-[#f85454] py-[10px] text-black font-bold text-[16px] text-center shadow-sm mb-0 m-0">
+                Exceptions Handling
+              </P>
+            </div>
+          </div>
+
+          {/* Row D: Bottom Dashed Lines (Thickness Increased to 3.5px) */}
+          {nodes.map((n) => (
+            <div key={`dash2-${n.id}`} className="flex justify-center h-[75px] -mt-1 z-10 relative">
+              {n.hasDash && <div className="border-l-[3.5px] border-dashed border-[#3b71ca] h-full"></div>}
+            </div>
+          ))}
+
+          {/* Row E: Laptop Icons & Bottom Layout */}
+          <div className="flex justify-end pt-3 pr-3">
+            <P className="text-[15.5px] font-medium text-right leading-snug text-black whitespace-nowrap">
+              Match Unmatched<br />Messages
+            </P>
+          </div>
+
+          <div className="flex justify-center">
+            <UserLaptopIcon />
+          </div>
+
+          <div className="flex flex-col items-center">
+            <UserLaptopIcon />
+            <P className="text-[15.5px] font-medium text-center leading-snug mt-2 text-black">
+              Assign<br />Branch
+            </P>
+          </div>
+
+          <div className="flex justify-center">
+            <UserLaptopIcon />
+          </div>
+
+          <div className="flex justify-start pt-3 pl-3">
+            <P className="text-[15.5px] font-medium text-left leading-snug text-black whitespace-nowrap">
+              Settle<br />Transaction
+            </P>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Perfectly matching SVG 
+const UserLaptopIcon = () => (
+  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+    <circle cx="12" cy="5.5" r="3.5" fill="black" />
+    <path d="M4.5 16.5 C4.5 10.5 8 9.5 12 9.5 C16 9.5 19.5 10.5 19.5 16.5 L19.5 18 L4.5 18 Z" fill="black" />
+    <path d="M5.5 13 L18.5 13 L19.5 19 L4.5 19 Z" fill="white" />
+    <path d="M6.5 14 L17.5 14 L18.2 18 L5.8 18 Z" fill="black" />
+    <circle cx="12" cy="16.5" r="1.2" fill="white" />
+    <rect x="2.5" y="20" width="19" height="2.2" rx="1" fill="black" />
+  </svg>
+);
+
+export default Exception;

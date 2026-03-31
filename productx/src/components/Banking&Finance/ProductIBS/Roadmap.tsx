@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { H1, P } from "../../../styles/Typography";
 /* ─── Inlined SVG Assets ─────────────────────────────────────────────── */
 
 // const CirclesSVG = () => (
@@ -123,7 +124,16 @@ const IconBox = () => (
     </div>
 );
 
-const Pill = () => (
+const PILL_LABELS = [
+    "Self Registration",
+    "Account Services",
+    "Transaction Controls",
+    "Payee Management",
+    "Utility Bill Payment",
+    "Dashboard Overview",
+];
+
+const Pill = ({ label }: { label: string }) => (
     <div style={{
         width: PW, height: PH, flexShrink: 0,
         position: "relative",
@@ -136,81 +146,10 @@ const Pill = () => (
         lineHeight: 1.45, textAlign: "center",
         boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
     }}>
-        Branch<br />Overcrowding
+        <P>{label}</P>
     </div>
 );
 
-// const ConnectorLines = () => (
-//     <svg
-//         viewBox="0 0 1100 520"
-//         style={{
-//             position: "absolute", inset: 0,
-//             width: "100%", height: "100%",
-//             pointerEvents: "none", zIndex: 1,
-//             overflow: "visible",
-//         }}
-//     >
-//         {YS.map((y, i) => (
-//             <g key={i}>
-
-//                 {/* ── LEFT SIDE ── */}
-
-//                 {/* Blue tube — connects right edge of left icon to center */}
-//                 <path
-//                     d={leftPath(y, i)}
-//                     stroke="#1e56a0"
-//                     strokeWidth="10"
-//                     fill="none"
-//                     strokeLinecap="round"
-//                 />
-//                 {/* White dashes on top */}
-//                 <path
-//                     d={leftPath(y, i)}
-//                     stroke="white"
-//                     strokeWidth="2.8"
-//                     strokeDasharray="7 6"
-//                     fill="none"
-//                     strokeLinecap="round"
-//                 />
-//                 {/* Arrowhead touching right edge of left icon */}
-//                 <polygon
-//                     points={`${L_ICON_RX},${y - 8} ${L_ICON_RX + 20},${y} ${L_ICON_RX},${y + 8}`}
-//                     fill="#1e56a0"
-//                 />
-
-//                 {/* ── RIGHT SIDE ── */}
-
-//                 {/* Blue tube — connects left edge of right icon to center */}
-//                 <path
-//                     d={rightPath(y, i)}
-//                     stroke="#1e56a0"
-//                     strokeWidth="10"
-//                     fill="none"
-//                     strokeLinecap="round"
-//                 />
-//                 {/* White dashes on top */}
-//                 <path
-//                     d={rightPath(y, i)}
-//                     stroke="white"
-//                     strokeWidth="2.8"
-//                     strokeDasharray="7 6"
-//                     fill="none"
-//                     strokeLinecap="round"
-//                 />
-//                 {/* Arrowhead touching left edge of right icon */}
-//                 <polygon
-//                     points={`
-//             ${R_ICON_X},${y - 8}
-//             ${R_ICON_X - 20},${y}
-//             ${R_ICON_X},${y + 8}
-//           `}
-//                     fill="#1e56a0"
-//                 />
-
-//             </g>
-//         ))}
-//     </svg>
-// );
 
 const ConnectorLines = () => (
     <svg
@@ -339,10 +278,10 @@ const Roadmap = () => (
     }}>
 
         {/* Title */}
-        <h1 style={{ margin: "0 0 52px", fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
-            <span style={{ color: "#2B68C3" }}>Sed ut perspi </span>
-            <span style={{ color: "#111827" }}>ciatis</span>
-        </h1>
+        <H1 style={{ margin: "0 0 52px", fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
+            <span style={{ color: "#2B68C3" }}>Key Modules of</span>
+            <span style={{ color: "#111827" }}> the Platform</span>
+        </H1>
 
         {/* Canvas */}
         <div style={{ position: "relative", width: 1100, height: 520 }}>
@@ -413,7 +352,7 @@ const Roadmap = () => (
                     top: y - IH / 2 - 10 - PH,  // ✅ above icon top by 10px + pill height
                     zIndex: 6,
                 }}>
-                    <Pill />
+                    <Pill label={PILL_LABELS[i]} />
                 </div>
             ))}
 
@@ -437,7 +376,7 @@ const Roadmap = () => (
                     top: y - IH / 2 - 10 - PH,  // ✅ above icon top by 10px + pill height
                     zIndex: 6,
                 }}>
-                    <Pill />
+                    <Pill label={PILL_LABELS[3 + i]} />
                 </div>
             ))}
 
