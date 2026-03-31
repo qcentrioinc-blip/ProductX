@@ -7,10 +7,13 @@ import ContactUS from "../ProductRemitree/ContactUS"
 import NewOneFooter from "../ProductRemitree/NewOneFooter"
 import CardInfo from "./CardInfo"
 import ContentInfo from "./ContentInfo"
+import DataSection from "./DataSection"
 import Feature from "./Features"
+import FeatureSection from "./FeatureSection"
 import Grid from "./Grid"
 import HeroSec from "./HeroSec"
 import ImgSec1 from "./ImgSec1"
+import Process from "./Process"
 import ThreeCards from "./ThreeCards"
 
 const Sherlock = () => {
@@ -28,6 +31,9 @@ const Sherlock = () => {
       <div id="process">
         <ImgSec1/>
       <Grid/>
+      <DataSection/>
+      <FeatureSection/>
+      <Process/>
       </div>
       <div id="usecases">
         <HWD />
