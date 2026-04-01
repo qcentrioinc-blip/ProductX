@@ -1,60 +1,25 @@
 import { motion } from "framer-motion";
 import { H1, P } from "../../../styles/Typography";
-/* ─── Inlined SVG Assets ─────────────────────────────────────────────── */
 
-// const CirclesSVG = () => (
-
+/* ─── All SVG Assets — UNCHANGED ─────────────────────────────────────── */
 const CirclesSVG = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="454" height="454" viewBox="0 0 454 454" fill="none">
-
-        {/* Outer ring — dashed stroke so rotation is visible */}
         <circle cx="227" cy="227" r="227" fill="#2B68C3" fillOpacity="0.3" />
-        <circle
-            cx="227" cy="227" r="220"
-            stroke="#2B68C3" strokeOpacity="0.6"
-            strokeWidth="2"
-            strokeDasharray="18 12"   // ✅ dashes make rotation visible
-            fill="none"
-        />
-
-        {/* Middle ring — dashed stroke */}
+        <circle cx="227" cy="227" r="220" stroke="#2B68C3" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
         <circle cx="227" cy="227" r="138" fill="#2B68C3" fillOpacity="0.45" />
-        <circle
-            cx="227" cy="227" r="131"
-            stroke="#5a8fd4" strokeOpacity="0.7"
-            strokeWidth="2"
-            strokeDasharray="12 10"   // ✅ slightly different gap rhythm
-            fill="none"
-        />
-
-        {/* Inner solid circle — unchanged */}
+        <circle cx="227" cy="227" r="131" stroke="#5a8fd4" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="12 10" fill="none" />
         <circle cx="227" cy="227" r="85" fill="#2B68C3" />
-
-        {/* Indicator dot on outer ring — strongest rotation cue */}
-        <circle cx="227" cy="7" r="6" fill="#ffffff" fillOpacity="0.85" />  {/* top */}
-        <circle cx="447" cy="227" r="4" fill="#ffffff" fillOpacity="0.5" /> {/* right */}
-
+        <circle cx="227" cy="7" r="6" fill="#ffffff" fillOpacity="0.85" />
+        <circle cx="447" cy="227" r="4" fill="#ffffff" fillOpacity="0.5" />
     </svg>
 );
-//     <svg xmlns="http://www.w3.org/2000/svg" width="454" height="454" viewBox="0 0 454 454" fill="none">
-//         <circle cx="227" cy="227" r="227" fill="#2B68C3" fillOpacity="0.3" />
-//         <circle cx="227" cy="227" r="138" fill="#2B68C3" fillOpacity="0.45" />
-//         <circle cx="227" cy="227" r="85" fill="#2B68C3" />
-//     </svg>
-// );
 
-const SolutionsSVG = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 60 60" fill="none">
-        <g clipPath="url(#sol)">
-            <path d="M3.51562 30C3.51562 15.3964 15.3964 3.51562 30 3.51562C35.4922 3.51562 40.73 5.18098 45.1402 8.27191H41.733C40.7623 8.27191 39.9752 9.05894 39.9752 10.0297C39.9752 11.0005 40.7623 11.7875 41.733 11.7875H49.9704C50.9412 11.7875 51.7282 11.0005 51.7282 10.0297V1.79238C51.7282 0.821601 50.9412 0.0345703 49.9704 0.0345703C48.9996 0.0345703 48.2126 0.821601 48.2126 1.79238V6.16805C43.0063 2.16785 36.6691 0 30 0C21.9867 0 14.4531 3.12059 8.78672 8.78672C3.12059 14.4531 0 21.9867 0 30C0 35.2642 1.39113 40.451 4.02305 44.9998C4.34883 45.563 4.93922 45.8775 5.54613 45.8775C5.84496 45.8775 6.14777 45.8012 6.42492 45.6409C7.26516 45.1547 7.55215 44.0794 7.06605 43.239C4.7434 39.2248 3.51562 34.6467 3.51562 30Z" fill="white" />
-            <path d="M55.9785 15.0002C55.4922 14.1599 54.4166 13.873 53.5766 14.3592C52.7364 14.8454 52.4494 15.9208 52.9355 16.7611C55.2581 20.7751 56.4859 25.3531 56.4859 30C56.4859 44.6036 44.6051 56.4844 30.0015 56.4844C24.5098 56.4844 19.2729 54.8186 14.8632 51.7281H18.2685C19.2393 51.7281 20.0263 50.9411 20.0263 49.9703C20.0263 48.9995 19.2393 48.2125 18.2685 48.2125H10.0313C9.06047 48.2125 8.27344 48.9995 8.27344 49.9703V58.2076C8.27344 59.1784 9.06047 59.9654 10.0313 59.9654C11.002 59.9654 11.7891 59.1784 11.7891 58.2076V53.8276C16.9952 57.8291 23.3316 60 30.0015 60C38.0148 60 45.5484 56.8794 51.2148 51.2133C56.8809 45.5469 60.0015 38.0133 60.0015 30C60.0015 24.7356 58.6104 19.5488 55.9785 15.0002Z" fill="white" />
-            <path d="M45.0473 25.4535C45.168 25.0031 45.1049 24.5234 44.8716 24.1196L42.5279 20.0602C42.0425 19.2195 40.9675 18.9314 40.1267 19.4168L38.5327 20.3371C37.2375 19.1892 35.7371 18.3221 34.1006 17.7758V15.9375C34.1006 14.9667 33.3136 14.1797 32.3428 14.1797H27.6553C26.6845 14.1797 25.8975 14.9667 25.8975 15.9375V17.7757C24.2609 18.322 22.7605 19.1891 21.4652 20.337L19.8713 19.4167C19.0306 18.9311 17.9554 19.2192 17.4702 20.06L15.1264 24.1195C14.641 24.9602 14.9291 26.0353 15.7698 26.5207L17.3633 27.4407C17.1938 28.2802 17.1083 29.1364 17.1083 29.9999C17.1083 30.8633 17.1937 31.7197 17.3633 32.559L15.7698 33.4791C14.9291 33.9645 14.641 35.0395 15.1264 35.8802L17.4702 39.9397C17.9556 40.7805 19.0305 41.0686 19.8713 40.5831L21.4652 39.6628C22.7605 40.8108 24.2608 41.6777 25.8975 42.2241V44.0625C25.8975 45.0333 26.6845 45.8203 27.6553 45.8203H32.3428C33.3136 45.8203 34.1006 45.0333 34.1006 44.0625V42.2243C35.7371 41.678 37.2375 40.8109 38.5327 39.663L40.1267 40.5833C40.9674 41.0687 42.0425 40.7805 42.5279 39.94L44.8716 35.8805C45.1047 35.4768 45.1679 34.9969 45.0473 34.5466C44.9267 34.0963 44.6321 33.7124 44.2283 33.4793L42.6347 32.5591C42.8041 31.7198 42.8895 30.8636 42.8895 30C42.8895 29.1364 42.8041 28.2802 42.6347 27.4409L44.2283 26.5207C44.632 26.2877 44.9267 25.9037 45.0473 25.4535ZM29.9989 34.6875C27.4101 34.6875 25.3114 32.5888 25.3114 30C25.3114 27.4112 27.4101 25.3125 29.9989 25.3125C32.5877 25.3125 34.6864 27.4112 34.6864 30C34.6864 32.5888 32.5877 34.6875 29.9989 34.6875Z" fill="white" />
-        </g>
-        <defs>
-            <clipPath id="sol"><rect width="60" height="60" fill="white" /></clipPath>
-        </defs>
-    </svg>
-);
+const RegistrationSVG = () => <img src="/ProductIBS/registration.svg" alt="registration" className="w-[58px] h-[58px] object-contain shrink-0" />;
+const AccountSVG = () => <img src="/ProductIBS/account-maintenance.svg" alt="account" className="w-[58px] h-[58px] object-contain shrink-0" />;
+const PaymentSVG = () => <img src="/ProductIBS/payment.svg" alt="payment" className="w-[58px] h-[58px] object-contain shrink-0" />;
+const CoinSVG = () => <img src="/ProductIBS/coin.svg" alt="coin" className="w-[58px] h-[58px] object-contain shrink-0" />;
+const BillingSVG = () => <img src="/ProductIBS/billing.svg" alt="billing" className="w-[58px] h-[58px] object-contain shrink-0" />;
+const StatisticsSVG = () => <img src="/ProductIBS/statisctics.svg" alt="statistics" className="w-[58px] h-[58px] object-contain shrink-0" />;
 
 const HandSVG = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="44" viewBox="0 0 36 49" fill="none">
@@ -62,325 +27,199 @@ const HandSVG = () => (
     </svg>
 );
 
-/* ─── Layout Constants ───────────────────────────────────────────────── */
+/* ─── Layout Constants — UNCHANGED ──────────────────────────────────── */
 const CX = 550, CY = 260;
 const IW = 100, IH = 100;
 const PW = 150, PH = 58;
 const GAP = 12;
-
 const L_ICON_X = 10;
-const L_PILL_X = L_ICON_X + IW + GAP;     // 172
-const L_CONN_X = L_PILL_X + PW;           // 322
+const L_PILL_X = L_ICON_X + IW + GAP;
+const L_CONN_X = L_PILL_X + PW;
 const L_ICON_RX = L_ICON_X + IW;
-
-const R_CONN_X = CX + (CX - L_CONN_X);    // 778
+const R_CONN_X = CX + (CX - L_CONN_X);
 const R_PILL_X = R_CONN_X;
-const R_ICON_X = 1100 - L_ICON_X - IW;      // 940
-
+const R_ICON_X = 1100 - L_ICON_X - IW;
 const YS = [80, 250, 420];
 
-// ✅ ADD new index-aware functions
 const leftPath = (y: number, i: number) => {
-    if (i === 1) {
-        // CENTER — keep straight
-        return `M ${L_ICON_RX},${y} C ${L_ICON_RX + 140},${y} ${CX - 20},${y} ${CX},${CY}`;
-    }
-    // TOP (i=0) curves DOWN, BOTTOM (i=2) curves UP
+    if (i === 1) return `M ${L_ICON_RX},${y} C ${L_ICON_RX + 140},${y} ${CX - 20},${y} ${CX},${CY}`;
     const cp2y = i === 0 ? CY - 90 : CY + 90;
     return `M ${L_ICON_RX},${y} C ${L_ICON_RX + 280},${y} ${CX - 60},${cp2y} ${CX},${CY}`;
 };
-
 const rightPath = (y: number, i: number) => {
-    if (i === 1) {
-        // CENTER — keep straight
-        return `M ${R_ICON_X},${y} C ${R_ICON_X - 140},${y} ${CX + 20},${y} ${CX},${CY}`;
-    }
-    // TOP (i=0) curves DOWN, BOTTOM (i=2) curves UP
+    if (i === 1) return `M ${R_ICON_X},${y} C ${R_ICON_X - 140},${y} ${CX + 20},${y} ${CX},${CY}`;
     const cp2y = i === 0 ? CY - 90 : CY + 90;
     return `M ${R_ICON_X},${y} C ${R_ICON_X - 280},${y} ${CX + 60},${cp2y} ${CX},${CY}`;
 };
 
-
-/* ─── Sub-Components ─────────────────────────────────────────────────── */
-const IconBox = () => (
-    <div style={{
-        width: IW, height: IH, flexShrink: 0,
-        backgroundColor: "#0f0f0f",
-        borderRadius: 14,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        boxShadow: "0 6px 18px rgba(0,0,0,0.35)",
-    }}>
-        <motion.div
-            animate={{ rotate: 360 }}
-            transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear",
-            }}
-            style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-        >
-            <SolutionsSVG />
+/* ─── Desktop Subcomponents — UNCHANGED ─────────────────────────────── */
+const IconBox = ({ icon }: { icon: React.ReactNode }) => (
+    <div style={{ width: IW, height: IH, flexShrink: 0, backgroundColor: "#0f0f0f", borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 18px rgba(0,0,0,0.35)" }}>
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 5, repeat: Infinity, ease: "linear" }} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            {icon}
         </motion.div>
     </div>
 );
 
-const PILL_LABELS = [
-    "Self Registration",
-    "Account Services",
-    "Transaction Controls",
-    "Payee Management",
-    "Utility Bill Payment",
-    "Dashboard Overview",
-];
+const ICONS = [<RegistrationSVG />, <AccountSVG />, <PaymentSVG />, <CoinSVG />, <BillingSVG />, <StatisticsSVG />];
+const PILL_LABELS = ["Self Registration", "Account Services", "Transaction Controls", "Payee Management", "Utility Bill Payment", "Dashboard Overview"];
 
 const Pill = ({ label }: { label: string }) => (
-    <div style={{
-        width: PW, height: PH, flexShrink: 0,
-        position: "relative",
-        top: "80px",
-        backgroundColor: "#ffffff",
-        border: "1.5px solid #c8d6ea",
-        borderRadius: 40,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontWeight: 700, fontSize: 13.5, color: "#1a3468",
-        lineHeight: 1.45, textAlign: "center",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-    }}>
+    <div style={{ width: PW, height: PH, flexShrink: 0, position: "relative", top: "80px", backgroundColor: "#ffffff", border: "1.5px solid #c8d6ea", borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13.5, color: "#1a3468", lineHeight: 1.45, textAlign: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.07)" }}>
         <P>{label}</P>
     </div>
 );
 
-
 const ConnectorLines = () => (
-    <svg
-        viewBox="0 0 1100 520"
-        style={{
-            position: "absolute", inset: 0,
-            width: "100%", height: "100%",
-            pointerEvents: "none", zIndex: 1,
-            overflow: "visible",
-        }}
-    >
+    <svg viewBox="0 0 1100 520" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1, overflow: "visible" }}>
         {YS.map((y, i) => (
             <g key={i}>
-
-                {/* ── LEFT SIDE ── */}
-
-                {/* Layer 1 — Static blue tube */}
-                <path
-                    d={leftPath(y, i)}
-                    stroke="#1e56a0"
-                    strokeWidth="10"
-                    fill="none"
-                    strokeLinecap="round"
-                />
-
-                {/* Layer 2 — Static dotted overlay */}
-                <path
-                    d={leftPath(y, i)}
-                    stroke="rgba(255,255,255,0.55)"
-                    strokeWidth="2.5"
-                    strokeDasharray="3 11"
-                    strokeLinecap="round"
-                    fill="none"
-                />
-
-                {/* Layer 3 — ✅ ONLY ONE moving pulse */}
-                <motion.path
-                    d={leftPath(y, i)}
-                    stroke="rgba(255,255,255,0.95)"
-                    strokeWidth="4"
-                    fill="none"
-                    strokeLinecap="round"
-                    pathLength={1}
-                    strokeDasharray="0.18 0.82"
-                    animate={{ strokeDashoffset: [0, 1] }}
-                    transition={{
-                        duration: 1.6,
-                        delay: i * 0.45,
-                        repeat: Infinity,
-                        ease: "linear",
-                        repeatDelay: 0.5,
-                    }}
-                />
-
-                {/* ❌ REMOVED — faint trailing pulse was the culprit */}
-
-                <polygon
-                    points={`${L_ICON_RX},${y - 8} ${L_ICON_RX + 20},${y} ${L_ICON_RX},${y + 8}`}
-                    fill="#1e56a0"
-                />
-
-                {/* ── RIGHT SIDE ── */}
-
-                {/* Layer 1 — Static blue tube */}
-                <path
-                    d={rightPath(y, i)}
-                    stroke="#1e56a0"
-                    strokeWidth="10"
-                    fill="none"
-                    strokeLinecap="round"
-                />
-
-                {/* Layer 2 — Static dotted overlay */}
-                <path
-                    d={rightPath(y, i)}
-                    stroke="rgba(255,255,255,0.55)"
-                    strokeWidth="2.5"
-                    strokeDasharray="3 11"
-                    strokeLinecap="round"
-                    fill="none"
-                />
-
-                {/* Layer 3 — ✅ ONLY ONE moving pulse */}
-                <motion.path
-                    d={rightPath(y, i)}
-                    stroke="rgba(255,255,255,0.95)"
-                    strokeWidth="4"
-                    fill="none"
-                    strokeLinecap="round"
-                    pathLength={1}
-                    strokeDasharray="0.18 0.82"
-                    animate={{ strokeDashoffset: [0, 1] }}
-                    transition={{
-                        duration: 1.6,
-                        delay: i * 0.45,
-                        repeat: Infinity,
-                        ease: "linear",
-                        repeatDelay: 0.5,
-                    }}
-                />
-
-                {/* ❌ REMOVED — faint trailing pulse was the culprit */}
-
-                <polygon
-                    points={`
-                        ${R_ICON_X},${y - 8}
-                        ${R_ICON_X - 20},${y}
-                        ${R_ICON_X},${y + 8}
-                    `}
-                    fill="#1e56a0"
-                />
-
+                <path d={leftPath(y, i)} stroke="#1e56a0" strokeWidth="10" fill="none" strokeLinecap="round" />
+                <path d={leftPath(y, i)} stroke="rgba(255,255,255,0.55)" strokeWidth="2.5" strokeDasharray="3 11" strokeLinecap="round" fill="none" />
+                <motion.path d={leftPath(y, i)} stroke="rgba(255,255,255,0.95)" strokeWidth="4" fill="none" strokeLinecap="round" pathLength={1} strokeDasharray="0.18 0.82" animate={{ strokeDashoffset: [0, 1] }} transition={{ duration: 1.6, delay: i * 0.45, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }} />
+                <polygon points={`${L_ICON_RX},${y - 8} ${L_ICON_RX + 20},${y} ${L_ICON_RX},${y + 8}`} fill="#1e56a0" />
+                <path d={rightPath(y, i)} stroke="#1e56a0" strokeWidth="10" fill="none" strokeLinecap="round" />
+                <path d={rightPath(y, i)} stroke="rgba(255,255,255,0.55)" strokeWidth="2.5" strokeDasharray="3 11" strokeLinecap="round" fill="none" />
+                <motion.path d={rightPath(y, i)} stroke="rgba(255,255,255,0.95)" strokeWidth="4" fill="none" strokeLinecap="round" pathLength={1} strokeDasharray="0.18 0.82" animate={{ strokeDashoffset: [0, 1] }} transition={{ duration: 1.6, delay: i * 0.45, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }} />
+                <polygon points={`${R_ICON_X},${y - 8} ${R_ICON_X - 20},${y} ${R_ICON_X},${y + 8}`} fill="#1e56a0" />
             </g>
         ))}
     </svg>
 );
+
 /* ─── Roadmap Component ──────────────────────────────────────────────── */
 const Roadmap = () => (
     <div style={{
         backgroundColor: "#eef2f9",
-        minHeight: "100vh",
+        minHeight: "auto",
         display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
         padding: "48px 24px",
         fontFamily: "'Inter','Segoe UI',Arial,sans-serif",
     }}>
 
-        {/* Title */}
-        <H1 style={{ margin: "0 0 52px", fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
-            <span style={{ color: "#2B68C3" }}>Key Modules of</span>
-            <span style={{ color: "#111827" }}> the Platform</span>
-        </H1>
+        {/* ══════════════════════════════════════════
+            DESKTOP TITLE  (lg and above)
+        ══════════════════════════════════════════ */}
+        <div className="hidden lg:block" style={{ margin: "0 0 52px" }}>
+            <H1 style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
+                <span style={{ color: "#2B68C3" }}>Key Modules of</span>
+                <span style={{ color: "#111827" }}> the Platform</span>
+            </H1>
+        </div>
 
-        {/* Canvas */}
-        <div style={{ position: "relative", width: 1100, height: 520 }}>
+        {/* ══════════════════════════════════════════
+            MOBILE / TABLET TITLE  (below lg)
+        ══════════════════════════════════════════ */}
+        <div className="lg:hidden mb-8 sm:mb-10 text-center px-4">
+            <h2 className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-tight">
+                <span className="text-[#2B68C3]">Key Modules of</span>
+                <span className="text-[#111827]"> the Platform</span>
+            </h2>
+        </div>
 
-            {/* ✅ STEP 1 — Add Lines HERE (first child, zIndex: 1) */}
+        {/* ══════════════════════════════════════════
+            DESKTOP CANVAS  (lg and above)
+        ══════════════════════════════════════════ */}
+        <div className="hidden lg:block w-[825px] h-[390px] xl:w-[1100px] xl:h-[520px] mx-auto shrink-0 relative overflow-visible">
+            <div className="lg:scale-[0.75] xl:scale-100 origin-top-left absolute top-0 left-0" style={{ width: 1100, height: 520 }}>
+
             <ConnectorLines />
 
             <motion.div
-                style={{
-                    position: "absolute",
-                    left: CX - 227,
-                    top: CY - 227,
-                    zIndex: 2,
-                    pointerEvents: "none",
-                    transformOrigin: "227px 227px", // ✅ rotate around SVG center point
-                }}
+                style={{ position: "absolute", left: CX - 227, top: CY - 227, zIndex: 2, pointerEvents: "none", transformOrigin: "227px 227px" }}
                 animate={{ rotate: 360 }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             >
                 <CirclesSVG />
             </motion.div>
 
-            {/* Hand icon */}
             <motion.div
-                style={{
-                    position: "absolute",
-                    left: CX - 16,
-                    top: CY - 22,
-                    zIndex: 10,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-                animate={{
-                    y: [0, -10, 0],
-                    scale: [1, 1.08, 1],
-                }}
-                transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
+                style={{ position: "absolute", left: CX - 16, top: CY - 22, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}
+                animate={{ y: [0, -10, 0], scale: [1, 1.08, 1] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
             >
                 <HandSVG />
             </motion.div>
 
-            {/* ✅ STEP 4 — LEFT ICON BOXES (place here) */}
             {YS.map((y, i) => (
-                <div key={`li${i}`} style={{
-                    position: "absolute",
-                    left: L_ICON_X,        // ✅ 55px from left
-                    top: y - IH / 2,       // ✅ centered at row Y
-                    zIndex: 5,
-                }}>
-                    <IconBox />
+                <div key={`li${i}`} style={{ position: "absolute", left: L_ICON_X, top: y - IH / 2, zIndex: 5 }}>
+                    <IconBox icon={ICONS[i]} />
                 </div>
             ))}
-
-            {/* ✅ STEP 5 — LEFT PILLS ABOVE LINE (place here) */}
             {YS.map((y, i) => (
-                <div key={`lp${i}`} style={{
-                    position: "absolute",
-                    left: L_PILL_X,              // ✅ 147px (right of icon + gap)
-                    top: y - IH / 2 - 10 - PH,  // ✅ above icon top by 10px + pill height
-                    zIndex: 6,
-                }}>
+                <div key={`lp${i}`} style={{ position: "absolute", left: L_PILL_X, top: y - IH / 2 - 10 - PH, zIndex: 6 }}>
                     <Pill label={PILL_LABELS[i]} />
                 </div>
             ))}
-
-            {/* ✅ STEP 6 — RIGHT ICON BOXES (place here) */}
             {YS.map((y, i) => (
-                <div key={`ri${i}`} style={{
-                    position: "absolute",
-                    left: R_ICON_X,        // ✅ 967px (mirrored)
-                    top: y - IH / 2,       // ✅ centered at row Y
-                    zIndex: 5,
-                }}>
-                    <IconBox />
+                <div key={`ri${i}`} style={{ position: "absolute", left: R_ICON_X, top: y - IH / 2, zIndex: 5 }}>
+                    <IconBox icon={ICONS[i + 3]} />
                 </div>
             ))}
-
-            {/* ✅ STEP 7 — RIGHT PILLS ABOVE LINE (place here) */}
             {YS.map((y, i) => (
-                <div key={`rp${i}`} style={{
-                    position: "absolute",
-                    left: R_PILL_X,              // ✅ 801px (mirrored)
-                    top: y - IH / 2 - 10 - PH,  // ✅ above icon top by 10px + pill height
-                    zIndex: 6,
-                }}>
+                <div key={`rp${i}`} style={{ position: "absolute", left: R_PILL_X, top: y - IH / 2 - 10 - PH, zIndex: 6 }}>
                     <Pill label={PILL_LABELS[3 + i]} />
                 </div>
             ))}
-
+            </div>
         </div>
+
+        {/* ══════════════════════════════════════════
+            MOBILE / TABLET LAYOUT  (below lg)
+        ══════════════════════════════════════════ */}
+        <div className="lg:hidden w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+
+            {/* Scaled rotating circle */}
+            <div className="flex justify-center mb-8 sm:mb-10">
+                <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[240px]"
+                >
+                    {/* Inline SVG so it scales with the wrapper div */}
+                    <svg viewBox="0 0 454 454" fill="none" className="w-full h-full">
+                        <circle cx="227" cy="227" r="227" fill="#2B68C3" fillOpacity="0.3" />
+                        <circle cx="227" cy="227" r="220" stroke="#2B68C3" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
+                        <circle cx="227" cy="227" r="138" fill="#2B68C3" fillOpacity="0.45" />
+                        <circle cx="227" cy="227" r="131" stroke="#5a8fd4" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="12 10" fill="none" />
+                        <circle cx="227" cy="227" r="85" fill="#2B68C3" />
+                        <circle cx="227" cy="7" r="6" fill="#ffffff" fillOpacity="0.85" />
+                        <circle cx="447" cy="227" r="4" fill="#ffffff" fillOpacity="0.5" />
+                    </svg>
+                </motion.div>
+            </div>
+
+            {/* Feature Cards:
+                  mobile  → 1 column
+                  sm/iPad → 2 columns
+                  md/lg   → 3 columns              */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
+                {PILL_LABELS.map((label, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.08, duration: 0.4 }}
+                        whileHover={{ y: -4, boxShadow: "0 10px 28px rgba(43,104,195,0.18)" }}
+                        className="flex items-center gap-3 sm:gap-4 bg-white rounded-2xl p-4 sm:p-5 shadow-md border border-[#c8d6ea] cursor-default transition-shadow"
+                    >
+                        {/* Dark icon box */}
+                        <div className="w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] md:w-[64px] md:h-[64px] bg-[#0f0f0f] rounded-xl flex items-center justify-center shrink-0 shadow-lg">
+                            <div className="w-[36px] h-[36px] sm:w-[42px] sm:h-[42px] md:w-[46px] md:h-[46px] flex items-center justify-center">
+                                {ICONS[i]}
+                            </div>
+                        </div>
+
+                        {/* Label */}
+                        <p className="font-bold text-[12px] sm:text-[13px] md:text-[14px] text-[#1a3468] leading-snug">
+                            {label}
+                        </p>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+
     </div>
 );
 
