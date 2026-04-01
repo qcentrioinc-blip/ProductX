@@ -25,6 +25,7 @@ import CircleArrow from "./CircleArrow";
 import RemitreeCard from "./RemitreeCard";
 import Exception from "./Exception";
 import Seven from "./Seven";
+import Second from "./Second";
 
 const ProductsPage2 = () => {
 
@@ -69,7 +70,7 @@ const ProductsPage2 = () => {
       <Overview />
 
       <HeroBottomNavbar />
-
+      <Second />
       <div id="benefits">
         <ThreeTab />
       </div>
