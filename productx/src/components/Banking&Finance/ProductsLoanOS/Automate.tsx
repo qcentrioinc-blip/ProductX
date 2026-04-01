@@ -41,14 +41,14 @@ const cards = [
     variant: 'dark',
     iconBg: 'blue',
     title: ' Product Rule Enrichment',
-    description: ' Inherits core system product rules with provision to add additional checks and controls',
+    description: ' Inherits the core system product rules with the provision to add additional checks and controls',
     showBadge: false,
   },
   {
     id: 4,
     variant: 'light',
     iconBg: 'dark',
-    title: 'Score Parameter Configuration ',
+    title: 'Score Factor Setup ',
     description: 'Configure built-in and custom score parameters for individual and corporate customers',
     showBadge: false,
   },
@@ -123,7 +123,7 @@ const Automate = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white px-4 py-6 sm:px-6 md:py-10 lg:px-8 xl:px-0"
+      className="w-full bg-white px-4 py-6 sm:px-6 md:py-10  xl:px-0"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -139,7 +139,7 @@ const Automate = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {cards.map((card, index) => (
             <Card key={card.id} card={card} index={index} visible={visible} />
           ))}

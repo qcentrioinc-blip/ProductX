@@ -55,7 +55,7 @@ const ImageGrid = () => {
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full" >
            
             {/* Left Sub-column */}
-            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full lg:h-[800px]">
+            <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full xl:h-[800px]">
               {/* Image 1 */}
               <div className="flex-1 overflow-hidden rounded-md shadow-md ">
                 <img
