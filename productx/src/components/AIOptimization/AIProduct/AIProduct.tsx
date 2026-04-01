@@ -4,8 +4,10 @@ import { memo, Suspense, lazy, useState, useEffect } from 'react';
 import DeferredLoader from "../../Global/DeferredLoader";
 import HWD from "../../Banking&Finance/HWD";
 import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
-import HeroCombined from './HeroComp/HeroCombined';
 // import HeroCombined from './HeroComp/HeroCombined';
+ 
+// import HeroCombined from './HeroComp/HeroCombined';
+import CloudHero from './CloudHero';
 // import BloomHero from './BloomHero';
 // import BloomHero2 from './BloomHero2';
 // Lazy load middle components
@@ -33,7 +35,8 @@ const AIProduct = () => {
   return (
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
-        <HeroCombined />
+        <CloudHero/>
+        {/* <HeroCombined /> */}
         {/* <BloomHero2/>
         <BloomHero/> */}
         

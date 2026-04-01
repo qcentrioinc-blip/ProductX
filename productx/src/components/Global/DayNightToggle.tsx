@@ -33,6 +33,7 @@ const DayNightToggle = () => {
   return (
     <button
       onClick={toggleTheme}
+      className="hidden xl:block"
       style={{
         position: "absolute",
         top: position,
