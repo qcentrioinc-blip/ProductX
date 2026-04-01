@@ -21,6 +21,12 @@ import CTABanner from "./CTABanner";
 import Testimonial from "./Testimonial";
 import ImageChange from "./ImageChange";
 import FaqSection from "../ProductKYC/FAQ";
+import Steps from "./Steps";
+ ;
+import AccordionPago from "./AccordionPago";
+import Cardsfive from "./Cardsfive";
+import Acco from "./Acco";
+ 
 
 const ProductDetailthree = () => {
   const location = useLocation();
@@ -68,7 +74,11 @@ const ProductDetailthree = () => {
       </div>
       <Testimonial/>
       <ImageChange/>
+      <Acco/>
 <CTABanner/>
+<Steps/>
+ <Cardsfive/>
+<AccordionPago/>
       <div id="usecases">
         <HWD />
       </div>
