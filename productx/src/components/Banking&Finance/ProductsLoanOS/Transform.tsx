@@ -36,16 +36,16 @@ const features = [
 
 const Transform = () => {
   return (
-    <section className="w-full bg-white px-4 pb-6 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14 xl::gap-16">
+    <section className="w-full bg-white px-4 pb-6 sm:px-6 ">
+      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row items-center gap-10 xl::gap-16">
 
         {/* Left — Image Placeholder */}
-        <div className="w-full lg:w-1/2 flex-shrink-0">
-          <div className="w-full h-[400px]  lg:h-[600px] rounded-2xl bg-gray-200" />
+        <div className="w-full xl:w-1/2 flex-shrink-0">
+          <div className="w-full h-[400px]  xl:h-[600px] rounded-2xl bg-gray-200" />
         </div>
 
         {/* Right — Content */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-6">
+        <div className="w-full xl:w-1/2 flex flex-col gap-6">
 
           {/* Heading */}
           <H2 className="text-3xl sm:text-4xl font-extrabold  leading-tight">

@@ -7,38 +7,42 @@ const HeroSection = () => {
   <section className="w-full bg-[#2B68C3] dark:bg-[#0f172a] xl:h-auto overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto  px-4 lg:px-0   xl:py-20 pt-16 xl:pt-36">
 
-        <div className="flex flex-col-reverse xl:flex-row items-center pt-24 justify-between gap-12">
+     <div className="flex flex-col xl:flex-row items-center pt-24 justify-between gap-12">
 
           {/* LEFT CONTENT */}
-          <div className="  max-w-4xl xl:max-w-xl text-center xl:text-left">
+        <div className="max-w-4xl xl:max-w-xl text-center xl:text-left flex flex-col">
 
-            <H1 className="text-white mb-6">
-              Complete Payment and Settlement System for Banks
-            </H1>
+  {/* HEADING */}
+  <H1 className="text-white mb-6 order-1 xl:order-none">
+    Complete Payment and Settlement System for Banks
+  </H1>
 
-            <P className="text-white/90 mb-8">
-              PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems.
-            </P>
+  {/* PARAGRAPH */}
+  <P className="text-white/90 mb-8 order-3 xl:order-none">
+    PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems.
+  </P>
 
-         <Link
-                            to="#contact-us"
-                            onClick={(e) => {
-                                const el = document.getElementById("contact-us");
-                                if (el) {
-                                    e.preventDefault();
-                                    el.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
-                        >
-            <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
-              Learn More
-            </ContactUs>
-            </Link>
+  {/* BUTTON */}
+  <Link
+    to="#contact-us"
+    onClick={(e) => {
+      const el = document.getElementById("contact-us");
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className="order-4 xl:order-none"
+  >
+    <ContactUs className=" gap-2 whitespace-nowrap shrink-0">
+      Learn More
+    </ContactUs>
+  </Link>
 
-          </div>
+</div>
 
           {/* RIGHT IMAGE */}
-      <div className="xl:w-1/2 flex justify-center">
+      <div className="xl:w-1/2 pb-16 xl:pb-0 flex justify-center order-2 xl:order-none">
   <div className="relative flex items-center justify-center">
 
     {/* WHITE ROTATING CIRCLE */}

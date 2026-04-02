@@ -24,9 +24,8 @@ const CTABanner = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12   lg:px-10  xl:px-0 pt-10 xl:pt-24  w-full">
 
         {/* Heading */}
-        <h1 className="text-[#002459] font-bricolage text-[24px]  md:text-[56px] lg:text-[72px] ">
-         Ready to Transform Your <br className="xl:block hidden" />
-        Payment Operations
+        <h1 className="text-[#002459] font-bricolage text-[24px] max-w-4xl md:text-[56px] lg:text-[72px] ">
+        Payment and Settlement System Overview
         </h1>
 
         {/* Glass Card */}
@@ -64,8 +63,7 @@ const CTABanner = () => {
 
           {/* Text */}
           <P className="text-[#141414] max-w-xl leading-relaxed">
-      Schedule a demo to see how PAGO streamlines e-cash, e-cheques,
-      and real-time settlements for banks  and credit unions
+    Explore PAGO modules including ACH, NACHA, and RTGS to streamline your payment operations and settlement processes across all channels
           </P>
         </div>
 

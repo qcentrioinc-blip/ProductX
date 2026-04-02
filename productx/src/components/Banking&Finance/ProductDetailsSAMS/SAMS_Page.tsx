@@ -20,6 +20,10 @@ import BlueBox from "./BlueBox";
 import ThreeTab1 from "./ThreeTab1";
 import FaqSection from "../ProductKYC/FAQ";
 import ImageCard from "../BNFBlogs/ImageCard";
+import SamsFive from "./SamsFive";
+import SamsCube from "./SamsCube";
+import SamsCompare from "./SamsCompare";
+import SamsSeven from "./SamsSeven";
 
 const Sams_Page = () => {
   const location = useLocation();
@@ -47,6 +51,10 @@ const Sams_Page = () => {
       <ThreeTab1 />
       <Cards />
       <BlueBox />
+      <SamsCube />
+      <SamsFive />
+      <SamsCompare />
+      <SamsSeven />
       <HWD />
 
       <FaqSection />

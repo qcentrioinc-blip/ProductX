@@ -20,6 +20,7 @@ import ConsilierCard from "./ConsilierCard"
 import FourPoints from "./FourPoints"
 import Configurable from "./Configurable"
 import Industry from "./Industry"
+// import ConsOverview from "./ConsOverview"
 // import Pricing from "./Pricing"
 
 const ProductsPage1 = () => {
@@ -70,7 +71,7 @@ const ProductsPage1 = () => {
       <div id="process"><ConsilierCTA /></div>
       <div id="industry"><Industry /></div>
       <div id="four-points"><FourPoints /></div>
-
+      {/* <div id="cons-overview"><ConsOverview /></div> */}
       {/* <Pricing /> */}
       <div id="usecases"> <HWD /></div>
 

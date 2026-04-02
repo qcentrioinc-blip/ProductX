@@ -1,4 +1,4 @@
-import { H4, P } from "../../../styles/Typography"
+import { H2, H4, P } from "../../../styles/Typography"
 
 const CircleIcon = () => (
   <div className="w-14 h-14 rounded-full bg-[#2B68C3] flex items-center justify-center text-white shadow-md">
@@ -6,16 +6,31 @@ const CircleIcon = () => (
   </div>
 )
 
-const Card = () => (
+// Dynamic Card
+const Card = ({ title, description }: { title: React.ReactNode; description: string }) => (
   <div className="bg-[#F8F8F8] rounded-xl px-4 py-5 w-full text-center shadow">
     <H4 className="font-semibold text-lg my-2 leading-snug">
-      Slow Customer<br />Approval Decisions
+      {title}
     </H4>
     <P className="text-sm text-gray-600">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+      {description}
     </P>
   </div>
 )
+
+// Card Data (easy to scale later)
+const cardsData = [
+  {
+    title: "Slow Customer Approval Decisions",
+    description:
+      "Delays in approval decisions cause customer dropouts and lost business opportunities",
+  },
+  {
+    title: "Bottlenecks Across Hierarchy  ",
+    description:
+      "Inefficient workflows create processing delays across branches, centers, and groups",
+  },
+]
 
 const MFI = () => {
   return (
@@ -26,17 +41,21 @@ const MFI = () => {
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(#2B68C3 3px, transparent 3px)",
-          backgroundSize: "24px 24px"
+          backgroundSize: "24px 24px",
         }}
       />
+      <div className="z-10 my-10 flex justify-center items-center">
+        <H2>Group Lending</H2>
+      </div>
+  
+      <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-0 relative">
+      
 
-      <div className="max-w-7xl mx-auto py-20 px-6 xl:px-0 relative">
-
-        {/* ── DESKTOP (lg+): original 3-col layout ── */}
+        {/* DESKTOP */}
         <div className="hidden lg:block">
 
-          {/* TOP BORDER BRACKET */}
-          <div className="absolute left-32 right-32 top-6 h-[450px] border-t-4 border-l-4 border-[#464F5D] rounded-tl-[48px] rounded-tr-[48px] border-r-4" />
+          {/* BORDER */}
+          <div className="absolute left-32 right-32  -top-4 xl:top-6 h-[450px] border-t-4 border-l-4 border-[#464F5D] rounded-tl-[48px] rounded-tr-[48px] border-r-4" />
 
           <div className="grid grid-cols-[1fr_2fr_1fr] gap-2 items-end relative mt-10">
 
@@ -46,12 +65,12 @@ const MFI = () => {
                 <CircleIcon />
               </div>
               <div className="w-full max-w-lg">
-                <Card />
+                <Card {...cardsData[0]} />
               </div>
             </div>
 
-            {/* CENTER IMAGE */}
-            <div className="flex justify-center relative">
+            {/* IMAGE */}
+            <div className="flex justify-center">
               <img
                 src="/LOS/LOSFlow.webp"
                 alt="LOS Flow"
@@ -65,27 +84,25 @@ const MFI = () => {
                 <CircleIcon />
               </div>
               <div className="w-full max-w-xl">
-                <Card />
+                <Card {...cardsData[1]} />
               </div>
             </div>
 
           </div>
         </div>
 
-        {/* ── MOBILE / MD: card → card → image → card → card ── */}
-        <div className="flex flex-col gap-6 max-w-lg justify-center  mx-auto items-center lg:hidden">
+        {/* MOBILE */}
+        <div className="flex flex-col gap-6 max-w-lg mx-auto items-center lg:hidden">
 
           {/* Card 1 */}
           <div className="relative pt-10">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-0">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0">
               <CircleIcon />
             </div>
-            <Card />
+            <Card {...cardsData[0]} />
           </div>
 
-           
-
-          {/* Image */}
+          {/* IMAGE */}
           <div className="flex justify-center">
             <img
               src="/LOS/LOSFlow.webp"
@@ -93,14 +110,13 @@ const MFI = () => {
               className="w-full max-w-md"
             />
           </div>
- 
 
-          {/* Card 4 */}
-          <div className="relative  pt-10">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-0">
+          {/* Card 2 */}
+          <div className="relative pt-10">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0">
               <CircleIcon />
             </div>
-            <Card />
+            <Card {...cardsData[1]} />
           </div>
 
         </div>

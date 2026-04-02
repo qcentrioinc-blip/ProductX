@@ -13,6 +13,8 @@ import FaqSection from "../ProductKYC/FAQ"
 import ImageCard from "../BNFBlogs/ImageCard"
 import ImgSec from "./ImgSec"
 import SingleCard from "./SingleCard"
+import Gain from "./Gain"
+import CTAButton from "./CTAButton"
 // import CardsSec from "./CardsSec"
 
 const Bankfair = () => {
@@ -35,10 +37,13 @@ const Bankfair = () => {
         {/* <CardsSec/> */}
         </div>
         <SingleCard />
+        <CTAButton/>
+        <Gain/>
          <div id="usecases">
         <HWD />
       </div>
       <div id="faq"> <FaqSection /></div>
+      
       <ImageCard />
       <div id="contact-us">
         {/* DESKTOP */}
