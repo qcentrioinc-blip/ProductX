@@ -3,13 +3,13 @@ import { H1, P } from "../../../styles/Typography";
 
 const column1Images = [
     "/Remitree/1.webp",
-    "/Remitree/2.webp",
+    "/Remitree/hero1.webp",
     "/Remitree/3.webp"
 ];
 
 const column2Images = [
     "/Remitree/4.webp",
-    "/Remitree/5.webp",
+    "/Remitree/hero2.webp",
     "/Remitree/6.webp"
 ];
 

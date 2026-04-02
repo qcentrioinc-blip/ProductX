@@ -54,7 +54,7 @@ const ThreeTab = () => {
         {
             title: 'Message Creation and Enrichment',
             text: 'Swift message templates automatically enrich data from core banking systems. Fields undergo strict Swift validation, including limits and formats. Supports various Swift MT messages, including MT103, MT202, MT700, and MT760. Bi-directional flow manages outward and inward remittances comprehensively with creation, validation, and transmission capabilities.',
-            image: '/Remitree/Tab1.webp',
+            image: '/Remitree/ThreeTab1.webp',
             features: [
                 { text: 'Automatic data population', icon: '/Remitree/big-data.svg' },
                 { text: 'Swift MT message support', icon: '/Remitree/chatting.svg' },
@@ -65,7 +65,7 @@ const ThreeTab = () => {
         {
             title: 'Compliance and Screening',
             text: 'Transactions are screened for compliance using integrated AML systems. Performs checks against banned entities and countries to prevent fraud. Ensures regulatory adherence with automated alerts for suspicious activities. Strict Swift validation ensures messages meet international standards before transmission.',
-            image: '/Remitree/Tab2.webp',
+            image: '/Remitree/ThreeTab2.webp',
             features: [
                 { text: 'AML system integration', icon: '/Remitree/integration.svg' },
                 { text: 'Banned entity screening', icon: '/Remitree/job-search.svg' },
@@ -76,7 +76,7 @@ const ThreeTab = () => {
         {
             title: 'System Integration Capabilities',
             text: 'Effortlessly integrates with existing banking infrastructure for smooth data flow. Connects with core banking systems for real-time data synchronization. Treasury system integration fetches real-time currency rates. Corporate banking integration handles bulk processing and detailed reporting.',
-            image: '/Remitree/Tab3.webp',
+            image: '/Remitree/ThreeTab3.webp',
             features: [
                 { text: 'Core banking synchronization', icon: '/Remitree/bell.svg' },
                 { text: 'Treasury rate integration', icon: '/Remitree/bank.svg' },
