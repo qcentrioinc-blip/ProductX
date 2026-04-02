@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { H3, P } from "../../../styles/Typography";
+import { P } from "../../../styles/Typography";
 import BNFNav from "../../Banking&Finance/Navbar/BNFnav";
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
 
@@ -133,9 +133,9 @@ export default function AllProducts() {
 
 </div>
 
-                  <H3 className="mb-3 text-start">
+                  {/* <H3 className="mb-3 text-start">
                     {product.title}
-                  </H3>
+                  </H3> */}
 
                   <P className="text-sm md:text-base text-gray-600 mb-6 line-clamp-6 text-start">
                     {product.description}
