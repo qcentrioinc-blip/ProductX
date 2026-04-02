@@ -8,7 +8,7 @@ const LandingSams = () => {
                 w-full bg-[#131313] relative
                 font-['Bricolage_Grotesque',sans-serif]
                 lg:h-[780px] lg:overflow-hidden
-                xl:w-full xl:min-w-7xl xl:h-[990px] xl:overflow-hidden xl:mx-auto
+                xl:w-full xl:min-w-7xl xl:h-[990px] xl:overflow-hidden xl:mx-auto pt-10 sm:pt-0 md:pt-0 lg:pt-0 xl:pt-0
             ">
 
                 {/* ═══════════════════════════════════════

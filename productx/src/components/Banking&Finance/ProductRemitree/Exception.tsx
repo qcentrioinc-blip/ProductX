@@ -136,16 +136,12 @@ const Exception = () => {
   );
 };
 
-// Perfectly matching SVG 
 const UserLaptopIcon = () => (
-  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-    <circle cx="12" cy="5.5" r="3.5" fill="black" />
-    <path d="M4.5 16.5 C4.5 10.5 8 9.5 12 9.5 C16 9.5 19.5 10.5 19.5 16.5 L19.5 18 L4.5 18 Z" fill="black" />
-    <path d="M5.5 13 L18.5 13 L19.5 19 L4.5 19 Z" fill="white" />
-    <path d="M6.5 14 L17.5 14 L18.2 18 L5.8 18 Z" fill="black" />
-    <circle cx="12" cy="16.5" r="1.2" fill="white" />
-    <rect x="2.5" y="20" width="19" height="2.2" rx="1" fill="black" />
-  </svg>
+  <img 
+    src="/Remitree/computer-worker.svg" 
+    alt="worker" 
+    className="w-[46px] h-[46px] object-contain shrink-0" 
+  />
 );
 
 export default Exception;
