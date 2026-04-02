@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { H2, H4 } from "../../../styles/Typography";
 
-const tabs = ["Duis aute", "Duis jhgfgb aute", "Duis jhgfgb aute"];
+const tabs = ["Inventory", "Fixed Assets", "Security"];
 
 const tabImages = [
   "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80",
@@ -15,110 +15,57 @@ const tabData = [
   {
     items: [
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <circle cx="20" cy="20" r="18" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M20 10v10l6 4" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="M14 26l3-3" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        ),
-        heading: "Clock In & Access",
-        para: "Log in once as an Admin to immediately see your clinic's live status, appointments, and pending tasks on the main dashboard. Log in once as an Admin to immediately see your clinic's live status, appointments,",
+        icon: "/LOS/Location.svg",
+        heading: "Distribute Items Across Locations",
+        para: "System enables distribution of inventory items such as cheque books, cards, and certificates to various branches and locations. Each location receives allocated stock based on demand and usage patterns for efficient inventory control. ",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <rect x="6" y="8" width="28" height="24" rx="3" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M6 14h28" stroke="#3B82F6" strokeWidth="2" />
-            <circle cx="13" cy="22" r="2" fill="#3B82F6" />
-            <circle cx="20" cy="22" r="2" fill="#3B82F6" />
-            <circle cx="27" cy="22" r="2" fill="#3B82F6" />
-          </svg>
-        ),
-        heading: "Manage Appointments",
-        para: "Log in once as an Admin to immediately see your clinic's live status, appointments, and pending tasks on the main dashboard. Log in once as an Admin to immediately see your clinic's live status, appointments,",
+        icon: "/LOS/Book.svg",
+        heading: "Book Purchase Expenses Automatically",
+        para: "When inventory items are procured, the system automatically books purchase expenses against the appropriate accounts. This ensures accurate cost tracking and eliminates manual entry errors in financial records.",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <path d="M20 6L8 12v10c0 7 5.5 12 12 14 6.5-2 12-7 12-14V12L20 6z" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M15 20l3.5 3.5L26 16" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ),
-        heading: "Secure Records",
-        para: "Log in once as an Admin to immediately see your clinic's live status, appointments, and pending tasks on the main dashboard. Log in once as an Admin to immediately see your clinic's live status, appointments,",
+        icon: "/LOS/Dollar.svg",
+        heading: "Book Revenue for Distribution",
+        para: "When inventory items are distributed to customers or branches, the system automatically books revenue. This provides real-time visibility into income generated from inventory-related services and products.",
       },
     ],
   },
   {
     items: [
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <path d="M10 30 Q20 8 30 30" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-            <circle cx="20" cy="20" r="3" fill="#3B82F6" />
-            <path d="M8 30h24" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        ),
-        heading: "Performance Analytics",
-        para: "Track revenue, patient volume, staff utilization, and outcome metrics on interactive dashboards. Turn raw clinic data into clear, actionable insights that drive smarter decisions daily.",
+        icon: "/LOS/Assets.svg",
+        heading: "Write Off Assets with Entries",
+        para: "When assets are retired or disposed, the system facilitates write-off processing. Automatic accounting entries are posted to reflect the disposal, maintaining accurate asset registers and financial statements.",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <circle cx="20" cy="14" r="6" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M8 34c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-            <path d="M28 12l2 2 4-4" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ),
-        heading: "Staff Management",
-        para: "Assign roles, track attendance, and manage shift schedules from one unified panel. HR tools integrate with payroll providers so your admin burden shrinks while team visibility grows.",
+        icon:"/LOS/Balance.svg",
+        heading: "Track Asset Lifecycle Completely",
+        para: "Complete tracking of fixed assets from acquisition to disposal including purchase date, cost, accumulated depreciation, and current book value. Reports provide visibility into asset utilization and remaining useful life.",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <rect x="8" y="10" width="24" height="20" rx="2" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M8 16h24" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M14 24h12M14 28h8" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        ),
-        heading: "Billing & Invoicing",
-        para: "Generate and send invoices instantly with insurance claim integrations. Automated follow-ups reduce outstanding balances while detailed financial reports keep your clinic's cash flow healthy.",
+        icon: "/LOS/Allocation.svg",
+        heading: "Calculate Depreciation Automatically",
+        para: "System automatically calculates depreciation for fixed assets based on predefined methods and schedules. Accounting entries are posted without manual intervention, ensuring accuracy and consistency across all asset categories.",
       },
     ],
   },
   {
     items: [
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <path d="M12 20h4l3-8 4 16 3-8h4" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ),
-        heading: "Patient Monitoring",
-        para: "Connect wearable devices and remote monitoring tools to track vital signs between visits. Alerts notify care teams instantly when readings fall outside safe ranges for faster interventions.",
+        icon: "/LOS/Icon.svg",
+        heading: "OWASP Top 10 Standards",
+        para: "Platform adheres to OWASP Top 10 security standards addressing critical vulnerabilities including injection attacks, broken authentication, and sensitive data exposure. Regular security assessments ensure ongoing compliance with industry benchmarks.",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <circle cx="20" cy="20" r="12" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M20 14v6l4 4" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
-          </svg>
-        ),
-        heading: "Wait Time Reduction",
-        para: "Smart queue management and digital check-in slash lobby wait times. Patients receive live status updates on their phones so they stay informed and your front desk stays calm.",
+        icon: "/LOS/Setting.svg",
+        heading: "Role-Based Access Control",
+        para: " Granular role-based access control with permissions defined at menu and transaction levels. Users are assigned read-only, write-only, or both access types based on their responsibilities and organizational hierarchy.",
       },
       {
-        icon: (
-          <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-            <path d="M10 28 C10 18 30 18 30 28" stroke="#3B82F6" strokeWidth="2" />
-            <circle cx="20" cy="14" r="5" stroke="#3B82F6" strokeWidth="2" />
-            <path d="M16 34h8" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-            <path d="M20 28v6" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        ),
-        heading: "Telehealth Integration",
-        para: "Launch secure video consultations directly from the platform without third-party apps. Offer patients convenient remote care while keeping all notes and prescriptions in one unified record.",
+        icon: "/LOS/Audit.svg",
+        heading: "Comprehensive Audit Trails",
+        para: " All user actions and system events are logged with timestamps and user details. Complete audit trails enable forensic analysis, regulatory reporting, and investigation of unauthorized activities or discrepancies.",
       },
     ],
   },
@@ -168,7 +115,7 @@ function MobileView() {
   }, []);
 
   return (
-    <div className="lg:hidden flex flex-col pb-10 ">
+    <div className="xl:hidden flex flex-col pb-10 ">
 
       {/* ✅ STICKY TABS */}
       <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
@@ -216,9 +163,9 @@ function MobileView() {
             {/* ITEMS */}
             {tab.items.map((item, idx) => (
               <div key={idx} className="flex flex-col gap-2">
-                <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center">
-                  {item.icon}
-                </div>
+               <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center">
+  <img src={item.icon} alt="" className="w-6 h-6" />
+</div>
 
                 <H4 className="text-white font-semibold">
                   {item.heading}
@@ -262,10 +209,10 @@ function DesktopView() {
     <div
       ref={scrollRef}
       style={{ height: "300vh" }}
-      className="relative hidden lg:block"
+      className="relative hidden xl:block"
     >
       <div className="sticky top-20 h-screen flex items-start">
-        <div className="w-full flex flex-row gap-10 lg:gap-16">
+        <div className="w-full flex flex-row gap-10 xl:gap-16">
 
           {/* Left: Image */}
           <div className="w-full lg:w-[30%] flex-shrink-0">
@@ -284,13 +231,13 @@ function DesktopView() {
           </div>
 
           {/* Right: Tabs + content */}
-          <div className="w-full lg:w-[62%] flex flex-col">
-            <div className="flex flex-wrap gap-3 mb-8">
+          <div className="w-full lg:w-[70%] flex flex-col">
+            <div className="flex flex-wrap gap-3 mb-2">
               {tabs.map((tab, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveTab(i)}
-                  className={`px-12 py-3 font-quicksand text-[22px] rounded-full text-sm font-medium transition-all duration-300 border ${
+                  className={`px-12 py-1 font-quicksand text-[18px] rounded-full text-sm font-medium transition-all duration-300 border ${
                     activeTab === i
                       ? "bg-[#2B68C3] text-white border-[#666666]"
                       : "bg-transparent text-gray-300 border-[#FAFAFA] hover:border-blue-400 hover:text-white"
@@ -313,12 +260,12 @@ function DesktopView() {
                   }}
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-blue-500/30 flex items-center justify-center shadow-md shadow-blue-500/10">
-                    {item.icon}
+  <img src={item.icon} alt="" className="w-6 h-6" />
                   </div>
                   <H4 className="text-white text-lg font-semibold leading-snug mt-1">
                     {item.heading}
                   </H4>
-                  <p className="text-[#CCCCCC] font-quicksand text-[18px] leading-relaxed max-w-4xl">
+                  <p className="text-[#CCCCCC] font-quicksand text-[18px] leading-relaxed max-w-full">
                     {item.para}
                   </p>
                 </div>
@@ -334,12 +281,12 @@ function DesktopView() {
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Gain() {
   return (
-    <section className="bg-[#0f172a] px-4 sm:px-8 lg:px-16">
+    <section className="bg-[#0f172a] px-6  xl:px-16">
       <div className="max-w-7xl mx-auto xl:px-0">
 
         {/* H2 — always scrolls normally */}
-        <H2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold pt-10 pb-6 leading-tight max-w-3xl">
-          Gain Instant Operational Insight
+        <H2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold pt-10 pb-6 leading-tight max-w-full">
+          Integrated Operations Management Capabilities
         </H2>
 
         {/* Mobile / tablet */}

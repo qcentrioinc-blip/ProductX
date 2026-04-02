@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { H2 } from "../../../styles/Typography";
+import { H2, H4 } from "../../../styles/Typography";
 
 export default function Highlights() {
   const desktopRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,15 @@ export default function Highlights() {
   ];
 
   return (
-    <div className="w-full pt-10 bg-white flex flex-col items-center overflow-hidden">
+    <div className="w-full pt-10 relative bg-[#EEF3FA] flex flex-col items-center overflow-hidden">
+        {/* DOTTED BG */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#2B68C3 3px, transparent 3px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
       <H2 className="text-center mb-16 max-w-2xl">  
         Key Highlights of the ALMANAC Platform
@@ -97,7 +105,7 @@ export default function Highlights() {
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
-        width: 400, height: 400,
+        width: 350, height: 350,
         background: "rgba(65,174,197,0.85)",
         top: 0, left: 170,   // (740 - 400) / 2 = 170 → perfectly centered
         transform: go ? "translateX(0)" : "translateX(-500px)",
@@ -105,51 +113,51 @@ export default function Highlights() {
         transition: `transform 1s ${ease} 0ms, opacity 0.6s ease 0ms`,
       }}
     >
-      <h3 className="text-black font-bricolage text-[22px] xl:text-[26px]">
+      <H4 className="leading-normal">
         Conforms with BASEL regulatory recommendations
-      </h3>
+      </H4>
     </div>
 
     {/* LEFT circle */}
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
-        width: 400, height: 400,
+        width: 350, height: 350,
         background: "rgba(52,125,218,0.85)",
-        top: 260, left: 0,
+        top: 260, left: 10,
         transform: go ? "translateY(0)" : "translateY(400px)",
         opacity: go ? 1 : 0,
         transition: `transform 1s ${ease} 200ms, opacity 0.6s ease 200ms`,
       }}
     >
-      <h3 className="text-white font-bricolage text-[22px] xl:text-[26px]">
+      <H4 className="leading-normal">
         Fully multi-currency compliant across modules
-      </h3>
+      </H4>
     </div>
 
     {/* RIGHT circle */}
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
-        width: 400, height: 400,
+        width: 350, height: 350,
         background: "rgba(52,125,218,0.85)",
-        top: 260, left: 340,   // 740 - 400 = 340 → right-aligned within container
+        top: 260, left: 320,   // 740 - 400 = 340 → right-aligned within container
         transform: go ? "translateY(0)" : "translateY(400px)",
         opacity: go ? 1 : 0,
         transition: `transform 1s ${ease} 350ms, opacity 0.6s ease 350ms`,
       }}
     >
-      <h3 className="text-white font-bricolage text-[22px] xl:text-[26px]">
+      <H4 className="leading-normal">
         Integrates data from CBS and treasury systems
-      </h3>
+      </H4>
     </div>
 
     {/* Center icon — sits at intersection of all 3 */}
     <div
       className="absolute rounded-full bg-white flex items-center justify-center"
       style={{
-        width: 140, height: 140,
-        top: 270, left: 295,   // (740/2) - 75 = 295
+        width: 100, height: 100,
+        top: 270, left: 280,   // (740/2) - 75 = 295
         boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
         zIndex: 30,
         transform: go ? "scale(1)" : "scale(0.4)",
@@ -157,14 +165,14 @@ export default function Highlights() {
         transition: `transform 0.5s ${ease} 1100ms, opacity 0.4s ease 1100ms`,
       }}
     >
-      <img src="/AML/AMLVector.svg" className="w-16 h-16" alt="aml" />
+      <img src="/AML/AMLVector.svg" className="w-12 h-12" alt="aml" />
     </div>
 
     {/* LEFT pill — beside left circle */}
     <div
-      className="absolute bg-[#363636] font-quicksand text-[18px] xl:text-[20px] text-white rounded-full py-3 px-8 font-semibold text-center"
+      className="absolute bg-[#363636] font-quicksand text-[18px]   text-white rounded-full py-2 px-8 font-semibold text-center"
       style={{
-        top: 250, left: -80, width: 350, zIndex: 40,
+        top: 250, left: -70, width: 340, zIndex: 40,
         transform: go ? "scale(1)" : "scale(0.8)",
         opacity: go ? 1 : 0,
         transition: `transform 0.45s ${ease} 1300ms, opacity 0.4s ease 1300ms`,
@@ -175,9 +183,9 @@ export default function Highlights() {
 
     {/* RIGHT pill — beside right circle */}
     <div
-      className="absolute bg-[#363636] font-quicksand text-[18px] xl:text-[20px] text-white rounded-full py-3 px-8 font-semibold text-center"
+      className="absolute bg-[#363636] font-quicksand text-[18px]   text-white rounded-full py-2 px-8 font-semibold text-center"
       style={{
-        top: 250, right:-80, width: 350, zIndex: 40,
+        top: 250, right:-40, width: 340, zIndex: 40,
         transform: go ? "scale(1)" : "scale(0.8)",
         opacity: go ? 1 : 0,
         transition: `transform 0.45s ${ease} 1450ms, opacity 0.4s ease 1450ms`,
@@ -188,9 +196,9 @@ export default function Highlights() {
 
     {/* BOTTOM pill — below center */}
     <div
-      className="absolute bg-[#363636] font-quicksand text-[18px] xl:text-[20px] text-white rounded-full py-3 px-8 font-semibold text-center"
+      className="absolute bg-[#363636] font-quicksand text-[18px] xl:text-[20px] text-white rounded-full py-2 px-8 font-semibold text-center"
       style={{
-        top: 550, left: "50%", width: 420, zIndex: 40,
+        top: 550, left: "50%", width: 410, zIndex: 40,
         transform: go ? "translateX(-50%) scale(1)" : "translateX(-50%) scale(0.8)",
         opacity: go ? 1 : 0,
         transition: `transform 0.45s ${ease} 1600ms, opacity 0.4s ease 1600ms`,
