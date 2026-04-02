@@ -5,8 +5,9 @@ import DeferredLoader from "../../Global/DeferredLoader";
 import HWD from "../../Banking&Finance/HWD";
 import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
 // import HeroCombined from './HeroComp/HeroCombined';
+ 
+// import HeroCombined from './HeroComp/HeroCombined';
 // import CloudHero from './CloudHero';
-import HeroCombined from './HeroComp/HeroCombined';
 // import BloomHero from './BloomHero';
 // import BloomHero2 from './BloomHero2';
 // Lazy load middle components
@@ -35,7 +36,7 @@ const AIProduct = () => {
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
         {/* <CloudHero/> */}
-        <HeroCombined />
+        {/* <HeroCombined /> */}
         {/* <BloomHero2/>
         <BloomHero/> */}
         

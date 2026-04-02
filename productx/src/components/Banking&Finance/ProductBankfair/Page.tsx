@@ -36,9 +36,10 @@ const Bankfair = () => {
         <Benefits/>
         {/* <CardsSec/> */}
         </div>
-        <SingleCard />
+        
         <CTAButton/>
         <Gain/>
+        <SingleCard />
          <div id="usecases">
         <HWD />
       </div>

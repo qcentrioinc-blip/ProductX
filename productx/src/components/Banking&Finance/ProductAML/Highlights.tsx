@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { H2, H4 } from "../../../styles/Typography";
- 
+
 export default function Highlights() {
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
@@ -58,7 +58,7 @@ export default function Highlights() {
           backgroundSize: "24px 24px",
         }}
       />
- 
+
       <H2 className="text-center mb-16 max-w-2xl">  
         Key Highlights of the ALMANAC Platform
       </H2>
