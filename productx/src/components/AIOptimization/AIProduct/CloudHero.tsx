@@ -42,7 +42,7 @@ const NODES: NodeData[] = [
   { label: "Overprovisioning", iconSrc: "/AIProduct/icons/overprovisioning.png", highCost: "$3,500", lowCost: "$252"  },
 ];
 
-const GRID_SIZE = 100;
+// const GRID_SIZE = 100;
 
 // ─── Jerk-free scroller hook ──────────────────────────────────────────────────
 
@@ -119,22 +119,56 @@ function useInfiniteScroll(
 
 function GridBackground() {
   return (
-    <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity: 0.15 }}
-    >
-      <defs>
-        <pattern id="grid" width={GRID_SIZE} height={GRID_SIZE} patternUnits="userSpaceOnUse">
-          <path d={`M ${GRID_SIZE} 0 L 0 0 0 ${GRID_SIZE}`} fill="none" stroke="#4f7db5" strokeWidth="0.5" />
-        </pattern>
-        <pattern id="diag" width={GRID_SIZE * 2} height={GRID_SIZE * 2} patternUnits="userSpaceOnUse" patternTransform="rotate(-30) skewX(-10)">
-          <path d={`M ${GRID_SIZE * 2} 0 L 0 0 0 ${GRID_SIZE * 2}`} fill="none" stroke="#3b6ea5" strokeWidth="0.4" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)" />
-      <rect width="100%" height="100%" fill="url(#diag)" opacity="0.4" />
-    </svg>
+    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+      <svg
+        className="absolute w-[180%] h-[180%]"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ 
+          opacity: 0.8,
+          transform: 'rotate(-20deg) translateX(-20%) translateY(-12%)',
+          transformOrigin: 'center center',
+          animation: 'float 12s ease-in-out infinite'
+        }}
+        preserveAspectRatio="none"
+      >
+        <defs>
+          {/* Diagonal grid pattern */}
+          <pattern 
+            id="floatGrid" 
+            patternUnits="userSpaceOnUse" 
+            width= "100" 
+            height="100"
+            patternTransform="rotate(85)"
+          >
+            <path 
+              d="M 70 0 L 0 0 0 70" 
+              fill="none" 
+              stroke="#4f7db5" 
+              strokeWidth="0.9"
+            />
+          </pattern>
+        </defs>
+        
+        <rect 
+          x="-35%" 
+          y="25%" 
+          width="170%" 
+          height="120%" 
+          fill="url(#floatGrid)" 
+        />
+      </svg>
+      
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: rotate(-20deg) translateX(-20%) translateY(-12%);
+          }
+          50% {
+            transform: rotate(-20deg) translateX(-22%) translateY(-14%);
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
@@ -419,7 +453,7 @@ export default function CloudDietHero() {
           width: clamp(220px, 28vw, 400px);
           height: clamp(220px, 28vw, 400px);
           left: 55%;
-          top: 58%;
+          top: 55%;
           transform: translate(-50%, -50%);
         }
         .center-image {
@@ -427,7 +461,7 @@ export default function CloudDietHero() {
           height: 100%;
           object-fit: contain;
           filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-          transform: rotate(23deg);
+          transform: rotate(0deg);
         }
 
         /* ── Desktop bottom-right card ── */
@@ -704,7 +738,7 @@ export default function CloudDietHero() {
           </P>
           <div className="fade-in-up fade-in-up-3 btn-group flex gap-4 w-full max-w-md">
              <button
-  className="group flex-1 flex items-center justify-center h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand text-[16px] bg-transparent text-white border-white border-2 shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-black cursor-pointer"
+  className="group flex-1 flex items-center justify-center h-[48px] px-[24px] py-[12px] rounded-[8px] font-bricolage text-[16px] bg-transparent text-white border-white border-2 shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-black cursor-pointer"
   onClick={() => setModalOpen(true)}
 >
   Demo
@@ -720,7 +754,7 @@ export default function CloudDietHero() {
   href="https://login.clouddiet.app/"
   target="_blank"
   rel="noopener noreferrer"
-  className="group flex-1 flex items-center justify-center h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#254D70]"
+  className="group flex-1 flex items-center justify-center h-[48px] px-[24px] py-[12px] rounded-[8px] font-bricolage font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#254D70]"
 >
   Login
   <span className="flex items-center gap-2 ml-2">
