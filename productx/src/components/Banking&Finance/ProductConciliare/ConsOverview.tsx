@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { H2EHR, P } from "../../../styles/Typography";
+import { H2, H2EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 type Outcome = {
@@ -14,29 +14,36 @@ type Outcome = {
 const outcomes: Outcome[] = [
   {
     id: 1,
-    title: "Lost Patient Information",
+    title: "Complete Visibility and Control",
     description:
-      "Never scramble for missing charts or labs again. Every piece of patient data, history, medications, results is unified in one accessible, secure profile.",
-    image: "/EHR-PMS/Physician/img3.webp",
+      "Description: Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
+    image: "/BNFConsilier/matchreport.webp",
     cta: "Learn More",
   },
-   {
+  {
     id: 2,
-    title: "Billing and Coding Errors",
+    title: "Streamlined Reconciliation Workflows",
     description:
-      "Stop dealing with claim denials from manual errors. Integrated coding suggestions and automated claim scrubbing ensure accurate submissions and faster reimbursements.",
-    image: "/EHR-PMS/Physician/img5.webp",
+      "Description: Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
+    image: "/BNFConsilier/unmatchreports.webp",
     cta: "Explore Features",
   },
   {
     id: 3,
-    title: "Cumbersome Charting Processes",
+    title: "Comprehensive Match and Unmatch Reports",
     description:
-      "Eliminate slow, manual documentation. Smart templates and auto-populated fields cut charting time in half, letting you complete notes quickly and accurately.",
-    image: "/EHR-PMS/Physician/img4.webp",
+      "Description: Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
+    image: "/BNFConsilier/jobmonitor.webp",
     cta: "See How",
   },
- 
+  {
+    id: 4,
+    title: "Real-Time Event and Error Logs",
+    description:
+      "Description: Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
+    image: "/BNFConsilier/eventerror.webp",
+    cta: "Explore Features",
+  },
 ];
 
 const ConsOverview = () => {
@@ -67,9 +74,11 @@ const ConsOverview = () => {
       <section className="w-full bg-white py-16 px-4 xl:px-0">
         <div className="max-w-7xl xl:mx-auto">
           {/* Section Heading */}
-          {/* <div className="flex justify-center mb-12 text-[#008280]">
-            <H2EHR>Physician Pain Points Solved</H2EHR>
-          </div> */}
+          <div className="mb-6">
+            <H2 className="text-4xl md:text-5xl font-bold">
+              <span className="text-[#2B68C3]">Monitoring and</span> <span className="text-[#141414]">Reporting Capabilities</span>
+            </H2>
+          </div>
 
           {/* ================= MOBILE / TABLET ================= */}
           <div className="flex flex-col gap-12 xl:hidden">
@@ -153,10 +162,37 @@ const ConsOverview = () => {
           </div>
 
           {/* ================= DESKTOP (XL Screen) ================= */}
-          <div className="hidden xl:flex gap-8 flex-1">
-            {/* Left Text */}
+          <div className="hidden xl:flex gap-8 flex-1 items-center">
+            {/* Left Image with Dots */}
+            <div className="flex-1 flex flex-col gap-6">
+              <div className="relative rounded-xl h-[400px] overflow-hidden">
+                <img
+                  key={activeOutcome.id}
+                  src={activeOutcome.image}
+                  alt={activeOutcome.title}
+                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-500"
+                />
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex items-center justify-center gap-3">
+                {outcomes.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveId(item.id)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${activeId === item.id
+                      ? "bg-[#008280] scale-125"
+                      : "bg-gray-400 hover:bg-gray-500"
+                      }`}
+                    aria-label={`Go to ${item.title}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Right Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#2B68C3] mb-4 text-3xl font-bold">
+              <H2EHR className="text-[#141414] mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2EHR>
 
@@ -178,37 +214,9 @@ const ConsOverview = () => {
                   onClick={handleNext}
                   className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D9D9D9] text-[#2B68C3] hover:bg-[#2B68C3] hover:text-white  transition-colors duration-300 flex items-center justify-center shadow-lg"
                   aria-label="Next"
-                >   
+                >
                   <ChevronRight size={24} />
                 </button>
-              </div>
-            </div>
-
-            {/* Right Image with Dots */}
-            <div className="flex-1 flex flex-col gap-6">
-              <div className="relative rounded-xl h-[500px] overflow-hidden">
-                <img
-                  key={activeOutcome.id}
-                  src={activeOutcome.image}
-                  alt={activeOutcome.title}
-                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-500"
-                />
-              </div>
-
-              {/* Dots Indicator */}
-              <div className="flex items-center justify-center gap-3">
-                {outcomes.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveId(item.id)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      activeId === item.id
-                        ? "bg-[#008280] scale-125"
-                        : "bg-gray-400 hover:bg-gray-500"
-                    }`}
-                    aria-label={`Go to ${item.title}`}
-                  />
-                ))}
               </div>
             </div>
           </div>
