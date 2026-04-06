@@ -3,7 +3,16 @@ import { H2, P } from '../../../styles/Typography';
 
 const CircleArrow = () => {
     return (
-        <div className="flex flex-col items-center bg-white min-h-[800px] py-16 font-sans">
+        //flex flex-col items-center bg-white min-h-[800px] py-16 font-sans
+        <div className="w-full pt-10 pb-16 min-h-[800px] relative bg-[#EEF3FA] flex flex-col items-center overflow-hidden font-sans">
+            
+            <div
+                className="absolute inset-0 opacity-20 pointer-events-none"
+                style={{
+                    backgroundImage: "radial-gradient(#2B68C3 3px, transparent 3px)",
+                    backgroundSize: "24px 24px",
+                }}
+            />
 
             {/* --- Header Section --- */}
             <div className="text-center px-4 mb-16 z-10">

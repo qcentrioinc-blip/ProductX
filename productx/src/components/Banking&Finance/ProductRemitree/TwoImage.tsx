@@ -119,8 +119,8 @@ const TwoImage = () => {
                         xl:rounded-[20px]
                     ">
                         <img
-                            src="/Remitree/outward.webp"
-                            alt="Outward Remittance Process"
+                            src="/Remitree/Inremitance.webp"
+                            alt="Inward Remittance Process"
                             className="w-full h-full object-fit"
                         />
                     </div>
@@ -177,8 +177,8 @@ const TwoImage = () => {
                         xl:rounded-[20px]
                     ">
                         <img
-                            src="/Remitree/inward.webp"
-                            alt="Inward Remittance Process"
+                            src="/Remitree/Outremitance.webp"
+                            alt="Outward Remittance Process"
                             className="w-full h-full object-fit"
                         />
                     </div>
