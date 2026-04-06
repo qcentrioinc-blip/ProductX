@@ -66,10 +66,12 @@ const SamsFive = () => {
         </div>
 
         {/* Center Gray Placeholder Block (Renders 1st on Mobile) */}
-        <div 
-          className="w-full rounded-[20px] min-h-[250px] sm:min-h-[300px] md:min-h-full order-1 md:order-2" 
-          style={{ backgroundColor: "#D9D9D9" }} 
-        />
+        <div
+          className="w-full rounded-[20px] min-h-[250px] sm:min-h-[300px] md:min-h-full order-1 md:order-2"
+
+        >
+          <img src="/SAMS/Npaidentification.webp" className="w-full h-full object-cover" />
+        </div>
 
         {/* Right Column (Renders 3rd on Mobile) */}
         <div className="flex flex-col gap-6 sm:gap-8 order-3 md:order-3">

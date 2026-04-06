@@ -50,7 +50,7 @@ const SamsCompare = () => {
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
-              src="/EHR-PMS/Physician/img1.webp"
+              src="/SAMS/standard.webp"
               className="h-48 md:h-56 lg:h-72"
               />
             </div>
@@ -90,7 +90,7 @@ const SamsCompare = () => {
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
-              src="/EHR-PMS/Physician/img2.webp"
+              src="/SAMS/SMA.webp"
               className="h-48 md:h-56 lg:h-72"
               />
             </div>
