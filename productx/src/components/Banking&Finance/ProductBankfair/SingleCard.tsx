@@ -24,7 +24,7 @@ const SingleCard = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
                     {/* LEFT: White Card */}
-                    <div className="lg:col-span-5 w-full bg-white rounded-[24px] p-4 md:p-6 lg:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex flex-col justify-center border border-gray-100">
+                    <div className="lg:col-span-5 w-full bg-white rounded-[24px] p-4 md:p-6    lg:p-6 shadow-[2px_2px_5px_rgba(0,0,0,0.9)] flex flex-col justify-center   ">
                         {/* Card Sub-Heading */}
                         <H4 className="text-[20px] lg:text-[22px] font-bold text-gray-900 leading-snug mb-4">
                             OWASP Compliant <span className="text-[#2B68C3]">Security Framework</span>

@@ -16,7 +16,7 @@ const CTAButton: React.FC<CTAButtonProps> = () => {
       }}
     >
       <ContactUs className="hidden xl:block gap-2 whitespace-nowrap shrink-0">
-        Contact Us
+        Learn More
       </ContactUs>
     </Link>
   );
@@ -33,50 +33,53 @@ export default function Section() {
             <div className="flex flex-col justify-between">
               <div>
                 <button className="border text-[#2B68C3] border-[#141414] font-quicksand text-[18px] xl:text-[22px] px-6 py-2 rounded-full mb-6">
-                  Duis jhgfgb aute
+               Configure Once
                 </button>
 
-                <p className="text-[16px] font-quicksand mb-8 max-w-full xl:max-w-xs">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                <p className="text-[16px] font-quicksand mb-8 max-w-full xl:max-w-md">
+                 BankFair enables comprehensive configuration of banking rules and complete account lifecycle management from opening to closure.
                 </p>
               </div>
 
               <div>
                 <H4 className="text-2xl font-semibold mb-4">
-                  Gain Instant ain <br className="lg:hidden block" /> In Operational
+                   Core Banking and Lifecycle Management
                 </H4>
-                <CTAButton label="CONTACT US" />
+                <CTAButton label="Learn More" />
               </div>
             </div>
 
             <img
               src=""
               alt="img"
-              className="w-full sm:w-[300px] sm:h-full xl:h-[500px] h-[220px] bg-gray-200 object-cover rounded-xl flex-shrink-0"
+              className="w-full sm:w-[300px] sm:h-full xl:h-[550px] h-[250px] bg-gray-200 object-cover rounded-xl flex-shrink-0"
             />
           </div>
 
           {/* RIGHT CONTENT */}
           <div className="flex flex-col justify-start items-start">
-            <H1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Itaque earum <br />
-              <span className="text-[#2B68C3]">tenetur a sapiente</span>
-            </H1>
+            <H2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+             Account Services and<br />
+              <span className="text-[#2B68C3]"> Lifecycle Management  </span>
+            </H2>
 
             <P className="mb-8 max-w-3xl xl:max-w-xl">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         Manage complete account lifecycle with standing instructions, lien markings, and limits. Handle inventory services including cheque books, cards, and certificates.
+            </P>
+            <P className="mb-8 max-w-3xl xl:max-w-xl">
+         Collateralize accounts with freeze management and dormancy controls. Process salary and generate statements. End-to-end account operations within a unified platform. 
             </P>
 
             {/* ACCORDION */}
             <div className="space-y-4 w-full">
               <AccordionItem
-                title="Gain Instant ain In Operational"
-                content="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                title="Channel Management and Digital Banking"
+                content="Create profiles for customers with digital payments capabilities. Support creation of CASA, term deposits, loans, and office accounts. Enable online and mobile banking access."
                 defaultOpen
               />
               <AccordionItem
-                title="Gain Instant ain In Operational"
-                content="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                title="Integrated Asset and Inventory Management"
+                content="  Calculate depreciation automatically and post accounting entries. Write off assets with automated entries. Distribute inventory items to multiple locations"
               />
             </div>
           </div>
@@ -89,7 +92,7 @@ export default function Section() {
 
 // AccordionItem.tsx
 import { useState } from "react";
-import { H1, H4, P } from "../../../styles/Typography";
+import {  H2, H4, P } from "../../../styles/Typography";
 import { ContactUs } from "../../../styles/Button";
 import { Link } from "react-router-dom";
 
