@@ -11,7 +11,7 @@ const Exception = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[50vh] bg-white font-sans p-4 md:p-12 overflow-hidden lg:overflow-visible">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[50vh] bg-white font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
 
       {/* 1. Header Area */}
       <div className="w-full max-w-7xl mx-auto bg-[#2E68C6] py-3 text-center mb-10 shadow-sm flex items-center justify-center">
@@ -23,7 +23,7 @@ const Exception = () => {
       {/* Responsive Scroll Container for Mobile/Tablet */}
       <div className="w-full overflow-x-auto pb-8 hide-scrollbar">
         {/* Main Flowchart Wrapper - Fixed width to preserve Desktop structure on smaller screens */}
-        <div className="w-[780px] md:w-full max-w-[780px] mx-auto flex flex-col items-center relative">
+        <div className="w-[1200px] min-w-[1200px] xl:w-full max-w-7xl mx-auto flex flex-col items-center relative">
 
         {/* 2. Top "Straight through Process" Indicator */}
         <div className="flex items-center justify-center mb-8">
@@ -45,6 +45,14 @@ const Exception = () => {
 
         {/* 3. The Core Grid */}
         <div className="grid grid-cols-5 w-full">
+          
+          {/* Animated styles for the arrows */}
+          <style>{`
+            @keyframes flowShimmer {
+              0% { left: -40%; }
+              100% { left: 110%; }
+            }
+          `}</style>
 
           {/* Row A: Numbered Nodes, Connecting Arrows & Top Labels */}
           {nodes.map((n, i) => (
@@ -64,10 +72,20 @@ const Exception = () => {
                     width: 'calc(100% - 58px)'
                   }}
                 >
-                  {/* Thicker black line to match target image */}
-                  <div className="h-[3px] bg-black flex-grow"></div>
+                  {/* Thicker black line to match target image with moving transition */}
+                  <div className="h-[3px] bg-black flex-grow relative overflow-hidden">
+                    <div 
+                      className="absolute top-0 bottom-0 bg-white opacity-80"
+                      style={{
+                        width: '40%',
+                        boxShadow: '0 0 8px 1px white',
+                        animation: 'flowShimmer 1.2s linear infinite',
+                        animationDelay: `${i * 0.25}s`
+                      }}
+                    />
+                  </div>
                   {/* Larger arrowhead to match target image */}
-                  <div className="w-0 h-0 border-y-[7px] border-y-transparent border-l-[13px] border-l-black shrink-0"></div>
+                  <div className="w-0 h-0 border-y-[7px] border-y-transparent border-l-[13px] border-l-black shrink-0 relative z-10"></div>
                 </div>
               )}
 
