@@ -17,19 +17,19 @@ const Navbar = () => {
   const isLightNavbar = location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace') || location.pathname.startsWith('/contact');
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-lg">
-      <div className="max-w-8xl mx-4 px-6 py-3 flex items-center justify-between">
+    <header className="top-0 left-0 right-0 z-50">
+      <div className="w-full px-6 py-3 flex items-center justify-between">
         {/* Logo */}
 
         <Link to="/">
           <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
 
-            <img className="h-10 w-full" src="/QnestLogo.svg" />
+            <img className="h-15 w-full" src="/QnestLogo.svg" />
           </div>
         </Link>
 
         {/* Desktop nav (unchanged) */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 ml-auto">
           {/* <Link
             to="/"
             className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
@@ -50,29 +50,104 @@ const Navbar = () => {
             className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-black/80"
               }`}
           >
-            Marketplace
+            <button
+  className={`
+    relative px-5 py-2.5 rounded-full font-bricolage text-[16px]
+    backdrop-blur-md border transition-all duration-300
+    overflow-hidden group cursor-pointer
+
+    ${
+      isLightNavbar
+        ? "bg-white/20 border-white/30 text-white"
+        : "bg-white/10 border-white/20 text-white"
+    }
+
+    hover:scale-105 active:scale-95
+    shadow-[0_4px_20px_rgba(0,0,0,0.2)]
+  `}
+>
+  {/* ✨ Gloss layer */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      bg-gradient-to-b from-white/40 via-white/10 to-transparent
+      opacity-70
+      pointer-events-none
+    "
+  />
+
+  {/* 💎 Inner shine */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)]
+      pointer-events-none
+    "
+  />
+
+  {/* 🌊 Moving light sweep */}
+  {/* <span
+    className="
+      absolute top-0 left-[-100%] h-full w-full
+      bg-gradient-to-r from-transparent via-white/40 to-transparent
+      skew-x-[-20deg]
+      group-hover:left-[120%]
+      transition-all duration-700 ease-in-out
+    "
+  /> */}
+
+  {/* 🔤 TEXT */}
+  <span className="relative z-10">Marketplace</span>
+</button>
           </Link>
 
           <Link to="/contact">
             <button
-              className={`
-            group
-            flex items-center justify-center
-            w-auto h-[44px] sm:h-[48px]
-            px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
-            rounded-[8px]
-            font-quicksand font-bold text-[14px] sm:text-[16px]
-            bg-[#141414] text-white
-            transition-all duration-300 ease-in-out
-            border border-transparent
-            hover:bg-white hover:text-[#141414]
-            hover:border-[#010101]
-            hover:border-b-[4px]
-            hover:-translate-y-[2px]
-            shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
+  className={`
+    relative px-5 py-2.5 rounded-full font-bricolage text-[16px]
+    backdrop-blur-md border transition-all duration-300
+    overflow-hidden group cursor-pointer
+
+    ${
+      isLightNavbar
+        ? "bg-white/20 border-white/30 text-white"
+        : "bg-white/10 border-white/20 text-white"
+    }
+
+    hover:scale-105 active:scale-95
+    shadow-[0_4px_20px_rgba(0,0,0,0.2)]
+  `}
+>
+  {/* ✨ Gloss layer */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      bg-gradient-to-b from-white/40 via-white/10 to-transparent
+      opacity-70
+      pointer-events-none
+    "
+  />
+
+  {/* 💎 Inner shine */}
+  <span
+    className="
+      absolute inset-0 rounded-full
+      shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)]
+      pointer-events-none
+    "
+  />
+
+  {/* 🌊 Moving light sweep */}
+  {/* <span
+    className="
+      absolute top-0 left-[-100%] h-full w-full
+      bg-gradient-to-r from-transparent via-white/40 to-transparent
+      skew-x-[-20deg]
+      group-hover:left-[120%]
+      transition-all duration-700 ease-in-out
+    "
+  /> */}
             
-          `}
-            >
               <span className="flex items-center gap-[8px]">
                 CONTACT US
                 <span className="relative flex items-center justify-center w-[20px] sm:w-[23px] h-[20px] sm:h-[23px]">

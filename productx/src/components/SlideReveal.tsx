@@ -31,7 +31,7 @@ export default function SlideReveal() {
   return (
     <section
       ref={sectionRef}
-      className={`relative bg-white ${isDesktop ? "h-[180vh]" : "h-auto"
+      className={`relative bg-white ${isDesktop ? "h-[220vh]" : "h-auto"
         }`}
     >
       <div
