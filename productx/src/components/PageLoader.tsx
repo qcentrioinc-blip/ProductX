@@ -82,11 +82,14 @@ const PageLoader = () => {
               delay: 0.2 
             }}
           >
-            <img
+            {/* <img
               src="/QLogo.svg"
               alt="Q"
               className="w-24 h-24 md:w-40 md:h-40 relative z-10 drop-shadow-[0_0_30px_rgba(59,130,246,0.4)]"
-            />
+            /> */}
+            <h1 className="text-5xl md:text-8xl lg:text-9xl 
+        font-bricolage        
+        bg-gradient-to-b from-purple-800 to-yellow-600 bg-[length:200%_auto] bg-clip-text text-transparent">Q</h1>
           </motion.div>
 
           {/* NEST WAVE TEXT */}

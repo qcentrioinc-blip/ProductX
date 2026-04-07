@@ -453,7 +453,7 @@ export default function CloudDietHero() {
           width: clamp(220px, 28vw, 400px);
           height: clamp(220px, 28vw, 400px);
           left: 55%;
-          top: 55%;
+          top: 57%;
           transform: translate(-50%, -50%);
         }
         .center-image {
@@ -461,7 +461,7 @@ export default function CloudDietHero() {
           height: 100%;
           object-fit: contain;
           filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-          transform: rotate(0deg);
+          transform: rotate(20deg);
         }
 
         /* ── Desktop bottom-right card ── */
