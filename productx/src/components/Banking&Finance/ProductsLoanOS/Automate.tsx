@@ -69,7 +69,7 @@ const Card = ({
   return (
     <div
       className={`
-        relative flex flex-col justify-between rounded-2xl p-6 h-100
+        relative flex flex-col justify-between rounded-2xl p-6 h-100 xl:h-[500px]
         transition-all duration-700 ease-out
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         ${isDark ? 'bg-[#1e3a6e] text-white' : 'bg-[#dbeafe] text-[#143D79]'}
@@ -123,7 +123,7 @@ const Automate = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white px-4 py-6 sm:px-6 md:py-10  xl:px-0"
+      className="w-full bg-white dark:bg-black px-4 py-6 sm:px-6 md:py-10  xl:px-0"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -133,7 +133,7 @@ const Automate = () => {
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <H2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mx-auto">
+          <H2 className="text-3xl dark:text-white sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mx-auto">
            Digital Application and Intelligent Loan Processing 
           </H2>
         </div>

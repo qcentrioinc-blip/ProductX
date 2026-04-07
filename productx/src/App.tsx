@@ -94,9 +94,9 @@ const BuiltFor = lazy(() => import('./components/Global/BuiltFor/BuiltFor').then
 
 
 const App = () => {
-  const location = useLocation();
+  // const location = useLocation();
   // const showNavbar = location.pathname === '/';
-  const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
+  // const isPagoPage = location.pathname === "/industries/banking-and-finance/products/pago";
   const IndustryPage = () => {
     const { industry } = useParams();
     if (industry === "banking-and-finance") return <BankingAndFinance />;
@@ -299,7 +299,7 @@ const App = () => {
         delay={2500}
       />
       
-         {isPagoPage && <DayNightToggle />}
+         <DayNightToggle />
     
      
       <FontLoader />

@@ -190,51 +190,35 @@ const Seven = () => {
 // ==========================================
 
 const LaptopUser = () => (
-  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 z-10">
-    <circle cx="12" cy="5.5" r="3.5" fill="black" />
-    <path d="M4.5 16.5 C4.5 10.5 8 9.5 12 9.5 C16 9.5 19.5 10.5 19.5 16.5 L19.5 18 L4.5 18 Z" fill="black" />
-    <path d="M5.5 13 L18.5 13 L19.5 19 L4.5 19 Z" fill="white" />
-    <path d="M6.5 14 L17.5 14 L18.2 18 L5.8 18 Z" fill="black" />
-    <circle cx="12" cy="16.5" r="1.2" fill="white" />
-    <rect x="2.5" y="20" width="19" height="2.2" rx="1" fill="black" />
-  </svg>
+  <img
+    src="/Remitree/computer-worker.svg"
+    alt="worker"
+    className="w-[44px] h-[44px] object-contain shrink-0"
+  />
 );
 
 const BankIcon = () => (
-  <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="shrink-0">
-    <rect x="8" y="52" width="48" height="5" fill="#1e3a8a" />
-    <rect x="4" y="57" width="56" height="4" fill="#1e3a8a" />
-    <rect x="14" y="28" width="6" height="24" fill="#60a5fa" />
-    <rect x="29" y="28" width="6" height="24" fill="#60a5fa" />
-    <rect x="44" y="28" width="6" height="24" fill="#60a5fa" />
-    <rect x="10" y="24" width="44" height="4" fill="#1e3a8a" />
-    <polygon points="32,6 4,24 60,24" fill="#60a5fa" />
-    <polygon points="32,6 32,24 60,24" fill="#3b71ca" />
-    <circle cx="32" cy="15" r="5.5" fill="#facc15" />
-    <text x="32" y="17.5" fontSize="7" textAnchor="middle" fill="#b45309" fontWeight="900" fontFamily="sans-serif">$</text>
-  </svg>
+  <img
+    src="/Remitree/bank.svg"
+    alt="bank"
+    className="w-[60px] h-[60px] object-contain shrink-0"
+  />
 );
 
 const TreasuryIcon = () => (
-  <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="shrink-0">
-    <path d="M10 52 L26 52 L29 42 L13 42 Z" fill="#fcd34d" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-    <path d="M24 52 L40 52 L43 42 L27 42 Z" fill="#fbbf24" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-    <path d="M38 52 L54 52 L57 42 L41 42 Z" fill="#f59e0b" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-    <path d="M17 42 L33 42 L36 32 L20 32 Z" fill="#fcd34d" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-    <path d="M31 42 L47 42 L50 32 L34 32 Z" fill="#fbbf24" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-    <path d="M24 32 L40 32 L43 22 L27 22 Z" fill="#fbbf24" stroke="#b45309" strokeWidth="1" strokeLinejoin="round" />
-  </svg>
+  <img
+    src="/Remitree/gold.svg"
+    alt="treasury"
+    className="w-[60px] h-[60px] object-contain shrink-0"
+  />
 );
 
 const SherlockIcon = () => (
-  <svg width="50" height="58" viewBox="0 0 64 64" fill="none" className="shrink-0">
-    <rect x="12" y="14" width="40" height="46" rx="3" fill="white" stroke="black" strokeWidth="3.5" />
-    <rect x="24" y="8" width="16" height="12" rx="2" fill="black" />
-    <line x1="22" y1="28" x2="42" y2="28" stroke="black" strokeWidth="3" strokeLinecap="round" />
-    <line x1="22" y1="38" x2="36" y2="38" stroke="black" strokeWidth="3" strokeLinecap="round" />
-    <circle cx="48" cy="48" r="14" fill="white" stroke="black" strokeWidth="3.5" />
-    <line x1="39" y1="39" x2="57" y2="57" stroke="black" strokeWidth="3.5" />
-  </svg>
+  <img
+    src="/Remitree/banned.svg"
+    alt="banned"
+    className="w-[50px] h-[58px] object-contain shrink-0"
+  />
 );
 
 export default Seven;

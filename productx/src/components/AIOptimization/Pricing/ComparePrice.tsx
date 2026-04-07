@@ -14,9 +14,9 @@ const ComparePrice = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white flex flex-col pt-10 lg:pt-0 items-center justify-center py-4 px-4 gap-6 md:gap-[32px]">
+        <div className="min-h-screen max-w-7xl mx-auto   bg-white flex flex-col pt-10 lg:pt-0    ">
             {/* Header Section */}
-            <div className="w-full max-w-[1320px] flex flex-col items-center gap-6 md:gap-[32px] px-4">
+            <div className="w-full flex flex-col   gap-6  ">
                 <div className="text-center">
                     <H2 className="text-[#141414] leading-tight md:leading-none mb-3 md:mb-4">
                         Find Your Perfect Plan
@@ -27,10 +27,10 @@ const ComparePrice = () => {
                 </div>
 
                 {/* Pricing Table */}
-                <div className="w-full max-w-[1320px] bg-white rounded-3xl md:rounded-[64px] border border-[#E6E9F5] overflow-hidden relative">
+                <div className="w-full max-w-full bg-amber-50 rounded-3xl md:rounded-[64px] border border-slate-600 overflow-hidden relative">
 
                     {/* Desktop View - Grid Layout */}
-                    <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px]">
+               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible p-6 gap-4">
 
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">
@@ -55,7 +55,7 @@ const ComparePrice = () => {
                         </div>
 
                         {/* Middle Column - Starter */}
-                        <div className="h-full p-6 md:p-[40px] border border-[#E7EBFF] rounded-[26px] bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
+                        <div className="h-full p-6 md:p-[40px] border border-gray-400 rounded-[26px] bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
                                 <H3 className=" text-[#252430] leading-tight">Starter</H3>
                                 <P className="text-[#141414] leading-relaxed">
@@ -107,12 +107,20 @@ const ComparePrice = () => {
 
                         {/* Right Column - Enterprise */}
                         <div
-                            className="h-full p-6 md:p-[40px] rounded-[26px] flex flex-col relative overflow-hidden"
-                            style={{
-                                background: '#FFFFFF',
-                                border: '1px solid #E7EBFF',
-                                boxShadow: '0px 26px 40px 0px rgba(188, 202, 255, 0.13)'
-                            }}
+                           className="h-full p-6 md:p-[40px] rounded-[46px] rounded-br-[52px]  flex flex-col relative overflow-hidden
+           transition-all duration-300 ease-out
+           
+           hover:shadow-[0px_40px_80px_rgba(106,138,255,0.35)]
+           hover:border-[#4A6BFF]"
+                          style={{
+  background: "#D6E4F7",
+  border: "2px solid #185FA5",
+  
+  
+  boxShadow: "0 8px 32px rgba(24,95,165,0.2)",
+  zIndex: 10,
+  position: "relative",
+}}
                         >
                             {/* Decorative Gradient Arc - LEFT side */}
                             <div
@@ -243,7 +251,7 @@ const ComparePrice = () => {
                     <div className="lg:hidden flex flex-col">
 
                         {/* Compare Plans Header for Mobile */}
-                        <div className="p-10 md:px-16 md:py-6 border-b border-[#E6E9F5]">
+                        <div className="p-10 md:px-16 md:py-6 border-b border-gray-200">
                             <H3 className=" text-[#252430] leading-tight mb-3">
                                 Compare plans
                             </H3>

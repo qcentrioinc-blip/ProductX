@@ -42,17 +42,17 @@ const HourglassIcon = () => (
 
 const Layout = () => {
   return (
-    <div className="  bg-white px-6 py-10  xl:px-0">
+    <div className="  bg-white dark:bg-black px-6 py-10  xl:px-0">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-10 xl:gap-20">
 
         {/* Left Column */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
-          <H2 className="  leading-tight">
+          <H2 className=" dark:text-white  leading-tight">
            Capabilities Beyond Loan Origination 
           </H2>
 
           {/* Image Placeholder */}
-          <div className="w-full rounded-2xl bg-[#D9D9D9] h-[300px] lg:h-[400px] xl:h-[350px]" />
+          <img src="/LOS/Capability.webp"  alt="Layout" className="w-full object-cover rounded-2xl bg-[#D9D9D9] h-[300px] lg:h-[400px] " />
         </div>
 
         {/* Right Column */}

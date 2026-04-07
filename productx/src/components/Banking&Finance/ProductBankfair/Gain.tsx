@@ -6,9 +6,9 @@ import { H2, H4 } from "../../../styles/Typography";
 const tabs = ["Inventory", "Fixed Assets", "Security"];
 
 const tabImages = [
-  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80",
-  "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80",
-  "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80",
+  "/Gain.webp",
+   "/Gain.webp",
+     "/Gain.webp",
 ];
 
 const tabData = [
@@ -115,7 +115,7 @@ function MobileView() {
   }, []);
 
   return (
-    <div className="xl:hidden flex flex-col pb-10 ">
+    <div className="xl:hidden flex flex-col ">
 
       {/* ✅ STICKY TABS */}
       <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
@@ -211,7 +211,7 @@ function DesktopView() {
       style={{ height: "300vh" }}
       className="relative hidden xl:block"
     >
-      <div className="sticky top-20 h-screen flex items-start">
+      <div className="sticky top-20 h-[95vh] flex items-start">
         <div className="w-full flex flex-row gap-10 xl:gap-16">
 
           {/* Left: Image */}

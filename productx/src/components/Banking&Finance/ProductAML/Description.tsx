@@ -100,11 +100,11 @@ const Description = () => {
   }, [activeIndex]);
 
   return (
-    <div ref={containerRef} className="w-full bg-[#ffffff] h-full">
-      <div className="relative h-[150vh] md:h-[200vh] xl:h-[300vh]">
+    <div ref={containerRef} className="w-full dark:bg-black bg-[#ffffff] h-full">
+      <div className="relative h-[150vh] md:h-[200vh] xl:h-[300vh]  ">
         {/* Heading */}
         <div className="pb-4 md:pt-10 md:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:py-6 xl:px-0 md:3xl lg:w-[95%]">
-          <H2 className="text-left">
+          <H2 className="text-left dark:text-[#2B68C3] ">
             Key Features of ALMANAC for Financial Institutions
           </H2>
         </div>
@@ -180,8 +180,8 @@ const Description = () => {
                   className={`px-4 py-3 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
                     ${
                       activeIndex === index
-                        ? "bg-(--primary-color) text-white"
-                        : "border border-[#2B68C3] text-black"
+                        ? "bg-(--primary-color)  text-white"
+                        : "border border-[#2B68C3] dark:border-black dark:bg-gray-200 text-black "
                     }`}
                 >
                   {label}
@@ -214,14 +214,14 @@ const Description = () => {
             </div>
 
             {/* Bottom Content Card */}
-            <div className="flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300 rounded-xl px-10 py-8">
+            <div className="flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300  rounded-xl px-10 py-8">
               <div className="w-1/2">
                 <H3 className="text-[#2B68C3]">
                   {contentData[activeIndex].title}
                 </H3>
               </div>
-              <div className="w-2/5">
-                <P>{contentData[activeIndex].description}</P>
+              <div className="w-2/5 ">
+                <P className=" dark:text-white">{contentData[activeIndex].description}</P>
               </div>
             </div>
 

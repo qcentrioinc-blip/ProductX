@@ -60,7 +60,7 @@ const Steps = () => {
   const active = stepsData[activeStep - 1]
 
   return (
-  <section className="w-full bg-white relative">
+  <section className="w-full bg-white dark:bg-black relative">
 
     {/* SCROLL AREA (4 steps) */}
     <div className="h-[400vh] relative">
@@ -110,17 +110,17 @@ const Steps = () => {
               </div>
 
               {/* TEXT PANEL */}
-              <div className="w-full h-[480px]  pl-10 mt-10 xl:mt-0 xl:pl-20 lg:h-[450px] xl:h-[550px] bg-[#F6F6F6] border-l-4 border-black py-4  flex flex-col justify-start">
+              <div className="w-full h-[480px]  pl-10 mt-10 xl:mt-0 xl:pl-20 lg:h-[450px] xl:h-[550px] bg-[#F6F6F6] dark:bg-black border-l-4 border-black dark:border-white py-4  flex flex-col justify-start">
 
                 <H2 className="text-3xl lg:text-4xl font-bold my-4 leading-snug">
                   {active.title}
                 </H2>
 
-                <P className="mb-6 max-w-xl leading-normal">
+                <P className="mb-6 max-w-xl  dark:text-white leading-normal">
                   {active.para1}
                 </P>
 
-                <P className="mb-6 max-w-xl leading-normal">
+                <P className="mb-6 max-w-xl  dark:text-white leading-normal">
                   {active.para2}
                 </P>
 

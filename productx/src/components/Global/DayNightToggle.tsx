@@ -40,7 +40,7 @@ const DayNightToggle = () => {
         left: "10px",
         zIndex: 9999,
 
-        width: 65,
+        width: 50,
         height: 35,
         borderRadius: 20,
         background: isDark ? "#1e293b" : "#efefef",
@@ -55,7 +55,7 @@ const DayNightToggle = () => {
         style={{
           position: "absolute",
           top: 5,
-          left: isDark ? 30 : 3,
+          left: isDark ? 20 : 3,
           width: 24,
           height: 24,
           borderRadius: "50%",

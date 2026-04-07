@@ -102,26 +102,27 @@ const Cardsfive = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10 xl:px-0">
+    <section className="w-full bg-white dark:bg-black relative py-10">
+    <div className="max-w-7xl dark:bg-black mx-auto px-6 py-10 xl:px-0">
 
       {/* ── MOBILE / TABLET INTRO ── */}
       <div className="mb-8 xl:hidden">
         <H1 className="mb-4 font-bricolage text-[#2B68C3]">
           {INTRO.title}
         </H1>
-        <P className="max-w-full text-black">
+        <P className="max-w-full text-black dark:text-white">
           {INTRO.desc}
         </P>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr] gap-y-8 gap-x-4">
+      <div className="grid grid-cols-1  dark:bg-black  sm:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr] gap-y-8 gap-x-4">
 
         {/* ── DESKTOP INTRO ── */}
         <div className="hidden xl:block col-span-1 sm:col-span-2 lg:col-span-1">
           <H1 className="mb-4 text-[#2B68C3] font-bricolage">
             {INTRO.title}
           </H1>
-          <P className="max-w-md text-black">
+          <P className="max-w-md dark:text-white  text-black">
             {INTRO.desc}
           </P>
         </div>
@@ -196,12 +197,13 @@ const Cardsfive = () => {
             <H4 className="text-[18px] lg:text-[20px] font-semibold text-[#0F172A] leading-snug">
               {card.title}
             </H4>
-            <P className=" xl:max-w-xs">{card.desc}</P>
+            <P className="   xl:max-w-xs">{card.desc}</P>
           </div>
-        ))}
+        ))} 
 
       </div>
     </div>
+    </section>
   );
 };
 

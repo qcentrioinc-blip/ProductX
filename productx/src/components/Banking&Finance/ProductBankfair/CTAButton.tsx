@@ -50,7 +50,7 @@ export default function Section() {
             </div>
 
             <img
-              src=""
+              src="/CTABUTTONBANKFAIR.webp"
               alt="img"
               className="w-full sm:w-[300px] sm:h-full xl:h-[550px] h-[250px] bg-gray-200 object-cover rounded-xl flex-shrink-0"
             />

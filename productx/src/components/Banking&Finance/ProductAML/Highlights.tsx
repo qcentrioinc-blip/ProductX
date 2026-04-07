@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { H2, H4 } from "../../../styles/Typography";
-
 export default function Highlights() {
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
   const [go, setGo] = useState(false);
-
+ 
   useEffect(() => {
     const trigger = () => setGo(true);
-
+ 
     const targets = [desktopRef.current, mobileRef.current].filter(Boolean);
-
+ 
     const obs = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
@@ -20,13 +19,13 @@ export default function Highlights() {
       },
       { threshold: 0.1 }
     );
-
+ 
     targets.forEach((el) => obs.observe(el!));
     return () => obs.disconnect();
   }, []);
-
+ 
   const ease = "cubic-bezier(0.34, 1.4, 0.64, 1)";
-
+ 
   const mobileItems = [
     {
       bg: "rgba(65,174,197,0.85)",
@@ -47,10 +46,10 @@ export default function Highlights() {
       pill: "Supports strategic planning and budgeting needs",
     },
   ];
-
+ 
   return (
-    <div className="w-full pt-10 relative bg-[#EEF3FA] flex flex-col items-center overflow-hidden">
-        {/* DOTTED BG */}
+    <div className="w-full pt-10 relative bg-[#EEF3FA] dark:bg-black  flex flex-col items-center overflow-hidden">
+       
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
@@ -58,11 +57,10 @@ export default function Highlights() {
           backgroundSize: "24px 24px",
         }}
       />
-
-      <H2 className="text-center mb-16 max-w-2xl">  
+      <H2 className="text-center dark:text-[#2B68C3] mb-16 max-w-2xl">  
         Key Highlights of the ALMANAC Platform
       </H2>
-
+ 
       {/* ── MOBILE / TABLET layout ── */}
       <div
         ref={mobileRef}
@@ -90,7 +88,7 @@ export default function Highlights() {
           </div>
         ))}
       </div>
-
+ 
       {/* ── DESKTOP Venn scene ── */}
      {/* ── DESKTOP Venn scene ── */}
 <div
@@ -100,7 +98,7 @@ export default function Highlights() {
 >
   {/* Inner container — sized to fit all 3 circles */}
   <div className="relative" style={{ width: 740, height: 560 }}>
-
+ 
     {/* TOP circle — centered horizontally */}
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
@@ -117,7 +115,7 @@ export default function Highlights() {
         Conforms with BASEL regulatory recommendations
       </H4>
     </div>
-
+ 
     {/* LEFT circle */}
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
@@ -134,7 +132,7 @@ export default function Highlights() {
         Fully multi-currency compliant across modules
       </H4>
     </div>
-
+ 
     {/* RIGHT circle */}
     <div
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
@@ -151,7 +149,7 @@ export default function Highlights() {
         Integrates data from CBS and treasury systems
       </H4>
     </div>
-
+ 
     {/* Center icon — sits at intersection of all 3 */}
     <div
       className="absolute rounded-full bg-white flex items-center justify-center"
@@ -167,7 +165,7 @@ export default function Highlights() {
     >
       <img src="/AML/AMLVector.svg" className="w-12 h-12" alt="aml" />
     </div>
-
+ 
     {/* LEFT pill — beside left circle */}
     <div
       className="absolute bg-[#363636] font-quicksand text-[18px]   text-white rounded-full py-2 px-8 font-semibold text-center"
@@ -180,7 +178,7 @@ export default function Highlights() {
     >
       Provides liquidity and interest rate tools
     </div>
-
+ 
     {/* RIGHT pill — beside right circle */}
     <div
       className="absolute bg-[#363636] font-quicksand text-[18px]   text-white rounded-full py-2 px-8 font-semibold text-center"
@@ -193,7 +191,7 @@ export default function Highlights() {
     >
       Simulates stress scenarios for risk assessment
     </div>
-
+ 
     {/* BOTTOM pill — below center */}
     <div
       className="absolute bg-[#363636] font-quicksand text-[18px] xl:text-[20px] text-white rounded-full py-2 px-8 font-semibold text-center"
@@ -206,10 +204,10 @@ export default function Highlights() {
     >
       Supports strategic planning and budgeting needs
     </div>
-
+ 
   </div>
 </div>
-
+ 
     </div>
   );
 }

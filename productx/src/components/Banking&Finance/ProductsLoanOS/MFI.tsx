@@ -34,7 +34,7 @@ const cardsData = [
 
 const MFI = () => {
   return (
-    <div className="w-full bg-[#EEF3FA] relative overflow-hidden">
+    <div className="w-full bg-[#EEF3FA] dark:bg-black relative overflow-hidden">
 
       {/* DOTTED BG */}
       <div
@@ -45,7 +45,7 @@ const MFI = () => {
         }}
       />
       <div className="z-10 my-10 flex justify-center items-center">
-        <H2>Group Lending</H2>
+        <H2 className="dark:text-[#2B68C3]">Group Lending</H2>
       </div>
   
       <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-0 relative">

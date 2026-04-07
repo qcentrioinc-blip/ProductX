@@ -85,13 +85,13 @@ const AccordionPago = () => {
     <div
       ref={sectionRef}
       style={{ height: `${TABS.length * 100}vh` }}
-      className="relative"
+      className="relative  "
     >
       {/* STICKY CONTAINER */}
-      <div className="sticky top-0 h-[90vh] lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
+      <div className="sticky top-0 h-[90vh]  dark:bg-black lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
 
         {/* HEADING */}
-        <div className=" max-w-full   mx-auto pt-10 pb-10 text-center px-6">
+        <div className=" max-w-full  mx-auto pt-10 pb-10 text-center px-6">
           <H1>NACHA Payment <br className="hidden xl:block"/>Processing Capabilities</H1>
         </div>
 
@@ -116,7 +116,7 @@ const AccordionPago = () => {
                     <button
                       type="button"
                       onClick={() => scrollToTab(index)}
-                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors hover:bg-gray-100"
+                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors hover:dark:bg-transparent hover:bg-gray-100"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-1">
@@ -130,7 +130,7 @@ const AccordionPago = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -6 }}
                                 transition={{ duration: 0.3 }}
-                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden bg-gray-200"
+                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden  bg-gray-200"
                                 style={{ minHeight: 180 }}
                               >
                                 {/* <HoverExpandImage
@@ -139,7 +139,7 @@ const AccordionPago = () => {
                                   className="w-full object-contain border border-gray-200 shadow-lg"
                                 /> */}
                                 {/* Placeholder — remove when HoverExpandImage is uncommented */}
-                                <div className="w-full h-44 bg-gray-200 rounded-xl" />
+                                <div className="w-full h-44 bg-gray-200  rounded-xl" />
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -148,7 +148,7 @@ const AccordionPago = () => {
                           <div className="flex items-center gap-2">
                             <H3
                               className={`font-semibold leading-tight transition ${
-                                isActive ? "text-[#2B68C3]" : "text-black"
+                                isActive ? "text-[#2B68C3]" : "text-black dark:text-white"
                               }`}
                             >
                               {tab.title}
@@ -158,7 +158,7 @@ const AccordionPago = () => {
                               animate={{ x: isActive ? 4 : 0 }}
                               transition={{ duration: 0.3 }}
                               className={`transition ${
-                                isActive ? "text-[#2B68C3]" : "text-gray-600"
+                                isActive ? "text-[#2B68C3] " : "text-gray-600 "
                               }`}
                             >
                               <ArrowRight />
@@ -174,10 +174,10 @@ const AccordionPago = () => {
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="mt-3 text-md font-quicksand text-[18px] text-[#141414] max-w-2xl overflow-hidden"
+                                className="mt-3 text-md font-quicksand text-[18px] dark:text-white text-[#141414] max-w-2xl overflow-hidden"
                               >
                                 {tab.description}
-                                {tab.desc && <p className="mt-2 text-[18px] font-quicksand">{tab.desc}</p>}
+                                {tab.desc && <p className="mt-2 text-[18px]  dark:text-white font-quicksand">{tab.desc}</p>}
                               </motion.p>
                             )}
                           </AnimatePresence>

@@ -23,10 +23,10 @@ const features = [
 
 const AboutFeaturesSection = () => {
   return (
-    <section className="w-full bg-white py-10 px-6 md:px-12 lg:px-20">
+    <section className="w-full bg-white  dark:bg-black py-10 px-6 md:px-12 lg:px-20 xl:px-0">
       {/* Section Title */}
       <div className="max-w-7xl mx-auto text-left mb-12">
-        <H2 className="text-gray-900">What Makes LOS Platform Unique</H2>
+        <H2 className="text-gray-900 dark:text-[#2B68C3]">What Makes LOS Platform Unique</H2>
       </div>
 
       {/* Cards Grid */}
@@ -34,18 +34,18 @@ const AboutFeaturesSection = () => {
         {features.map((item, index) => (
           <div
             key={index}
-            className="bg-gray-50 p-6 rounded-xl transition-all duration-300 flex flex-col"
+            className="bg-gray-50 dark:bg-slate-950 p-6 dark:border-2 dark:border-gray-200 rounded-xl transition-all duration-300 flex flex-col"
           >
             {/* Circle Icon */}
             <img src={item.icon} alt={item.title} className="w-10 h-10 mb-4" />
 
             {/* Title */}
-            <H4 className="text-gray-900 text-lg font-semibold mb-4">
+            <H4 className="text-gray-900 dark:text-[#2B68C3] text-lg font-semibold mb-4">
               {item.title}
             </H4>
 
             {/* Description */}
-            <P className="text-gray-700 text-sm leading-relaxed flex-1">
+            <P className="text-gray-700 dark:text-white text-sm leading-relaxed flex-1">
               {item.description}
             </P>
           </div>

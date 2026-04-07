@@ -10,7 +10,9 @@ export const ThemeContext = createContext<ThemeContextType>({
 
 const DARK_MODE_PAGES = [
   "/industries/banking-and-finance/products/pago",
-  // future pages yahan add karo
+ "/industries/banking-and-finance/products/almanac",
+ "/industries/banking-and-finance/products/loan-origination-system",
+ "/industries/banking-and-finance/products/bankfair",
 ];
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {

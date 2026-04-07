@@ -18,7 +18,7 @@ const FirstPage = () => {
         <>
             
  
-            <section className="w-full overflow-hidden bg-[#2B68C3] max-w-8xl mx-auto">
+            <section className="w-full overflow-hidden bg-[#2B68C3] dark:bg-black max-w-8xl mx-auto">
  
                 {/* ════════════════════════════════════════
                     MOBILE + TABLET + LG iPad Pro Layout
