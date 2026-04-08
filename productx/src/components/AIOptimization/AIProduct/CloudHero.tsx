@@ -19,7 +19,7 @@ interface HexNodeProps {
   costColor: string;
   mobile?: boolean;
   flat?: boolean;
-  layer?: "left" | "right"; // ✅ new — tracks which visual side
+  layer?: "left" | "right";
 }
 interface ScrollingTrackProps {
   nodes: NodeData[];
@@ -31,11 +31,9 @@ interface ScrollingTrackProps {
   rightCostKey: "lowCost" | "highCost";
   delayMs?: number;
 }
-
 interface CenterImageProps {
   cloudRef: React.RefObject<HTMLDivElement | null>;
-  overlapCount: number;   // ✅ was: isHighlighted: boolean
-  mobile?: boolean;
+  overlapCount: number;
 }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -67,6 +65,8 @@ const slideRight = {
     transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as const, delay: 1.2 },
   },
 };
+
+
 
 // ─── useInfiniteScroll ────────────────────────────────────────────────────────
 function useInfiniteScroll(
@@ -119,20 +119,13 @@ function useInfiniteScroll(
 }
 
 // ─── GridBackground ───────────────────────────────────────────────────────────
-// Isometric perspective grid — matches reference image look
 function GridBackground() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* Perspective wrapper gives the 3D depth illusion */}
       <div className="absolute inset-0" style={{ perspective: "800px" }}>
         <motion.div
           className="absolute w-[220%] h-[220%]"
-          style={{
-            left: "-60%",
-            top: "-25%",
-            transformOrigin: "center 35%",
-          }}
-          // Subtle floating animation keeps grid alive
+          style={{ left: "-60%", top: "-25%", transformOrigin: "center 35%" }}
           animate={{
             rotateX: [52, 55, 52],
             rotateZ: [-14, -16, -14],
@@ -148,23 +141,8 @@ function GridBackground() {
             style={{ opacity: 0.55 }}
           >
             <defs>
-              {/*
-                Full-span L-path (100×100): when tiled it creates a
-                continuous square grid — rotateX above gives the
-                3D perspective-floor look seen in the reference image.
-              */}
-              <pattern
-                id="heroGrid"
-                patternUnits="userSpaceOnUse"
-                width="100"
-                height="100"
-              >
-                <path
-                  d="M 100 0 L 0 0 0 100"
-                  fill="none"
-                  stroke="#4f7db5"
-                  strokeWidth="1"
-                />
+              <pattern id="heroGrid" patternUnits="userSpaceOnUse" width="100" height="100">
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#4f7db5" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#heroGrid)" />
@@ -174,15 +152,6 @@ function GridBackground() {
     </div>
   );
 }
-
-// function isIntersecting(a: DOMRect, b: DOMRect) {
-//   return !(
-//     a.right < b.left ||
-//     a.left > b.right ||
-//     a.bottom < b.top ||
-//     a.top > b.bottom
-//   );
-// }
 
 // ─── HexNode ──────────────────────────────────────────────────────────────────
 function HexNode({ label, iconSrc, cost, costColor, mobile = false, flat = false, layer = "left" }: HexNodeProps) {
@@ -256,7 +225,7 @@ function HexNode({ label, iconSrc, cost, costColor, mobile = false, flat = false
 }
 
 
-function CenterImage({ cloudRef, overlapCount, mobile = false }: CenterImageProps) {
+function CenterImage({ cloudRef, overlapCount }: CenterImageProps) {
   // Normalize 0 → dim, 1 icon → subtle, 2+ → stronger
   const intensity = Math.min(overlapCount / 2, 1);
   const glowAlpha = 0.25 + intensity * 0.45;      // 0.25 → 0.70
@@ -264,16 +233,10 @@ function CenterImage({ cloudRef, overlapCount, mobile = false }: CenterImageProp
 
   return (
     <div
-      className={`absolute flex items-center justify-center z-20 ${mobile ? "pointer-events-none" : "pointer-events-auto"}`}
-      style={mobile ? {
-        left: "50%",
-        top: "50%",
-        width: 240,
-        height: 240,
-        transform: "translate(-50%, -50%)",
-      } : {
-        width: "clamp(200px, 20vw, 300px)",   // ✅ reduced
-        height: "clamp(200px, 20vw, 300px)",  // ✅ reduced
+      className="absolute flex items-center justify-center z-20 pointer-events-auto"
+      style={{
+        width: "clamp(200px, 20vw, 300px)",
+        height: "clamp(200px, 20vw, 300px)",
         left: "55%",
         top: "57%",
         transform: "translate(-50%, -50%)",
@@ -283,7 +246,7 @@ function CenterImage({ cloudRef, overlapCount, mobile = false }: CenterImageProp
         ref={cloudRef}
         className="relative w-full h-full"
         animate={{
-          scale: 1 + intensity * 0.04,         // 1 → 1.04 gradually
+          scale: 1 + intensity * 0.04,
           filter: overlapCount > 0
             ? `drop-shadow(0 0 ${glowSpread}px rgba(59,130,246,${glowAlpha})) drop-shadow(0 0 50px rgba(96,165,250,${intensity * 0.35}))`
             : "drop-shadow(0 20px 40px rgba(0,0,0,0.5))",
@@ -297,7 +260,7 @@ function CenterImage({ cloudRef, overlapCount, mobile = false }: CenterImageProp
         />
 
         <motion.div
-          className={`absolute inset-0 flex items-center justify-center ${mobile ? "mt-10" : "xl:mt-15"}`}
+          className="absolute inset-0 flex items-center justify-center xl:mt-15"
           animate={{ opacity: 0.88 + intensity * 0.12 }}
           transition={{ duration: 0.3 }}
         >
@@ -325,7 +288,6 @@ function CenterImage({ cloudRef, overlapCount, mobile = false }: CenterImageProp
   );
 }
 
-// ─── BottomRightCard ──────────────────────────────────────────────────────────
 function BottomRightCard() {
   return (
     <motion.div
@@ -394,7 +356,7 @@ function ScrollingTrack({
   return (
     <div className="absolute pointer-events-none z-[5] flex items-center overflow-hidden" style={trackStyle}>
 
-      {/* ✅ Left layer — FLAT on grid */}
+      {/* Left layer — GREEN — upright */}
       <div
         className="absolute inset-0 flex items-center"
         style={{ maskImage: MASK_L, WebkitMaskImage: MASK_L }}
@@ -408,14 +370,14 @@ function ScrollingTrack({
               cost={node[leftCostKey]}
               costColor={leftColor}
               mobile={mobile}
-              flat={false}          // ✅ flat on grid
+              flat={false}
               layer="left"
             />
           ))}
         </div>
       </div>
 
-      {/* ✅ Right layer — UPRIGHT (unchanged) */}
+      {/* Right layer — RED — flat on grid */}
       <div
         className="absolute inset-0 flex items-center"
         style={{ maskImage: MASK_R, WebkitMaskImage: MASK_R }}
@@ -429,7 +391,7 @@ function ScrollingTrack({
               cost={node[rightCostKey]}
               costColor={rightColor}
               mobile={mobile}
-              flat={true}         // ✅ upright as before
+              flat={true}
               layer="right"
             />
           ))}
@@ -439,31 +401,23 @@ function ScrollingTrack({
   );
 }
 
-// ─── CloudDietHero (main export) ──────────────────────────────────────────────
+// ─── CloudDietHero ────────────────────────────────────────────────────────────
 export default function CloudDietHero() {
   const [modalOpen, setModalOpen] = useState(false);
   const [overlapCount, setOverlapCount] = useState(0);
-
-  const cloudRefDesktop = useRef<HTMLDivElement>(null);
-  const cloudRefMobile = useRef<HTMLDivElement>(null);
+  const cloudRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let rafId = 0;
 
     const checkOverlap = () => {
-      let cloudEl = cloudRefDesktop.current;
-      if (cloudEl && cloudEl.getBoundingClientRect().width === 0) {
-        cloudEl = cloudRefMobile.current;
-      }
-      if (!cloudEl || cloudEl.getBoundingClientRect().width === 0) {
-        rafId = requestAnimationFrame(checkOverlap);
-        return;
-      }
+      const cloudEl = cloudRef.current;
+      if (!cloudEl) { rafId = requestAnimationFrame(checkOverlap); return; }
 
       const cloudRect = cloudEl.getBoundingClientRect();
-      const viewCX = window.innerWidth / 2; // screen horizontal center
+      const viewCX = window.innerWidth / 2;
 
-      // Tighten the cloud detection zone slightly
+      // Tighten detection zone so glow only fires when icon is clearly inside cloud
       const detectZone = {
         left: cloudRect.left + cloudRect.width * 0.12,
         right: cloudRect.right - cloudRect.width * 0.12,
@@ -471,45 +425,36 @@ export default function CloudDietHero() {
         bottom: cloudRect.bottom - cloudRect.height * 0.12,
       };
 
-      const allHexNodes = Array.from(
+      const allNodes = Array.from(
         document.querySelectorAll<HTMLElement>('[data-hex-node="true"]')
       );
 
       let count = 0;
-      allHexNodes.forEach((node) => {
+      allNodes.forEach(node => {
         const layer = node.getAttribute("data-hex-layer");
         const rect = node.getBoundingClientRect();
-        if (rect.width === 0 || rect.height === 0) return;
-
         const cx = (rect.left + rect.right) / 2;
         const cy = (rect.top + rect.bottom) / 2;
 
-        // ✅ KEY FIX — only count nodes in their VISIBLE (unmasked) half of the screen
-        // CSS maskImage hides nodes visually but getBoundingClientRect() still returns
-        // their real DOM position. Without this check, masked off-screen nodes would
-        // falsely trigger the glow constantly.
-        //
-        // Left layer  → visible when cx is LEFT  of screen center (cx < viewCX)
-        // Right layer → visible when cx is RIGHT of screen center (cx > viewCX)
+        // Only count nodes in their VISIBLE (unmasked) half of screen.
+        // CSS maskImage hides nodes visually but getBoundingClientRect()
+        // still returns real DOM positions — without this check, masked
+        // off-screen nodes falsely trigger the glow permanently.
         const inVisibleRegion = layer === "left" ? cx < viewCX : cx > viewCX;
         if (!inVisibleRegion) return;
 
-        // Filter nodes that are off-screen entirely
+        // Skip fully off-screen nodes
         if (cx < 0 || cx > window.innerWidth || cy < 0 || cy > window.innerHeight) return;
 
-        // Node CENTER must be inside the (tightened) cloud zone
-        if (
-          cx > detectZone.left &&
-          cx < detectZone.right &&
-          cy > detectZone.top &&
-          cy < detectZone.bottom
-        ) {
+        // Node center must be inside the tightened cloud zone
+        if (cx > detectZone.left && cx < detectZone.right &&
+          cy > detectZone.top && cy < detectZone.bottom) {
           count++;
         }
       });
 
-      // Only trigger re-render when count actually changes
-      setOverlapCount(prev => (prev !== count ? count : prev));
+      // Only re-render when count changes — no spam
+      setOverlapCount(prev => prev !== count ? count : prev);
       rafId = requestAnimationFrame(checkOverlap);
     };
 
@@ -523,10 +468,9 @@ export default function CloudDietHero() {
                  max-md:min-h-screen max-md:flex max-md:flex-col max-md:pb-8"
       style={{ background: "#020B2D", fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
-      {/* ── Isometric grid background ── */}
       <GridBackground />
 
-      {/* ── Ambient glow blobs ── */}
+      {/* Ambient glow blobs */}
       <div className="absolute pointer-events-none z-[1]"
         style={{
           top: "20%", left: "35%", width: 500, height: 400,
@@ -540,7 +484,7 @@ export default function CloudDietHero() {
           filter: "blur(30px)"
         }} />
 
-      {/* ── Top hero content ── */}
+      {/* Hero content */}
       <div className="relative z-[30] px-14 pt-10 max-w-[820px] max-md:px-5 max-md:pt-5 max-md:max-w-full">
 
         <motion.div variants={fadeUp(0.10)} initial="hidden" animate="visible">
@@ -563,7 +507,6 @@ export default function CloudDietHero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Demo */}
           <button
             onClick={() => setModalOpen(true)}
             className="group flex-1 flex items-center justify-center h-12 px-6 py-3 rounded-lg
@@ -577,7 +520,6 @@ export default function CloudDietHero() {
             </span>
           </button>
 
-          {/* Login */}
           <a
             href="https://login.clouddiet.app/"
             target="_blank"
@@ -595,22 +537,18 @@ export default function CloudDietHero() {
         </motion.div>
       </div>
 
-      {/* ── Desktop visual ── */}
+      {/* Desktop visual */}
       <div className="block max-md:hidden">
         <ScrollingTrack
-          nodes={NODES}
-          speed={50}        // ✅ was 100
-          delayMs={0}
-          leftColor="#22c55e"
-          rightColor="#ef4444"
-          leftCostKey="lowCost"
-          rightCostKey="highCost"
+          nodes={NODES} speed={50} delayMs={0}
+          leftColor="#22c55e" rightColor="#ef4444"
+          leftCostKey="lowCost" rightCostKey="highCost"
         />
-        <CenterImage cloudRef={cloudRefDesktop} overlapCount={overlapCount} />
+        <CenterImage cloudRef={cloudRef} overlapCount={overlapCount} />
         <BottomRightCard />
       </div>
 
-      {/* ── Mobile visual ── */}
+      {/* Mobile visual */}
       <div className="hidden max-md:block">
         <motion.div
           className="relative w-full overflow-hidden"
@@ -620,35 +558,55 @@ export default function CloudDietHero() {
           animate="visible"
         >
           <ScrollingTrack
-            nodes={NODES} speed={25} mobile delayMs={0}   // ✅ was 50
+            nodes={NODES} speed={25} mobile delayMs={0}
             leftColor="#22c55e" rightColor="#ef4444"
             leftCostKey="lowCost" rightCostKey="highCost"
           />
-          {/* Mobile center cloud */}
-          <CenterImage mobile cloudRef={cloudRefMobile} overlapCount={overlapCount} />
+          <div
+            className="absolute z-20 pointer-events-none flex items-center justify-center"
+            style={{ left: "50%", top: "50%", width: 240, height: 240, transform: "translate(-50%, -50%)" }}
+          >
+            <div
+              className="relative w-full h-full"
+              style={{ filter: "drop-shadow(0 10px 24px rgba(0,0,0,0.5))" }}
+            >
+              <img
+                src="/AIProduct/Cloud.png"
+                alt="Cloud Dashboard"
+                className="w-full h-full object-contain"
+              />
+              <div className="absolute inset-0 flex items-center justify-center mt-8">
+                <img
+                  src="/AIProduct/Text.png"
+                  alt="CloudDIET"
+                  className="object-cover"
+                  style={{ width: "60%", height: "20%" }}
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Mobile card */}
         <motion.div
           className="mx-5 p-5 flex items-center gap-4 rounded-[18px] border border-white/[0.09] backdrop-blur-[16px]"
-          style={{ background: "rgba(10, 18, 48, 0.82)", boxShadow: "0 12px 48px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)" }}
+          style={{ background: "rgba(10, 18, 48, 0.82)", boxShadow: "0 12px 48px rgba(0,0,0,0.55)" }}
           variants={fadeUp(0.7)}
           initial="hidden"
           animate="visible"
         >
           <div
             className="w-12 h-12 flex-shrink-0 rounded-full bg-white flex items-center justify-center"
-            style={{ boxShadow: "0 0 24px rgba(59,130,246,0.45)" }}
+            style={{ boxShadow: "0 0 20px rgba(59,130,246,0.4)" }}
           >
             <svg width="24" height="24" viewBox="0 0 30 30" fill="none">
               <path d="M6 15.5L12 21.5L24 9" stroke="black" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           <div>
-            <H4 className="mb-2">Lorem ipsum</H4>
-            <P className="text-white/90 text-sm leading-[1.55]">
-              We onboard users from 126+ countries whether you hold a passport or
-              a residence permit we've got you covered.
+            <H4 className="mb-1">Lorem ipsum kjhgfdfghj</H4>
+            <P className="text-slate-400 text-xs leading-[1.55]">
+              We onboard users from 126+ countries — whether you hold a passport
+              or a residence permit we've got you covered.
             </P>
           </div>
         </motion.div>

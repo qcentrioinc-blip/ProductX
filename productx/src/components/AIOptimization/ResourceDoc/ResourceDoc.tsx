@@ -8,6 +8,7 @@ import React, {
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { resourceConfig } from "./resource.config";
 import { H4, P } from "../../../styles/Typography";
+import AINavbar from "../Navbar/AINavbar";
 // import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type Params = {
@@ -312,7 +313,11 @@ const ResourceDoc: React.FC = () => {
      Render
   --------------------------------------------- */
   return (
-    <div id="landingpage" className="flex min-h-screen bg-[#FAFAFA]">
+    <>
+    <section className="w-full dark:bg-black bg-[#FAFAFA]">
+    <AINavbar/>
+    <div id="landingpage" className="flex min-h-screen pt-28 dark:bg-black bg-[#FAFAFA]">
+      
       {/* LEFT NAV */}
       {/* <aside className="w-64 bg-[#FAFAFA]/25 px-6 py-8 sticky top-0 h-screen overflow-y-auto  scrollbar-hide border-r border-gray-200 shadow-[4px_0_10px_-2px_rgba(0,0,0,0.08)]">
         {Object.entries(resourceConfig).map(([key, cat]) => (
@@ -342,7 +347,7 @@ const ResourceDoc: React.FC = () => {
       <aside
         className={`
     fixed  scrollbar-hide lg:sticky top-0 z-40 h-full w-64
-    bg-[#FAFAFA]/95 backdrop-blur
+    bg-[#FAFAFA]/95 dark:text-white   dark:bg-black backdrop-blur
     border-r border-gray-200
     transition-transform duration-300
     lg:translate-x-0
@@ -370,8 +375,8 @@ const ResourceDoc: React.FC = () => {
                   onClick={() => setMobileNavOpen(false)}
                   className={`relative block text-md py-1 font-quicksand font-medium rounded px-3 transition-colors
               ${slug === item.slug
-                      ? "text-[#254D70] font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
-                      : "text-gray-700 hover:bg-gray-100"
+                      ? "text-[#254D70] dark:text-white font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
+                      : "text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-500"
                     }
             `}
                 >
@@ -392,7 +397,7 @@ const ResourceDoc: React.FC = () => {
 
       {/* MAIN CONTENT */}
       {/* <main className="flex-1 bg-white shadow-xl m-10 rounded-2xl px-14 py-10 max-w-4xl"> */}
-      <main className="flex-1 bg-white shadow-xl m-4 lg:m-10 rounded-2xl px-6 lg:px-14 py-10 max-w-4xl">
+      <main className="flex-1 bg-white dark:bg-[#141414] shadow-xl m-4 lg:m-10 rounded-2xl px-6 lg:px-14 py-10 max-w-4xl">
 
         {/* Breadcrumb */}
         {/* MOBILE HEADER */}
@@ -406,19 +411,19 @@ const ResourceDoc: React.FC = () => {
             </svg>
           </button>
 
-          <span className="font-medium text-gray-700">
+          <span className="font-medium text-gray-700 dark:text-white">
             {currentItem?.label}
           </span>
         </div>
 
-        <div className="font-quicksand text-[#254D70] mb-6">
+        <div className="font-quicksand text-[#254D70] dark:text-white mb-6">
           <Link to="/industries/cloud-finops-ai" className="hover:text-blue-600">
             Home
           </Link>
           {" > "}
-          <span className="text-[#254D70]">{categoryConfig?.label}</span>
+          <span className="text-[#254D70] dark:text-white">{categoryConfig?.label}</span>
           {" > "}
-          <span className="text-[#254D70] font-medium">
+          <span className="text-[#254D70] font-medium dark:text-white">
             {currentItem?.label}
           </span>
         </div>
@@ -483,9 +488,9 @@ const ResourceDoc: React.FC = () => {
       <aside className="w-64 hidden scrollbar-hide xl:flex flex-col gap-6 px-6 py-10 sticky top-0 h-screen overflow-y-auto">
 
         {/* TOC SECTION */}
-        <div className="bg-[#FDFDFD] ">
+        <div className="bg-[#FDFDFD] dark:bg-black">
           <div className="mb-4 p-6">
-            <P className="font-semibold text-gray-900 uppercase text-xs tracking-wider">
+            <P className="font-semibold text-gray-900  uppercase text-xs tracking-wider">
               Contents
             </P>
           </div>
@@ -511,7 +516,7 @@ const ResourceDoc: React.FC = () => {
                     <a
                       href={`#${item.id}`}
                       className={`block py-1.5 px-3 -ml-[2px] border-l-2 border-[#254D70] transition-all duration-200 ${activeId === item.id
-                        ? "text-[#254D70] border-[#254D70] font-medium bg-blue-50/50"
+                        ? "text-[#254D70] dark:text-blue-800 border-[#254D70] font-medium bg-blue-50/50"
                         : "text-gray-600 border-transparent hover:text-[#254D70] hover:border-gray-300"
                         }`}
                       onClick={(e) => {
@@ -536,7 +541,7 @@ const ResourceDoc: React.FC = () => {
         {/* ACTION BUTTONS */}
         <div className="flex flex-col gap-4 mt-4">
           {currentItem?.audio && (
-            <div className="w-full p-4 rounded-lg shadow bg-white font-quicksand">
+            <div className="w-full p-4 rounded-lg shadow dark:bg-black bg-white font-quicksand">
               {/* Play/Pause Button and Title */}
               <div className="flex items-center gap-3 mb-3">
                 <button
@@ -556,7 +561,7 @@ const ResourceDoc: React.FC = () => {
                     </svg>
                   )}
                 </button>
-                <span className="font-medium text-gray-800">
+                <span className="font-medium text-gray-800 dark:text-white" >
                   {isPlaying ? "Now Playing" : "Listen Now"}
                 </span>
               </div>
@@ -596,6 +601,8 @@ const ResourceDoc: React.FC = () => {
         </div>
       </aside>
     </div>
+    </section>
+    </>
   );
 };
 

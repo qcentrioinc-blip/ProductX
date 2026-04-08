@@ -28,7 +28,7 @@ const features = [
 
 export default function FeatureCards() {
   return (
-    <section className="w-full relative overflow-hidden bg-gray-50">
+    <section className="w-full relative overflow-hidden dark:bg-black bg-gray-50">
       <div className="xl:ml-32 max-w-8xl py-10 px-6 xl:px-0 grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 xl:pt-4 xl:pb-20 relative z-10">
         {features.map((item, idx) => {
            // Animation logic handled by CSS animation, no need for ref or isVisible state.
@@ -40,10 +40,10 @@ export default function FeatureCards() {
                 <img src={item.image} alt={item.title} className="flex-shrink-0 rounded-sm object-contain h-20 w-20 md:max-h-16 md:max-w-16 xl:max-h-[150px] xl:max-w-[150px]" />
                 <div className="space-y-2">
                   <H3 className="inline-block border-b-2 border-[#254D70] font-semibold text-[#254D70]">{item.title}</H3>
-                  <P className="mt-2 text-[28px] font-quicksand text-sm text-[#141414]">{item.description}</P>
+                  <P className="mt-2 text-[28px] font-quicksand text-sm text-[#141414] dark:text-white">{item.description}</P>
                 </div>
               </div>
-              <ul className="space-y-2 text-sm items-center text-[#141414]">
+              <ul className="space-y-2 text-sm items-center text-[#141414] dark:text-white">
                 {item.points.map((point, i) => (
                   <li key={i} className="flex items-center font-quicksand lg:text-lg">
                     <span className="h-1.5 w-1.5 mx-2 rounded-full bg-[#141414]" /><span>{point}</span>

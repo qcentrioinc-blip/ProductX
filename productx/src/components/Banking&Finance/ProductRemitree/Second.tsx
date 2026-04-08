@@ -2,7 +2,7 @@ import { H2, P } from '../../../styles/Typography';
 
 const Second = () => {
     return (
-        <div className="w-full py-12 px-4 md:px-8 bg-white flex flex-col items-center justify-center">
+        <div className="w-full py-12 px-4  dark:bg-black md:px-8 bg-white flex flex-col items-center justify-center">
             <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
                 <H2 className="text-[#2E68C6] font-bold mb-4">
                     Complete Cross-Border Remittance Platform

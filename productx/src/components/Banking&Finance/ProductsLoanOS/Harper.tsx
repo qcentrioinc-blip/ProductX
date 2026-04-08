@@ -64,9 +64,9 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             {/* MOBILE / TABLET (Vertical layout)        */}
             {/* ---------------------------------------- */}
-            <div className="block lg:hidden bg-white py-8 px-4">
+            <div className="block lg:hidden bg-white dark:bg-black py-8 px-4">
                 <div className="mb-8">
-                    <H1 className="font-bold text-gray-900 text-left ml-2 sm:ml-16 lg:ml-20">
+                    <H1 className="font-bold text-gray-900 dark:text-[#2B68C3] text-left ml-2 sm:ml-16 lg:ml-20">
                         Complete Loan Origination System Feature 
                     </H1>
                 </div>
@@ -100,14 +100,14 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             <div
                 ref={containerRef}
-                className="hidden lg:block relative bg-white"
+                className="hidden lg:block relative dark:bg-black bg-white"
                 style={{ height: "200vh" }} // Reduced height further
             >
-                <div className="sticky top-0 flex flex-col overflow-hidden">
+                <div className="sticky top-0  flex flex-col overflow-hidden">
  
                     {/* Title */}
                     <div className="py-6 px-20 z-20">
-                        <H2
+                        <H2 className="dark:text-[#2B68C3]"
                         >
                             The Complete Loan Origination System Feature 
                         </H2>
@@ -122,7 +122,7 @@ const Harper = () => {
                             {content.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="flex-shrink-0"
+                                    className="flex-shrink-0 "
                                     style={{
                                         width: "80vw",
                                         height: "560px",

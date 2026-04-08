@@ -189,7 +189,7 @@ export default function ImgSec2() {
               />
             </div>
 
-            <Card title="Schedule Demo"             active={m1Active} className="top-0 left-1/2 -translate-x-1/2 z-10" />
+            <Card title="Schedule Demo"             active={m1Active} className="top-0 left-1/2    -translate-x-1/2 z-10" />
             <Card title="Request Pricing"            active={m2Active} className="top-[96px] left-1/2 -translate-x-1/2 z-10" />
             <Card title="Speak with Banking Experts" active={m3Active} className="top-[192px] left-1/2 -translate-x-1/2 z-10" />
           </div>

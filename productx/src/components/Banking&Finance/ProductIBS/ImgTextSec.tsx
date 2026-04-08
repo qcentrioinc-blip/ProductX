@@ -125,7 +125,7 @@ const ImgTextSec = () => {
   };
 
   return (
-    <section className="relative bg-white ">
+    <section className="relative bg-white dark:bg-black ">
 
       <div ref={containerRef} className="relative lg:h-[320vh]">
         <div className="lg:sticky lg:top-0 lg:min-h-screen lg:flex lg:items-center">
@@ -139,7 +139,7 @@ const ImgTextSec = () => {
   <div >
     <H2 className="max-w-4xl">
       <span className="text-[#2B68C3]">Powerful Features of </span>
-      <span>Internet Banking Solution</span>
+      <span className="dark:text-white">Internet Banking Solution</span>
     </H2>
 
     <P className="mt-3 font-bold max-w-3xl">
@@ -184,7 +184,7 @@ const ImgTextSec = () => {
                         className={`w-full text-left px-4 py-4 transition-colors duration-300
                           ${isActive
                             ? "bg-[#2B68C3]/20"
-                            : "bg-gray-50 lg:bg-transparent hover:bg-gray-100"
+                            : "bg-gray-50 lg:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700"
                           }`}
                       >
                         <div className="flex items-center lg:grid lg:grid-cols-3 lg:gap-6">
@@ -199,7 +199,7 @@ const ImgTextSec = () => {
                             </svg>
                             <span>
                               <span className="text-[#2B68C3]">{data.title.part1}</span>
-                              <span>{data.title.part2}</span>
+                              <span className="dark:text-white">{data.title.part2}</span>
                             </span>
                           </H4>
 
@@ -221,7 +221,7 @@ const ImgTextSec = () => {
                           }`}
                       >
                         <div className="overflow-hidden">
-                          <div className="px-4 pt-3 pb-6 bg-white">
+                          <div className="px-4 pt-3 pb-6 bg-white dark:bg-gray-800">
                             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 lg:gap-6">
                               <img
                                 src={data.imageSrc}

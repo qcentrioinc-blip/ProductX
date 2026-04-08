@@ -130,7 +130,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
   return (
     <div className="w-full">
       {/* Image Container */}
-      <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[400px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white">
+      <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[450px] xl:h-[400px] rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-black">
         {animate ? (
           // Desktop animation - SMOOTHED SLIDE UP
           <AnimatePresence initial={false} mode="wait">
@@ -173,7 +173,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
             />
  
             <div className="absolute top-4 left-4">
-              <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+              <div className="flex items-center gap-2 bg-white/95  dark:bg-black backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                 <div className={`w-3 h-3 rounded-full ${features[activeFeature].color}`}></div>
                 <span className="text-sm font-medium text-gray-900">
                   Feature {features[activeFeature].id}
@@ -255,12 +255,12 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
       ref={ref}
       data-feature-index={index}
       className={`
-        min-h-[40vh] sm:min-h-[40vh] xl:min-h-[80vh] flex flex-col justify-center px-2 sm:px-8 py-12 sm:py-16 transition-all duration-500
+        min-h-[40vh]    sm:min-h-[40vh] xl:min-h-[80vh] flex flex-col justify-center px-2 sm:px-8 py-12 sm:py-16 transition-all duration-500
         ${isInView ? "opacity-100 scale-100" : "opacity-30 scale-95"}
       `}
     >
       <div className="flex items-center gap-4 mb-6">
-        <span className={`text-5xl sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
+        <span className={`text-5xl dark:text-white sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
       </div>
       <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#254D70] mb-4 sm:mb-6 leading-tight">
         {feature.title}
@@ -694,7 +694,7 @@ const hasAnimatedOnMobile = useRef(false);
   }
  
   return (
-    <div ref={containerRef} className="relative w-full overflow-visible">
+    <div ref={containerRef} className="relative dark:bg-black w-full overflow-visible">
       {/* Mobile Navigation */}
       <div className="lg:hidden sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-lg">
         <div className="max-w-8xl mx-6">
@@ -910,12 +910,12 @@ const hasAnimatedOnMobile = useRef(false);
           <section
             ref={storyboardRef}
             id="security"
-            className="relative w-full bg-white font-bricolage"
+            className="relative w-full bg-white  dark:bg-black font-bricolage"
           >
             <H2 className="text-[#254D70]">
               Multi-Dimensional
               <br className="hidden lg:block" />
-              <span className="hidden lg:inline-block lg:ml-60 xl:ml-100" />
+              <span className="hidden dark:text-white lg:inline-block lg:ml-60 xl:ml-100" />
               Cost Views
             </H2>
  

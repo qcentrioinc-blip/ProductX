@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 
 /* ================= TYPES ================= */
 
@@ -22,9 +23,12 @@ type SectionContent = {
 };
 
 type Theme = {
+         darkBg: "#000000",
+      darkHeadingColor: "#60a5fa",
   sectionBg: string;
   headingColor: string;
   paraColor: string;
+  darkcardGradient?: string;
   cardGradient: string;
   circleColor: string;
 };
@@ -38,6 +42,9 @@ const themes: Record<string, Theme> = {
     paraColor: "#4A4A4A",
     cardGradient: "#fafafa",
     circleColor: "#E0E0E0",
+           darkBg: "#000000",
+      darkHeadingColor: "#60a5fa",
+      darkcardGradient:"#5B7C99",
   },
   "/industries/ehr-and-pms/built-for": {
     sectionBg: "#ffffff",
@@ -45,6 +52,9 @@ const themes: Record<string, Theme> = {
     paraColor: "#2A2A2A",
     cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
+           darkBg: "#000000",
+      darkHeadingColor: "#60a5fa",
+      darkcardGradient:"#5B7C99",
   },
   "/industries/high-tech/built-for": {
     sectionBg: "#5C5C5C",
@@ -52,13 +62,19 @@ const themes: Record<string, Theme> = {
     paraColor: "#000000",
     cardGradient: "linear-gradient(135deg, #FFFFFF, #FFFFFF)",
     circleColor: "#D9D9D9",
+           darkBg: "#000000",
+      darkHeadingColor: "#60a5fa",
+      darkcardGradient:"#5B7C99",
   },
   "/industries/cloud-finops-ai/built-for": {
+           darkBg: "#000000",
+      darkHeadingColor: "#60a5fa",
     sectionBg: "#FFFFFF",
     headingColor: "#254D70",
     paraColor: "#141414",
     cardGradient: "linear-gradient(135deg, #EAE9FF, #EAE9FF)",
     circleColor: "#FFFFFF",
+    darkcardGradient:"",
   },
 };
 
@@ -207,6 +223,8 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
 /* ================= COMPONENT ================= */
 
 export default function FiveCardGradientSection() {
+  const { theme } = useTheme();
+   const isDark = theme === "dark";
   const { pathname } = useLocation();
   const { industry, builtForType } = useParams<{
     industry: string;
@@ -265,8 +283,8 @@ export default function FiveCardGradientSection() {
 
   return (
     <section
-      className="w-full py-10 xl:py-16"
-      style={{ backgroundColor: active.sectionBg }}
+      className="w-full py-10   xl:py-16"
+    style={{ backgroundColor: isDark ? (active.darkBg ?? "#0f172a") : active.sectionBg }}
     >
 
 
@@ -327,7 +345,7 @@ export default function FiveCardGradientSection() {
               {contentCards.map((card) => (
                 <div
                   key={card.id}
-                  style={{ background: active.cardGradient }}
+                  style={{ background: isDark ? (active.darkcardGradient ?? active.cardGradient) : active.cardGradient }}
                   className="
                     snap-center flex-shrink-0 w-[95%] md:w-[55%] mx-auto
                     relative rounded-xl p-8 border border-gray-100
@@ -372,7 +390,7 @@ export default function FiveCardGradientSection() {
           {contentCards.map((card) => (
             <div
               key={card.id}
-              style={{ background: active.cardGradient }}
+              style={{ background: isDark ? (active.darkcardGradient ?? active.cardGradient) : active.cardGradient }}
               className="
                 hidden xl:block relative rounded-xl p-8 border border-gray-100
                 shadow-sm hover:shadow-xl hover:shadow-black/5

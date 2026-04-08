@@ -165,7 +165,7 @@ const Building = () => {
   const currentContent = tabContent[activeFilter]
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white dark:bg-black">
       <div className="w-full px-3.5 sm:px-4 md:px-5 pt-4">
 
         {/* Title Section */}
@@ -178,12 +178,12 @@ const Building = () => {
         leading-[120%]"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
           >
-            <span style={{ color: '#2B68C3' }}>Powerful Features That Transform</span>{' '}
-            <span style={{ color: '#141414' }}>Financial Reconciliation</span>
+            <span  className=" text-[#2B68C3]   " >Powerful Features That Transform</span>{' '}
+            <span className="dark:text-white "  >Financial Reconciliation</span>
           </h1>
 
           <p
-            className="font-normal text-[#141414] leading-[140%] max-w-[921px] mx-auto
+            className="font-normal text-[#141414] dark:text-white leading-[140%] max-w-[921px] mx-auto
                      px-1 sm:px-2 xl:px-5
                      text-[12px] sm:text-[13px] md:text-sm xl:text-base"
             style={{ fontFamily: "'Quicksand', sans-serif" }}
@@ -194,7 +194,7 @@ const Building = () => {
       </div>
 
       <div ref={containerRef} className="w-full h-[200vh]">
-        <div className="sticky top-24 w-full px-3.5 sm:px-4 md:px-5 pb-4 bg-white z-10">
+        <div className="sticky top-24 w-full px-3.5 sm:px-4 md:px-5 pb-4 dark:bg-black bg-white z-10">
 
           {/* Tabs */}
           <div
@@ -251,7 +251,7 @@ const Building = () => {
 
                 {/* Title: 20→22→24→26→32px */}
                 <h2
-                  className="font-bold text-[#141414] m-0 leading-none
+                  className="font-bold dark:text-white text-[#141414] m-0 leading-none
                          text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] xl:text-[32px]"
                   style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                 >
@@ -260,7 +260,7 @@ const Building = () => {
 
                 {/* Description: 12→13→14→16px */}
                 <p
-                  className="font-normal text-[#141414] m-0 leading-[150%]
+                  className="font-normal dark:text-white text-[#141414] m-0 leading-[150%]
                          text-[12px] sm:text-[13px] md:text-sm xl:text-base"
                   style={{ fontFamily: "'Quicksand', sans-serif" }}
                 >
@@ -276,7 +276,7 @@ const Building = () => {
                         style={{ color: '#000000', flexShrink: 0, marginTop: '2px' }}
                       />
                       <p
-                        className="text-[#2A2A2A] leading-[140%] m-0
+                        className="text-[#2A2A2A]  dark:text-white leading-[140%] m-0
                                text-[12px] sm:text-[13px] xl:text-sm"
                         style={{ fontFamily: "'Quicksand', sans-serif" }}
                       >
@@ -304,7 +304,7 @@ const Building = () => {
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
-                    className="font-normal text-[#141414] leading-[140%]  m-0
+                    className="font-normal  dark:text-[#2B68C3] text-[#141414] leading-[140%]  m-0
                            xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
@@ -321,7 +321,7 @@ const Building = () => {
                     />
                     {/* Value: 34→42→48→52→64px */}
                     <h3
-                      className="font-medium text-[#141414] leading-none m-0
+                      className="font-medium text-[#141414] dark:text-white leading-none m-0
                              text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
@@ -339,7 +339,7 @@ const Building = () => {
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
-                    className="font-normal text-[#141414] leading-[140%] m-0
+                    className="font-normal text-[#141414] dark:text-[#2B68C3] leading-[140%] m-0
                            xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
@@ -356,7 +356,7 @@ const Building = () => {
                     />
                     {/* Value: 34→42→48→52→64px */}
                     <h3
-                      className="font-medium text-[#141414] leading-none m-0
+                      className="font-medium text-[#141414] dark:text-white  leading-none m-0
                              text-[34px] sm:text-[42px] md:text-[48px] lg:text-[52px] xl:text-[64px]"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >

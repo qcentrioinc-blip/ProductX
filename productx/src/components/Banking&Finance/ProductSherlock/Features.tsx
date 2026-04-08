@@ -100,9 +100,9 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
   const activeContent = FEATURES[activeFeatureIndex];
 
   return (
-    <section className="w-full bg-white relative md:h-auto">
+    <section className="w-full bg-white dark:bg-black relative md:h-auto">
       <div ref={containerRef} className="w-full h-[200vh]">
-        <div className="sticky top-24 w-full bg-white z-10 pt-4 pb-4">
+        <div className="sticky top-24 w-full   z-10 pt-4 pb-4">
           
           {/* Included Sticky Title */}
           <div className="w-full px-4 mb-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -207,7 +207,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
               </div>
 
               <div className="col-span-6 flex flex-col gap-6 max-h-[450px] overflow-y-auto custom-scrollbar">
-                <H3 className="text-gray-900 text-2xl leading-tight">
+                <H3 className="text-gray-900 dark:text-white text-2xl leading-tight">
                   {activeContent.title}
                 </H3>
                 <P className="leading-relaxed">{activeContent.p1}</P>

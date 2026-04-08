@@ -7,8 +7,8 @@ const tabs = ["Inventory", "Fixed Assets", "Security"];
  
 const tabImages = [
   "/Gain.webp",
-   "/Gain.webp",
-     "/Gain.webp",
+   "/FixedAsset.webp",
+     "/security.webp",
 ];
  
 const tabData = [
@@ -35,18 +35,18 @@ const tabData = [
     items: [
       {
         icon: "/LOS/Assets.svg",
+        heading: "Calculate Depreciation Automatically",
+        para: "System automatically calculates depreciation for fixed assets through EOD batch processes based on predefined methods and schedules. Accounting entries are posted without manual intervention, ensuring accuracy and consistency across all asset categories.",
+      },
+      {
+        icon:"/LOS/Balance.svg",
         heading: "Write Off Assets with Entries",
         para: "When assets are retired or disposed, the system facilitates write-off processing. Automatic accounting entries are posted to reflect the disposal, maintaining accurate asset registers and financial statements.",
       },
       {
-        icon:"/LOS/Balance.svg",
-        heading: "Track Asset Lifecycle Completely",
-        para: "Complete tracking of fixed assets from acquisition to disposal including purchase date, cost, accumulated depreciation, and current book value. Reports provide visibility into asset utilization and remaining useful life.",
-      },
-      {
         icon: "/LOS/Allocation.svg",
-        heading: "Calculate Depreciation Automatically",
-        para: "System automatically calculates depreciation for fixed assets based on predefined methods and schedules. Accounting entries are posted without manual intervention, ensuring accuracy and consistency across all asset categories.",
+        heading: "Track Asset Lifecycle Completely",
+        para: " Complete tracking of fixed assets from acquisition to disposal including purchase date, cost, accumulated depreciation, and current book value. Reports provide visibility into asset utilization and remaining useful life.",
       },
     ],
   },
@@ -116,7 +116,6 @@ function MobileView() {
  
   return (
     <div className="xl:hidden flex flex-col ">
- 
       {/* ✅ STICKY TABS */}
       <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
      <div

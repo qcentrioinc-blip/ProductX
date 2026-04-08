@@ -11,7 +11,7 @@ const TABS = [
     description:
       "Process single transfer transactions for customers and non-customers. Supports credit transfers with complete validation and secure processing.",
     desc: "Service both account holders and walk-in customers for one-time payments. Ideal for person-to-person transfers and occasional payouts. ",
-    image: "/Physician/IC.webp",
+    image: "/Pago/point1.webp",
   },
   {
     id: "tab2",
@@ -19,7 +19,7 @@ const TABS = [
     description:
       " Handle bulk transactions for subsidies, dividends, salary, pension, utility bills, loan collections, and mutual fund investments. ",
     desc: "Upload batch files with standardized Excel format. System processes high volumes efficiently with configurable intervals and multiple batch support. ",
-    image: "/EHR-PMS/Physician/img.webp",
+    image: "/Pago/point2.webp",
   },
   {
     id: "tab3",
@@ -27,7 +27,7 @@ const TABS = [
     description:
       "Manage inbound NACHA transactions with automated reconciliation. Supports deferred settlement for better liquidity management across institutions. ",
     desc: "Receive and process incoming credit transfers from various sources. System matches transactions and updates settlement positions for complete tracking. ",
-    image: "/EHR-PMS/Physician/img.webp",
+    image: "/Pago/point3.webp",
   },
 ];
 
@@ -85,19 +85,19 @@ const AccordionPago = () => {
     <div
       ref={sectionRef}
       style={{ height: `${TABS.length * 100}vh` }}
-      className="relative"
+      className="relative  "
     >
       {/* STICKY CONTAINER */}
-      <div className="sticky top-0 h-[90vh] lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
+      <div className="sticky top-0 h-[90vh]  dark:bg-black lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
 
         {/* HEADING */}
-        <div className=" max-w-full   mx-auto pt-10 pb-10 text-center px-6">
+        <div className=" max-w-full  mx-auto pt-10 pb-10 text-center px-6">
           <H1>NACHA Payment <br className="hidden xl:block"/>Processing Capabilities</H1>
         </div>
 
         {/* GRID */}
         <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-0 px-4 pb-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%] gap-14 items-start h-full">
+          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%]  items-start h-full">
 
             {/* LEFT TABS */}
             <motion.ul
@@ -116,7 +116,7 @@ const AccordionPago = () => {
                     <button
                       type="button"
                       onClick={() => scrollToTab(index)}
-                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors hover:bg-gray-100"
+                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors hover:dark:bg-transparent hover:bg-gray-100"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-1">
@@ -130,7 +130,7 @@ const AccordionPago = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -6 }}
                                 transition={{ duration: 0.3 }}
-                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden bg-gray-200"
+                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden   "
                                 style={{ minHeight: 180 }}
                               >
                                 {/* <HoverExpandImage
@@ -139,7 +139,13 @@ const AccordionPago = () => {
                                   className="w-full object-contain border border-gray-200 shadow-lg"
                                 /> */}
                                 {/* Placeholder — remove when HoverExpandImage is uncommented */}
-                                <div className="w-full h-44 bg-gray-200 rounded-xl" />
+                                {/* <div className="w-full h-44    rounded-xl" /> */}
+                                <img
+  src={activeTab.image}
+  alt={activeTab.title}
+  className="h-full w-full object-cover rounded-xl"
+/>
+
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -148,7 +154,7 @@ const AccordionPago = () => {
                           <div className="flex items-center gap-2">
                             <H3
                               className={`font-semibold leading-tight transition ${
-                                isActive ? "text-[#2B68C3]" : "text-black"
+                                isActive ? "text-[#2B68C3]" : "text-black dark:text-white"
                               }`}
                             >
                               {tab.title}
@@ -158,7 +164,7 @@ const AccordionPago = () => {
                               animate={{ x: isActive ? 4 : 0 }}
                               transition={{ duration: 0.3 }}
                               className={`transition ${
-                                isActive ? "text-[#2B68C3]" : "text-gray-600"
+                                isActive ? "text-[#2B68C3] " : "text-gray-600 "
                               }`}
                             >
                               <ArrowRight />
@@ -174,10 +180,10 @@ const AccordionPago = () => {
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="mt-3 text-md font-quicksand text-[18px] text-[#141414] max-w-2xl overflow-hidden"
+                                className="mt-3 text-md font-quicksand text-[18px] dark:text-white text-[#141414] max-w-2xl overflow-hidden"
                               >
                                 {tab.description}
-                                {tab.desc && <p className="mt-2 text-[18px] font-quicksand">{tab.desc}</p>}
+                                {tab.desc && <p className="mt-2 text-[18px]  dark:text-white font-quicksand">{tab.desc}</p>}
                               </motion.p>
                             )}
                           </AnimatePresence>
@@ -210,6 +216,11 @@ const AccordionPago = () => {
                   alt="Clinical feature preview"
                   className="h-full w-full bg-gray-100 object-contain"
                 /> */}
+                <img
+  src={activeTab.image}
+  alt={activeTab.title}
+  className="h-full w-full object-fill rounded-xl"
+/>
               </motion.div>
             </AnimatePresence>
 

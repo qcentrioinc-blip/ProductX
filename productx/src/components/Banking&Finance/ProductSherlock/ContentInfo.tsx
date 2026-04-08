@@ -4,7 +4,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function ContentInfo() {
   return (
-    <section className="w-full py-16">
+    <section className="w-full dark:bg-black py-16">
       <div className="max-w-7xl mx-auto  px-4 md:px-6 lg:px-8">
 
         {/* Main Layout */}
@@ -27,14 +27,14 @@ export default function ContentInfo() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 max-w-3xl mb-10">
               <div>
-                <H4>Regulatory Compliance </H4>
+                <H4 className="dark:text-white">Regulatory Compliance </H4>
                 <P className="mt-4">
                   Meets global AML regulations with automated reporting and audit trails. 
                 </P>
               </div>
 
               <div>
-                <H4>Operational Efficiency </H4>
+                <H4 className="dark:text-white">Operational Efficiency </H4>
                 <P className="mt-4">
                   Reduces manual work through automated transaction monitoring and alerts. 
                 </P>
@@ -60,26 +60,26 @@ export default function ContentInfo() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
               {/* Card 1 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
                 <div className="w-12 h-12 bg-[#2B68C3] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon8.svg"
                 alt="image"/>
                 </div>
-                <H4>Time Savings</H4>
+                <H4 className="dark:text-white">Time Savings</H4>
                 <P className="mt-3 text-sm">
                   Automates repetitive monitoring tasks, reducing hours spent on manual transaction review and investigation significantly. 
                 </P>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
                 <div className="w-12 h-12 bg-[#2B68C3] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon4.svg"
                 alt="image"/>
                 </div>
-                <H4>Risk Reduction</H4>
+                <H4 className="dark:text-white">Risk Reduction</H4>
                 <P className="mt-3 text-sm">
                   Detects suspicious activities early through real-time monitoring and alerts, preventing potential money laundering incidents. 
                 </P>
@@ -109,7 +109,7 @@ export default function ContentInfo() {
                     />
                   </div>
 
-                  <H4>Cost Efficiency</H4>
+                  <H4 className="dark:text-white">Cost Efficiency</H4>
 
                   <P className="mt-3 text-white">
                     Lowers compliance operational costs by automating watch list checks, KYC verification, and regulatory reporting processes.
@@ -120,13 +120,13 @@ export default function ContentInfo() {
               </div>
 
               {/* Card 4 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
                <div className="w-12 h-12 bg-[#2B68C3] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon10.svg"
                 alt="image"/>
                 </div>
-                <H4>Audit Readiness </H4>
+                <H4 className="dark:text-white">Audit Readiness </H4>
                 <P className="mt-3 text-sm">
                   Maintains comprehensive audit trails and detailed reports for regulators, ensuring transparency and compliance always. 
                 </P>

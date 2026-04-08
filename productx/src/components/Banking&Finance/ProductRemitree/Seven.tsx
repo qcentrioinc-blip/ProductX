@@ -54,7 +54,8 @@ const Seven = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[750px] bg-white font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
+    <section className="w-full bg-white dark:bg-slate-800 py-4">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[750px] dark:bg-slate-800 bg-white font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
 
       {/* Header Area */}
       <div className="w-full max-w-7xl mx-auto bg-[#2E68C6] py-3 text-center shadow-sm relative z-10 flex items-center justify-center">
@@ -205,6 +206,7 @@ const Seven = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

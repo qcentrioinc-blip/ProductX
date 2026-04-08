@@ -4,7 +4,7 @@ import { ContactUs } from "../../../styles/Button";
 
 const HeroSec1 = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-[#3f7cc4] to-[#3a78c0] pt-20 lg:pt-40 px-6 pb-8 text-white">
+    <section className="w-full dark:bg-black bg-[#2B68C3] pt-20 lg:pt-40 px-6 pb-8 text-white">
       <div className="max-w-7xl mx-auto">
 
         {/* ================= MOBILE ================= */}
@@ -75,7 +75,7 @@ const HeroSec1 = () => {
 
         {/* ================= DESKTOP (UNCHANGED) ================= */}
         <div className="hidden lg:grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-stretch">
-
+    
           {/* LEFT IMAGE */}
           <div className="relative">
             <img

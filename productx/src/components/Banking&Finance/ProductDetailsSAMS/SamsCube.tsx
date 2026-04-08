@@ -108,7 +108,7 @@ const RightPanel = () => {
   return (
     <div className="flex flex-1 flex-col lg:pl-6 lg:pr-2 pt-8 lg:pt-2 justify-between">
       <H2
-        className="font-black text-[#1A1E23] text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
+        className="font-black text-[#1A1E23] text-[32px]  dark:text-[#2b68c3] sm:text-[40px] lg:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
       >
         Integrated EWS, SMA <br className="hidden lg:block" /> and NPA Solution
       </H2>
@@ -153,7 +153,7 @@ const RightPanel = () => {
 
 // ─── SamsCube — Main Export — Changed horizontal grid gap and items to stretch ──
 const SamsCube = () => (
-  <div className="w-full bg-white px-4 sm:px-6 py-10">
+  <div className="w-full bg-white  dark:bg-black px-4 sm:px-6 py-10">
     <div className="mx-auto flex w-full max-w-[1280px] flex-col lg:flex-row items-start gap-6 lg:gap-12">
       <LeftPanel />
       <RightPanel />

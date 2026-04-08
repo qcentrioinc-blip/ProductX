@@ -21,9 +21,10 @@ const para=[
 
 const Banks = () => {
   return (
-    <div className="relative max-w-7xl mx-auto min-h-screen  py-10 xl:py-16 px-6 sm:px-12 md:px-16 lg:px-10 xl:px-0">
+    <section className="dark:bg-black">
+    <div className="relative max-w-7xl  mx-auto min-h-screen  py-10 xl:py-16 px-6 sm:px-12 md:px-16 lg:px-10 xl:px-0">
       <div className="relative z-10">
-        <H2 className="font-semibold md:mb-10 ">
+        <H2 className="font-semibold md:mb-10 dark:text-[#2B68C3] ">
                   Key Benefits of Implementing <br/> ALMANAC Platform
                 </H2>
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -32,7 +33,7 @@ const Banks = () => {
           {/* Left section */}
           <div className="lg:sticky sm:mb-10 md:mb-0 lg:top-0 lg:pt-10 self-start h-fit">
 
-            <div className="bg-white border-2 h-full lg:w-96 sm:mb-10  mt-10 md:mt-0 lg:mb-0 border-gray-200 shadow-lg rounded-md overflow-hidden p-6">
+            <div className="bg-white dark:bg-slate-950 border-2 h-full lg:w-96 sm:mb-10  mt-10 md:mt-0 lg:mb-0 border-gray-200 shadow-lg rounded-md overflow-hidden p-6">
               <img
                 src={Image1}
                 alt="Profile"
@@ -44,7 +45,7 @@ const Banks = () => {
                   Complete Balance Sheet Control
                 </H4>
 
-                <P className="mt-4 text-gray-600">
+                <P className="mt-4 text-black dark:text-white">
                   Single platform for managing liquidity, interest rate risk, and regulatory reporting.
                 </P>
               </div>
@@ -57,14 +58,14 @@ const Banks = () => {
             {title.map((label, index) => (
               <div
                 key={index}
-                className="bg-white  mt-4 shadow-lg rounded-md p-6 border-gray-300 border-2  sticky top-24"
+                className="bg-white dark:bg-slate-950  mt-4 shadow-lg rounded-md p-6 border-gray-300 border-2  sticky top-24"
                 style={{ zIndex: index + 1 }}
               >
                 <H4 className="mb-6 lg:mb-10 text-[#2B68C3] font-semibold">
                   {label}
                 </H4>
 
-                <P className="mt-2 text-gray-600">
+                <P className="mt-2 text-black dark:text-white">
                   {para[index]}
                 </P>
               </div>
@@ -74,6 +75,7 @@ const Banks = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

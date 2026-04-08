@@ -4,7 +4,7 @@ import { H1, P } from "../../../styles/Typography";
 
 const HeroSec = () => {
   return (
-    <section className="w-full mt-10 xl:mt-0">
+    <section className="w-full mt-10 dark:bg-black xl:mt-0">
 
       {/* ================= MOBILE DESIGN ================= */}
       <div className="block md:hidden px-4 mt-18">

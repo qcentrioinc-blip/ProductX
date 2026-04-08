@@ -39,7 +39,7 @@ const CircleCard = ({ title, text, image }: any) => (
 
     {/* Title */}
     <h3 className="
-            font-['Bricolage_Grotesque'] font-semibold
+            font-['Bricolage_Grotesque'] dark:text-[#2b68c3] font-semibold
             leading-none tracking-normal text-[#141414] w-full
             text-[18px]
             sm:text-[20px]
@@ -52,7 +52,7 @@ const CircleCard = ({ title, text, image }: any) => (
 
     {/* Paragraph */}
     <p className="
-            font-['Quicksand'] font-normal
+            font-['Quicksand'] dark:text-white font-normal
             leading-relaxed tracking-normal text-[#141414] w-full
             text-[13px]
             sm:text-[14px]
@@ -70,7 +70,8 @@ const ThreeCircle = () => {
   return (
     <div className="
             w-full bg-white
-            px-5 mb-4
+            dark:bg-black
+            px-5 pb-4
             sm:px-8
             md:px-10
             lg:px-14

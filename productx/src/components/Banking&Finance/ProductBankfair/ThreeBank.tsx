@@ -23,7 +23,7 @@ const CARDS = [
 
 const ThreeBank = () => {
     return (
-        <div className="relative w-full bg-white py-16 xl:py-20">
+        <div className="relative w-full dark:bg-black bg-white py-16 xl:py-20">
             <div className="max-w-7xl xl:mx-auto mx-4 px-4 xl:px-0">
 
                 {/* Header Section */}
@@ -31,7 +31,7 @@ const ThreeBank = () => {
                     <div className="flex-1 w-full relative">
                         <H1>
                             <div className="text-[#2B68C3] leading-[1.1]">Complete Core</div>
-                            <div className= "leading-[1.1]">Banking Platform </div>
+                            <div className= "leading-[1.1] dark:text-white">Banking Platform </div>
                         </H1>
                     </div>
                     <div className="flex-1 w-full">
@@ -45,11 +45,11 @@ Bankfair is Qnest’s comprehensive core banking and loan management system desi
                     {CARDS.map((card) => (
                         <div
                             key={card.number}
-                            className="w-full rounded-2xl p-4 md:p-6 bg-white border border-gray-400"
+                            className="w-full rounded-2xl p-4 md:p-6 bg-white dark:bg-slate-900 border border-gray-400"
                         >
                             <div className="flex flex-row items-center gap-6">
                                 {/* Number */}
-                                <H3 className="flex-shrink-0 leading-none">
+                                <H3 className="flex-shrink-0 dark:text-white leading-none">
                                     {card.number}
                                 </H3>
 

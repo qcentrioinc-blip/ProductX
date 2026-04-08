@@ -50,9 +50,9 @@ export default function CardsSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-10">
+    <section className="w-full bg-white  dark:bg-black py-10">
       <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
-        <H2 className="text-center mb-12">
+        <H2 className="text-center mb-12 dark:text-white">
            Intelligent KYC and due diligence platform
         </H2>
 
@@ -78,9 +78,9 @@ export default function CardsSection() {
                 />
               </div>
 
-              <H4 className="mt-2">{card.title}</H4>
+              <H4 className="mt-2 dark:text-[#2b68c3]">{card.title}</H4>
 
-              <P className="text-gray-800 mt-3">
+              <P className="text-gray-800 dark:text-white mt-3">
                 {card.description}
               </P>
             </motion.div>

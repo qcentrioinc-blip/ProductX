@@ -104,7 +104,7 @@ const FourPoints = () => {
     const blueWidthPercent = ((activeIndex + 1) / navItems.length) * 100;
 
     return (
-        <section ref={containerRef} className="w-full bg-[#EFEFEF] mb-6 h-[150vh]">
+        <section ref={containerRef} className="w-full dark:bg-[#141414] bg-[#EFEFEF] mb-6 h-[150vh]">
             <div className="sticky top-24 w-full flex items-center justify-center px-4 py-12 md:px-10 md:py-16 xl:px-[203px] xl:py-16 box-border overflow-hidden">
                 <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row lg:items-start">
 
@@ -156,7 +156,7 @@ const FourPoints = () => {
                                     style={{ height: `${ITEM_SLOT}px` }}
                                 >
                                     <span
-                                        className={`font-bricolage font-semibold text-[32px] leading-none text-[#2B68C3] select-none transition-opacity duration-300 flex items-center whitespace-nowrap ${activeIndex === index ? "opacity-100" : "opacity-55"
+                                        className={`font-bricolage font-semibold text-[32px] leading-none  text-[#2B68C3] select-none transition-opacity duration-300 flex items-center whitespace-nowrap ${activeIndex === index ? "opacity-100" : "opacity-55"
                                             }`}
                                     >
                                         {item}
@@ -203,7 +203,7 @@ const FourPoints = () => {
                             </h2>
 
                             {/* Paragraph */}
-                            <p className="w-full text-center text-[#141414] m-0 font-quicksand font-normal text-sm md:text-base xl:text-lg leading-relaxed md:leading-[130%]">
+                            <p className="w-full text-center text-[#141414] dark:text-white m-0 font-quicksand font-normal text-sm md:text-base xl:text-lg leading-relaxed md:leading-[130%]">
                                 {tabData[activeIndex].paragraph}
                             </p>
 

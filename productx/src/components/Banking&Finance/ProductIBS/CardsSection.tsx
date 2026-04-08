@@ -7,28 +7,28 @@ const features = [
     description:
       "Customers view balances, transactions, and statements anytime from any device. ",
     icon: "/ProductIBS/icon3.svg",
-     image: "/ProductIBS/1.webp",
+     image: "/ProductIBS/b1.webp",
   },
   {
     title: " Reduced Branch Footfall",
     description:
       "Online transactions minimize teller visits and lower branch operational costs. ",
     icon: "/ProductIBS/icon4.svg",
-     image: "/ProductIBS/2.webp",
+     image: "/ProductIBS/b2.webp",
   },
   {
     title: "Real-Time Transaction Updates",
     description:
       "Instant confirmation for fund transfers and bill payments improves customer experience. ",
     icon: "/ProductIBS/icon5.svg",
-     image: "/ProductIBS/3.webp",
+     image: "/ProductIBS/b3.webp",
   },
   {
     title: "Enhanced Security Controls",
     description:
       "Secure login, encryption, and transaction limits protect customer data and funds.",
     icon: "/ProductIBS/icon6.svg",
-     image: "/ProductIBS/4.webp",
+     image: "/ProductIBS/b4.webp",
   },
 ];
 
@@ -50,7 +50,7 @@ const cardVariants = {
 
 export default function CardsSection() {
   return (
-    <section className="w-full bg-[#FAFAFA] py-6 px-6">
+    <section className="w-full bg-[#FAFAFA] dark:bg-black py-6 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
 
@@ -63,7 +63,7 @@ export default function CardsSection() {
             whileInView="visible"
             viewport={{ once: true }}
             className="
-              bg-white p-6 sm:p-7 md:p-8 rounded-xl shadow-lg
+              bg-white dark:bg-slate-900 p-6 sm:p-7 md:p-8 rounded-xl shadow-lg
               w-full
               h-[360px] sm:h-[380px] md:h-[400px] lg:h-[420px] xl:h-[440px]
               flex flex-col justify-between
@@ -81,12 +81,12 @@ export default function CardsSection() {
               </div>
 
               {/* Title */}
-              <H4 className="text-gray-900 mb-3">
+              <H4 className="text-gray-900 dark:text-white mb-3">
                 {item.title}
               </H4>
 
               {/* Description */}
-              <P className="text-gray-700 leading-relaxed xl:max-w-[400px]">
+              <P className="text-gray-700 dark:text-gray-300 leading-relaxed xl:max-w-[400px]">
                 {item.description}
               </P>
             </div>

@@ -135,7 +135,7 @@ const AnimatedLayer = ({
           />
         </div>
         <div className="col-span-4 flex flex-col gap-5">
-          <H3 className="text-gray-900 tracking-tight leading-tight text-2xl">
+          <H3 className="text-gray-900 dark:text-white tracking-tight leading-tight text-2xl">
             {feature.title}
           </H3>
           <P className="text-gray-600 leading-relaxed">{feature.p1}</P>
@@ -217,13 +217,13 @@ const Feature = () => {
   };
 
   return (
-    <section className="relative bg-white">
+    <section className="relative dark:bg-black bg-white">
       <div
         ref={containerRef}
         style={{ height: `${COUNT * 100}vh` }}
         className="relative"
       >
-        <div className="sticky top-0 py-10 bg-white">
+        <div className="sticky top-0 py-10 dark:bg-black bg-white">
           <div className="w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
 
             <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug my-4 xl:mb-20 xl:mt-6">

@@ -45,12 +45,13 @@ const DetailCards = () => {
       </div>
 
       {/* Cards - overlap banner using negative margin, stays in normal flow */}
+      <section className="dark:bg-black">
       <div className="relative z-10 -mt-20 px-4 md:px-8  max-w-7xl mx-auto lg:px-12 xl:px-0 pb-4 xl:pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl border py-10 xl:py-20 border-neutral-300 shadow-md px-6   flex flex-col items-center text-center"
+              className="bg-white  dark:bg-slate-950 rounded-2xl border py-10 xl:py-20 border-neutral-300 shadow-md px-6   flex flex-col items-center text-center"
             >
               {/* Icon placeholder circle */}
               <div className="w-20 h-20 mb-5 rounded-full  flex items-center justify-center">
@@ -61,18 +62,19 @@ const DetailCards = () => {
   />
 </div>
               {/* Title */}
-              <H3 className="font-bold text-black mb-3">
+              <H3 className="font-bold text-black dark:text-white mb-3">
                 {card.title}
               </H3>
 
               {/* Description */}
-              <P className="text-sm md:text-[15px] leading-relaxed">
+              <P className="text-sm md:text-[15px]  dark:text-gray-300 leading-relaxed">
                 {card.description}
               </P>
             </div>
           ))}
         </div>
       </div>
+      </section>
 
     </section>
   );
