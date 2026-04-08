@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { H2 } from "../../../styles/Typography";
 
 const Frontier = () => {
     const features = [
@@ -29,7 +30,7 @@ const Frontier = () => {
     ];
 
     return (
-        <section className="w-full bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-10 px-4 sm:px-8 xl:px-10">
+        <section className="w-full bg-[#F8F8F8] dark:bg-black  py-12 sm:py-16 md:py-20 lg:py-10 px-4 sm:px-8 xl:px-10">
             <div className="max-w-8xl mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 xl:px-6">
 
                 <div className="grid xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">
@@ -39,18 +40,12 @@ const Frontier = () => {
                         <div className="relative w-full max-w-[380px] sm:max-w-[420px] md:max-w-[640px] lg:max-w-[800px] xl:max-w-none xl:min-h-0 xl:h-[540px] overflow-hidden xl:overflow-visible">
 
                             {/* Heading */}
-                            <h1
-                                className="relative mb-10 sm:mb-12 md:mb-16 text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] text-center xl:text-left"
-                                style={{
-                                    fontFamily: "'Inter', sans-serif",
-                                    fontWeight: 700,
-                                    lineHeight: "110%",
-                                    color: "#254D70",
-                                    zIndex: 50,
-                                }}
+                            <H2
+                                className="relative mb-10  dark:text-white text-[#254D70] sm:mb-12 md:mb-16 text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] text-center xl:text-left"
+                                
                             >
                                Real-World Cloud Optimization Measures 
-                            </h1>
+                            </H2>
 
                             {/* Responsive Decorative Boxes */}
                              
@@ -81,11 +76,8 @@ const Frontier = () => {
                                             <ArrowRight className="w-10 sm:w-7 md:w-12 h-5 sm:h-6 text-[#0079FF]" />
 
                                             <p
-                                                className="text-[15px] sm:text-[16px] md:text-[18px] leading-[150%]"
-                                                style={{
-                                                    fontFamily: "'Quicksand', sans-serif",
-                                                    color: "#141414",
-                                                }}
+                                                className="text-[15px] dark:text-white sm:text-[16px] md:text-[18px] leading-[150%]"
+                                                 
                                             >
                                                 {feature.description}
                                             </p>

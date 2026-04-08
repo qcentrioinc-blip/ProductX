@@ -1,4 +1,5 @@
 import React from "react";
+import { P } from "../../../../../styles/Typography";
  
 
 const Clouddietpermissions: React.FC = () => {
@@ -9,14 +10,14 @@ const Clouddietpermissions: React.FC = () => {
          CloudDIET Permissions 
         </h1>
 
-        <p className="font-quicksand text-lg leading-tight tracking-wide">This page explains how to configure CloudDIET access to analyze your Azure environment. CloudDIET requires only a minimum set of Azure built-in roles. These roles allow it to view resource configurations, usage metrics, and billing data.  </p>
+        <P className="font-quicksand text-lg leading-tight tracking-wide">This page explains how to configure CloudDIET access to analyze your Azure environment. CloudDIET requires only a minimum set of Azure built-in roles. These roles allow it to view resource configurations, usage metrics, and billing data.  </P>
 
-        <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Note: </h2>
-        <p className="font-quicksand text-lg leading-tight tracking-wide">
+        <h2 className="font-bricolage dark:text-white text-xl md:text-2xl lg:text-3xl my-4">Note: </h2>
+        <P className="font-quicksand text-lg leading-tight tracking-wide">
         The service principal is granted read-only permissions. CloudDIET cannot make changes to your Azure resources or access any customer data in the data plane. 
-        </p>
-        <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Steps</h3>
-        <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
+        </P>
+        <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">Steps</h3>
+        <ol className=" dark:text-white list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
           <li>
           Create an Azure Service Principal – This allows the CloudDIET profiler to authenticate to Azure. </li>
           <li>Assign Azure Resource Manager Permissions – Configure roles to authorize profiling of your Azure Subscriptions. </li>
@@ -24,7 +25,7 @@ const Clouddietpermissions: React.FC = () => {
           <li>Configure CloudDIET – Add the Service Principal and Subscriptions to the CloudDIET platform. </li>
           </ol>
 
-         <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Required Azure Roles</h3>
+         <h3 className="font-bricolage  text-xl  dark:text-white lg:text-2xl my-4">Required Azure Roles</h3>
 <div className="xl:pl-16">
          <table className="border-2 border-collapse w-full">
            <colgroup>
@@ -42,7 +43,7 @@ const Clouddietpermissions: React.FC = () => {
     </tr>
   </thead>
   <tbody className="font-quicksand  font-extrabold text-lg leading-tight tracking-wide">
-    <tr className="border-b ">
+    <tr className="border-b dark:text-white ">
       <td className="px-4 py-3 border-r">
         Billing Account Reader<br />
         Billing Scope
@@ -62,7 +63,7 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr className="border-b ">
+    <tr className="border-b dark:text-white ">
       <td className="px-4 py-3 border-r">
         Log Analytics Reader<br />
         All Subscriptions
@@ -82,7 +83,7 @@ const Clouddietpermissions: React.FC = () => {
       </td>
     </tr>
 
-    <tr className="border-b">
+    <tr className="border-b dark:text-white ">
       <td className="px-4 py-3 border-r">
         Reservations Reader<br />
         All Subscriptions
@@ -104,9 +105,9 @@ const Clouddietpermissions: React.FC = () => {
   </tbody>
 </table>
 </div>
-<h2 className="font-bricolage  text-xl lg:text-3xl my-4">Configuration Steps </h2>
-<h3 className="font-bricolage text-xl lg:text-2xl">Step 1: Create an Azure Service Principal </h3>
-<ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
+<h2 className="font-bricolage  text-xl lg:text-3xl dark:text-white my-4">Configuration Steps </h2>
+<h3 className="font-bricolage text-xl lg:text-2xl dark:text-white">Step 1: Create an Azure Service Principal </h3>
+<ol className="list-decimal list-inside dark:text-white space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li> Log in to the Azure portal and go to Azure Active Directory. </li>
   <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/step1clouddiet.webp" alt="" />
 
@@ -206,10 +207,10 @@ const Clouddietpermissions: React.FC = () => {
 </ol>
  
 
- <h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 2: Assign Azure Resource Manager / Subscription Permissions </h3>
- <p className="font-quicksand text-lg leading-tight tracking-wide">The Service Principal has no permissions by default. Follow these steps to grant the permissions needed for CloudDIET to profile your environment</p>
+ <h3 className="font-bricolage text-xl mt-4 lg:text-2xl dark:text-white">Step 2: Assign Azure Resource Manager / Subscription Permissions </h3>
+ <P className="font-quicksand text-lg leading-tight dark:text-white  tracking-wide">The Service Principal has no permissions by default. Follow these steps to grant the permissions needed for CloudDIET to profile your environment</P>
 
- <ol className="list-decimal list-inside space-y-6 gap-y-10 font-quicksand text-lg leading-tight tracking-wide">
+ <ol className="list-decimal list-inside dark:text-white space-y-6 gap-y-10 font-quicksand text-lg leading-tight tracking-wide">
   <li>In the Azure portal, search for Subscriptions in the top search bar.  </li>
   <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/2step1.webp" alt="" />
 
@@ -298,10 +299,10 @@ const Clouddietpermissions: React.FC = () => {
 
  </ol>
 
-<h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 3 : Assign Billing Account Permissions </h3>
- <p className="font-quicksand text-lg leading-tight tracking-wide">An additional role is required for MCA (Microsoft Customer Agreement) billing to grant read access to billing data. </p>
+<h3 className="font-bricolage text-xl dark:text-white mt-4 lg:text-2xl">Step 3 : Assign Billing Account Permissions </h3>
+ <P className="font-quicksand text-lg  dark:text-white leading-tight tracking-wide">An additional role is required for MCA (Microsoft Customer Agreement) billing to grant read access to billing data. </P>
 
-<div className="mt-6  xl:pl-16 overflow-x-auto">
+<div className="mt-6   xl:pl-16 overflow-x-auto">
   <table className="w-full border border-gray-200 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">
       <tr>
@@ -327,7 +328,7 @@ const Clouddietpermissions: React.FC = () => {
     </tbody>
   </table>
 </div>
- <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
+ <ol className="list-decimal dark:text-white list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>In the Azure portal, search for Cost Management + Billing. </li>
   <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/3step1.webp" alt="" />
 
@@ -338,8 +339,8 @@ const Clouddietpermissions: React.FC = () => {
   <li> Set the Role to Billing account reader. Search for the CloudDIET Service Principal and select it. Click Save to assign the role. </li>
   </ol>
 
-<h3 className="font-bricolage text-xl mt-4 lg:text-2xl">Step 4 : Add Service Principal(s) in CloudDIET </h3>
- <p className="font-quicksand text-lg leading-tight tracking-wide">Log in to <a href="https://clouddiet.app" className="text-blue-600">https://clouddiet.app</a> using your Azure Active Directory credentials. Then, enter the Service Principal details collected in Step 1 to configure CloudDIET.  </p>
+<h3 className="font-bricolage text-xl mt-4 dark:text-white lg:text-2xl">Step 4 : Add Service Principal(s) in CloudDIET </h3>
+ <P className="font-quicksand dark:text-white text-lg leading-tight tracking-wide">Log in to <a href="https://clouddiet.app" className="text-blue-600">https://clouddiet.app</a> using your Azure Active Directory credentials. Then, enter the Service Principal details collected in Step 1 to configure CloudDIET.  </P>
 <div className="mt-6  xl:pl-16 overflow-x-auto">
   <table className="w-full border border-gray-400 border-collapse bg-white rounded-lg">
     <thead className="bg-gray-50">

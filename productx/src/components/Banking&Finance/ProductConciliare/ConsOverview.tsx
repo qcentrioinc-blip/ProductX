@@ -16,7 +16,7 @@ const outcomes: Outcome[] = [
     id: 1,
     title: "Complete Visibility and Control",
     description:
-      "Description: Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
+      "  Configure and monitor batch jobs for reconciliation processes. View detailed event logs and error logs for troubleshooting. Generate match reports to review successfully reconciled transactions. Access unmatch reports to identify and resolve exceptions.",
     image: "/BNFConsilier/matchreport.webp",
     cta: "Learn More",
   },
@@ -71,12 +71,12 @@ const ConsOverview = () => {
 
   return (
     <>
-      <section className="w-full bg-white py-16 px-4 xl:px-0">
+      <section className="w-full bg-white dark:bg-black py-16 px-4 xl:px-0">
         <div className="max-w-7xl xl:mx-auto">
           {/* Section Heading */}
           <div className="mb-6">
             <H2 className="text-4xl md:text-5xl font-bold">
-              <span className="text-[#2B68C3]">Monitoring and</span> <span className="text-[#141414]">Reporting Capabilities</span>
+              <span className="text-[#2B68C3]">Monitoring and</span> <span className="text-[#141414] dark:text-white">Reporting Capabilities</span>
             </H2>
           </div>
 
@@ -181,7 +181,7 @@ const ConsOverview = () => {
                     key={item.id}
                     onClick={() => setActiveId(item.id)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${activeId === item.id
-                      ? "bg-[#008280] scale-125"
+                      ? "bg-[#2b68c3] scale-125"
                       : "bg-gray-400 hover:bg-gray-500"
                       }`}
                     aria-label={`Go to ${item.title}`}
@@ -192,11 +192,11 @@ const ConsOverview = () => {
 
             {/* Right Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#141414] mb-4 text-3xl font-bold">
+              <H2EHR className="text-[#141414]  dark:text-[#2b68c3] mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2EHR>
 
-              <P className="mb-2 text-[#141414]">
+              <P className="mb-2 text-[#141414] dark:text-white">
                 {activeOutcome.description}
               </P>
 

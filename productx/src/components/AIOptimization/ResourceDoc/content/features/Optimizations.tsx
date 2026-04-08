@@ -14,13 +14,13 @@ const Optimizations: React.FC = () => {
            Optimizations
         </h1>
 
-        <p className="font-quicksand text-lg leading-tight tracking-wide">CloudDIET profiles your Azure environment to identify hundreds of cost-saving optimizations across IaaS and PaaS resources. We continuously update our capabilities to match Azure’s evolving landscape, including pricing, SKUs, services, and incentives.   </p>
+        <p className="font-quicksand dark:text-white  text-lg leading-tight tracking-wide">CloudDIET profiles your Azure environment to identify hundreds of cost-saving optimizations across IaaS and PaaS resources. We continuously update our capabilities to match Azure’s evolving landscape, including pricing, SKUs, services, and incentives.   </p>
 
-           <p className="font-quicksand text-lg leading-tight tracking-wide">We manage this complexity so you receive clear, actionable insights. We present findings in an easily consumable format through methods such as:   </p>
+           <p className="font-quicksand dark:text-white  text-lg leading-tight tracking-wide">We manage this complexity so you receive clear, actionable insights. We present findings in an easily consumable format through methods such as:   </p>
         
 
     
-         <ul className="list-disc  list-inside space-y-3 font-quicksand text-lg leading-tight tracking-wide">
+         <ul className="list-disc dark:text-white   list-inside space-y-3 font-quicksand text-lg leading-tight tracking-wide">
   <li>  Categorizing savings by effort level: Minimal, Moderate, and Significant.  </li>
   
 
@@ -34,35 +34,35 @@ const Optimizations: React.FC = () => {
 
 
 
-  <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Categories</h2>
+  <h2 className="font-bricolage dark:text-white  text-xl md:text-2xl lg:text-3xl my-4">Categories</h2>
 
-   <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Minimal Effort  </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed"> 
+   <h3 className="font-bricolage dark:text-white   text-xl lg:text-2xl my-4">  Minimal Effort  </h3>
+  <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed"> 
 
 Opportunities requiring little effort and no risk. Example: pausing an unused Microsoft Fabric capacity with no recent data or activity.   </p>
 
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">Savings opportunities can appear within minutes or take up to two weeks. For a new Subscription, CloudDIET builds a profile and baseline of configuration, usage, and cost trends. While some optimizations are immediate, others require days or weeks of utilization analysis. </p>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">Savings opportunities can appear within minutes or take up to two weeks. For a new Subscription, CloudDIET builds a profile and baseline of configuration, usage, and cost trends. While some optimizations are immediate, others require days or weeks of utilization analysis. </p>
 
-   <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Moderate Effort  </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed">Opportunities involving configuration or usage changes that should be reviewed, but pose minimal disruption risk. Example: adjusting indexing policies in Azure Cosmos DB.  </p>
+   <h3 className="font-bricolage dark:text-white    text-xl lg:text-2xl my-4">Moderate Effort  </h3>
+  <p className="font-quicksand dark:text-white   text-base text-gray-700 leading-relaxed">Opportunities involving configuration or usage changes that should be reviewed, but pose minimal disruption risk. Example: adjusting indexing policies in Azure Cosmos DB.  </p>
     
-    <h3 className="font-bricolage  text-xl lg:text-2xl my-4">Significant Effort    </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed"> Opportunities that require review, testing, validation, or planning before implementation. Example: purchasing compute Reservations or making major licensing changes.   </p>
+    <h3 className="font-bricolage dark:text-white   text-xl lg:text-2xl my-4">Significant Effort    </h3>
+  <p className="font-quicksand text-base dark:text-white   text-gray-700 leading-relaxed"> Opportunities that require review, testing, validation, or planning before implementation. Example: purchasing compute Reservations or making major licensing changes.   </p>
     
      
     
       
-      <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
+      <h2 className="font-bricolage dark:text-white  text-xl md:text-2xl lg:text-3xl my-4"> 
 Summarized Savings Opportunities  </h2>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">Savings Opportunities are organized by Azure service. You can also filter findings in other ways. The Discovery view, for instance, displays opportunities for Azure Cosmos DB, Azure App Services, and Microsoft Fabric. Drilling into each service reveals various opportunities across resources, each with its own effort level.  </p>
+ <p className="font-quicksand text-base dark:text-white  text-gray-700 leading-relaxed">Savings Opportunities are organized by Azure service. You can also filter findings in other ways. The Discovery view, for instance, displays opportunities for Azure Cosmos DB, Azure App Services, and Microsoft Fabric. Drilling into each service reveals various opportunities across resources, each with its own effort level.  </p>
 
     <img   className="xl:pl-16" src="/AI-CloudFinOps/Resources/featuresOpti1.webp"/>
 
-    <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
+    <h2 className="font-bricolage  dark:text-white  text-xl md:text-2xl lg:text-3xl my-4"> 
 Savings Opportunity Details 
 
  </h2>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">Each opportunity shows impacted resources, potential savings, and relevant configuration and usage metrics. Use the dropdown to view the full description and resolution guidance.  </p>
+ <p className="font-quicksand dark:text-white   text-base text-gray-700 leading-relaxed">Each opportunity shows impacted resources, potential savings, and relevant configuration and usage metrics. Use the dropdown to view the full description and resolution guidance.  </p>
 
     <img   className="xl:pl-16" src="/AI-CloudFinOps/Resources/FeaturesOpti2.webp"/>
      
@@ -103,11 +103,11 @@ Savings Opportunity Details
     </div>
    
 
-    <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
+    <h2 className="font-bricolage text-xl dark:text-white  md:text-2xl lg:text-3xl my-4"> 
 Dismissing Savings Opportunities 
 
  </h2>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">If a discovered Savings Opportunity is not relevant to your environment, you can dismiss it. This will remove it from the active list, and the opportunity costs will not be reflected in the Potential Savings or Realized Savings  </p>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">If a discovered Savings Opportunity is not relevant to your environment, you can dismiss it. This will remove it from the active list, and the opportunity costs will not be reflected in the Potential Savings or Realized Savings  </p>
 
  
  </div>

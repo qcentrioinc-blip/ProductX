@@ -12,9 +12,9 @@ export default function HeroSection() {
   typeof window !== "undefined" ? window.innerWidth < 1220 : false
 );
 
-  const yellowGradientStyle = {
-    background: 'linear-gradient(90deg, rgba(255, 215, 0, 0.4) -16.96%, rgba(255, 215, 0, 0.2) 51.92%)',
-  };
+  // const yellowGradientStyle = {
+  //   background: 'linear-gradient(90deg, rgba(255, 215, 0, 0.4) -16.96%, rgba(255, 215, 0, 0.2) 51.92%)',
+  // };
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1220);
@@ -77,14 +77,15 @@ export default function HeroSection() {
   return (
     <section
   ref={sectionRef}
-  className="
+  className="  
     w-full relative overflow-hidden flex items-start lg:items-start xl:items-center
     min-h-[1030px] 
     md:min-h-[1050px] 
     lg:min-h-[1200px]
     xl:min-h-[730px]
+     bg-gradient-to-r from-yellow-400/40 to-yellow-400/20 dark:bg-gradient-t-o-r dark:from-black dark:to-black
   "
-  style={yellowGradientStyle}
+  // style={yellowGradientStyle}
 >
 
       {/* Shape - Desktop Only */}
@@ -248,7 +249,7 @@ export default function HeroSection() {
             })
           }}
         >
-          <H1 className="xl:py-6 max-w-2xl">
+          <H1 className="xl:py-6 max-w-2xl text-[#2b68c3]">
             Enterprise Digital KYC and  CDD Automation Platform
           </H1>
           <P className="mb-8 font-quicksand max-w-[700px]">

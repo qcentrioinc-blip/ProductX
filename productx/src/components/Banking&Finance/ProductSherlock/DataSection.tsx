@@ -4,7 +4,7 @@ import { H2, H4 } from "../../../styles/Typography";
 
 export default function DataSection() {
   return (
-    <section className="w-full  py-0 lg:py-6 px-4 md:px-8">
+    <section className="w-full  dark:bg-black py-0 lg:py-6 px-4 md:px-8">
 
       {/* TITLE */}
       <div className="max-w-5xl mx-auto text-center mb-6 lg:mb-12">
@@ -20,8 +20,8 @@ export default function DataSection() {
         <div className="flex flex-col gap-4">
 
           {/* Monitoring */}
-          <div className="bg-white rounded-2xl shadow-xl p-5">
-            <H4 className="text-[#2B68C3] mb-2">Risk</H4>
+          <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate-900">
+            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Risk</H4>
             <ul className="list-disc pl-5 space-y-2 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Risk profile creation based on customer type, residential status, and activities </li>
@@ -30,8 +30,8 @@ export default function DataSection() {
           </div>
 
           {/* Detection */}
-          <div className="bg-white rounded-2xl shadow-xl p-5">
-            <H4 className="text-[#2B68C3] mb-2">KYC</H4>
+          <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate900">
+            <H4 className="  dark:text-white text-[#2B68C3] mb-2">KYC</H4>
             <ul className="list-disc pl-5 space-y-2 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li> Individual customer monitoring with same address customer identification features </li>
@@ -40,8 +40,8 @@ export default function DataSection() {
           </div>
 
           {/* Case Mgmt */}
-          <div className="bg-white rounded-2xl shadow-xl p-5">
-            <H4 className="text-[#2B68C3] mb-2">Monitoring</H4>
+          <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate900">
+            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Monitoring</H4>
             <ul className="list-disc pl-5 space-y-2 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Transaction monitoring and case management with customer and account level reports </li>
@@ -50,8 +50,8 @@ export default function DataSection() {
           </div>
 
           {/* Compliance */}
-          <div className="bg-white rounded-2xl shadow-xl p-5">
-            <H4 className="text-[#2B68C3] mb-2">Screening</H4>
+          <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate900">
+            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Screening</H4>
             <ul className="list-disc pl-5 space-y-2 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Screening directory maintenance with sanction list name matching capabilities </li>
@@ -68,16 +68,16 @@ export default function DataSection() {
         {/* LEFT */}
         <div className="flex flex-col justify-between h-[500px] p-6">
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 lg:-mt-6 text-[16px] border border-gray-300">
-            <ul className="list-disc pl-5 space-y-3 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+          <div className="bg-white rounded-2xl shadow-xl p-6 dark:bg-slate-900  lg:-mt-6 text-[16px] border border-gray-300">
+            <ul className="list-disc pl-5 space-y-3 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Risk profile creation based on customer type, residential status, and activities </li>
               <li>Risk categorization and probe scanning transactions for violations</li>
             </ul>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 lg:mt-6 text-[16px]  border border-gray-300">
-            <ul className="list-disc pl-5 space-y-3 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+          <div className="bg-white rounded-2xl shadow-xl p-6 dark:bg-slate-900  lg:mt-6 text-[16px]  border border-gray-300">
+            <ul className="list-disc pl-5 space-y-3 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li> Transaction monitoring and case management with customer and account level reports </li>
               <li>Comprehensive actions and collaborative actions for complete oversight </li>
@@ -120,16 +120,16 @@ export default function DataSection() {
         {/* RIGHT */}
         <div className="flex flex-col justify-between h-[500px] p-6">
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 lg:-mt-6 text-[16px]  border border-gray-300">
-            <ul className="list-disc pl-5 space-y-3 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+          <div className="bg-white rounded-2xl shadow-xl p-6 dark:bg-slate-900  lg:-mt-6 text-[16px]  border border-gray-300">
+            <ul className="list-disc pl-5 space-y-3 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li> Individual customer monitoring with same address customer identification features </li>
               <li>Corporate customer tracking with special status marking and related income verification </li>
             </ul>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 lg:mt-6 text-[16px]  border border-gray-300">
-            <ul className="list-disc pl-5 space-y-3 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+          <div className="bg-white rounded-2xl shadow-xl p-6 dark:bg-slate-900  lg:mt-6 text-[16px]  border border-gray-300">
+            <ul className="list-disc pl-5 space-y-3 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Screening directory maintenance with sanction list name matching capabilities </li>
               <li>Compliance reporting with FATCA identification parameters and US indicia tracking </li>

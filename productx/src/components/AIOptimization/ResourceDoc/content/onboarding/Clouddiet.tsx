@@ -3,8 +3,8 @@
  
 const Clouddiet = () => {
   return (
-    <div className=" space-y-2">
-        <h1 className=" text-lg md:text-3xl text-[#254D70] lg:text-4xl my-4 font-bricolage ">
+    <div className=" space-y-2 dark:text-white">
+        <h1 className=" text-lg md:text-3xl dark:to-blue-900 text-[#254D70] lg:text-4xl my-4 font-bricolage ">
             Why Clouddiet
         </h1>
 

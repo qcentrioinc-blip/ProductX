@@ -12,10 +12,10 @@ const Subscriptions: React.FC = () => {
         </h1>
 
       
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">CloudDIET leverages Service Principals to access your Azure environment in a secure and auditable way </p>
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">CloudDIET leverages Service Principals to access your Azure environment in a secure and auditable way </p>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Adding Subscriptions to CloudDIET  </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+  <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Adding Subscriptions to CloudDIET  </h3>
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 
 
@@ -25,15 +25,15 @@ Azure Subscriptions can be added to CloudDIET at any time, but you must first ha
      
 
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  
+  <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  
 Changing Credentials 
   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 The Credentials associated with an Azure Subscription can be changed at any time as long as that Subscription is not actively being profiled.  </p>
 
-    <h3 className="font-bricolage  text-xl lg:text-2xl my-4"> Pausing and Resuming Subscription Profiling   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+    <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4"> Pausing and Resuming Subscription Profiling   </h3>
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 
 
@@ -72,7 +72,7 @@ Subscriptions can be paused at any time as long as that Subscription is not acti
           </h3> */}
 
           {open && (
-            <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+            <p className="font-quicksand text-base text-gray-700  leading-relaxed">
         Pausing a Subscription will prevent any further profiling. Once resumed, there may be a gap in reporting as CloudDIET will not attempt to evaluate missed days. 
 
   
@@ -83,8 +83,8 @@ Subscriptions can be paused at any time as long as that Subscription is not acti
     </div>
 
 
-<h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Removing Subscriptions   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+<h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Removing Subscriptions   </h3>
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 Subscriptions can be removed at any time as long as that Subscription is not actively being profiled. 
 
@@ -119,7 +119,7 @@ Subscriptions can be removed at any time as long as that Subscription is not act
           </h3> */}
 
           {open && (
-            <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+            <p className="font-quicksand text-base text-gray-700  leading-relaxed">
       Removing an Azure Subscription from CloudDIET will also delete all profiling metadata. 
 
   
@@ -131,9 +131,9 @@ Subscriptions can be removed at any time as long as that Subscription is not act
 
 
 
-    <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Subscriptions Status 
+    <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Subscriptions Status 
   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
  
 
 

@@ -5,9 +5,11 @@ import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 
 type IntroStyle = {
   sectionBg: string;
+  darkSectionBg?: string;
   headingColor: string;
   paraColor: string;
   buttonBg: string;
@@ -54,6 +56,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
 
   "cloud-finops-ai": {
     sectionBg: "#FAFAFA",
+    darkSectionBg:"#000000",
     headingColor: "#254D70",
     paraColor: "#141414",
     buttonBg: "white",
@@ -143,6 +146,8 @@ const CONTENT_CONFIG: Record<string, Record<string, IntroContent>> = {
 };
 
 export default function BuiltForIntro() {
+  const { theme } = useTheme();
+    const isDark = theme === "dark";
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
@@ -183,7 +188,9 @@ export default function BuiltForIntro() {
   return (
     <>
       <section
-        className={`relative w-full py-6  ${style.sectionBg}`}
+        className={`relative w-full py-6   `}
+
+          style={{ backgroundColor: isDark ? (style.darkSectionBg ?? "#000000") : style.sectionBg }}
       >
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-6xl">

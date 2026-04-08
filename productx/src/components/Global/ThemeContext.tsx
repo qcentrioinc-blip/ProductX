@@ -8,32 +8,56 @@ export const ThemeContext = createContext<ThemeContextType>({
   theme: 'light', toggleTheme: () => {},
 });
 
-const DARK_MODE_PAGES = [
-  "/industries/banking-and-finance/products/pago",
- "/industries/banking-and-finance/products/almanac",
- "/industries/banking-and-finance/products/loan-origination-system",
- "/industries/banking-and-finance/products/bankfair",
+const DARK_MODE_PATH_PREFIXES = [
+  "/industries/banking-and-finance/products/",
+  "/industries/cloud-finops-ai",
+  // "/industries/banking-and-finance",
+  
 ];
-
+const DARK_MODE_BLOCKED_PREFIXES = [
+  "/industries/banking-and-finance/built-for/",
+];
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
-  const isAllowed = DARK_MODE_PAGES.includes(location.pathname);
+  // const isAllowed = DARK_MODE_PATH_PREFIXES.some(prefix => location.pathname.startsWith(prefix));
+const isBlocked = DARK_MODE_BLOCKED_PREFIXES.some(prefix =>
+  location.pathname.startsWith(prefix)
+);
 
+const isAllowed = !isBlocked && DARK_MODE_PATH_PREFIXES.some(prefix =>
+  location.pathname.startsWith(prefix)
+);
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('theme') as Theme;
-    const isAllowedOnLoad = DARK_MODE_PAGES.includes(window.location.pathname);
+    const isAllowedOnLoad = DARK_MODE_PATH_PREFIXES.some(prefix => window.location.pathname.startsWith(prefix));
     return (saved === 'dark' && isAllowedOnLoad) ? 'dark' : 'light';
   });
 
   // Apply/remove dark class based on theme + page
+  // useEffect(() => {
+  //   const root = document.documentElement;
+  //   if (theme === 'dark' && isAllowed) {
+  //     root.classList.add('dark');
+  //   } else {
+  //     root.classList.remove('dark');
+  //   }
+  // }, [theme, isAllowed]);
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark' && isAllowed) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-  }, [theme, isAllowed]);
+  const root = document.documentElement;
+
+  if (isBlocked) {
+    root.classList.remove('dark');
+    setTheme('light');
+    localStorage.removeItem('theme');
+    return;
+  }
+
+  if (theme === 'dark' && isAllowed) {
+    root.classList.add('dark');
+  } else {
+    root.classList.remove('dark');
+  }
+}, [theme, isAllowed, isBlocked]);
 
   // Reset when navigating away from allowed page
   useEffect(() => {

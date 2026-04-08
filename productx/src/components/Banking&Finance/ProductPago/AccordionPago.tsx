@@ -11,7 +11,7 @@ const TABS = [
     description:
       "Process single transfer transactions for customers and non-customers. Supports credit transfers with complete validation and secure processing.",
     desc: "Service both account holders and walk-in customers for one-time payments. Ideal for person-to-person transfers and occasional payouts. ",
-    image: "/Physician/IC.webp",
+    image: "/Pago/point1.webp",
   },
   {
     id: "tab2",
@@ -19,7 +19,7 @@ const TABS = [
     description:
       " Handle bulk transactions for subsidies, dividends, salary, pension, utility bills, loan collections, and mutual fund investments. ",
     desc: "Upload batch files with standardized Excel format. System processes high volumes efficiently with configurable intervals and multiple batch support. ",
-    image: "/EHR-PMS/Physician/img.webp",
+    image: "/Pago/point2.webp",
   },
   {
     id: "tab3",
@@ -27,7 +27,7 @@ const TABS = [
     description:
       "Manage inbound NACHA transactions with automated reconciliation. Supports deferred settlement for better liquidity management across institutions. ",
     desc: "Receive and process incoming credit transfers from various sources. System matches transactions and updates settlement positions for complete tracking. ",
-    image: "/EHR-PMS/Physician/img.webp",
+    image: "/Pago/point3.webp",
   },
 ];
 
@@ -97,7 +97,7 @@ const AccordionPago = () => {
 
         {/* GRID */}
         <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-0 px-4 pb-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%] gap-14 items-start h-full">
+          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%]  items-start h-full">
 
             {/* LEFT TABS */}
             <motion.ul
@@ -130,7 +130,7 @@ const AccordionPago = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -6 }}
                                 transition={{ duration: 0.3 }}
-                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden  bg-gray-200"
+                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden   "
                                 style={{ minHeight: 180 }}
                               >
                                 {/* <HoverExpandImage
@@ -139,7 +139,13 @@ const AccordionPago = () => {
                                   className="w-full object-contain border border-gray-200 shadow-lg"
                                 /> */}
                                 {/* Placeholder — remove when HoverExpandImage is uncommented */}
-                                <div className="w-full h-44 bg-gray-200  rounded-xl" />
+                                {/* <div className="w-full h-44    rounded-xl" /> */}
+                                <img
+  src={activeTab.image}
+  alt={activeTab.title}
+  className="h-full w-full object-cover rounded-xl"
+/>
+
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -210,6 +216,11 @@ const AccordionPago = () => {
                   alt="Clinical feature preview"
                   className="h-full w-full bg-gray-100 object-contain"
                 /> */}
+                <img
+  src={activeTab.image}
+  alt={activeTab.title}
+  className="h-full w-full object-fill rounded-xl"
+/>
               </motion.div>
             </AnimatePresence>
 

@@ -1,6 +1,7 @@
 import { H2, H3, P } from "../../../styles/Typography";
 import { useParams } from "react-router-dom";
 import type { ReactNode } from "react";
+import { useTheme } from "../ThemeContext";
 /* ================= TYPES ================= */
 
 type SplitContent = {
@@ -17,6 +18,7 @@ type SplitContent = {
 
 type Theme = {
   sectionBg: string;
+  darksectionBg: string;
   headingPrimaryColor: string;
   headingSecondaryColor: string;
   paragraphColor: string;
@@ -31,6 +33,7 @@ type Theme = {
 const THEMES: Record<string, Theme> = {
   "banking-and-finance": {
     sectionBg: "white",
+    darksectionBg: "#000000",
     imageSrc: "/BuiltFor/img2.png",
     headingPrimaryColor: "#2B68C3",
     headingSecondaryColor: "#2A2A2A",
@@ -50,6 +53,7 @@ const THEMES: Record<string, Theme> = {
     sectionBg: "",
     imageSrc: "/BuiltFor/ModernCare-Image.webp",
     headingPrimaryColor: "#008280",
+     darksectionBg: "#000000",
     headingSecondaryColor: "#F5F5F5",
     paragraphColor: "#141414",
     bulletColor: "#efefef",
@@ -64,6 +68,7 @@ const THEMES: Record<string, Theme> = {
 
   "high-tech": {
     sectionBg: "#230053",
+     darksectionBg: "#000000",
     imageSrc: "/BuiltFor/img2.png",
     headingPrimaryColor: "#F5F5F5",
     headingSecondaryColor: "#F99526",
@@ -80,6 +85,7 @@ const THEMES: Record<string, Theme> = {
 
   "cloud-finops-ai": {
     sectionBg: "white",
+     darksectionBg: "#000000",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
     headingPrimaryColor: "#254D70",
     headingSecondaryColor: "#254D70",
@@ -285,12 +291,14 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 /* ================= COMPONENT ================= */
 
 export default function SplitFeature() {
+  const { theme: mode } = useTheme(); // "light" | "dark"
+const isDark = mode === "dark";
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
 
-  const theme =
+ const themeConfig =
     THEMES[industry ?? "banking-and-finance"] ??
     THEMES["banking-and-finance"];
 
@@ -302,7 +310,14 @@ export default function SplitFeature() {
   if (!content) return null;
 
   return (
-    <section className={`w-full    ${theme.sectionBg}`}>
+   <section
+  className="w-full"
+  style={{
+    backgroundColor: isDark
+      ? themeConfig.darksectionBg ?? "#0f172a"
+      : themeConfig.sectionBg,
+  }}
+>
       <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-10 items-center">
 
         {/* LEFT IMAGE */}
@@ -324,14 +339,14 @@ export default function SplitFeature() {
                 : "font-bricolage"
               }`}
           >
-            <span style={{ color: theme.headingPrimaryColor }}>
+            <span style={{ color: themeConfig.headingPrimaryColor }}>
               {content.headingPrimary}
             </span>
           </H2>
 
 
           {/* PARAGRAPH */}
-          <P className={`mt-4  mx-auto lg:max-w-lg xl:mx-0 ${theme.paragraphColor}`}>
+          <P className={`mt-4  mx-auto lg:max-w-lg xl:mx-0 ${themeConfig.paragraphColor}`}>
             {content.paragraph}
           </P>
 
@@ -344,16 +359,16 @@ export default function SplitFeature() {
               >
                 <div
                   className={`rounded-full  w-14 h-14 flex items-center justify-center flex-shrink-0`}
-                  style={{ backgroundColor: theme.bulletColor }}
+                  style={{ backgroundColor: themeConfig.bulletColor }}
                 >
                   <img
-                    src={content.bulletIcons?.[index] ?? theme.bulletIcons[index]}
+                    src={content.bulletIcons?.[index] ?? themeConfig.bulletIcons[index]}
                     alt={content.bulletPoints[index]}
                     className="w-full h-full p-3 "
                   />
 
                 </div>
-                <P className={`${theme.paragraphColor} text-left`}>
+                <P className={`${themeConfig.paragraphColor} text-left`}>
                   {text}
                 </P>
               </div>
@@ -364,11 +379,11 @@ export default function SplitFeature() {
           <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
-                <H3 className={`text-[${theme.statsColor}] ${industry === "ehr-and-pms"
+                <H3 className={`text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"
                     ? "font-bricolageEHR"
                     : "font-bricolage"
                   }`}>{stat.value}</H3>
-                <P className={`mt-2 ${theme.paragraphColor}`}>
+                <P className={`mt-2 ${themeConfig.paragraphColor}`}>
                   {stat.label}
                 </P>
               </div>

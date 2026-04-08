@@ -7,7 +7,7 @@ const upport = () => {
      Support
         </h1>
       
-      <p className="font-quicksand text-base text-gray-700 leading-relaxed">For any assistance with issues or configuration, please contact support at <a className="text-blue-500" href="mailto:support@clouddiet.ai">support@clouddiet.ai</a>
+      <p className="font-quicksand dark:text-white text-base text-gray-700 leading-relaxed">For any assistance with issues or configuration, please contact support at <a className="text-blue-500" href="mailto:support@clouddiet.ai">support@clouddiet.ai</a>
 
  
 

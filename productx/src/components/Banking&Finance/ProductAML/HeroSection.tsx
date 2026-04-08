@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="flex flex-col justify-between p-4  lg:p-6 xl:p-16 ">
 
             {/* White floating card */}
-            <div className="bg-gray-100 text-[#141414] p-6 rounded-xl shadow-md ">
+            <div className="bg-gray-100 dark:bg-gray-800 text-[#141414] p-6 rounded-xl shadow-md ">
               <P className="leading-relaxed max-w-2xl ">
                ALMANAC integrates risk management, liquidity forecasting, and regulatory reporting into a single platform for financial institutions. 
               </P>

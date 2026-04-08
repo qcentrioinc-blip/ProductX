@@ -48,11 +48,11 @@ const HWD = () => {
 
     },
     banking: {
-      topBg: "#F5F5F5",
-      bottomBg: "#FFFFFF",
-      headingColor: "#2B68C3",
-      textcolor: "#000000",
-      CheckColor: "#254D70"
+     topBg: isDark ? "#1a1a2e" : "#F5F5F5",
+      bottomBg: isDark ? "#0f0f1a" : "#FFFFFF",
+      headingColor: isDark ? "#5b9cf6" : "#2B68C3",
+      textcolor: isDark ? "#e0e0e0" : "#000000",
+      CheckColor: isDark ? "#5b9cf6" : "#254D70",
     },
 
     hightech: {
@@ -939,7 +939,7 @@ const HWD = () => {
               <h2
                 className={`text-[#2A2A2A] ${headingFontClass}
        text-[24px] md:text-[32px] lg:text-[48px] leading-none`}
-                style={{ color: isDark && isPAGO ? "#2B68C3" : "#2A2A2A" }}
+                style={{ color: headingColor }}
               >
                 {headingContent.title}
               </h2>

@@ -64,7 +64,7 @@ const BuiltForMenu = ({
         isScrolled ? (showTopBar ? "top-[120px]" : "top-[85px]") : "top-[136px]"
       }
       translate-y-1 -translate-x-1/2
-      bg-white px-24 py-10 shadow-xl z-[9998]
+      bg-white dark:bg-gray-800 px-24 py-10 shadow-xl z-[9998]
       transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
       ${
         isScrolled
@@ -72,7 +72,7 @@ const BuiltForMenu = ({
           : "w-[88%] max-w-8xl rounded-xl"
       }`}
     >
-      <H3>Solutions Built for Financial Institutions</H3>
+      <H3 className="dark:text-white">Solutions Built for Financial Institutions</H3>
 
       <P className="text-gray-700 text-lg mt-2 mb-4">
         Tailored banking platforms for every type of institution
@@ -89,9 +89,9 @@ const BuiltForMenu = ({
               onLinkClick?.();
               document.body.style.overflow = "auto";
             }}
-            className="block cursor-pointer pointer-events-auto hover:bg-gray-100 p-2 rounded-lg transition-colors"
+            className="block cursor-pointer pointer-events-auto hover:bg-gray-100 dark:hover:bg-transparent p-2 rounded-lg transition-colors"
           >
-            <h3 className="text-lg font-quicksand font-bold text-gray-900 mb-1">
+            <h3 className="text-lg dark:text-white font-quicksand font-bold text-gray-900 mb-1">
               {item.title}
             </h3>
 

@@ -50,9 +50,9 @@ export default function ConsilierCard() {
     ];
 
     return (
-        <section className="w-full bg-white py-4">
+        <section className="w-full bg-white dark:bg-black py-4">
             <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
-                <H1 className="text-center mb-12">
+                <H1 className="text-center  dark:text-whitemb-12">
                     Why Conciliare
                 </H1>
 
@@ -78,7 +78,7 @@ export default function ConsilierCard() {
                                 />
                             </div>
 
-                            <H4 className="mt-2">{card.title}</H4>
+                            <H4 className="mt-2 dark:text-[#2B68C3]">{card.title}</H4>
 
                             <P className="text-gray-800 mt-3">
                                 {card.description}

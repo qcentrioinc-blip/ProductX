@@ -12,10 +12,10 @@ const Service: React.FC = () => {
         </h1>
 
       
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">CloudDIET uses Service Principals to securely and auditably access your Azure environment.   </p>
+ <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">CloudDIET uses Service Principals to securely and auditably access your Azure environment.   </p>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Adding Credentials to CloudDIET </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+  <h3 className="font-bricolage  text-xl lg:text-2xl my-4 dark:text-white">  Adding Credentials to CloudDIET </h3>
+ <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 Create Service Principals in Azure Active Directory using the Onboarding Guide. Then add their credentials in CloudDIET settings. Most customers use one Service Principal, but multiple are supported. Each Azure Subscription must link to only one Service Principal, but different Subscriptions may use different ones.   </p>
 
@@ -28,7 +28,7 @@ Create Service Principals in Azure Active Directory using the Onboarding Guide. 
 
       
 <div className="my-6">
-      <div className="flex border border-gray-300 rounded-md overflow-hidden bg-white shadow-sm">
+      <div className="flex border  border-gray-300 rounded-md overflow-hidden bg-white shadow-sm">
         
         {/* LEFT BLUE BAR */}
         <div className="w-22 bg-gray-300 flex items-center justify-center pt-4">
@@ -64,13 +64,13 @@ Create Service Principals in Azure Active Directory using the Onboarding Guide. 
       </div>
     </div>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4">   Updating Secrets  </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+  <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">   Updating Secrets  </h3>
+ <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 You can rotate Service Principal secrets anytime in CloudDIET settings. Once saved, secrets are not visible but can be updated again later.  </p>
 
-    <h3 className="font-bricolage  text-xl lg:text-2xl my-4">   Removing Credentials   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+    <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">   Removing Credentials   </h3>
+ <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Removed credentials cannot be recovered. 
 
@@ -107,7 +107,7 @@ Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Re
           </h3> */}
 
           {open && (
-            <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+            <p className="font-quicksand  text-base text-gray-700 leading-relaxed">
         To change credentials linked to a Subscription: First create a new Service Principal, then update the Subscription in CloudDIET. Do not delete and re-add the Subscription, or profiling metadata will be lost. 
 
   
@@ -118,8 +118,8 @@ Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Re
     </div>
 
 
-<h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Auditing   </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+<h3 className="font-bricolage  text-xl dark:text-white lg:text-2xl my-4">  Auditing   </h3>
+ <p className="font-quicksand dark:text-white text-base text-gray-700 leading-relaxed">
 
 Service Principal activity can be audited in Azure Active Directory using native tools like Sign-in logs. 
 </p>  

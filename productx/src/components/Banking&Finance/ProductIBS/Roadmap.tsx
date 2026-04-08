@@ -65,7 +65,7 @@ const ICONS = [<RegistrationSVG />, <AccountSVG />, <PaymentSVG />, <CoinSVG />,
 const PILL_LABELS = ["Self Registration", "Account Services", "Transaction Controls", "Payee Management", "Utility Bill Payment", "Dashboard Overview"];
 
 const Pill = ({ label }: { label: string }) => (
-    <div style={{ width: PW, height: PH, flexShrink: 0, position: "relative", top: "80px", backgroundColor: "#ffffff", border: "1.5px solid #c8d6ea", borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13.5, color: "#1a3468", lineHeight: 1.45, textAlign: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.07)" }}>
+    <div className="bg-white dark:bg-slate-950" style={{ width: PW, height: PH, flexShrink: 0, position: "relative", top: "80px", border: "1.5px solid #c8d6ea", borderRadius: 40, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 13.5, color: "#1a3468", lineHeight: 1.45, textAlign: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.07)" }}>
         <P>{label}</P>
     </div>
 );
@@ -89,8 +89,8 @@ const ConnectorLines = () => (
 
 /* ─── Roadmap Component ──────────────────────────────────────────────── */
 const Roadmap = () => (
-    <div style={{
-        backgroundColor: "#eef2f9",
+    <div className=" bg-[#eef2f9] dark:bg-black" style={{
+        
         minHeight: "auto",
         display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
@@ -104,7 +104,7 @@ const Roadmap = () => (
         <div className="hidden lg:block" style={{ margin: "0 0 52px" }}>
             <H1 style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
                 <span style={{ color: "#2B68C3" }}>Key Modules of</span>
-                <span style={{ color: "#111827" }}> the Platform</span>
+                <span className="dark:text-white text-[#111827]"  > the Platform</span>
             </H1>
         </div>
 
@@ -149,7 +149,7 @@ const Roadmap = () => (
             ))}
             {YS.map((y, i) => (
                 <div key={`lp${i}`} style={{ position: "absolute", left: L_PILL_X, top: y - IH / 2 - 10 - PH, zIndex: 6 }}>
-                    <Pill label={PILL_LABELS[i]} />
+                    <Pill  label={PILL_LABELS[i]} />
                 </div>
             ))}
             {YS.map((y, i) => (

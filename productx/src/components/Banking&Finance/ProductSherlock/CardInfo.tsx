@@ -2,7 +2,7 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 export default function CardInfo() {
   return (
-    <section className="w-full pb-10 ">
+    <section className="w-full dark:bg-black pb-10 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Heading */}
@@ -25,7 +25,7 @@ export default function CardInfo() {
               />
             </div>
 
-            <H4 className="mb-3">
+            <H4 className="mb-3 dark:text-white">
               Risk <br /> Management & Compliance
             </H4>
 
@@ -44,7 +44,7 @@ export default function CardInfo() {
               />
             </div>
 
-            <H4 className="mb-3">
+                  <H4 className="mb-3 dark:text-white">
               Liquidity <br /> Forecasting & Planning
             </H4>
 
@@ -63,7 +63,7 @@ export default function CardInfo() {
               />
             </div>
 
-            <H4 className="mb-3">
+                <H4 className="mb-3 dark:text-white">
               Strategic Analytics
             </H4>
 

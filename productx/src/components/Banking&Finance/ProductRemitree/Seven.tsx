@@ -54,7 +54,8 @@ const Seven = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[750px] bg-white font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
+    <section className="w-full bg-white dark:bg-slate-800 py-4">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[750px] dark:bg-slate-800 bg-white font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
 
       {/* Header Area */}
       <div className="w-full max-w-7xl mx-auto bg-[#2E68C6] py-3 text-center shadow-sm relative z-10 flex items-center justify-center">
@@ -67,6 +68,13 @@ const Seven = () => {
       <div className="w-full overflow-x-auto pb-8 hide-scrollbar">
         {/* Main Flowchart Wrapper - Fixed width to perfectly fit inside max-w-7xl without truncating. Removing mx-auto ensures the left side is fully scrollable safely on small mobile screens. */}
         <div className="w-[1200px] min-w-[1200px] relative h-[600px]">
+
+          <style>{`
+            @keyframes flowShimmer {
+              0% { left: -40%; }
+              100% { left: 110%; }
+            }
+          `}</style>
 
           {/* ========================================= */}
           {/* SVG LAYER (Connecting Lines and Arrows) */}
@@ -81,21 +89,6 @@ const Seven = () => {
 
             {/* Vertical Separator Line connecting perfectly to the blue header */}
             <line x1={SEP_X} y1="0" x2={SEP_X} y2="550" stroke="black" strokeWidth="2.5" strokeDasharray="6,4" />
-
-            {/* Main Flow Lines (Solid) */}
-            {/* x1 and x2 push 3px into the blue circles (+22 / -22) ensuring a flawless 100% gapless connection */}
-            {mainFlowLines.map((line, idx) => (
-              <line
-                key={idx}
-                x1={X_POS[line.from] + 22}
-                y1={MAIN_Y}
-                x2={X_POS[line.to] - 22}
-                y2={MAIN_Y}
-                stroke="black"
-                strokeWidth="2.5"
-                markerEnd="url(#arrowhead)"
-              />
-            ))}
 
             {/* Node 3A to Sherlock Connection (Dashed Downward) */}
             <line x1={X_POS.n3A} y1={MAIN_Y + 22} x2={X_POS.n3A} y2={NODE_2A_Y + 5} stroke="black" strokeWidth="2.5" strokeDasharray="8,5" markerEnd="url(#arrowhead)" />
@@ -119,6 +112,37 @@ const Seven = () => {
           {/* HTML LAYER (Nodes, Labels, Icons)         */}
           {/* Z-10 ensures circles overlap the SVG line ends */}
           {/* ========================================= */}
+
+          {/* Main Flow Lines 1 to 7 (with animated shimmer matching Exception.tsx) */}
+          {mainFlowLines.map((line, idx) => {
+            const startX = X_POS[line.from] + 22;
+            const endX = X_POS[line.to] - 22;
+            const lineWidth = endX - startX;
+            return (
+              <div
+                key={`flow-${idx}`}
+                className="absolute flex items-center -translate-y-1/2 z-0"
+                style={{
+                  left: startX,
+                  top: MAIN_Y,
+                  width: lineWidth
+                }}
+              >
+                <div className="h-[3px] bg-black flex-grow relative overflow-hidden">
+                  <div 
+                    className="absolute top-0 bottom-0 bg-white opacity-80"
+                    style={{
+                      width: '40%',
+                      boxShadow: '0 0 8px 1px white',
+                      animation: 'flowShimmer 1.2s linear infinite',
+                      animationDelay: `${idx * 0.25}s`
+                    }}
+                  />
+                </div>
+                <div className="w-0 h-0 border-y-[7px] border-y-transparent border-l-[13px] border-l-black shrink-0 relative z-10"></div>
+              </div>
+            );
+          })}
 
           {/* Main Flow Nodes 1 to 7 */}
           {nodes.map((node) => (
@@ -182,6 +206,7 @@ const Seven = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

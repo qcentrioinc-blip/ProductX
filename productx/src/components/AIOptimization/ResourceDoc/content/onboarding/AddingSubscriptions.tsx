@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { P } from "../../../../../styles/Typography";
 
  
   
@@ -12,7 +13,7 @@ const AddingSubscriptions: React.FC = () => {
             Adding Subscriptions
         </h1>
 
-        <p className="font-quicksand text-lg leading-tight tracking-wide">Once you have added at least one Service Principal in CloudDIET, you can add your Azure Subscriptions.  </p>
+        <P className="font-quicksand text-lg leading-tight tracking-wide">Once you have added at least one Service Principal in CloudDIET, you can add your Azure Subscriptions.  </P>
         <div className="my-6">
       <div className="flex border border-gray-300 rounded-md overflow-hidden bg-white shadow-sm">
         
@@ -40,16 +41,16 @@ const AddingSubscriptions: React.FC = () => {
           </h3> */}
 
           {open && (
-            <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+            <P className="font-quicksand text-base text-gray-700 leading-relaxed">
               You must have completed the previous Adding Service Principals steps before proceeding.
-            </p>
+            </P>
           )}
         </div>
       </div>
     </div>
 
-     <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Configuration Steps  </h2>
-         <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
+     <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl dark:text-white  my-4">Configuration Steps  </h2>
+         <ol className="list-decimal dark:text-white list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>  Log in to CloudDIET and navigate to Settings </li>
   <img  className="xl:pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs1.webp" alt="" />
 

@@ -45,7 +45,7 @@ const UseCases = () => {
 
 
   return (
-    <section className="w-full bg-[#F5F5F5] py-10 px-4 sm:px-6 lg:px-12">
+    <section className="w-full bg-[#F5F5F5] dark:bg-black py-10 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
 
         {/* SECTION HEADING */}
@@ -54,7 +54,7 @@ const UseCases = () => {
         </H2>
 
         {/* TABS */}
-        <div className=" hidden lg:block sticky top-16 z-30 bg-[#F5F5F5] py-4">
+        <div className=" hidden lg:block sticky top-16 z-30  py-4">
           <div className="flex justify-center gap-4">
             {TABS.map(tab => {
               const isActive = activeTab === tab.id;

@@ -201,7 +201,10 @@ const Description = () => {
               <div className="flex flex-col absolute top-8 right-8 xl:top-[10%] xl:right-0 border-2 border-neutral-300 rounded-md bg-white p-6 min-w-[200px] min-h-[240px] xl:min-h-[280px] max-w-[460px]">
                   <div className=" flex flex-col space-y-6">
             <H4>{contentData[activeIndex].head}</H4>
-            <P className="text-[#141414]">{contentData[activeIndex].para}</P>
+            <div className="dark:bg-gray-900 dark:p-4 rounded-lg">
+               <P className="text-[#141414]">{contentData[activeIndex].para}</P>
+            </div>
+           
              
             <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
               <img src="/CheckIcon.svg" alt="alt"/>
