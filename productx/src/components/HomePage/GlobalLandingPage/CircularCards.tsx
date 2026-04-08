@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { H1 } from "../../../styles/Typography";
 import FallingGridBg from "./FallingGridBg";
+import Navbar from "../../Global/Navbar/Navbar";
 
 
 // ── 4 industries (tabs) ───────────────────────────────────────────────────────
@@ -326,6 +327,7 @@ export default function CircularCards() {
       const cd = countdowns[card.industryIndex];
 
       return (
+        <>
         <div
           key={index}
           style={style}
@@ -420,15 +422,24 @@ export default function CircularCards() {
             </>
           )}
         </div>
+        </>
       );
+      
     });
 
   return (
+    <>
+            
+
     <div className="relative overflow-hidden  ">
+      <div className="absolute top-0 left-0 right-0 z-50 w-full">
+  <Navbar />
+</div>
+      
      <FallingGridBg >
         <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 
-          <div className="mt-16 text-center px-4">
+          <div className="mt-26 text-center px-4">
             <H1 className="text-white">Shaping The Future Across Every Sector</H1>
           </div>
 
@@ -501,5 +512,6 @@ export default function CircularCards() {
         </div>
       </FallingGridBg>
     </div>
+    </>
   );
 }
