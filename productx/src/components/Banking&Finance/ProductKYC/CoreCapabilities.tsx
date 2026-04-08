@@ -4,10 +4,10 @@ import { H2 } from "../../../styles/Typography";
 
 export default function CoreCapabilities() {
   return (
-    <section className="w-full bg-white px-6 lg:px-20 text-center">
+    <section className="w-full bg-white  dark:bg-black px-6 py-6 lg:px-20 text-center">
       
       {/* Title */}
-      <H2 className=" text-gray-900 mb-4 xl:mb-12">
+      <H2 className=" text-gray-900 dark:text-white mb-4 xl:mb-12">
         Platform Capabilities
       </H2>
 

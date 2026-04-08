@@ -310,7 +310,7 @@ export default function CircleSec() {
         style={{ height: `${COUNT * 100}vh` }}
         className="relative"
       >
-        <div className="sticky top-0 py-8 md:py-10 bg-white xl:bg-transparent">
+        <div className="sticky top-0 py-8 md:py-10 bg-white xl:bg-transparent xl:dark:bg-black">
           <div className="w-full px-4 sm:px-6 xl:px-20 max-w-7xl mx-auto">
 
             <H1 className="text-[#2f5fb3] mb-4 md:mb-6 text-center text-lg md:text-3xl font-bold leading-tight">

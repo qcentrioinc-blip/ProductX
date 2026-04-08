@@ -185,7 +185,7 @@ const ImageCard: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="pt-10">
+    <section className="pt-10 dark:bg-black">
       <div className="max-w-7xl mx-auto xl:max-w-8xl pb-10 xl:mx-auto px-4 sm:px-6 xl:px-0">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
           <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">

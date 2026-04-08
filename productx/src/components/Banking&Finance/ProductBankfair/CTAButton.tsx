@@ -24,25 +24,25 @@ const CTAButton: React.FC<CTAButtonProps> = () => {
 
 export default function Section() {
   return (
-    <section className="bg-[#F4F5FC] py-10">
+    <section className="bg-[#F4F5FC] dark:bg-black py-10">
       <div className="max-w-7xl mx-auto xl:px-0 px-6">
         <div className="grid xl:grid-cols-2 gap-10 items-center">
 
           {/* LEFT CARD */}
-          <div className="bg-white rounded-2xl p-4 md:p-6 flex flex-col sm:flex-row justify-between sm:space-x-8 space-y-6 sm:space-y-0 min-h-[420px]">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 md:p-6 flex flex-col sm:flex-row justify-between sm:space-x-8 space-y-6 sm:space-y-0 min-h-[420px]">
             <div className="flex flex-col justify-between">
               <div>
-                <button className="border text-[#2B68C3] border-[#141414] font-quicksand text-[18px] xl:text-[22px] px-6 py-2 rounded-full mb-6">
+                <button className="border dark:border-gray-200 text-[#2B68C3] border-[#141414] font-quicksand text-[18px] xl:text-[22px] px-6 py-2 rounded-full mb-6">
                Configure Once
                 </button>
 
-                <p className="text-[16px] font-quicksand mb-8 max-w-full xl:max-w-md">
+                <p className="text-[16px] dark:text-white font-quicksand mb-8 max-w-full xl:max-w-md">
                  BankFair enables comprehensive configuration of banking rules and complete account lifecycle management from opening to closure.
                 </p>
               </div>
 
               <div>
-                <H4 className="text-2xl font-semibold mb-4">
+                <H4 className="text-2xl dark:text-white font-semibold mb-4">
                    Core Banking and Lifecycle Management
                 </H4>
                 <CTAButton label="Learn More" />
@@ -50,7 +50,7 @@ export default function Section() {
             </div>
 
             <img
-              src=""
+              src="/CTABUTTONBANKFAIR.webp"
               alt="img"
               className="w-full sm:w-[300px] sm:h-full xl:h-[550px] h-[250px] bg-gray-200 object-cover rounded-xl flex-shrink-0"
             />
@@ -58,12 +58,12 @@ export default function Section() {
 
           {/* RIGHT CONTENT */}
           <div className="flex flex-col justify-start items-start">
-            <H2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <H2 className="text-4xl md:text-5xl dark:text-white font-bold leading-tight mb-6">
              Account Services and<br />
               <span className="text-[#2B68C3]"> Lifecycle Management  </span>
             </H2>
 
-            <P className="mb-8 max-w-3xl xl:max-w-xl">
+            <P className="mb-8 max-w-3xl xl:max-w-xl ">
          Manage complete account lifecycle with standing instructions, lien markings, and limits. Handle inventory services including cheque books, cards, and certificates.
             </P>
             <P className="mb-8 max-w-3xl xl:max-w-xl">
@@ -110,17 +110,17 @@ export const AccordionItem: React.FC<Props> = ({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white rounded-xl p-5 w-full">
+    <div className="bg-white  dark:bg-slate-950 rounded-xl p-5 w-full">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex font-bricolage text-[18px] xl:text-[24px] justify-between items-center text-left font-medium"
       >
-        <span className="pr-4">{title}</span>
+        <span className="pr-4 dark:text-[#2B68C3]">{title}</span>
         <span className="text-xl flex-shrink-0">{open ? "-" : "+"}</span>
       </button>
 
       {open && (
-        <P className="mt-3 text-sm">
+        <P className="mt-3   text-sm">
           {content}
         </P>
       )}

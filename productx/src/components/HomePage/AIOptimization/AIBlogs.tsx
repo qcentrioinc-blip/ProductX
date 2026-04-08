@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { P } from "../../../styles/Typography";
  
 const AIBlogs = () => {
   const blogs = [
@@ -24,7 +25,7 @@ const AIBlogs = () => {
   ];
  
   return (
-    <section className="w-full overflow-hidden bg-white text-black pt-16 pb-16 px-4 sm:px-6 xl:px-16">
+    <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16 px-4 sm:px-6 xl:px-16">
       <div className="mx-auto max-w-8xl px-0 sm:px-4 xl:px-6">
  
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
@@ -61,8 +62,8 @@ const AIBlogs = () => {
     lineHeight: "110%",
   }}
 >
-  <span className="inline xl:block">Our </span>
-  <span className="inline xl:block">Resources</span>
+  <span className="inline xl:block dark:text-white">Our </span>
+  <span className="inline xl:block dark:text-white">Resources</span>
 </h2>
  
  
@@ -71,7 +72,7 @@ const AIBlogs = () => {
               <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 text-white bg-black rounded-lg    uppercase cursor-pointer"
+                  className="inline-flex items-center gap-2   text-white bg-black rounded-lg    uppercase cursor-pointer"
                   style={{
                     width: "157px",
                     height: "48px",
@@ -98,18 +99,12 @@ const AIBlogs = () => {
           {/* ========== RIGHT COLUMN ========== */}
           <div className="flex flex-col">
             {/* Top Description */}
-            <p
-              className="text-[16px] sm:text-[18px] xl:text-[22px]"
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontWeight: 400,
-                lineHeight: "130%",
-                letterSpacing: "0%",
-                color: "#141414",
-              }}
+            <P
+              className="text-[16px] dark:text-white sm:text-[18px] xl:text-[22px]"
+              
             >
               Explore expert articles on Azure optimization, FinOps best practices, and real-world savings strategies. Learn how CloudDIET's AI-driven profiling and advanced cost intelligence help reduce waste and maximize your cloud ROI.
-            </p>
+            </P>
  
             {/* Divider */}
             <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
@@ -160,13 +155,8 @@ const AIBlogs = () => {
                     {/* Content */}
                     <div className="mt-4 flex flex-col justify-between min-h-[110px]">
                       <h3
-                        className="text-[18px] sm:text-[20px] xl:text-[26px]"
-                        style={{
-                          fontFamily: "'Bricolage Grotesque', sans-serif",
-                          fontWeight: 700,
-                          lineHeight: "100%",
-                          color: "#2A2A2A",
-                        }}
+                        className="text-[22px] font-bricolage dark:text-white "
+                        
                       >
                         {blog.title}
                       </h3>

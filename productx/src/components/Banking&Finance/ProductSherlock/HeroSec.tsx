@@ -4,7 +4,7 @@ import { H1, P } from "../../../styles/Typography";
 
 export default function ContentInfo() {
   return (
-    <section className="w-full bg-[#2B68C3] overflow-hidden xl:h-screen relative">
+    <section className="w-full bg-[#2B68C3] dark:bg-black overflow-hidden xl:h-screen relative">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-0 pt-16 lg:pt-32 pb-10 grid lg:grid-cols-2 gap-12 items-center">
 
@@ -63,6 +63,7 @@ export default function ContentInfo() {
   xl:absolute xl:bottom-20 xl:left-[46%]
   lg:absolute lg:bottom-16 lg:left-[46%]
   z-20
+  dark:bg-slate-900
   bg-[#E6E6E6]
   rounded-xl
   shadow-md
@@ -72,13 +73,13 @@ export default function ContentInfo() {
   "
 >
   {/* Icon Circle */}
-  <div className="absolute -top-5 -left-5 w-12 h-12 bg-gray-600 border border-gray-400 rounded-full flex items-center justify-center shadow-md">
+  <div className="absolute -top-5 -left-5 w-12 h-12 bg-gray-600 border dark:bg-slate-950 border-gray-400 rounded-full flex items-center justify-center shadow-md">
     <img className="w-9 h-9"
     src="/ProductSherlock/icon24.svg"
     alt="Create Account"/>
   </div>
 
-  <p className="text-[#2B68C3] text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+  <p className="text-[#2B68C3] dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand
         leading-[120%]">
     Screens SWIFT messages and customer transactions against global watch

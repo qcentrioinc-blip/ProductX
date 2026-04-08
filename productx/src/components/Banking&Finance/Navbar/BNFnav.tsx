@@ -258,7 +258,7 @@ const BNFNav = () => {
       >
         
         <div
-          className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={`bg-white dark:bg-gray-300 dark:text-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${!showMainNav || (!showTopBar && isScrolled && hasHeroNav)
               ? 'w-full rounded-none scale-100 -translate-y-full delay-0'
@@ -298,14 +298,14 @@ const BNFNav = () => {
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
-                  <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
+                  <div className="bg-white  dark:bg-gray-800 shadow-xl rounded-md p-3 border border-gray-100/50">
                     {industryOptions.map((ind, index) => (
                       <Link
                         key={index}
                         to={ind.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                        className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-gray-600 hover:bg-gray-100 transition-all"
                       >
                         <img
                           src={ind.img}
@@ -313,10 +313,10 @@ const BNFNav = () => {
                           className="w-16 h-14 object-cover rounded-md"
                         />
                         <div className="flex flex-col">
-                          <h3 className="text-lg font-semibold font-quicksand text-gray-900">
+                          <h3 className="text-lg dark:text-white  font-semibold font-quicksand text-gray-900">
                             {ind.name}
                           </h3>
-                          <p className="text-gray-600 font-quicksand text-sm">
+                          <p className="text-gray-600  dark:text-white font-quicksand text-sm">
                             {ind.desc || "Click to explore"}
                           </p>
                         </div>
@@ -327,7 +327,7 @@ const BNFNav = () => {
               )}
             </div>
 
-            <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
+            <ul className="hidden lg:flex dark:text-white items-center gap-8 font-bold font-quicksand">
               {navItems.map((item) => (
                 <li key={item.name}>
                   {item.name === "Products" && (

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { useScroll } from "framer-motion"
 import { Check } from "lucide-react"
-import { P } from "../../../styles/Typography"
+import { H2, P } from "../../../styles/Typography"
 
 type FilterKey =
   | "Bank Setup  "
@@ -167,27 +167,19 @@ const Features = () => {
   const currentContent = tabContent[activeFilter]
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white dark:bg-black">
       <div className="w-full px-3.5 sm:px-4 md:px-5 pt-4">
 
       {/* Title Section */}
-      <div className="text-center max-w-[1360px] mx-auto mb-6 xl:mb-8">
-        <h1
-          className=" max-w-[1058px] mx-auto mb-2.5 xl:mb-4
-                     text-[24px] md:text-[32px] lg:text-[48px]
-
-      font-bricolage
-        leading-[120%]"
-          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-        >
-          <span style={{ color: '#2B68C3' }}>Powerful Features Designed for </span>{' '}
-          <span style={{ color: '#141414' }}>Comprehensive Banking Operations  </span>
-        </h1>
-
+      <div className="text-center max-w-6xl mx-auto mb-6 xl:mb-8">
+        <H2 className="text-[#2B68C3] mb-4 max-w-4xl mx-auto ">
+          Powerful Features Designed for <span className=" text-black dark:text-white">Comprehensive Banking Operations</span>
+        </H2>
+        
         <p
-          className="font-normal text-[#141414] leading-[140%] max-w-[750px] mx-auto
+          className="font-normal text-[#141414] dark:text-white leading-[140%] max-w-[750px] mx-auto
                      px-1 sm:px-2 xl:px-5
-                     text-[12px] sm:text-[13px] md:text-sm xl:text-base"
+                     text-[12px] sm:text-[18px]  "
           style={{ fontFamily: "'Quicksand', sans-serif" }}
         >
           Bankfair combines parameterization, automation, and security to streamline core banking and loan management for financial institutions of all sizes. 
@@ -196,7 +188,7 @@ const Features = () => {
       </div>
 
       <div ref={containerRef} className="w-full h-[200vh]">
-        <div className="sticky top-24 w-full px-3.5 sm:px-4 md:px-5 pb-4 bg-white z-10">
+        <div className="sticky top-24 w-full px-3.5 sm:px-4 md:px-5 pb-4 dark:bg-black bg-white z-10">
       {/* Tabs */}
       <div
         ref={navScrollRef}
@@ -252,7 +244,7 @@ const Features = () => {
 
             {/* Title: 20→22→24→26→32px */}
             <h2
-              className="font-bold text-[#141414] m-0 leading-none
+              className="font-bold text-[#141414] dark:text-[#2B68C3] m-0 leading-none
                          text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] xl:text-[32px]"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >

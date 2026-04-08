@@ -34,7 +34,7 @@ const SamsCompare = () => {
   ];
 
   return (
-    <div className="min-h-fit md:min-h-fit lg:min-h-fit xl:min-h-fit  bg-white pt-12 ">
+    <div className="min-h-fit md:min-h-fit lg:min-h-fit xl:min-h-fit dark:bg-black bg-white pt-12 ">
       <div className="max-w-8xl xl:mx-10 px-6">
         {/* Header */}
         {/* <div className="text-center mb-8">
@@ -56,7 +56,7 @@ const SamsCompare = () => {
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4 className="text-gray-800 dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
                Standard Out-of-Box MIS Reports for NPA and Account Monitoring
             </H4>
 
@@ -96,7 +96,7 @@ const SamsCompare = () => {
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4 className="text-gray-800  dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
     SMA and NPA Account Reporting with Flexible Export Options
             </H4>
 

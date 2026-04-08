@@ -8,7 +8,7 @@ const logos = [
   { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Banking", newTab: true },
   { img: "/ProductsLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai", tagline: "Cloud Optimization AI", newTab: true },
   { img: "/ProductsLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline: "AI Reconciliation", newTab: true },
-  { img: "/ProductsLogo/IBS.svg", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
+  { img: "/ProductsLogo/ibs.png", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
   { img: "/ProductsLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc", tagline: "Due Diligent", newTab: true },
   { img: "/ProductsLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline: "Loan Origination", newTab: true },
    { img: "/ProductsLogo/Pago.png", link: "/industries/banking-and-finance/products/pago", tagline: "Payment System", newTab: true },

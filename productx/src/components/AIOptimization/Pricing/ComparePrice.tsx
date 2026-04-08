@@ -1,4 +1,40 @@
+import { useState } from "react";
 import { H2, H3, P } from "../../../styles/Typography";
+import ContactModal from "../Navbar/ContactModal";
+ 
+
+export const ContactUsAI = ({ children, className = "", onClick }: { children: React.ReactNode; className?: string; onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) => {
+   
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (onClick) onClick(e);
+  };
+
+  return (
+    <div className="relative w-full" onClick={handleClick}>
+      <button
+        className={`
+          group
+          flex items-center justify-center
+          w-full h-[50px]
+          px-6
+          rounded-xl
+          font-quicksand font-medium text-base
+          
+          bg-[#1F2937] text-white
+          hover:bg-[#111827]
+
+          transition-all duration-300
+          ${className}
+        `}
+      >
+        <span className="flex items-center gap-2">
+          {children}
+        </span>
+      </button>
+    </div>
+  );
+};
 
 const ComparePrice = () => {
     const features = [
@@ -12,13 +48,16 @@ const ComparePrice = () => {
         { name: "Email Support", includedStarter: false, includedEnterprise: true },
         { name: "24/7 customer support", includedStarter: false, includedEnterprise: true },
     ];
+const [modalOpen, setModalOpen] = useState(false);
+ 
 
     return (
-        <div className="min-h-screen bg-white flex flex-col pt-10 lg:pt-0 items-center justify-center py-4 px-4 gap-6 md:gap-[32px]">
+        <section className="dark:bg-black">
+        <div className="min-h-screen max-w-7xl mx-auto     flex flex-col py-10     ">
             {/* Header Section */}
-            <div className="w-full max-w-[1320px] flex flex-col items-center gap-6 md:gap-[32px] px-4">
+            <div className="w-full flex flex-col   gap-6  ">
                 <div className="text-center">
-                    <H2 className="text-[#141414] leading-tight md:leading-none mb-3 md:mb-4">
+                    <H2 className="text-[#141414] dark:text-white leading-tight md:leading-none mb-3 md:mb-4">
                         Find Your Perfect Plan
                     </H2>
                     <P className="text-[#141414] leading-relaxed md:leading-[34px] text-center max-w-full md:max-w-[758px] mx-auto px-2">
@@ -27,15 +66,15 @@ const ComparePrice = () => {
                 </div>
 
                 {/* Pricing Table */}
-                <div className="w-full max-w-[1320px] bg-white rounded-3xl md:rounded-[64px] border border-[#E6E9F5] overflow-hidden relative">
+                <div className="w-full max-w-full bg-amber-50 dark:bg-slate-800 rounded-3xl md:rounded-[64px] border border-slate-600 overflow-hidden relative">
 
                     {/* Desktop View - Grid Layout */}
-                    <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px]">
+               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible p-6 gap-4">
 
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] leading-tight">
+                                <H3 className=" text-[#252430] dark:text-white leading-tight">
                                     Compare plans
                                 </H3>
                                 <P className="text-[#141414] leading-relaxed max-w-[280px]">
@@ -45,7 +84,7 @@ const ComparePrice = () => {
 
                             <div className="flex-1 flex flex-col justify-between py-4 md:py-6">
                                 {features.map((feature, index) => (
-                                    <div key={index} className="flex items-center min-h-[50px] py-2 md:py-0 font-['Quicksand'] font-normal text-sm md:text-base lg:text-[18px] text-[#252430] leading-none border-b border-gray-300">
+                                    <div key={index} className="flex items-center min-h-[50px] py-2 md:py-0 font-['Quicksand'] font-normal text-sm md:text-base lg:text-[18px] dark:text-white text-[#252430] leading-none border-b border-gray-300">
                                         {feature.name}
                                     </div>
                                 ))}
@@ -55,10 +94,10 @@ const ComparePrice = () => {
                         </div>
 
                         {/* Middle Column - Starter */}
-                        <div className="h-full p-6 md:p-[40px] border border-[#E7EBFF] rounded-[26px] bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
+                        <div className="h-full p-6 md:p-[40px] border border-gray-400 rounded-[26px] dark:bg-slate-950 bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] leading-tight">Starter</H3>
-                                <P className="text-[#141414] leading-relaxed">
+                                <H3 className=" text-[#252430] dark:text-white leading-tight">Starter</H3>
+                                <P className="text-[#141414] dark:text-gray-300 leading-relaxed">
 
                                     Ideal for small to mid-sized teams beginning their Azure cost optimization journey.
                                 </P>
@@ -99,20 +138,28 @@ const ComparePrice = () => {
                             </div>
 
                             <div className="mt-6 md:mt-8 h-[50px] md:h-[60px]">
-                                <button className="w-full bg-[#1F2937] hover:bg-[#111827] text-white font-medium py-2.5 md:py-3.5 px-4 md:px-6 rounded-lg md:rounded-xl transition-colors text-sm md:text-base hover:cursor-pointer">
-                                    Get Started
-                                </button>
+<ContactUsAI onClick={() => setModalOpen(true)}>
+  Get Started
+</ContactUsAI>
                             </div>
                         </div>
 
                         {/* Right Column - Enterprise */}
                         <div
-                            className="h-full p-6 md:p-[40px] rounded-[26px] flex flex-col relative overflow-hidden"
-                            style={{
-                                background: '#FFFFFF',
-                                border: '1px solid #E7EBFF',
-                                boxShadow: '0px 26px 40px 0px rgba(188, 202, 255, 0.13)'
-                            }}
+                           className="h-full p-6 md:p-[40px] rounded-[46px] rounded-br-[52px]  flex flex-col relative overflow-hidden
+           transition-all duration-300 ease-out
+           bg-[#D6E4F7] dark:bg-transparent
+           hover:shadow-[0px_40px_80px_rgba(106,138,255,0.35)]
+           hover:border-[#4A6BFF]"
+                          style={{
+  
+  border: "2px solid #185FA5",
+  
+  
+  boxShadow: "0 8px 32px rgba(24,95,165,0.2)",
+  zIndex: 10,
+  position: "relative",
+}}
                         >
                             {/* Decorative Gradient Arc - LEFT side */}
                             <div
@@ -231,9 +278,9 @@ const ComparePrice = () => {
                                 </div>
 
                                 <div className="mt-6 md:mt-8 h-[50px] md:h-[60px]">
-                                    <button className="w-full bg-[#1F2937] hover:bg-[#111827] text-white font-medium py-2.5 md:py-3.5 px-4 md:px-6 rounded-lg md:rounded-xl transition-colors text-sm md:text-base hover:cursor-pointer">
-                                        Get Started
-                                    </button>
+                                   <ContactUsAI onClick={() => setModalOpen(true)}>
+  Get Started
+</ContactUsAI>
                                 </div>
                             </div>
                         </div>
@@ -243,7 +290,7 @@ const ComparePrice = () => {
                     <div className="lg:hidden flex flex-col">
 
                         {/* Compare Plans Header for Mobile */}
-                        <div className="p-10 md:px-16 md:py-6 border-b border-[#E6E9F5]">
+                        <div className="p-10 md:px-16 md:py-6 border-b border-gray-200">
                             <H3 className=" text-[#252430] leading-tight mb-3">
                                 Compare plans
                             </H3>
@@ -301,9 +348,9 @@ const ComparePrice = () => {
                             </div>
 
                             <div className="mt-8">
-                                <button className="w-full bg-[#1F2937] hover:bg-[#111827] text-white font-medium py-3.5 px-6 rounded-xl transition-colors hover:cursor-pointer">
-                                    Get Started
-                                </button>
+                               <ContactUsAI onClick={() => setModalOpen(true)}>
+  Get Started
+</ContactUsAI>
                             </div>
                         </div>
 
@@ -352,16 +399,19 @@ const ComparePrice = () => {
                                 </div>
 
                                 <div className="mt-8">
-                                    <button className="w-full bg-[#1F2937] hover:bg-[#111827] text-white font-medium py-3.5 px-6 rounded-xl transition-colors hover:cursor-pointer">
-                                        Get Started
-                                    </button>
+                                   <ContactUsAI onClick={() => setModalOpen(true)}>
+  Get Started
+</ContactUsAI>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+               <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+                  
         </div>
+        </section>
     );
 };
 

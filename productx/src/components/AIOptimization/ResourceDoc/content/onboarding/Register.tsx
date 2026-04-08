@@ -11,7 +11,7 @@ const Register: React.FC = () => {
             Register
         </h1>
 
-        <p className="font-quicksand text-lg leading-tight tracking-wide">Create your CloudDIET account.  </p>
+        <p className="font-quicksand text-lg leading-tight tracking-wide dark:text-white">Create your CloudDIET account.  </p>
     
     </div>
   );

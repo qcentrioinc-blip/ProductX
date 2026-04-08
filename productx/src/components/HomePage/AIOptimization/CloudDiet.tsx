@@ -1,12 +1,13 @@
 import { useState } from "react";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import { ContactUs } from "../../../styles/Button";
+import { H2 } from "../../../styles/Typography";
  
 const CloudDiet = () => {
     const [modalOpen, setModalOpen] = useState(false);
     return (
         <>
-            <section className="relative w-full  overflow-hidden bg-[#fafafa] px-6 sm:px-8 xl:px-16 py-12 sm:py-16 xl:py-10">
+            <section className="relative w-full  overflow-hidden bg-[#fafafa] dark:bg-black px-6 sm:px-8 xl:px-16 py-12 sm:py-16 xl:py-10">
                 <div className="mx-auto max-w-8xl px-2 sm:px-4 xl:px-6 relative">
  
                     <div className="grid xl:grid-cols-2 gap-10 xl:gap-12 items-center">
@@ -28,17 +29,12 @@ const CloudDiet = () => {
                             </p>
  
                             {/* Main Heading */}
-                            <h1
-                                className="text-[32px] sm:text-[42px] md:text-[48px] xl:text-[64px]"
-                                style={{
-                                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                                    fontWeight: 600,
-                                    lineHeight: "110%",
-                                    color: "#000000",
-                                }}
+                            <H2
+                                className="text-[32px] dark:text-white sm:text-[42px] md:text-[48px] xl:text-[64px]"
+                                
                             >
                                 Start saving with CloudDIET today.
-                            </h1>
+                            </H2>
  
                             {/* CTA Button */}
                             <div>
@@ -61,7 +57,7 @@ const CloudDiet = () => {
           <div className="px-8 py-4 flex items-center gap-3 ">
            {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-28 w-auto" /> */}
 
-            <div className="text-[#1E2440] text-6xl font-bricolage font-extrabold">
+            <div className="text-[#1E2440]  dark:text-[#0079FF] text-6xl font-bricolage font-extrabold">
               Cloud<span className=" font-medium">DIET</span>
             </div>
           </div>

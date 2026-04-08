@@ -3,7 +3,7 @@ import { H2, P } from "../../../styles/Typography";
 
 const ThirdCards = () => {
   return (
-    <section className="w-full bg-white py-12 xl:py-16">
+    <section className="w-full bg-white dark:bg-black py-12 xl:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
 
         {/* Two Column Layout like Intro.tsx but adjusted ratio to increase right side width */}
@@ -13,7 +13,7 @@ const ThirdCards = () => {
           <div>
             <H2 className="mb-6 leading-tight">
               <span className="text-[#2B68C3] block">Robust Security Framework</span>
-              <span className="text-[#141414] block">for Payment Transactions</span>
+              <span className="text-[#141414] dark:text-white block">for Payment Transactions</span>
             </H2>
 
             <P className="text-base md:text-lg text-[#141414] mb-8 leading-relaxed pr-0 md:pr-4">
@@ -58,7 +58,7 @@ const ThirdCards = () => {
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col w-full relative lg:pr-6">
-            <div className="bg-[#f9fafb] border border-[#e5e7eb] rounded-[32px] px-6 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 lg:py-4 shadow-sm">
+            <div className="bg-[#f9fafb] dark:bg-slate-900 border border-[#e5e7eb] rounded-[32px] px-6 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 lg:py-4 shadow-sm">
               {[
                 { label: 'Maker and checker approval controls', img: '/Remitree/bank.svg' },
                 { label: 'Outgoing messages validated with source system', img: '/Remitree/integrations.svg' },

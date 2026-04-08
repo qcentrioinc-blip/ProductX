@@ -24,13 +24,13 @@ export default function Testimonial() {
   ];
 
   return (
-    <div className="bg-white py-10">
+    <div className="bg-white dark:bg-black py-10">
       <div className="max-w-7xl mx-auto  px-6 lg:px-10 xl:px-0">
 
 
         {/* Header */}
         <div className="text-center mb-12">
-          <H2 className="font-bold text-gray-900">
+          <H2 className="font-bold text-gray-900 dark:text-[#2B68C3]">
          Complete Asset Liability Management Platform
           </H2>
         </div>
@@ -40,7 +40,7 @@ export default function Testimonial() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-         className="bg-white rounded-lg   border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[230px] lg:h-[300px] xl:h-[240px]"
+         className="bg-white rounded-lg  dark:bg-gray-900 border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[230px] lg:h-[300px] xl:h-[240px]"
             >
              <div className="flex justify-start mb-4">
   <div className="w-16 h-16 rounded-full flex bg-[#2B68C3] items-center justify-center">
@@ -52,11 +52,11 @@ export default function Testimonial() {
   </div>
 </div>
 
-              <H4 className="font-semibold mb-2 ">
+              <H4 className="font-semibold  dark:text-white mb-2 ">
                 {testimonial.name}
               </H4>
 
-              <P2 className="text-black  leading-relaxed ">
+              <P2 className="text-black  dark:text-white leading-relaxed ">
                 {testimonial.text}
               </P2>
             </div>

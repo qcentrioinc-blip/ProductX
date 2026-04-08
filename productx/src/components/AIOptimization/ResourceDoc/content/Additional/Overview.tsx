@@ -6,8 +6,8 @@ const Overview = () => {
         Overview
         </h1>
       
-      <p className="font-quicksand text-base text-gray-700 leading-relaxed">Support  </p>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+      <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">Support  </p>
+ <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 Get help with CloudDIET.</p>
     </div>

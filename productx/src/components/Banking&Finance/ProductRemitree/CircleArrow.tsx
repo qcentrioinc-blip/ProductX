@@ -4,7 +4,7 @@ import { H2, P } from '../../../styles/Typography';
 const CircleArrow = () => {
     return (
         //flex flex-col items-center bg-white min-h-[800px] py-16 font-sans
-        <div className="w-full pt-10 pb-16 min-h-[800px] relative bg-[#EEF3FA] flex flex-col items-center overflow-hidden font-sans">
+        <div className="w-full pt-10 pb-16 min-h-[800px] relative  dark:bg-black bg-[#EEF3FA] flex flex-col items-center overflow-hidden font-sans">
             
             <div
                 className="absolute inset-0 opacity-20 pointer-events-none"
@@ -16,7 +16,7 @@ const CircleArrow = () => {
 
             {/* --- Header Section --- */}
             <div className="text-center px-4 mb-16 z-10">
-                <H2 className="text-[36px] md:text-[44px] text-[#2d3748] font-bold tracking-tight mb-4">
+                <H2 className="text-[36px] md:text-[44px] dark:text-[#2b68c3] text-[#2d3748] font-bold tracking-tight mb-4">
                     Key Features of Remitree Platform
                 </H2>
                 <P className="text-[16px] text-[#718096] max-w-[700px] mx-auto leading-relaxed">

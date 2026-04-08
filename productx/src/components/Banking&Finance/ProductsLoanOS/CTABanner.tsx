@@ -2,7 +2,7 @@ import {   P } from "../../../styles/Typography";
 
 export default function CTABanner() {
   return (
-    <section className="w-full py-8 bg-white">
+    <section className="w-full  bg-white">
       <div className="max-w-full mx-auto">
         <div className="relative w-full overflow-hidden bg-[#2B68C3] min-h-[220px] sm:min-h-[260px]  lg:min-h-[50vh] xl:min-h-[75vh] flex flex-col xl:flex-row">
 

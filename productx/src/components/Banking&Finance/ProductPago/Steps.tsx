@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { H2, P } from "../../../styles/Typography"
+import { H3,   P } from "../../../styles/Typography"
 
 const stepsData = [
   {
@@ -8,7 +8,7 @@ const stepsData = [
     para1: "ACH module handles high-volume payment processing with cheque scanner integration and X9 standards. Supports inbound and outbound transactions with multiple batches and configurable intervals for automated clearing.",
     para2: " Configurable intervals for automated clearing. Rotate and view cheque images at different angles to minimize fraud. Rejection options available with supervisor approval.",
     keywords: ["High Volume", "Multiple Batches"],
-    image: "/step1.webp",
+    image: "/Pago/STEP1.webp",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const stepsData = [
     para1: "NACHA module supports low-value deferred and instant fund transfers with net settlement. Enables single transfers, bulk transactions, and mandate management for recurring payments across various use cases.",
     para2: " Handles recurring payments across various use cases. Settled in deferred time enabling institutions to manage liquidity. Available 24/7 with low turnaround time.",
      keywords: ["Deferred Settlement", "Instant Transfers"],
-    image: "/step2.webp",
+    image: "/Pago/STEP2.webp",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const stepsData = [
     para1: "RTGS module facilitates high-value fund transfers using SWIFT message formats. Supports outbound credit, outbound returns, inbound credit, and inbound returns with settlement to bank and central bank accounts.",
     para2: "Settlement to bank own accounts and central bank accounts. Enables cashless and paperless transactions. Risk mitigated with automated processing and maker-checker controls.",
      keywords: ["High Value", "Gross Settlement"],
-    image: "/step3.webp",
+    image: "/Pago/STEP3.webp",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const stepsData = [
     para1: "AML module integrates with Sherlock for comprehensive transaction screening. Supports standard and institution-specific lists with real-time and batch checks. Configurable limits for transaction amount and count",
     para2: "Configurable independent limits for transaction amount and count. Cross-reference beneficiary for inward and outward transactions. Complete AML compliance coverage.",
     keywords: ["Real-time Checks"," Batch Checks"],
-    image: "/step4.webp",
+    image: "/Pago/STEP4.webp",
   },
 ]
 
@@ -60,7 +60,7 @@ const Steps = () => {
   const active = stepsData[activeStep - 1]
 
   return (
-  <section className="w-full bg-white relative">
+  <section className="w-full bg-white dark:bg-black relative">
 
     {/* SCROLL AREA (4 steps) */}
     <div className="h-[400vh] relative">
@@ -70,14 +70,14 @@ const Steps = () => {
 
         <div className="max-w-7xl mx-auto px-6 xl:px-0 w-full">
 
-          <div className="grid xl:grid-cols-[1fr_2fr] xl:gap-20 pt-10 items-center">
+          <div className="grid xl:grid-cols-[2fr_1.5fr] xl:gap-20 pt-10 items-center">
 
             {/* LEFT IMAGE PANEL */}
             <div className="bg-[#D9D9D9] rounded-2xl h-[300px] lg:h-[600px] overflow-hidden">
               <img
                 src={active.image}
                 alt="step"
-                className="w-full h-full xl:w-[300px] object-cover transition-all duration-500"
+                className="w-full h-full   object-fill transition-all duration-500"
               />
             </div>
 
@@ -110,17 +110,17 @@ const Steps = () => {
               </div>
 
               {/* TEXT PANEL */}
-              <div className="w-full h-[480px]  pl-10 mt-10 xl:mt-0 xl:pl-20 lg:h-[450px] xl:h-[550px] bg-[#F6F6F6] border-l-4 border-black py-4  flex flex-col justify-start">
+              <div className="w-full h-[480px]  pl-10 xl:pl-14 mt-10 xl:mt-0  lg:h-[450px] xl:h-[550px] bg-[#F6F6F6] dark:bg-black border-l-4 border-black dark:border-white py-4  flex flex-col justify-start">
 
-                <H2 className="text-3xl lg:text-4xl font-bold my-4 leading-snug">
+                <H3 className="text-3xl lg:text-4xl font-bold my-4 leading-snug">
                   {active.title}
-                </H2>
+                </H3>
 
-                <P className="mb-6 max-w-xl leading-normal">
+                <P className="mb-6 max-w-xl  dark:text-white leading-normal">
                   {active.para1}
                 </P>
 
-                <P className="mb-6 max-w-xl leading-normal">
+                <P className="mb-6 max-w-xl  dark:text-white leading-normal">
                   {active.para2}
                 </P>
 
@@ -128,7 +128,7 @@ const Steps = () => {
   {active.keywords.map((word, i) => (
     <span
       key={i}
-      className={`px-10 py-3 rounded-full font-bricolage text-[18px] md:text-[24px]  ${
+      className={`px-5 py-3 rounded-full font-bricolage text-[18px]    ${
         i === 0
           ? "bg-[#2B68C3] text-white"
           : "bg-gray-200 text-[#2B68C3]"

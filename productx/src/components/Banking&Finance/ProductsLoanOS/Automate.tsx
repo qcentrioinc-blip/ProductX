@@ -1,24 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { H2, H3, P } from '../../../styles/Typography'
 
-const HourglassIcon = ({ light = false }: { light?: boolean }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-5 h-5"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke={light ? '#1e3a6e' : 'white'}
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M5 22h14" />
-    <path d="M5 2h14" />
-    <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" />
-    <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" />
-  </svg>
-)
-
+ 
 const cards = [
   {
     id: 1,
@@ -69,7 +52,7 @@ const Card = ({
   return (
     <div
       className={`
-        relative flex flex-col justify-between rounded-2xl p-6 h-100
+        relative flex flex-col justify-between rounded-2xl p-6 h-100 xl:h-[350px]
         transition-all duration-700 ease-out
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         ${isDark ? 'bg-[#1e3a6e] text-white' : 'bg-[#dbeafe] text-[#143D79]'}
@@ -84,7 +67,15 @@ const Card = ({
           ${isBlueIcon ? 'bg-blue-500' : 'bg-gray-900'}
         `}
       >
-        <HourglassIcon light={false} />
+     <div
+  className={`
+    w-12 h-12 rounded-full flex items-center font-bricolage tect-[18px] justify-center flex-shrink-0
+    ${isBlueIcon ? 'bg-blue-500 text-white' : 'bg-gray-900 text-white'}
+    font-bold text-lg
+  `}
+>
+  {index + 1}
+</div>
       </div>
 
        
@@ -94,7 +85,11 @@ const Card = ({
         <H3 className={`text-xl font-bold leading-snug mb-2 ${isDark ? 'text-white' : 'text-black'}`}>
           {card.title}
         </H3>
-        <P className={`text-sm leading-relaxed ${isDark ? 'text-[#CCCCCC]' : 'text-[#141414]'}`}>
+    <P
+  className={`text-sm leading-relaxed ${
+    isDark ? '!text-[#CCCCCC]' : '!text-[#141414]'
+  }`}
+>
           {card.description}
         </P>
       </div>
@@ -123,7 +118,7 @@ const Automate = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white px-4 py-6 sm:px-6 md:py-10  xl:px-0"
+      className="w-full bg-white dark:bg-black px-4 py-6 sm:px-6 md:py-10  xl:px-0"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -133,7 +128,7 @@ const Automate = () => {
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <H2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mx-auto">
+          <H2 className="text-3xl dark:text-white sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mx-auto">
            Digital Application and Intelligent Loan Processing 
           </H2>
         </div>

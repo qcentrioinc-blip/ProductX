@@ -5,7 +5,7 @@ import { Settings, LifeBuoy, Plug } from "lucide-react";
 
 export default function Sec_4() {
   return (
-    <section className="w-full bg-[#F4F4F4] py-10">
+    <section className="w-full bg-[#F4F4F4] dark:bg-black py-10">
       <div className="max-w-7xl mx-auto px-10 xl:px-0">
 
         {/* Two Column Layout */}
@@ -64,11 +64,11 @@ export default function Sec_4() {
           <div className="flex-1 space-y-6">
 
             {/* Card 1 */}
-            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+            <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
                 <Settings className="text-[#2B68C3] mt-1" size={30} />
                 <div>
-                  <H4>Zero code policy configuration engine</H4>
+                  <H4 className="dark:text-white">Zero code policy configuration engine</H4>
                   <P className="mt-2 text-gray-900">
                     Configure due diligence parameters on the go without vendor support.
                   </P>
@@ -77,11 +77,11 @@ export default function Sec_4() {
             </div>
 
             {/* Card 2 */}
-            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+            <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
                 <LifeBuoy className="text-[#2B68C3] mt-1" size={30} />
                 <div>
-                  <H4>Full client lifecycle coverage</H4>
+                  <H4 className="dark:text-white">Full client lifecycle coverage</H4>
                   <P className="mt-2 text-gray-900">
                     Manage onboarding, periodic reviews, and trigger events seamlessly.
                   </P>
@@ -90,11 +90,11 @@ export default function Sec_4() {
             </div>
 
             {/* Card 3 */}
-            <div className="border border-gray-300 rounded-lg px-6 py-4 bg-white">
+            <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
                 <Plug className="text-[#2B68C3] mt-1" size={30} />
                 <div>
-                  <H4>Seamless API integrations</H4>
+                  <H4 className="dark:text-white">Seamless API integrations</H4>
                   <P className="mt-2 text-gray-900">
                     Connect with data sources, screening engines, and core systems.
                   </P>

@@ -66,9 +66,9 @@ const Arrow = () => {
 };
 const ProcessALM: React.FC = () => {
   return (
-    <div className="w-full relative   bg-[#E7E7E7] flex flex-col items-center px-4 xl:px-0   pt-10 pb-20 ">
+    <div className="w-full relative   bg-[#E7E7E7] dark:bg-black flex flex-col items-center px-4 xl:px-0   pt-10 pb-20 ">
       {/* Title */}
-      <H2 className="  text-center mb-10  ">
+      <H2 className="  text-center mb-10  dark:text-[#2B68C3] ">
          Integrated Toolkit for Risk Management
       </H2>
 

@@ -35,35 +35,35 @@ const steps = [
     title:
       "Supports e-cash, e-wallets, and e-cheques for modern payment needs ",
     image:
-      "/Pago/Feature1pago.webp",
+      "/Pago/1FEATURE.webp",
   },
   {
     id: 2,
     title:
       "Atomicity ensures that payments either complete or fail immediately ",
     image:
-      "/Pago/Feature2pago.webp",
+      "/Pago/2FEATURE.webp",
   },
   {
     id: 3,
     title:
       "Real-time monitoring with advanced fraud detection and security protocols ",
     image:
-      "/Pago/Feature3pago.webp",
+      "/Pago/3FEATURE.webp",
   },
   {
     id: 4,
     title:
-      "Seamless integration with core banking and existing financial systems ",
+      "Seamless integration with core banking through account setup and configuration and existing financial systems. ",
     image:
-      "/Pago/Feature4pago.webp",
+      "/Pago/4FEATURE.webp",
   },
   {
     id: 5,
     title:
-      "Detailed audit trails and transparent reporting for all transactions ",
+      "The Business Report screenshot shows report generation and PDF export. Content is accurate and aligns well.  ",
     image:
-      "/Pago/Feature5pago.webp",
+      "/Pago/5FEATURE.webp",
   },
 ];
  
@@ -233,17 +233,17 @@ const textColor = useMemo(() => {
 
       {/* Sticky Content Container */}
       <div className="sticky top-10 xl:h-screen hidden md:flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 items-center px-6 xl:px-10">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8  items-center px-6 xl:px-0">
 
           {/* LEFT SIDE - Sticky Image */}
-          <div className="h-[400px] md:h-[550px] xl:h-[650px] pb-6 xl:pb-0 order-1 md:order-0">
-            <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl">
+          <div className="h-[400px] md:h-[550px] xl:h-[600px] pb-6 xl:pb-0 order-1 md:order-0">
+            <div className="w-full h-full rounded-xl overflow-hidden  l">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeStep}
                   src={steps[activeStep - 1]?.image}
                   alt={`Step ${activeStep}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}

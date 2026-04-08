@@ -85,16 +85,16 @@ const Acco = () => {
       className="relative"
     >
       {/* STICKY CONTAINER */}
-<div className="sticky top-0 h-[80vh] lg:h-[65vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
+<div className="sticky top-0 h-[80vh] lg:h-[65vh] xl:h-[110vh] overflow-hidden bg-white dark:bg-black  flex flex-col">
 
         {/* HEADING */}
-        <div className="max-w-2xl mx-auto pt-10 pb-6 text-center px-6 ">
+        <div className="max-w-2xl mx-auto dark:text-[#2B68C3] pt-10 pb-6 text-center px-6 ">
           <H1>Central Hub and Control Features</H1>
         </div>
 
         {/* GRID */}
         <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-0 px-6  pb-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[65%_35%] gap-0 xl:gap-14 items-start  h-full">
+          <div className="grid grid-cols-1 xl:grid-cols-[55%_45%] gap-0 xl:gap-14 items-start  h-full">
 
             {/* RIGHT IMAGE — desktop only */}
             <AnimatePresence mode="wait">
@@ -129,7 +129,7 @@ const Acco = () => {
                     <button
                       type="button"
                       onClick={() => scrollToTab(index)}
-                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors hover:bg-gray-100"
+                      className="w-full text-left cursor-pointer rounded-xl p-4 transition-colors dark:hover:bg-transparent hover:bg-gray-100"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-1">
@@ -160,8 +160,8 @@ const Acco = () => {
                           {/* TITLE */}
                           <div className="flex items-center gap-2">
                             <H3
-                              className={`font-semibold leading-tight transition ${
-                                isActive ? "text-[#2B68C3]" : "text-black"
+                              className={`font-semibold  leading-tight transition ${
+                                isActive ? "text-[#2B68C3]" : "text-black dark:text-white"
                               }`}
                             >
                               {tab.title}
@@ -187,7 +187,7 @@ const Acco = () => {
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="mt-3 text-md font-quicksand text-[18px] text-[#141414] max-w-2xl overflow-hidden"
+                                className="mt-3 text-md font-quicksand text-[18px] max-w-xl dark:text-white text-[#141414] overflow-hidden"
                               >
                                 {tab.description}
                               </motion.p>

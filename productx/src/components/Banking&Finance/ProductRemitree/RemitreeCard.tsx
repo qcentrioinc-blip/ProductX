@@ -50,7 +50,7 @@ export default function RemitreeCard() {
     ];
 
     return (
-        <section className="w-full bg-white py-4">
+        <section className="w-full bg-white dark:bg-slate-800 xl:pb-8 py-4">
             <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
                 <motion.div
                     className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-7xl"
@@ -74,7 +74,7 @@ export default function RemitreeCard() {
                                 />
                             </div>
 
-                            <H4 className="mt-2">{card.title}</H4>
+                            <H4 className="mt-2 dark:text-white">{card.title}</H4>
 
                             <P className="text-gray-800 mt-3">
                                 {card.description}

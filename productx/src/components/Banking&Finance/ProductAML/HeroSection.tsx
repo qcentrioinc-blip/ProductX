@@ -14,7 +14,7 @@ export default function HeroSection() {
   }
 ];
   return (
-    <section className="w-full bg-gray-100 py-16 relative overflow-hidden">
+    <section className="w-full bg-gray-100 dark:bg-black py-16 relative overflow-hidden">
       <div className="max-w-7xl lg:pt-24 px-6 lg:px-10 xl:px-0 mx-auto ">
 
         {/* Heading */} 
@@ -25,7 +25,7 @@ export default function HeroSection() {
         </div>
 
         {/* Main Card */}
-        <div className="grid lg:grid-cols-[1.1fr_1fr] bg-[#2B68C3] rounded-2xl overflow-hidden min-h-[520px]">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] bg-[#2B68C3] dark:bg-blue-950 rounded-2xl overflow-hidden min-h-[520px]">
 
           {/* Left Image */}
           <div className="relative w-full h-full">
@@ -37,11 +37,11 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col justify-between p-4  lg:p-6 xl:p-16 text-white">
+          <div className="flex flex-col justify-between p-4  lg:p-6 xl:p-16 ">
 
             {/* White floating card */}
-            <div className="bg-gray-100 text-[#141414] p-6 rounded-xl shadow-md ">
-              <P className="leading-relaxed max-w-2xl">
+            <div className="bg-gray-100 dark:bg-gray-800 text-[#141414] p-6 rounded-xl shadow-md ">
+              <P className="leading-relaxed max-w-2xl ">
                ALMANAC integrates risk management, liquidity forecasting, and regulatory reporting into a single platform for financial institutions. 
               </P>
 

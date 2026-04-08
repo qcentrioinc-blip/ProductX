@@ -71,10 +71,10 @@ const timelineItems = [
 const TimelineCard = ({ title, description, isTop }: { title: string; description: string; isTop: boolean }) => (
     <div
         className={`absolute ${isTop ? 'bottom-full mb-6' : 'top-full mt-6'
-            } left-1/2 -translate-x-1/2 w-[380px] p-6 rounded-[16px] bg-white whitespace-normal`}
+            } left-1/2 -translate-x-1/2 w-[380px] p-6 rounded-[16px] bg-white dark:bg-slate-900 whitespace-normal`}
         style={{ boxShadow: "0 12px 32px -8px rgba(0,0,0,0.06)", zIndex: 0 }}
     >
-        <H4 className="text-[20px] font-bold text-[#0F172A] leading-tight">{title}</H4>
+        <H4 className="text-[20px] font-bold text-[#0F172A]  dark:text-white leading-tight">{title}</H4>
         <P className="mt-3 text-[14.5px] leading-[1.65] text-[#6B7280]">{description}</P>
 
         {/* Connector vertical line - Exactly matches horizontal line thickness */}
@@ -109,7 +109,7 @@ const SevenStep = () => {
             {/* ---------------------------------------- */}
             {/* MOBILE / TABLET (Vertical layout)        */}
             {/* ---------------------------------------- */}
-            <div className="block lg:hidden w-full bg-[#EAECEF] py-16 px-4 font-sans relative overflow-hidden">
+            <div className="block lg:hidden w-full bg-[#EAECEF] dark:bg-black py-16 px-4 font-sans relative overflow-hidden">
                 <div className="text-center w-full mb-12">
                     <H2 className="text-[32px] sm:text-[42px] font-extrabold text-[#0F172A] leading-[1.2] tracking-tight">
                         Implementation Methodology
@@ -143,13 +143,13 @@ const SevenStep = () => {
             {/* DESKTOP (Horizontal Scroll layout)       */}
             {/* ---------------------------------------- */}
             {/* Vast scroll block (800vh) rigidly forces a prolonged vertical traverse to complete the horizontal panning */}
-            <div ref={targetRef} className="hidden lg:block w-full bg-[#EAECEF] h-[800vh] font-sans relative">
+            <div ref={targetRef} className="hidden lg:block w-full dark:bg-black bg-[#EAECEF] h-[800vh] font-sans relative">
 
                 <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-x-clip py-4">
 
                 {/* Title Section */}
                 <div className="text-center w-full px-6">
-                    <H2 className="text-[42px] lg:text-[54px] font-extrabold text-[#0F172A] leading-[1.1] tracking-tight">
+                    <H2 className="text-[42px] dark:text-white lg:text-[54px] font-extrabold text-[#0F172A] leading-[1.1] tracking-tight">
                         Implementation Methodology
                     </H2>
                 </div>

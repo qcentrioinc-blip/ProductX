@@ -2,7 +2,7 @@
 
 export default function ChallengesSection() {
   return (
-    <section className=" w-full py-4 xl:py-10">
+    <section className=" w-full dark:bg-slate-950 pb-10">
       
       {/* Image Wrapper */}
       

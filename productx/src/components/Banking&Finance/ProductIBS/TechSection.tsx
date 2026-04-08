@@ -185,12 +185,12 @@ export default function TechSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#EFEFEF] ">
+    <section className="w-full dark:bg-black bg-[#EFEFEF] ">
       <div className="max-w-7xl mx-auto px-8 xl:px-0 py-6 md:py-0 flex flex-col lg:flex-row items-center justify-between gap-12">
 
         {/* LEFT TEXT */}
         <div className="max-w-2xl">
-          <H2 className=" text-black leading-tight mb-6">
+          <H2 className=" text-black dark:text-white leading-tight mb-6">
             Three-Tier Architecture for
             Scalable Banking Operations
           </H2>
@@ -203,7 +203,7 @@ export default function TechSection() {
         <div className="relative hidden lg:block w-full lg:w-[320px] xl:w-[360px] shrink-0">
           <div className="absolute left-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
           <div className="absolute right-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
-          <div className="bg-white mx-[10px]">
+          <div className="bg-white dark:bg-slate-950 mx-[10px]">
             <div
               ref={scrollRef}
               className="h-[400px] overflow-hidden cursor-grab select-none px-6"

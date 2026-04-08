@@ -48,7 +48,7 @@ const Benefits = () => {
 
               <H2>
                 <div className="text-[#2B68C3]">Key Benefits of </div>
-                <div className="text-gray-800">Using Bankfair</div>
+                <div className="text-gray-800 dark:text-white">Using Bankfair</div>
               </H2>
 
               <P>
@@ -82,12 +82,12 @@ Financial institutions choose Bankfair to streamline operations, ensure complian
             {CARDS.map((card) => (
               <div
                 key={card.number}
-                className="w-full max-w-[971px] rounded-2xl p-6 bg-white border border-[#E0E0E0]"
+                className="w-full max-w-[971px] rounded-2xl p-6 dark:bg-slate-950 bg-white border border-[#E0E0E0]"
               >
                 <div className="flex flex-row items-center gap-6 lg:gap-10">
 
                   {/* Number */}
-                  <H3 className=" flex-shrink-0 leading-none">
+                  <H3 className=" flex-shrink-0 dark:text-white leading-none">
                     {card.number}
                   </H3>
 

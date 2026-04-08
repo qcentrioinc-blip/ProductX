@@ -21,11 +21,11 @@ const DataFileIcon = () => (
 // ─── Feature Card Component ───────────────────────────────────────────────────
 const FeatureCard = ({ title, description }: { title: string, description: string }) => (
   <div
-    className="flex flex-1 flex-col rounded-[20px] bg-white p-6 sm:p-8 border border-white h-full"
+    className="flex flex-1 flex-col rounded-[20px] bg-white dark:bg-gray-900 p-6 sm:p-8 border border-white h-full"
     style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}
   >
     <DataFileIcon />
-    <H4 className="mt-6 mb-3 text-[18px] sm:text-[20px]">{title}</H4>
+    <H4 className="mt-6 mb-3 dark:text-white text-[18px] sm:text-[20px]">{title}</H4>
     <P className="leading-[1.7] text-[14px] sm:text-[14.5px]">{description}</P>
   </div>
 );
@@ -41,16 +41,17 @@ const cards = [
 // ─── Main Component ───────────────────────────────────────────────────────────
 const SamsFive = () => {
   return (
+    <section className="w-full bg-[#E5EDF9] dark:bg-black  ">
     <div
-      className="mx-auto w-full max-w-7xl rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16 my-4 sm:my-8"
-      style={{ backgroundColor: "#E5EDF9" }}
+      className="mx-auto w-full max-w-7xl  bg-[#E5EDF9] dark:bg-slate-900 rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16 my-4 sm:my-8 xl:my-0"
+     
     >
       {/* Header Section */}
       <div className="mb-10 sm:mb-14 text-center px-2">
-        <H2 className="mb-4 sm:mb-5 tracking-tight !text-[#111827] text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2]">
+        <H2 className="mb-4 sm:mb-5 tracking-tight dark:!text-white !text-[#111827] text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2]">
           NPA Identification and Classification <br className="hidden sm:block" /> Process Overview
         </H2>
-        <P className="mx-auto max-w-[800px] leading-[1.6] sm:leading-[1.7] !text-[#4B5563] text-[14px] sm:text-[16px]">
+        <P className="mx-auto max-w-[800px] leading-[1.6] sm:leading-[1.7] dark:!text-white !text-[#4B5563] text-[14px] sm:text-[16px]">
           The system identifies NPA records based on IRAC guidelines, automates asset classification, and performs provisioning calculations with exception handling capabilities.
         </P>
       </div>
@@ -82,6 +83,7 @@ const SamsFive = () => {
 
       </div>
     </div>
+    </section>
   );
 };
 

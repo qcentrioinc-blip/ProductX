@@ -10,10 +10,10 @@ const SavingPlans: React.FC = () => {
         </h1>
 
       
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">The Savings Plan Designer helps you make data-driven decisions and run what-if analyses to optimize savings plan strategy. Key components include Visualizations, Slicers, and Resource-level Details.  </p>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">The Savings Plan Designer helps you make data-driven decisions and run what-if analyses to optimize savings plan strategy. Key components include Visualizations, Slicers, and Resource-level Details.  </p>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4">  Visualizations </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">The graph shows usage patterns of resources eligible for a Savings Plan. It displays spending only for qualifying compute resources. For example, it includes VM compute SKU costs but excludes disks and other non-covered expenses. </p>
+  <h3 className="font-bricolage dark:text-white   text-xl lg:text-2xl my-4">  Visualizations </h3>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">The graph shows usage patterns of resources eligible for a Savings Plan. It displays spending only for qualifying compute resources. For example, it includes VM compute SKU costs but excludes disks and other non-covered expenses. </p>
 
 <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/SavingPlans1.webp" alt="Savings Plan Visualization"/>
 
@@ -30,7 +30,7 @@ const SavingPlans: React.FC = () => {
       </tr>
     </thead>
     <tbody>
-      <tr className="align-top">
+      <tr className="align-top dark:text-white ">
         <td className="border border-gray-300 px-4 py-3 font-semibold">
           Actual Billed Spend
         </td>
@@ -52,7 +52,7 @@ const SavingPlans: React.FC = () => {
         </td>
       </tr>
 
-      <tr className="align-top">
+      <tr className="align-top dark:text-white ">
         <td className="border border-gray-300 px-4 py-3 font-semibold">
           What-if Pay-As-You-Go Spend
         </td>
@@ -76,10 +76,10 @@ const SavingPlans: React.FC = () => {
 </div>
 
 
-     <h3 className="font-bricolage  text-xl lg:text-2xl my-4">   Designer </h3>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">The Designer enables you to model what-if scenarios by adjusting Savings Plan terms, commitment percentages, and identifying resources that could become eligible with SKU changes.</p>
+     <h3 className="font-bricolage  text-xl lg:text-2xl my-4 dark:text-white ">   Designer </h3>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">The Designer enables you to model what-if scenarios by adjusting Savings Plan terms, commitment percentages, and identifying resources that could become eligible with SKU changes.</p>
 
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">For example, recommendations may include ineligible App Service Plans. Only the Premium V3 SKU qualifies. CloudDIET flags these plans and assesses whether they can be upgraded with minimal risk. </p>
+ <p className="font-quicksand dark:text-white  text-base text-gray-700 leading-relaxed">For example, recommendations may include ineligible App Service Plans. Only the Premium V3 SKU qualifies. CloudDIET flags these plans and assesses whether they can be upgraded with minimal risk. </p>
 <img className="xl:pl-16 h-[650px] w-[80%]"  src="/AI-CloudFinOps/Resources/SavingPlans2.webp" alt="Savings Plan Visualization"/>
         
 <div className="flex gap-4 rounded-lg bg-green-50 border-l-4 border-green-600 p-5 my-6">
@@ -118,22 +118,22 @@ const SavingPlans: React.FC = () => {
 
  
 
-<h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4">Frequently Asked Questions </h2>
+<h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4 dark:text-white ">Frequently Asked Questions </h2>
 
-   <h3 className="font-bricolage  text-xl lg:text-2xl my-4">1. Why choose Savings Plans over Reserved Instances? </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed"> Savings Plans offer greater flexibility and can yield higher overall savings. Reserved Instances are tied to specific SKUs and regions (e.g., a Dv2 VM in West US). If the resource changes, the Reservation may be wasted.  </p>
+   <h3 className="font-bricolage  text-xl lg:text-2xl my-4 dark:text-white ">1. Why choose Savings Plans over Reserved Instances? </h3>
+  <p className="font-quicksand  text-base dark:text-white text-gray-700 leading-relaxed"> Savings Plans offer greater flexibility and can yield higher overall savings. Reserved Instances are tied to specific SKUs and regions (e.g., a Dv2 VM in West US). If the resource changes, the Reservation may be wasted.  </p>
 
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">Savings Plans apply automatically to all eligible resources without specifying SKUs or regions, prioritizing those with the highest discount. </p>
+ <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">Savings Plans apply automatically to all eligible resources without specifying SKUs or regions, prioritizing those with the highest discount. </p>
 
-   <h3 className="font-bricolage  text-xl lg:text-2xl my-4"> 
+   <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white  my-4"> 
 
 2. Can I commit to multiple Savings Plans?   </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed">Yes. You can create multiple Savings Plan commitments over time. This lets you start with a smaller amount and gradually increase your coverage as needed.   </p>
+  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">Yes. You can create multiple Savings Plan commitments over time. This lets you start with a smaller amount and gradually increase your coverage as needed.   </p>
     
-    <h3 className="font-bricolage  text-xl lg:text-2xl my-4">3. Which Azure services are eligible for a Savings Plan?  </h3>
-  <p className="font-quicksand text-base text-gray-700 leading-relaxed">The following Azure services are generally eligible, though some underlying SKUs may be excluded  </p>
+    <h3 className="font-bricolage  text-xl dark:text-white lg:text-2xl my-4">3. Which Azure services are eligible for a Savings Plan?  </h3>
+  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">The following Azure services are generally eligible, though some underlying SKUs may be excluded  </p>
     
-  <ul className="list-disc list-inside space-y-2  text-gray-700 font-quicksand text-lg leading-tight tracking-wide">
+  <ul className="list-disc dark:text-white  list-inside space-y-2  text-gray-700 font-quicksand text-lg leading-tight tracking-wide">
      
 
 <li>Virtual Machines</li>

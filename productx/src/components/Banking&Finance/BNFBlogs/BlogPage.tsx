@@ -2,7 +2,7 @@ import ImageCard from "./ImageCard"
 
 const BlogPage = () => {
   return (
-    <div>
+    <div className=" ">
       <ImageCard/>
     </div>
   )
