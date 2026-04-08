@@ -7,28 +7,28 @@ const features = [
     description:
       "Customers view balances, transactions, and statements anytime from any device. ",
     icon: "/ProductIBS/icon3.svg",
-     image: "/ProductIBS/1.webp",
+     image: "/ProductIBS/b1.webp",
   },
   {
     title: " Reduced Branch Footfall",
     description:
       "Online transactions minimize teller visits and lower branch operational costs. ",
     icon: "/ProductIBS/icon4.svg",
-     image: "/ProductIBS/2.webp",
+     image: "/ProductIBS/b2.webp",
   },
   {
     title: "Real-Time Transaction Updates",
     description:
       "Instant confirmation for fund transfers and bill payments improves customer experience. ",
     icon: "/ProductIBS/icon5.svg",
-     image: "/ProductIBS/3.webp",
+     image: "/ProductIBS/b3.webp",
   },
   {
     title: "Enhanced Security Controls",
     description:
       "Secure login, encryption, and transaction limits protect customer data and funds.",
     icon: "/ProductIBS/icon6.svg",
-     image: "/ProductIBS/4.webp",
+     image: "/ProductIBS/b4.webp",
   },
 ];
 
