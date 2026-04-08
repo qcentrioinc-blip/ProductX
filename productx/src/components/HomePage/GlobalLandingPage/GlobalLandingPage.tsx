@@ -1,7 +1,8 @@
-import {  Suspense } from "react"
 // import LandingPage1 from "./LandingPage1"
 import CircularCards from "./CircularCards"
-import Navbar from "../../Global/Navbar/Navbar"
+// import Navbar from "../../Global/Navbar/Navbar"
+import { Suspense, useEffect, useState } from "react";
+import PageLoader from "../../PageLoader"
 // import LandingPage1 from "./LandingPage1"
 // import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
@@ -28,9 +29,20 @@ import RotatingGlobe from "./RotatingGlobe"
 // const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
 
 const GlobalLandingPage = () => {
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 3200); // 4s delay + 1.2s fade duration = unmount after fade fully completes
+
+  return () => clearTimeout(timer);
+}, []);
+
+  
     return (
         <div className="relative">
-<Navbar/>
+
                 <CircularCards/>
             {/* <div id="landingpage">
                 <LandingPage1 />
@@ -93,7 +105,8 @@ const GlobalLandingPage = () => {
                     <AnimatedFooter />
                 </div>
             </Suspense>
-
+{/* ✅ LOADER OVERLAY */}
+      {loading && <PageLoader />}
         </div>
     )
 }
