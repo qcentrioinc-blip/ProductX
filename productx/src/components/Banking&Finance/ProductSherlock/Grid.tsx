@@ -25,13 +25,13 @@ export default function Grid() {
   ];
 
   return (
-    <section className="w-full py-10 bg-white">
+    <section className="w-full py-10 dark:bg-black bg-white">
       <div className="max-w-7xl mx-auto  px-4 md:px-6 lg:px-8">
 
-        <div className="relative bg-[#F4F4F4] rounded-3xl p-10 md:p-14">
+        <div className="relative bg-[#F4F4F4] dark:bg-slate-900 rounded-3xl p-10 md:p-14">
 
           {/* Vertical divider */}
-          <div className="hidden md:block absolute top-12 bottom-12 left-1/2 w-px bg-gray-400 -translate-x-1/2"></div>
+          <div className="hidden md:block absolute top-12 bottom-12 left-1/2 w-px  bg-gray-400 -translate-x-1/2"></div>
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-x-16">
@@ -50,7 +50,7 @@ export default function Grid() {
 
                 {/* Text */}
                 <div>
-                  <H4 className="mb-2 text-gray-900">
+                  <H4 className="mb-2 dark:text-white text-gray-900">
                     {item.title}
                   </H4>
 

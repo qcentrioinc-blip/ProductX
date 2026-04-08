@@ -85,7 +85,7 @@ const AIFooter = () => {
       }}
     >
       {/* Dark Overlay: Makes sure text is readable over the image */}
-      <div className="absolute inset-0 bg-[#254D70]/30 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 dark:bg-black bg-[#254D70]/30 z-0 pointer-events-none"></div>
 
       {/* ========== TOP SECTION ========== */}
       <div className="relative w-full pt-6 sm:pt-10 z-10">
@@ -94,7 +94,7 @@ const AIFooter = () => {
           <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="diagonal-lines-top" x="0" y="0" width="35" height="35" patternUnits="userSpaceOnUse" patternTransform="rotate(-135)">
-                <line x1="0" y1="0" x2="0" y2="35" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1" />
+                <line x1="0" y1="0" x2="0" y2="35" stroke="rgba(255, 255, 255, 0.2)  " strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#diagonal-lines-top)" />

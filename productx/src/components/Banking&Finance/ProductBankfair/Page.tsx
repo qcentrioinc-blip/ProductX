@@ -19,7 +19,7 @@ import CTAButton from "./CTAButton"
 
 const Bankfair = () => {
   return (
-    <div>
+    <div className="dark:bg-black  " >
       <BNFNav />
       <div id="Landing">
         <HeroSec1 />

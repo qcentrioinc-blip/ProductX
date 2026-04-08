@@ -91,10 +91,10 @@ const items: Item[] = [
 
 export default function ImageGrid() {
   return (
-    <section className="relative max-w-8xl overflow-hidden">
+    <section className="relative max-w-8xl dark:bg-black overflow-hidden">
       <div className="relative z-10">
         <div className="flex flex-col items-center justify-center text-center">
-          <H2 className="mb-6 text-[#254D70]">How CloudDIET Works For You</H2>
+          <H2 className="mb-6  pt-10 text-[#254D70]">How CloudDIET Works For You</H2>
           <P className="mb-14   max-w-sm px-5 md:px-0 md:max-w-lg lg:max-w-2xl xl:mb-20">A secure, four-step process combining AI-powered analysis with engineering expertise to guarantee cloud savings, without ever accessing your data.</P>
         </div>
         <div className="space-y-12 max-w-7xl xl:mx-auto mx-10 pb-10"> 
@@ -122,8 +122,8 @@ export default function ImageGrid() {
                 <P className="mb-4  tracking-wide leading-snug">{item.description}</P>
                 <div className="flex mt-8 flex-row items-center space-x-2">
                   <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">
-                    <P className="font-bold">{item.cta}</P>
-                    <span><ArrowRight /></span>
+                    <P className="font-bold  " >{item.cta}</P>
+                    <span><ArrowRight className="dark:text-white" /></span>
                   </a>
                 </div>
               </div>

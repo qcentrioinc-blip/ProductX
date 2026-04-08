@@ -90,7 +90,7 @@ const ThreeTab1 = () => {
     ];
 
     return (
-        <div className="w-full bg-white">
+        <div className="w-full dark:bg-black bg-white">
 
             {/* ── Title & Description ─────────────────────────────
                 Normal flow — no absolute positioning
@@ -103,7 +103,7 @@ const ThreeTab1 = () => {
             ">
                 <H1 className="
                      leading-[1.1] text-[#232323]
-                    text-[36px] md:text-[44px] lg:text-[50px]
+                    text-[36px]  dark:text-white md:text-[44px] lg:text-[50px]
                 ">
                     Key Features of SAMS Platform
                 </H1>
@@ -116,7 +116,7 @@ const ThreeTab1 = () => {
             </div>
 
             <div ref={containerRef} className="w-full h-[200vh]">
-                <div className="sticky top-24 w-full bg-white z-10 pt-2 pb-2">
+                <div className="sticky top-24 w-full dark:bg-black bg-white z-10 pt-2 ">
 
                     {/* ── TABLET + DESKTOP CARD (md and above) ───────────
                 NO scaling, NO absolute — pure responsive Tailwind
@@ -130,7 +130,7 @@ const ThreeTab1 = () => {
                 pb-4 xl:pb-6
             ">
                         <div className="
-                    border-[1.5px] border-[#D5D5D5] rounded-xl overflow-hidden bg-white
+                    border-[1.5px] border-[#D5D5D5] rounded-xl overflow-hidden dark:bg-slate-900 bg-white
                     w-full max-w-7xl mx-auto
                 ">
                             {/* ── Tab Navigation ── */}
@@ -179,18 +179,18 @@ const ThreeTab1 = () => {
 
                                     <div className="flex flex-col gap-3 lg:gap-4 xl:gap-5 mt-1 xl:mt-2">
                                         <div>
-                                            <h3 className="font-['Bricolage_Grotesque'] font-bold text-[#232323] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[26px]">
+                                            <h3 className="font-['Bricolage_Grotesque']  dark:text-white font-bold text-[#232323] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[26px]">
                                                 {tabContents[activeTab].title1}
                                             </h3>
-                                            <p className="font-['Quicksand'] font-normal text-[#555] leading-[160%] text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] xl:w-[90%] mt-1 lg:mt-2">
+                                            <p className="font-['Quicksand'] dark:text-white font-normal text-[#555] leading-[160%] text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] xl:w-[90%] mt-1 lg:mt-2">
                                                 {tabContents[activeTab].text1}
                                             </p>
                                         </div>
                                         <div>
-                                            <h3 className="font-['Bricolage_Grotesque'] font-bold text-[#232323] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[26px]">
+                                            <h3 className="font-['Bricolage_Grotesque'] dark:text-white font-bold text-[#232323] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[26px]">
                                                 {tabContents[activeTab].title2}
                                             </h3>
-                                            <p className="font-['Quicksand'] font-normal text-[#555] leading-[160%] text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] xl:w-[90%] mt-1 lg:mt-2">
+                                            <p className="font-['Quicksand'] font-normal dark:text-white text-[#555] leading-[160%] text-[12px] md:text-[13px] lg:text-[14px] xl:text-[16px] xl:w-[90%] mt-1 lg:mt-2">
                                                 {tabContents[activeTab].text2}
                                             </p>
                                         </div>
@@ -216,7 +216,7 @@ const ThreeTab1 = () => {
                                                     <img src={feature.icon} alt={feature.text} className="w-full h-full object-contain" />
                                                 </div>
                                                 <span className="
-                                            font-['Quicksand'] text-[#333]
+                                            font-['Quicksand'] dark:text-white text-[#333]
                                             text-[11px]
                                             md:text-[12px]
                                             lg:text-[13px]

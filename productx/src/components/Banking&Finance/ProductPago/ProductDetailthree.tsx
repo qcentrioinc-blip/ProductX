@@ -25,7 +25,7 @@ import Steps from "./Steps";
  ;
 import AccordionPago from "./AccordionPago";
 import Cardsfive from "./Cardsfive";
-import Acco from "./Acco";
+// import Acco from "./Acco";
  
 
 const ProductDetailthree = () => {
@@ -74,7 +74,7 @@ const ProductDetailthree = () => {
       </div>
       <Testimonial/>
       <ImageChange/>
-      <Acco/>
+      {/* <Acco/> */}
 <CTABanner/>
 <Steps/>
  <Cardsfive/>

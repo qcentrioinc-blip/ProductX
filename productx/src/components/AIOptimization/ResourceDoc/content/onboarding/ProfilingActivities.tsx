@@ -1,4 +1,5 @@
 import { useState } from "react";
+ 
 
 
 const ProfilingActivities: React.FC = () => {
@@ -15,11 +16,11 @@ const toggle = (index: number) => {
             Profiling Activities
         </h1>
 
-        <p className="font-quicksand text-lg leading-tight tracking-wide">CloudDIET profiling is divided into three categories:   </p>
+        <p className="font-quicksand  dark:text-white text-lg leading-tight tracking-wide">CloudDIET profiling is divided into three categories:   </p>
         
 
     
-         <ol className="list-decimal list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
+         <ol className="list-decimal list-inside dark:text-white space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>  <b>Billing:</b> CloudDIET analyzes your Azure Billing to capture actual spend, including discounts, Savings Plans, and Reserved Instances. </li>
   
 
@@ -29,7 +30,7 @@ const toggle = (index: number) => {
   <li>  <b>Resource Configuration:</b> CloudDIET inspects Azure control-plane configurations, like a Storage Account set to Geo-Redundant Storage (GRS) in East US and its creation date, without viewing any customer data.  </li>
    
 </ol>
- <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-6">
+ <h2 className="font-bricolage text-xl dark:text-white md:text-2xl lg:text-3xl my-6">
   Frequently Asked Questions
 </h2>
 
@@ -46,7 +47,7 @@ const toggle = (index: number) => {
 
     {openIndex === 0 && (
       <div className="mt-3 space-y-3">
-        <p className="font-quicksand text-base text-gray-700 leading-relaxed">
+        <p className="font-quicksand    text-base text-gray-700 leading-relaxed">
           After adding a Subscription, CloudDIET may take from a few minutes to several hours to begin displaying data. Timing depends on the number of resources in the Azure Subscription.
         </p>
         <p className="font-quicksand text-base text-gray-700 leading-relaxed">
@@ -67,7 +68,7 @@ const toggle = (index: number) => {
     </button>
 
     {openIndex === 1 && (
-      <p className="mt-3 font-quicksand text-base text-gray-700 leading-relaxed">
+      <p className="mt-3  font-quicksand text-base text-gray-700 leading-relaxed">
         Profiling runs at least daily to track changes, usage patterns, and trends. Savings opportunities can be identified and presented at any time throughout the day.
       </p>
     )}
@@ -84,7 +85,7 @@ const toggle = (index: number) => {
     </button>
 
     {openIndex === 2 && (
-      <p className="mt-3 font-quicksand text-base text-gray-700 leading-relaxed">
+      <p className="mt-3    font-quicksand text-base text-gray-700 leading-relaxed">
         No, CloudDIET does not incur any costs on your Azure Subscription(s).
       </p>
     )}
@@ -101,7 +102,7 @@ const toggle = (index: number) => {
     </button>
 
     {openIndex === 3 && (
-      <p className="mt-3 font-quicksand text-base text-gray-700 leading-relaxed">
+      <p className="mt-3    font-quicksand text-base text-gray-700 leading-relaxed">
         No. CloudDIET does not interact with Azure resources directly. It operates at the control plane level using Azure Resource Manager APIs. There is no performance impact or risk of disruption.
       </p>
     )}
@@ -109,12 +110,12 @@ const toggle = (index: number) => {
 </div>
 
       
-      <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl my-4"> 
+      <h2 className="font-bricolage text-xl dark:text-white  md:text-2xl lg:text-3xl my-4"> 
 Examples of what CloudDIET can access </h2>
- <p className="font-quicksand text-base text-gray-700 leading-relaxed">These examples show what CloudDIET can and cannot access. CloudDIET does not view all metrics or configurations, and it lacks permission and the ability to access data plane content. </p>
+ <p className="font-quicksand text-base dark:text-white  text-gray-700 leading-relaxed">These examples show what CloudDIET can and cannot access. CloudDIET does not view all metrics or configurations, and it lacks permission and the ability to access data plane content. </p>
 <div className="overflow-x-auto mt-6 xl:pl-16">
   <table className="min-w-full border border-gray-300 text-left font-quicksand">
-    <thead className="bg-gray-100">
+    <thead className="bg-gray-100 ">
       <tr>
         <th className="border border-gray-300 px-4 py-2 text-lg font-semibold">
           Service
@@ -129,7 +130,7 @@ Examples of what CloudDIET can access </h2>
     </thead>
     <tbody>
       {/* Azure SQL */}
-      <tr className="align-top">
+      <tr className="align-top dark:text-white ">
         <td className="border border-gray-300 px-4 py-3 font-semibold">
           Azure SQL
         </td>
@@ -152,7 +153,7 @@ Examples of what CloudDIET can access </h2>
       </tr>
 
       {/* Azure Storage */}
-      <tr className="align-top">
+      <tr className="align-top dark:text-white ">
         <td className="border border-gray-300 px-4 py-3 font-semibold">
           Azure Storage
         </td>

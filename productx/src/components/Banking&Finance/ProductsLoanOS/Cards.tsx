@@ -33,16 +33,16 @@ export default function Cards() {
   ];
 
   return (
-    <section className="w-full bg-white py-10 md:py-16 xl:pt-10 xl:pb-0" >
+    <section className="w-full bg-white dark:bg-black py-10 md:py-16 xl:pt-10 xl:pb-0" >
       <div className="max-w-8xl  xl:mx-10 px-4  sm:px-8 lg:px-16">
-        <H2 className="pb-6">Key Benefits of Loan Origination System </H2>
+        <H2 className="pb-6 dark:text-[#2B68C3]">Key Benefits of Loan Origination System </H2>
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  xl:py-10 xl:gap-14">
       
           {cards.map((card, i) => (
            <div
   key={i}
-  className="bg-[#F3F3F3] rounded-xl border-2 border-[#666666] shadow-md
+  className="bg-[#F3F3F3]  dark:bg-gray-800 rounded-xl border-2 border-[#666666] shadow-md
              flex flex-col md:flex-col md:items-center  xl:flex-row
              p-6 sm:p-8   md:py-8 py-10 xl:py-14 gap-6 " 
 >
@@ -62,7 +62,7 @@ export default function Cards() {
               {/* RIGHT CONTENT */}
               <div className="flex flex-col gap-3 sm:gap-4 w-full sm:w-2/3">
                 <H4 className="text-[#2B68C3]">{card.title}</H4>
-                <P className="text-sm sm:text-base leading-relaxed">
+                <P className="text-sm sm:text-base  dark:text-white leading-relaxed">
                   {card.content}
                 </P>
               </div>

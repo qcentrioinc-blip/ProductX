@@ -10,7 +10,7 @@ const ConsilierCTA = () => {
     ];
 
     return (
-        <section className="w-full bg-white py-6 md:py-8 lg:py-12 overflow-hidden">
+        <section className="w-full bg-white dark:bg-black py-6 md:py-8 lg:py-12 overflow-hidden">
             <div className="max-w-8xl mx-auto px-4 md:px-6">
                 <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-8 md:gap-10 xl:gap-[70px] items-stretch xl:items-start">
 
@@ -19,7 +19,7 @@ const ConsilierCTA = () => {
 
                         {/* ── Title ── */}
                         <h2
-                            className="w-full xl:w-[721px] text-[#141414] m-0"
+                            className="w-full xl:w-[721px] dark:text-white  text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Bricolage Grotesque', sans-serif",
                                 fontWeight: 700,
@@ -33,7 +33,7 @@ const ConsilierCTA = () => {
 
                         {/* ── Left Paragraph ── */}
                         <p
-                            className="w-full md:max-w-[516px] xl:w-[516px] text-[#141414] m-0"
+                            className="w-full md:max-w-[516px] dark:text-white  xl:w-[516px] text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Quicksand', sans-serif",
                                 fontWeight: 400,
@@ -104,7 +104,7 @@ const ConsilierCTA = () => {
 
                         {/* ── Right Paragraph ── */}
                         <p
-                            className="w-full xl:w-[500px] text-[#141414] m-0"
+                            className="w-full xl:w-[500px] dark:text-white  text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Quicksand', sans-serif",
                                 fontWeight: 400,

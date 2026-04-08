@@ -67,7 +67,7 @@ const TextBlock = ({ title, description, features }: { title: React.ReactNode, d
                 <div key={i} className="flex items-start gap-2">
                     <CheckIcon />
                     <span className="
-                        font-['Quicksand'] font-normal
+                        font-['Quicksand']  dark:text-white font-normal
                         leading-[1.5] tracking-normal text-[#141414]
                         text-[13px]
                         sm:text-[14px]
@@ -85,7 +85,7 @@ const TextBlock = ({ title, description, features }: { title: React.ReactNode, d
 // ── Main Component ────────────────────────────────────────────
 const TwoImage = () => {
     return (
-        <div className="w-full bg-white overflow-hidden">
+        <div className="w-full bg-white  dark:bg-black overflow-hidden">
 
             {/* ── SECTION 1 — Image LEFT | Text RIGHT ── */}
             <div className="

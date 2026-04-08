@@ -6,6 +6,7 @@ import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
 import ContactModal from "./ContactModal";
+import  { NavbarDayNightToggle } from "../../Global/DayNightToggle";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
@@ -232,7 +233,7 @@ const AINavbar = () => {
         className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none pointer-events-none`}
       >
         <div
-          className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={`bg-white dark:bg-gray-300 backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${isScrolled
               ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14' : ''}`
@@ -270,7 +271,7 @@ const AINavbar = () => {
               {/* 🔽 LOGO DROPDOWN */}
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-16 w-80 bg-white shadow-xl rounded-md z-[999] p-3"
+                  className="absolute top-16 w-80 bg-white dark:bg-gray-800 shadow-xl rounded-md z-[999] p-3"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
@@ -278,7 +279,7 @@ const AINavbar = () => {
                     to="/industries/ehr-and-pms"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                    className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-gray-400 hover:bg-gray-100 transition-all"
                   >
                     <img
                       src="/QEHRLogo2.svg"
@@ -287,10 +288,10 @@ const AINavbar = () => {
                     />
 
                     <div className="flex flex-col">
-                      <h4 className="text-lg font-semibold text-gray-900">
+                      <h4 className="text-lg dark:text-white font-semibold text-gray-900">
                         EHR & PMS
                       </h4>
-                      <p className="text-gray-600 font-quicksand text-sm">
+                      <p className="text-gray-600 dark:text-white font-quicksand text-sm">
                         The unified platform for clinical and administrative excellence.
                       </p>
                     </div>
@@ -299,7 +300,7 @@ const AINavbar = () => {
                     to="/industries/banking-and-finance"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                    className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-gray-400 hover:bg-gray-10 transition-all"
                   >
                     <img
                       src="/QBnfLogo2.png"
@@ -308,10 +309,10 @@ const AINavbar = () => {
                     />
 
                     <div className="flex flex-col">
-                      <h4 className="text-lg font-semibold text-gray-900">
+                      <h4 className="text-lg  dark:text-white font-semibold text-gray-900">
                         Banking-and-Finance
                       </h4>
-                      <p className="text-gray-600 font-quicksand text-xs">
+                      <p className="text-gray-600 dark:text-white font-quicksand text-xs">
                         Smart KYC and reconciliation for modern banking.
                       </p>
                     </div>
@@ -461,7 +462,10 @@ const AINavbar = () => {
 
               </span>
             </button>
+
+             <NavbarDayNightToggle />
           </div>
+          
 
           <button
             className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"

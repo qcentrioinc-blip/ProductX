@@ -82,7 +82,7 @@ export default function FeatureSection() {
   const current = data[activeTab];
 
   return (
-    <section className="w-full py-6 px-4 md:px-8">
+    <section className="w-full dark:bg-black py-6 px-4 md:px-8">
       {/* TITLE */}
       <div className="max-w-5xl mx-auto text-center mb-10 md:mb-14">
         <H2 className="text-[#2B68C3] leading-tight">

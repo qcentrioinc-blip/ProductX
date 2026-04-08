@@ -9,14 +9,14 @@ const checkItems = [
 
 const SingleCard = () => {
     return (
-        <section className="w-full bg-white py-16 px-6 lg:px-8">
+        <section className="w-full bg-white dark:bg-black py-16 px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Section Heading */}
                 <div className="text-center mb-10 md:mb-12">
                     <H2 className="text-3xl md:text-[44px] font-bold leading-tight">
                         <span className="text-[#2B68C3]">Enterprise-Grade Security and</span>
                         <br className="hidden md:block" />{""}
-                        <span className="text-gray-900">Regulatory Compliance Standards</span>
+                        <span className="text-gray-900 dark:text-white">Regulatory Compliance Standards</span>
                     </H2>
                 </div>
 
@@ -24,9 +24,9 @@ const SingleCard = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
                     {/* LEFT: White Card */}
-                    <div className="lg:col-span-5 w-full bg-white rounded-[24px] p-4 md:p-6    lg:p-6 shadow-[2px_2px_5px_rgba(0,0,0,0.9)] flex flex-col justify-center   ">
+                    <div className="lg:col-span-5 w-full bg-white dark:bg-slate-950 rounded-[24px] p-4 md:p-6    lg:p-6 shadow-[2px_2px_5px_rgba(0,0,0,0.9)] flex flex-col justify-center   ">
                         {/* Card Sub-Heading */}
-                        <H4 className="text-[20px] lg:text-[22px] font-bold text-gray-900 leading-snug mb-4">
+                        <H4 className="text-[20px] lg:text-[22px] font-bold text-gray-900  dark:text-white leading-snug mb-4">
                             OWASP Compliant <span className="text-[#2B68C3]">Security Framework</span>
                             <br className="hidden xl:block" />
                             for Banking <span className="text-[#2B68C3]">Operations</span>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import { H2 } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 const Statistics = () => {
     const [inView, setInView] = useState(false);
@@ -33,10 +33,8 @@ const Statistics = () => {
         <div
             ref={sectionRef}
             onMouseMove={handleMouseMove}
-            className="relative overflow-hidden py-16 md:py-10"
-            style={{
-                // background: "linear-gradient(90deg, #2B68C34D, #FED6004D)",
-            }}
+            className="relative overflow-hidden dark:bg-black py-16 md:py-10"
+           
         >
             {/* Glow effect following mouse */}
             <motion.div
@@ -52,13 +50,13 @@ const Statistics = () => {
             <div className="max-w-8xl mx-4 sm:mx-6 md:mx-10 lg:mx-16 ">
                 {/* Heading */}
                 <H2 className="font-bold mb-12 sm:mx-5 md:mb-28">
-                    <span className="text-[#254D70]">How CloudDIET Protect </span>
+                    <span className="text-[#254D70]  ">How CloudDIET Protect </span>
                     <br />
                     <span className="text-[#254D70]">Your Azure Environment & Data </span>
                 </H2>
 
                 {/* Counter Grid - Left Aligned */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
+                <div className="grid grid-cols-1 sm:grid-cols-2 dark:text-white dark:divide-x dark:divide-blue-700 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#5A5A5A] [&>*]:border-r-0 sm:[&>*:nth-child(odd)]:border-r lg:[&>*:not(:last-child)]:border-r">          {[
                     { value: 0, suffix: "", text: "We analyze metadata only, never your files, databases, or apps. " },
                     { value: 100, suffix: "%", text: "CloudDIET never modifies resources or accesses customer data. " },
                     { value: 30, suffix: "%", text: "Enterprises reduce Azure spend without compromising performance. " },
@@ -69,9 +67,9 @@ const Statistics = () => {
                         className="flex flex-col justify-between items-start py-4 lg:py-0 mb-0 sm:mb-10 px-2 sm:px-4 md:px-6 lg:px-8"
                     >
                         {/* Text above */}
-                        <p className=" mb-[30px] lg:mb-[84px] max-w-[240px]" style={{ color: "#141414", fontFamily: 'Quicksand', fontSize: '18px' }}>
+                        <P className=" mb-[30px] lg:mb-[84px] max-w-[240px] dark:text-white"  >
                             {item.text}
-                        </p>
+                        </P>
 
                         {/* Counter with Icon */}
                         <div className="flex items-center gap-3 md:gap-6">
@@ -80,7 +78,7 @@ const Statistics = () => {
                                 alt="Trend icon"
                                 className="h-4 md:h-6   lg:h-8"
                             />
-                            <h2 className="text-[#141414] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
+                            <h2 className="text-[#141414]  dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
                                 {inView && (
                                     <CountUp
                                         start={0}

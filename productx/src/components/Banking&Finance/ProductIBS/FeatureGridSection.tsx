@@ -45,7 +45,7 @@ const cardVariants = {
 
 const FeatureGridSection: React.FC = () => {
   return (
-    <section className="w-full bg-white py-10 px-6 overflow-hidden">
+    <section className="w-full bg-white dark:bg-black py-10 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col xl:flex-row justify-between gap-12">
 
         {/* Left: Heading */}
@@ -81,7 +81,7 @@ const FeatureGridSection: React.FC = () => {
                 y: -6,
                 scale: 1.02,
               }}
-              className="bg-[#F3F3F3] rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col p-6"
+              className="bg-[#F3F3F3] dark:bg-slate-900 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col p-6"
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-full mb-4 flex items-center justify-center text-lg md:text-xl">
@@ -92,7 +92,7 @@ const FeatureGridSection: React.FC = () => {
   />
 </div>
 
-              <H4 className="mb-2">{card.title}</H4>
+              <H4 className="mb-2 dark:text-white">{card.title}</H4>
 
               <P className="leading-relaxed">{card.description}</P>
             </motion.div>

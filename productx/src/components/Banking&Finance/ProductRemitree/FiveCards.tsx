@@ -289,9 +289,9 @@ const FiveCards = () => {
   ];
 
   return (
-    <div className="bg-white text-black px-4 sm:px-4 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
+    <div className="bg-white dark:bg-black pb-4  px-4 sm:px-4 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
       <div className="max-w-8xl mx-auto">
-        <H1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:mb-4 text-center">
+        <H1 className="text-2xl sm:text-3xl  dark:text-white md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:mb-4 text-center">
           Key Benefits of REMITREE Platform
         </H1>
 
@@ -305,7 +305,7 @@ const FiveCards = () => {
             {smallCards.map((card, index) => (
               <ParticleCard
                 key={index}
-                className="bg-[#fafafa] text-black rounded-lg p-5 sm:p-6 lg:p-8 flex flex-col h-full border border-gray-300"
+                className="bg-[#fafafa] text-black dark:text-white dark:bg-slate-900 rounded-lg p-5 sm:p-6 lg:p-8 flex flex-col h-full border border-gray-300"
                 enableTilt={true}
                 enableMagnetism={true}
                 clickEffect={true}
@@ -324,14 +324,14 @@ const FiveCards = () => {
           {/* Right Section - Large Card with MagicBento animations */}
           <div className="xl:col-span-6 mt-4 sm:mt-6 xl:mt-0 h-full">
             <ParticleCard
-              className="bg-[#fafafa] text-black rounded-lg p-5 sm:p-6 lg:p-8 h-full flex flex-col border border-gray-300"
+              className="bg-[#fafafa] dark:bg-slate-900  text-black rounded-lg p-5 sm:p-6 lg:p-8 h-full flex flex-col border border-gray-300"
               enableTilt={true}
               enableMagnetism={true}
               clickEffect={true}
               particleCount={12}
               glowColor="59, 130, 246" // Blue color matching your theme
             >
-              <H2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4">
+              <H2 className="text-xl  dark:text-white sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4">
                 Complete Remittance Automation
               </H2>
               <P className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">

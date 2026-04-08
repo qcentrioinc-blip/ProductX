@@ -29,10 +29,10 @@ const features = [
 
 const AboutFeaturesSection = () => {
   return (
-    <section className="w-full pb-10 px-6 md:px-12 lg:px-20 bg-white">
+    <section className="w-full pb-10 px-6 md:px-12  dark:bg-black lg:px-20 bg-white">
       {/* Section Title */}
-      <div className="max-w-7xl mx-auto text-left mb-12 mt-8">
-        <H2 className="text-[#232323] mb-4 font-bold text-[36px] md:text-[44px] lg:text-[50px] leading-[1.1]">
+      <div className="max-w-7xl mx-auto text-left mb-12  pt-4 ">
+        <H2 className="text-[#232323]  dark:text-white mb-4 font-bold text-[36px] md:text-[44px] lg:text-[50px] leading-[1.1]">
           Key Benefits of SAMS for Financial Institutions
         </H2>
 
@@ -46,7 +46,7 @@ const AboutFeaturesSection = () => {
         {features.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col sm:flex-row items-center sm:items-start border border-[#E8E8E8] shadow-sm hover:shadow-md transition-shadow bg-[#FFFFFF] w-full"
+            className="flex flex-col sm:flex-row items-center sm:items-start border border-[#E8E8E8] shadow-sm hover:shadow-md transition-shadow bg-[#FFFFFF] dark:bg-slate-900 w-full"
             style={{
               maxWidth: '608px',
               minHeight: '277px',
@@ -72,10 +72,10 @@ const AboutFeaturesSection = () => {
 
             {/* Right Content */}
             <div className="flex flex-col flex-1 text-center sm:text-left justify-center h-full">
-              <h4 className="font-['Bricolage_Grotesque'] font-bold text-[#1a1a1a] text-[20px] sm:text-[24px] mb-3 leading-[1.2]">
+              <h4 className="font-['Bricolage_Grotesque'] dark:text-white font-bold text-[#1a1a1a] text-[20px] sm:text-[24px] mb-3 leading-[1.2]">
                 {item.title}
               </h4>
-              <p className="font-['Quicksand'] text-[#555] text-[13px] sm:text-[14px] leading-[1.6]">
+              <p className="font-['Quicksand'] dark:text-white text-[#555] text-[13px] sm:text-[14px] leading-[1.6]">
                 {item.description}
               </p>
             </div>

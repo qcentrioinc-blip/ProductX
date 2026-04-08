@@ -44,7 +44,7 @@ const CARDS = [
 
 const Capabilities = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative dark:bg-black min-h-screen">
       <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-0">
         <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
 
@@ -54,7 +54,7 @@ const Capabilities = () => {
 
               <H2>
                 <div className="text-[#2B68C3]">What is</div>
-                <div className="text-gray-800">Conciliare</div>
+                <div className="text-gray-800 dark:text-white">Conciliare</div>
               </H2>
 
               <P>
@@ -89,7 +89,7 @@ const Capabilities = () => {
             {CARDS.map((card) => (
               <div
                 key={card.number}
-                className="w-full max-w-[971px] rounded-2xl p-6 bg-white border border-[#E0E0E0]"
+                className="w-full max-w-[971px] rounded-2xl p-6 dark:bg-slate-900 bg-white border border-[#E0E0E0]"
               >
                 <div className="flex flex-row items-center gap-6 lg:gap-10">
 

@@ -61,6 +61,7 @@ export default function CTA() {
       className="
         relative
         bg-white
+        dark:bg-black
         h-[30vh] md:h-full lg:h-full
         xl:h-[80vh]
         overflow-hidden
@@ -167,22 +168,26 @@ const Character = memo(function Character({
   range: [number, number];
   highlight?: boolean;
 }) {
+  // ✅ Detect dark mode
+  const isDark = document.documentElement.classList.contains("dark");
+  const finalColor = isDark ? "#ffffff" : "#000000";
+
   const color = useTransform(
     progress,
     highlight
       ? [range[0], range[1], 1]
       : range,
     highlight
-      ? ["#9ca3af", "#000000", "#2563eb"]
-      : ["#9ca3af", "#000000"]
+      ? ["#9ca3af", finalColor, "#2563eb"]
+      : ["#9ca3af", finalColor]
   );
- 
+
   const scale = useTransform(
     progress,
     [0.9, 1],
     highlight ? [1, 1.15] : [1, 1]
   );
- 
+
   return (
     <motion.span
       style={{ color, scale }}

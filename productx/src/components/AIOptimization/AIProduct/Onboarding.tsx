@@ -40,7 +40,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
   return (
     <div
       className="
-        group relative overflow-hidden rounded-lg bg-white
+        group relative overflow-hidden rounded-lg bg-white dark:bg-slate-900
         border-2 border-slate-300
         hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
         [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
@@ -49,7 +49,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
         xl:w-auto xl:flex-shrink xl:flex-1
       "
     >
-      <div className="overflow-hidden aspect-video bg-gray-50 flex items-center justify-center">
+      <div className="overflow-hidden aspect-video bg-gray-50  dark:bg-black flex items-center justify-center">
         {shouldLoad ? (
           <video
             ref={videoRef}
@@ -65,7 +65,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
       </div>
  
       <div className="relative p-6 lg:px-10">
-        <H4 className="mb-2 text-lg font-semibold text-slate-900">
+        <H4 className="mb-2 text-lg font-semibold dark:text-blue-300 text-slate-900">
           {card.title}
         </H4>
         <P className="leading-relaxed text-black">
@@ -123,14 +123,14 @@ export default function Onboarding() {
   }, []);
  
   return (
-    <section>
+    <section className="dark:bg-black">
       <div
         ref={sectionRef}
         id="benefits"
-        className="relative max-w-8xl   lg:px-10 mx-6 lg:mx-10"
+        className="relative max-w-8xl    lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
-        <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold text-[#254D70]">
+        <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold dark:text-white text-[#254D70]">
           Cloud Optimization Features That Deliver Results
         </H2>
  

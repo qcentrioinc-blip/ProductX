@@ -62,7 +62,7 @@ export default function Timeline() {
   }, []);
 
   return (
-    <div className="w-full bg-white py-10 xl:pb-20" ref={sectionRef}>
+    <div className="w-full bg-white dark:bg-black py-10 xl:pb-20" ref={sectionRef}>
       <style>{`
         @keyframes popIn {
           0%   { opacity: 0; transform: scale(0.5) translateY(-8px); }
@@ -111,7 +111,7 @@ export default function Timeline() {
 
       <div className="max-w-7xl mx-auto px-4 xl:px-0">
         <div className="flex justify-center items-center pb-10 xl:pb-20">
-          <H2>Self Registration Process </H2>
+          <H2 className="dark:text-white">Self Registration Process </H2>
         </div>
 
         {/* Desktop Timeline */}
@@ -138,7 +138,7 @@ export default function Timeline() {
                   {!isTop && (
                     <div className="mb-16 text-center">
                       <div className={`anim-text-up ${show ? "show" : ""}`}>
-                        <H4 className="font-semibold text-lg">{item.title}</H4>
+                        <H4 className="font-semibold  dark:text-[#2b68c3] text-lg">{item.title}</H4>
                         <P className="text-gray-500 text-sm mt-2 max-w-full">
                           {item.description}
                         </P>
@@ -156,18 +156,18 @@ export default function Timeline() {
                         </div>
 
                         {/* Line DOWN to base — h-20 UNCHANGED */}
-                        <div className={`anim-stem-down w-[4px] h-[87px] bg-black ${show ? "show" : ""}`} />
+                        <div className={`anim-stem-down w-[4px] h-[87px] dark:bg-white bg-black ${show ? "show" : ""}`} />
 
                         {/* Triangle pointing DOWN — bottom values UNCHANGED */}
-                        <div className={`anim-triangle absolute bottom-[-10px] xl:bottom-[-8px] border-l-[12px] border-r-[12px] border-b-[20px] border-l-transparent border-r-transparent border-b-black ${show ? "show" : ""}`} />
+                        <div className={`anim-triangle absolute bottom-[-10px] xl:bottom-[-8px] border-l-[12px] border-r-[12px] border-b-[20px] border-l-transparent border-r-transparent dark:border-b-white border-b-black ${show ? "show" : ""}`} />
                       </>
                     ) : (
                       <>
                         {/* Triangle pointing DOWN — mt-[10px] UNCHANGED */}
-                        <div className={`anim-triangle mt-[10px]  border-l-[12px] border-r-[12px] border-t-[20px] border-l-transparent border-r-transparent border-t-black ${show ? "show" : ""}`} />
+                        <div className={`anim-triangle mt-[10px]  border-l-[12px] dark:border-t-white border-r-[12px] border-t-[20px] border-l-transparent border-r-transparent border-t-black ${show ? "show" : ""}`} />
 
                         {/* Stem — xl:mt-1 h-20 UNCHANGED */}
-                        <div className={`anim-stem-up w-[4px] -mt-1 h-20 bg-black ${show ? "show" : ""}`} />
+                        <div className={`anim-stem-up w-[4px] -mt-1 h-20 dark:bg-white bg-black ${show ? "show" : ""}`} />
 
                         {/* Circle BELOW line */}
                         <div className={`anim-circle w-24 h-24 font-bricolage text-[24px] md:text-[30px] xl:text-[40px] rounded-full bg-[#2B68C3] text-white flex items-center justify-center text-lg font-semibold shadow-md ${show ? "show" : ""}`}>
@@ -181,7 +181,7 @@ export default function Timeline() {
                   {isTop && (
                     <div className="mt-16 text-center">
                       <div className={`anim-text-down ${show ? "show" : ""}`}>
-                        <H4 className="font-semibold text-lg">{item.title}</H4>
+                        <H4 className="font-semibold text-lg dark:text-[#2b68c3]">{item.title}</H4>
                         <P className="text-gray-500 text-sm mt-2 max-w-full">
                           {item.description}
                         </P>

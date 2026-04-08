@@ -1,15 +1,11 @@
 import { H2, H4, P } from "../../../styles/Typography"
 
-const CircleIcon = () => (
-  <div className="w-14 h-14 rounded-full bg-[#2B68C3] flex items-center justify-center text-white shadow-md">
-    ⏳
-  </div>
-)
+ 
 
 // Dynamic Card
 const Card = ({ title, description }: { title: React.ReactNode; description: string }) => (
-  <div className="bg-[#F8F8F8] rounded-xl px-4 py-5 w-full text-center shadow">
-    <H4 className="font-semibold text-lg my-2 leading-snug">
+  <div className="bg-[#F8F8F8]  dark:bg-gray-800 rounded-xl px-4 py-5 w-full text-center shadow">
+    <H4 className="font-semibold  dark:text-white text-lg my-2 leading-snug">
       {title}
     </H4>
     <P className="text-sm text-gray-600">
@@ -34,7 +30,7 @@ const cardsData = [
 
 const MFI = () => {
   return (
-    <div className="w-full bg-[#EEF3FA] relative overflow-hidden">
+    <div className="w-full bg-[#EEF3FA] dark:bg-black relative overflow-hidden">
 
       {/* DOTTED BG */}
       <div
@@ -45,7 +41,7 @@ const MFI = () => {
         }}
       />
       <div className="z-10 my-10 flex justify-center items-center">
-        <H2>Group Lending</H2>
+        <H2 className="dark:text-[#2B68C3]">Group Lending</H2>
       </div>
   
       <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-0 relative">
@@ -62,8 +58,14 @@ const MFI = () => {
             {/* LEFT CARD */}
             <div className="relative flex justify-end">
               <div className="absolute left-[34%] -top-10">
-                <CircleIcon />
-              </div>
+  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+    <img
+      src="/LOS/hourglass.svg"
+      alt="Group Lending"
+      className="w-7 h-7 object-contain"
+    />
+  </div>
+</div>
               <div className="w-full max-w-lg">
                 <Card {...cardsData[0]} />
               </div>
@@ -80,9 +82,15 @@ const MFI = () => {
 
             {/* RIGHT CARD */}
             <div className="relative flex justify-start">
-              <div className="absolute left-[50%] -top-10">
-                <CircleIcon />
-              </div>
+             <div className="absolute left-[60%] -translate-x-1/2 -top-10">
+  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+    <img
+      src="/LOS/IconHour.svg"
+      alt="Workflow"
+      className="w-7 h-7 object-contain"
+    />
+  </div>
+</div>
               <div className="w-full max-w-xl">
                 <Card {...cardsData[1]} />
               </div>
@@ -96,9 +104,15 @@ const MFI = () => {
 
           {/* Card 1 */}
           <div className="relative pt-10">
-            <div className="absolute left-1/2 -translate-x-1/2 top-0">
-              <CircleIcon />
-            </div>
+           <div className="absolute left-1/2 -translate-x-1/2 top-0">
+  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+    <img
+      src="/LOS/hourglass.svg"
+      alt="Group Lending"
+      className="w-7 h-7 object-contain"
+    />
+  </div>
+</div>
             <Card {...cardsData[0]} />
           </div>
 
@@ -114,8 +128,14 @@ const MFI = () => {
           {/* Card 2 */}
           <div className="relative pt-10">
             <div className="absolute left-1/2 -translate-x-1/2 top-0">
-              <CircleIcon />
-            </div>
+  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+    <img
+      src="/LOS/IconHour.svg"
+      alt="Group Lending"
+      className="w-7 h-7 object-contain"
+    />
+  </div>
+</div>
             <Card {...cardsData[1]} />
           </div>
 

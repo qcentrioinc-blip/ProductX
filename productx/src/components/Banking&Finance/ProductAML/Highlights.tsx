@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { H2, H4 } from "../../../styles/Typography";
-
 export default function Highlights() {
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
@@ -49,8 +48,8 @@ export default function Highlights() {
   ];
  
   return (
-    <div className="w-full pt-10 relative bg-[#EEF3FA] flex flex-col items-center overflow-hidden">
-        {/* DOTTED BG */}
+    <div className="w-full pt-10 relative bg-[#EEF3FA] dark:bg-black  flex flex-col items-center overflow-hidden">
+       
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
@@ -58,8 +57,7 @@ export default function Highlights() {
           backgroundSize: "24px 24px",
         }}
       />
-
-      <H2 className="text-center mb-16 max-w-2xl">  
+      <H2 className="text-center dark:text-[#2B68C3] mb-16 max-w-2xl">  
         Key Highlights of the ALMANAC Platform
       </H2>
  

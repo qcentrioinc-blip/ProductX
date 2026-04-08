@@ -23,7 +23,7 @@ const LandingPageAI = () => {
 
   return (
     <>
-      <div className="relative w-full">
+      <div className="relative w-full dark:bg-black">
         {/* ========== HERO SECTION WITH BACKGROUND IMAGE ========== */}
         <div
           className="relative w-full h-[60vh] md:h-[56vh] xl:h-screen bg-cover bg-center "
@@ -68,13 +68,11 @@ const LandingPageAI = () => {
 
             >
               <span
-                style={{
-                  color: "#254D70",
-                }}
+                className="text-[#254D70]"
               >
                 Smarter Azure Cost <br />
               </span>
-              <span style={{ color: "#254D70" }}>Optimization With AI </span>
+              <span className="text-[#254D70]">Optimization With AI </span>
             </H1>
 
             {/* Description */}

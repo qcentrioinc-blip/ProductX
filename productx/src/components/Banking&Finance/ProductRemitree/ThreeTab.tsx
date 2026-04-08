@@ -87,7 +87,7 @@ const ThreeTab = () => {
     ];
 
     return (
-        <div className="w-full bg-white">
+        <div className="w-full bg-white dark:bg-black">
 
             {/* ── Title & Description ─────────────────────────────
                 Normal flow — no absolute positioning
@@ -96,7 +96,7 @@ const ThreeTab = () => {
                 flex flex-col items-center text-center w-full
                 px-4 py-4
             ">
-                <H1 className="
+                <H1 className=" dark:text-[#2b68c3]
                     leading-[1.1] text-[#232323] w-full
                     text-[22px]     max-w-full
                     sm:text-[30px]  sm:max-w-md
@@ -119,7 +119,7 @@ const ThreeTab = () => {
             </div>
 
             <div ref={containerRef} className="w-full h-[200vh]">
-                <div className="sticky top-24 w-full bg-white z-10 pt-4 pb-4">
+                <div className="sticky top-24 w-full bg-white  dark:bg-black z-10 pt-4 pb-4">
 
                     {/* ── TABLET + DESKTOP CARD (md and above) ───────────
                 NO scaling, NO absolute — pure responsive Tailwind
@@ -133,7 +133,7 @@ const ThreeTab = () => {
                 pb-12 xl:pb-16
             ">
                         <div className="
-                    border-[1.5px] border-[#D5D5D5] rounded-xl overflow-hidden bg-white
+                    border-[1.5px] border-[#D5D5D5] rounded-xl overflow-hidden dark:bg-slate-900 bg-white
                     w-full max-w-[1400px] mx-auto
                 ">
                             {/* ── Tab Navigation ── */}
@@ -149,8 +149,8 @@ const ThreeTab = () => {
                                     lg:h-[68px]  lg:text-[22px] lg:pl-8
                                     xl:h-[90px]  xl:text-[30px] xl:pl-[60px] xl:pr-[40px]
                                     ${activeTab === index
-                                                ? 'bg-[#2B68C3] text-white z-[1]'
-                                                : 'bg-transparent text-[#2B68C3] z-0'
+                                                ? 'bg-[#2B68C3]  text-white z-[1]'
+                                                : 'bg-transparent  text-[#2B68C3] z-0'
                                             }
                                 `}
                                     >
@@ -181,7 +181,7 @@ const ThreeTab = () => {
                                     </h2>
 
                                     <p className="
-                                font-['Quicksand'] font-normal text-[#333] leading-[160%]
+                                font-['Quicksand'] font-normal  dark:text-white text-[#333] leading-[160%]
                                 text-[12px]
                                 md:text-[13px]
                                 lg:text-[14px]
@@ -211,7 +211,7 @@ const ThreeTab = () => {
                                                     <img src={feature.icon} alt="icon" className="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain" />
                                                 </div>
                                                 <span className="
-                                            font-['Quicksand'] text-[#333]
+                                            font-['Quicksand'] dark:text-white text-[#333]
                                             text-[11px]
                                             md:text-[12px]
                                             lg:text-[13px]
