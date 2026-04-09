@@ -24,6 +24,7 @@ import Sherlock from './components/Banking&Finance/ProductSherlock/Sherlock';
 import ProductsPage7 from './components/Banking&Finance/ProductsLoanOS/ProductsPage7';
 import AllProducts from './components/HomePage/GlobalLandingPage/AllProducts';
 import DayNightToggle from './components/Global/DayNightToggle';
+import MarketPage from './components/Global/MarketPageGlobal/MarketPageGlobal';
 const Physician = lazy(() => import('./components/EHR&PMS/Physician/Physician'));
 const HighTech = lazy(() => import('./routes/industries/HighTech'));
 // const Blogs = lazy(() => import('./components/Banking&Finance/Blogs/Blogs'));
@@ -263,6 +264,7 @@ const App = () => {
 
             {/* Marketplace Routes */}
             <Route path='/marketplace' element={<Marketing />} />
+            <Route path='/marketplaceglobal' element={<MarketPage />} />
             <Route path='/industries/cloud-finops-ai/marketplace' element={<Marketing />} />
             <Route path='/industries/high-tech/marketplace' element={<Marketing />} />
             <Route path='/industries/ehr-and-pms/marketplace' element={<Marketing />} />

@@ -51,7 +51,7 @@ export default function Cards() {
 
               {/* RIGHT CONTENT */}
               <div className="flex flex-col gap-3 sm:gap-4 w-full sm:w-2/3">
-                <H4 className="" >{card.title}</H4>
+                <H4 className=" dark:text-white" >{card.title}</H4>
                 <P className="text-sm sm:text-base dark:text-white leading-relaxed">
                   {card.content}
                 </P>

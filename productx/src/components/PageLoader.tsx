@@ -29,7 +29,7 @@ const PageLoader = () => {
         duration: 1.5, 
         ease: [0.65, 0, 0.35, 1] 
       }}
-      className="fixed inset-0 z-[9999] bg-[#051026] overflow-hidden pointer-events-none"
+      className="fixed inset-0 z-[9999999999] bg-[#051026] overflow-hidden pointer-events-none"
     >
       {/* Premium Ambient Glow (Background) */}
       {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">

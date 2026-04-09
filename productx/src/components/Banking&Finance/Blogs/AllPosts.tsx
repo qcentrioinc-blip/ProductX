@@ -38,7 +38,7 @@ const posts = [
   {
     id: 3,
     slug: "what-is-core-banking-and-when-should",
-    title: "What Is Core Banking and When Should a Financial Institution Upgrade Their System?",
+    title: "What Is Core Banking and When Should a Financial ...",
     description: "If your financial institution is still working on old, outdated systems and functions, there is a high chance...",
     date: "8 Feb 2026",
     category: "Banking",
@@ -110,7 +110,7 @@ const posts = [
   {
     id: 11,
     slug: "guide-to-secure-fund-transfers",
-    title: "A Customer's Guide to Secure Fund Transfers: Domestic, International, and Between Accounts",
+    title: "A Customer's Guide to Secure Fund Transfers: Domestic, International...",
     description: "When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...",
     date: "27 March 2026",
     category: "IBS",
@@ -165,9 +165,9 @@ export default function BlogGridSection() {
   }, [currentPage, sortedPosts]);
 
   return (
-    <section className="w-full pt-24 xl:pt-36 pb-10 bg-white">
+    <section className="w-full pt-24 xl:pt-36 pb-10 dark:bg-black bg-white">
 
-      <div className="sticky  top-0 xl:top-[64px] z-40 px-6 md:px-16 bg-white pt-4 pb-2 shadow-sm">
+      <div className="sticky  top-0 xl:top-[64px] z-40 px-6 md:px-16 dark:bg-gray-900 bg-white pt-4 pb-2 shadow-sm">
 
         {/* HEADING + SEARCH */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-6">
@@ -182,7 +182,7 @@ export default function BlogGridSection() {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full border border-gray-300 rounded-md shadow-sm py-3 px-6 pr-10 outline-none focus:border-[#1A4ABE]"
+              className="w-full border dark:text-white border-gray-300 rounded-md shadow-sm py-3 px-6 pr-10 outline-none focus:border-[#1A4ABE]"
             />
             <span className="absolute right-4 top-3 text-[#141414]">🔍</span>
           </div>
@@ -248,7 +248,7 @@ export default function BlogGridSection() {
               to={`/industries/banking-and-finance/blogs/${post.slug}`}
               className="block group"
             >
-              <div className="bg-white rounded-xl overflow-hidden border border-neutral-200 shadow-sm transition-transform duration-300 hover:scale-[1.02]">
+              <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-neutral-200 shadow-sm transition-transform duration-300 hover:scale-[1.02]">
                 <div className="overflow-hidden h-[220px] sm:h-[240px]">
                   <img
                     src={post.image}
@@ -262,10 +262,10 @@ export default function BlogGridSection() {
                 </div>
 
                 <div className="p-5 space-y-2">
-                  <span className="text-xs font-semibold text-[#1A4ABE] uppercase tracking-wide">
+                  <span className="text-xs font-semibold  font-quicksand  dark:text-white  text-bold text-[12px] text-[#1A4ABE] uppercase tracking-wide">
                     {post.category}
                   </span>
-                  <H4 className="font-semibold text-gray-900 leading-snug">{post.title}</H4>
+                  <H4 className="font-semibold text-gray-900  dark:text-[#2b68c3] leading-snug">{post.title}</H4>
                   <P className="text-[#141414] text-sm leading-snug">{post.description}</P>
                   <div className="pt-2 text-gray-400 text-sm">
                     📅 {post.date}

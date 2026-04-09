@@ -189,6 +189,7 @@ export const ContactUs = ({ children, className = "", onClick }: ButtonProps) =>
         <button
           className={`
             group
+            dark:border-white 
             flex items-center justify-center
             w-auto h-[44px] sm:h-[48px]
             px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]

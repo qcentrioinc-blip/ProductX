@@ -108,8 +108,11 @@ export default function DataSection() {
               </H4>
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-28 h-28 flex items-center justify-center">
-                  <span className="text-black text-7xl">↻</span>
+                <div className=" flex items-center justify-center">
+                  <img 
+                  className="text-black w-26 h-26"
+                  src="/ProductSherlock/Vector1.svg"
+                  />
                 </div>
               </div>
 

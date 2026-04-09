@@ -191,18 +191,17 @@ export const App: React.FC = () => {
   // Scroll-up top: tall navbar = 130px, global navbar = 16 (64px)
   // Scroll-down top: tall navbar = top-20 (80px), global navbar = top-0
   const stickyTopClass = isScrollUp
-    ? hasTallNavbar ? "top-14 lg:top-[130px]" : "top-14 lg:top-16"
-    : hasTallNavbar ? "top-0 lg:top-20" : "top-18";
+    ? hasTallNavbar ? "top-0 lg:top-[0px]" : "top-0 lg:top-0"
+    : hasTallNavbar ? "top-0 lg:top-0" : "top-0";
 
   return (
-    <section ref={sectionRef} className="w-full ">
+    <section ref={sectionRef} className="w-full pb-10">
       {/* Category Pills */}
       <div
         className={`
           sticky 
           ${stickyTopClass} 
           z-40 
-          dark:bg-black
           bg-white 
           py-3 
           shadow-sm 
@@ -242,9 +241,8 @@ export const App: React.FC = () => {
           sm:grid-cols-2 
           lg:grid-cols-3 
           gap-12 
-          dark:bg-black
           px-6 sm:px-10 lg:px-20 
-          pt-12
+          mt-12
         "
       >
         {filteredData.map((item) => (
@@ -254,7 +252,6 @@ export const App: React.FC = () => {
             className="
       group
       relative bg-[#F2F2F2] 
-      dark:bg-slate-900
       rounded-2xl 
       p-8 
       flex flex-col 
@@ -270,7 +267,7 @@ export const App: React.FC = () => {
           >
             {/* Title + Arrow */}
             <div className="flex items-start justify-between mb-3">
-              <H3 className="dark:text-white">
+              <H3 className="">
                 {item.title}
               </H3>
 
