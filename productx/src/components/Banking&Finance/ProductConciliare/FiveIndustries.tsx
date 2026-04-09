@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { H2, H4, P } from "../../../styles/Typography";
 
 const DoctorImg = "/BNFConsilier/Doctor.png";
 const LaptopGirlImg = "/BNFConsilier/Laptopgirl.png";
@@ -82,7 +83,7 @@ const WaveRibbon = ({ inView }: { inView: boolean }) => (
                 stroke="#2563eb"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                style={{ strokeWidth: "90px" }} // Scaled proportionally with section transform
+                style={{ strokeWidth: "50px" }} // Thinner wave line
             />
         </svg>
     </div>
@@ -229,15 +230,8 @@ const FiveIndustries = () => {
                                     textAlign: "center",
                                 }}
                             >
-                                <p
-                                    className="font-bold m-0"
-                                    style={{
-                                        color: "#1d4ed8",
-                                        fontSize: "22px",
-                                        textAlign: "center",
-                                        lineHeight: 1.3,
-                                        letterSpacing: "-0.015em",
-                                    }}
+                                <H4
+                                    className="!text-[#1d4ed8] !text-[18px] md:!text-[20px] lg:!text-[22px] text-center !leading-[1.3] !tracking-[-0.015em] m-0"
                                 >
                                     {industry.label.map((line, i) => (
                                         <React.Fragment key={i}>
@@ -245,7 +239,7 @@ const FiveIndustries = () => {
                                             {i < industry.label.length - 1 && <br />}
                                         </React.Fragment>
                                     ))}
-                                </p>
+                                </H4>
                             </div>
                         </div>
                     ))}
@@ -264,36 +258,26 @@ const FiveIndustries = () => {
                             boxShadow: "0 4px 24px rgba(30,74,190,0.15)",
                         }}
                     >
-                        <span
-                            className="font-bold tracking-tight"
-                            style={{
-                                color: "#ffffff", // White Text
-                                fontSize: "33px",
-                                lineHeight: 1.2,
-                                whiteSpace: "nowrap",
-                            }}
+                        <H2
+                            className="!text-white !text-[24px] md:!text-[28px] lg:!text-[33px] !leading-[1.2] tracking-tight whitespace-nowrap m-0"
                         >
                             Industries Conciliare Serves Globally
-                        </span>
+                        </H2>
                     </div>
 
-                    <p
-                        className="text-center m-0"
+                    <P
+                        className="text-center bg-[#E1ECFE] p-4 rounded-xl m-0 !text-black !text-[13px] md:!text-[14px] lg:!text-[15px] !leading-[1.75] !font-medium"
                         style={{
-                            backgroundColor: "#E1ECFE",
+                            // backgroundColor: "#E1ECFE",
                             padding: "12px 24px",
                             borderRadius: "20px",
-                            color: "black",
-                            fontSize: "15px",
-                            fontWeight: 500,
-                            lineHeight: 1.75,
                             maxWidth: "570px",
                         }}
                     >
                         Automated reconciliation solutions tailored for complex financial
                         <br />
                         operations across diverse sectors and transaction types.
-                    </p>
+                    </P>
                 </div>
             </section>
         </div>
