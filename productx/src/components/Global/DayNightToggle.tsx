@@ -5,6 +5,8 @@ import { useTheme } from "./ThemeContext";
 // const NAVBAR_TOGGLE_ROUTES = ["/industries/cloud-finops-ai"];
 const ALLOWED_FLOATING_ROUTES = [
   "/industries/banking-and-finance/products/",
+  "/industries/banking-and-finance",
+  "/",
 ];
 
 // ─── Floating toggle (all pages EXCEPT navbar routes) ───────────────────────

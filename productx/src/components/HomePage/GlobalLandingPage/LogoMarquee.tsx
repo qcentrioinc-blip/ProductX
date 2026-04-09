@@ -217,7 +217,7 @@ export default function LogoMarquee() {
  
   return (
     <div
-      className="w-full bg-white mt-1 overflow-hidden relative"
+      className="w-full bg-white   mt-1 dark:mt-0 overflow-hidden relative"
       style={{
         borderTop: "2px solid #a9a9a9",
         borderBottom: "2px solid #a9a9a9",

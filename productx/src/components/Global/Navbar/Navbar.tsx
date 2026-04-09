@@ -17,7 +17,7 @@ const Navbar = () => {
   const isLightNavbar = location.pathname.startsWith('/platform') || location.pathname.startsWith('/marketplace') || location.pathname.startsWith('/contact');
 
   return (
-    <header className="top-0 left-0 right-0 z-50">
+    <header className="top-0  left-0 right-0 z-50">
       <div className="w-full px-6 py-3 flex items-center justify-between">
         {/* Logo */}
 

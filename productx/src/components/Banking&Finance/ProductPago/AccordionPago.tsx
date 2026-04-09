@@ -1,6 +1,6 @@
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { H1, H3 } from "../../../styles/Typography";
+import { H2, H3 } from "../../../styles/Typography";
 import { ArrowRight } from "lucide-react";
 // import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
 
@@ -92,7 +92,7 @@ const AccordionPago = () => {
 
         {/* HEADING */}
         <div className=" max-w-full  mx-auto pt-10 pb-10 text-center px-6">
-          <H1>NACHA Payment <br className="hidden xl:block"/>Processing Capabilities</H1>
+          <H2>NACHA Payment <br className="hidden xl:block"/>Processing Capabilities</H2>
         </div>
 
         {/* GRID */}

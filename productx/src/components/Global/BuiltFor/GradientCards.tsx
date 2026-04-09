@@ -24,7 +24,7 @@ type SectionContent = {
 
 type Theme = {
          darkBg: "#000000",
-      darkHeadingColor: "#60a5fa",
+      darkHeadingColor: string,
   sectionBg: string;
   headingColor: string;
   paraColor: string;
@@ -39,12 +39,13 @@ const themes: Record<string, Theme> = {
   "/industries/banking-and-finance/built-for": {
     sectionBg: "#FFF",
     headingColor: "#000",
+         
     paraColor: "#4A4A4A",
     cardGradient: "#fafafa",
     circleColor: "#E0E0E0",
            darkBg: "#000000",
-      darkHeadingColor: "#60a5fa",
-      darkcardGradient:"#5B7C99",
+      darkHeadingColor: "#ffffff",
+      darkcardGradient:"#0f172b ",
   },
   "/industries/ehr-and-pms/built-for": {
     sectionBg: "#ffffff",
@@ -305,7 +306,11 @@ export default function FiveCardGradientSection() {
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="">
-                 <h2 style={{ color: active.headingColor }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
+                 <h2 style={{
+  color: isDark
+    ? active.darkHeadingColor ?? active.headingColor
+    : active.headingColor,
+}} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
                 style={{ color: active.headingColor }}`}
               >
                 {sectionContent.intro.title}
@@ -359,7 +364,11 @@ export default function FiveCardGradientSection() {
                   >
                     <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
                   </div>
-                  <h4 className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]" style={{ color: active.headingColor }}>
+                  <h4 className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]" style={{
+  color: isDark
+    ? active.darkHeadingColor ?? active.headingColor
+    : active.headingColor,
+}}>
                     {card.title}
                   </h4>
                   <P style={{ color: active.paraColor }}>
@@ -402,7 +411,11 @@ export default function FiveCardGradientSection() {
                 className="w-16 h-16 rounded-full mb-6">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
-              <h4 style={{ color: active.headingColor }} className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]">
+              <h4 style={{
+  color: isDark
+    ? active.darkHeadingColor ?? active.headingColor
+    : active.headingColor,
+}} className="mb-4 text-[16px] md:text-[20px] lg:text-[24px]">
                 {card.title}
               </h4>
               <P style={{ color: active.paraColor }} className="xl:max-w-xs">

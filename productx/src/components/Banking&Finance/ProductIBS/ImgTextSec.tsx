@@ -125,7 +125,7 @@ const ImgTextSec = () => {
   };
 
   return (
-    <section className="relative bg-white dark:bg-black ">
+    <section className="relative bg-white dark:bg-black pb-10 ">
 
       <div ref={containerRef} className="relative lg:h-[320vh]">
         <div className="lg:sticky lg:top-0 lg:min-h-screen lg:flex lg:items-center">
@@ -236,7 +236,7 @@ const ImgTextSec = () => {
                                   {data.features.map((item, i) => (
                                     <div key={i} className="flex items-start">
                                       <CheckIcon />
-                                      <span className="text-sm lg:text-base leading-snug">
+                                      <span className="text-sm dark:text-white lg:text-base leading-snug">
                                         {item}
                                       </span>
                                     </div>

@@ -18,7 +18,7 @@ const Centric = () => {
     });
 
     return (
-        <section ref={sectionRef} className="w-full bg-white overflow-hidden">
+        <section ref={sectionRef} className="w-full dark:bg-black bg-white overflow-hidden">
 
             {/* ── DESKTOP (xl) ── */}
             <div className="hidden xl:flex w-full h-[640px] relative">
@@ -66,13 +66,13 @@ const Centric = () => {
                     {/* People-Centric Delivery */}
                     <div className="absolute top-[250px] left-8 right-8 flex flex-col gap-4">
                         <span
-                            className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
+                            className="text-[#2B68C3] dark:text-white text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             People‑Centric Delivery
                         </span>
                         <p
-                            className="text-[#141414] text-[16px] font-normal leading-[130%] m-0"
+                            className="text-[#141414] dark:text-white text-[16px] font-normal leading-[130%] m-0"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Qnest Global supports companies across banking, manufacturing,
@@ -128,13 +128,13 @@ const Centric = () => {
                     {/* People-Centric Delivery */}
                     <div className="absolute top-[450px] left-8 right-8 flex flex-col gap-4">
                         <span
-                            className="text-[#2B68C3] text-[24px] font-semibold leading-none block"
+                            className="text-[#2B68C3] dark:text-white text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Built for Scale
                         </span>
                         <p
-                            className="text-[#141414] text-[16px] font-normal leading-[130%] m-0"
+                            className="text-[#141414] dark:text-white text-[16px] font-normal leading-[130%] m-0"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             We design platforms that grow with your business without performance degradation.
