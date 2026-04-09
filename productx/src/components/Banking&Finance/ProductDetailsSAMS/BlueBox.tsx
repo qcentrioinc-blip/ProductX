@@ -20,7 +20,7 @@ const BlueBox = () => {
                         m-0
                         text-white leading-none
                     ">
-                        Ready to Automate<br />Your NPA Management
+                        Ready to Automate<br />Your NPL Management
                     </H1>
 
                     {/* Ghost pill button */}
@@ -60,7 +60,7 @@ const BlueBox = () => {
                             mt-3 xl:mt-4
                             text-white leading-[150%]
                         ">
-                            Schedule a personalized walkthrough to see how SAMS automates NPA tracking and provisioning for your bank.
+                            Schedule a personalized walkthrough to see how SAMS automates NPL tracking and provisioning for your bank.
                         </P>
 
                         {/* White solid pill button */}
@@ -115,7 +115,7 @@ const BlueBox = () => {
             <div className="hidden xl:block absolute bottom-0 2xl:right-0 xl:right-0 z-10 w-[650px] h-auto pointer-events-none">
                 <img
                     src="/BNFCos/cta.webp"
-                    alt="Automate NPA Management"
+                    alt="Automate NPL Management"
                     className="w-full h-full object-cover object-bottom"
                 />
             </div>

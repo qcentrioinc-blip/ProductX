@@ -53,7 +53,7 @@ const LeftPanel = () => (
       <GroupButton className="w-full px-1 lg:px-2">SMA</GroupButton>
     </div>
     <div className="flex justify-center gap-2 sm:gap-4">
-      <GroupButton className="w-[48%] px-1 lg:px-2">NPA</GroupButton>
+      <GroupButton className="w-[48%] px-1 lg:px-2">NPL</GroupButton>
       <GroupButton className="w-[48%] px-1 lg:px-2">EWS</GroupButton>
     </div>
   </div>
@@ -77,15 +77,15 @@ const sectionData = [
   {
     id: 1,
     title: "SMA",
-    desc1: "Special Mention Accounts module identifies accounts showing signs of stress but not yet classified as NPAs. It tracks overdue principal, interest, and repayment schedules across loan products to capture early stress indicators.",
+    desc1: "Special Mention Accounts module identifies accounts showing signs of stress but not yet classified as NPLs. It tracks overdue principal, interest, and repayment schedules across loan products to capture early stress indicators.",
     desc2: "The system categorizes SMA accounts based on days of overdue to enable proactive collection efforts. This early identification helps prevent accounts from deteriorating into non-performing asset classification.",
     pointer1: "Identification of accounts with overdue principal and interest before classification as non-performing assets",
     pointer2: "Categorization based on days overdue to enable proactive collection and recovery actions",
   },
   {
     id: 2,
-    title: "NPA",
-    desc1: "NPA module automates asset classification as per IRAC norms based on days overdue and security coverage. It handles secured and unsecured accounts separately with sub-standard, doubtful, and loss classifications.",
+    title: "NPL",
+    desc1: "NPL module automates asset classification as per IRAC norms based on days overdue and security coverage. It handles secured and unsecured accounts separately with sub-standard, doubtful, and loss classifications.",
     desc2: "Provisioning calculations are performed automatically based on security value and principal outstanding. The system processes recovery details and provides exception handling for classification changes and security updates.",
     pointer1: "Automated asset classification into sub-standard, doubtful, and loss categories based on RBI IRAC guidelines",
     pointer2: "Provisioning computation based on secured and unsecured principal with configurable percentages for each asset status",
@@ -93,9 +93,9 @@ const sectionData = [
   {
     id: 3,
     title: "Reports",
-    desc1: "Standard out-of-box MIS reports provide comprehensive views of gross and net NPA across products, sectors, and customer segments. Reports include identification, classification, security, and provision details.",
+    desc1: "Standard out-of-box MIS reports provide comprehensive views of gross and net NPL across products, sectors, and customer segments. Reports include identification, classification, security, and provision details.",
     desc2: "Dynamic reporting allows users to configure, save, and schedule ad-hoc reports. Facility to view or download reports in Excel, text, or CSV formats with configurable specifications for future use.",
-    pointer1: "Standard MIS reports for NPA age, product, asset status, sector, industry, and account exception details",
+    pointer1: "Standard MIS reports for NPL age, product, asset status, sector, industry, and account exception details",
     pointer2: "Dynamic reporting with schedule configuration and download options in Excel, text, or CSV formats",
   }
 ];
@@ -110,7 +110,7 @@ const RightPanel = () => {
       <H2
         className="font-black text-[#1A1E23] text-[32px]  dark:text-[#2b68c3] sm:text-[40px] lg:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
       >
-        Integrated EWS, SMA <br className="hidden lg:block" /> and NPA Solution
+        Integrated EWS, SMA <br className="hidden lg:block" /> and NPL Solution
       </H2>
       <div className="mb-6 flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3">
         {sectionData.map((tab, idx) => (

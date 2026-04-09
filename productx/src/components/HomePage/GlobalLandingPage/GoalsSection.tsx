@@ -81,7 +81,7 @@ export default function GoalsSection() {
         >
           {stat.value}
         </span>
-        <span className="text-xs sm:text-md text-center font-quicksand md:text-[16px] leading-snug whitespace-pre-line">
+        <span className="text-xs sm:text-md dark:text-white text-center font-quicksand md:text-[16px] leading-snug whitespace-pre-line">
           {stat.label}
         </span>
       </div>

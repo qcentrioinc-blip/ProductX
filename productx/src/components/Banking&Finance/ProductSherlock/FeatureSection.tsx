@@ -30,22 +30,22 @@ export default function FeatureSection() {
       image: "/ProductSherlock/img1.webp",
       items: [
         {
-          icon: "/ProductSherlock/icon1.svg",
+          icon: "/ProductSherlock/icon25.svg",
           title: "Foreign Remittance Monitoring",
           desc: "Monitors foreign inward and outward remittance transactions with complete tracking and screening capabilities for AML compliance",
         },
         {
-          icon: "/ProductSherlock/icon2.svg",
+          icon: "/ProductSherlock/icon26.svg",
           title: "Case Management",
           desc: "Comprehensive case management tools for tracking investigations, documenting findings, and managing alerts through resolution",
         },
         {
-          icon: "/ProductSherlock/icon3.svg",
+          icon: "/ProductSherlock/icon27.svg",
           title: "Real-Time Screening",
           desc: "Real-time sanctions screening with name matching, whitelisting, and automated alerts for suspicious transactions",
         },
         {
-          icon: "/ProductSherlock/icon4.svg",
+          icon: "/ProductSherlock/icon28.svg",
           title: "Financial Messages",
           desc: "Financial messages related features for monitoring and analyzing payment message flows across SWIFT and other channels",
         },
@@ -53,25 +53,25 @@ export default function FeatureSection() {
     },
 
     lite: {
-      image: "/ProductSherlock/img1.webp",
+      image: "/ProductSherlock/img2.webp",
       items: [
         {
-          icon: "/ProductSherlock/icon5.svg",
+          icon: "/ProductSherlock/img29.svg",
           title: "Database Backup",
           desc: "Advance offers automated database backup while Lite and Mini provide manual backup options with different report counts",
         },
         {
-          icon: "/ProductSherlock/icon6.svg",
+          icon: "/ProductSherlock/img30.svg",
           title: "Report Count",
           desc: "Advance variant includes 50 reports while Lite includes 25 reports with configurable reporting options",
         },
         {
-          icon: "/ProductSherlock/icon7.svg",
+          icon: "/ProductSherlock/img31.svg",
           title: "FATCA Fraud Monitoring",
           desc: "FATCA fraud monitoring capabilities with US indicia tracking and reportable account identification features",
         },
         {
-          icon: "/ProductSherlock/icon8.svg",
+          icon: "/ProductSherlock/img32.svg",
           title: "Core Features",
           desc: "Includes dashboard, alerts, sanctions list name matching, whitelisting, and case management as common features across variants",
         },
@@ -91,19 +91,19 @@ export default function FeatureSection() {
       </div>
 
       {/* MAIN CONTAINER */}
-      <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-[40%_60%]">
+      <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-[40%_60%] items-stretch">
 
         {/* LEFT IMAGE */}
-        <div className="hidden lg:block min-h-[500px]">
-          <img
-            src={current.image}
-            alt="feature"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="hidden lg:block h-full overflow-hidden">
+  <img
+    src={current.image}
+    alt="feature"
+    className="w-full h-full object-cover"
+  />
+</div>
 
         {/* RIGHT CONTENT */}
-        <div className="bg-[#1F2A3C] text-white px-6 py-10 md:px-10 md:py-12 flex flex-col justify-between">
+        <div className="bg-[#1F2A3C] text-white px-6 py-10 md:px-10 md:py-12 flex flex-col justify-between h-full">
 
           {/* CARDS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -113,7 +113,7 @@ export default function FeatureSection() {
                   <img
                     src={item.icon}
                     alt={item.title}
-                    className="w-6 h-6 object-contain"
+                    className="w-8 h-8 object-contain"
                   />
                 </div>
 

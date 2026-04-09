@@ -30,7 +30,7 @@ const MegaMenu = ({
     {
       title: "Bankfair",
       desc: "Complete Banking and LMS",
-      img: "/ProductBankfair/f3.webp",
+      img: "/ProductBankfair/HERO.webp",
       path: `${base}/products/bankfair`,
     },
     {
@@ -67,7 +67,7 @@ const MegaMenu = ({
     {
       title: "Pago",
       desc: "Complete payment for banks",
-      img: "/Pago/Feature3pago.webp",
+      img: "/Pago/ImageGrid2.webp",
       path: `${base}/products/pago`,
     },
     {

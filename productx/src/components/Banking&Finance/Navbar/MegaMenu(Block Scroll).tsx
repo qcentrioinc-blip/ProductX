@@ -55,7 +55,7 @@ const MegaMenu1 = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, p
         },
         {   title: "Bankfair",
             desc: "Lorem ipsum dolor sit amet ",
-            img: "/BNFHOME/P1.png",
+            img: "/ProductBankfair/HERO.webp",
             path: `${base}/products/bankfair`,
         },
         {
@@ -91,7 +91,7 @@ const MegaMenu1 = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, p
         {
             title: "Pago",
             desc: "Complete payment for banks ",
-            img: "/BNFHOME/P6.jpg",
+            img: "/Pago/ImageGrid2.webp",
             path: `${base}/products/pago`,
         },
          {

@@ -2,27 +2,27 @@ import { H2, P } from "../../../styles/Typography";
 
 const features = [
   {
-    title: "Improved NPA Tracking Accuracy",
+    title: "Improved NPL Tracking Accuracy",
     description:
-      "Automated identification and flagging of NPAs reduces manual errors. System applies IRAC guidelines consistently across all loan products and customer types.",
+      "Automated identification and flagging of NPLs reduces manual errors. System applies IRAC guidelines consistently across all loan products and customer types.",
     icon: "/BNFCos/Search.svg", // Path placeholder to map your asset
   },
   {
     title: "Significant Time Savings",
     description:
-      "Daily auto-upload of data files eliminates manual data collection. Automated processes reduce time spent on NPA identification and provisioning calculations.",
+      "Daily auto-upload of data files eliminates manual data collection. Automated processes reduce time spent on NPL identification and provisioning calculations.",
     icon: "/BNFCos/OnTime.svg",
   },
   {
     title: "Enhanced Regulatory Compliance",
     description:
-      "Generates accurate reports aligned with regulatory changes and requirements. Maintains comprehensive MIS reports on NPAs, defaulters, and account classifications.",
+      "Generates accurate reports aligned with regulatory changes and requirements. Maintains comprehensive MIS reports on NPLs, defaulters, and account classifications.",
     icon: "/BNFCos/Notes.svg",
   },
   {
     title: "Proactive Risk Management",
     description:
-      "Predictive analytics identify potential NPAs early for timely intervention. Real-time dashboards provide visibility into stressed assets across the portfolio.",
+      "Predictive analytics identify potential NPLs early for timely intervention. Real-time dashboards provide visibility into stressed assets across the portfolio.",
     icon: "/BNFCos/Tower.svg",
   },
 ];
@@ -37,7 +37,7 @@ const AboutFeaturesSection = () => {
         </H2>
 
         <P className="text-[#555] mb-12 leading-[1.6] max-w-4xl text-[14px] md:text-[16px]">
-          Banks gain accurate NPA tracking, reduced manual effort, and improved regulatory compliance through automated processes. Real-time dashboards provide actionable insights for proactive risk management and better decision-making.
+          Banks gain accurate NPL tracking, reduced manual effort, and improved regulatory compliance through automated processes. Real-time dashboards provide actionable insights for proactive risk management and better decision-making.
         </P>
       </div>
 
