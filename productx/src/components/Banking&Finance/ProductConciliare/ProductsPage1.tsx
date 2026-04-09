@@ -18,9 +18,10 @@ import { ScrollContext } from "../../../context/ScrollContext"
 import ConsilierCTA from "./ConsilierCTA"
 import ConsilierCard from "./ConsilierCard"
 import FourPoints from "./FourPoints"
-import Configurable from "./Configurable"
+// import Configurable from "./Configurable"
 import Industry from "./Industry"
 import ConsOverview from "./ConsOverview"
+import FiveIndustries from "./FiveIndustries"
 // import ConsOverview from "./ConsOverview"
 // import Pricing from "./Pricing"
 
@@ -62,7 +63,8 @@ const ProductsPage1 = () => {
   return (
     <div>
       <BNFNav />
-      <div id="configurable"><Configurable /></div>
+      {/* <div id="configurable"><Configurable /></div> */}
+      <div id="industry"><FiveIndustries /></div>
       {/* <FirstProduct /> */}
       <HeroBottomNavbar />
       <div id="overview"><Capabilities /></div>

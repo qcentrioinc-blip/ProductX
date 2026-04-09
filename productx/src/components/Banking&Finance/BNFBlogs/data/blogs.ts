@@ -1291,20 +1291,20 @@ export const BLOGS: Blog[] = [
 
   {
     slug: "common-challenges-in-manual-np-tracking",
-    subtitle: "Common Challenges In Manual NPA Tracking & How Automation Can Solve Them ",
+    subtitle: "Common Challenges In Manual NPL Tracking & How Automation Can Solve Them ",
     author: "Dr. John Carter",
     date: "10 March 2026",
     readTime: "6 min read",
     heroImage: "/Blog/npatracking.webp",
 
     intro: [
-      "Did you know that your bank or financial institution is actually required to track overdue loans with perfect accuracy? These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely on manual processes or semi-automated systems for tracking their defaults. This creates daily challenges for officers who spend hours on data entry instead of analysis. This blog post explores these common challenges and explains how adopting an automated NPA tracking solution provides tangible relief for your team.  "
+      "Did you know that your bank or financial institution is actually required to track overdue loans with perfect accuracy? These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely on manual processes or semi-automated systems for tracking their defaults. This creates daily challenges for officers who spend hours on data entry instead of analysis. This blog post explores these common challenges and explains how adopting an automated NPL tracking solution provides tangible relief for your team.  "
     ],
 
     sections: [
       {
-        id: "Why Is Manual NPA Tracking Still A Challenge For Bank Officers?",
-        heading: "Why Is Manual NPA Tracking Still A Challenge For Bank Officers?",
+        id: "Why Is Manual NPL Tracking Still A Challenge For Bank Officers?",
+        heading: "Why Is Manual NPL Tracking Still A Challenge For Bank Officers?",
         paragraphs: [
           "Banks may still follow the old and traditional methods to track defaults, but these methods create major difficulties for officers.   ",
 
