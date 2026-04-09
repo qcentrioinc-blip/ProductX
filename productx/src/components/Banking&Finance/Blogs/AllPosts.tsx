@@ -83,7 +83,7 @@ const posts = [
   {
     id: 8,
     slug: "common-challenges-in-manual-np-tracking",
-    title: "Common Challenges In Manual NPA Tracking & How Automation Can Solve Them ",
+    title: "Common Challenges In Manual NPL Tracking & How Automation Can Solve Them ",
     description: "These non-performing assets can directly impact profitability and regulatory standing. Yet, many banks still rely  ...",
     date: "8 March 2026",
     category: "Sams",

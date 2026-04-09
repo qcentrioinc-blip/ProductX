@@ -134,7 +134,7 @@ const HWD = () => {
     },
     SAMS: {
       eyebrow: " ",
-      title: "Real-World NPA Scenarios",
+      title: "Real-World NPL Scenarios",
       description:
         ""
     },
@@ -371,10 +371,10 @@ const HWD = () => {
 
     SAMS: [
       {
-        title: "Retail Loan NPA Management",
+        title: "Retail Loan NPL Management",
         image: "/BNFCos/Document.svg",
         description:
-          "Automate identification and tracking of NPAs across retail loan portfolios for individual customers.",
+          "Automate identification and tracking of NPLs across retail loan portfolios for individual customers.",
         points: [
           "Monitor installment overdue for personal, auto, and home loans",
           "Track overdrawn accounts and bills overdue for retail customers",
@@ -400,7 +400,7 @@ const HWD = () => {
         title: "Agriculture Loan ",
         image: "/BNFCos/money-bag.svg",
         description:
-          "Manage NPA identification and provisioning for agriculture and allied activities loan portfolios.",
+          "Manage NPL identification and provisioning for agriculture and allied activities loan portfolios.",
         points: [
           "Apply 365 days DPD threshold for agriculture loan customers",
           "Track stock statement submission within 180 days",
