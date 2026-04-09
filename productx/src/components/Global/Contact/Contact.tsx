@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useCallback, useMemo, useState } from "react"
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import emailjs from "@emailjs/browser";
+import Navbar from "../Navbar/Navbar";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(InertiaPlugin);
@@ -291,12 +292,17 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   }, 3000);
 };
 return (
-    <>
-       
-      
+  <>
+    <div className="relative overflow-hidden">
+
+      {/* ✅ NAVBAR (same as CircularCards) */}
+      <div className="absolute top-0 left-0 right-0 z-50 w-full bg-gray-800 backdrop-blur-md ">
+  <Navbar />
+</div>
+
       <section className="w-full min-h-[900px] flex relative bg-[#FAFAFA] overflow-hidden font-quicksand justify-center xl:justify-end px-6 lg:px-24">
         {/* Go Back Button */}
-<div className="absolute top-20 left-12 z-20">
+<div className="absolute top-26 left-8 z-20">
   <button
     onClick={() => window.history.back()}
     disabled={isSubmitted}
@@ -329,7 +335,7 @@ return (
       </div>
 
       {/* FORM: Width 20%, Height 700px */}
-      <div className="relative z-10 top-10 xl:top-0 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-black/50">
+      <div className="relative z-10 top-10 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-black/50">
         <div className="mb-5">
           <H1 className="text-black font-bold mb-2 text-4xl tracking-tight leading-tight">Let's talk</H1>
           <P className="">Fill out the form and we'll be in touch shortly.</P>
@@ -441,6 +447,7 @@ return (
       
       
     </section>
+    </div>
     </>
   );
 };

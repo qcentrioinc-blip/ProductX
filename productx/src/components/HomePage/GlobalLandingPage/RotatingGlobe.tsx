@@ -142,7 +142,11 @@ const RotatingGlobe = () => {
                 controls.autoRotateSpeed = 3;
                 controls.enableZoom = false;
                 controls.enablePan = false;
-                globeRef.current.pointOfView({ altitude: 1.8 });
+                globeRef.current.pointOfView({
+  lat: 10,     // slightly towards Asia
+  lng: 90,     // centers Asia region
+  altitude: 2.4
+});
 
                 // Find the CSS2DRenderer div (sibling to canvas)
                 // Set it to pointer-events:none so mouse events pass through to canvas
@@ -198,7 +202,7 @@ const RotatingGlobe = () => {
     const h = dimensions.height;
     const cx = w / 2;
     const cy = h / 2;
-    const R = w * 0.50;
+    const R = w * 0.40;
 
     const leftArc = `M ${cx} ${cy - R} A ${R} ${R} 0 0 0 ${cx} ${cy + R}`;
     const rightArc = `M ${cx} ${cy - R} A ${R} ${R} 0 0 1 ${cx + R} ${cy} A ${R} ${R} 0 0 1 ${cx} ${cy + R}`;
@@ -232,9 +236,9 @@ const RotatingGlobe = () => {
             <div
                 ref={containerRef}
                 className="relative w-full flex justify-center"
-                style={{ height: `${h * 0.58}px`, overflow: "hidden" }}
+                style={{ height: `${h}px` }}
             >
-                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%, -16%)" }}>
+                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
                     <Globe
                         ref={globeRef}
                         // globeImageUrl="https://unpkg.com/three-globe/example/img/earth-water.png"
@@ -262,7 +266,7 @@ const RotatingGlobe = () => {
 
                 <svg
                     className="absolute pointer-events-none z-10"
-                    style={{ top: "50%", left: "50%", transform: "translate(-50%, -16%)", overflow: "visible" }}
+                    style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible" }}
                     width={w}
                     height={h}
                 >
