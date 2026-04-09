@@ -11,11 +11,13 @@ export const ThemeContext = createContext<ThemeContextType>({
 const DARK_MODE_PATH_PREFIXES = [
   "/industries/banking-and-finance/products/",
   "/industries/cloud-finops-ai",
-  // "/industries/banking-and-finance",
+  "/industries/banking-and-finance",
+  "/",
+  "/contact"
   
 ];
 const DARK_MODE_BLOCKED_PREFIXES = [
-  "/industries/banking-and-finance/built-for/",
+  "/industries/banking-and-finance/built-for/sada",
 ];
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();

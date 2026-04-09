@@ -124,7 +124,7 @@ const WhatWeDoIn = () => {
   return (
     <div
       ref={targetRef}
-      className="relative bg-white text-black w-full"
+      className="relative bg-white dark:bg-black text-black w-full"
       id="benefits"
       style={
         isDesktop
@@ -157,7 +157,7 @@ const WhatWeDoIn = () => {
           <div className="shrink-0 flex justify-between items-start gap-8">
             <div className="max-w-4xl">
               <H2 className="font-bold text-[#2B68C3]">
-                Who <span className="text-[#141414]"> We </span> Serve
+                Who <span className="text-[#141414] dark:text-white"> We </span> Serve
               </H2>
               <P className="pt-2 text-justify xl:pr-20  leading-tight">
                 Financial institutions of all sizes trust our solutions to
@@ -229,7 +229,7 @@ const WhatWeDoIn = () => {
                 return (
                   <div
                     key={item.id}
-                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isOpen ? "bg-blue-100" : "bg-[#F6F6F6]"
+                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isOpen ? "bg-blue-100 dark:bg-slate-950" : "bg-[#F6F6F6] dark:bg-gray-700 "
                       }`}
                     style={{ minHeight: isOpen ? "auto" : "100px" }}
                     onClick={() => {
@@ -238,7 +238,7 @@ const WhatWeDoIn = () => {
                   >
                     {/* Number */}
                     <span
-                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${isOpen ? "text-[#3E3E3E]" : "text-[#2B68C3]"
+                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${isOpen ? "text-[#3E3E3E] dark:text-white" : "text-[#2B68C3]"
                         }`}
                     >
                       {String(item.id).padStart(2, "0")}

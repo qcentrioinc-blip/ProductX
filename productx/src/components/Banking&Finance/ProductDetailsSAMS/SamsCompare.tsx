@@ -1,5 +1,5 @@
 import { H4, P } from "../../../styles/Typography";
- 
+
 import { HoverExpandImage } from "../../HomePage/AIOptimization/HoverExpandImage";
 
 const SamsCompare = () => {
@@ -50,19 +50,19 @@ const SamsCompare = () => {
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
-              src="/SAMS/standard.webp"
-              className="h-48 md:h-56 lg:h-72"
+                src="/SAMS/standard.webp"
+                className="h-48 md:h-56 lg:h-72 object-cover border border-blue-500 border-12"
               />
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800 dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
-               Standard Out-of-Box MIS Reports for NPA and Account Monitoring
+            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+              Standard Out-of-Box MIS Reports for NPA and Account Monitoring
             </H4>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">
-             Comprehensive set of pre-built MIS reports providing gross and net NPA details with configurable parameters for detailed analysis.
+              Comprehensive set of pre-built MIS reports providing gross and net NPA details with configurable parameters for detailed analysis.
             </P>
 
             {/* Numbered List */}
@@ -75,7 +75,7 @@ const SamsCompare = () => {
                       {item.number}
                     </span>
                   </div>
-                  
+
                   {/* Text */}
                   <P className="text-gray-700 text-sm md:text-base leading-relaxed flex-1">
                     {item.title}
@@ -90,19 +90,19 @@ const SamsCompare = () => {
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
-              src="/SAMS/SMA.webp"
-              className="h-48 md:h-56 lg:h-72"
+                src="/SAMS/SMA.webp"
+                className="h-48 md:h-56 lg:h-72 object-cover border border-blue-500 border-12"
               />
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800  dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
-    SMA and NPA Account Reporting with Flexible Export Options
+            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+              SMA and NPA Account Reporting with Flexible Export Options
             </H4>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">
-          Special Mention Account and NPA reports with facility to view or download in multiple formats for operational use.
+              Special Mention Account and NPA reports with facility to view or download in multiple formats for operational use.
             </P>
 
             {/* Numbered List */}
@@ -115,7 +115,7 @@ const SamsCompare = () => {
                       {item.number}
                     </span>
                   </div>
-                  
+
                   {/* Text */}
                   <P className="text-gray-700 text-sm md:text-base leading-relaxed flex-1">
                     {item.title}

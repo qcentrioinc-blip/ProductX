@@ -4,7 +4,7 @@ import { H2, P } from "../../styles/Typography";
 
 const Intro = () => {
   return (
-    <section className="w-full bg-gray-50  py-6 xl:py-10">
+    <section className="w-full bg-gray-50  dark:bg-black  py-6 xl:py-10">
       <div className="max-w-8xl mx-auto xl:mx-18 px-4 sm:px-8 lg:px-10 xl:px-0">
 
         {/* Two Column Layout */}
@@ -16,7 +16,7 @@ const Intro = () => {
               <span className="text-[#2B68C3]">
                 Complete banking technology stack{" "}
               </span>
-              <span className="text-[#141414]">
+              <span className="text-[#141414] dark:text-white">
                 for modern institutions
               </span>
             </H2>
@@ -82,7 +82,7 @@ const Intro = () => {
 
 
           {/* RIGHT SIDE IMAGE */}
-          <div className="flex ">
+          <div className="flex bg-white rounded-lg dark:p-5 ">
             <img
               src="/ImageSection.png"
               alt="Banking Features"

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { H2, H3, P } from "../../../styles/Typography";
+ 
 
 const products = [
   {
@@ -33,9 +34,10 @@ const products = [
 
 export default function TwoProducts() {
   return (
+    <section className="dark:bg-black">
     <section
     id="two-products"
-    className="max-w-7xl  mx-auto xl:mx-18 bg-white  py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
+    className="max-w-7xl  mx-auto xl:mx-18    py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
       
       <div className="flex items-start justify-between flex-wrap gap-4">
 
@@ -44,7 +46,7 @@ export default function TwoProducts() {
     <H2 className="text-[#2B68C3] leading-tight">
       Banking and finance Products
     </H2>
-    <H2 className="text-[#141414] leading-tight">
+    <H2 className="text-[#141414] dark:text-white leading-tight">
       Built For Scale
     </H2>
   </div>
@@ -53,7 +55,7 @@ export default function TwoProducts() {
   <a href="/industries/banking-and-finance/all-products#two-products">
     <button
       className="
-        group
+        group dark:border-white
         flex items-center justify-center
         w-auto h-[44px] sm:h-[48px]
         px-[20px] sm:px-[24px] py-[10px] sm:py-[12px]
@@ -100,7 +102,7 @@ export default function TwoProducts() {
   <a
     key={product.id}
     href={product.link}
-    className="relative rounded-xl bg-white overflow-visible
+    className="relative rounded-xl dark:bg-slate-900 bg-white overflow-visible
       shadow-[0_10px_30px_rgba(0,0,0,0.06),0_1px_10px_rgba(0,0,0,0.20)]
       flex items-center
       transition-all duration-300
@@ -112,7 +114,7 @@ export default function TwoProducts() {
           <div className="relative z-20 p-10 w-full xl:w-[60%]">
 
   <div className="relative mb-4">
-    <H3 className="text-2xl font-semibold">
+    <H3 className="text-2xl  dark:text-white font-semibold">
       {product.title}
     </H3>
 
@@ -160,6 +162,7 @@ export default function TwoProducts() {
           </a>
         ))}
       </div>
+    </section>
     </section>
   );
 }

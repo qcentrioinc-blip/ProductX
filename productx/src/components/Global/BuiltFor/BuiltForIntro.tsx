@@ -11,6 +11,7 @@ type IntroStyle = {
   sectionBg: string;
   darkSectionBg?: string;
   headingColor: string;
+   darkHeadingColor?: string; 
   paraColor: string;
   buttonBg: string;
   buttonText: string;
@@ -36,6 +37,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
 
   "banking-and-finance": {
     sectionBg: "#F2F2F2",
+     darkHeadingColor: "#2B68C3",
     headingColor: "#2A2A2A",
     paraColor: "#141414",
     buttonBg: "#141414",
@@ -195,7 +197,11 @@ export default function BuiltForIntro() {
         <div className="max-w-8xl mx-10 xl:px-10">
           <div className="max-w-6xl">
 
-            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{ color: style.headingColor }}>
+            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{
+  color: isDark
+    ? style.darkHeadingColor ?? style.headingColor
+    : style.headingColor,
+}}>
               {content.heading}
             </h2>
 

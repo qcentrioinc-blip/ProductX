@@ -191,8 +191,8 @@ export const App: React.FC = () => {
   // Scroll-up top: tall navbar = 130px, global navbar = 16 (64px)
   // Scroll-down top: tall navbar = top-20 (80px), global navbar = top-0
   const stickyTopClass = isScrollUp
-    ? hasTallNavbar ? "top-14 lg:top-[130px]" : "top-14 lg:top-16"
-    : hasTallNavbar ? "top-0 lg:top-20" : "top-18";
+    ? hasTallNavbar ? "top-0 lg:top-[0px]" : "top-0 lg:top-0"
+    : hasTallNavbar ? "top-0 lg:top-0" : "top-0";
 
   return (
     <section ref={sectionRef} className="w-full pb-10">
