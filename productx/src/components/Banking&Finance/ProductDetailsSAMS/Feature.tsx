@@ -3,19 +3,19 @@ import { H2, H4, P } from "../../../styles/Typography";
 const features = [
   {
     title: "Pre-Approved Loan Offers",
-    icon: "/LOS/File.svg",
+    icon: "/SAMS/guide-book.svg",
     description:
       "Back-office users upload pre-approved offers for selected customers. Quick submission and fast screening enable potential auto-approval for existing customers.",
   },
   {
     title: "Built-In OCR Technology",
-    icon: "/LOS/Convertor.svg",
+    icon: "/SAMS/big-data.svg",
     description:
       " Reads standard document images like SSN and driving licenses. AI enhances OCR with machine learning to detect mismatches in name, birth date, and address.",
   },
   {
     title: "Configurable Score Parameters",
-    icon: "/LOS/Setting.svg",
+    icon: "/SAMS/cube.svg",
     description:
       "Built-in parameters for individual and corporate customers, including age, income ratio, debt equity, and interest coverage. Provision to add new parameters for score computation.",
   },
@@ -26,7 +26,7 @@ const AboutFeaturesSection = () => {
     <section className="w-full bg-white  dark:bg-black py-10 px-6 md:px-12 lg:px-20 xl:px-0">
       {/* Section Title */}
       <div className="max-w-7xl mx-auto text-left mb-12">
-        <H2 className="text-gray-900 dark:text-[#2B68C3]">What Makes LOS Platform Unique</H2>
+        <H2 className="text-gray-900">What Makes SAMS Platform Unique</H2>
       </div>
 
       {/* Cards Grid */}

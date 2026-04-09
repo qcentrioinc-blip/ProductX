@@ -225,21 +225,21 @@ const Building = () => {
             </div>
           </div>
 
-          <div className="max-w-[1360px] mx-auto
+          <div className="max-w-7xl mx-auto
                       flex flex-col xl:flex-row
                       gap-4 sm:gap-5 xl:gap-6
                       items-start
                       p-2.5 sm:p-3 md:p-4 xl:p-6">
 
             <div className="
-          w-full xl:w-[530px] xl:min-w-[530px] xl:shrink-0
+          w-full xl:w-[530px] xl:min-w-[560px] xl:shrink-0
           h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[512px]
           rounded-[4px] overflow-hidden bg-[#D9D9D9]
         ">
               <img
                 src={currentContent.image}
                 alt={currentContent.imageAlt}
-                className="w-full h-full object-fit"
+                className="w-full h-full object-fill"
               />
             </div>
 

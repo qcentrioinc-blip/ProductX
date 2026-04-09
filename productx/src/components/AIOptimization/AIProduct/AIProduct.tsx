@@ -7,6 +7,7 @@ import FaqSection from "../../Banking&Finance/ProductKYC/FAQ";
 // import HeroCombined from './HeroComp/HeroCombined';
  
 // import HeroCombined from './HeroComp/HeroCombined';
+import CloudDietHero from './CloudHero';
 // import CloudHero from './CloudHero';
 // import BloomHero from './BloomHero';
 // import BloomHero2 from './BloomHero2';
@@ -35,7 +36,7 @@ const AIProduct = () => {
   return (
     <div className="relative font-bricolage font-semibold">
       <div id='landingpage'>
-        {/* <CloudHero/> */}
+        <CloudDietHero  />
         {/* <HeroCombined /> */}
         {/* <BloomHero2/>
         <BloomHero/> */}
