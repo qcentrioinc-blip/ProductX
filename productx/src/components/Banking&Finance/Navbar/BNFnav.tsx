@@ -224,7 +224,7 @@ const BNFNav = () => {
     <>
     
       {/* TOP TRANSPARENT BAR */}
-      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 z-50 left-0 w-full h-14  bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="px-4 py-1 rounded-lg">
             <span className="text-gray-800 font-bricolage text-sm sm:text-base">
@@ -258,7 +258,7 @@ const BNFNav = () => {
       >
         
         <div
-          className={`bg-white dark:bg-gray-300 dark:text-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={` dark:bg-gray-300 bg-white dark:text-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${!showMainNav || (!showTopBar && isScrolled && hasHeroNav)
               ? 'w-full rounded-none scale-100 -translate-y-full delay-0'
@@ -483,7 +483,7 @@ const BNFNav = () => {
       </Suspense>
 
       {/* MOBILE MENU */}
-      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px]  bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">

@@ -52,7 +52,7 @@ export default function AuditAnimation() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-full xl:h-[250vh] bg-white"
+      className="relative w-full h-full xl:h-[250vh] dark:bg-black bg-white"
     >
       <div className="sticky top-0    overflow-hidden">
         <div className="relative w-full h-full">

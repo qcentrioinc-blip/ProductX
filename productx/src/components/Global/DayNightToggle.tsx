@@ -5,6 +5,8 @@ import { useTheme } from "./ThemeContext";
 // const NAVBAR_TOGGLE_ROUTES = ["/industries/cloud-finops-ai"];
 const ALLOWED_FLOATING_ROUTES = [
   "/industries/banking-and-finance/products/",
+  "/industries/banking-and-finance",
+  "/",
 ];
 
 // ─── Floating toggle (all pages EXCEPT navbar routes) ───────────────────────
@@ -15,8 +17,8 @@ const DayNightToggle = () => {
 
   // const isInNavbar = NAVBAR_TOGGLE_ROUTES.some((r) => pathname.startsWith(r));
 
-  const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
-  pathname.startsWith(r)
+ const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
+  r === "/" ? pathname === "/" : pathname.startsWith(r)
 );
 
 // Hide everywhere except allowed routes

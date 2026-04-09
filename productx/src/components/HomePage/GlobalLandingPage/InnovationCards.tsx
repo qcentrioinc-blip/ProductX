@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { P } from "../../../styles/Typography";
 const InnovationCards = () => {
   return (
-    <section className="w-full bg-white px-4 sm:px-8 xl:mx-auto">
+    <section className="w-full bg-white dark:bg-black px-4 sm:px-8 xl:mx-auto">
 
       {/* Overall Container */}
       <div className="max-w-8xl mx-auto flex flex-col gap-6 xl:gap-[30px]">
@@ -26,7 +26,7 @@ const InnovationCards = () => {
 
             {/* Heading */}
             <h2
-              className="text-[#2A2A2A] text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[64px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
+              className="text-[#2A2A2A] dark:text-white text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[64px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
               style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
             >
               We build platforms that scale with you.

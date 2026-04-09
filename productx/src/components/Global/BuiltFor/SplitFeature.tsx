@@ -24,6 +24,7 @@ type Theme = {
   paragraphColor: string;
   bulletColor: string;
   statsColor: string;
+  darkStatsColor?: string; 
   imageSrc: string;
   bulletIcons: string[];
 };
@@ -379,7 +380,7 @@ const isDark = mode === "dark";
           <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
-                <H3 className={`text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"
+                <H3 className={` text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"
                     ? "font-bricolageEHR"
                     : "font-bricolage"
                   }`}>{stat.value}</H3>

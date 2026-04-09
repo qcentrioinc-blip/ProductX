@@ -70,7 +70,7 @@ const Steps = () => {
 
         <div className="max-w-7xl mx-auto px-6 xl:px-0 w-full">
 
-          <div className="grid xl:grid-cols-[2fr_1.5fr] xl:gap-20 pt-10 items-center">
+          <div className="grid xl:grid-cols-[2fr_1.4fr] xl:gap-14 pt-10 items-center">
 
             {/* LEFT IMAGE PANEL */}
             <div className="bg-[#D9D9D9] rounded-2xl h-[300px] lg:h-[600px] overflow-hidden">
