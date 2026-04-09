@@ -12,7 +12,8 @@ const DARK_MODE_PATH_PREFIXES = [
   "/industries/banking-and-finance/products/",
   "/industries/cloud-finops-ai",
   "/industries/banking-and-finance",
-  "/"
+  "/",
+  "/contact"
   
 ];
 const DARK_MODE_BLOCKED_PREFIXES = [

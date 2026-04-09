@@ -439,7 +439,7 @@ export default function CircularCards() {
      <FallingGridBg >
         <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
 
-          <div className="mt-26 text-center px-4">
+          <div className="mt-26 mb-4 text-center px-4">
             <H1 className="text-white">Shaping The Future Across Every Sector</H1>
           </div>
 

@@ -7,6 +7,7 @@ const ALLOWED_FLOATING_ROUTES = [
   "/industries/banking-and-finance/products/",
   "/industries/banking-and-finance",
   "/",
+  "/contact"
 ];
 
 // ─── Floating toggle (all pages EXCEPT navbar routes) ───────────────────────

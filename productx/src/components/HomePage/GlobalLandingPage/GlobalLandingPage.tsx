@@ -15,19 +15,6 @@ import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
 
-// Below-the-fold: lazy load to speed up initial page render
-// const AnimatedStatement = lazy(() => import("./AnimatedStatement"))
-// const FutureSection = lazy(() => import("./FutureSection"))
-// const InnovationCards = lazy(() => import("./InnovationCards"))
-// const BusinessValuesSection = lazy(() => import("./BusinessValuesSection"))
-// const Milestone = lazy(() => import("./Milestone"))
-// const CEO = lazy(() => import("./CEO"))
-// const LifeCycleTech = lazy(() => import("./LifeCycleTech"))
-// const Counter = lazy(() => import("./Counter"))
-// const CallToAction = lazy(() => import("./CallToAction"))
-// const FlowingMenu = lazy(() => import("./FlowingMenu"))
-// const NewFooter = lazy(() => import("../../Global/NewFooter/NewFooter"))
-
 const GlobalLandingPage = () => {
     const [loading, setLoading] = useState(true);
 
