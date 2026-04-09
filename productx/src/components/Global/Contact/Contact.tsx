@@ -331,7 +331,7 @@ return (
       {/* FORM: Width 20%, Height 700px */}
       <div className="relative z-10 top-10 xl:top-0 w-full md:w-[70%] lg:w-[60%] xl:w-[45%] min-w-[340px] h-[700px] self-center flex flex-col bg-white/80  dark:bg-slate-800 backdrop-blur-xl p-10 rounded-[2rem] shadow-2xl border border-black/50">
         <div className="mb-5">
-          <H1 className="text-black font-bold mb-2 text-4xl tracking-tight leading-tight">Let's talk</H1>
+          <H1 className="text-black font-bold mb-2  dark:text-white text-4xl tracking-tight leading-tight">Let's talk</H1>
           <P className="">Fill out the form and we'll be in touch shortly.</P>
         </div>
 
