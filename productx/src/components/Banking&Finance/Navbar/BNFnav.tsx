@@ -258,7 +258,7 @@ const BNFNav = () => {
       >
         
         <div
-          className={` dark:bg-gray-300 dark:text-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={` dark:bg-gray-300 bg-white dark:text-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${!showMainNav || (!showTopBar && isScrolled && hasHeroNav)
               ? 'w-full rounded-none scale-100 -translate-y-full delay-0'

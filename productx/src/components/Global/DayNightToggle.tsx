@@ -17,8 +17,8 @@ const DayNightToggle = () => {
 
   // const isInNavbar = NAVBAR_TOGGLE_ROUTES.some((r) => pathname.startsWith(r));
 
-  const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
-  pathname.startsWith(r)
+ const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
+  r === "/" ? pathname === "/" : pathname.startsWith(r)
 );
 
 // Hide everywhere except allowed routes
