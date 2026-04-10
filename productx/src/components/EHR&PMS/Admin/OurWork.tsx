@@ -48,11 +48,11 @@ export default function OurWork() {
     <>
     <section
       ref={sectionRef}
-      className="bg-white   px-4 hidden xl:block"
+      className="bg-white dark:bg-[#042F2E]  px-4 hidden xl:block"
       style={{ height: "300vh" }}
     >
       <div className="flex items-center  max-w-7xl justify-start xl:mx-auto">
-          <H2EHR className="text-[#008280] mt-6 xl:mt-10">
+          <H2EHR className="text-[#008280] dark:text-white mt-6 xl:mt-10">
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
@@ -73,11 +73,11 @@ export default function OurWork() {
                     : "translateY(40px)",
               }}
             >
-              <H4EHR className="text-2xl font-semibold mb-4 text-gray-900">
+              <H4EHR className="text-2xl dark:text-amber-300 font-semibold mb-4 text-gray-900">
                 {card.title}
               </H4EHR >
               <P className="leading-relaxed text-gray-700 max-w-md">
-                {card.text}
+                {card.text} 
               </P>
             </div>
           ))}

@@ -2,7 +2,7 @@ import { H2EHR,   H3EHR,   H4EHR, P } from "../../../styles/Typography";
  
 const PhysicianHeroSection = () => {
   return (
-    <section className="relative w-full bg-white py-10 overflow-hidden">
+    <section className="relative w-full bg-white dark:bg-[#042F2E] py-10 overflow-hidden">
        {/* Wave Shape */}
   <img
     src="/EHR-PMS/Physician/shape1.svg"
@@ -24,7 +24,7 @@ const PhysicianHeroSection = () => {
         <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
-            <H2EHR className="text-4xl font-semibold text-[#008280] leading-tight">
+            <H2EHR className="text-4xl font-semibold text-[#008280] dark:text-amber-400 leading-tight">
               Practice Medicine,
              
               Not Paperwork.
@@ -81,19 +81,19 @@ const PhysicianHeroSection = () => {
           {/* Stats */}
           <div className=" mt-10 xl:mt-28  grid grid-cols-3 gap-10 max-w-3xl">
             <div className="xl:mt-4">
-              <H3EHR className=" font-bold">
+              <H3EHR className=" font-bold dark:text-white">
                Achieve Best Results  
               </H3EHR>
             </div>
  
             <div>
-              <H2EHR className="text-4xl font-bold text-gray-900">55X</H2EHR>
-              <H4EHR className="">Faster Charting</H4EHR>
+              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-amber-400">55X</H2EHR>
+              <H4EHR className="dark:text-white">Faster Charting</H4EHR>
             </div>
  
             <div>
-              <H2EHR className="text-4xl font-bold text-gray-900">85%</H2EHR>
-              <H4EHR className="">Fewer Clicks</H4EHR>
+              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-amber-400">85%</H2EHR>
+              <H4EHR className="dark:text-white">Fewer Clicks</H4EHR>
             </div>
           </div>
         </div>

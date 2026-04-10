@@ -50,7 +50,7 @@ const HeroSec1 = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white text-gray-800 rounded-2xl p-4 flex items-center gap-4 shadow-lg">
+            <div className="bg-white   text-gray-800 rounded-2xl p-4 flex items-center gap-4 shadow-lg">
               <div className="w-[60px] h-[60px] rounded-full bg-[#2B68C3] flex items-center justify-center flex-shrink-0">
                 <img
                   src="/ProductBankfair/icon1.svg"
@@ -64,9 +64,9 @@ const HeroSec1 = () => {
                   End-to-End Loan Management
                 </H4>
 
-                <P className="text-gray-600 text-sm">
+                <p className="text-gray-600  font-quicksand  text-[18px] text-sm">
                   Configure products, automate disbursements, track repayments, and manage collateral.
-                </P>
+                </p>
               </div>
             </div>
 
@@ -133,9 +133,9 @@ const HeroSec1 = () => {
                     End-to-End Loan Management
                   </H4>
 
-                  <P className="text-gray-600">
+                  <p className="text-gray-600  font-quicksand  text-[18px] text-sm">
                     Configure products, automate disbursements, track repayments, and manage collateral.
-                  </P>
+                  </p>
                 </div>
               </div>
 

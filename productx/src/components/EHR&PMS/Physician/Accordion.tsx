@@ -47,7 +47,7 @@ const Accordion = () => {
   }, []);
  
   return (
-    <section className="bg-white py-10">
+    <section className="bg-white  dark:bg-[#042F2E] py-10">
       <div className="xl:mx-auto max-w-7xl xl:px-0 px-4">
         {/* Header */}
       
@@ -75,7 +75,7 @@ const Accordion = () => {
                       rounded-xl
                       p-4
                       transition-colors
-                      hover:bg-gray-100
+                      hover:bg-gray-100 dark:hover:bg-teal-900
                     "
                   >
                     <div className="flex items-start gap-4">
@@ -83,10 +83,10 @@ const Accordion = () => {
                         {/* Title */}
                         <div className="flex items-center gap-2">
                           <H3EHR
-                            className={`font-semibold leading-tight transition ${
+                            className={` leading-tight transition ${
                               isActive
-                                ? "text-[#008280]"
-                                : "text-gray-900"
+                                ? "text-[#008280] dark:text-amber-400"
+                                : "text-gray-900 "
                             }`}
                           >
                             {tab.title}
@@ -109,7 +109,7 @@ const Accordion = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="mt-3 text-md font-quicksand text-[#141414] max-w-2xl"
+                            className="mt-3 text-md font-quicksand text-[#141414] xl:text-[18px] dark:text-white max-w-2xl"
                           >
                             {tab.description}
                           </motion.p>

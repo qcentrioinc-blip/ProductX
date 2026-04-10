@@ -13,12 +13,17 @@ const DARK_MODE_PATH_PREFIXES = [
   "/industries/cloud-finops-ai",
   "/industries/banking-and-finance",
   "/",
-  "/contact"
+  "/contact",
+   "/industries/ehr-and-pms/privacy-policy",
+  "/industries/ehr-and-pms/cookie-policy",
+  "/industries/ehr-and-pms/terms-and-conditions"
   
 ];
 const DARK_MODE_BLOCKED_PREFIXES = [
   "/industries/banking-and-finance/built-for/sada",
-  "/industries/ehr-and-pms",
+ 
+
+  
 ];
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();

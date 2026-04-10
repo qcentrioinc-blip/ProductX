@@ -56,13 +56,13 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] lg:min-h-fit xl:min-h-[300vh] py-10 px-6 lg:px-0"
+      className="relative w-full  dark:bg-[#042f2e] bg-white "
     >
       <div className="xl:sticky xl:top-0 xl:h-screen flex flex-col justify-center items-center">
         
         {/* Section Heading */}
         <div className="w-full max-w-8xl mb-10 xl:mb-12">
-          <H2EHR className="text-center  text-[#008280]">
+          <H2EHR className="text-center  dark:text-amber-400 text-[#008280]">
             Access All Payer Data Instantly
             
           </H2EHR>
@@ -81,13 +81,13 @@ const Benefits = () => {
                   className={`
                     py-8 px-6 cursor-pointer transition-all duration-500 ease-out border-l-4
                     ${isActive 
-                      ? "bg-[#F1F1F1] border-[#008280] opacity-100" 
+                      ? "bg-[#F1F1F1] dark:bg-teal-800 border-[#008280] opacity-100" 
                       : "bg-transparent border-transparent opacity-50 hover:opacity-80"
                     }
                   `}
                   style={{ borderRadius: "6px" }}
                 >
-                  <H4EHR className="font-bold text-xl text-gray-900">
+                  <H4EHR className="font-bold  dark:text-white text-xl text-gray-900">
                     {point.title}
                   </H4EHR>
                   <P className="mt-3 max-w-md text-gray-700">
