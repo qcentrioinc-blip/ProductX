@@ -195,13 +195,14 @@ export const App: React.FC = () => {
     : hasTallNavbar ? "top-0 lg:top-0" : "top-0";
 
   return (
-    <section ref={sectionRef} className="w-full pb-10">
+    <section ref={sectionRef} className="w-full ">
       {/* Category Pills */}
       <div
         className={`
           sticky 
           ${stickyTopClass} 
           z-40 
+          dark:bg-slate-900
           bg-white 
           py-3 
           shadow-sm 
@@ -223,7 +224,7 @@ export const App: React.FC = () => {
               className={`px-5 py-4 text-sm sm:text-base rounded-full border transition-all duration-300 whitespace-nowrap
                 ${c === selectedCategory
                   ? "bg-[#5d8ef0] text-white shadow-md"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  : "bg-white  text-gray-700 hover:bg-gray-100"
                 }
               `}
             >
@@ -241,8 +242,10 @@ export const App: React.FC = () => {
           sm:grid-cols-2 
           lg:grid-cols-3 
           gap-12 
+          dark:bg-slate-900
           px-6 sm:px-10 lg:px-20 
-          mt-12
+          pt-12
+          pb-12
         "
       >
         {filteredData.map((item) => (
@@ -251,7 +254,7 @@ export const App: React.FC = () => {
             onClick={() => handleCardClick(item)}
             className="
       group
-      relative bg-[#F2F2F2] 
+      relative dark:bg-slate-700 bg-[#F2F2F2] 
       rounded-2xl 
       p-8 
       flex flex-col 
@@ -267,7 +270,7 @@ export const App: React.FC = () => {
           >
             {/* Title + Arrow */}
             <div className="flex items-start justify-between mb-3">
-              <H3 className="">
+              <H3 className=" dark:text-white">
                 {item.title}
               </H3>
 

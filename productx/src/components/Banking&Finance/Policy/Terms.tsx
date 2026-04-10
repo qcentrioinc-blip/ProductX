@@ -56,13 +56,13 @@ export default function Terms() {
       </section>
  
       {/* Content */}
-      <section className="w-full bg-white text-gray-800">
+      <section className="w-full bg-white dark:bg-gray-900 text-gray-800">
         <div className="max-w-8xl  px-4 xl:px-10 xl:mx-10 py-6 xl:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
  
             {/* MAIN CONTENT */}
             <article className="prose space-y-8 prose-gray max-w-none">
-              <H1>Terms and Conditions</H1>
+              <H1 className="dark:text-white">Terms and Conditions</H1>
               <P className="text-sm text-gray-500">Last updated: February 1, 2026</P>
  
               <P className="mb-2">
@@ -75,7 +75,7 @@ export default function Terms() {
  
               {/* 1 */}
               <section id="collect">
-                <H4>1. What Information Do We Collect?</H4>
+                <H4 className="my-4 dark:text-white">1. What Information Do We Collect?</H4>
                 <P className="mb-2">
                   We collect several categories of information to provide and improve our banking and financial services:
                 </P>
@@ -89,7 +89,7 @@ export default function Terms() {
  
               {/* 2 */}
               <section id="process">
-                <H4>2. How Do We Process Your Information?</H4>
+                <H4 className="my-4 dark:text-white">2. How Do We Process Your Information?</H4>
                 <P className="mb-2">We process your information for the following purposes:</P>
                 <P className="mb-2"><strong>Service Delivery:</strong> To open and manage accounts, process payments and transfers, originate and service loans, facilitate reconciliation, and provide all core banking functionalities.</P>
                 <P className="mb-2"><strong>Compliance and Regulatory Obligations:</strong> To fulfill obligations under financial regulations including GLBA, AML/KYC rules, FATCA, CRS, and other applicable laws. This includes transaction monitoring, suspicious activity reporting (SAR), and regulatory audit trails.</P>
@@ -101,7 +101,7 @@ export default function Terms() {
  
               {/* 3 */}
               <section id="legal">
-                <H4>3. What Legal Bases Do We Rely On?</H4>
+                <H4 className="my-4 dark:text-white">3. What Legal Bases Do We Rely On?</H4>
                 <P className="mb-2">Depending on your jurisdiction, we process personal data under the following legal bases:</P>
                 <P className="mb-2"><strong>Contractual Necessity:</strong> Processing is required to fulfill our obligations under the agreement you have with us, including account opening, payment processing, and loan servicing.</P>
                 <P className="mb-2"><strong>Legal Obligation:</strong> We are required by law to process certain data for regulatory compliance, including mandatory reporting to financial regulators, tax authorities, and law enforcement agencies.</P>
@@ -112,7 +112,7 @@ export default function Terms() {
  
               {/* 4 */}
               <section id="share">
-                <H4>4. When and With Whom Do We Share Information?</H4>
+                <H4 className="my-4 dark:text-white">4. When and With Whom Do We Share Information?</H4>
                 <P className="mb-2">We do not sell your personal or financial information to third parties. We may share your information in the following circumstances:</P>
                 <P className="mb-2"><strong>Regulated Financial Networks:</strong> With payment networks (e.g., SWIFT, ACH, card networks), correspondent banks, and clearing houses as necessary to process transactions.</P>
                 <P className="mb-2"><strong>Regulatory and Government Authorities:</strong> With financial regulators, central banks, tax authorities, law enforcement, and courts where required by applicable law, court order, or regulatory mandate.</P>
@@ -124,7 +124,7 @@ export default function Terms() {
  
               {/* 5 */}
               <section id="cookies">
-                <H4>5. Do We Use Cookies and Tracking Technologies?</H4>
+                <H4 className="my-4 dark:text-white">5. Do We Use Cookies and Tracking Technologies?</H4>
                 <P className="mb-2">
                   Yes. We use cookies, web beacons, session tokens, and similar technologies across our web and mobile platforms. These are used for:
                 </P>
@@ -137,7 +137,7 @@ export default function Terms() {
  
               {/* 6 */}
               <section id="financial">
-                <H4>6. How Do We Handle Financial Data?</H4>
+                <H4 className="my-4 dark:text-white">6. How Do We Handle Financial Data?</H4>
                 <P className="mb-2">
                   Financial data is treated with the highest level of sensitivity and is subject to additional safeguards beyond standard personal data:
                 </P>
@@ -150,7 +150,7 @@ export default function Terms() {
  
               {/* 7 */}
               <section id="international">
-                <H4>7. Is Your Information Transferred Internationally?</H4>
+                <H4 className="my-4 dark:text-white">7. Is Your Information Transferred Internationally?</H4>
                 <P className="mb-2">
                   As a financial services provider operating across multiple jurisdictions, your information may be transferred to, and processed in, countries other than your country of residence. This includes transfers required to process international payments, comply with cross-border regulatory obligations (such as FATCA and CRS), and operate our cloud infrastructure.
                 </P>
@@ -161,7 +161,7 @@ export default function Terms() {
  
               {/* 8 */}
               <section id="retain">
-                <H4>8. How Long Do We Keep Your Information?</H4>
+                <H4 className="my-4 dark:text-white">8. How Long Do We Keep Your Information?</H4>
                 <P className="mb-2">
                   We retain personal and financial information for as long as necessary to fulfill the purposes for which it was collected, and to comply with applicable legal, regulatory, and contractual obligations. Specific retention periods include:
                 </P>
@@ -174,7 +174,7 @@ export default function Terms() {
  
               {/* 9 */}
               <section id="secure">
-                <H4>9. How Do We Keep Your Information Safe?</H4>
+                <H4 className="my-4 dark:text-white">9. How Do We Keep Your Information Safe?</H4>
                 <P className="mb-2">
                   We implement comprehensive technical and organizational security measures aligned with industry standards including ISO 27001, SOC 2 Type II, and PCI-DSS where applicable:
                 </P>
@@ -187,7 +187,7 @@ export default function Terms() {
  
               {/* 10 */}
               <section id="minors">
-                <H4>10. Do We Collect Information From Minors?</H4>
+                <H4 className="my-4 dark:text-white">10. Do We Collect Information From Minors?</H4>
                 <P className="mb-2">
                   Our Services are intended for individuals who are 18 years of age or older, or the minimum age of majority in their jurisdiction. We do not knowingly collect, process, or store personal data from minors without verified parental or guardian consent.
                 </P>
@@ -198,7 +198,7 @@ export default function Terms() {
  
               {/* 11 */}
               <section id="rights">
-                <H4>11. What Are Your Privacy Rights?</H4>
+                <H4 className="my-4 dark:text-white">11. What Are Your Privacy Rights?</H4>
                 <P className="mb-2">Depending on your jurisdiction, you may have the following rights regarding your personal data:</P>
                 <P className="mb-2"><strong>Right of Access:</strong> Request a copy of the personal and financial data we hold about you.</P>
                 <P className="mb-2"><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data.</P>
@@ -212,7 +212,7 @@ export default function Terms() {
  
               {/* 12 */}
               <section id="regulatory">
-                <H4>12. Regulatory Compliance & Disclosures</H4>
+                <H4 className="my-4 dark:text-white">12. Regulatory Compliance & Disclosures</H4>
                 <P className="mb-2">
                   As a financial services provider, we are subject to oversight by applicable regulatory bodies. We comply with all applicable financial privacy and data protection laws, including:
                 </P>
@@ -225,7 +225,7 @@ export default function Terms() {
  
               {/* 13 */}
               <section id="dnt">
-                <H4>13. Controls for Do-Not-Track Features</H4>
+                <H4 className="my-4 dark:text-white">13. Controls for Do-Not-Track Features</H4>
                 <P className="mb-2">
                   Some browsers include a "Do Not Track" (DNT) feature that signals to websites that you prefer not to be tracked. Due to the lack of a uniform standard for interpreting DNT signals, our platforms do not currently alter their data practices in response to DNT browser signals.
                 </P>
@@ -236,7 +236,7 @@ export default function Terms() {
  
               {/* 14 */}
               <section id="contact">
-                <H4>14. How Can You Contact Us?</H4>
+                <H4 className="my-4 dark:text-white">14. How Can You Contact Us?</H4>
                 <P className="mb-2">
                   If you have questions, concerns, or requests relating to this Terms and Conditions or our data practices, please contact our Data Protection Officer:
                 </P>
@@ -253,7 +253,7 @@ export default function Terms() {
             {/* TABLE OF CONTENTS */}
             <aside className="hidden lg:block">
               <div className="sticky top-24 rounded-xl border border-gray-200 p-6">
-                <H4 className="mb-4 text-sm font-semibold text-gray-900">
+                <H4 className="mb-4 text-sm dark:text-white font-semibold text-gray-900">
                   TABLE OF CONTENTS
                 </H4>
                 <ul className="space-y-3 text-sm">

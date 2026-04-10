@@ -39,11 +39,13 @@ const HWD = () => {
 
   const COLORS = {
     ehr: {
-      topBg: "#F5F5F5",
-      bottomBg: "#FFFFFF",
-      headingColor: "#008280",
-      textcolor: "#141414",
-      CheckColor: "#008280"
+       topBg: isDark ? "#042F2E" : "#F5F5F5",
+      bottomBg: isDark ? "#00796b" : "#FFFFFF",
+      headingColor: isDark ? "#ffffff" : "#008280",
+     
+       textcolor: isDark ? "#ffffff" : "#141414",
+      
+      CheckColor: isDark ? "#fafafa" : "#008280",
 
 
     },
@@ -930,7 +932,11 @@ const HWD = () => {
       </div>
 
       {/* ===== DESKTOP/TABLET: Original grid layout ===== */}
-      <div className="hidden md:block dark:bg-black">
+    <div
+  className={`hidden md:block ${
+    isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
+  }`}
+>
         <div className="w-full relative shadow-md flex flex-col items-center py-10 md:py-8 px-4 sm:px-6 md:px-10 ">
           <div className="max-w-7xl   mx-auto w-full">
 

@@ -6,12 +6,12 @@ const FeatureCards = () => {
      const [drawerOpen, setDrawerOpen] = useState(false);
    
   return (
-    <section className="bg-white pb-16">
+    <section className="bg-white  dark:bg-[#042f2e] pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-6">
-          <H2EHR className="text-[#007976] mb-4">Your Command Center</H2EHR>
+          <H2EHR className="text-[#007976] dark:text-amber-400 mb-4">Your Command Center</H2EHR>
           <P className="text-gray-600 text-sm">
             One unified dashboard gives you full control over patient scheduling, communication, and daily clinic operations. 
           </P>
@@ -21,10 +21,10 @@ const FeatureCards = () => {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
          
           {/* Card 1 - Left */}
-          <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
-            <div className="p-8 pb-10">
-              <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4EHR className="mb-3 text-black">Live Schedule Management </H4EHR>
+          <div className="flex flex-col rounded-[2rem] overflow-hidden  bg-[#F2F2F2] dark:bg-teal-800">
+            <div className="p-8 pb-10 ">
+              <div className="text-[#007976] text-4xl dark:text-amber-400 mb-6">＋</div>
+              <H4EHR className="mb-3 text-black dark:text-white">Live Schedule Management </H4EHR>
               <P className="text-gray-600 leading-relaxed">
                 View, book, and adjust all appointments in real-time with a clear, color-coded calendar for any provider.
               </P>
@@ -40,7 +40,7 @@ const FeatureCards = () => {
           </div>
  
           {/* Card 2 - Center (Highlighted with Teal Image) */}
-          <div className="flex flex-col rounded-[2rem] overflow-hidden relative">
+          <div className="flex flex-col rounded-[2rem]  overflow-hidden relative">
             {/* Arrow icon in top right corner */}
            
              <button
@@ -73,7 +73,7 @@ const FeatureCards = () => {
 
   {/* Text Content */}
   <div className="relative z-10">
-    <div className="text-white text-4xl mb-6">＋</div>
+    <div className="text-white text-4xl mb-6 dark:text-amber-400">＋</div>
     <H4EHR className="text-xl mb-3 text-white">
       Patient Flow Tracking
     </H4EHR>
@@ -95,10 +95,10 @@ const FeatureCards = () => {
           </div>
  
           {/* Card 3 - Right */}
-          <div className="flex flex-col rounded-[2rem] overflow-hidden bg-[#F2F2F2]">
+          <div className="flex flex-col rounded-[2rem] dark:bg-teal-800 overflow-hidden bg-[#F2F2F2]">
             <div className="p-8 pb-10">
-              <div className="text-[#007976] text-4xl mb-6">＋</div>
-              <H4EHR className="font-bold text-xl mb-3 text-black">Streamlined Patient Intake </H4EHR>
+              <div className="text-[#007976] text-4xl dark:text-amber-400 mb-6">＋</div>
+              <H4EHR className="font-bold text-xl mb-3 text-black dark:text-white">Streamlined Patient Intake </H4EHR>
               <P className="text-xs text-gray-600 leading-relaxed">
                  Use digital forms for new patient registration and check-in to eliminate paper and speed up the process. 
               </P>

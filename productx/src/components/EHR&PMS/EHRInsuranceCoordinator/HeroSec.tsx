@@ -36,11 +36,11 @@ const HeroSec = () => {
   };
 
   const cardBaseMobile =
-    "w-full h-[160px] md:h-[180px] rounded-[33.83px] p-8 flex flex-col justify-center transition-all relative overflow-hidden";
+    "w-full h-[160px] md:h-[180px]  rounded-[33.83px] p-8 flex flex-col justify-center transition-all relative overflow-hidden";
 
   return (
-     <div className="bg-[#DAF0F0] p-4 rounded-[20px] max-w-[1450px] mx-auto">
-    <div className="bg-white px-6 py-16 lg:pt-30 font-bricolage text-[#008280] overflow-x-hidden rounded-[20px]">
+     <div className="bg-[#DAF0F0]   p-4 rounded-[20px] dark:max-w-full max-w-[1450px] mx-auto">
+    <div className="bg-white px-6 py-16 lg:pt-30 font-bricolage dark:bg-[#042F2E] text-[#008280] overflow-x-hidden rounded-[20px]">
       
       {/* Header Section */}
       <motion.header
@@ -49,7 +49,7 @@ const HeroSec = () => {
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         className="text-center"
       >
-        <H1EHR className="mb-8 ">
+        <H1EHR className="mb-8  dark:text-white">
           Streamline Claims, <br />  Maximize Revenue
         </H1EHR>
 
@@ -145,9 +145,13 @@ const HeroSec = () => {
   }}
 >
   <div className="mb-4 xl:mb-12 text-5xl text-[#008280]">⟶</div>
-  <P className="text-base leading-relaxed font-medium">
+  <p className="text-base leading-relaxed    text-[14px] md:text-[16px]   lg:text-[16px] xl:text-[18px]
+        font-quicksand
+      
+        text-[#141414]
+         font-medium">
     Submit clean claims, track every status, and resolve denials faster. Start Today.
-  </P>
+  </p>
 </motion.div>
 
 
@@ -157,9 +161,13 @@ const HeroSec = () => {
           className={`${cardBaseMobile} bg-[#f0f0f0] xl:w-[171.4px] xl:h-[284.1px] xl:justify-end`}
         >
           <H3EHR className="mb-2 text-black text-3xl font-bold">99%</H3EHR >
-          <P className="text-black text-sm">
+      <p className="text-base leading-relaxed    text-[14px] md:text-[16px]   lg:text-[16px] xl:text-[18px]
+        font-quicksand
+      
+        text-[#141414]
+         font-medium">
             Claim Submission Accuracy Rate
-          </P>
+          </p>
         </motion.div>
 
         {/* Image 1 - Hidden on iPad Pro/Mobile */}

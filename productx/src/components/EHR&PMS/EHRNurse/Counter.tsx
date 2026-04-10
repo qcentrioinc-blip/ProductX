@@ -23,7 +23,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   className="relative flex flex-col  lg:items-center   py-10 lg:py-16   overflow-hidden"
 >
  
-   <div className="absolute inset-0 bg-[#FFFFFF]"></div>
+   <div className="absolute inset-0 dark:bg-[#042f2e] bg-[#FFFFFF]"></div>
 {/* Decorative Stars */}
 <div className="absolute  lg:block hidden inset-0 pointer-events-none z-0">
   <StarIcon className="top-10 left-10 opacity-60" />
@@ -37,7 +37,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   {/* Content Wrapper */}
   <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
     {/* Heading */}
-    <H2EHR className="font-semibold  text-left lg:text-center   mb-10 lg:mb-16 text-gray-800 leading-snug">
+    <H2EHR className="font-semibold  text-left lg:text-center   dark:text-amber-400 mb-10 lg:mb-16 text-gray-800 leading-snug">
       Eliminating the Top Nursing <br className="hidden lg:block" />Workflow Challenges 
     </H2EHR>
 
@@ -77,7 +77,7 @@ const StarIcon = ({ className }: { className?: string }) => (
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Lighter inner rectangle */}
-        <div className="absolute inset-4 bg-[#ffffff]  border-1 border-[#ffffff] rounded-lg backdrop-blur-sm">
+        <div className="absolute inset-4 bg-[#ffffff]  dark:bg-teal-900 border-1 border-[#ffffff] rounded-lg backdrop-blur-sm">
           
         </div>
 
@@ -91,15 +91,15 @@ const StarIcon = ({ className }: { className?: string }) => (
     className="w-8 h-8 md:w-10 md:h-10 object-contain"
   />
           </div>
-          <div className="pt-22 space-y-10 p-6">
-            <div>
-              <H4EHR className="mb-3 text-[#2A2A2A]">Scattered Patient Information </H4EHR>
+          <div className="pt-22   space-y-10 p-6">
+            <div className=" ">
+              <H4EHR className="mb-3 text-[#2A2A2A] dark:text-white">Scattered Patient Information </H4EHR>
               <P className="  text-[#141414]">
                 No more searching through multiple systems. All patient history, meds, and orders are unified in one secure, accessible profile. 
               </P>
             </div>
             <div>
-              <H4EHR className=" mb-3 text-[#2A2A2A]"> Manual Task Tracking </H4EHR>
+              <H4EHR className=" mb-3 text-[#2A2A2A] dark:text-white"> Manual Task Tracking </H4EHR>
               <P   className="text-sm text-[#141414]">
                 Eliminate sticky notes and missed follow-ups. A dynamic digital task list organizes and tracks all your clinical responsibilities. 
               </P>
@@ -153,10 +153,10 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 1 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold dark:text-amber-400 text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
-    <H4EHR>Fewer Communication Gaps</H4EHR>
+    <H4EHR className="dark:text-white">Fewer Communication Gaps</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
@@ -164,10 +164,10 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 2 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-bricolage text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage dark:text-amber-400 text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
-    <H4EHR>Faster Documentation</H4EHR>
+    <H4EHR className="dark:text-white">Faster Documentation</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
     </P>
@@ -175,10 +175,10 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 3 */}
   <div>
-    <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold dark:text-amber-400 text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
-    <H4EHR> More Organized Shifts</H4EHR>
+    <H4EHR className="dark:text-white"> More Organized Shifts</H4EHR>
     <P className="text-[#141414] mt-3 max-w-xs text-sm">
       Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>

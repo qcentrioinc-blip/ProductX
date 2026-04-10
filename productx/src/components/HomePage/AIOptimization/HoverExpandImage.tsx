@@ -65,9 +65,9 @@ export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandIm
   }, [isExpanded])
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative rounded-xl w-full h-full">
       {!isExpanded && (
-        <div onClick={handleExpand} className="w-full h-full cursor-zoom-in">
+        <div onClick={handleExpand} className="w-full rounded-xl h-full cursor-zoom-in">
           <img
             ref={ref}
             src={src}
@@ -75,7 +75,7 @@ export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandIm
             sizes={sizes}
             fetchPriority={fetchPriority}
             alt={alt}
-            className={`w-full h-full object-${objectFit} ${className}`}
+            className={`w-full h-full rounded-3xl object-${objectFit} ${className}`}
           />
         </div>
       )}

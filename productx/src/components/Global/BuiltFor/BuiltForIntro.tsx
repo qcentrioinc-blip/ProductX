@@ -27,8 +27,11 @@ type IntroContent = {
 
 const STYLE_CONFIG: Record<string, IntroStyle> = {
   "ehr-and-pms": {
-    sectionBg: "white",
+    sectionBg: "#ffffff",
     headingColor: "#008280",
+       darkSectionBg:"#042F2E",
+     darkHeadingColor: "#ffffff",
+     
     paraColor: "#141414",
     buttonBg: "ffffff",
     buttonText: "#008280",

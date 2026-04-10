@@ -5,7 +5,7 @@ const InfoWithImage = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
-    <section className="relative overflow-hidden bg-[#f4fbfa]">
+    <section className="relative overflow-hidden dark:bg-teal-900 bg-[#f4fbfa]">
       
       {/* Decorative circles */}
       <motion.div
@@ -33,7 +33,7 @@ const InfoWithImage = () => {
             transition={{ duration: 0.6, ease: easeOut }}
             className="lg:col-span-1 lg:row-start-1"
           >
-            <H2EHR className="text-[#008280] mb-4 lg:whitespace-nowrap">
+            <H2EHR className="text-[#008280]  dark:text-amber-400 mb-4 lg:whitespace-nowrap">
               Essential Front-Desk Tools 
             </H2EHR>
 
@@ -67,7 +67,7 @@ const InfoWithImage = () => {
                   transition: { duration: 0.5, ease: easeOut },
                 },
               }}
-              className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
+              className="flex-1 flex justify-between items-start dark:bg-teal-700 bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="p-6">
                 <H4EHR className="text-gray-900 mb-4">
@@ -77,7 +77,7 @@ const InfoWithImage = () => {
                   Enable patients to check themselves in via a tablet or kiosk, reducing front desk queues and manual work. 
                 </P>
               </div>
-<span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
+<span className="w-10 h-10 rounded-full bg-teal-900 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
   01
 </span>            </motion.div>
 
@@ -90,7 +90,7 @@ const InfoWithImage = () => {
                   transition: { duration: 0.5, ease: easeOut },
                 },
               }}
-              className="flex-1 flex justify-between items-start bg-white rounded-3xl p-8 shadow-xl"
+              className="flex-1 flex justify-between items-start dark:bg-teal-700 bg-white rounded-3xl p-8 shadow-xl"
             >
               <div className="p-6">
                 <H4EHR className="text-gray-900 mb-4">
@@ -100,7 +100,7 @@ const InfoWithImage = () => {
                   Collect patient signatures and forms electronically with timestamps, ensuring compliance and eliminating lost paperwork. 
                 </P>
               </div>
-<span className="w-10 h-10 rounded-full bg-teal-600 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
+<span className="w-10 h-10 rounded-full bg-teal-600 dark:bg-teal-900 shrink-0 mt-1 flex items-center justify-center text-white font-semibold">
   02
 </span>            </motion.div>
           </motion.div>

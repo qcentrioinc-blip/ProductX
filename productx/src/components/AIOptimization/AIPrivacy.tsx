@@ -2,6 +2,7 @@
 
  
 import { H1, H4, P } from '../../styles/Typography';
+import AINavbar from './Navbar/AINavbar';
 
 const sections = [
   { id: 'collect', title: 'What Information Do We Collect?' },
@@ -20,6 +21,7 @@ const sections = [
 export default function PrivacyPolicyAI() {
   return (
     <>
+    <AINavbar/>
     <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#0B2A4A] via-[#0E3561] to-[#0B2A4A]">
   
   {/* Geometric overlay */}
@@ -27,7 +29,7 @@ export default function PrivacyPolicyAI() {
   <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_40%,rgba(255,255,255,0.04)_50%,transparent_60%)]" />
 
   <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center text-white">
-    <H1 className="mb-6 text-white text-5xl md:text-6xl font-semibold tracking-tight">
+    <H1 className="my-10 text-white text-5xl md:text-6xl font-semibold tracking-tight">
       Privacy Policy
     </H1>
 
@@ -55,13 +57,13 @@ export default function PrivacyPolicyAI() {
     </div>
   </div>
 </section>
-    <section className="w-full bg-white  text-gray-800">
+    <section className="w-full bg-white dark:bg-slate-950  text-gray-800">
       <div className=" max-w-8xl px-10 mx-10 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
           
           {/* MAIN CONTENT */}
           <article className="prose space-y-6 prose-gray max-w-none">
-            <H1>Privacy Policy</H1>
+            <H1 className='dark:text-white'>Privacy Policy</H1>
             <P className="text-sm text-gray-500">
               Last updated: October 12, 2023
             </P>
@@ -73,7 +75,7 @@ export default function PrivacyPolicyAI() {
             </P>
 
             <section id="collect">
-              <H4>1. What Information Do We Collect?</H4>
+              <H4 className='dark:text-white my-4'>1. What Information Do We Collect?</H4>
               <P>
                 We may collect personal information that you voluntarily provide
                 to us when you interact with our services, such as name, email
@@ -82,7 +84,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="process">
-              <H4>2. How Do We Process Your Information?</H4>
+              <H4 className='dark:text-white my-4'>2. How Do We Process Your Information?</H4>
               <P>
                 We process your information to provide, improve, and administer
                 our services, communicate with you, ensure security, and comply
@@ -91,7 +93,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="legal">
-              <H4>3. What Legal Bases Do We Rely On?</H4>
+              <H4 className='dark:text-white my-4'>3. What Legal Bases Do We Rely On?</H4>
               <P>
                 We process personal data based on consent, contractual necessity,
                 legal obligations, and legitimate interests where applicable.
@@ -99,7 +101,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="share">
-              <H4>4. When and With Whom Do We Share Information?</H4>
+              <H4 className='dark:text-white my-4'>4. When and With Whom Do We Share Information?</H4>
               <P>
                 We may share information with trusted service providers, legal
                 authorities, or during business transfers, strictly as required.
@@ -107,7 +109,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="cookies">
-              <H4>5. Do We Use Cookies?</H4>
+              <H4 className='dark:text-white my-4'>5. Do We Use Cookies?</H4>
               <P>
                 Yes. We use cookies and similar tracking technologies to enhance
                 functionality and analyze usage patterns.
@@ -115,7 +117,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="international">
-              <H4>6. Is Your Information Transferred Internationally?</H4>
+              <H4 className='dark:text-white my-4'>6. Is Your Information Transferred Internationally?</H4>
               <P>
                 Your data may be processed in countries other than your own. We
                 ensure appropriate safeguards are in place.
@@ -123,7 +125,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="retain">
-              <H4>7. How Long Do We Keep Your Information?</H4>
+              <H4 className='dark:text-white my-4'>7. How Long Do We Keep Your Information?</H4>
               <P>
                 We retain personal information only for as long as necessary to
                 fulfill the purposes outlined in this policy.
@@ -131,7 +133,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="secure">
-              <H4>8. How Do We Keep Your Information Safe?</H4>
+              <H4 className='dark:text-white my-4'>8. How Do We Keep Your Information Safe?</H4>
               <P>
                 We implement organizational and technical security measures to
                 protect your personal data. However, no method is 100% secure.
@@ -139,7 +141,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="minors">
-              <H4>9. Do We Collect Information From Minors?</H4>
+              <H4 className='dark:text-white my-4'>9. Do We Collect Information From Minors?</H4>
               <P>
                 We do not knowingly collect personal data from individuals under
                 the age of 18.
@@ -147,7 +149,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="rights">
-              <H4>10. What Are Your Privacy Rights?</H4>
+              <H4 className='dark:text-white my-4'>10. What Are Your Privacy Rights?</H4>
               <P>
                 Depending on your location, you may have rights to access,
                 correct, or delete your personal information.
@@ -155,7 +157,7 @@ export default function PrivacyPolicyAI() {
             </section>
 
             <section id="dnt">
-              <H4>11. Controls for Do-Not-Track Features</H4>
+              <H4 className='dark:text-white my-4'>11. Controls for Do-Not-Track Features</H4>
               <P>
                 We currently do not respond to browser Do-Not-Track signals.
               </P>
@@ -165,7 +167,7 @@ export default function PrivacyPolicyAI() {
           {/* TABLE OF CONTENTS */}
           <aside className="hidden lg:block">
             <div className="sticky top-24 rounded-xl border border-gray-200 p-6">
-              <H4 className="mb-4 text-sm font-semibold text-gray-900">
+              <H4 className="mb-4  dark:text-white text-sm font-semibold text-gray-900">
                 TABLE OF CONTENTS
               </H4>
               <ul className="space-y-3 text-sm">

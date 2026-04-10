@@ -183,7 +183,7 @@ export default function Management() {
   };
 
   return (
-    <section ref={sectionRef} className="relative ">
+    <section ref={sectionRef} className="relative dark:bg-[#042F2E] ">
       <div className="max-w-full ">
         {DATA.map((card, i) => {
           const imageOnRight = i % 2 === 0;
@@ -201,7 +201,7 @@ export default function Management() {
             >
       <div
   className={`${
-    i % 2 === 0 ? "bg-white" : "bg-[#FBF7EF]"
+    i % 2 === 0 ? "bg-white dark:bg-[#042F2E]" : "bg-[#FBF7EF] dark:bg-[#042F2E]"
   } h-full rounded-t-[6rem] transition-all duration-700 ease-out 
   shadow-[0_0px_10px_px_rgba(0,0,0,0.25)]`}
 
@@ -219,7 +219,7 @@ export default function Management() {
                       imageOnRight ? "lg:order-2 lg:pr-4 xl:pr-20" : "lg:order-1 lg:pl-4 xl:pl-20"
                     }`}
                   >
-                    <H2EHR className=" font-light text-[#008280]">
+                    <H2EHR className=" font-light text-[#008280] dark:text-amber-400">
                       {card.title}
                     </H2EHR>
 

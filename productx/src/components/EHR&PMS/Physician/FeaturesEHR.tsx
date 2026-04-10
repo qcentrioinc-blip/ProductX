@@ -56,7 +56,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen md:min-h-fit lg:min-h-fit xl:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
+    <div className="min-h-screen md:min-h-fit dark:bg-[#042F2E] lg:min-h-fit xl:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl xl:mx-auto">
         <div className="border-2 border-[#166D48] rounded-3xl p-6 md:p-10 lg:p-10 xl:p-12">
 
@@ -73,7 +73,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
                   <img src="/EHRIcons/GreenArrow.svg" alt="arrow" className="w-full h-full object-contain pointer-events-none" />
                 </button>
                 <div className="p-2 absolute top-8 z-10 md:p-6">
-                  <H3EHR className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-normal border-white">
+                  <H3EHR className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-48 xl:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal xl:whitespace-pre-normal  border-white">
                     {content.cardTitle}
                   </H3EHR>
                   <P className="text-white max-w-xs md:max-w-sm lg:max-w-lg xl:whitespace-pre-line xl:mt-5 leading-relaxed">
@@ -84,7 +84,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
             </div>
 
             <div className="flex-1 text-left xl:text-right">
-              <H2EHR className="text-[#008280] leading-tight whitespace-pre-line">
+              <H2EHR className="text-[#008280] dark:text-amber-400 leading-tight whitespace-pre-line">
                 {content.heading}
               </H2EHR>
             </div>
@@ -112,7 +112,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
                     src={feature.image}
                     alt={feature.title}
                   />
-                  <H4EHR className="mb-2">{feature.title}</H4EHR>
+                  <H4EHR className="mb-2 dark:text-white">{feature.title}</H4EHR>
                   <P className="text-sm leading-relaxed">{feature.description}</P>
                 </div>
               </>
