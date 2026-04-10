@@ -66,6 +66,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Globe, { type GlobeMethods } from "react-globe.gl";
+import { H2 } from "../../../styles/Typography";
 
 const globePoints = [
     { lat: 32.9, lng: -97.0, name: 'USA (Head Quarter)' },
@@ -212,6 +213,11 @@ const RotatingGlobe = () => {
 
     return (
         <div ref={sectionRef} className="relative w-full bg-[#0a1628] overflow-hidden">
+            <div className="absolute top-[40px] left-1/2 -translate-x-1/2 z-20 pointer-events-none flex flex-col items-center gap-3">
+  <H2 className="text-white whitespace-nowrap">
+    QNEST's Presence Across the Globe
+  </H2>
+</div>
             <div
                 className="absolute inset-0 pointer-events-none z-0"
                 style={{
@@ -238,7 +244,7 @@ const RotatingGlobe = () => {
                 className="relative w-full flex justify-center"
                 style={{ height: `${h}px` }}
             >
-                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+                <div className="absolute" style={{ top: "55%", left: "50%", transform: "translate(-50%, -50%)" }}>
                     <Globe
                         ref={globeRef}
                         // globeImageUrl="https://unpkg.com/three-globe/example/img/earth-water.png"
@@ -266,7 +272,7 @@ const RotatingGlobe = () => {
 
                 <svg
                     className="absolute pointer-events-none z-10"
-                    style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible" }}
+                    style={{ top: "55%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible" }}
                     width={w}
                     height={h}
                 >

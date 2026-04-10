@@ -233,7 +233,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Loan Management with NPA ",
+        title: "Loan Management with NPL ",
         image: "/ProductBankfair/hwd_i2.svg",
         description:
           "Originate, disburse, track loans, and manage non-performing assets from classification to recovery. ",
@@ -242,7 +242,7 @@ const HWD = () => {
           "Automate EMI calculations, penalty applications, and repayment scheduling ",
           "Track collateral details and manage lien marking against loan accounts ",
           
-          "Classify assets and calculate provisions per regulatory requirements  ",
+          " Classify assets, calculate provisions, and manage NPL tracking workflows  ",
           "Monitor overdue accounts and generate alerts for collections and recovery teams"
         ],
       },
