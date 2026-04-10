@@ -6,7 +6,7 @@ const SamsCompare = () => {
   const leftItems = [
     {
       number: 1,
-      title: "Reports based on NPA age, product type, asset status, sector, sub-sector, and industry classification"
+      title: "Reports based on NPL age, product type, asset status, sector, sub-sector, and industry classification"
     },
     {
       number: 2,
@@ -21,7 +21,7 @@ const SamsCompare = () => {
   const rightItems = [
     {
       number: 1,
-      title: "MIS reports focused on SMA and NPA accounts with detailed account-level information"
+      title: "MIS reports focused on SMA and NPL accounts with detailed account-level information"
     },
     {
       number: 2,
@@ -57,12 +57,12 @@ const SamsCompare = () => {
 
             {/* Main Title */}
             <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
-              Standard Out-of-Box MIS Reports for NPA and Account Monitoring
+              Standard Out-of-Box MIS Reports for NPL and Account Monitoring
             </H4>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">
-              Comprehensive set of pre-built MIS reports providing gross and net NPA details with configurable parameters for detailed analysis.
+              Comprehensive set of pre-built MIS reports providing gross and net NPL details with configurable parameters for detailed analysis.
             </P>
 
             {/* Numbered List */}
@@ -97,12 +97,12 @@ const SamsCompare = () => {
 
             {/* Main Title */}
             <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
-              SMA and NPA Account Reporting with Flexible Export Options
+              SMA and NPL Account Reporting with Flexible Export Options
             </H4>
 
             {/* Subtitle */}
             <P className=" text-sm md:text-base mb-2 leading-relaxed">
-              Special Mention Account and NPA reports with facility to view or download in multiple formats for operational use.
+              Special Mention Account and NPL reports with facility to view or download in multiple formats for operational use.
             </P>
 
             {/* Numbered List */}

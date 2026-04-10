@@ -18,6 +18,7 @@ const DARK_MODE_PATH_PREFIXES = [
 ];
 const DARK_MODE_BLOCKED_PREFIXES = [
   "/industries/banking-and-finance/built-for/sada",
+  "/industries/ehr-and-pms",
 ];
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();

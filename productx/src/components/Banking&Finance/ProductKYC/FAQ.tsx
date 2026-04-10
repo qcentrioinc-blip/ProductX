@@ -68,7 +68,7 @@ const FaqSection: React.FC = () => {
     "/industries/banking-and-finance/products/sams": {
       heading: "SAMS Top Queries Answered",
       description:
-        "Find answers to common questions about SAMS capabilities, NPA identification, customer data unification, provisioning calculations, and regulatory reporting for banks.",
+        "Find answers to common questions about SAMS capabilities, NPL identification, customer data unification, provisioning calculations, and regulatory reporting for banks.",
       cta: "View All"
     },
     "/industries/banking-and-finance/products/pago": {
@@ -349,19 +349,19 @@ const FaqSection: React.FC = () => {
 
     "/industries/banking-and-finance/products/sams": [
       {
-        question: "What types of NPAs does SAMS identify?",
-        answer: "SAMS identifies NPAs for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic applies for financial parameters and non-financial parameters automatically."
+        question: "What types of NPLs does SAMS identify?",
+        answer: "SAMS identifies NPLs for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic applies for financial parameters and non-financial parameters automatically."
       },
       {
         question: "How does SAMS unify customer data across products?",
         answer: "SAMS assigns Uniform Customer Code using SSN, National ID, or Customer Code. Data from multiple systems is consolidated for a complete view of all credit facilities."
       },
       {
-        question: "What are the DPD thresholds used for NPA identification?",
+        question: "What are the DPD thresholds used for NPL identification?",
         answer: "For agriculture customers, DPD threshold is 365 days. For non-agriculture, financial parameters use 90 days and non-financial parameters use 180 days."
       },
       {
-        question: "How does SAMS calculate provisions for NPAs?",
+        question: "How does SAMS calculate provisions for NPLs?",
         answer: "Provisions are computed based on asset classification provisioning master and uploaded security details. Secured principal is lesser of security value or principal outstanding."
       },
       {
@@ -370,7 +370,7 @@ const FaqSection: React.FC = () => {
       },
       {
         question: "What reports does SAMS generate for compliance?",
-        answer: "SAMS generates comprehensive MIS reports on NPAs, defaulters, account classifications, provisioning calculations, and exception reports for regulatory authorities."
+        answer: "SAMS generates comprehensive MIS reports on NPLs, defaulters, account classifications, provisioning calculations, and exception reports for regulatory authorities."
       },
       {
         question: "Does SAMS support auto-upload of data files?",

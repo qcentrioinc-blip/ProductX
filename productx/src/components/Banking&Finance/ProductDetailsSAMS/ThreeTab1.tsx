@@ -52,9 +52,9 @@ const ThreeTab1 = () => {
 
     const tabContents = [
         {
-            title: 'NPA Identification',
-            title1: 'Automated NPA Identification',
-            text1: 'System identifies NPA records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic applies for financial and non-financial parameters automatically.',
+            title: 'NPL Identification',
+            title1: 'Automated NPL Identification',
+            text1: 'System identifies NPL records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic applies for financial and non-financial parameters automatically.',
             title2: 'Rules Engine',
             text2: 'Configurable rules for overdrawn accounts, installment overdue, bills overdue, and interest not served. Non-financial parameters include limit expiry and drawing power updates.',
             features: [
@@ -111,7 +111,7 @@ const ThreeTab1 = () => {
                     text-[#555] mt-4 
                     text-[15px] md:text-[16px] xl:text-[18px] max-w-3xl
                 ">
-                    SAMS automates NPA tracking, customer data unification, and provisioning calculations. Real-time dashboards and predictive analytics enable proactive risk management for financial institutions.
+                    SAMS automates NPL tracking, customer data unification, and provisioning calculations. Real-time dashboards and predictive analytics enable proactive risk management for financial institutions.
                 </P>
             </div>
 
