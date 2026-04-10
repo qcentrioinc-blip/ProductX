@@ -19,9 +19,10 @@ import ConsilierCTA from "./ConsilierCTA"
 import ConsilierCard from "./ConsilierCard"
 import FourPoints from "./FourPoints"
 // import Configurable from "./Configurable"
-import Industry from "./Industry"
+// import Industry from "./Industry"
 import ConsOverview from "./ConsOverview"
 import FiveIndustries from "./FiveIndustries"
+import Configurable from "./Configurable"
 // import ConsOverview from "./ConsOverview"
 // import Pricing from "./Pricing"
 
@@ -63,7 +64,6 @@ const ProductsPage1 = () => {
   return (
     <div>
       <BNFNav />
-      {/* <div id="configurable"><Configurable /></div> */}
       <div id="industry"><FiveIndustries /></div>
       {/* <FirstProduct /> */}
       <HeroBottomNavbar />
@@ -72,7 +72,8 @@ const ProductsPage1 = () => {
       {/* <div id="overview"><Enterprises /></div> */}
       <div id="consilier"><ConsilierCard /></div>
       <div id="process"><ConsilierCTA /></div>
-      <div id="industry"><Industry /></div>
+      {/* <div id="industry"><Industry /></div> */}
+      <div id="configurable"><Configurable /></div>
       <div id="four-points"><FourPoints /></div>
       <div id="cons-overview"><ConsOverview /></div>
       {/* <Pricing /> */}
