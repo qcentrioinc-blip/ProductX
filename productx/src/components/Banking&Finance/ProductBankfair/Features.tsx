@@ -44,7 +44,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Parameterization  ": {
     title: "Flexible Product and Transaction Configuration Tools ",
     description:
-      "Create and modify financial products, transaction types, and charge structures without coding or vendor support. ",
+      "Create and modify financial products, transaction types, and charge structures including general ledger construction without coding or vendor support.  ",
     checkItems: [
       "Design savings accounts, fixed deposits, and installment loans with custom rules ",
       "Configure amount-based and transaction-based charges with historical versioning ",
@@ -76,7 +76,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Account Operations  ": {
     title: "Comprehensive Account and Member Lifecycle Management ",
     description:
-      "Handle member onboarding, account modifications, teller transactions, and service requests through unified workflows. ",
+      "Handle member onboarding, through the account opening form, account modifications, teller transactions, and service requests through unified workflows.  ",
     checkItems: [
       "Streamlined process for creating new customer records and managing accounts ",
       "Support for share issuance, modification, redemption, and lien noting ",
@@ -92,7 +92,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Regulatory Compliance ": {
     title: "Automated Compliance and Transparent Reporting ",
     description:
-"Ensure regulatory adherence with automated checks, audit trails, and extensive reporting capabilities across all operations. ",
+"Ensure regulatory adherence through charges setup automated checks, audit trails, and extensive reporting capabilities across all operations. ",
     checkItems: [
       "Generate detailed reports, including logs, audits, and transaction histories ",
       "Maintain complete transparency with comprehensive audit trails ",

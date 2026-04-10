@@ -38,10 +38,10 @@ interface CenterImageProps {
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const NODES: NodeData[] = [
-  { label: "Misconfiguration", iconSrc: "/AIProduct/Misconfiguration.svg", highCost: "$7,500", lowCost: "$750" },
-  { label: "Duplication", iconSrc: "/AIProduct/Duplication.svg", highCost: "$1,200", lowCost: "$220" },
-  { label: "Idle Resources", iconSrc: "/AIProduct/IdleResource.svg", highCost: "$3,500", lowCost: "$350" },
-  { label: "Overprovisioning", iconSrc: "/AIProduct/Overprovisioning.svg", highCost: "$3,500", lowCost: "$252" },
+  { label: "Unused IP Addresses", iconSrc: "/AIProduct/Misconfiguration.svg", highCost: "$5,000", lowCost: "$3,500" },
+  { label: "Wrong SKU Tier", iconSrc: "/AIProduct/Duplication.svg", highCost: "$6,000", lowCost: "$4,200" },
+  { label: "Idle Resources", iconSrc: "/AIProduct/IdleResource.svg", highCost: "$8,000", lowCost: "$5,600" },
+  { label: "Overprovisioning", iconSrc: "/AIProduct/Overprovisioning.svg", highCost: "$10,000", lowCost: "$7000" },
 ];
 
 // Hexagon clip-path used across all hex nodes
@@ -176,7 +176,7 @@ function HexNode({ label, iconSrc, cost, costColor, mobile = false, flat = false
         >
           {cost}
         </div>
-        <div className={`text-slate-200 font-semibold ${mobile ? "text-[9px] mt-[2px]" : "text-[13px] mt-1"} tracking-[0.2px]`}>
+        <div className={`text-slate-200 font-semibold ${mobile ? "text-[10px] mt-[2px]" : "text-[18px] mt-1"} tracking-[0.2px]`}>
           {label}
         </div>
       </div>
@@ -316,10 +316,9 @@ function BottomRightCard() {
         </svg>
       </div>
       <div>
-        <H4 className="mb-2">Lorem ipsum</H4>
+        <H4 className="mb-2">Cost Inefficiency Hotspots </H4>
         <P className="text-white/90">
-          We onboard users from 126+ countries whether you hold a passport or
-          a residence permit we've got you covered.
+          CloudDIET identifies hidden cost drains across compute, storage, and licensing that standard FinOps tools overlook. 
         </P>
       </div>
     </motion.div>

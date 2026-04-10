@@ -128,14 +128,14 @@ const WhatWeDoIn = () => {
       id="benefits"
       style={
         isDesktop
-          ? { height: `calc(115vh + ${accordionData.length * 40}vh)` }
+          ? { height: `calc(100vh + ${accordionData.length * 60}vh)` }
           : { height: "auto" }
       }
     >
       <div
         ref={stickyInnerRef}
-        className={isDesktop ? "sticky top-0 w-full overflow-hidden" : "relative w-full"}
-        style={isDesktop ? { height: "115vh" } : { height: "auto" }}
+        className={isDesktop ? "sticky top-[70px] w-full overflow-hidden" : "relative w-full"}
+        style={isDesktop ? { height: "100vh" } : { height: "auto" }}
       >
         <div
           className="max-w-8xl xl:mx-18  mx-auto flex flex-col px-4 xl:px-2  md:px-10 "
@@ -201,18 +201,15 @@ const WhatWeDoIn = () => {
           </div>
 
           {/* ── Desktop Layout ── */}
-          <div className="flex-1  py-10 min-h-0 hidden xl:flex flex-row items-stretch gap-8">
+          <div className="flex-1 min-h-0 hidden xl:flex flex-row items-center gap-12 h-full">
 
             {/* Image — no wrapper div, height stretches to match accordion column */}
             <motion.img
               key={openIndex}
               src={images[openIndex]}
               alt="Who we serve"
-              className="shrink-0 object-contain object-top"
-              style={{
-                width: "550px",
-
-              }}
+              className="shrink-0 object-contain h-[80%]"
+style={{ width: "550px" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -221,7 +218,7 @@ const WhatWeDoIn = () => {
             {/* Accordion Side */}
             <div
               ref={desktopRef}
-              className="flex-1 flex flex-col justify-center gap-3 min-h-0"
+              className="flex-1 flex flex-col justify-center gap-4 h-full"
             >
               {accordionData.map((item, index) => {
                 const isOpen = !isDesktop ? true : openIndex === index;
