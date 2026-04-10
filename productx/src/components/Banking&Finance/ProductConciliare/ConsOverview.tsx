@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { H2, H2EHR, P } from "../../../styles/Typography";
+import { H2,P } from "../../../styles/Typography";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
 
 type Outcome = {
@@ -84,9 +84,9 @@ const ConsOverview = () => {
           <div className="flex flex-col gap-12 xl:hidden">
             {outcomes.map((item) => (
               <div key={item.id} className="flex flex-col gap-4">
-                <H2EHR className="text-[#2B68C3] text-2xl font-bold">
+                <H2 className="text-[#2B68C3] text-2xl font-bold">
                   {item.title}
-                </H2EHR>
+                </H2>
 
                 <P className="text-[#141414]">{item.description}</P>
 
@@ -192,9 +192,9 @@ const ConsOverview = () => {
 
             {/* Right Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#141414]  dark:text-[#2b68c3] mb-4 text-3xl font-bold">
+              <H2 className="text-[#141414]  dark:text-[#2b68c3] mb-4 text-3xl font-bold">
                 {activeOutcome.title}
-              </H2EHR>
+              </H2>
 
               <P className="mb-2 text-[#141414] dark:text-white">
                 {activeOutcome.description}

@@ -24,9 +24,9 @@ const features = [
      image: "/ProductIBS/b3.webp",
   },
   {
-    title: "Enhanced Security Controls",
+    title: " Secure Document Access ",
     description:
-      "Secure login, encryption, and transaction limits protect customer data and funds.",
+      "Secure statement download with authentication protects customer data and provides controlled access to account documents. ",
     icon: "/ProductIBS/icon6.svg",
      image: "/ProductIBS/b4.webp",
   },
@@ -86,7 +86,7 @@ export default function CardsSection() {
               </H4>
 
               {/* Description */}
-              <P className="text-gray-700 dark:text-gray-300 leading-relaxed xl:max-w-[400px]">
+              <P className="text-gray-700 dark:text-gray-300 leading-relaxed xl:max-w-[470px]">
                 {item.description}
               </P>
             </div>

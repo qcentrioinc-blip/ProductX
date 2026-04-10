@@ -12,32 +12,29 @@ export default function Intro() {
         <div className="flex flex-col  ">
           <div>
             <H2 className="font-bold mt-10  text-[#254D70]  leading-tight  ">
-              The
-              manufacturing <br className="xl:block hidden " />
-              challenge today
+              Pay Only For <br className="xl:block hidden " />
+              Proven Savings
             </H2>
 
             <P className="  mt-6 text-left max-w-lg">
-              We view digital transformation as your key to unlocking higher ROI.
-              From operations to customer engagement, we provide holistic tech
-              solutions that drive tangible financial results.
+              Zero upfront investment required. Our fee is strictly performance-based, calculated as a percentage of your realized cloud savings.
             </P>
           </div>
 
           {/* STATS */}
           <div className=" flex flex-col md:flex-row mt-8 xl:mt-20  gap-4 lg:gap-8   text-gray-900">
             <div className=" flex flex-col  space-y-2 lg:space-y-4 ">
-              <div className=" text-4xl  dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">$3B</div>
-              <P className=" " >Factory going for an hour of downtime</P>
+              <div className=" text-4xl  dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">$0</div>
+              <P className=" " >Initial Cost</P>
             </div>
             <div className=" flex flex-col space-y-4 ">
-              <div className="text-4xl dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">2%</div>
-              <P className=" " >Factory going for an hour of downtime</P>
+              <div className="text-4xl dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">30%</div>
+              <P className=" " >Typical Waste Found</P>
             </div>
 
             <div className=" flex flex-col space-y-4 ">
-              <div className="text-4xl dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">4,00,000</div>
-              <P className=" " >Factory going for an hour of downtime</P>
+              <div className="text-4xl dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">6 Week</div>
+              <P className=" " >Implementation</P>
             </div>
           </div>
         </div>
@@ -52,12 +49,10 @@ export default function Intro() {
             {/* <img src="/AIAbout/AIGraphic1.png" className="w-10 h-10 " /> */}
             <div >
               <H4 className="text-lg dark:text-[#254D70] font-semibold text-gray-900">
-                Improve operational resilience
+                Aligned Incentive Model
               </H4>
               <P className=" max-w-sm  leading-tight    pr-2 sm:pr-0 mt-4">
-                Security is more about continuous operation.
-                We fortify your production environment against network
-                failures and cyber threats, ensuring maximum uptime.
+                We only succeed when you do. Our compensation ties directly to your reduced monthly Azure spend.
               </P>
             </div>
           </div>
@@ -67,12 +62,10 @@ export default function Intro() {
             {/* <img src="/AIAbout/AIGraphic2.png" className="w-10 h-10 " /> */}
             <div>
               <H4 className="text-lg dark:text-[#254D70] font-semibold text-gray-900">
-                Improve operational resilience
+                No Minimum Commitment
               </H4>
               <P className=" max-w-sm  leading-tight    pr-2 sm:pr-0 mt-4">
-                Security is more about continuous operation.
-                We fortify your production environment against network
-                failures and cyber threats, ensuring maximum uptime.
+                Cancel anytime without penalty. Our engagement relies solely on delivering continuous, verifiable cost reduction.
               </P>
             </div>
           </div>
@@ -82,12 +75,10 @@ export default function Intro() {
             {/* <img src="/AIAbout/AIGraphic3.png" className="w-10 h-10 " /> */}
             <div>
               <H4 className=" dark:text-[#254D70]  text-gray-900">
-                Improve operational resilience
+                Verified Billing Metrics
               </H4>
               <P className=" max-w-sm  leading-tight    pr-2 sm:pr-0 mt-4">
-                Security is more about continuous operation.
-                We fortify your production environment against network
-                failures and cyber threats, ensuring maximum uptime.
+                Charges align with Azure billing data. You maintain full approval authority on all optimization changes.
               </P>
             </div>
           </div>
