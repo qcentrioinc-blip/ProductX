@@ -54,7 +54,7 @@ const SamsFive = () => {
             className="w-full rounded-xl min-h-[250px] sm:min-h-[300px] md:min-h-full order-1 md:order-2"
 
           >
-            <img src="/SAMS/Npaidentification.webp" className="w-full h-full object-fit" />
+            <img src="/SAMS/npaidentification.webp" className="w-full h-full object-fit" />
           </div>
 
           {/* Right Column (Renders 3rd on Mobile) */}
