@@ -50,7 +50,7 @@ const products = [
     id: 6,
     title: "Internet Banking",
     link: "/industries/banking-and-finance/products/internet-banking-system",
-    logo: "/AllProductLogos/IBS.webp",
+    logo: "/AllProductLogos/ibs.svg",
     description:
       "Comprehensive digital banking platform offering real-time account access, secure transactions, seamless core banking integration, and a user-friendly dashboard. ",
   },

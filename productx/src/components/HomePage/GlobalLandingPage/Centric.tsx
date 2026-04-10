@@ -21,7 +21,7 @@ const Centric = () => {
         <section ref={sectionRef} className="w-full dark:bg-black bg-white overflow-hidden">
 
             {/* ── DESKTOP (xl) ── */}
-            <div className="hidden xl:flex w-full h-[640px] relative">
+            <div className="hidden xl:flex w-full h-[600px] relative">
 
                 {/* ── COL 1 ── */}
                 <div className="relative flex-1 h-full border-opacity-0">

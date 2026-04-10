@@ -31,12 +31,12 @@ export default function SlideReveal() {
   return (
     <section
       ref={sectionRef}
-      className={`relative bg-white  dark:bg-black ${isDesktop ? "h-[220vh]" : "h-auto"
+      className={`relative bg-white  dark:bg-black ${isDesktop ? "h-[160vh]" : "h-auto"
         }`}
     >
       <div
         className={`${isDesktop
-          ? "sticky top-20 h-auto overflow-hidden"
+          ? "sticky top-0 h-screen overflow-hidden"
           : ""
           }`}
       >
@@ -52,13 +52,13 @@ export default function SlideReveal() {
         )}
 
         {/* BACK CONTENT */}
-        <div className="relative z-0 px-6 md:px-12 lg:px-16 py-4 xl:pt-20">
+       <div className="relative z-0 px-6 md:px-12 lg:px-16 h-full flex items-center">
           <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 xl:gap-16">
 
             {/* LEFT CONTENT */}
             <div>
-              <H2 className="mb-6 dark:text-white ">
-                Built Around <br /> Your Business
+              <H2 className="xl:mb-6 dark:text-white py-4 xl:py-0">
+                Built Around <br className="hidden md:block"/> Your Business
               </H2>
 
               <P className="max-w-md mb-10">
