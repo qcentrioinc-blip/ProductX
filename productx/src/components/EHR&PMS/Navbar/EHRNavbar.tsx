@@ -6,6 +6,7 @@ import MobileProductsDropdown from "./MobileProductsDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 import ContactDrawer from "./ContactDrawer";
+import { NavbarDayNightToggle } from "../../Global/DayNightToggle";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 // const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
@@ -278,7 +279,7 @@ const EHRNavbar = () => {
         className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none pointer-events-none`}
       >
         <div
-          className={`bg-white backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={`bg-white dark:bg-teal-800 backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${isScrolled
               ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14' : ''}`
@@ -315,18 +316,18 @@ const EHRNavbar = () => {
               </Link>
               {logoDropdownOpen && (
                 <div
-                  className="absolute top-10 w-80 z-[999] p-1"
+                  className="absolute top-14 w-80 z-[999] p-1"
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
-                  <div className="bg-white shadow-xl rounded-md p-3 border border-gray-100/50">
+                  <div className="bg-white  dark:bg-teal-700 shadow-xl rounded-md p-3 border border-gray-100/50">
                     {industryOptions.map((ind, index) => (
                       <Link
                         key={index}
                         to={ind.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-2 rounded-md hover:bg-gray-100 transition-all"
+                        className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-teal-700 hover:bg-gray-100 transition-all"
                       >
                         {/* ICON */}
                         <img
@@ -340,7 +341,7 @@ const EHRNavbar = () => {
                           <h3 className="text-lg font-semibold font-quicksand text-gray-900">
                             {ind.name}
                           </h3>
-                          <p className="text-gray-600 font-quicksand text-sm">
+                          <p className="text-gray-600 dark:text-white   font-quicksand text-sm">
                             {ind.desc || "Click to explore"}
                           </p>
                         </div>
@@ -351,12 +352,12 @@ const EHRNavbar = () => {
               )}
             </div>
 
-            <ul className="hidden lg:flex items-center gap-8 font-bold font-quicksand">
+            <ul className="hidden lg:flex items-center   gap-8 font-bold font-quicksand">
               {navItems.map((item) => (
                 <li key={item.name}>
                   {item.name === "Solutions" && (
                     <div
-                      className="relative"
+                      className="relative "
                       onMouseEnter={() => {
                         if (isTouchRef.current) return;
                         handleKeepOpen();
@@ -519,7 +520,7 @@ const EHRNavbar = () => {
                 </span>
               </span>
             </button>
-
+<NavbarDayNightToggle/>
           </div>
 
           <button

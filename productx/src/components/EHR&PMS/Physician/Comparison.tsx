@@ -34,11 +34,11 @@ const Comparison = () => {
   ];
 
   return (
-    <div className="min-h-fit md:min-h-fit lg:min-h-fit xl:min-h-fit  bg-white pt-12 ">
+    <div className="min-h-fit md:min-h-fit lg:min-h-fit xl:min-h-fit dark:bg-[#042F2E] bg-white py-10 pt-12 ">
       <div className="max-w-8xl xl:mx-10 px-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <H2EHR className="text-[#008280] mb-2">
+          <H2EHR className="text-[#008280] dark:text-white mb-2">
           Key Benefits for Physicians Like You
           </H2EHR>
         </div>
@@ -46,7 +46,7 @@ const Comparison = () => {
         {/* Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-y-20">
           {/* Left Column */}
-          <div className=" rounded-xl p-8 md:p-10  lg:p-12">
+          <div className=" rounded-xl dark:bg-teal-900 p-8 md:p-10  lg:p-12">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
@@ -56,7 +56,7 @@ const Comparison = () => {
             </div>
 
             {/* Main Title */}
-            <H4EHR   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4EHR   className="text-gray-800  dark:text-amber-400 font-semibold text-xl md:text-2xl mb-4 leading-tight">
                Dramatically Reduce Time Spent on Documentation and Administrative Tasks
             </H4EHR>
 
@@ -86,7 +86,7 @@ const Comparison = () => {
           </div>
 
           {/* Right Column */}
-          <div className=" rounded-xl p-8 md:p-10 lg:p-12  ">
+          <div className=" rounded-xl dark:bg-teal-900 p-8 md:p-10 lg:p-12  ">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
@@ -96,7 +96,7 @@ const Comparison = () => {
             </div>
 
             {/* Main Title */}
-            <H4EHR   className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4EHR   className="text-gray-800 font-semibold dark:text-amber-400 text-xl md:text-2xl mb-4 leading-tight">
     Enhance Clinical Accuracy and Patient Outcomes with Informed Decision Support
             </H4EHR>
 

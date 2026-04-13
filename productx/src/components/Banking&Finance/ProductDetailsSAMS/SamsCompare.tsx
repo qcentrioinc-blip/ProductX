@@ -56,7 +56,7 @@ const SamsCompare = () => {
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4 className="text-gray-800 dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
               Standard Out-of-Box MIS Reports for NPL and Account Monitoring
             </H4>
 
@@ -96,7 +96,7 @@ const SamsCompare = () => {
             </div>
 
             {/* Main Title */}
-            <H4 className="text-gray-800 font-semibold text-xl md:text-2xl mb-4 leading-tight">
+            <H4 className="text-gray-800 dark:text-white font-semibold text-xl md:text-2xl mb-4 leading-tight">
               SMA and NPL Account Reporting with Flexible Export Options
             </H4>
 

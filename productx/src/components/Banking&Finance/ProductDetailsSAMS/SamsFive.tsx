@@ -8,7 +8,7 @@ const FeatureCard = ({ title, description, icon }: { title: string, description:
     style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.04)" }}
   >
     <img src={icon} className="w-10 h-10 object-cover" />
-    <H4 className="mt-6 mb-3 text-[18px] sm:text-[20px]">{title}</H4>
+    <H4 className="mt-6  dark:text-white mb-3 text-[18px] sm:text-[20px]">{title}</H4>
     <P className="leading-[1.7] text-[14px] sm:text-[14.5px]">{description}</P>
   </div>
 );

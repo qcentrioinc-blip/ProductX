@@ -101,6 +101,8 @@ const CARD_CONFIG: Record<
   "ehr-and-pms": {
     "long-term-care": {
       bg: "#ffffff",
+      darkBg: "#042f2e",
+      darkHeadingColor: "#ffffff",
       headingColor: "#008280",
       heading: "Critical Pain Points",
       cards: [
@@ -110,7 +112,9 @@ const CARD_CONFIG: Record<
       ],
     },
     "home-healthcare": {
-      bg: "#ffffff",
+       bg: "#ffffff",
+      darkBg: "#042f2e",
+      darkHeadingColor: "#ffffff",
       headingColor: "#008280",
       heading: "Critical Operational Hurdles",
       cards: [
@@ -121,6 +125,8 @@ const CARD_CONFIG: Record<
     },
     "clinics-and-hospitals": {
       bg: "#ffffff",
+      darkBg: "#042f2e",
+      darkHeadingColor: "#ffffff",
       headingColor: "#008280",
       heading: "Critical Operational Hurdles",
       cards: [
@@ -157,12 +163,14 @@ const CARD_CONFIG: Record<
 };
 
 export default function Cardcase() {
+  
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
+  const isEHR = industry === "ehr-and-pms";
 
   const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
 
@@ -202,7 +210,9 @@ export default function Cardcase() {
                 borderRadius: "8px",
                 padding: "30px 20px"
               }}
-              className="flex-1 min-h-[330px] bg-white  dark:bg-black shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white dark:hover:bg-transparent hover:shadow-lg w-full"
+             className={`flex-1 min-h-[330px] bg-white ${
+  isEHR ? "dark:bg-teal-900" : "dark:bg-black"
+} shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white dark:hover:bg-transparent hover:shadow-lg w-full`}
             >
               {/* Placeholder Circle */}
               <div className="w-16 h-16">

@@ -76,11 +76,14 @@ const CONTENT_MAP: Record<string, Record<string, TextContent>> = {
   },
 };
 
+
 export default function TextSec() {
+  
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
+  const isEHR = industry === "ehr-and-pms";
 
   const defaultBuiltForType = industry === "ehr-and-pms" ? "long-term-care" : industry === "banking-and-finance" ? "banks" : industry === "cloud-finops-ai" ? "enterprises" : "";
 
@@ -90,17 +93,26 @@ export default function TextSec() {
   if (!content) return null;
 
   return (
-    <section className="w-full py-10 bg-white dark:bg-black ">
+ <section
+  className={`w-full py-10 bg-white ${
+    isEHR ? "dark:bg-[#042f2e]" : "dark:bg-black"
+  }`}
+>
       <div className="max-w-8xl mx-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}
           <div>
-           <h5
-  className={`mb-3  dark:text-[#254D70] text-[14px] md:text-[16px] lg:text-[20px]
+          <h5
+  className={`mb-3 text-[14px] md:text-[16px] lg:text-[20px]
     ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
-    font-Regular
-    leading-[120%]`}
+    font-Regular leading-[120%]
+    ${
+      isEHR
+        ? "dark:text-[#FFCA28]"
+        : "dark:text-[#254D70]"
+    }
+  `}
 >
   {content.h4}
 </h5>

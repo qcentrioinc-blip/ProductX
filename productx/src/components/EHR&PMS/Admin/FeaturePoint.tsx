@@ -37,12 +37,12 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
   const content = FEATURE_POINT_CONTENT[role];
 
   return (
-    <div className="h-auto bg-[#F9F9F9] py-10">
+    <div className="h-auto bg-[#F9F9F9] dark:bg-[#042F2E] py-10">
       <div className="max-w-7xl px-6 xl:mx-auto xl:px-0">
         
         {/* Title */}
         <div className="mb-10 lg:mb-16">
-          <H2EHR className="text-[#008280] leading-snug">
+          <H2EHR className="text-[#008280] dark:text-white leading-snug">
             {content.pageTitle}
           </H2EHR>
         </div>

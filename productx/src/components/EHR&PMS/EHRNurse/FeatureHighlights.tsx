@@ -101,10 +101,11 @@ const FeatureHighlights = () => {
   })();
 
   return (
-    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 py-10 bg-white">
+    <section className="relative  dark:bg-[#042f2e] bg-white">
+    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 py-10 dark:bg-[#042f2e] bg-white">
       {/* Heading */}
       <div className="text-center mb-2">
-        <H2EHR className="text-[#008280]">{title}</H2EHR>
+        <H2EHR className="text-[#008280] dark:text-white">{title}</H2EHR>
       </div>
 
       {/* Fade Gradients (Tablet only) */}
@@ -141,7 +142,7 @@ const FeatureHighlights = () => {
               </span>
             </div>
 
-            <H3EHR className="text-[#141414] mb-4">{item.title}</H3EHR>
+            <H3EHR className="text-[#141414] dark:text-white mb-4">{item.title}</H3EHR>
             <P className="text-[#141414] max-w-xs leading-relaxed">
               {item.text}
             </P>
@@ -159,6 +160,7 @@ const FeatureHighlights = () => {
           scrollbar-width: none;
         }
       `}</style>
+    </section>
     </section>
   );
 };

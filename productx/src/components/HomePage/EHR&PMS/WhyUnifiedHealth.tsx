@@ -7,7 +7,7 @@ const WhyUnifiedHealth: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white dark:bg-[#042F2E]">
       <div className="mx-auto max-w-8xl lg:px-0 px-10 py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
@@ -113,7 +113,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
           {/* BOTTOM FEATURES (center column only) */}
           <div className="xl:-ml-72 ">
-            <H3EHR className="mb-4 text-[#008280]">
+            <H3EHR className="mb-4 text-[#008280] dark:text-amber-400">
               Our Core Promise
             </H3EHR>
 

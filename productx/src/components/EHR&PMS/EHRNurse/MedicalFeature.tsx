@@ -5,6 +5,7 @@ const MedicalFeature = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
+    <section className="dark:bg-[#042f2e] bg-white">
     <section className="max-w-7xl mx-auto px-6 pb-8 md:pb-16 font-bricolage overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
@@ -51,7 +52,7 @@ const MedicalFeature = () => {
             }}
             className="space-y-4"
           >
-            <H2EHR className="text-[#008280]">
+            <H2EHR className="text-[#008280] dark:text-white">
               Essential Nursing Tools 
             </H2EHR>
             <P className="text-[#141414] leading-relaxed max-w-lg xl:mb-6">
@@ -82,7 +83,7 @@ const MedicalFeature = () => {
 
             
             <div className="space-y-2">
-              <H3EHR className="text-gray-900">
+              <H3EHR className="text-gray-900 dark:text-amber-400">
                 Smart Triage Module
               </H3EHR>
               <P className="text-[#141414] leading-relaxed xl:mb-6">
@@ -110,6 +111,7 @@ const MedicalFeature = () => {
 
         </motion.div>
       </div>
+    </section>
     </section>
   );
 };

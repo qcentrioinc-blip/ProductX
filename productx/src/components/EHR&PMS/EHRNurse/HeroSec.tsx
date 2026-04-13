@@ -5,6 +5,7 @@ const HeroSec = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
+    <section className="dark:bg-[#042f2e]">
     <section className="w-full min-h-screen max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 pt-20 lg:pt-40 font-bricolage flex flex-col overflow-hidden">
       
       {/* Header Section */}
@@ -15,7 +16,7 @@ const HeroSec = () => {
         transition={{ duration: 0.6, ease: easeOut }}
         className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8"
       >
-        <H2EHR className="text-[#2A2A2A] leading-tight max-w-xl">
+        <H2EHR className="text-[#2A2A2A] dark:text-amber-400 leading-tight max-w-xl">
            Clinical Efficiency at Your Fingertips
         </H2EHR>
         <P className="max-w-md text-[#141414] leading-relaxed md:pt-2 xl:pt-8">
@@ -139,7 +140,7 @@ const HeroSec = () => {
               transition: { duration: 0.6, ease: easeOut },
             },
           }}
-          className="bg-[#f2f2f2] rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
+          className="bg-[#f2f2f2] dark:bg-teal-900 rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
         >
           <span className="text-4xl lg:text-5xl font-bricolage font-medium text-black mb-1">
             30+
@@ -150,6 +151,7 @@ const HeroSec = () => {
         </motion.div>
 
       </motion.div>
+    </section>
     </section>
   );
 };

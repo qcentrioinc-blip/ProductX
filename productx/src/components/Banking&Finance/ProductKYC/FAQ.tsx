@@ -614,13 +614,28 @@ const FaqSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative w-full py-6 md:px-10 xl:px-0 dark:bg-black bg-white overflow-hidden">
+   <section
+  className={`relative w-full py-6 md:px-10 xl:px-0 bg-white overflow-hidden ${
+    isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
+  }`}
+>
         <div className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-0 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
             <div className="mb-4 text-sm text-gray-700  dark:text-white flex items-center">
-              <span className="w-8 h-1 rounded-full  dark:bg-[#2B68C3] bg-gray-400  mr-2"></span>
-              <h3 className={`${headingFontClass} dark:text-[#2B68C3] text-[20px] md:text-[24px] lg:text-[32px]`}> FAQ</h3>
+             <span
+  className={`w-8 h-1 rounded-full mr-2 ${
+    isEHR ? "bg-white" : "bg-gray-400 dark:bg-[#2B68C3]"
+  }`}
+/>
+
+<h3
+  className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px] ${
+    isEHR ? "text-white" : "dark:text-[#2B68C3]"
+  }`}
+>
+  FAQ
+</h3>
             </div>
             <h2
               className={`mb-4 ${headingFontClass}   dark:text-white text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#008280]" : "text-black"
@@ -636,10 +651,10 @@ const FaqSection: React.FC = () => {
 
             {isBnF ? (
               <Link to="#contact-us" >
-                <ContactUs className="dark:border-white">{introContent.cta}</ContactUs>
+                <ContactUs className="dark:border-white ">{introContent.cta}</ContactUs>
               </Link>
             ) : (
-              <ContactUs onClick={handleContactClick}>{introContent.cta}</ContactUs>
+              <ContactUs className="dark:bg-transparent" onClick={handleContactClick}>{introContent.cta}</ContactUs>
             )}
           </div>
 

@@ -43,7 +43,7 @@ const WhatWeDoIn = () => {
   ];
 
   const images = ["/WhatWe1.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
-
+const isDark = document.documentElement.classList.contains("dark");
   // Track desktop breakpoint (xl = 1280px)
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1280px)");
@@ -242,10 +242,14 @@ style={{ width: "550px" }}
                     </span>
 
                     {/* Title */}
-                    <motion.h3
+                    <motion.h3  
                       className="absolute top-6 left-32 text-2xl lg:text-3xl font-semibold"
                       initial={false}
-                      animate={{ color: isOpen ? "#3E3E3E" : "#000000" }}
+                   animate={{
+  color: isOpen
+    ? (isDark ? "#FFFFFF" : "#3E3E3E")
+    : (isDark ? "#D1D5DB" : "#000000")
+}}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
                       {item.title}

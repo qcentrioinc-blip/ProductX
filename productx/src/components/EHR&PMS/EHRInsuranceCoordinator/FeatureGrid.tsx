@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H2EHR, H4EHR, P } from "../../../styles/Typography";
+import { H2EHR, H4EHR, } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ const FeatureGrid = () => {
   const [, setMenuOpen] = useState(false);
 
   return (
+    <section className="relative w-full  dark:bg-[#042f2e] bg-white ">
     <div className="mx-auto max-w-[1300px] px-4 py-10 font-bricolage text-[#1a1a1a]">
       
       {/* Main Container */}
@@ -32,9 +33,9 @@ const FeatureGrid = () => {
             <H2EHR className="mb-6 leading-tight text-[#008280]">
               Solve Core Revenue Cycle Challenges
             </H2EHR>
-            <P className="text-[#141414] leading-relaxed max-w-xl">
+            <p className="text-[#141414] text-[18px] font-quicksand leading-relaxed max-w-xl">
               Our platform directly targets the major inefficiencies that delay payments and increase administrative costs for insurance teams. 
-            </P>
+            </p>
           </motion.div>
 
           {/* Bottom Cards */}
@@ -56,7 +57,7 @@ const FeatureGrid = () => {
             >
               <span className="text-2xl font-bold">1</span>
               <H4EHR>Reduced Denials</H4EHR>
-              <P>Automated claim scrubbing and accurate coding cut denial rates dramatically.</P>
+               <p className="font-quicksand text-[18px]">Automated claim scrubbing and accurate coding cut denial rates dramatically.</p>
             </motion.div>
 
             {/* Card 2 */}
@@ -75,7 +76,7 @@ const FeatureGrid = () => {
             >
               <span className="text-2xl font-bold">2</span>
               <H4EHR>Faster Payments</H4EHR>
-              <P>Streamlined submission and real-time tracking accelerate reimbursement cycles. </P>
+              <p className="font-quicksand text-[18px]">Streamlined submission and real-time tracking accelerate reimbursement cycles. </p>
             </motion.div>
 
           </div>
@@ -115,9 +116,9 @@ const FeatureGrid = () => {
               min-h-[200px] md:min-h-[246px]
             "
           >
-            <P className="text-lg font-bold leading-snug text-gray-900 md:text-xl">
+            <p className="text-lg font-quicksand  text-[18px] font-bold leading-snug text-gray-900 md:text-xl">
               See how our integrated system transforms <br/> your claims workflow. 
-            </P>
+            </p>
 
             <button
   onClick={() => {
@@ -191,6 +192,7 @@ const FeatureGrid = () => {
 
       <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </div>
+     </section>
   );
 };
 
