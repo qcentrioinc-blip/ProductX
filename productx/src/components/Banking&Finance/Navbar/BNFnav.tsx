@@ -495,7 +495,7 @@ const BNFNav = () => {
           </div>
         </div>
 
-        <div className="flex scrollbar-hide flex-col gap-6 mt-4 overflow-y-auto max-h-[calc(100vh-250px)]">
+        <div className="flex scrollbar-hide flex-col gap-6 mt-4">
           <MobileProductsDropdown
             mobileDropdown={mobileDropdown}
             setMobileDropdown={setMobileDropdown}

@@ -45,14 +45,15 @@ const TestimonialEHR = () => {
 
   return (
     <> 
-    <div className="max-w-7xl  px-4 lg:my-20 xl:mx-auto   ">
+    <section className="dark:bg-[#042F2E] ">
+    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 lg:py-20 xl:py-0 xl:mx-auto   ">
                 <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start  xl:px-6  ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
                     
                   >
-                    <H2EHR className="font-mono">
+                    <H2EHR className="font-mono dark:text-white">
                      Seamlessly Integrating Care and Operations 
                     </H2EHR>
                   </div>
@@ -68,7 +69,7 @@ const TestimonialEHR = () => {
                   </div>
                 </div>
               </div>
-   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 my-10 mx-auto ">
+   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 mt-10 mx-auto ">
    
     {/* GREEN CARD + HEADING IN ONE ROW */}
   <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
@@ -146,7 +147,7 @@ const TestimonialEHR = () => {
 />
 
 
-            <H4EHR className="text-[#2A2A2A]">
+            <H4EHR className="text-[#2A2A2A] dark:text-white">
               {item.title}
             </H4EHR>
 
@@ -169,7 +170,7 @@ const TestimonialEHR = () => {
     </div>
  <ContactDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
   </div>
- 
+ </section>
 
   
     </>

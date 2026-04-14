@@ -5,7 +5,7 @@ const ImageWithCards = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
-    <section className="bg-white overflow-hidden">
+    <section className="bg-white dark:bg-[#042f2e] overflow-hidden">
       <div className="max-w-7xl  px-4 pb-20 pt-10 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
@@ -71,7 +71,7 @@ const ImageWithCards = () => {
       transition: { duration: 0.5, ease: easeOut },
     },
   }}
-  className="bg-[#F1F1F1] rounded-2xl p-6"
+  className="bg-[#F1F1F1] dark:bg-teal-900 rounded-2xl p-6"
 >
   {/* Icon */}
   <img
@@ -99,7 +99,7 @@ const ImageWithCards = () => {
                     transition: { duration: 0.5, ease: easeOut },
                   },
                 }}
-                className="bg-[#F1F1F1] rounded-2xl p-6"
+                className="bg-[#F1F1F1] dark:bg-teal-900  rounded-2xl p-6"
               >
                 {/* Icon */}
   <img
@@ -124,7 +124,7 @@ const ImageWithCards = () => {
                     transition: { duration: 0.5, ease: easeOut },
                   },
                 }}
-                className="bg-[#F1F1F1] rounded-2xl p-6"
+                className="bg-[#F1F1F1] dark:bg-teal-900  rounded-2xl p-6"
               >
                 {/* Icon */}
   <img
@@ -149,7 +149,7 @@ const ImageWithCards = () => {
       transition: { duration: 0.5, ease: easeOut },
     },
   }}
-  className="bg-[#F1F1F1] rounded-2xl p-6 flex items-center gap-6"
+  className="bg-[#F1F1F1]  dark:bg-teal-900 rounded-2xl p-6 flex items-center gap-6"
 >
   {/* CIRCLE */}
   <div className="relative w-36 h-36 shrink-0">
@@ -171,20 +171,20 @@ const ImageWithCards = () => {
     {/* Center Content */}
     <div className="absolute inset-0 flex flex-col items-center justify-center font-bricolage">
       <span className="text-3xl font-semibold leading-none">40% </span>
-      <span className="text-xs text-gray-500">Fewer Manual Tasks</span>
+      <span className="text-xs text-gray-500 dark:text-white">Fewer Manual Tasks</span>
     </div>
   </div>
 
   {/* LIST */}
-  <ul className="text-sm text-gray-600 space-y-2 font-bricolage">
+  <ul className="text-sm text-gray-600 dark:text-white space-y-2 font-bricolage">
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0" /> Reduced
+      <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0 dark:text-white" /> Reduced
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-green-400 shrink-0" /> Manual
+      <span className="w-2 h-2 rounded-full bg-green-400 shrink-0 dark:text-white" /> Manual
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0" /> Tasks
+      <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0 dark:text-white" /> Tasks
     </li>
   </ul>
 </motion.div>

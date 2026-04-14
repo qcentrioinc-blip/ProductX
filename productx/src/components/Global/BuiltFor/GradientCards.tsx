@@ -23,7 +23,7 @@ type SectionContent = {
 };
 
 type Theme = {
-         darkBg: "#000000",
+         darkBg: string,
       darkHeadingColor: string,
   sectionBg: string;
   headingColor: string;
@@ -53,9 +53,9 @@ const themes: Record<string, Theme> = {
     paraColor: "#2A2A2A",
     cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
-           darkBg: "#000000",
-      darkHeadingColor: "#60a5fa",
-      darkcardGradient:"#5B7C99",
+           darkBg: "#042f2e",
+      darkHeadingColor: "#FFCA28",
+      darkcardGradient:"#0b4f4a",
   },
   "/industries/high-tech/built-for": {
     sectionBg: "#5C5C5C",

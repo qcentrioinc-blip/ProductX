@@ -66,10 +66,10 @@ export default function AnimatedFooter() {
             </H4>
             <ul className="space-y-2 text-md font-quicksand">
               {/* <li className="hover:underline cursor-pointer">High Tech</li> */}
-              <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Cloud Finops AI</li></a>
-              <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3 hover:text-black hover:underline ">Banking and Finance</li></a>
-           <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3 hover:text-black hover:underline ">EHR-PMS</li></a>
-               <a href="/comingsoon" target="_blank"><li className="mb-3 hover:text-black hover:underline ">High Tech</li></a>
+              <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3  hover:underline ">Cloud Finops AI</li></a>
+              <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3  hover:underline ">Banking and Finance</li></a>
+           <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3  hover:underline ">EHR-PMS</li></a>
+               <a href="/comingsoon" target="_blank"><li className="mb-3  hover:underline ">High Tech</li></a>
               
             </ul>
           </div>
@@ -81,7 +81,7 @@ export default function AnimatedFooter() {
               {/* <li>
                 <a
                   href="/platform"
-                  className="inline-block hover:text-black hover:underline"
+                  className="inline-block  hover:underline"
                 >
                   Platform
                 </a>

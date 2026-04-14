@@ -1,10 +1,11 @@
+import { H2, P } from "../../../styles/Typography";
 
 
- 
+
 const Configurable = () => {
     return (
         <section className="w-full mx-auto min-h-auto lg:min-h-auto xl:min-h-screen flex flex-col lg:flex-row xl:flex-row overflow-hidden">
- 
+
             {/* ────── LEFT COLUMN ────── */}
             <div
                 className="w-full lg:w-[480px] xl:w-3xl min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-12 lg:pt-0 xl:pt-0"
@@ -19,28 +20,21 @@ const Configurable = () => {
                     }}
                 >
                     {/* Heading */}
-                    <h2
+                    <H2
                         className="text-[#FAFAFA] text-[34px] sm:text-[46px] lg:text-[42px] xl:text-[56px] font-bold leading-none tracking-normal m-0 w-full lg:w-[380px] xl:w-[530px]"
-                        style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
                     >
-                        Reconciliation Built for Every Industry
-                    </h2>
- 
+                        Simplify Your Reconciliation Process Today
+                    </H2>
+
                     {/* Paragraph */}
-                    <p
+                    <P
                         className="relative xl:top-10 text-[#FAFAFA] text-[14px] sm:text-[16px] lg:text-[15px] xl:text-[19.64px] font-normal leading-[160%] tracking-normal m-0 w-full lg:w-[380px] xl:w-[530px]"
-                        style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
-                        Conciliare works across any industry, matching data from any two
-                        source files across banking, payments, retail, and commerce. Whether
-                        reconciling SWIFT messages, bank statements, or merchant
-                        transactions, our platform automates complex workflows with
-                        configurable rules, data enrichment, and straight-through
-                        processing.
-                    </p>
+                        Automate complex data matching across banking, payments, and commerce. Reduce manual effort, cut costs, and gain real-time visibility. Handle SWIFT messages, bank statements, and merchant transactions with configurable rules and straight-through processing.
+                    </P>
                 </div>
             </div>
- 
+
             {/* ────── RIGHT COLUMN ────── */}
             {/* <div className="flex flex-col flex-1 min-w-0">
                 <div
@@ -92,7 +86,7 @@ const Configurable = () => {
                             className="w-full h-full object-cover"
                         />
                     </div>
- 
+
                     {/* Beige Block */}
                     <div
                         className="
@@ -121,14 +115,13 @@ const Configurable = () => {
                         </h3>
                     </div>
                 </div>
- 
+
             </div>
- 
- 
+
+
         </section>
     );
 };
- 
+
 export default Configurable;
- 
- 
+

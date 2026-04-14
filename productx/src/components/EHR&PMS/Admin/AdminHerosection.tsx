@@ -8,7 +8,7 @@ import ContactDrawer from '../Navbar/ContactDrawer';
 const AdminHeroSection: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <section className="relative  bg-white overflow-hidden">
+    <section className="relative dark:bg-[#042F2E] bg-white overflow-hidden">
       {/* Decorative floating elements */}
      
       

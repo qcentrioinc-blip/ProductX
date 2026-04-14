@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { H3, P } from "../../styles/Typography";
-
 export default function AuditAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -11,32 +10,27 @@ export default function AuditAnimation() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-
   // ✅ IMAGE ANIMATION (finishes early)
   const imageWidth = useTransform(
     scrollYProgress,
     [0, 0.4],
     ["100%", "65%"]
   );
-
   // ✅ TEXT ANIMATION (STRICTLY after image + delay)
   const rawOpacity = useTransform(
     scrollYProgress,
     [0.4, 0.5],   // ⬅️ delayed more
     [0, 1]
   );
-
   // ✅ Clamp to avoid early visibility
   const textOpacity = useTransform(rawOpacity, (v) =>
     v < 0.01 ? 0 : v
   );
-
   const textY = useTransform(
     scrollYProgress,
     [0.4, 0.6],
     [140, 0]
   );
-
   return (
     <section
       ref={sectionRef}
@@ -57,7 +51,6 @@ export default function AuditAnimation() {
               className="object-cover h-[400px] md:h-[500px] lg:h-[700px]"
               style={{ width: imageWidth, maxWidth: "100%" }}
             />
-
             {/* TEXT */}
             <motion.div
               style={{ opacity: textOpacity, y: textY }}
@@ -80,7 +73,6 @@ export default function AuditAnimation() {
               </P>
             </motion.div>
           </div>
-
           {/* MOBILE */}
           <div className="flex flex-col justify-start xl:hidden">
             <div className="w-full mx-auto">
@@ -109,7 +101,6 @@ export default function AuditAnimation() {
               </P>
             </div>
           </div>
-
         </div>
       </div>
     </section>

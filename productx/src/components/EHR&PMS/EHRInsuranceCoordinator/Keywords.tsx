@@ -67,7 +67,7 @@ export default function Keywords() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#F8F8F8] h-auto xl:h-[150vh]"
+      className="relative bg-[#F8F8F8] dark:bg-[#042f2e] h-auto xl:h-[150vh]"
     >
       {/* STICKY AREA */}
       <div className="sticky top-0 h-auto xl:h-screen flex items-end justify-center overflow-hidden">
@@ -123,13 +123,13 @@ export default function Keywords() {
                 <circle cx={p.x} cy={p.y} r="6" fill="#EEDA68" />
                 
                 {/* Label positioned outside the arc with custom offsets */}
-                <text
+                <text  
                   x={p.labelX}
                   y={p.labelY}
                   fontSize="16"
-                  fill="#141414"
+                 
                   fontFamily="Quicksand,sans-serif"
-                  className="font-bold  xl:block"
+                  className="font-bold  fill-black dark:fill-white xl:block"
                   textAnchor="middle"
                 >
                   {p.label}

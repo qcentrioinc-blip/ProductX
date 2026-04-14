@@ -111,16 +111,16 @@ const EHRFooter = () => {
   ];
  
   return (
-    <footer className="bg-[#008280]">
+    <footer className="bg-[#008280] dark:bg-[#042F2E]">
       {/* Green Gradient Layers */}
       <GradientLayers />
  
       {/* Main Container */}
-      <div className="bg-[#008280] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
+      <div className="bg-[#008280] dark:bg-[#042F2E] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
  
         {/* TOP CARD - Newsletter */}
         <div
-          className="bg-white shadow-xl w-full"
+          className="bg-white dark:bg-[#042F2E] shadow-xl w-full"
           style={{
             borderRadius: '10px',
             marginBottom: '11px',
@@ -195,7 +195,7 @@ const EHRFooter = () => {
                       px-6 h-12
                       rounded-lg
                       font-bricolage font-bold text-sm tracking-widest
-                      bg-[#008280] text-white
+                      bg-[#008280] text-white 
                       hover:bg-white hover:text-[#008280]
                       border-2 border-[#008280]
                       transition-all duration-300 ease-in-out
@@ -254,7 +254,7 @@ const EHRFooter = () => {
  
         {/* BOTTOM CARD - Links */}
         <div
-          className="bg-white shadow-xl w-full relative"
+          className="bg-white dark:bg-[#042F2E] shadow-xl w-full relative"
           style={{
             borderRadius: '8px',
             opacity: 1
@@ -267,14 +267,14 @@ const EHRFooter = () => {
               {/* QUICK LINKS */}
               <div>
                 <h3
-                  className="mb-6"
+                  className="mb-6 text-[#2a2a2a] dark:text-white"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
                     fontWeight: 400,
                     fontSize: '32px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
-                    color: '#2A2A2A'
+                    
                   }}
                 >
                   Quick Links
@@ -284,7 +284,7 @@ const EHRFooter = () => {
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 font-quicksand font-bold text-lg text-[#008280] transition-opacity inline-block"
+                        className="hover:opacity-80 font-quicksand dark:text-white font-bold text-lg text-[#008280] transition-opacity inline-block"
                       >
                         {link.name}
                       </a>
@@ -296,24 +296,24 @@ const EHRFooter = () => {
               {/* BUILT FOR */}
               <div>
                 <h3
-                  className="mb-6"
+                  className="mb-6 text-[#2a2a2a] dark:text-white"
                   style={{
                     fontFamily: "'Bricolage Grotesque', sans-serif",
                     fontWeight: 400,
                     fontSize: '32px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
-                    color: '#2A2A2A'
+                 
                   }}
                 >
                   Built For
                 </h3>
-                <ul className="space-y-5">
+                <ul className="space-y-5 ">
                   {builtfor.map((link) => (
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 font-quicksand font-bold text-lg text-[#008280] transition-opacity inline-block"
+                        className="hover:opacity-80 font-quicksand font-bold  dark:text-white text-lg text-[#008280] transition-opacity inline-block"
                       >
                         {link.name}
                       </a>
@@ -351,15 +351,15 @@ const EHRFooter = () => {
  
               {/* FOOTER VIDEO */}
               <div className="flex h-full">
-                <div className="w-full h-full overflow-hidden">
+                <div className="w-full h-full    overflow-hidden">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-full   object-cover"
                   >
-                    <source src="/footer_video.mp4" type="video/mp4" />
+                    <source src="/footer_video.mp4"   type="video/mp4" />
                   </video>
                 </div>
               </div>

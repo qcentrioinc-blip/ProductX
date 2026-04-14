@@ -24,7 +24,7 @@ type Theme = {
   paragraphColor: string;
   bulletColor: string;
   statsColor: string;
-  darkStatsColor?: string; 
+  darkStatsColor?: string;
   imageSrc: string;
   bulletIcons: string[];
 };
@@ -40,7 +40,7 @@ const THEMES: Record<string, Theme> = {
     headingSecondaryColor: "#2A2A2A",
     paragraphColor: "#141414",
     bulletColor: "#fafafa",
-    statsColor: "#2A2A2A",
+    statsColor: "#254D70",
     bulletIcons: [
       "/BuiltForBnf/dollar.svg",
       "/BuiltForBnf/time-fast.svg",
@@ -54,7 +54,7 @@ const THEMES: Record<string, Theme> = {
     sectionBg: "",
     imageSrc: "/BuiltFor/ModernCare-Image.webp",
     headingPrimaryColor: "#008280",
-     darksectionBg: "#000000",
+     darksectionBg: "#042F2E",
     headingSecondaryColor: "#F5F5F5",
     paragraphColor: "#141414",
     bulletColor: "#efefef",
@@ -69,7 +69,7 @@ const THEMES: Record<string, Theme> = {
 
   "high-tech": {
     sectionBg: "#230053",
-     darksectionBg: "#000000",
+    darksectionBg: "#000000",
     imageSrc: "/BuiltFor/img2.png",
     headingPrimaryColor: "#F5F5F5",
     headingSecondaryColor: "#F99526",
@@ -86,7 +86,7 @@ const THEMES: Record<string, Theme> = {
 
   "cloud-finops-ai": {
     sectionBg: "white",
-     darksectionBg: "#000000",
+    darksectionBg: "#000000",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
     headingPrimaryColor: "#254D70",
     headingSecondaryColor: "#254D70",
@@ -293,13 +293,13 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
 export default function SplitFeature() {
   const { theme: mode } = useTheme(); // "light" | "dark"
-const isDark = mode === "dark";
+  const isDark = mode === "dark";
   const { industry, builtForType } = useParams<{
     industry: string;
     builtForType: string;
   }>();
 
- const themeConfig =
+  const themeConfig =
     THEMES[industry ?? "banking-and-finance"] ??
     THEMES["banking-and-finance"];
 
@@ -311,14 +311,14 @@ const isDark = mode === "dark";
   if (!content) return null;
 
   return (
-   <section
-  className="w-full"
-  style={{
-    backgroundColor: isDark
-      ? themeConfig.darksectionBg ?? "#0f172a"
-      : themeConfig.sectionBg,
-  }}
->
+    <section
+      className="w-full"
+      style={{
+        backgroundColor: isDark
+          ? themeConfig.darksectionBg ?? "#0f172a"
+          : themeConfig.sectionBg,
+      }}
+    >
       <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-10 items-center">
 
         {/* LEFT IMAGE */}
@@ -326,7 +326,7 @@ const isDark = mode === "dark";
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-full rounded-lg xl:object-fill object-fill"
+            className="w-full h-full rounded-lg xl:object-fit object-contain"
           />
         </div>
 
@@ -336,8 +336,8 @@ const isDark = mode === "dark";
           {/* HEADING */}
           <H2
             className={`leading-tight xl:mb-10 mx-auto max-w-3xl ${industry === "ehr-and-pms"
-                ? "font-bricolageEHR"
-                : "font-bricolage"
+              ? "font-bricolageEHR"
+              : "font-bricolage"
               }`}
           >
             <span style={{ color: themeConfig.headingPrimaryColor }}>
@@ -381,8 +381,8 @@ const isDark = mode === "dark";
             {content.stats.map((stat, index) => (
               <div key={index}>
                 <H3 className={` text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"
-                    ? "font-bricolageEHR"
-                    : "font-bricolage"
+                  ? "font-bricolageEHR"
+                  : "font-bricolage"
                   }`}>{stat.value}</H3>
                 <P className={`mt-2 ${themeConfig.paragraphColor}`}>
                   {stat.label}

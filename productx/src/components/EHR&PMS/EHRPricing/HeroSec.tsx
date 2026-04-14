@@ -580,7 +580,7 @@ const HeroSec = () => {
       : 'md:grid-cols-1 max-w-3xl mx-auto';
 
   return (
-    <div className="relative min-h-screen bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative min-h-screen dark:bg-[#042F2E] bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* Tab Navigation */}
       <div className="max-w-7xl mx-auto mb-12">
@@ -641,7 +641,7 @@ const HeroSec = () => {
               const cardClass = `
                 flex flex-col h-full overflow-hidden min-h-[600px] rounded-xl bg-white
                 ${isFeatured 
-                  ? 'shadow-2xl border-[8px] border-[#008280] transform md:-translate-y-4 min-h-[620px]' 
+                  ? 'shadow-2xl border-[8px] border-[#008280]  dark:bg-teal-950 transform md:-translate-y-4 min-h-[620px]' 
                   : 'shadow-lg border border-teal-500/30'
                 }
               `;
@@ -660,8 +660,8 @@ const HeroSec = () => {
                     <div className="bg-[#008280] text-white text-[14px] font-bold uppercase tracking-widest py-1.5 text-center font-bricolage">Most Popular</div>
                   )}
 
-                  <div className={`p-8 text-center border-b border-gray-50 ${isFeatured ? 'mt-4' : ''}`}>
-                    <H3EHR className={`font-bold mb-1 ${isFeatured ? 'text-2xl text-[#008280]' : 'text-gray-800'}`}>
+                  <div className={`p-8 text-center border-b dark:bg-teal-900 border-gray-50 ${isFeatured ? 'mt-4' : ''}`}>
+                    <H3EHR className={`font-bold mb-1 ${isFeatured ? 'text-2xl text-[#008280]' : 'dark:text-white text-gray-800'}`}>
                       {card.data.title}
                     </H3EHR>
                     {card.data.subtitle && (
@@ -672,7 +672,7 @@ const HeroSec = () => {
                     
                     <button
               onClick={() => setDrawerOpen(true)}
-              className="text-gray-800 text-[18px] font-bold font-quicksand cursor-pointer"
+              className="text-gray-800 dark:text-white text-[18px] font-bold font-quicksand cursor-pointer"
             >
               Support
             </button>
