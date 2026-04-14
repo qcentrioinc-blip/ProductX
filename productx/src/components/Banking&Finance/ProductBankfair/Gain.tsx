@@ -116,6 +116,7 @@ function MobileView() {
  
   return (
     <div className="xl:hidden flex flex-col ">
+ 
       {/* ✅ STICKY TABS */}
       <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
      <div
@@ -149,10 +150,10 @@ function MobileView() {
           <div
             key={tabIndex}
             ref={(el) => {sectionRefs.current[tabIndex] = el}}
-            className="min-h-[50vh] flex flex-col gap-6"
+            className="min-h-[70vh] flex flex-col gap-6"
           >
             {/* IMAGE */}
-            <div className="h-[240px] rounded-2xl overflow-hidden mt-10">
+            <div className="h-[240px] rounded-2xl overflow-hidden">
               <img
                 src={tabImages[tabIndex]}
                 className="w-full h-full object-cover"
@@ -214,7 +215,7 @@ function DesktopView() {
         <div className="w-full flex flex-row gap-10 xl:gap-16">
  
           {/* Left: Image */}
-          <div className="w-full lg:w-[30%] flex-shrink-0 pt-18">
+          <div className="w-full lg:w-[30%] flex-shrink-0">
             <div
               className="relative rounded-3xl overflow-hidden bg-gray-200 shadow-2xl"
               style={{ height: "640px" }}
@@ -231,7 +232,7 @@ function DesktopView() {
  
           {/* Right: Tabs + content */}
           <div className="w-full lg:w-[70%] flex flex-col">
-            <div className="flex flex-wrap gap-3 py-10">
+            <div className="flex flex-wrap gap-3 mb-2">
               {tabs.map((tab, i) => (
                 <button
                   key={i}

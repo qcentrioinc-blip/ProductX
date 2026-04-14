@@ -19,8 +19,8 @@ export const HoverExpand = React.forwardRef<HTMLImageElement, HoverExpandImagePr
   src,
   alt = "",
   className = "",
-  objectFit = "contain",
-  maxWidth = "85vw",
+  objectFit = "cover",
+  maxWidth = "105vw",
   srcSet,
   sizes,
   fetchPriority,
@@ -135,4 +135,3 @@ export const HoverExpand = React.forwardRef<HTMLImageElement, HoverExpandImagePr
     </div>
   )
 })
-

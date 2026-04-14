@@ -5,7 +5,6 @@ import { H3, P } from "../../../styles/Typography";
 import { ChevronDown } from "lucide-react";
 
 const HighTechNavbar = () => {
-  const [isScrolled, setIsScrolled] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -114,14 +113,6 @@ const HighTechNavbar = () => {
 
   // ---------- EFFECTS ----------
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
@@ -184,10 +175,11 @@ const HighTechNavbar = () => {
       </div>
 
       {/* MAIN NAV (DESKTOP ONLY) */}
-      <nav
-        onMouseLeave={closeAllMenus}
-        className={`hidden lg:flex absolute left-1/2 top-16 -translate-x-1/2 w-[90%] max-w-8xl z-[60] bg-white backdrop-blur-md rounded-full shadow-lg px-6 py-2 items-center justify-between transition-all duration-300 ${isScrolled ? "top-10" : "top-10"}`}
-      >
+      <div className="absolute left-0 right-0 top-10 z-[60] hidden lg:block">
+        <nav
+          onMouseLeave={closeAllMenus}
+          className="layout-shell-wide flex items-center justify-between rounded-full bg-white px-6 py-2 shadow-lg backdrop-blur-md transition-all duration-300"
+        >
         <div className="flex items-center gap-10">
           {/* LOGO WITH DROPDOWN */}
           <div
@@ -343,7 +335,8 @@ const HighTechNavbar = () => {
             <ContactUsDark>Contact Us</ContactUsDark>
           </Link>
         </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* FULL-WIDTH PRODUCTS MEGA MENU */}
       {megaMenuOpen && (
@@ -359,7 +352,7 @@ const HighTechNavbar = () => {
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
-          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
+          className="layout-shell-wide absolute left-1/2 top-32 z-[200] -translate-x-1/2 translate-y-1 rounded-lg bg-gray-50 px-10 py-10 shadow-xl xl:px-16"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
           <P className="text-gray-700 text-lg mt-2 mb-4">
@@ -401,7 +394,7 @@ const HighTechNavbar = () => {
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
-          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
+          className="layout-shell-wide absolute left-1/2 top-32 z-[200] -translate-x-1/2 translate-y-1 rounded-lg bg-gray-50 px-10 py-10 shadow-xl xl:px-16"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
           <P className="text-gray-700 text-lg mt-2 mb-4">
@@ -434,7 +427,7 @@ const HighTechNavbar = () => {
             setmegaMenuBuiltFor(false);
             setLogoDropdownOpen(false);
           }}
-          className="absolute left-1/2 top-32 translate-y-1 -translate-x-1/2 w-[90%] max-w-8xl bg-gray-50 px-24 py-10 shadow-xl rounded-lg z-[200]"
+          className="layout-shell-wide absolute left-1/2 top-32 z-[200] -translate-x-1/2 translate-y-1 rounded-lg bg-gray-50 px-10 py-10 shadow-xl xl:px-16"
         >
           <H3>Quisque a sagittis ligula. Nulla facilisi</H3>
           <P className="text-gray-700 text-lg mt-2 mb-4">

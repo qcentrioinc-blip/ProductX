@@ -42,6 +42,45 @@ export const HoverExpandImage = React.forwardRef<HTMLImageElement, HoverExpandIm
     return () => window.removeEventListener(ZOOM_CLOSE_EVENT, close)
   }, [])
 
+  useEffect(() => {
+  if (!isExpanded) return
+
+  const preventScroll = (e: TouchEvent) => e.preventDefault()
+
+  document.body.style.overflow = "hidden"
+  document.addEventListener("touchmove", preventScroll, { passive: false })
+
+  return () => {
+    document.body.style.overflow = ""
+    document.removeEventListener("touchmove", preventScroll)
+  }
+}, [isExpanded])
+
+/* Disable background scroll (robust fix) */
+useEffect(() => {
+  if (!isExpanded) return
+
+  const scrollY = window.scrollY
+
+  // Lock body
+  document.body.style.position = "fixed"
+  document.body.style.top = `-${scrollY}px`
+  document.body.style.left = "0"
+  document.body.style.right = "0"
+  document.body.style.width = "100%"
+
+  return () => {
+    // Restore scroll
+    document.body.style.position = ""
+    document.body.style.top = ""
+    document.body.style.left = ""
+    document.body.style.right = ""
+    document.body.style.width = ""
+
+    window.scrollTo(0, scrollY)
+  }
+}, [isExpanded])
+
   /* Click outside to close */
   useEffect(() => {
     if (!isExpanded) return

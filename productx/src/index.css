@@ -238,6 +238,38 @@ video {
   font-family: "Schibsted Grotesk", sans-serif;
 }
 
+.layout-shell {
+  width: min(100% - 2rem, 1440px);
+  margin-inline: auto;
+}
+
+.layout-shell-wide {
+  width: min(100% - 2rem, 1520px);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .layout-shell,
+  .layout-shell-wide {
+    width: min(100% - 3rem, var(--layout-max, 1440px));
+  }
+
+  .layout-shell-wide {
+    --layout-max: 1520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-shell,
+  .layout-shell-wide {
+    width: min(100% - 5rem, var(--layout-max, 1440px));
+  }
+
+  .layout-shell-wide {
+    --layout-max: 1520px;
+  }
+}
+
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 2px #2B68C3;

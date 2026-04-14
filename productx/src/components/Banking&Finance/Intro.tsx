@@ -5,7 +5,7 @@ import { H2, P } from "../../styles/Typography";
 const Intro = () => {
   return (
     <section className="w-full bg-gray-50  dark:bg-black  py-6 xl:py-10">
-      <div className="max-w-8xl mx-auto xl:mx-18 px-4 sm:px-8 lg:px-10 xl:px-0">
+      <div className="layout-shell">
 
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-center">

@@ -74,7 +74,7 @@ const AIBlogs = () => {
                   type="button"
                   className="inline-flex items-center gap-2  dark:bg-white dark:text-black border-black  dark:border-white text-white bg-black rounded-lg    uppercase cursor-pointer"
                   style={{
-                    width: "157px",
+                    width: "170px",
                     height: "48px",
                     gap: "8px",
                     borderRadius: "8px",

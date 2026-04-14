@@ -138,7 +138,7 @@ const isDark = document.documentElement.classList.contains("dark");
         style={isDesktop ? { height: "100vh" } : { height: "auto" }}
       >
         <div
-          className="max-w-8xl xl:mx-18  mx-auto flex flex-col px-4 xl:px-2  md:px-10 "
+          className="layout-shell-wide flex flex-col"
           style={
             isDesktop
               ? {
@@ -201,15 +201,14 @@ const isDark = document.documentElement.classList.contains("dark");
           </div>
 
           {/* ── Desktop Layout ── */}
-          <div className="flex-1 min-h-0 hidden xl:flex flex-row items-center gap-12 h-full">
+          <div className="flex-1 min-h-0 hidden xl:flex flex-row items-center gap-8 2xl:gap-12 h-full">
 
             {/* Image — no wrapper div, height stretches to match accordion column */}
             <motion.img
               key={openIndex}
               src={images[openIndex]}
               alt="Who we serve"
-              className="shrink-0 object-contain h-[80%]"
-style={{ width: "550px" }}
+              className="h-[80%] w-full max-w-[420px] 2xl:max-w-[550px] shrink-0 object-contain"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -242,8 +241,8 @@ style={{ width: "550px" }}
                     </span>
 
                     {/* Title */}
-                    <motion.h3  
-                      className="absolute top-6 left-32 text-2xl lg:text-3xl font-semibold"
+                    <motion.h3
+                      className="absolute left-28 top-6 pr-20 text-2xl lg:text-3xl font-semibold"
                       initial={false}
                    animate={{
   color: isOpen
@@ -272,14 +271,14 @@ style={{ width: "550px" }}
                     {/* Content — only when open */}
                     {isOpen && (
                       <motion.div
-                        className="  pr-14 pt-16 pb-3 text-left"
+                        className="pr-14 pt-16 pb-3 text-left"
                         initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                       >
                         {Array.isArray(item.content) ? (
                           item.content.map((para, i) => (
-                            <P key={i} className="pb-2 xl:pl-24 pt-4 leading-snug text-sm">
+                            <P key={i} className="pb-2 pt-4 leading-snug text-sm xl:pl-20 2xl:pl-24">
                               {para}
                             </P>
                           ))

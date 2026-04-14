@@ -34,12 +34,12 @@ export default function AuditAnimation() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full dark:bg-black bg-white xl:h-[280vh]"  // ⬅️ increased height
+      className="relative w-full bg-white dark:bg-black xl:h-[280vh]"
     >
       {/* ✅ Sticky with navbar offset */}
-      <div className="sticky top-[70px] h-[calc(100vh-70px)] overflow-hidden">
+      <div className="xl:sticky xl:top-[70px] xl:h-[calc(100vh-70px)] xl:overflow-hidden">
 
-        <div className="relative w-full h-full">
+        <div className="relative w-full xl:h-full">
 
           {/* DESKTOP */}
           <div className="hidden xl:flex items-center w-full h-full">
@@ -74,15 +74,16 @@ export default function AuditAnimation() {
             </motion.div>
           </div>
           {/* MOBILE */}
-          <div className="flex xl:hidden flex-col justify-start h-full">
+          <div className="flex flex-col justify-start xl:hidden">
             <div className="w-full mx-auto">
               <img
                 src="/AuditSectionImage.webp"
                 alt="Audit"
-                className="w-full h-full lg:h-[500px]"
+                className="h-auto w-full lg:h-[500px]"
               />
             </div>
-            <div className="mt-8 px-4 mx-auto w-full max-w-full text-left">
+
+            <div className="mx-auto mt-8 w-full max-w-full px-4 pb-6 text-left">
               <H3 className="text-[#2B68C3] font-bold mb-3">
                 Domain experts in managing banking operations and compliance
               </H3>
