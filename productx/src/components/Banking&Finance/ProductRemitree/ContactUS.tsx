@@ -139,7 +139,7 @@ useEffect(() => {
     */
     <div
       ref={targetRef}
-      className="relative z-50  xl:pb-10 xl:pt-16 overflow-hidden  pointer-events-auto dark:bg-black bg-white"
+      className="relative z-50 pb-10 xl:pt-16 overflow-hidden pointer-events-auto dark:bg-black bg-white"
       id='ContactUs'
     >
       {/* TOAST */}
@@ -190,13 +190,13 @@ useEffect(() => {
         <div className="relative w-full overflow-visible">
 
           {/* Blue background band */}
-          <div className="absolute top-0 left-0 w-full h-[71vh] pt-10 bg-[#2B68C3]">
-            <img
+          <div className="absolute left-0 top-0 h-[560px] w-full bg-[#2B68C3] pt-10">
+            {/* <img
               src="/FormLineWHite.png"
               alt="curve"
-              className="absolute left-18 -top-9 w-[1440px] h-[555px]  inset-0 object-fit pointer-events-none"
-            />
-            <div className="max-w-[1400px] mx-auto h-full flex items-center px-16">
+              className="pointer-events-none absolute left-4 top-10 h-[520px] w-[calc(100%-2.5rem)] max-w-[1400px] object-fit"
+            /> */}
+            <div className="layout-shell-wide flex h-full items-center px-8 xl:px-16">
               <H2 className="text-white text-5xl font-bold leading-tight max-w-xl">
                 Ready to transform
                 <br />
@@ -206,10 +206,10 @@ useEffect(() => {
           </div>
 
           {/* Form — overflows above and below the blue band */}
-          <div className="relative z-20 w-full max-w-[1400px] mx-auto px-20 pt-[15vh] overflow-visible">
+          <div className="layout-shell-wide relative z-20 overflow-visible px-8 pt-[100px] xl:px-16">
             <div className="flex justify-end overflow-visible">
-              <div className="w-[480px] -mt-[24vh] overflow-visible">
-                <div className="bg-white h-[650px] rounded-[20px] px-12 py-20   shadow-[0_10px_30px_rgba(0,0,0,0.06),0_5px_10px_rgba(0,0,0,0.20)]">
+              <div className="w-full max-w-[480px] overflow-visible xl:-mt-[145px]">
+                <div className="h-[650px] rounded-[20px] bg-white px-12 py-20 shadow-[0_10px_30px_rgba(0,0,0,0.06),0_5px_10px_rgba(0,0,0,0.20)]">
                   <form
   className="space-y-6"
   onSubmit={(e) => {

@@ -123,7 +123,7 @@ const NewOneFooter = () => {
 
  {toastPortal}
       <div className='relative z-50'>
-        <footer className="relative w-full lg:pt-10   overflow-hidden" id="financeContainer">
+        <footer className="relative w-full lg:pt-0  overflow-hidden" id="financeContainer">
           <div className="max-w-7xl mx-auto px-6 sm:px-10  xl:px-0">
             <div className="grid grid-cols-1 xl:grid-cols-12 lg:gap-8 xl:gap-14 relative">
 

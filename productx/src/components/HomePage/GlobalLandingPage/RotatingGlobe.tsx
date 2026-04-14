@@ -213,10 +213,18 @@ const RotatingGlobe = () => {
 
     return (
         <div ref={sectionRef} className="relative w-full bg-[#0a1628] overflow-hidden">
-            <div className="absolute top-[40px] left-1/2 -translate-x-1/2 z-20 pointer-events-none flex flex-col items-center gap-3">
-  <H2 className="text-white whitespace-nowrap">
+            <div className="absolute top-[10px] md:top-[40px] left-1/2 -translate-x-1/2 z-20 pointer-events-none flex flex-col items-center gap-3">
+  <H2 className="text-white text-center px-4">
+  {/* Mobile text */}
+  <span className="block sm:hidden whitespace-nowrap">
+    QNEST Presence
+  </span>
+
+  {/* Desktop text */}
+  <span className="hidden sm:block whitespace-nowrap">
     QNEST's Presence Across the Globe
-  </H2>
+  </span>
+</H2>
 </div>
             <div
                 className="absolute inset-0 pointer-events-none z-0"

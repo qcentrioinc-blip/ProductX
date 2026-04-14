@@ -111,7 +111,7 @@ const AIFooter = () => {
       </div>
 
       {/* ========== MAIN SECTION ========== */}
-      <div className="relative w-full pb-16 px-4 sm:px-8 lg:px-16 z-10">
+      <div className="relative w-full pb-16 px-4 sm:px-8 lg:px-10 z-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-20">
 
           {/* LEFT SECTION */}
@@ -148,8 +148,8 @@ const AIFooter = () => {
               <span className="text-xl font-bold text-white block">Built For</span>
               <ul className="space-y-2 text-[#F5F5F5]">
                 <li><a href={`${base}/built-for/enterprises`} className="hover:underline">• Enterprises</a></li>
-                <li><a href={`${base}/built-for/digital-native`} className="hover:underline">• Digital Natives</a></li>
-                <li><a href={`${base}/built-for/smb`} className="hover:underline">• Large Firms </a></li>
+                <li><a href={`${base}/built-for/saas-application-providers`} className="hover:underline">• Digital Natives</a></li>
+                <li><a href={`${base}/built-for/regulated-large-enterprise`} className="hover:underline">• Large Firms </a></li>
               </ul>
             </div>
 
@@ -184,7 +184,7 @@ const AIFooter = () => {
               Get Azure optimization tips and savings updates monthly.
             </h3> */}
 
-            <H3 className="text-white text-center"> Get Azure optimization tips and savings updates monthly.</H3>
+            <H3 className="text-white text-center"> Get Azure optimization tips and savings updates.</H3>
             <div className="w-full max-w-md flex flex-col sm:flex-row items-center gap-4">
               <input
                 type="email"
