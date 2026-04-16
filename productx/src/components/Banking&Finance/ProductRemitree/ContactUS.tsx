@@ -191,11 +191,11 @@ useEffect(() => {
 
           {/* Blue background band */}
           <div className="absolute top-0 left-0 w-full h-[71vh] pt-10 bg-[#2B68C3]">
-            <img
+            {/* <img
               src="/FormLineWHite.png"
               alt="curve"
               className="absolute left-18 -top-9 w-[1440px] h-[555px]  inset-0 object-fit pointer-events-none"
-            />
+            /> */}
             <div className="max-w-[1400px] mx-auto h-full flex items-center px-16">
               <H2 className="text-white text-5xl font-bold leading-tight max-w-xl">
                 Ready to transform

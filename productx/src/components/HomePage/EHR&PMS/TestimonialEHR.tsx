@@ -23,7 +23,7 @@ const TestimonialEHR = () => {
      image:"/EHRIcons/MasterPlan.svg"
     },
     {
-      title:" Enable Data-Driven Clinical Decisions",
+      title:" MACRA/MIPS Support and  Support Tools",
       desc:"Provide clinicians with unified dashboards, decision support tools, and real-time analytics at the point of care.",
      image:"/EHRIcons/Gear.svg"
     },
@@ -46,8 +46,8 @@ const TestimonialEHR = () => {
   return (
     <> 
     <section className="dark:bg-[#042F2E] ">
-    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 lg:py-20 xl:py-0 xl:mx-auto   ">
-                <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start  xl:px-6  ">
+    <div className="max-w-full  dark:bg-[#042F2E]  px-4 xl:px-20 lg:py-20 xl:py-0 mx-auto   ">
+                <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start   xl:px-6  ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
@@ -64,7 +64,7 @@ const TestimonialEHR = () => {
                     
                   >
                     <P className="text-black  leading-relaxed">
-                   Unified Clinicapp connects every part of your practice, from patient intake to final billing, on one intelligent platform. We unify clinical and administrative workflows to eliminate inefficiencies and enhance care delivery. 
+                Unified Clinicapp connects every part of your practice, from patient intake to final billing, on HIPAA-compliant platform. We unify clinical and administrative workflows to eliminate inefficiencies and enhance care delivery. 
                     </P>
                   </div>
                 </div>

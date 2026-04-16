@@ -8,6 +8,7 @@ const categories = [
   "All Posts",
   "AML",
   "Banking",
+  "Bankfair",
   "Pago",
   "Sams",
   "KYC",
@@ -114,6 +115,15 @@ const posts = [
     description: "When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...",
     date: "27 March 2026",
     category: "IBS",
+    image: "/Blog/CoreBankingBlog.webp",
+  },
+  {
+    id: 12,
+    slug: "automating-income-recognition-and-asset-classification",
+    title: "Automating Income Recognition and Asset Classification (IRAC) Compliance...",
+    description: "Since compliance is a highly important aspect for banks, every bank must follow the Income Recognition ...",
+    date: "10 April 2026",
+    category: "Bankfair",
     image: "/Blog/CoreBankingBlog.webp",
   },
 ];
