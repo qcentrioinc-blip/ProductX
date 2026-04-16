@@ -89,8 +89,8 @@ export default function AnimatedFooter() {
 
               <li>
                 <Link
-                  to="/marketplace"
-                  className="inline-block  hover:underline font-quicksand "
+                  to="/marketplaceglobal"
+                  className="inline-block hover:text-black hover:underline font-quicksand "
                 >
                   Marketplace
                 </Link>

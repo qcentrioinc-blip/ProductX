@@ -116,7 +116,7 @@ function MobileView() {
 
   return (
     <div className="xl:hidden flex flex-col ">
-
+ 
       {/* ✅ STICKY TABS */}
       <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
      <div

@@ -66,7 +66,7 @@ export default function NewFooter() {
 
   return (
     <footer className="bg-black text-white  py-10 ">
-      <div className="max-w-8xl lg:mx-10 px-4">
+      <div className="layout-shell-wide">
         {/* Top Section */}
         {/* <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 space-x-16   pb-8"> */}
         <div className="flex flex-col md:grid md:grid-cols-2 md:gap-8 pb-2">
@@ -119,7 +119,7 @@ export default function NewFooter() {
         </div>
         <hr className="my-4 md:my-10 bg-[#858585] w-full"></hr>
         {/* Middle Columns */}
-        <div className="grid grid-cols-1 max-w-6xl   sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1fr_2fr] gap-10 md:gap-0 py-4 md:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1fr_2fr] gap-10 md:gap-0 py-4 md:py-10">
           {/* Industries */}
           <div>
             <H4 className="text-gray-300 mb-4">Industries</H4>

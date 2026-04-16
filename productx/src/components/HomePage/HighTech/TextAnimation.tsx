@@ -281,7 +281,7 @@ const TextAnimation = () => {
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           <div className="w-full">
-            <div className="max-w-8xl mx-10 px-2 sm:px-4 lg:px-4">
+            <div className="layout-shell-wide">
               {/* Top Purple Dot with Text */}
               <div className="flex items-center justify-center gap-4 mb-20">
                 <div
@@ -304,7 +304,7 @@ const TextAnimation = () => {
               </div>
 
               {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-12 xl:gap-20 items-start">
                 {/* Left Side - Static Text and Buttons */}
                 <div className="space-y-8">
                   <h2
@@ -324,7 +324,7 @@ const TextAnimation = () => {
                   </h2>
 
                   <h3
-                    className="text-4xl lg:text-4xl xl:text-[55px] w-full lg:w-[320px] xl:w-[485px]"
+                    className="max-w-[12ch] text-4xl lg:text-4xl xl:text-[55px] w-full"
                     style={{
                       fontFamily: "'Playfair Display', serif'",
                       fontWeight: 600,
@@ -336,7 +336,7 @@ const TextAnimation = () => {
                       margin: 0,
                       marginBottom: '32px',
                       maxWidth: '100%',
-                      whiteSpace: 'nowrap',
+                      whiteSpace: 'normal',
                     }}
                   >
                     Unde Seduo ut perspiciatis
@@ -426,9 +426,9 @@ const TextAnimation = () => {
                 </div>
 
                 {/* Right Side - Animated Text */}
-                <div className="flex items-start justify-start min-h-[400px]">
+                <div className="relative flex items-start justify-start min-h-[400px]">
                   {/* First Text Set */}
-                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
+                  <div className="absolute w-full max-w-[520px] 2xl:max-w-[591.5px]">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{
@@ -482,7 +482,7 @@ const TextAnimation = () => {
                   </div>
 
                   {/* Second Text Set */}
-                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
+                  <div className="absolute w-full max-w-[520px] 2xl:max-w-[591.5px]">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{
@@ -536,7 +536,7 @@ const TextAnimation = () => {
                   </div>
 
                   {/* Third Text Set */}
-                  <div className="absolute w-full lg:w-[450px] xl:w-[591.5px] max-w-100%">
+                  <div className="absolute w-full max-w-[520px] 2xl:max-w-[591.5px]">
                     <div className="overflow-hidden mb-2">
                       <motion.div
                         style={{

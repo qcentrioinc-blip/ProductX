@@ -434,7 +434,7 @@ export default function GlossaryPage() {
     <div className="w-full  dark:bg-black font-bricolage">
 
       <div
-        className={`sticky z-40 bg-black text-white border-b border-gray-700 transition-all duration-300 ${isScrollUp ? "top-14 lg:top-[130px]" : "top-0 lg:top-20"
+        className={`sticky z-40 bg-black text-white border-b border-gray-700 transition-all duration-300 ${isScrollUp ? "top-14 lg:top-[120px]" : "top-0 lg:top-18"
           }`}
       >
 

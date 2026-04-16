@@ -70,7 +70,7 @@ const PageLoader = () => {
         /> */}
 
         {/* LOGO + TEXT */}
-        <div className="flex items-center gap-6 md:gap-10 z-10">
+        <div className="flex items-center gap-2 z-10">
           {/* Q IMAGE */}
           <motion.div
             initial={{ scale: 0, rotate: -180 }}

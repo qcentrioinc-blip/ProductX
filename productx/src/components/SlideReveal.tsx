@@ -52,7 +52,7 @@ export default function SlideReveal() {
         )}
 
         {/* BACK CONTENT */}
-       <div className="relative z-0 px-6 md:px-12 lg:px-16 h-full flex items-center">
+       <div className="relative z-0 px-6 md:px-12 lg:px-16 h-full flex items-center py-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 xl:gap-16">
 
             {/* LEFT CONTENT */}

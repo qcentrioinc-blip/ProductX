@@ -51,10 +51,9 @@ const SamsFive = () => {
 
           {/* Center Gray Placeholder Block (Renders 1st on Mobile) */}
           <div
-            className="w-full rounded-xl min-h-[250px] sm:min-h-[300px] md:min-h-full order-1 md:order-2"
-
+            className="w-full rounded-xl h-[350px] sm:h-auto md:h-auto md:min-h-full order-1 md:order-2 flex justify-center items-center"
           >
-            <img src="/SAMS/npaidentification.webp" className="w-full h-full object-fit" />
+            <img src="/SAMS/npaidentification.webp" alt="NPA Identification" className="w-full h-full object-fit" />
           </div>
 
           {/* Right Column (Renders 3rd on Mobile) */}
