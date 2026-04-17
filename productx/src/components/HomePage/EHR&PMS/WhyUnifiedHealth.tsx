@@ -8,7 +8,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
   return (
     <section className="w-full bg-white dark:bg-[#042F2E]">
-      <div className="mx-auto max-w-8xl lg:px-0 px-10 py-16">
+      <div className="mx-auto max-w-full  lg:px-0  py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
 

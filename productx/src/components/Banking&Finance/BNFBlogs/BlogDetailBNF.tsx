@@ -97,7 +97,7 @@ const nextBlog =
 ))} */}
               {section.listItems?.map((item, index) => (
   <div key={index} className="mt-6">
-    <H4 className="text-2xl font-semibold mb-3">
+    <H4 className="text-2xl  dark:text-white font-semibold mb-3">
       {item.title}
     </H4>
 

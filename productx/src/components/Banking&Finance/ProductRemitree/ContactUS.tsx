@@ -197,10 +197,10 @@ useEffect(() => {
               className="pointer-events-none absolute left-4 top-10 h-[520px] w-[calc(100%-2.5rem)] max-w-[1400px] object-fit"
             /> */}
             <div className="layout-shell-wide flex h-full items-center px-8 xl:px-16">
-              <H2 className="text-white text-5xl font-bold leading-tight max-w-xl">
-                Ready to transform
-                <br />
-                your banking operations
+              <H2 className="text-white text-5xl font-bold leading-tight max-w-2xl">
+                Ready to discuss  your SOC 
+                 
+             compliance and security requirements 
               </H2>
             </div>
           </div>
@@ -316,9 +316,9 @@ useEffect(() => {
             /> */}
             <div className="relative ml-6 mt-0 md:mt-32 md:ml-20 lg:mt-52 lg:ml-24 z-10 pt-4 md:pt-8">
               <H2 className="text-white text-3xl font-bold leading-tight">
-                Ready to transform
-                <br />
-                your banking operations
+                Ready to discuss
+               
+               your SOC compliance and security requirements
               </H2>
             </div>
           </div>

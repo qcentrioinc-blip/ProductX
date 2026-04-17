@@ -756,7 +756,7 @@ const HWD = () => {
           "Access clean claims data directly from clinical documentation",
           "Monitor the entire claim lifecycle on a single dashboard. ",
           "Track remittance advice and payment status in real time. .",
-          "Resolve denials faster with linked clinical and billing data. ",
+          "Supports direct integration with major US clearinghouses   ",
           "Provide clients with clear, customizable financial performance reports. ",
         ],
       },
