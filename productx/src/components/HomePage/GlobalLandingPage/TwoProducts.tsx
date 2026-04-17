@@ -37,7 +37,7 @@ export default function TwoProducts() {
     <section className="dark:bg-black">
     <section
     id="two-products"
-    className="max-w-7xl  mx-auto xl:mx-18    py-4 xl:py-12 px-4 sm:px-8 lg:px-16 xl:px-0">
+    className="max-w-7xl  mx-auto     py-4 xl:py-12 px-4 sm:px-8 lg:px-16  xl:px-0">
       
       <div className="flex items-start justify-between flex-wrap gap-4">
 

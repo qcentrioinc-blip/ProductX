@@ -172,7 +172,7 @@ function MobileView() {
                 </H4>
 
                 <p className="text-[#CCCCCC] text-[16px] leading-relaxed">
-                  {item.para}
+                  {item.para} 
                 </p>
               </div>
             ))}

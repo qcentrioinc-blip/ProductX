@@ -25,7 +25,7 @@ export default function WhyQnest() {
     <>
       {/* DESKTOP */}
       <div ref={ref} className="hidden dark:bg-[#042F2E]  xl:block relative h-[200vh]">
-        <div className="sticky top-0 h-screen overflow-hidden bg-transparent">
+        <div className="sticky max-w-7xl mx-auto  top-0 h-screen overflow-hidden bg-transparent">
           {/* DECORATIVE STARS – DESKTOP ONLY */}
 <div className="hidden xl:block absolute inset-0 pointer-events-none z-0">
   {/* Top center star */}
@@ -59,7 +59,7 @@ className="absolute top-40 left-20 w-7 scale-110"
 </div>
 
           {/* TITLE */}
-          <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center px-6">
+          <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center ">
             <H2EHR className=" text-[#008280] dark:text-amber-400 mb-4">
               One Unified Platform
             </H2EHR>
@@ -69,7 +69,7 @@ className="absolute top-40 left-20 w-7 scale-110"
           </motion.div>
           {/* CARDS */}
           <motion.div style={{ y: cardsY }} className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-12 gap-8 max-w-full mx-auto w-full  px-6 xl:px-20">
+            <div className="grid grid-cols-12 gap-8 max-w-full mx-auto w-full  px-6 xl:px-0">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
                   <div className="bg-transparent border-5 border-[#EEDA68] dark:border-amber-400 rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">

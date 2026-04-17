@@ -46,7 +46,7 @@ const TestimonialEHR = () => {
   return (
     <> 
     <section className="dark:bg-[#042F2E] ">
-    <div className="max-w-full  dark:bg-[#042F2E]  px-4 xl:px-20 lg:py-20 xl:py-0 mx-auto   ">
+    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 xl:px-0 lg:py-20 xl:py-0 mx-auto   ">
                 <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start   xl:px-6  ">
                   {/* Left Heading */}
                   <div
