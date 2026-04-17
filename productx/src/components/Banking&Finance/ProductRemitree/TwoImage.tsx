@@ -89,12 +89,12 @@ const TwoImage = () => {
 
             {/* ── SECTION 1 — Image LEFT | Text RIGHT ── */}
             <div className="
-                w-full max-w-8xl mx-auto
+                w-full max-w-[1440px] mx-auto
                 px-5
-                sm:px-2
+                sm:px-8
                 md:px-10
                 lg:px-14
-                xl:px-16
+                xl:px-20
                 pt-8   pb-8
                 sm:pt-10 sm:pb-10
                 md:pt-10 md:pb-12

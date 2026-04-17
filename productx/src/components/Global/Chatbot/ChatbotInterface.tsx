@@ -13,6 +13,8 @@ const Trash2 = ({ size = 24, className = "", strokeWidth = 2 }: { size?: number;
 
 const ReactMarkdown = React.lazy(() => import('react-markdown'));
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
 interface Message {
     id: string;
     role: 'user' | 'bot';
@@ -129,7 +131,7 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
         setMessages((prev) => [...prev, initialBotMsg]);
 
         try {
-            const response = await fetch('http://localhost:5000/api/chat/stream', {
+            const response = await fetch(`${API_BASE_URL}/api/chat/stream`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -139,7 +141,8 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
             });
 
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                const errorText = await response.text().catch(() => '');
+                throw new Error(`Server error (${response.status}): ${errorText || 'Failed to get response'}`);
             }
 
             const reader = response.body?.getReader();
@@ -150,18 +153,22 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
             }
 
             let accumulatedText = '';
+            let buffer = ''; // Buffer for handling partial SSE chunks
 
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
 
-                const chunk = decoder.decode(value, { stream: true });
-                const lines = chunk.split('\n');
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split('\n');
+                // Keep the last potentially incomplete line in the buffer
+                buffer = lines.pop() || '';
 
                 for (const line of lines) {
-                    if (line.startsWith('data: ')) {
-                        const data = line.slice(6).trim();
-                        if (data === '[DONE]') break;
+                    const trimmed = line.trim();
+                    if (trimmed.startsWith('data: ')) {
+                        const data = trimmed.slice(6).trim();
+                        if (data === '[DONE]') continue;
 
                         try {
                             const parsed = JSON.parse(data);
@@ -182,8 +189,33 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
                 }
             }
 
+            // Process any remaining data in the buffer
+            if (buffer.trim()) {
+                const trimmed = buffer.trim();
+                if (trimmed.startsWith('data: ')) {
+                    const data = trimmed.slice(6).trim();
+                    if (data !== '[DONE]') {
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed.text) {
+                                accumulatedText += parsed.text;
+                                setMessages((prev) =>
+                                    prev.map((msg) =>
+                                        msg.id === botMsgId
+                                            ? { ...msg, content: accumulatedText }
+                                            : msg
+                                    )
+                                );
+                            }
+                        } catch (e) {
+                            // Skip invalid JSON
+                        }
+                    }
+                }
+            }
+
             if (!accumulatedText) {
-                throw new Error('No response received from server');
+                throw new Error('No response received from server. Please ensure the backend server is running.');
             }
         } catch (error: any) {
             if (error.name === 'AbortError') {
@@ -191,12 +223,20 @@ const ChatbotInterface: React.FC<ChatbotInterfaceProps> = ({ onClose }) => {
                 return;
             }
             console.error('Failed to send message:', error);
+
+            let errorMessage = "Sorry, something went wrong. Please try again.";
+            if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+                errorMessage = "Unable to connect to the server. Please check if the backend is running and try again.";
+            } else if (error.message) {
+                errorMessage = error.message;
+            }
+
             setMessages((prev) =>
                 prev.map((msg) =>
                     msg.id === botMsgId
                         ? {
                             ...msg,
-                            content: error.message || "Sorry, something went wrong. Please try again.",
+                            content: errorMessage,
                         }
                         : msg
                 )

@@ -72,7 +72,7 @@ const ConsOverview = () => {
   return (
     <>
       <section className="w-full bg-white dark:bg-black py-16 px-4 xl:px-0">
-        <div className="max-w-7xl xl:mx-auto">
+        <div className="max-w-7xl lg:mx-auto xl:mx-auto">
           {/* Section Heading */}
           <div className="mb-6">
             <H2 className="text-4xl md:text-5xl font-bold">
@@ -81,7 +81,7 @@ const ConsOverview = () => {
           </div>
 
           {/* ================= MOBILE / TABLET ================= */}
-          <div className="flex flex-col gap-12 xl:hidden">
+          <div className="flex flex-col gap-12 lg:hidden">
             {outcomes.map((item) => (
               <div key={item.id} className="flex flex-col gap-4">
                 <H2 className="text-[#2B68C3] text-2xl font-bold">
@@ -161,8 +161,8 @@ const ConsOverview = () => {
             ))}
           </div>
 
-          {/* ================= DESKTOP (XL Screen) ================= */}
-          <div className="hidden xl:flex gap-8 flex-1 items-center">
+          {/* ================= DESKTOP (LG & XL Screen) ================= */}
+          <div className="hidden lg:flex gap-8 flex-1 items-center">
             {/* Left Image with Dots */}
             <div className="flex-1 flex flex-col gap-6">
               <div className="relative rounded-xl h-[400px] overflow-hidden">
