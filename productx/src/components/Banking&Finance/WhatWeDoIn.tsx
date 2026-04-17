@@ -19,7 +19,7 @@ const WhatWeDoIn = () => {
       link: "/industries/banking-and-finance/built-for/banks",
       content: [
         "Banks face complex challenges from legacy infrastructure, regulatory pressure, and digital expectations. Our solutions modernize core banking, automate AML compliance, streamline payments, and provide real-time risk visibility. ",
-        "Enterprise-grade core banking and compliance platforms built for scale and future growth. ",
+        "Enterprise-grade core banking and compliance platforms on SOC 1/SOC 2 certified infrastructure.  ",
       ],
     },
     {
@@ -134,11 +134,11 @@ const isDark = document.documentElement.classList.contains("dark");
     >
       <div
         ref={stickyInnerRef}
-        className={isDesktop ? "sticky top-[70px] w-full overflow-hidden" : "relative w-full"}
+        className={isDesktop ? "sticky top-[70px] max-w-7xl mx-auto overflow-hidden" : "relative px-4 w-full"}
         style={isDesktop ? { height: "100vh" } : { height: "auto" }}
       >
         <div
-          className="layout-shell-wide flex flex-col"
+          className="  flex flex-col"
           style={
             isDesktop
               ? {

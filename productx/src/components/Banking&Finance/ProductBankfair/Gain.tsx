@@ -1,16 +1,16 @@
 "use client";
- 
+
 import { useEffect, useRef, useState } from "react";
 import { H2, H4 } from "../../../styles/Typography";
- 
+
 const tabs = ["Inventory", "Fixed Assets", "Security"];
- 
+
 const tabImages = [
   "/Gain.webp",
    "/FixedAsset.webp",
      "/security.webp",
 ];
- 
+
 const tabData = [
   {
     items: [
@@ -70,7 +70,7 @@ const tabData = [
     ],
   },
 ];
- 
+
 // ─── Mobile view ─────────────────────────────────────────────────────────────
 function MobileView() {
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -78,26 +78,26 @@ function MobileView() {
   useEffect(() => {
   const container = tabsRef.current;
   if (!container) return;
- 
+
   const activeEl = container.children[activeTab] as HTMLElement;
   if (!activeEl) return;
- 
+
   activeEl.scrollIntoView({
     behavior: "smooth",
     inline: "center",
     block: "nearest",
   });
 }, [activeTab]);
- 
+
  
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
- 
+
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
- 
+
     sectionRefs.current.forEach((el, index) => {
       if (!el) return;
- 
+
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -106,14 +106,14 @@ function MobileView() {
         },
         { threshold: 0.4 }
       );
- 
+
       obs.observe(el);
       observers.push(obs);
     });
- 
+
     return () => observers.forEach((o) => o.disconnect());
   }, []);
- 
+
   return (
     <div className="xl:hidden flex flex-col ">
  
@@ -143,7 +143,7 @@ function MobileView() {
           ))}
         </div>
       </div>
- 
+
       {/* ✅ VERTICAL SCROLL CONTENT */}
       <div className="flex flex-col gap-16 mt-6">
         {tabData.map((tab, tabIndex) => (
@@ -159,20 +159,20 @@ function MobileView() {
                 className="w-full h-full object-cover"
               />
             </div>
- 
+
             {/* ITEMS */}
             {tab.items.map((item, idx) => (
               <div key={idx} className="flex flex-col gap-2">
                <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center">
   <img src={item.icon} alt="" className="w-6 h-6" />
 </div>
- 
+
                 <H4 className="text-white font-semibold">
                   {item.heading}
                 </H4>
- 
+
                 <p className="text-[#CCCCCC] text-[16px] leading-relaxed">
-                  {item.para}
+                  {item.para} 
                 </p>
               </div>
             ))}
@@ -182,12 +182,12 @@ function MobileView() {
     </div>
   );
 }
- 
+
 // ─── Desktop sticky-scroll view (unchanged) ──────────────────────────────────
 function DesktopView() {
   const [activeTab, setActiveTab] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
- 
+
   useEffect(() => {
     const handleScroll = () => {
       if (!scrollRef.current) return;
@@ -202,9 +202,9 @@ function DesktopView() {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
+
   const currentData = tabData[activeTab];
- 
+
   return (
     <div
       ref={scrollRef}
@@ -213,7 +213,7 @@ function DesktopView() {
     >
       <div className="sticky top-20 h-[95vh] flex items-start">
         <div className="w-full flex flex-row gap-10 xl:gap-16">
- 
+
           {/* Left: Image */}
           <div className="w-full lg:w-[30%] flex-shrink-0">
             <div
@@ -229,7 +229,7 @@ function DesktopView() {
               />
             </div>
           </div>
- 
+
           {/* Right: Tabs + content */}
           <div className="w-full lg:w-[70%] flex flex-col">
             <div className="flex flex-wrap gap-3 mb-2">
@@ -247,7 +247,7 @@ function DesktopView() {
                 </button>
               ))}
             </div>
- 
+
             <div className="flex flex-col gap-6">
               {currentData.items.map((item, idx) => (
                 <div
@@ -277,26 +277,26 @@ function DesktopView() {
     </div>
   );
 }
- 
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Gain() {
   return (
     <section className="bg-[#0f172a] px-6  xl:px-16">
       <div className="max-w-7xl mx-auto xl:px-0">
- 
+
         {/* H2 — always scrolls normally */}
         <H2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold pt-10 pb-6 leading-tight max-w-full">
           Integrated Operations Management Capabilities
         </H2>
- 
+
         {/* Mobile / tablet */}
         <MobileView />
- 
+
         {/* Desktop sticky scroll */}
         <DesktopView />
- 
+
       </div>
- 
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }

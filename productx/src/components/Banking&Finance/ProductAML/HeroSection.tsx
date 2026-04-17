@@ -15,7 +15,7 @@ export default function HeroSection() {
 ];
   return (
     <section className="w-full bg-gray-100 dark:bg-black py-16 relative overflow-hidden">
-      <div className="max-w-7xl lg:pt-24 px-6 lg:px-10 xl:px-0 mx-auto ">
+      <div className="max-w-7xl  lg:pt-24 px-6 lg:px-10 xl:px-0 mx-auto ">
 
         {/* Heading */} 
         <div className="max-w-2xl mb-12">

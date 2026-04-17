@@ -47,7 +47,7 @@ const Counter = () => {
       />
 
       {/* Content Container */}
-      <div className="max-w-7xl xl:max-w-8xl xl:mx-16 mx-auto  px-8 lg:px-10 xl:px-0">
+      <div className="max-w-7xl   mx-auto  px-8 lg:px-10 xl:px-0">
         {/* Heading */}
         <H2 className="  font-bold mb-12  lg:mx-6 md:mt-10 md:mb-16">
           <span className="text-[#2B68C3]">Trusted by financial institutions  </span>

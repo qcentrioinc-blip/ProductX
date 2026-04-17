@@ -124,6 +124,16 @@ const NEW_MOCK_ARTICLES: ArticleData[] = [
     description: 'When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...',
     category: 'IBS',
   },
+   {
+    id: 15,
+    slug: "automating-income-recognition-and-asset-classification",
+    date: '10 April 2026',
+    imageSrc: '/Blog/bankfairblog.webp',
+    title: 'Sed ut perspiciatis Unde',
+    subtitle: "Automating Income Recognition and Asset Classification (IRAC) Compliance...",
+    description: 'When it comes to fund transfers online, customers want speed and safety. Internet banking has made moving money easier...',
+    category: 'Bankfair',
+  },
 ];
 
 // Map product slug in URL → blog category
@@ -137,7 +147,8 @@ const PRODUCT_TO_CATEGORY: Record<string, string> = {
   remittance: "Remittance",
   "remittance-workflow": "Remittance",
   remitree: "Remittance",
-  "internet-banking-system": "IBS"
+  "internet-banking-system": "IBS",
+  bankfair: "Bankfair"
 };
 
 const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, description }) => {

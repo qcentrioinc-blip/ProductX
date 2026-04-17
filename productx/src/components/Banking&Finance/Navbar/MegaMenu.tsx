@@ -129,8 +129,7 @@ const MegaMenu = ({
       <H3 className="dark:text-white">Banking and Finance Solutions</H3>
 
       <P className="text-gray-700 text-lg mt-2 mb-4">
-        Automated compliance and reconciliation platforms for financial
-        institutions
+        FFIEC-aligned compliance, payments, and core banking platforms for US financial institutions
       </P>
 
       <hr className="border-gray-300 h-1 mb-8" />
