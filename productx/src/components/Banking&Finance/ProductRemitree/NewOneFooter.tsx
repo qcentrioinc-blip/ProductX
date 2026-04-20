@@ -74,9 +74,10 @@ const NewOneFooter = () => {
   const products = [
     { label: "Almanac", url: "/industries/banking-and-finance/products/almanac" },
     { label: "Bankfair", url: "/industries/banking-and-finance/products/bankfair" },
+    { label: "CIP & CDD", url: "/industries/banking-and-finance/products/CIP" },
     { label: "Conciliare", url: "/industries/banking-and-finance/products/conciliare" },
     { label: "Internet Banking", url: "/industries/banking-and-finance/products/internet-banking-system" },
-    { label: "KYC & CDD", url: "/industries/banking-and-finance/products/kyc" },
+    
     { label: "Loan Origination", url: "/industries/banking-and-finance/products/loan-origination-system" },
     { label: "Pago", url: "/industries/banking-and-finance/products/pago" },
     { label: "Remitree", url: "/industries/banking-and-finance/products/remitree" },
@@ -98,7 +99,7 @@ const NewOneFooter = () => {
 
     // { label: "Contact", url: "/industries/banking-and-finance/contactform" },
     // { label: "Platform", url: "/platform" },
-    { label: "Market Place", url: "/marketplace" },
+    { label: "Market Place", url: "/marketplaceglobal" },
       { label: "Blogs", url: "/industries/banking-and-finance/blogs" },
     { label: "Glossary", url: "/industries/banking-and-finance/glossary" },
   ];

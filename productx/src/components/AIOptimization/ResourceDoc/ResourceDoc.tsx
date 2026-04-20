@@ -593,11 +593,11 @@ const ResourceDoc: React.FC = () => {
             </div>
           )}
 
-          <button className="w-full py-3 rounded-lg shadow bg-white  font-quicksand font-medium flex flex-row  items-center justify-around    hover:shadow-md transition">
+          {/* <button className="w-full py-3 rounded-lg shadow bg-white  font-quicksand font-medium flex flex-row  items-center justify-around    hover:shadow-md transition">
             Share Article
             <img src="/LinkedIn.png" className=" h-5 w-5" />
             <img src="/Twitter.png" className=" h-5 w-5" />
-          </button>
+          </button> */}
         </div>
       </aside>
     </div>

@@ -33,6 +33,14 @@ const MegaMenu = ({
       img: "/ProductBankfair/HERO.webp",
       path: `${base}/products/bankfair`,
     },
+
+    {
+      title: "CIP & CDD",
+      desc: "Digital Due Diligence",
+      img: "/Blog/CoreBankingBlog.webp",
+      path: `${base}/products/CIP`,
+    },
+    
     {
       title: "Conciliare",
       desc: "Advance reconcilation for Finances",
@@ -52,12 +60,7 @@ const MegaMenu = ({
       path: `${base}/products/internet-banking-system`,
     },
     
-    {
-      title: "KYC & CDD",
-      desc: "Digital Due Diligence",
-      img: "/Blog/CoreBankingBlog.webp",
-      path: `${base}/products/kyc`,
-    },
+    
     {
       title: "Loan Origination System",
       desc: "Digital loan processing automation",
