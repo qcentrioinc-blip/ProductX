@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { P } from "../../../styles/Typography";
- 
+
 const AIBlogs = () => {
   const blogs = [
     {
@@ -23,20 +23,20 @@ const AIBlogs = () => {
       image: "/AI-CloudFinOps/HomePage/Blog1.webp",
     },
   ];
- 
+
   return (
     <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16 px-4 sm:px-6 xl:px-16">
-      <div className="mx-auto max-w-8xl px-0 sm:px-4 xl:px-6">
- 
+      <div className="mx-auto max-w-[1440px] w-full px-0 sm:px-4 lg:px-6 xl:px-6">
+
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
-        <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-12 sm:gap-16 xl:gap-24">
- 
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[420px_1fr] gap-12 sm:gap-16 lg:gap-20 xl:gap-24">
+
           {/* ========== LEFT COLUMN ========== */}
-          <div className="flex flex-col justify-between gap-12 xl:gap-0">
+          <div className="flex flex-col justify-between gap-12 lg:gap-0 xl:gap-0">
             {/* Main Heading */}
             <div>
               <h1
-                className="text-[30px] sm:text-[40px] xl:text-[48px] leading-[110%]"
+                className="text-[30px] sm:text-[40px] lg:text-[48px] xl:text-[48px] leading-[110%]"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 600,
@@ -46,28 +46,28 @@ const AIBlogs = () => {
                 }}
               >
                 Stay Ahead with
-                <br className="hidden xl:block" />
+                <br className="hidden lg:block xl:block" />
                 Cloud Insights
               </h1>
             </div>
- 
+
             {/* Bottom Section */}
             <div className="space-y-6 sm:space-y-8 xl:space-y-8">
               {/* Section Title */}
-        <h2
-  className="uppercase text-[32px] sm:text-[40px] xl:text-[48px]"
-  style={{
-    fontFamily: "'Bricolage Grotesque', sans-serif",
-    fontWeight: 600,
-    lineHeight: "110%",
-  }}
->
-  <span className="inline xl:block dark:text-white">Our </span>
-  <span className="inline xl:block dark:text-white">Resources</span>
-</h2>
- 
- 
- 
+              <h2
+                className="uppercase text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[48px]"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  fontWeight: 600,
+                  lineHeight: "110%",
+                }}
+              >
+                <span className="inline lg:block xl:block dark:text-white">Our </span>
+                <span className="inline lg:block xl:block dark:text-white">Resources</span>
+              </h2>
+
+
+
               {/* View All Button */}
               <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                 <button
@@ -95,22 +95,22 @@ const AIBlogs = () => {
               </a>
             </div>
           </div>
- 
+
           {/* ========== RIGHT COLUMN ========== */}
           <div className="flex flex-col">
             {/* Top Description */}
             <P
-              className="text-[16px] dark:text-white sm:text-[18px] xl:text-[22px]"
-              
+              className="text-[16px] dark:text-white sm:text-[18px] lg:text-[22px] xl:text-[22px]"
+
             >
               Explore expert articles on Azure optimization, FinOps best practices, and real-world savings strategies. Learn how CloudDIET's AI-driven profiling and advanced cost intelligence help reduce waste and maximize your cloud ROI.
             </P>
- 
+
             {/* Divider */}
-            <div className="mt-8 sm:mt-10 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
- 
+            <div className="mt-8 sm:mt-10 lg:mt-12 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
+
             {/* Blog Cards */}
-            <div className="mt-8 sm:mt-10 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 xl:gap-0">
+            <div className="mt-8 sm:mt-10 lg:mt-12 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 lg:gap-0 xl:gap-0">
               {blogs.map((blog, index) => (
                 <div
                   key={blog.id}
@@ -128,7 +128,7 @@ const AIBlogs = () => {
                   >
                     {blog.tag}
                   </span> */}
- 
+
                   {/* Card */}
                   <div className="flex flex-col">
                     {/* Image */}
@@ -141,7 +141,7 @@ const AIBlogs = () => {
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
- 
+
                       {/* Overlay */}
                       <div
                         className="absolute inset-0 pointer-events-none rounded-[8px]"
@@ -151,16 +151,16 @@ const AIBlogs = () => {
                         }}
                       />
                     </div>
- 
+
                     {/* Content */}
                     <div className="mt-4 flex flex-col justify-between min-h-[110px]">
                       <h3
                         className="text-[22px] font-bricolage dark:text-white "
-                        
+
                       >
                         {blog.title}
                       </h3>
- 
+
                       <a href="/industries/ai-optimization/resources/whyclouddiet/clouddiet">
                         <button
                           type="button"
@@ -195,12 +195,12 @@ const AIBlogs = () => {
                 </div>
               ))}
             </div>
- 
+
           </div>
         </div>
       </div>
     </section>
   );
 };
- 
+
 export default AIBlogs;
