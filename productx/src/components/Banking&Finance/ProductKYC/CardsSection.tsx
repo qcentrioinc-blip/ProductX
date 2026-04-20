@@ -53,7 +53,7 @@ export default function CardsSection() {
     <section className="w-full bg-white  dark:bg-black py-10">
       <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center mb-12 dark:text-white">
-           Intelligent KYC and due diligence platform
+           Intelligent CIP and due diligence platform
         </H2>
 
         <motion.div

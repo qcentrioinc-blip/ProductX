@@ -29,12 +29,12 @@ const sampleData: CardItem[] = [
   {
     id: "2",
     logo: "/kycLogo.png",
-    title: "KYC & CDD",
+    title: "CIP & CDD",
     // tags: ["Core", "Cloud"],
     description:
-      "Policy-driven due diligence automation platform that digitizes customer onboarding and lifecycle management. It replaces manual document-based processes with system-configured policies, automated risk assessment, and name screening. The solution ensures consistent KYC compliance, reduces re-work, and maintains audit-ready customer profiles across jurisdictions. ",
+      "Policy-driven due diligence automation platform that digitizes customer onboarding and lifecycle management. It replaces manual document-based processes with system-configured policies, automated risk assessment, and name screening. The solution ensures consistent CIP compliance, reduces re-work, and maintains audit-ready customer profiles across jurisdictions. ",
     category: "Banking and Finance",
-    link: "/industries/banking-and-finance/products/kyc",
+    link: "/industries/banking-and-finance/products/CIP",
   },
   {
     id: "3",
@@ -52,7 +52,7 @@ const sampleData: CardItem[] = [
     title: "Sherlock",
     // tags: ["Core", "Cloud"],
     description:
-      "An advanced anti-money laundering solution that monitors customer transactions and financial messages in real-time. It screens transactions against global watch lists, performs KYC verification, and generates alerts for suspicious activities. The system integrates with core banking platforms to ensure regulatory compliance and enhance operational efficiency. ",
+      "An advanced anti-money laundering solution that monitors customer transactions and financial messages in real-time. It screens transactions against global watch lists, performs CIP verification, and generates alerts for suspicious activities. The system integrates with core banking platforms to ensure regulatory compliance and enhance operational efficiency. ",
     category: "Banking and Finance",
     link: "/industries/banking-and-finance/products/sherlock",
   },

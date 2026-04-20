@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 const logos = [
   { img: "/ProductsLogo/Almanac.webp", link: "/industries/banking-and-finance/products/almanac", tagline: "Asset Management", newTab: true },
   { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Banking", newTab: true },
+  { img: "/ProductsLogo/CIP.webp", link: "/industries/banking-and-finance/products/CIP", tagline: "Due Diligent", newTab: true },
   { img: "/ProductsLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai", tagline: "Cloud Optimization AI", newTab: true },
   { img: "/ProductsLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline: "AI Reconciliation", newTab: true },
   { img: "/ProductsLogo/ibs.png", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },
-  { img: "/ProductsLogo/KYC.webp", link: "/industries/banking-and-finance/products/kyc", tagline: "Due Diligent", newTab: true },
+  
   { img: "/ProductsLogo/LOS.webp", link: "/industries/banking-and-finance/products/loan-origination-system", tagline: "Loan Origination", newTab: true },
    { img: "/ProductsLogo/Pago.png", link: "/industries/banking-and-finance/products/pago", tagline: "Payment System", newTab: true },
   { img: "/ProductsLogo/Remitree.webp", link: "/industries/banking-and-finance/products/remitree", tagline: "Cross-Border Remittance", newTab: true },
@@ -20,7 +21,7 @@ const logos = [
  
 const doubled = [...logos, ...logos, ...logos];
  
-const PX_PER_FRAME = 1.2;
+const PX_PER_FRAME = 2.5;
 const DRAG_THRESHOLD = 4;
  
 export default function LogoMarquee() {
