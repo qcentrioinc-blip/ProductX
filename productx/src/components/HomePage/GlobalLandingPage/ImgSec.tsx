@@ -7,7 +7,7 @@ import { H2, P } from "../../../styles/Typography";
 
 export default function ImgSec() {
   return (
-    <section className="max-w-full mx-auto px-6 md:px-12 lg:px-16 xl:px-0">
+    <section className="max-w-full mx-auto  px-0">
       <div
         className="relative overflow-hidden  min-h-[320px]  flex items-center"
         style={{

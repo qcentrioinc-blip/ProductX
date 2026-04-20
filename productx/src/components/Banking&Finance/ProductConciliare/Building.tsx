@@ -226,14 +226,14 @@ const Building = () => {
           </div>
 
           <div className="max-w-7xl mx-auto
-                      flex flex-col xl:flex-row
-                      gap-4 sm:gap-5 xl:gap-6
+                      flex flex-col lg:flex-row
+                      gap-4 sm:gap-5 lg:gap-8 xl:gap-6
                       items-start
-                      p-2.5 sm:p-3 md:p-4 xl:p-6">
+                      p-2.5 sm:p-3 md:p-4 lg:p-6">
 
             <div className="
-          w-full xl:w-[530px] xl:min-w-[560px] xl:shrink-0
-          h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[512px]
+          w-full lg:w-[42%] lg:shrink-0 xl:w-[530px] xl:min-w-[560px] xl:shrink-0
+          h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] xl:h-[512px]
           rounded-[4px] overflow-hidden bg-[#D9D9D9]
         ">
               <img
@@ -244,7 +244,7 @@ const Building = () => {
             </div>
 
             {/* ── Right Column ── */}
-            <div className="w-full xl:w-[750px] xl:min-h-[512px] flex flex-col">
+            <div className="w-full lg:flex-1 xl:w-[750px] lg:min-h-[400px] xl:min-h-[512px] flex flex-col">
 
               {/* Top: Title + Desc + Checks */}
               <div className="flex flex-col gap-4 xl:gap-6">
@@ -293,20 +293,20 @@ const Building = () => {
           */}
               <div className="
             flex flex-row items-start
-            gap-3 sm:gap-4 xl:gap-6
+            gap-3 sm:gap-4 lg:gap-6 xl:gap-6
             mt-5 sm:mt-6 md:mt-7 lg:mt-8 xl:mt-[56px]
-            w-full xl:w-[691px]
+            w-full lg:w-full xl:w-[691px]
           ">
 
                 {/* Left Stat */}
-                <div className="flex-1 xl:w-[305px] flex flex-col items-start
-                            gap-2.5 sm:gap-3.5 xl:gap-6">
+                <div className="flex-1 lg:w-full xl:w-[305px] flex flex-col items-start
+                            gap-2.5 sm:gap-3.5 lg:gap-4 xl:gap-6">
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
                     className="font-normal  dark:text-[#2B68C3] text-[#141414] leading-[140%]  m-0
-                           xl:w-[252px]
-                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                           lg:w-full xl:w-[252px]
+                           text-[11px] sm:text-[13px] md:text-sm lg:text-[16px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                   >
                     {currentContent.stats.left.label}
@@ -334,14 +334,14 @@ const Building = () => {
                 <div className="w-px bg-[#C6C6C6] shrink-0 self-stretch" />
 
                 {/* Right Stat */}
-                <div className="flex-1 xl:w-[305px] flex flex-col items-start
-                            gap-2.5 sm:gap-3.5 xl:gap-6">
+                <div className="flex-1 lg:w-full xl:w-[305px] flex flex-col items-start
+                            gap-2.5 sm:gap-3.5 lg:gap-4 xl:gap-6">
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
                     className="font-normal text-[#141414] dark:text-[#2B68C3] leading-[140%] m-0
-                           xl:w-[252px]
-                           text-[11px] sm:text-[13px] md:text-sm lg:text-[15px] xl:text-lg"
+                           lg:w-full xl:w-[252px]
+                           text-[11px] sm:text-[13px] md:text-sm lg:text-[16px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                   >
                     {currentContent.stats.right.label}

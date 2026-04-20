@@ -45,12 +45,12 @@ const CARDS = [
 const Capabilities = () => {
   return (
     <div className="relative dark:bg-black min-h-screen">
-      <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-0">
-        <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
+      <div className="max-w-7xl lg:mx-auto xl:mx-auto mx-4 py-10 px-4 lg:px-6 xl:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(350px,516px)_1fr] gap-10 xl:gap-16">
 
           {/* ================= LEFT COLUMN ================= */}
-          <div className="xl:sticky xl:top-20 xl:h-fit">
-            <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
+          <div className="lg:sticky lg:top-20 lg:h-fit">
+            <div className="space-y-6 lg:space-y-8 w-full lg:max-w-[516px]">
 
               <H2>
                 <div className="text-[#2B68C3]">What is</div>

@@ -756,7 +756,7 @@ const HWD = () => {
           "Access clean claims data directly from clinical documentation",
           "Monitor the entire claim lifecycle on a single dashboard. ",
           "Track remittance advice and payment status in real time. .",
-          "Resolve denials faster with linked clinical and billing data. ",
+          "Supports direct integration with major US clearinghouses   ",
           "Provide clients with clear, customizable financial performance reports. ",
         ],
       },
@@ -956,13 +956,13 @@ const HWD = () => {
 
             {/* CARDS — DESKTOP GRID */}
             <div
-              className="flex gap-6 overflow-x-auto snap-x   snap-mandatory xl:overflow-visible xl:grid xl:grid-cols-3 sm:gap-14 pb-4 scrollbar-hide"
+              className="flex gap-6 overflow-x-auto snap-x   snap-mandatory lg:overflow-visible lg:grid lg:grid-cols-3 sm:gap-14 lg:gap-8 xl:gap-14 pb-4 scrollbar-hide"
             >
               {cards.map((card, i) => (
                 <motion.div
                   key={i}
                   className="relative rounded-md  overflow-hidden shadow-lg snap-center flex-shrink-0
-                   w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
+                   w-[85%] md:w-[50%] lg:w-auto min-h-[420px] xl:min-h-[600px]"
                   style={{ backgroundColor: bottomBg }}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}

@@ -7,8 +7,8 @@ const LandingSams = () => {
             <div className="
                 w-full bg-[#131313] relative
                 font-['Bricolage_Grotesque',sans-serif]
-                lg:h-[780px] lg:overflow-hidden
-                xl:w-full xl:min-w-7xl xl:h-[990px] xl:overflow-hidden xl:mx-auto pt-10 sm:pt-0 md:pt-0 lg:pt-0 xl:pt-0
+                lg:h-[820px]
+                xl:w-full xl:max-w-[1440px] xl:h-[990px] xl:mx-auto pt-10 sm:pt-0 md:pt-0 lg:pt-0 xl:pt-0
             ">
 
                 {/* ═══════════════════════════════════════
@@ -20,7 +20,9 @@ const LandingSams = () => {
                 {/* Top-left parallelogram — lg AND desktop */}
                 <div className="
                     hidden lg:block
-                    absolute w-[449px] h-[209px] left-[204px] top-0 z-[1]
+                    absolute z-[1]
+                    lg:w-[320px] lg:h-[150px] lg:left-[14%] lg:top-0
+                    xl:w-[449px] xl:h-[209px] xl:left-[204px] xl:top-0
                     bg-[url('/BNFCos/Rect1.png')] bg-cover bg-center bg-no-repeat
                     [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)]
                 " />
@@ -28,7 +30,9 @@ const LandingSams = () => {
                 {/* Right chevron — lg AND desktop */}
                 <div className="
                     hidden lg:block
-                    absolute w-[1070px] h-[917px] top-[11px] left-[450px] z-[10] lg:z-[10] xl:z-[10]
+                    absolute z-[10]
+                    lg:w-[75%] lg:h-[750px] lg:top-[8px] lg:left-[31%]
+                    xl:w-[1070px] xl:h-[917px] xl:top-[11px] xl:left-[450px]
                     bg-[url('/BNFCos/Rect2.png')] bg-cover bg-center bg-no-repeat
                     [clip-path:polygon(30%_0%,100%_0%,120%_100%,30%_100%,14%_80%)]
                 " />
@@ -43,10 +47,6 @@ const LandingSams = () => {
 
                 {/* ═══════════════════════════════════════
                     HERO WRAPPER
-                    default → flex-col (mobile)
-                    md      → 2-col grid (tablet)
-                    lg      → block, children go absolute (iPad Pro)  ← NEW
-                    xl      → block, children go absolute (desktop)
                 ═══════════════════════════════════════ */}
                 <div className="
                     relative
@@ -59,12 +59,12 @@ const LandingSams = () => {
 
                     {/* ─── LEFT HERO ─── */}
                     <div className="
-                        relative overflow-hidden
+                        relative overflow-hidden z-[4]
                         bg-[#2A2A2A]/90 border border-white/[0.15] backdrop-blur-[4px]
                         rounded-[20px] p-5 sm:p-6
                         md:p-[30px]
-                        lg:absolute lg:left-[60px] lg:top-[110px] lg:z-[4] lg:p-[30px] lg:w-[500px]
-                        xl:absolute xl:left-[80px] xl:top-[180px] xl:z-[4] xl:w-[700px] xl:p-[20px]
+                        lg:absolute lg:left-[5.5%] lg:top-[145px] lg:w-[48.5%] lg:p-[20px]
+                        xl:absolute xl:left-[80px] xl:top-[180px] xl:w-[700px] xl:p-[20px]
                     ">
 
                         <H1 className="
@@ -103,17 +103,16 @@ const LandingSams = () => {
 
                     {/* ─── RIGHT HERO ─── */}
                     <div className="
-                        relative 
-                        md:mt-[40px]
-                        lg:absolute lg:left-[580px] lg:top-[160px] lg:z-[50] lg:mt-0
-                        xl:absolute xl:left-[880px] xl:top-[222px] xl:z-[50] xl:mt-0
+                        relative z-[50]
+                        md:mt-[40px] md:w-full
+                        lg:absolute lg:left-[61%] lg:top-[230px] lg:mt-0
+                        xl:absolute xl:left-[880px] xl:top-[220px] xl:mt-0 xl:w-full
                     ">
                         <P className="
                             relative z-10 
-                            font-normal text-[#FAFAFA] leading-[1.3] m-0
-                            w-full
-                            lg:w-[320px] lg:left-[15px] lg:top-[50px]
-                            xl:w-[390px] xl:h-[88px] xl:left-[40px] xl:top-[50px]
+                            font-normal text-[#FAFAFA] leading-[1.3] m-0 w-full
+                            lg:left-[20px] lg:mt-[10px] lg:w-[320px]
+                            xl:left-[40px] xl:top-[50px] xl:w-[390px] xl:h-[88px]
                         ">
                             System identifies NPL records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic for financial and non-financial parameters ensures accurate classification and provisioning.
                         </P>
@@ -126,7 +125,7 @@ const LandingSams = () => {
                             w-full rounded-[10px] p-5 mt-5
                             sm:p-6 sm:mt-6
                             md:p-5 md:mt-6
-                            lg:w-[340px] lg:h-[140px] lg:p-5 lg:mt-[50px] lg:top-[40px] lg:left-0
+                            lg:w-[340px] lg:h-[127px] lg:p-4 lg:mt-[24px] lg:left-0
                             xl:w-[390px] xl:h-[179px] xl:mt-[26px] xl:pt-[47px] xl:pr-[23px] xl:pb-[47px] xl:pl-[32px] xl:top-[80px] xl:left-0
                         ">
                             <span className="
@@ -164,9 +163,9 @@ const LandingSams = () => {
                     mx-5 mt-4 mb-10 h-36 rounded-xl
                     sm:mx-6 sm:h-44 sm:mb-12
                     md:mx-8 md:h-52 md:mt-0
-                    lg:absolute lg:w-[904px] lg:h-[220px] lg:top-[530px] lg:left-[60px]
+                    lg:absolute lg:w-[88.8%] lg:h-[230px] lg:top-[550px] lg:left-[50%] lg:-translate-x-1/2
                     lg:mx-0 lg:mt-0 lg:mb-0 lg:rounded-[10px]
-                    xl:absolute xl:w-7xl xl:h-[323px] xl:top-[605px] xl:left-[80px]
+                    xl:absolute xl:w-[1280px] xl:h-[323px] xl:top-[605px] xl:left-[80px] xl:-translate-x-0
                     xl:mx-0 xl:mt-0 xl:mb-0 xl:rounded-[10px]
                 ">
                     <img src="/BNFCos/hero.webp" alt="Pen" className="w-full h-full object-cover" />

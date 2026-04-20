@@ -16,7 +16,7 @@ const DATA = [
       {
         title: "Integrate Point-of-Care Tools for Smarter, Faster Diagnoses",
         content:
-          "Access e-prescribing, lab orders, and clinical alerts directly within the patient’s chart to support accurate and timely care decisions without switching screens.",
+          " Access e-prescribing (EPCS ready), lab orders, and clinical alerts directly within the patient’s chart to support accurate and timely care decisions without switching screens.",
         image: "/Imagee1.webp",
       },
       {
@@ -60,7 +60,7 @@ const DATA = [
       {
         title: "Integrated Revenue Cycle Management",
         content:
-          " Automate coding, claims submission, and payment posting from a single platform, ensuring a seamless financial workflow from patient visit to final reimbursement.",
+          " Automate coding, EDI 837 claims submission and EDI 835 remittance processing from a single platform, ensuring a seamless financial workflow from patient visit to final reimbursement. ",
         image: "/EHR-PMS/Image3.webp",
       },
       {

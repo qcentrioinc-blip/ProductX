@@ -1858,5 +1858,175 @@ export const BLOGS: Blog[] = [
       "Never perform transfers on public Wi-Fi.",
       "Contact your bank immediately if you spot fraud."
     ]
-  }
+  },
+
+  {
+    slug: "automating-income-recognition-and-asset-classification",
+    subtitle: "Automating Income Recognition and Asset Classification (IRAC) Compliance ",
+    author: "Dr. John Carter",
+    date: "10 April 2026",
+    readTime: "6 min read",
+    heroImage: "/Blog/bankfairblog.webp",
+
+    intro: [
+      "Since compliance is a highly important aspect for banks, every bank must follow the Income Recognition and Asset Classification (IRAC) norms set by the regulator. Banks need to track overdue loans and classify them correctly. Doing this manually creates problems. Staff may miss the 90-day deadline. Classification gets delayed. The bank may wrongly show interest income from loans that are already bad. This blog post explains how IRAC compliance automation solves these problems. It handles the 90-day overdue rule, stops interest automatically, and posts the required accounting entries."
+    ],
+
+    sections: [
+      {
+        id: "Understanding the 90 Days Overdue Rule- The Trigger for NPA Classification",
+        heading: "Understanding the 90 Days Overdue Rule- The Trigger for NPA Classification",
+        paragraphs: [
+          "Let us understand the most basic rule of NPA classification. As per the RBI 90 days overdue rule, any loan account becomes an NPA if the principal or interest payment is overdue for more than 90 days. This means the borrower has not paid for three consecutive months.    ",
+          "There is a small difference between overdue and days past due (DPD). Overdue means the payment date has passed, but the customer has not paid. DPD counts how many days have passed since the due date. ",
+          "Before an account becomes NPA, the SMA/NPA classification system places it in three early warning stages. SMA-0 is 1 to 30 days overdue. SMA-1 is 31 to 60 days overdue. SMA-2 is 61 to 90 days overdue. These stages help banks identify troubled accounts early. Once the account crosses 90 days, it moves to NPA.  ",
+        ]
+      },
+      {
+        id: "5 Reasons- Automating Income Recognition Is Critical for Compliance",
+        heading: "5 Reasons- Automating Income Recognition Is Critical for Compliance",
+        paragraphs: ["Once a loan becomes NPA at 90 days, the next question is what happens to its interest. Manual handling here creates serious compliance risks. "],
+        listItems: [
+          {
+            title: "Manual interest booking violates RBI rules",
+            paragraphs: [
+              "Many bank staff continue to book interest income on NPA accounts because they forget to check the overdue status. This is a direct violation of RBI guidelines. The regulator clearly states that interest accrual must stop immediately upon NPA classification. Manual processes almost always fail here.  ",
+
+            ]
+          },
+          {
+            title: "The correct treatment is to stop interest recognition ",
+            paragraphs: [
+              "As per NPA income recognition rules, banks cannot show interest income from NPA accounts in their profit and loss statement. The correct method is to stop recognizing any new interest from the day the account becomes NPA. Income can only be booked when cash is actually received. "
+            ]
+          },
+          {
+            title: "Wrong income leads to overstated profits",
+            paragraphs: [
+              "When a bank shows interest income from an NPA account, its profit numbers become false. The bank looks healthier than it really is. This misleads management, investors, and regulators. Over time, these wrong profits create a false picture of the bank's financial health.   ",
+              // "This organized approach turns casual referrals..."
+            ]
+          },
+          {
+            title: "Regulatory penalties for incorrect income recognition  ",
+            paragraphs: [
+              "RBI audits bank books regularly. If auditors find that a bank has recognized interest income on NPA accounts, the regulator imposes penalties. The bank may also have to restate its financial results. This damages reputation and attracts more scrutiny from regulators. "
+            ]
+          },
+          {
+            title: " Automation ensures correct income treatment ",
+            paragraphs: [
+              "IRAC compliance automation solves this problem completely. The system checks overdue days automatically at month-end. If the account is 90 days overdue, the system stops interest accrual without any manual input. No employee has to remember or decide. The rule runs itself every time. "
+            ]
+          },
+        
+        ]
+      },
+      {
+        id: "Building a Verifiable Audit Trail for Regulators and Auditors",
+        heading: "Building a Verifiable Audit Trail for Regulators and Auditors",
+        paragraphs: [
+          "Auditors need a complete loan account audit trail for every NPA account. They want to see when the loan became overdue, when interest stopped, and when provisioning was posted. Without this record, the bank cannot prove compliance.  ",
+
+          'A good audit trail includes four things. The timestamp of each event. The user ID or system ID that made the change. The previous value before the change. The new value after the change. And the reason for the change. ',
+
+          "The core banking compliance requires that all classification changes and entries are logged automatically. Automation ensures the bank is always audit-ready. No one has to generate reports manually before an inspection. "
+
+        ],
+      
+
+
+      },
+      {
+        id: "Conclusion",
+        heading: "Conclusion",
+        paragraphs: [
+          "Manually tracking NPA classification and income recognition creates many errors. Banks miss the 90-day deadline. They continue to show interest income from bad loans. They forget to post provisions on time. Automation solves all these problems. The system checks overdue days, stops interest accrual, classifies assets, and posts accounting entries automatically. The audit trail is always ready for inspectors.  ",
+          "If your bank needs a reliable way to handle IRAC compliance, you should explore solutions from Qnest Global. Our systems are built specifically for these regulatory requirements and can automate the entire process for you. "
+        ]
+      }
+
+
+
+    ],
+
+    //   sections2: [
+    //     {
+    //       id: "What Good AML Compliance Looks Like in Practice",
+    //       heading: "What Good AML Compliance Looks Like in Practice",
+    //       paragraphs: [
+    //         "Banks have to properly and efficiently implement the right processes to surpass basic compliance. A well-managed AML program does not only satisfy the minimum requirements but also operates in a proactive manner. This means that transaction monitoring is ongoing, customer risk profiles are regularly assessed, and staff are trained on how to respond to suspicious situations.   ",
+
+    //         "The SAR filings are both timely and precise, and the audits are approached with seriousness, not as mere formalities. Here, the compliance officer has direct access to the leadership. And in this way, effective AML compliance is part of the bank's everyday operations, and not only prioritized during regulator visits.   ",
+
+    //       ]
+    //     },
+
+    //  {
+    //       id: "Last Note",
+    //       heading: "Last Note",
+    //       paragraphs: [
+    //         "The SAR filings are both timely and precise, and the audits are approached with seriousness, not as mere formalities. Here, the compliance officer has direct access to the leadership. And in this way, effective AML compliance is part of the bank's everyday operations, and not only prioritized during regulator visits.  ",
+    //         "AML compliance is not something banks can treat as a low priority. Regulators are active, fines are large, and the reputational damage from non-compliance can be long-lasting. Banks that build strong, technology-driven AML programs are better protected, both legally and operationally. If your bank wants to enhance its AML framework, Qnest Global provides tailored solutions that make compliance easier, lower risk, and help you stay ahead of regulations without complicating your current operations.  "
+    //       ]
+    //     }
+
+
+
+    //   ],
+
+    cta: {
+      title: "Get IRAC Compliance Automation",
+      description:
+        "Stop manual NPA tracking errors. IRAC compliance automation handles the 90 days rule, interest accrual stop, and provisioning entries automatically. Stay audit-ready. "
+    },
+
+    faqs: [
+      {
+        question: "What is the 90 days overdue rule for NPA classification?",
+        answer:
+          "Any loan becomes an NPA if principal or interest remains unpaid for more than 90 days from the due date. "
+      },
+      {
+        question: " Can a bank show interest income from an NPA account? ",
+        answer:
+          "No, interest accrual must stop immediately after NPA classification. Income is recognized only when cash is actually received. "
+      },
+      {
+        question: "  How does automation stop interest accrual on NPAs? ",
+        answer:
+          "The system checks overdue days at month-end. At 91 days, it automatically stops recognizing interest without any manual approval.  "
+      },
+      {
+        question: " What provisioning rate applies to substandard assets? ",
+        answer:
+          "Substandard assets require 10% provision of the outstanding amount. Doubtful assets need 20% to 50% based on age . "
+      },
+      {
+        question: "Can an NPA account be upgraded back to standard asset? ",
+        answer:
+          "Yes. The account upgrades to standard only after the borrower pays all overdue principal and interest in full.  "
+      }
+    ],
+
+    metaTitle:
+      "Automating IRAC Compliance for Banks | NPA Automation  ",
+
+    metaDescription:
+      "Learn how IRAC compliance automation helps banks apply the 90 days overdue rule, stop interest accrual on NPAs, and post automatic accounting entries for auditors. ",
+
+    quickSummary:
+      "IRAC compliance automation removes manual errors in NPA tracking. The system checks overdue days, stops interest recognition at 90 days, classifies assets correctly, and posts provisioning entries automatically. Banks stay audit-ready without extra manual work. No missed deadlines. No wrong income booking.  ",
+
+    keyTakeaways: [
+      "The 90 days overdue rule decides when a loan becomes NPA. ",
+      "Interest accrual must stop immediately after NPA classification. ",
+      "Automation classifies assets into standard, substandard, doubtful, and loss. ",
+      "The system posts automatic accounting entries for provisions. ",
+      'A complete audit trail keeps the bank ready for regulator inspections. ',
+    
+ 
+    ]
+
+  },
 ];
