@@ -26,7 +26,7 @@ const LandingPageAI = () => {
       <div className="relative w-full dark:bg-black">
         {/* ========== HERO SECTION WITH BACKGROUND IMAGE ========== */}
         <div
-          className="relative w-full h-[60vh] md:h-[56vh] xl:h-screen bg-cover bg-center "
+          className="relative w-full h-[60vh] md:h-[56vh] lg:h-screen xl:h-screen bg-cover bg-center "
           style={{
             backgroundImage: `url(${"/AI-CloudFinOps/Features/LandingBackground.webp"})`,
           }}
@@ -61,7 +61,7 @@ const LandingPageAI = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center xl:top-12">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center lg:top-12 xl:top-12">
             {/* Main Heading */}
             <H1
               className="max-w-6xl mb-6"

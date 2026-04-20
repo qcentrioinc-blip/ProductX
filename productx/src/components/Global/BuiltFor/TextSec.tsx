@@ -98,7 +98,7 @@ export default function TextSec() {
     isEHR ? "dark:bg-[#042f2e]" : "dark:bg-black"
   }`}
 >
-      <div className="max-w-8xl mx-10 xl:px-10">
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}

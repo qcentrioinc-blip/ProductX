@@ -25,13 +25,13 @@ const ThreeCardAI = () => {
     return (
         <section className="w-full bg-[#F5F5F5] dark:bg-black py-16 px-6 md:px-12 lg:px-20">
             {/* Section Title */}
-            <div className="max-w-8xl mx-10 text-center mb-12">
+            <div className="max-w-[1440px] mx-auto text-center mb-12">
                 <H2 className="text-[#254D70] dark:text-white">Why You Should Choose CloudDIET</H2>
             </div>
  
             {/* Cards Grid */}
             {/* Cards Row */}
-            <div className=" flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory ">
+            <div className=" flex gap-6 sm:gap-8 pb-8 -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:px-20 lg:justify-center xl:justify-center overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory ">
                 {features.map((item, index) => (
                     <div
                         key={index}
@@ -40,7 +40,7 @@ const ThreeCardAI = () => {
                             flex-shrink-0
                             w-[85vw]
                             md:w-[75vw]
-                            lg:w-[60vw]
+                            lg:w-[28vw]
                             xl:w-[28vw]
                             h-[285px]
                             p-8 shadow-lg
