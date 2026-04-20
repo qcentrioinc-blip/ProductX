@@ -117,7 +117,7 @@ const App = () => {
     if (productId === "bankfair") return <Bankfair/>
     if (productId === "sherlock") return <Sherlock/>
     // if (productId === "pago") return <ProductDetailthree />
-    if (productId === "kyc") return <ProductDetails_4_page />
+    if (productId === "CIP") return <ProductDetails_4_page />
     // if (productId === "customer-onboarding-solutions") return <Cos_Page />
     if (productId === "sams") return <Sams_Page />
     if (productId === "internet-banking-system") return <PDPage9 />

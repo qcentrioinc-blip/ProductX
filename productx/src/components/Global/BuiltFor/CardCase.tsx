@@ -215,7 +215,7 @@ export default function Cardcase() {
 } shadow-sm border border-gray-200 flex flex-col transition-all duration-300 hover:bg-white dark:hover:bg-transparent hover:shadow-lg w-full`}
             >
               {/* Placeholder Circle */}
-              <div className="w-16 h-16">
+              <div className="w-20 h-20">
                 <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
               </div>
 

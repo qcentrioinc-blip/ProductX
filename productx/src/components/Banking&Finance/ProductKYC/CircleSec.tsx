@@ -23,7 +23,7 @@ type ProductTab = {
 const products: ProductTab[] = [
   {
     label: "Enterprise CDD",
-    para: "Automate and streamline your customer due diligence processes with our comprehensive Enterprise CDD solution. Our platform offers a fully configurable policy engine that allows you to set up and manage your KYC and CDD requirements without any coding. With real-time data capture and seamless integration with external and internal systems, you can ensure compliance with evolving regulations while providing a frictionless onboarding experience for your customers.",
+    para: "Automate and streamline your customer due diligence processes with our comprehensive Enterprise CDD solution. Our platform offers a fully configurable policy engine that allows you to set up and manage your CIP and CDD requirements without any coding. With real-time data capture and seamless integration with external and internal systems, you can ensure compliance with evolving regulations while providing a frictionless onboarding experience for your customers.",
     description:
       "Re-configure on the GO! No more expensive, time consuming system change requests.",
     image: "/ProductDetails4/KYC1.webp",

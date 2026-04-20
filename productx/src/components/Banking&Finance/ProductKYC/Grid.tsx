@@ -26,7 +26,7 @@ export default function Sec_Grid() {
     {
       title: "Always audit ready with version controlled profiles ",
       content:
-        "Maintain complete history of KYC profiles across lifecycle with all changes tracked for regulatory examinations. ",
+        "Maintain complete history of CIP profiles across lifecycle with all changes tracked for regulatory examinations. ",
       shape: "/ProductDetails4/icon7.svg",
       illustration: "/ProductDetails4/icon7.svg",
     },

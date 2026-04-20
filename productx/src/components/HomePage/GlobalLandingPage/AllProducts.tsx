@@ -8,9 +8,9 @@ import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
 const products = [
   {
     id: 1,
-    title: "KYC and CDD",
-    link: "/industries/banking-and-finance/products/kyc",
-    logo: "/AllProductLogos/KYC.webp",
+    title: "CIP and CDD",
+    link: "/industries/banking-and-finance/products/CIP",
+    logo: "/AllProductLogos/CIP1.webp",
     description:
       "Policy-driven platform digitizing customer onboarding and lifecycle management with automated risk assessment, compliance workflows, and centralized data managemen ",
   },
