@@ -16,7 +16,7 @@ const bulletItems = [
 const FirstPage = () => {
     return (
         <>
-            
+           
  
             <section className="w-full overflow-hidden bg-[#2B68C3] dark:bg-black max-w-8xl mx-auto">
  
@@ -33,14 +33,14 @@ const FirstPage = () => {
                         <H1 className="text-white mt-4"
                              
                         >
-                           Digital Loan Origination System for Banks and NBFCs
+                         Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant
                         </H1>
  
                         {/* Paragraph */}
                         <P className="text-white"
-                          
+                         
                         >
-                            LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                            LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows.
                         </P>
                     </div>
  
@@ -84,7 +84,7 @@ const FirstPage = () => {
                             <div className="flex flex-col gap-4 sm:gap-5 lg:gap-5">
                                {bulletItems.map((item, i) => (
   <div key={i} className="flex items-center gap-3">
-
+ 
     {/* ICON CIRCLE */}
     <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
       <img
@@ -93,12 +93,12 @@ const FirstPage = () => {
         className="w-10 h-10 object-contain"
       />
     </div>
-
+ 
     {/* TEXT */}
     <P className="text-white">
       {item.text}
     </P>
-
+ 
   </div>
 ))}
                             </div>
@@ -124,17 +124,17 @@ const FirstPage = () => {
                     Hidden: < 1280px
                 ════════════════════════════════════════ */}
                 <div className="hidden max-w-8xl mx-auto  px-22  xl:block relative min-h-screen">
-                  <div className="grid grid-cols-[1fr_1fr] xl:gap-x-20   mt-44 justify-center items-center">
+                  <div className="grid grid-cols-[1.5fr_1fr] xl:gap-x-10   mt-44 justify-center items-center">
                     {/* Heading */}
                     <H1
                         className="text-white"
-                    >  Complete Digital Loan <br/> Origination System for Banks and NBFC's
+                    > Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant
                     </H1>
  
                     {/* Paragraph */}
                 <P className="text-white"
                     >
-                     LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                     LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows.
                     </P>
                     </div>
  
@@ -155,7 +155,7 @@ const FirstPage = () => {
                         >
                             <H4
                                 className="text-[#2B68C3] "
-                                
+                               
                             >
                             Simplify Applications with Digital Forms and Pre-Approved Offers
                             </H4>
@@ -177,7 +177,7 @@ const FirstPage = () => {
                         <div className="flex flex-col pt-6" style={{ gap: "20px" }}>
                            {bulletItems.map((item, i) => (
   <div key={i} className="flex items-start gap-3">
-
+ 
     {/* ICON CIRCLE */}
     <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
       <img
@@ -186,12 +186,12 @@ const FirstPage = () => {
         className="w-8 h-8 object-contain"
       />
     </div>
-
+ 
     {/* TEXT */}
     <P className="text-white">
       {item.text}
     </P>
-
+ 
   </div>
 ))}
                         </div>
@@ -200,7 +200,7 @@ const FirstPage = () => {
                     {/* Corner Image */}
                     <div
                         className="absolute bottom-0"
-                        style={{ left: "580px", top: "250px", width: "900px", height: "450px" }}
+                           style={{ right: "-20px", bottom: "40px", width: "900px", height: "400px" }}
                     >
                         <img
                             src="/LOS/hero.webp"
