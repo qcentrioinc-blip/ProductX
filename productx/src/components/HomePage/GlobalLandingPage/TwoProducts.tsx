@@ -6,8 +6,8 @@ import { H2, H3, P } from "../../../styles/Typography";
 const products = [
   {
     id: 1,
-    title: "KYC and CDD",
-    link: "/industries/banking-and-finance/products/kyc",
+    title: "CIP and CDD",
+    link: "/industries/banking-and-finance/products/CIP",
     description:
       "Digitizes and standardizes customer onboarding with automated risk assessment and screening.",
     image: "/ProductKYC.webp",
@@ -37,19 +37,20 @@ export default function TwoProducts() {
     <section className="dark:bg-black">
     <section
     id="two-products"
-    className="max-w-7xl  mx-auto     py-4 xl:py-12 px-4 sm:px-8 lg:px-16  xl:px-0">
+    className="max-w-7xl  mx-auto     py-4 xl:py-12 px-6   xl:px-0">
       
       <div className="flex items-start justify-between flex-wrap gap-4">
 
   {/* LEFT SIDE (HEADINGS) */}
-  <div>
+  <span>
     <H2 className="text-[#2B68C3] leading-tight">
       Banking and finance Products
-    </H2>
-    <H2 className="text-[#141414] dark:text-white leading-tight">
+   
+   <br className="   md:block hidden"/> <span className="text-[#141414] dark:text-white leading-tight">
       Built For Scale
+      </span>
     </H2>
-  </div>
+  </span>
 
   {/* RIGHT SIDE (VIEW ALL BUTTON) */}
   <a href="/industries/banking-and-finance/all-products#two-products">

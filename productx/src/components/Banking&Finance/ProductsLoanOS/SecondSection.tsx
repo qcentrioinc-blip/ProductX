@@ -17,7 +17,7 @@ export default function SecondSection() {
           <P
              className="leading-snug dark:text-white "
           >
-            LOS digitizes the entire loan application and approval process with features like e-loan applications, pre-approved offers, and document configuration. The system includes e-verification, OCR capabilities for scanning government IDs, and configurable score parameters. Multi-level approval workflows ensure proper authorization while group lending support and customer management tools enhance operational efficiency for financial institutions.
+             LOS digitizes the entire loan application and approval process with features like e-loan applications, pre-approved offers, and document configuration. The system includes e-verification, OCR capabilities for scanning government IDs, and configurable score parameters. The ECOA, TILA, and FCRA Compliant system enhances operational efficiency for financial institutions.
           </P>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function SecondSection() {
         </H2>
         <P className=" pt-4 max-w-full"
         >
-         LOS digitizes the entire loan application and approval process with features like e-loan applications, pre-approved offers, and document configuration. The system includes e-verification, OCR capabilities for scanning government IDs, and configurable score parameters. Multi-level approval workflows ensure proper authorization while group lending support and customer management tools enhance operational efficiency for financial institutions.
+       LOS digitizes the entire loan application and approval process with features like e-loan applications, pre-approved offers, and document configuration. The system includes e-verification, OCR capabilities for scanning government IDs, and configurable score parameters. The ECOA, TILA, and FCRA Compliant system enhances operational efficiency for financial institutions.
         </P>
       </div>
     </section>
