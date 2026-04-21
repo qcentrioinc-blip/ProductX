@@ -5,7 +5,7 @@ const InnovationCards = () => {
     <section className="w-full bg-white dark:bg-black px-4 sm:px-8 xl:mx-auto">
 
       {/* Overall Container */}
-      <div className="max-w-8xl mx-auto flex flex-col gap-6 xl:gap-[30px]">
+      <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-6 xl:gap-[30px]">
 
         {/* ══════ ROW 1: Heading + Approach Card ══════ */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 xl:gap-[30px]">

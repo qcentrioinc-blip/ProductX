@@ -34,7 +34,7 @@ export default function Sec_4() {
               <div>
                 <H4>Significant cost savings</H4>
                 <P className="mt-4">
-                  Over fifty percent reduction in KYC processing costs with automated workflows.
+                  Over fifty percent reduction in CIP processing costs with automated workflows.
                 </P>
               </div>
 

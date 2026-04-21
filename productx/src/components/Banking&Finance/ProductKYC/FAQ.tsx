@@ -40,10 +40,10 @@ const FaqSection: React.FC = () => {
       cta: "Learn More"
     },
 
-    "/industries/banking-and-finance/products/kyc": {
+    "/industries/banking-and-finance/products/CIP": {
       heading: "Frequently asked questions",
       description:
-        "Answers to common questions about our Diligent KYC and CDD platform, implementation, compliance, and ongoing lifecycle management.",
+        "Answers to common questions about our Diligent CIP and CDD platform, implementation, compliance, and ongoing lifecycle management.",
       cta: "Check FAQs"
     },
     "/industries/banking-and-finance/products/conciliare": {
@@ -234,7 +234,7 @@ const FaqSection: React.FC = () => {
       },
     ],
 
-    "/industries/banking-and-finance/products/kyc": [
+    "/industries/banking-and-finance/products/CIP": [
       {
         question: "What is the difference between CDD and EDD?",
         answer:
@@ -503,7 +503,7 @@ const FaqSection: React.FC = () => {
       {
         question: "What verification features does LOS include? ",
         answer:
-          "LOS provides e-verification for KYC, utility bills, employment, assets, and banking details. OCR capabilities read government IDs and detect mismatches in name, birth date, and address.  ",
+          "LOS provides e-verification for CIP, utility bills, employment, assets, and banking details. OCR capabilities read government IDs and detect mismatches in name, birth date, and address.  ",
       },
       {
         question: "Can LOS integrate with core banking systems?   ",

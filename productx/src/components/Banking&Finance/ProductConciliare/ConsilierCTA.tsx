@@ -12,14 +12,14 @@ const ConsilierCTA = () => {
     return (
         <section className="w-full bg-white dark:bg-black py-6 md:py-8 lg:py-12 overflow-hidden">
             <div className="max-w-8xl mx-auto px-4 md:px-6">
-                <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-8 md:gap-10 xl:gap-[70px] items-stretch xl:items-start">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-[40px] xl:gap-[70px] items-stretch lg:items-start">
 
                     {/* ─────────── LEFT COLUMN ─────────── */}
-                    <div className="flex flex-col gap-5 md:gap-7 w-full xl:w-auto xl:flex-shrink-0">
+                    <div className="flex flex-col gap-5 md:gap-7 w-full lg:w-[55%] xl:w-auto xl:flex-shrink-0">
 
                         {/* ── Title ── */}
                         <h2
-                            className="w-full xl:w-[721px] dark:text-white  text-[#141414] m-0"
+                            className="w-full lg:w-full xl:w-[721px] dark:text-white  text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Bricolage Grotesque', sans-serif",
                                 fontWeight: 700,
@@ -33,7 +33,7 @@ const ConsilierCTA = () => {
 
                         {/* ── Left Paragraph ── */}
                         <p
-                            className="w-full md:max-w-[516px] dark:text-white  xl:w-[516px] text-[#141414] m-0"
+                            className="w-full md:max-w-full lg:w-[95%] dark:text-white  xl:w-[516px] text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Quicksand', sans-serif",
                                 fontWeight: 400,
@@ -47,15 +47,15 @@ const ConsilierCTA = () => {
 
                         {/* ── Blue Outer Card ── */}
                         <div
-                            className="w-full xl:w-[650px] box-border rounded-[10px] bg-[#2B68C3] flex items-center justify-center px-4 py-5 md:px-6 md:py-6 xl:px-[37px] xl:py-8"
+                            className="w-full lg:w-full xl:w-[650px] box-border rounded-[10px] bg-[#2B68C3] flex items-center justify-center px-4 py-5 md:px-6 md:py-6 xl:px-[37px] xl:py-8"
                         >
                             {/* ── White Inner Card ── */}
                             <div
-                                className="w-full xl:w-[575px] box-border rounded-[20px] bg-white px-4 py-5 md:pl-6 md:pr-8 md:py-[30px] xl:pt-[30px] xl:pr-[72px] xl:pb-[30px] xl:pl-[34px]"
+                                className="w-full lg:w-full xl:w-[575px] box-border rounded-[20px] bg-white px-4 py-5 md:pl-6 md:pr-8 md:py-[30px] lg:p-[20px] xl:pt-[30px] xl:pr-[72px] xl:pb-[30px] xl:pl-[34px]"
                             >
                                 {/* ── Features Grid ── */}
                                 <div
-                                    className="w-full xl:w-[469px] grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-center xl:h-[142px]"
+                                    className="w-full lg:w-full xl:w-[469px] grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 lg:gap-6 items-center xl:h-[142px]"
                                 >
                                     {features.map((feature) => (
                                         <div
@@ -93,18 +93,18 @@ const ConsilierCTA = () => {
                     </div>
 
                     {/* ─────────── RIGHT COLUMN ─────────── */}
-                    <div className="flex flex-col gap-4 md:gap-6 w-full xl:w-auto xl:flex-shrink-0">
+                    <div className="flex flex-col gap-4 md:gap-6 w-full lg:w-[42%] xl:w-auto xl:flex-shrink-0">
 
                         {/* ── Dummy Image ── */}
                         <img
                             src="/BNFConsilier/Advantages.webp"
                             alt="Architecture visual"
-                            className="w-full xl:w-[500px] h-auto xl:h-[350px] rounded-xl xl:rounded-[20px] object-cover block aspect-[500/350]"
+                            className="w-full lg:w-full xl:w-[500px] h-auto lg:h-auto xl:h-[350px] rounded-xl xl:rounded-[20px] object-cover block lg:aspect-[500/350] xl:aspect-[500/350]"
                         />
 
                         {/* ── Right Paragraph ── */}
                         <p
-                            className="w-full xl:w-[500px] dark:text-white  text-[#141414] m-0"
+                            className="w-full lg:w-full xl:w-[500px] dark:text-white  text-[#141414] m-0"
                             style={{
                                 fontFamily: "'Quicksand', sans-serif",
                                 fontWeight: 400,

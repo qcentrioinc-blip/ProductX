@@ -250,7 +250,7 @@ export default function HeroSection() {
           }}
         >
           <H1 className="xl:py-6 max-w-2xl text-[#2b68c3]">
-            Enterprise Digital KYC and  CDD Automation Platform
+            Enterprise Digital CIP and  CDD Automation Platform
           </H1>
           <P className="mb-8 font-quicksand max-w-[700px]">
             Fully configurable due diligence platform that automates customer onboarding, periodic reviews, and trigger events while ensuring regulatory compliance across client segments. Replace manual, document-based processes with system-configured policies, automated risk assessment, and seamless screening integrations.       </P>

@@ -31,17 +31,17 @@ const Frontier = () => {
 
     return (
         <section className="w-full bg-[#F8F8F8] dark:bg-black  py-12 sm:py-16 md:py-20 lg:py-10 px-4 sm:px-8 xl:px-10">
-            <div className="max-w-8xl mx-4 sm:mx-8 md:mx-10 px-2 sm:px-4 xl:px-6">
+            <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-10 lg:px-10 xl:px-6">
 
-                <div className="grid xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">
 
                     {/* LEFT COLUMN – fully responsive */}
-                    <div className="flex justify-center xl:block">
-                        <div className="relative w-full max-w-[380px] sm:max-w-[420px] md:max-w-[640px] lg:max-w-[800px] xl:max-w-none xl:min-h-0 xl:h-[540px] overflow-hidden xl:overflow-visible">
+                    <div className="flex justify-center lg:block xl:block">
+                        <div className="relative w-full max-w-[380px] sm:max-w-[420px] md:max-w-[640px] lg:max-w-none xl:max-w-none lg:min-h-0 xl:min-h-0 lg:h-auto xl:h-[540px] overflow-hidden lg:overflow-visible xl:overflow-visible">
 
                             {/* Heading */}
                             <H2
-                                className="relative mb-10  dark:text-white text-[#254D70] sm:mb-12 md:mb-16 text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] text-center xl:text-left"
+                                className="relative mb-10  dark:text-white text-[#254D70] sm:mb-12 md:mb-16 text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] text-center lg:text-left xl:text-left"
                                 
                             >
                                Real-World Cloud Optimization Measures 
@@ -53,7 +53,7 @@ const Frontier = () => {
                     </div>
 
                     {/* RIGHT COLUMN – fully responsive */}
-                    <div className="flex justify-center  xl:justify-end lg:my-4">
+                    <div className="flex justify-center lg:justify-end xl:justify-end lg:my-4">
                         <div className="flex flex-col space-y-8 max-w-xl sm:max-w-2xl">
 
                             {features.map((feature, index) => (
@@ -86,7 +86,7 @@ const Frontier = () => {
 
                                     {/* Separator only after 1st item on desktop */}
                                     {index === 0 && (
-                                        <div className="mt-6 sm:mt-8 hidden xl:block">
+                                        <div className="mt-6 sm:mt-8 hidden lg:block xl:block">
                                             <div className="h-[1px] w-2/3 bg-[#D1D1D6]" />
                                         </div>
                                     )}

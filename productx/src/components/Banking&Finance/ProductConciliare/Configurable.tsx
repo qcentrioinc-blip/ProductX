@@ -8,7 +8,7 @@ const Configurable = () => {
 
             {/* ────── LEFT COLUMN ────── */}
             <div
-                className="w-full lg:w-[480px] xl:w-3xl min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-12 lg:pt-0 xl:pt-0"
+                className="w-full lg:w-1/2 min-h-auto lg:min-h-auto xl:min-h-screen flex-shrink-0 flex flex-col pt-12 lg:pt-0 xl:pt-0"
                 style={{ backgroundColor: "#152934" }}
             >
                 <div

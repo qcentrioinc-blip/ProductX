@@ -77,10 +77,10 @@ const MegaMenu1 = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, p
             path: `${base}/products/customer-onboarding-solutions`
         },
         {
-            title: "KYC & CDD",
+            title: "CIP & CDD",
             desc: "Lorem ipsum dolor sit amet",
             img: "/BNFHOME/P9.jpg",
-            path: `${base}/products/kyc`,
+            path: `${base}/products/CIP`,
         },
          {
             title: "Loan Origination Sytem",

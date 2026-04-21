@@ -24,6 +24,13 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
       path: `${base}/products/bankfair`,
     },
     {
+      title: "CIP & CDD",
+      desc: "Digital Due Diligence",
+      img: "/Blog/CoreBankingBlog.webp",
+      path: `${base}/products/CIP`,
+    },
+    
+    {
       title: "Conciliare",
       desc: "Advance reconcilation for Finances",
       img: "/Products/img4.webp",
@@ -42,12 +49,7 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
       path: `${base}/products/internet-banking-system`,
     },
     
-    {
-      title: "KYC & CDD",
-      desc: "Digital Due Diligence",
-      img: "/Blog/CoreBankingBlog.webp",
-      path: `${base}/products/kyc`,
-    },
+    
     {
       title: "Loan Origination System",
       desc: "Digital loan processing automation",

@@ -35,7 +35,7 @@ const FEATURES = [
     id: "feature_e",
     buttonLabel: "Lifecycle Management",
     title: "Full client lifecycle management",
-    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of KYC profiles with version control for audit readiness.",
+    p1: "System automatically moves profiles to periodic and trigger event queues. Applies current policy standards and enables refresh of CIP profiles with version control for audit readiness.",
     imageSrc: "/ProductDetails4/PD4_img5.webp",
   },
 ];

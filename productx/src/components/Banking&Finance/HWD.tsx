@@ -27,7 +27,7 @@ const HWD = () => {
   const isLOS = path.startsWith("/industries/banking-and-finance/products/loan-origination-system")
   const isAI = location.pathname === "/industries/cloud-finops-ai";
   const isConciliare = path.startsWith("/industries/banking-and-finance/products/conciliare");
-  const isKYC = path.startsWith("/industries/banking-and-finance/products/kyc");
+  const isCIP = path.startsWith("/industries/banking-and-finance/products/CIP");
   const isAlmanac = path.startsWith("/industries/banking-and-finance/products/almanac")
   const isBankfair = path.startsWith("/industries/banking-and-finance/products/bankfair");
   const isSAMS = path.startsWith("/industries/banking-and-finance/products/sams");
@@ -101,7 +101,7 @@ const HWD = () => {
       description:
         ""
     },
-    kyc: {
+    CIP: {
       eyebrow: " ",
       title: "Real-world use cases",
       description:
@@ -497,9 +497,9 @@ const HWD = () => {
       },
     ],
 
-    kyc: [
+    CIP: [
       {
-        title: "Digital KYC transformation",
+        title: "Digital CIP transformation",
         image: "/icon1.svg",
         description:
           "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
@@ -681,7 +681,7 @@ const HWD = () => {
 
     banking: [
       {
-        title: "Digital KYC transformation",
+        title: "Digital CIP transformation",
         image: "/AIOptimization/Saving.svg",
         description:
           "Implemented across 64 branches with over 620 users processing retail and corporate customers.",
@@ -768,7 +768,7 @@ const HWD = () => {
   // CARDS
   let cards;
   if (isConciliare) cards = CARD_CONTENT.conciliare;
-  else if (isKYC) cards = CARD_CONTENT.kyc;
+  else if (isCIP) cards = CARD_CONTENT.CIP;
   else if (isBankfair) cards = CARD_CONTENT.bankfair;
   else if (isAlmanac) cards = CARD_CONTENT.Almanac;
   else if (isSAMS) cards = CARD_CONTENT.SAMS;
@@ -785,7 +785,7 @@ const HWD = () => {
   // HEADING
   let headingContent;
   if (isConciliare) headingContent = HEADING_CONTENT.conciliare;
-  else if (isKYC) headingContent = HEADING_CONTENT.kyc;
+  else if (isCIP) headingContent = HEADING_CONTENT.CIP;
   else if (isBankfair) headingContent = HEADING_CONTENT.bankfair;
   else if (isAlmanac) headingContent = HEADING_CONTENT.Almanac;
   else if (isSAMS) headingContent = HEADING_CONTENT.SAMS;
@@ -803,7 +803,7 @@ const HWD = () => {
   // PALETTE
   let palette;
   if (isPAGO) palette = COLORS.pago;
-  else if (isConciliare || isKYC || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
+  else if (isConciliare || isCIP || isBankfair || isAlmanac || isSAMS || isRemitree) palette = COLORS.banking;
   else if (isEHR) palette = COLORS.ehr;
   else if (isHighTech) palette = COLORS.hightech;
   else if (isAI) palette = COLORS.ai;
@@ -956,13 +956,13 @@ const HWD = () => {
 
             {/* CARDS — DESKTOP GRID */}
             <div
-              className="flex gap-6 overflow-x-auto snap-x   snap-mandatory xl:overflow-visible xl:grid xl:grid-cols-3 sm:gap-14 pb-4 scrollbar-hide"
+              className="flex gap-6 overflow-x-auto snap-x   snap-mandatory lg:overflow-visible lg:grid lg:grid-cols-3 sm:gap-14 lg:gap-8 xl:gap-14 pb-4 scrollbar-hide"
             >
               {cards.map((card, i) => (
                 <motion.div
                   key={i}
                   className="relative rounded-md  overflow-hidden shadow-lg snap-center flex-shrink-0
-                   w-[85%] md:w-[50%] xl:w-auto min-h-[420px] xl:min-h-[600px]"
+                   w-[85%] md:w-[50%] lg:w-auto min-h-[420px] xl:min-h-[600px]"
                   style={{ backgroundColor: bottomBg }}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
