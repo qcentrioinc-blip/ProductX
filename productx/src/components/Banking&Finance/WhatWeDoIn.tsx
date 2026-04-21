@@ -154,12 +154,12 @@ const isDark = document.documentElement.classList.contains("dark");
           }
         >
           {/* ── Heading ── */}
-          <div className="shrink-0 flex justify-between items-start gap-8">
+          <div className="shrink-0 flex justify-between items-start gap-8 ">
             <div className="max-w-4xl">
               <H2 className="font-bold text-[#2B68C3]">
                 Who <span className="text-[#141414] dark:text-white"> We </span> Serve
               </H2>
-              <P className="pt-2 text-justify xl:pr-20  leading-tight">
+              <P className="pt-2 text-justify  xl:pr-20  leading-tight">
                 Financial institutions of all sizes trust our solutions to
                 streamline operations, automate compliance, and deliver better
                 customer experiences. Our platforms scale to meet your specific
@@ -305,11 +305,11 @@ const isDark = document.documentElement.classList.contains("dark");
                 return (
                   <div key={item.id} className="w-full">
                     {/* Image — no border, no badge, full image visible */}
-                    <div className="w-full mt-4 mb-4">
+                    <div className="w-full lg:flex  lg:justify-center lg:items-center mt-4 mb-4">
                       <img
                         src={images[index]}
                         alt={item.title}
-                        className="w-[90%] h-auto object-contain rounded-2xl"
+                        className="w-[90%] lg:w-[50%] h-auto object-contain rounded-2xl"
                       />
                     </div>
 
