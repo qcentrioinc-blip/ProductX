@@ -457,7 +457,7 @@ const HWD = () => {
 
     conciliare: [
       {
-        title: "Bank Account ",
+        title: "Bank Account Reconciliation – SOX & FFIEC Compliant",
         image: "/icon1.svg",
         description:
           "Automate matching between internal ledgers and bank statements across multiple accounts and currencies. ",
@@ -470,7 +470,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "NOSTRO Message ",
+        title: "NOSTRO Message Reconciliation – SWIFT & FFIEC Compliant",
         image: "/icon2.svg",
         description:
           "Reconcile SWIFT messages with core banking system transactions for accurate cross-border settlement. ",
@@ -483,7 +483,7 @@ const HWD = () => {
         ],
       },
       {
-        title: "Payment Channel ",
+        title: "Payment Channel Reconciliation – NACHA & PCI DSS Compliant",
         image: "/icon3.svg",
         description:
           "Match transactions across payment gateways, POS systems, merchant accounts, and settlement files. ",
