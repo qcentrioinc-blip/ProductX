@@ -30,7 +30,7 @@ export default function ConsilierCard() {
 
     const cards = [
         {
-            title: "Works across any industry",
+            title: "SOC-Certified across any industry",
             description:
                 "Matches any two source files from banking, retail, or commerce seamlessly.",
             icon: "/BNFConsilier/engineering.svg",
@@ -44,7 +44,7 @@ export default function ConsilierCard() {
         {
             title: "End-to-end automation",
             description:
-                "Automates data acquisition to certification with minimal manual intervention.",
+                "Automates data acquisition to certification with minimal manual intervention. Full audit trails for SOX and FFIEC compliance.",
             icon: "/BNFConsilier/iteration.svg",
         },
     ];
