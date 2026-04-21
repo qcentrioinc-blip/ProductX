@@ -83,7 +83,7 @@ export default function AuditAnimation() {
               />
             </div>
 
-            <div className="mx-auto mt-8 w-full max-w-full px-4 pb-6 text-left">
+            <div className="mx-auto mt-8 w-full max-w-full px-6 pb-6 text-left">
               <H3 className="text-[#2B68C3] font-bold mb-3">
                 Domain experts in managing banking operations and compliance
               </H3>

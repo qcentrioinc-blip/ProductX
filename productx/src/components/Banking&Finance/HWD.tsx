@@ -265,7 +265,7 @@ const HWD = () => {
 
     LOS: [
       {
-        title: "Retail Loan Processing ",
+        title: "TILA and ECOA Compliant  ",
         image: "/LOS/HWDLOS.svg",
         description:
           "Banks process personal, auto, and home loans digitally for individual customers with faster turnaround.",

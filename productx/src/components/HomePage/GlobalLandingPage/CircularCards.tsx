@@ -9,25 +9,36 @@ import Navbar from "../../Global/Navbar/Navbar";
 // ── 4 industries (tabs) ───────────────────────────────────────────────────────
 const industries = [
   { label: "Banking & Finance", link: "/industries/banking-and-finance", comingSoon: false, launch: null as Date | null },
-  { label: "Billing & Utility", link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
+  // { label: "Billing & Utility", link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
   { label: "Cloud FinOps AI", link: "/industries/cloud-finops-ai", comingSoon: false, launch: null as Date | null },
-  { label: "High Tech", link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
+  // { label: "High Tech", link: "/comingsoon", comingSoon: true, launch: new Date("2026-04-01T00:00:00") },
   { label: "Unified Healthcare", link: "/industries/ehr-and-pms", comingSoon: false, launch: null as Date | null },
 ];
 
 // 7 cards — duplicates fill the arc so it always looks full
-const cards = [
+// const cards = [
+//   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
+//   // { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
+//   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 1 },
+//   // { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
+//   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 2 },
+//   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
+//   // { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
+//   { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 1 },
+//   // { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
+//   { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 2 },
+// ];
+
+const baseCards = [
   { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
-  { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
-  { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
-  { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
-  { label: "Banking & Finance", image: "/Global/Banking.webp", industryIndex: 0 },
-  { label: "Biling & Utility", image: "/Global/HighTech.webp", industryIndex: 1 },
-  { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 2 },
-  { label: "High Tech", image: "/Global/HighTech.webp", industryIndex: 3 },
-  { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 4 },
+  { label: "Cloud FinOps AI", image: "/Global/Cloud.webp", industryIndex: 1 },
+  { label: "Unified Healthcare", image: "/Global/EHR.webp", industryIndex: 2 },
 ];
+
+// Repeat to ensure full arc (minimum 7–9 works best)
+const cards = Array.from({ length: 9 }, (_, i) => ({
+  ...baseCards[i % baseCards.length],
+}));
 
 const TOTAL = cards.length;
 
@@ -82,7 +93,7 @@ function getCardStyle(
     position: "absolute",
     width: cw,
     height: ch,
-    transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%)) rotate(${rotateDeg}deg) scale(${scale})`,
+    transform: `translate(calc(${x}px - 50%), calc(${y}px - 70%)) rotate(${rotateDeg}deg) scale(${scale})`,
     zIndex,
     opacity,
     filter: "grayscale(100%)",
@@ -297,8 +308,8 @@ export default function CircularCards() {
   // ── Container dimensions ──────────────────────────────────────────────────────
   const containerW = RX * 3 + CW + 80;
   const containerH = RY + CH / 2 + 100;
-  const containerW_M = RX_M * 2 + CW_M + 80;
-  const containerH_M = RY_M + CH_M / 2 + 20;
+  const containerW_M = RX_M * 2 + CW_M + 60;
+  const containerH_M = RY_M + CH_M / 2 + 50;
 
   // ── Render ────────────────────────────────────────────────────────────────────
   const renderCards = (mobile: boolean) =>
@@ -333,10 +344,10 @@ export default function CircularCards() {
           style={style}
           className="group"
           // ✅ Still needed for the "not clickable" logic (onClick handler)
-          data-coming-soon={ind.comingSoon ? "true" : "false"}
+          // data-coming-soon={ind.comingSoon ? "true" : "false"}
           onClick={() => {
             // ✅ This remains: blocks the link opening for coming soon cards
-            if (ind.comingSoon) return; 
+            // if (ind.comingSoon) return; 
 
             if (Math.abs(dragOffset) > 0.15) return; 
 
@@ -446,7 +457,7 @@ export default function CircularCards() {
           {/* ── 5 Tabs ── */}
           <div
             ref={tabsRef}
-            className="mt-6 w-full lg:max-w-3xl xl:max-w-4xl bg-gray-50 rounded-full p-2 flex gap-2 mx-auto
+            className="mt-6 w-full lg:max-w-xl  bg-gray-50 rounded-full p-2 flex gap-2 mx-auto
             overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
             xl:overflow-visible xl:justify-center"
             style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
@@ -462,18 +473,18 @@ export default function CircularCards() {
                 ${activeIndustry === i ? "bg-blue-200 shadow-md text-black" : "bg-transparent text-black"}`}
               >
                 {ind.label}
-                {ind.comingSoon && (
+                {/* {ind.comingSoon && (
                   <span className="ml-1.5 text-[10px] bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full font-semibold">
                     Soon
                   </span>
-                )}
+                )} */}
               </button>
             ))}
           </div>
 
           {/* ── DESKTOP CONTAINER ── */}
           <div
-            className="relative mt-10 hidden xl:block select-none"
+            className="relative mt-10 hidden lg:block select-none"
             style={{
               width: containerW,
               height: containerH,
@@ -492,7 +503,7 @@ export default function CircularCards() {
 
           {/* ── MOBILE CONTAINER ── */}
           <div
-            className="relative mt-6 xl:hidden select-none"
+            className="relative mt-6 lg:hidden select-none"
             style={{
               width: containerW_M,
               height: containerH_M,

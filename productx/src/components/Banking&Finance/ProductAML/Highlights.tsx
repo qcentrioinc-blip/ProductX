@@ -58,7 +58,7 @@ export default function Highlights() {
         }}
       />
       <H2 className="text-center dark:text-[#2B68C3] mb-16 max-w-2xl">  
-        Key Highlights of the ALMANAC Platform
+    Key Highlights – FFIEC, OCC, and Federal Reserve Aligned
       </H2>
  
       {/* ── MOBILE / TABLET layout ── */}

@@ -42,7 +42,7 @@ const WhatWeDoIn = () => {
     },
   ];
 
-  const images = ["/WhatWe1.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
+  const images = ["/BNFWhat.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
 const isDark = document.documentElement.classList.contains("dark");
   // Track desktop breakpoint (xl = 1280px)
   useEffect(() => {
@@ -298,7 +298,7 @@ const isDark = document.documentElement.classList.contains("dark");
             ref={mobileRef}
             className="xl:hidden flex flex-col w-full mt-6"
           >
-            <div className="w-full flex flex-col gap-6">
+            <div className="w-full flex flex-col justify-center items-center gap-6">
               {accordionData.map((item, index) => {
                 // const isOpen = openIndex === index;
 
@@ -309,7 +309,7 @@ const isDark = document.documentElement.classList.contains("dark");
                       <img
                         src={images[index]}
                         alt={item.title}
-                        className="w-full h-auto object-contain rounded-2xl"
+                        className="w-[90%] h-auto object-contain rounded-2xl"
                       />
                     </div>
 
@@ -318,7 +318,7 @@ const isDark = document.documentElement.classList.contains("dark");
                       className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 `}
                     >
                       <div
-                        className="flex items-center justify-between px-4 py-4 cursor-pointer"
+                        className="flex items-center  gap-x-4 px-4 lg:px-10 py-4 cursor-pointer"
                         onClick={() => setOpenIndex(index)}
                       >
                         <div className="flex items-center">
@@ -359,11 +359,11 @@ const isDark = document.documentElement.classList.contains("dark");
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="px-4 pb-4"
+                        className="px-4 lg:px-10 pb-4"
                       >
                         {Array.isArray(item.content)
                           ? item.content.map((para, i) => (
-                            <P key={i} className="mb-3 text-sm leading-relaxed">
+                            <P key={i} className="mb-3  max-w-4xl text-sm leading-relaxed">
                               {para}
                             </P>
                           ))
