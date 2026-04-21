@@ -143,7 +143,7 @@ const ImgTextSec = () => {
     </H2>
 
     <P className="mt-3 font-bold max-w-3xl">
-      IBS delivers comprehensive online banking capabilities with secure access, real-time updates, and seamless core banking integration.
+      IBS delivers comprehensive FFIEC, GLBA, and SOC ready online banking capabilities with secure access, real-time updates, and seamless core banking integration. 
     </P>
   </div>
 

@@ -61,7 +61,7 @@ const FeatureGridSection: React.FC = () => {
           </H3>
 
           <P>
-            IBS provides secure online banking with real-time account access, fund transfers, bill payments, and comprehensive account management features integrated with core banking systems.
+            IBS provides secure online banking with real-time account access, fund transfers, bill payments, and comprehensive account management features integrated with core banking systems. Fully compliant with FFIEC guidelines, GLBA privacy rules, and Regulation E (Electronic Fund Transfer Act) requirements for consumer accounts.
           </P>
         </motion.div>
 

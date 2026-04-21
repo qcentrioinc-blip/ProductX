@@ -17,7 +17,7 @@ export default function StatsSection() {
           <H2 className="mb-4 dark:text-[#2b68c3]">Key Benefits of Internet Banking Solution </H2>
 
           <P className="text-gray-800">
-             Financial institutions gain improved customer satisfaction, reduced operational costs, and enhanced security through IBS platform features and capabilities.
+              Financial institutions gain improved customer satisfaction, reduced operational costs, and enhanced security through IBS platform features and capabilities with GLBA compliance and FFIEC-aligned security controls.
           </P>
         </div>
 
