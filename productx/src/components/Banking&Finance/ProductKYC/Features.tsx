@@ -131,10 +131,10 @@ const AnimatedLayer = ({
           <img
             src={feature.imageSrc}
             alt={feature.title}
-            className="w-full max-h-[460px] object-contain rounded-xl"
+            className="w-full max-h-[470px] lg:max-h-[520px] object-contain rounded-xl"
           />
         </div>
-        <div className="col-span-4 flex flex-col gap-5">
+        <div className="col-span-4 flex max-w-[420px] flex-col gap-5">
           <H3 className="text-gray-900 dark:text-white tracking-tight leading-tight text-2xl">
             {feature.title}
           </H3>
@@ -223,10 +223,10 @@ const Feature = () => {
         style={{ height: `${COUNT * 100}vh` }}
         className="relative"
       >
-        <div className="sticky top-0 py-10 dark:bg-black bg-white">
-          <div className="w-full px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+        <div className="sticky top-0 dark:bg-black bg-white">
+          <div className="mx-auto flex w-full max-w-7xl flex-col justify-center px-4 py-4 sm:px-6 md:min-h-[620px] md:py-5 lg:min-h-[680px] lg:px-10 xl:min-h-[720px] xl:py-6">
 
-            <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug my-4 xl:mb-20 xl:mt-6">
+            <H2 className="mb-3 mt-0 text-center text-[#2B68C3] tracking-tight leading-snug md:mb-5 xl:mb-6">
               Key features of Diligent platform
             </H2>
 
@@ -275,14 +275,14 @@ const Feature = () => {
             {/* ── DESKTOP ── */}
             <div className="hidden md:grid md:grid-cols-12 md:gap-8 lg:gap-12 items-center">
 
-              <div className="col-span-3 flex flex-col gap-6">
+              <div className="col-span-3 flex flex-col gap-6 lg:gap-7">
                 {FEATURES.map((item, index) => {
                   const isActive = index === activeIndex;
                   return (
                     <button
                       key={item.id}
                       onClick={() => handleTabClick(index)}
-                      className={`w-full p-5 rounded-full text-sm font-semibold transition-all duration-300 text-center
+                      className={`w-full rounded-full px-6 py-6 text-[17px] font-semibold text-center transition-all duration-300
                         ${isActive
                           ? "bg-[#2B68C3] text-white shadow-md"
                           : "border border-gray-300 text-gray-700 hover:border-[#2B68C3] hover:text-[#2B68C3]"
@@ -294,7 +294,7 @@ const Feature = () => {
                 })}
               </div>
 
-              <div className="col-span-9 relative" style={{ minHeight: "460px" }}>
+              <div className="col-span-9 relative flex items-center" style={{ minHeight: "450px" }}>
                 {prevIndex !== null && (
                   <AnimatedLayer
                     key={`out-${prevIndex}`}
