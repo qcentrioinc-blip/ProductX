@@ -30,7 +30,7 @@ const contentData = [
     title: " Comprehensive Regulatory Reporting for Compliance Requirements ",
     description:
       " ALMANAC generates complete reports for regulatory authorities including Statement of Structural Liquidity, Statement of Short-term Dynamic Liquidity, and Statement of Interest Rate Sensitivity with Traditional Gap and Modified Duration Gap analysis. ",
-       head:" Automated Regulatory Report Generation",
+       head:"Automated FFIEC and OCC Regulatory Report Generation",
     para: "Generates liquidity statements, interest rate sensitivity reports, and Basel-compliant submissions required by regulatory authorities.",
     para2:"Generates reports required by regulatory authorities including liquidity statements"
   },

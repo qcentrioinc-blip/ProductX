@@ -34,7 +34,7 @@ const Harper = () => {
             desktopImage: "/LOS/2.webp",
             mobileImage: "/LOS/2.webp",
             alt: "Harper-2",
-            title: "Complete Document Verification with OCR and AI-Powered Mismatch Detection ",
+            title: "Complete Document Verification with OCR and AI-Powered Mismatch Detection- CIP Compliant under USA PATRIOT Act",
             description:
                 " LOS includes built-in OCR capabilities for scanning government IDs, driving licenses, and SSN cards. AI enhances accuracy by learning from multiple document images and detecting mismatches in name, birth date, and address.",
         },

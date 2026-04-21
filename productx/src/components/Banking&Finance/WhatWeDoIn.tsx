@@ -42,7 +42,7 @@ const WhatWeDoIn = () => {
     },
   ];
 
-  const images = ["/WhatWe1.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
+  const images = ["/BNFWhat.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
 const isDark = document.documentElement.classList.contains("dark");
   // Track desktop breakpoint (xl = 1280px)
   useEffect(() => {
@@ -154,12 +154,12 @@ const isDark = document.documentElement.classList.contains("dark");
           }
         >
           {/* ── Heading ── */}
-          <div className="shrink-0 flex justify-between items-start gap-8">
+          <div className="shrink-0 flex justify-between items-start gap-8 ">
             <div className="max-w-4xl">
               <H2 className="font-bold text-[#2B68C3]">
                 Who <span className="text-[#141414] dark:text-white"> We </span> Serve
               </H2>
-              <P className="pt-2 text-justify xl:pr-20  leading-tight">
+              <P className="pt-2 text-justify  xl:pr-20  leading-tight">
                 Financial institutions of all sizes trust our solutions to
                 streamline operations, automate compliance, and deliver better
                 customer experiences. Our platforms scale to meet your specific
@@ -298,18 +298,18 @@ const isDark = document.documentElement.classList.contains("dark");
             ref={mobileRef}
             className="xl:hidden flex flex-col w-full mt-6"
           >
-            <div className="w-full flex flex-col gap-6">
+            <div className="w-full flex flex-col justify-center items-center gap-6">
               {accordionData.map((item, index) => {
                 // const isOpen = openIndex === index;
 
                 return (
                   <div key={item.id} className="w-full">
                     {/* Image — no border, no badge, full image visible */}
-                    <div className="w-full mt-4 mb-4">
+                    <div className="w-full lg:flex  lg:justify-center lg:items-center mt-4 mb-4">
                       <img
                         src={images[index]}
                         alt={item.title}
-                        className="w-full h-auto object-contain rounded-2xl"
+                        className="w-[90%] lg:w-[50%] h-auto object-contain rounded-2xl"
                       />
                     </div>
 
@@ -318,7 +318,7 @@ const isDark = document.documentElement.classList.contains("dark");
                       className={`relative overflow-hidden transition-all duration-500 ease-in-out rounded-lg mb-4 `}
                     >
                       <div
-                        className="flex items-center justify-between px-4 py-4 cursor-pointer"
+                        className="flex items-center  gap-x-4 px-4 lg:px-10 py-4 cursor-pointer"
                         onClick={() => setOpenIndex(index)}
                       >
                         <div className="flex items-center">
@@ -359,11 +359,11 @@ const isDark = document.documentElement.classList.contains("dark");
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="px-4 pb-4"
+                        className="px-4 lg:px-10 pb-4"
                       >
                         {Array.isArray(item.content)
                           ? item.content.map((para, i) => (
-                            <P key={i} className="mb-3 text-sm leading-relaxed">
+                            <P key={i} className="mb-3  max-w-4xl text-sm leading-relaxed">
                               {para}
                             </P>
                           ))

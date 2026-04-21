@@ -319,23 +319,23 @@ export default function SplitFeature() {
           : themeConfig.sectionBg,
       }}
     >
-      <div className="max-w-8xl mx-10 pb-10 grid grid-cols-1 xl:grid-cols-[1.5fr_1fr] xl:px-10 gap-10 items-center">
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 xl:px-10 pb-10 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] xl:grid-cols-[1.5fr_1fr] gap-10 items-center">
 
         {/* LEFT IMAGE */}
-        <div className="flex justify-start h-[600px] lg:justify-center xl:justify-start">
+        <div className="flex justify-start h-[600px] lg:justify-start xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-full rounded-lg xl:object-fit object-contain"
+            className="w-full h-full rounded-lg object-contain lg:object-cover"
           />
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="w-full text-left lg:text-center xl:text-left   mx-auto xl:mx-0">
+        <div className="w-full text-left lg:text-left xl:text-left mx-auto lg:mx-0 xl:mx-0">
 
           {/* HEADING */}
           <H2
-            className={`leading-tight xl:mb-10 mx-auto max-w-3xl ${industry === "ehr-and-pms"
+            className={`leading-tight lg:mb-10 xl:mb-10 mx-auto max-w-3xl ${industry === "ehr-and-pms"
               ? "font-bricolageEHR"
               : "font-bricolage"
               }`}
@@ -347,12 +347,12 @@ export default function SplitFeature() {
 
 
           {/* PARAGRAPH */}
-          <P className={`mt-4  mx-auto lg:max-w-lg xl:mx-0 ${themeConfig.paragraphColor}`}>
+          <P className={`mt-4 mx-auto lg:max-w-none lg:mx-0 xl:mx-0 ${themeConfig.paragraphColor}`}>
             {content.paragraph}
           </P>
 
           {/* BULLETS */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-2 gap-2 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2 gap-2 mt-8">
             {content.bulletPoints.map((text, index) => (
               <div
                 key={index}
@@ -377,7 +377,7 @@ export default function SplitFeature() {
           </div>
 
           {/* STATS */}
-          <div className="grid grid-cols-3 gap-4 mt-12   lg:mx-auto xl:mx-0 text-center xl:text-left">
+          <div className="grid grid-cols-3 gap-4 mt-12 mx-auto lg:mx-0 xl:mx-0 text-center lg:text-left xl:text-left">
             {content.stats.map((stat, index) => (
               <div key={index}>
                 <H3 className={` text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"

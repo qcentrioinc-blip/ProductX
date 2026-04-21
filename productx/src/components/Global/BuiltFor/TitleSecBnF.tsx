@@ -25,17 +25,17 @@ export default function TitleSecBnF() {
   const content = CONTENT[builtForType || "banks"] || CONTENT["banks"];
  
   return (
-    <section className="w-full bg-white  dark:bg-black relative overflow-hidden flex flex-col xl:block min-h-[650px] lg:min-h-[750px] xl:min-h-[830px]">
+    <section className="w-full bg-white dark:bg-black relative overflow-hidden flex flex-col lg:block min-h-[650px] lg:min-h-[830px]">
       
       {/* LEFT CONTENT */}
       <div
-        className="flex flex-col z-10 px-6 pt-20 lg:pt-40 pb-16 xl:p-0 xl:absolute"
+        className="flex flex-col z-10 px-6 pt-20 lg:p-0 lg:absolute"
         style={{
           gap: "24px",
         }}
       >
         {/* Desktop Wrapper helps match the Figma constraints while mobile stays fluid */}
-        <div className="xl:absolute xl:top-[309.5px] xl:left-[80px] xl:w-[600px] flex flex-col gap-[24px]">
+        <div className="lg:absolute lg:top-[309.5px] lg:left-[40px] xl:left-[80px] lg:w-[500px] xl:w-[600px] flex flex-col gap-[24px]">
           <h1
             className="text-[#2B68C3] m-0 p-0 font-bricolage"
             style={{
@@ -88,14 +88,14 @@ export default function TitleSecBnF() {
  
       {/* RIGHT IMAGE */}
       <div
-        className="w-full xl:w-full xl:absolute z-0 xl:right-0"
+        className="w-full lg:w-full lg:absolute z-0 lg:right-0"
         style={{ top: "clamp(0px, 141.5px, 120px)" }}
       >
-        <div className="w-full h-full xl:absolute xl:right-0 xl:w-full xl:max-w-3xl xl:h-[700px]">
+        <div className="w-full h-full lg:absolute lg:right-0 lg:w-full lg:max-w-2xl xl:max-w-3xl lg:h-[600px] xl:h-[700px]">
           <img
             src={content.bgImage}
             alt={content.title}
-            className="w-full h-full object-cover rounded-t-3xl xl:rounded-none object-center"
+            className="w-full h-full object-cover rounded-t-3xl lg:rounded-none object-center"
           />
         </div>
       </div>
