@@ -6,11 +6,11 @@ export default function HeroSection() {
   const bullets = [
   {
     icon: "/AML/Dollar.svg",
-    text: "Multi-currency compliant platform that generates regulatory reports and uses predictive analytics for capital planning and funding strategies."
+    text: "Multi-currency compliant platform that generates FFIEC and OCC regulatory reports and uses predictive analytics for capital planning and funding strategies. "
   },
   {
     icon: "/AML/Vector.svg",
-    text: "Comprehensive toolkit for interest rate risk analysis, stress testing, government securities management, and liquidity monitoring."
+    text: "Comprehensive toolkit for interest rate risk analysis, Dodd-Frank Act stress testing, government securities management, and liquidity monitoring. "
   }
 ];
   return (
@@ -18,9 +18,9 @@ export default function HeroSection() {
       <div className="max-w-7xl  lg:pt-24 px-6 lg:px-10 xl:px-0 mx-auto ">
 
         {/* Heading */} 
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-4xl mb-12">
           <H1 className="text-[#2B68C3] leading-tight">
-           Asset Liability Management System
+           FFIEC-Aligned Asset Liability Management System
           </H1>
         </div>
 
@@ -42,7 +42,7 @@ export default function HeroSection() {
             {/* White floating card */}
             <div className="bg-gray-100 dark:bg-gray-800 text-[#141414] p-6 rounded-xl shadow-md ">
               <P className="leading-relaxed max-w-2xl ">
-               ALMANAC integrates risk management, liquidity forecasting, and regulatory reporting into a single platform for financial institutions. 
+              ALMANAC integrates risk management, liquidity forecasting, and regulatory reporting into a single platform for US financial institutions. Meets FFIEC guidelines and OCC expectations for asset liability management. 
               </P>
 
               <Link
