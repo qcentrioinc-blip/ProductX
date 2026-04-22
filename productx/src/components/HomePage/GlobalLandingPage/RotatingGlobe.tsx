@@ -95,7 +95,8 @@ const buildPinElement = (d: object) => {
         <div class="globe-pin-dot"></div>
         <div class="globe-pin-label">${point.name}</div>
     `;
-    const label = el.querySelector(".globe-pin-label") as HTMLElement;
+    /*
+     const label = el.querySelector(".globe-pin-label") as HTMLElement;
     el.addEventListener("mouseenter", () => {
         if (label) label.style.opacity = "1";
         if (label) label.style.transform = "translateX(-50%) translateY(0)";
@@ -104,6 +105,7 @@ const buildPinElement = (d: object) => {
         if (label) label.style.opacity = "0";
         if (label) label.style.transform = "translateX(-50%) translateY(4px)";
     });
+    */
     return el;
 };
 
@@ -328,7 +330,7 @@ const RotatingGlobe = () => {
                     position: absolute;
                     bottom: calc(100% + 6px);
                     left: 50%;
-                    transform: translateX(-50%) translateY(4px);
+                    transform: translateX(-50%) translateY(0);
                     white-space: nowrap;
                     background: rgba(8, 18, 50, 0.85);
                     border: 1px solid rgba(120, 200, 255, 0.4);
@@ -338,7 +340,7 @@ const RotatingGlobe = () => {
                     font-size: 12px;
                     padding: 4px 10px;
                     border-radius: 5px;
-                    opacity: 0;
+                    opacity: 1;
                     pointer-events: none;
                     transition: opacity 0.2s ease, transform 0.2s ease;
                     backdrop-filter: blur(4px);
