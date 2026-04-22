@@ -59,7 +59,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Automated matching": {
     title: "Configurable Matching Rules Engine",
     description:
-      "Define matching rules and execution sequences based on your specific reconciliation requirements. The highly configurable rule engine allows unlimited rules to be added through the front-end interface without coding.",
+      "Define matching rules and execution sequences based on your specific reconciliation requirements. Apply filter-based search criteria, including date ranges, amounts, and reference numbers. The highly configurable rule engine allows unlimited rules to be added through the front-end interface without coding.",
     checkItems: [
       "Specify columns for searching and matching",
       "Configure reconciliation services and sequences",
@@ -75,7 +75,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Manual override": {
     title: "Manual Override And Review Functions",
     description:
-      "Empower users with manual intervention capabilities for exception handling. Functions include force match, undo match, provisional match review, partial match review, and exception match review with full audit logging.",
+      "Empower users with manual intervention capabilities for exception handling. Select open items from both sources for matching actions. Functions include force match, undo match, provisional match review, partial match review, and exception match review with full audit logging.",
     checkItems: [
       "Force match selected open items from both sources",
       "Review and approve provisional matches",
@@ -91,7 +91,7 @@ const tabContent: Record<FilterKey, TabContentData> = {
   "Case management": {
     title: "Case Management And MIS Reporting",
     description:
-      "Central repository for managing unmatched items with built-in roles and workflow. Assign cases for investigation, track status updates, and perform root cause analysis. Generate comprehensive MIS reports with ageing analysis.",
+      "Generate match reports for successfully reconciled transactions and unmatch reports for exceptions requiring attention. Assign cases for investigation, track status updates, and perform root cause analysis. Access comprehensive MIS reports with ageing analysis from the reporting interface.",
     checkItems: [
       "Reconciliation control reports for each run",
       "Unmatched reports with ageing analysis",

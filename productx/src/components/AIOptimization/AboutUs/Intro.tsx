@@ -5,14 +5,14 @@ import { H2, H4, P } from "../../../styles/Typography";
 export default function Intro() {
   return (
     <section className="bg-white dark:bg-black w-full  py-4 lg:px-8">
-      <div className="max-w-7xl mx-auto  xl:px-0 grid grid-cols-1 xl:grid-cols-2   items-stretch">
+      <div className="max-w-[1440px] px-8 lg:px-10 xl:px-12 mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 items-stretch">
 
 
         {/* LEFT SIDE */}
         <div className="flex flex-col  ">
           <div>
             <H2 className="font-bold mt-10  text-[#254D70]  leading-tight  ">
-              Pay Only For <br className="xl:block hidden " />
+              Pay Only For <br className="lg:block xl:block hidden" />
               Proven Savings
             </H2>
 
@@ -22,7 +22,7 @@ export default function Intro() {
           </div>
 
           {/* STATS */}
-          <div className=" flex flex-col md:flex-row mt-8 xl:mt-20  gap-4 lg:gap-8   text-gray-900">
+          <div className=" flex flex-col md:flex-row mt-8 lg:mt-20 xl:mt-20 gap-4 lg:gap-8 text-gray-900">
             <div className=" flex flex-col  space-y-2 lg:space-y-4 ">
               <div className=" text-4xl  dark:text-[#254D70] lg:text-6xl font-bricolage font-semibold">$0</div>
               <P className=" " >Initial Cost</P>
@@ -41,11 +41,11 @@ export default function Intro() {
 
 
         {/* RIGHT SIDE */}
-        <div className="flex flex-col lg:flex-row  xl:flex-col mt-10   gap-4 xl:gap-16 xl:pl-44">
+        <div className="flex flex-col lg:flex-col xl:flex-col mt-10 gap-4 lg:gap-16 xl:gap-16 lg:pl-10 xl:pl-44">
 
 
           {/* ITEM 1 */}
-          <div className="flex items-start gap-6 lg:gap-0 xl:gap-6">
+          <div className="flex items-start gap-6 lg:gap-6 xl:gap-6">
             {/* <img src="/AIAbout/AIGraphic1.png" className="w-10 h-10 " /> */}
             <div >
               <H4 className="text-lg dark:text-[#254D70] font-semibold text-gray-900">

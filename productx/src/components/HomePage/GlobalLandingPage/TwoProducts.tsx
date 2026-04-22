@@ -6,8 +6,8 @@ import { H2, H3, P } from "../../../styles/Typography";
 const products = [
   {
     id: 1,
-    title: "KYC and CDD",
-    link: "/industries/banking-and-finance/products/kyc",
+    title: "CIP and CDD",
+    link: "/industries/banking-and-finance/products/CIP",
     description:
       "Digitizes and standardizes customer onboarding with automated risk assessment and screening.",
     image: "/ProductKYC.webp",

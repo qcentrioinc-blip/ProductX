@@ -16,7 +16,7 @@ const bulletItems = [
 const FirstPage = () => {
     return (
         <>
-            
+           
  
             <section className="w-full overflow-hidden bg-[#2B68C3] dark:bg-black max-w-8xl mx-auto">
  
@@ -38,7 +38,7 @@ const FirstPage = () => {
  
                         {/* Paragraph */}
                         <P className="text-white"
-                          
+                         
                         >
                             LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. 
                         </P>
@@ -84,7 +84,7 @@ const FirstPage = () => {
                             <div className="flex flex-col gap-4 sm:gap-5 lg:gap-5">
                                {bulletItems.map((item, i) => (
   <div key={i} className="flex items-center gap-3">
-
+ 
     {/* ICON CIRCLE */}
     <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
       <img
@@ -93,12 +93,12 @@ const FirstPage = () => {
         className="w-10 h-10 object-contain"
       />
     </div>
-
+ 
     {/* TEXT */}
     <P className="text-white">
       {item.text}
     </P>
-
+ 
   </div>
 ))}
                             </div>
@@ -155,7 +155,7 @@ const FirstPage = () => {
                         >
                             <H4
                                 className="text-[#2B68C3] "
-                                
+                               
                             >
                             Simplify Applications with Digital Forms and Pre-Approved Offers
                             </H4>
@@ -177,7 +177,7 @@ const FirstPage = () => {
                         <div className="flex flex-col pt-6" style={{ gap: "20px" }}>
                            {bulletItems.map((item, i) => (
   <div key={i} className="flex items-start gap-3">
-
+ 
     {/* ICON CIRCLE */}
     <div className="rounded-full w-14 h-14 flex items-center justify-center bg-[black] shrink-0">
       <img
@@ -186,12 +186,12 @@ const FirstPage = () => {
         className="w-8 h-8 object-contain"
       />
     </div>
-
+ 
     {/* TEXT */}
     <P className="text-white">
       {item.text}
     </P>
-
+ 
   </div>
 ))}
                         </div>
