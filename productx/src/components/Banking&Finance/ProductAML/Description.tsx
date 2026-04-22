@@ -100,10 +100,10 @@ const Description = () => {
   }, [activeIndex]);
 
   return (
-    <div ref={containerRef} className="w-full dark:bg-black bg-[#ffffff] h-full">
-      <div className="relative h-[150vh] md:h-[200vh] xl:h-[300vh]  ">
+    <div ref={containerRef} className="w-full  dark:bg-black bg-[#ffffff] h-full">
+      <div className="relative  h-[150vh] md:h-[200vh] xl:h-[300vh]  ">
         {/* Heading */}
-        <div className="pb-4 md:pt-10 md:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:py-6 xl:px-0 md:3xl lg:w-[95%]">
+        <div className="pb-4 md:pt-10 md:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:py-6 xl:px-6 md:3xl lg:w-[95%]">
           <H2 className="text-left dark:text-[#2B68C3] ">
             Key Features of ALMANAC for Financial Institutions
           </H2>
@@ -168,19 +168,19 @@ const Description = () => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden xl:flex xl:sticky xl:top-0 xl:h-screen xl:items-center">
-          <div className="w-full max-w-7xl mx-auto px-6 lg:px-10 xl:px-0 xl:py-0">
+        <div className="hidden xl:flex xl:sticky xl:top-0 xl:h-screen lg:items-center">
+          <div className="w-full max-w-7xl mx-auto px-6 lg:px-10 xl:px-8 xl:py-0">
 
             {/* Desktop pill buttons */}
-            <div className="flex flex-wrap justify-between my-4">
+            <div className="flex flex-wrap space-x-8 my-3">
               {tabs.map((label, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`px-4 py-3 w-[16vw] text-[20px] font-schibsted rounded-full transition duration-300
+                  className={`px-10 py-3 w-ful text-[20px] font-quicksand rounded-full transition duration-300
                     ${
                       activeIndex === index
-                        ? "bg-(--primary-color)  text-white"
+                        ? "bg-[#2B68C3] text-white"
                         : "border border-[#2B68C3] dark:border-black dark:bg-gray-200 text-black "
                     }`}
                 >

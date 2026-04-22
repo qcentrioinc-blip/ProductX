@@ -154,8 +154,8 @@ const isDark = document.documentElement.classList.contains("dark");
           }
         >
           {/* ── Heading ── */}
-          <div className="shrink-0 flex justify-between items-start gap-8 ">
-            <div className="max-w-4xl">
+          <div className="shrink-0 flex justify-between items-start gap-8 xl:px-6 ">
+            <div className="max-w-4xl ">
               <H2 className="font-bold text-[#2B68C3]">
                 Who <span className="text-[#141414] dark:text-white"> We </span> Serve
               </H2>
@@ -201,7 +201,7 @@ const isDark = document.documentElement.classList.contains("dark");
           </div>
 
           {/* ── Desktop Layout ── */}
-          <div className="flex-1 min-h-0 hidden xl:flex flex-row items-center gap-8 2xl:gap-12 h-full">
+          <div className="flex-1 min-h-0 hidden xl:flex xl:px-6 flex-row items-center gap-8 2xl:gap-12 h-full">
 
             {/* Image — no wrapper div, height stretches to match accordion column */}
             <motion.img

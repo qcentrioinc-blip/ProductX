@@ -615,7 +615,7 @@ const FaqSection: React.FC = () => {
   return (
     <>
    <section
-  className={`relative w-full py-6 md:px-6 xl:px-0 bg-white overflow-hidden ${
+  className={`relative w-full py-6 md:px-6 xl:px-6 bg-white overflow-hidden ${
     isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
   }`}
 >

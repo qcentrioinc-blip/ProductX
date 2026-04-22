@@ -240,12 +240,12 @@ export default function PrivacyPolicy() {
                 <P className="mb-2">
                   If you have questions, concerns, or requests relating to this Privacy Policy or our data practices, please contact our Data Protection Officer:
                 </P>
-                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: dpo@Qnest.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
+                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: qcentrioinc@gmail.com<br /></P>
                 <P className="mb-2">
                   If you are located in the EEA or UK and are unsatisfied with our response, you have the right to lodge a complaint with your local supervisory authority (e.g., the ICO in the UK, or your national Data Protection Authority within the EU).
                 </P>
                 <P className="mb-2">
-                  We reserve the right to update this Privacy Policy from time to time to reflect changes in our practices, technology, or applicable law. Material changes will be communicated to you via email or prominent notice on our platform at least 30 days before taking effect. Continued use of our Services after such notice constitutes acceptance of the updated policy.
+                  We reserve the right to update this Privacy Policy from time to time to reflect  in our practices, technology, or applicable law. Material changes will be communicated to you via email or prominent notice on our platform at least 30 days before taking effect. Continued use of our Services after such notice constitutes acceptance of the updated policy.
                 </P>
               </section>
             </article>

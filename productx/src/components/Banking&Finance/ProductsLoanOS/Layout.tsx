@@ -27,7 +27,7 @@ const features = [
  
 const Layout = () => {
   return (
-    <div className="  bg-white dark:bg-black px-6 py-10  xl:px-0">
+    <div className="  bg-white dark:bg-black px-6 py-10  xl:px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-10 xl:gap-20">
 
         {/* Left Column */}

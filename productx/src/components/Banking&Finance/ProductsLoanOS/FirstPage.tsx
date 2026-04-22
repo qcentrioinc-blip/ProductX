@@ -33,14 +33,14 @@ const FirstPage = () => {
                         <H1 className="text-white mt-4"
                              
                         >
-                           Digital Loan Origination System for Banks and NBFCs
+                         Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant
                         </H1>
  
                         {/* Paragraph */}
                         <P className="text-white"
                           
                         >
-                            LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                            LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. 
                         </P>
                     </div>
  
@@ -124,17 +124,17 @@ const FirstPage = () => {
                     Hidden: < 1280px
                 ════════════════════════════════════════ */}
                 <div className="hidden max-w-8xl mx-auto  px-22  xl:block relative min-h-screen">
-                  <div className="grid grid-cols-[1fr_1fr] xl:gap-x-20   mt-44 justify-center items-center">
+                  <div className="grid grid-cols-[1.5fr_1fr] xl:gap-x-10   mt-44 justify-center items-center">
                     {/* Heading */}
                     <H1
                         className="text-white"
-                    >  Complete Digital Loan <br/> Origination System for Banks and NBFC's
+                    > Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant 
                     </H1>
  
                     {/* Paragraph */}
                 <P className="text-white"
                     >
-                     LOS streamlines the entire loan lifecycle from application to spending. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Supports group lending and customer management for enhanced efficiency.
+                     LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. 
                     </P>
                     </div>
  
@@ -200,10 +200,10 @@ const FirstPage = () => {
                     {/* Corner Image */}
                     <div
                         className="absolute bottom-0"
-                        style={{ left: "580px", top: "250px", width: "900px", height: "450px" }}
+                        style={{ right: "-20px", bottom: "40px", width: "900px", height: "400px" }}
                     >
                         <img
-                            src="/LOS/hero.webp"
+                            src="/LOS/hero.webp"    
                             alt="Team circles"
                             className="w-full h-full object-contain object-top"
                         />

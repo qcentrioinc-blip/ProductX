@@ -240,7 +240,7 @@ export default function Cookies() {
                 <P className="mb-2">
                   If you have questions, concerns, or requests relating to this Cookies Policy or our data practices, please contact our Data Protection Officer:
                 </P>
-                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: dpo@fincore.com<br />Phone: +1 (800) 555-0199<br />Address: 100 Financial Plaza, Suite 2400, New York, NY 10005</P>
+                <P className="mb-2"><strong>Data Protection Officer</strong><br />Qnest Banking Solutions<br />Email: qcentrioinc@gmail.com<br /></P>
                 <P className="mb-2">
                   If you are located in the EEA or UK and are unsatisfied with our response, you have the right to lodge a complaint with your local supervisory authority (e.g., the ICO in the UK, or your national Data Protection Authority within the EU).
                 </P>
