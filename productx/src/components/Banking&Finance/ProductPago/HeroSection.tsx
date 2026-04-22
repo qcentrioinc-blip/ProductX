@@ -5,7 +5,7 @@ import { H1, P } from '../../../styles/Typography';
 const HeroSection = () => {
   return (
   <section className="w-full bg-[#2B68C3] dark:bg-[#0f172a] xl:h-auto overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto  px-4 lg:px-0   xl:py-20 pt-16 xl:pt-36">
+      <div className="max-w-7xl mx-auto  px-4 lg:px-6   xl:py-20 pt-16 xl:pt-36">
 
      <div className="flex flex-col xl:flex-row items-center pt-24 justify-between gap-12">
 
@@ -89,7 +89,7 @@ const HeroSection = () => {
     <img
       src="/HeroPago.webp"
       alt="Hero visual"
-      className="relative z-10  pl-2 pt-2  md:pt-16 md:pl-10 xl:pt-3  xl:pl-4  xl:scale-115 object-contain"
+      className="relative z-10  pl-2 pt-2  md:pt-16 md:pl-10 xl:pt-3  xl:pl-4  xl:scale-110 object-contain"
     />
 
   </div>

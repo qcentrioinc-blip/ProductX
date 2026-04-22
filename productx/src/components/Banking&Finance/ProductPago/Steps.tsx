@@ -68,12 +68,12 @@ const Steps = () => {
       {/* STICKY CONTENT */}
       <div className="sticky top-0  h-[90vh] lg:h-[85vh] xl:h-screen flex  items-start xl:items-center">
 
-        <div className="max-w-7xl mx-auto px-6 xl:px-0 w-full">
+        <div className="max-w-7xl mx-auto px-6 xl:px-6 w-full">
 
-          <div className="grid xl:grid-cols-[2fr_1.4fr] xl:gap-14 pt-10 items-center">
+          <div className="grid lg:grid-cols-[2fr_1.4fr] xl:gap-14 pt-10 items-center">
 
             {/* LEFT IMAGE PANEL */}
-            <div className="bg-[#D9D9D9] rounded-2xl h-[300px] lg:h-[600px] overflow-hidden">
+            <div className="bg-[#D9D9D9] rounded-2xl h-[250px] lg:h-[600px] overflow-hidden">
               <img
                 src={active.image}
                 alt="step"

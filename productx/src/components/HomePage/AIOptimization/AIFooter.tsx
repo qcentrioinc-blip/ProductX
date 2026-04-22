@@ -111,14 +111,14 @@ const AIFooter = () => {
       </div>
 
       {/* ========== MAIN SECTION ========== */}
-      <div className="relative w-full pb-16 px-4 sm:px-8 lg:px-10 z-10">
+      <div className="relative w-full pb-16 px-4 sm:px-8 lg:px-0 z-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-20">
 
           {/* LEFT SECTION */}
           <div
             className="
         grid grid-cols-3
-        sm:grid-cols-[1fr_1.2fr_1.4fr_1fr] md:mx-20 xl:gap-3
+        sm:grid-cols-[1fr_1.2fr_1.4fr_1fr] md:mx-20  xl:mx-10 xl:gap-3
         mt-10 sm:mt-0
         text-center
         xl:place-items-start xl:text-left
@@ -167,7 +167,7 @@ const AIFooter = () => {
           </div>
 
           {/* RIGHT SECTION */}
-          <div className="flex flex-col items-center xl:items-start space-y-6 xl:pl-40">
+          <div className="flex flex-col items-center xl:items-start space-y-6  ">
             {/* <h3
               className="
           text-[26px]
@@ -185,7 +185,7 @@ const AIFooter = () => {
             </h3> */}
 
             <H3 className="text-white text-center"> Get Azure optimization tips and savings updates.</H3>
-            <div className="w-full max-w-md flex flex-col sm:flex-row items-center gap-4">
+            <div className="w-full max-w-md flex flex-col xl:pl-20 sm:flex-row items-center gap-4">
               <input
                 type="email"
                 value={email}

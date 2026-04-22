@@ -34,7 +34,7 @@ const DetailCards = () => {
        
 
         {/* Text Content */} 
-        <div className="relative z-10 px-6 md:px-12 lg:px-10  xl:px-28 pb-24 pt-10 md:pt-40 w-full xl:max-w-[55%]">
+        <div className="relative z-10 px-6 md:px-12 lg:px-10  xl:pl-20 pb-24 pt-10 md:pt-40 w-full xl:max-w-[65%]">
           <H2 className="text-white mb-4">
            Challenges ALMANAC <br className="xl:block hidden "/> Solves for Banks 
           </H2>
@@ -46,7 +46,7 @@ const DetailCards = () => {
 
       {/* Cards - overlap banner using negative margin, stays in normal flow */}
       <section className="dark:bg-black">
-      <div className="relative z-10 -mt-20 px-4 md:px-8  max-w-7xl mx-auto lg:px-12 xl:px-0 pb-4 xl:pb-12">
+      <div className="relative z-10 -mt-20 px-4 md:px-8  max-w-7xl mx-auto lg:px-12 xl:px-6 pb-4 xl:pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {cards.map((card, index) => (
             <div

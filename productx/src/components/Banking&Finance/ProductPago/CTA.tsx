@@ -26,7 +26,7 @@ const features = [
 const CTA = () => {
   return (
     <section className="py-10">
-      <div className="mx-auto max-w-7xl  px-6 lg:px-16  xl:px-0">
+      <div className="mx-auto max-w-7xl  px-6 lg:px-16  xl:px-6">
         <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr]  gap-4 xl:gap-12  items-center xl:items-start">
  
           {/* Column 1 */}

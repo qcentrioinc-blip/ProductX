@@ -11,7 +11,7 @@ const Content: React.FC = () => {
 
       {/* Updated Date */}
       <P className=" text-gray-500 mb-6">
-        Updated as of December 1, 2023
+        Updated as of December 1, 2026
       </P>
 
       {/* Introduction */}
@@ -29,7 +29,7 @@ const Content: React.FC = () => {
         <P className="text-gray-700 leading-relaxed">
           We collect the following categories of Personal Information from you in connection with our products/solutions and services. Personal Information in certain categories may overlap with other categories:
         </P>
-        <ul className="list-disc list-inside dark:text-white text-gray-700 space-y-1">
+        <ul className="list-disc font-quicksand text-[18px] list-inside dark:text-white text-gray-700 space-y-1">
           <li>Identifiers, such as your real name, account name, Internet Protocol address, email address, and other similar identifiers.</li>
           <li>Personal Information categories listed in the California Consumer Records statute, including physical address, telephone number, and financial information used to process payment.</li>
           <li>Characteristics of protected classifications under California or federal law, such as your gender and age, but only for Kaneriko Software employees or applicants for employment.</li>
@@ -47,7 +47,7 @@ const Content: React.FC = () => {
         <P className="text-gray-700 leading-relaxed">
           You may provide Personal Information to Kaneriko Software in a variety of ways. While visiting the Site, we may ask you to register and/or provide Personal Information for purposes of interacting with the Site. As other examples, Kaneriko Software may receive Personal Information when you:
         </P>
-        <ul className="list-disc list-inside dark:text-white text-gray-700 space-y-1">
+        <ul className="list-disc font-quicksand text-[18px]  list-inside dark:text-white text-gray-700 space-y-1">
           <li>Provide or update licensing or account information.</li>
           <li>Register for or attend Kaneriko Software-hosted or sponsored promotions and events (such as conferences, tradeshows or webinars).</li>
           <li>Order or use Kaneriko Software products/solutions, services or other offerings.</li>

@@ -40,7 +40,7 @@ const FirstPage = () => {
                         <P className="text-white"
                          
                         >
-                            LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows.
+                            LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. 
                         </P>
                     </div>
  
@@ -128,13 +128,13 @@ const FirstPage = () => {
                     {/* Heading */}
                     <H1
                         className="text-white"
-                    > Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant
+                    > Loan Origination System for  Banks and NBFCs- Reg B, Reg Z, and FCRA Compliant 
                     </H1>
  
                     {/* Paragraph */}
                 <P className="text-white"
                     >
-                     LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows.
+                     LOS streamlines the entire loan lifecycle from application to disbursement with fair lending compliance under Regulation B (ECOA), truth in lending disclosures under Regulation Z (TILA), and FCRA-compliant credit reporting. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. Features include digital application forms, pre-approved offers, e-verification, OCR document scanning, configurable score parameters, and multi-level approval workflows. 
                     </P>
                     </div>
  
@@ -200,10 +200,10 @@ const FirstPage = () => {
                     {/* Corner Image */}
                     <div
                         className="absolute bottom-0"
-                           style={{ right: "-20px", bottom: "40px", width: "900px", height: "400px" }}
+                        style={{ right: "-20px", bottom: "40px", width: "900px", height: "400px" }}
                     >
                         <img
-                            src="/LOS/hero.webp"
+                            src="/LOS/hero.webp"    
                             alt="Team circles"
                             className="w-full h-full object-contain object-top"
                         />

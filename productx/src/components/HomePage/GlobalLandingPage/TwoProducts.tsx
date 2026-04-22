@@ -28,7 +28,7 @@ const products = [
     link: "/industries/banking-and-finance/products/conciliare",
     imageWidth: "w-[60%]",
     imageHeight: "h-auto",
-    imagePosition: "right-[-95px] bottom-[0px]",
+    imagePosition: "right-[-18px] bottom-[0px]",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function TwoProducts() {
     <section className="dark:bg-black">
     <section
     id="two-products"
-    className="max-w-7xl  mx-auto     py-4 xl:py-12 px-6   xl:px-0">
+    className="max-w-7xl  mx-auto     py-4 xl:py-12 px-6   xl:px-6">
       
       <div className="flex items-start justify-between flex-wrap gap-4">
 

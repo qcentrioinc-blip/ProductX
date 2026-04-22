@@ -24,13 +24,14 @@ const features = [
 const AboutFeaturesSection = () => {
   return (
     <section className="w-full bg-white  dark:bg-black py-10 px-6 md:px-12 lg:px-20 xl:px-0">
+      <div className="max-w-8xl mx-auto xl:px-20">
       {/* Section Title */}
-      <div className="max-w-7xl mx-auto text-left mb-12">
+      <div className=" text-left mb-12 ">
         <H2 className="text-gray-900 dark:text-white">What Makes LOS Platform Unique – Fair Lending and FCRA Compliant </H2>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8 items-stretch">
         {features.map((item, index) => (
           <div
             key={index}
@@ -50,6 +51,7 @@ const AboutFeaturesSection = () => {
             </P>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
