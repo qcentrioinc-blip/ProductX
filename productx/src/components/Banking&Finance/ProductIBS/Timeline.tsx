@@ -111,7 +111,7 @@ export default function Timeline() {
 
       <div className="max-w-7xl mx-auto px-4 xl:px-0">
         <div className="flex justify-center items-center pb-10 xl:pb-20">
-          <H2 className="dark:text-white">Self Registration Process </H2>
+          <H2 className="dark:text-white">Self Registration Process with USA PATRIOT Act CIP Verification </H2>
         </div>
 
         {/* Desktop Timeline */}

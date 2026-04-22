@@ -93,7 +93,7 @@ function getCardStyle(
     position: "absolute",
     width: cw,
     height: ch,
-    transform: `translate(calc(${x}px - 50%), calc(${y}px - 70%)) rotate(${rotateDeg}deg) scale(${scale})`,
+    transform: `translate(calc(${x}px - 50%), calc(${y}px - 55%)) rotate(${rotateDeg}deg) scale(${scale})`,
     zIndex,
     opacity,
     filter: "grayscale(100%)",
