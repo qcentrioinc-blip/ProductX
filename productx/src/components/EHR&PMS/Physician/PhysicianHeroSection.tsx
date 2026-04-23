@@ -21,7 +21,7 @@ const PhysicianHeroSection = () => {
   />
       <div className="  max-w-7xl  px-4 xl:mx-auto lg:pt-20 xl:pt-0">
         {/* Top Content */}
-        <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:grid-cols-[2fr_1fr] gap-10 items-center">
+        <div className="grid grid-cols-1 mt-10  xl:mt-36 xl:px-6  xl:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
             <H2EHR className="text-4xl font-semibold text-[#008280] dark:text-amber-400 leading-tight">
@@ -38,7 +38,7 @@ const PhysicianHeroSection = () => {
         </div>
  
         {/* Images + Stats */}
-        <div className="relative mt-16">
+        <div className="relative mt-16 xl:px-6">
           {/* IMAGE WRAPPER */}
       <div className="relative w-full max-w-[745px] flex flex-col gap-4 xl:block">
  

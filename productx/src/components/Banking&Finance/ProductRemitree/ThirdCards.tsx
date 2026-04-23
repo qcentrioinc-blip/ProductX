@@ -4,7 +4,7 @@ import { H2, P } from "../../../styles/Typography";
 const ThirdCards = () => {
   return (
     <section className="w-full bg-white dark:bg-black py-12 xl:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 xl:px-6">
 
         {/* Two Column Layout like Intro.tsx but adjusted ratio to increase right side width */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] xl:grid-cols-[1.4fr_1fr] gap-8 lg:gap-16 xl:gap-20 items-center">

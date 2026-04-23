@@ -186,7 +186,7 @@ export default function TechSection() {
 
   return (
     <section className="w-full dark:bg-black bg-[#EFEFEF] ">
-      <div className="max-w-7xl mx-auto px-8 xl:px-0 py-6 md:py-0 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-7xl mx-auto px-8 xl:px-6 py-6 md:py-0 flex flex-col lg:flex-row items-center justify-between gap-12">
 
         {/* LEFT TEXT */}
         <div className="max-w-2xl">

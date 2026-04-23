@@ -44,7 +44,7 @@ const MFI = () => {
         <H2 className="dark:text-[#2B68C3]">Group Lending</H2>
       </div>
   
-      <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-0 relative">
+      <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-6 relative">
       
 
         {/* DESKTOP */}

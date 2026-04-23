@@ -14,12 +14,14 @@ const HeroSection = () => {
 
   {/* HEADING */}
   <H1 className="text-white mb-6 order-1 xl:order-none">
-    Complete Payment and Settlement System for Banks
+    Complete Payment and Settlement System for US Banks
   </H1>
 
   {/* PARAGRAPH */}
   <P className="text-white/90 mb-8 order-3 xl:order-none">
-    PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems.
+   Description: 
+
+PAGO streamlines payment processing with support for digital payments, electronic checks, ACH, Fedwire, and real-time monitoring on PCI DSS and SOC 1/SOC 2 ready infrastructure. Lower fees, robust security, and seamless integration with existing systems. Meets FFIEC payment system guidelines and Regulation E consumer protection requirements. 
   </P>
 
   {/* BUTTON */}

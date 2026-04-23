@@ -56,7 +56,7 @@ export default function OurWork() {
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
-      <div className="sticky top-0 h-screen flex max-w-7xl xl:mx-auto xl:px-0 px-4 gap-16">
+      <div className="sticky top-0 h-screen flex max-w-7xl xl:mx-auto xl:px-6 px-4 gap-16">
         {/* LEFT CONTENT — STACKS */}
         <div className="w-[45%] pt-24 space-y-16">
         

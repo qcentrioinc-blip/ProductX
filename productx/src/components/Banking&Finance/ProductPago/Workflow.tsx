@@ -233,7 +233,7 @@ const textColor = useMemo(() => {
 
       {/* Sticky Content Container */}
       <div className="sticky top-10 xl:h-screen hidden md:flex items-center justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8  items-center px-6 xl:px-0">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8  items-center px-6 xl:px-6">
 
           {/* LEFT SIDE - Sticky Image */}
           <div className="h-[400px] md:h-[550px] xl:h-[600px] pb-6 xl:pb-0 order-1 md:order-0">

@@ -24,7 +24,7 @@ const CARDS = [
 const ThreeBank = () => {
     return (
         <div className="relative w-full dark:bg-black bg-white py-16 xl:py-20">
-            <div className="max-w-7xl xl:mx-auto mx-4 px-4 xl:px-0">
+            <div className="max-w-7xl xl:mx-auto mx-4 px-4 xl:px-6">
 
                 {/* Header Section */}
                 <div className="flex flex-col xl:flex-row justify-left items-start mb-12 xl:mb-12">

@@ -6,7 +6,7 @@ import { Settings, LifeBuoy, Plug } from "lucide-react";
 export default function Sec_4() {
   return (
     <section className="w-full bg-[#F4F4F4] dark:bg-black py-10">
-      <div className="max-w-7xl mx-auto px-10 xl:px-0">
+      <div className="max-w-7xl mx-auto px-10 xl:px-6">
 
         {/* Two Column Layout */}
         <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">

@@ -619,7 +619,7 @@ const FaqSection: React.FC = () => {
     isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
   }`}
 >
-        <div className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-0 flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-6 flex flex-col lg:flex-row gap-12 relative z-10">
 
           <div className="lg:w-1/2 relative z-20">
             <div className="mb-4 text-sm text-gray-700  dark:text-white flex items-center">

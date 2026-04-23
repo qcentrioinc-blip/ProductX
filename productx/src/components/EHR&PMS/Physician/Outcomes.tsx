@@ -64,7 +64,7 @@ const Outcomes = () => {
 
   return (
     <>
-      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 xl:px-0">
+      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 xl:px-6">
         <div className="max-w-7xl xl:mx-auto">
           {/* Section Heading */}
           <div className="flex justify-center mb-12 text-[#008280]">
