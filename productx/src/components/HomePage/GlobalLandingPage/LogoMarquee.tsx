@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const logos = [
   { img: "/ProductsLogo/Almanac.webp", link: "/industries/banking-and-finance/products/almanac", tagline: "Asset Management", newTab: true },
   { img: "/ProductsLogo/Bankfair.webp", link: "/industries/banking-and-finance/products/bankfair", tagline: "Core Banking", newTab: true },
-  { img: "/ProductsLogo/CIP.svg", link: "/industries/banking-and-finance/products/CIP", tagline: "Due Diligent", newTab: true },
+  { img: "/ProductsLogo/CIP2.svg", link: "/industries/banking-and-finance/products/CIP", tagline: "Due Diligent", newTab: true },
   { img: "/ProductsLogo/Clouddiet.webp", link: "/industries/cloud-finops-ai", tagline: "Cloud Optimization AI", newTab: true },
   { img: "/ProductsLogo/Conciliare.webp", link: "/industries/banking-and-finance/products/conciliare", tagline: "AI Reconciliation", newTab: true },
   { img: "/ProductsLogo/ibs.png", link: "/industries/banking-and-finance/products/internet-banking-system", tagline: "Internet and Mobile Banking", newTab: true },

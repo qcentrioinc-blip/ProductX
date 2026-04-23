@@ -25,7 +25,7 @@ const CTAButton: React.FC<CTAButtonProps> = () => {
 export default function Section() {
   return (
     <section className="bg-[#F4F5FC] dark:bg-black py-10">
-      <div className="max-w-7xl mx-auto xl:px-0 px-6">
+      <div className="max-w-7xl mx-auto xl:px-6 px-6">
         <div className="grid xl:grid-cols-2 gap-10 items-center">
 
           {/* LEFT CARD */}

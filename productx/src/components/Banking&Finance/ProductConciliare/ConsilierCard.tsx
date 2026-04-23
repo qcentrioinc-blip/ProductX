@@ -52,7 +52,7 @@ export default function ConsilierCard() {
     return (
         <section className="w-full bg-white dark:bg-black py-4">
             <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
-                <H1 className="text-center  dark:text-whitemb-12">
+                <H1 className="text-center mb-10  dark:text-whitemb-12">
                     Why Conciliare
                 </H1>
 

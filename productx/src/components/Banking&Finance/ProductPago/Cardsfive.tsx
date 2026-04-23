@@ -62,7 +62,7 @@ const Cardsfive = () => {
 
   return (
     <section className="w-full bg-white dark:bg-black relative py-10">
-    <div className="max-w-7xl dark:bg-black mx-auto px-6 py-10 xl:px-0">
+    <div className="max-w-7xl dark:bg-black mx-auto px-6 py-10 xl:px-6">
 
       {/* ── MOBILE / TABLET INTRO ── */}
       <div className="mb-8 xl:hidden">

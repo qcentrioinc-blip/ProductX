@@ -5,7 +5,7 @@ import { H1, P } from '../../../styles/Typography';
 const HeroSection = () => {
   return (
   <section className="w-full bg-[#2B68C3] dark:bg-[#0f172a] xl:h-auto overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto  px-4 lg:px-0   xl:py-20 pt-16 xl:pt-36">
+      <div className="max-w-7xl mx-auto  px-4 lg:px-6   xl:py-20 pt-16 xl:pt-36">
 
      <div className="flex flex-col xl:flex-row items-center pt-24 justify-between gap-12">
 
@@ -14,12 +14,14 @@ const HeroSection = () => {
 
   {/* HEADING */}
   <H1 className="text-white mb-6 order-1 xl:order-none">
-    Complete Payment and Settlement System for Banks
+    Complete Payment and Settlement System for US Banks
   </H1>
 
   {/* PARAGRAPH */}
   <P className="text-white/90 mb-8 order-3 xl:order-none">
-    PAGO streamlines payment processing with support for e-cash, e-cheques, and real-time monitoring. Lower fees, robust security, and seamless integration with existing systems.
+   Description: 
+
+PAGO streamlines payment processing with support for digital payments, electronic checks, ACH, Fedwire, and real-time monitoring on PCI DSS and SOC 1/SOC 2 ready infrastructure. Lower fees, robust security, and seamless integration with existing systems. Meets FFIEC payment system guidelines and Regulation E consumer protection requirements. 
   </P>
 
   {/* BUTTON */}
@@ -89,7 +91,7 @@ const HeroSection = () => {
     <img
       src="/HeroPago.webp"
       alt="Hero visual"
-      className="relative z-10  pl-2 pt-2  md:pt-16 md:pl-10 xl:pt-3  xl:pl-4  xl:scale-115 object-contain"
+      className="relative z-10  pl-2 pt-2  md:pt-16 md:pl-10 xl:pt-3  xl:pl-4  xl:scale-110 object-contain"
     />
 
   </div>

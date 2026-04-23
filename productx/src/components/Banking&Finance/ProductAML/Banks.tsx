@@ -22,7 +22,7 @@ const para=[
 const Banks = () => {
   return (
     <section className="dark:bg-black">
-    <div className="relative max-w-7xl  mx-auto min-h-screen  py-10 xl:py-16 px-6   lg:px-10 xl:px-0">
+    <div className="relative max-w-7xl  mx-auto min-h-screen  py-10 xl:py-16 px-6 xl:px-6  lg:px-10  ">
       <div className="relative z-10">
         <H2 className="font-semibold md:mb-10 dark:text-[#2B68C3] ">
                   Key Benefits of Implementing <br/> ALMANAC Platform

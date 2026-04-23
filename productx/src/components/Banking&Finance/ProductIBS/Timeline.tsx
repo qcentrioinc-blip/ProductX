@@ -109,7 +109,7 @@ export default function Timeline() {
         .anim-text-up.show     { animation: fadeDown 0.45s cubic-bezier(.4,0,.2,1) 0.15s forwards; }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 xl:px-0">
+      <div className="max-w-7xl mx-auto px-4 xl:px-6">
         <div className="flex justify-center items-center pb-10 xl:pb-20">
           <H2 className="dark:text-white">Self Registration Process with USA PATRIOT Act CIP Verification </H2>
         </div>
@@ -126,7 +126,7 @@ export default function Timeline() {
             <div className="w-1/5 bg-blue-600" />
           </div>
 
-          <div className="grid grid-cols-5 gap-4 relative">
+          <div className="grid grid-cols-5 gap-1 relative">
             {timelineData.map((item, index) => {
               const isTop = index % 2 === 0;
               const show = visibleSteps[index];

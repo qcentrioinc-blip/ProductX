@@ -4,7 +4,7 @@ export default function Testimonial() {
   const testimonials = [
     {
       id: 1,
-      name: "Commercial Banks Direct Integration ",
+      name: " Commercial Banks Direct Integration – Fedwire and RTGS Ready  ",
       text: "Connect directly to central bank payment gateways for high-value RTGS transactions. ",
       icon:"/Pago/Balance.svg"
     },
@@ -25,7 +25,7 @@ export default function Testimonial() {
 
   return (
     <div className="bg-white dark:bg-black py-10">
-      <div className="max-w-7xl px-6 xl:px-0 mx-auto">
+      <div className="max-w-7xl px-6 xl:px-6 mx-auto">
 
 
         {/* Header */}

@@ -97,7 +97,7 @@ export default function ImageGrid() {
           <H2 className="mb-6  pt-10 text-[#254D70]">How CloudDIET Works For You</H2>
           <P className="mb-14   max-w-sm px-5 md:px-0 md:max-w-lg lg:max-w-2xl xl:mb-20">A secure, four-step process combining AI-powered analysis with engineering expertise to guarantee cloud savings, without ever accessing your data.</P>
         </div>
-        <div className="space-y-12 max-w-7xl xl:mx-auto mx-10 pb-10"> 
+        <div className="space-y-12 max-w-7xl mx-auto px-4 lg:px-6 pb-10"> 
           {items.map((item, index) => (
             <div key={index} className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 gap-x-20">
               <div className={`${item.reverse ? "md:order-2" : ""}`}>

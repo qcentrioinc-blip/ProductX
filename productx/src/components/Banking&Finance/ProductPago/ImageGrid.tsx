@@ -7,7 +7,7 @@ import Image2 from "/Pago/ImageGrid2.webp";
 const ImageGrid = () => {
   return (
     <div className="w-full min-h-screen dark:bg-black  bg-white">
-      <div className="max-w-7xl mx-auto px-6 xl:px-0 py-10">
+      <div className="max-w-7xl mx-auto px-6 xl:px-6 py-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start" >
          
           {/* Left Column - Content */}

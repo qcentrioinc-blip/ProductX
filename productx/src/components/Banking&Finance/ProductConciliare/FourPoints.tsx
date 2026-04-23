@@ -95,7 +95,7 @@ const FourPoints = () => {
     ];
 
     // ── Vertical divider height calculation (desktop/tablet) ──
-    const TOTAL_HEIGHT = 391;
+    const TOTAL_HEIGHT = 500
     const GAP = 11;
     const ITEM_SLOT = (TOTAL_HEIGHT - (navItems.length - 1) * GAP) / navItems.length;
     const blueHeight = (activeIndex + 1) * ITEM_SLOT + activeIndex * GAP;
@@ -105,7 +105,7 @@ const FourPoints = () => {
 
     return (
         <section ref={containerRef} className="w-full dark:bg-[#141414] bg-[#EFEFEF] mb-6 h-[150vh]">
-            <div className="sticky top-24 w-full flex items-center justify-center px-4 py-12 md:px-10 md:py-16 xl:px-[203px] xl:py-16 box-border overflow-hidden">
+            <div className="sticky top-24 w-full flex items-center justify-center px-4 py-12 md:px-10 md:py-16 xl:px-20 xl:py-16 box-border overflow-hidden">
                 <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row lg:items-start">
 
                     {/* ─────────────── LEFT NAV ─────────────── */}

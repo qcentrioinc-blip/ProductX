@@ -66,7 +66,7 @@ const Arrow = () => {
 };
 const ProcessALM: React.FC = () => {
   return (
-    <div className="w-full relative   bg-[#E7E7E7] dark:bg-black flex flex-col items-center px-4 xl:px-0   pt-10 pb-20 ">
+    <div className="w-full relative   bg-[#E7E7E7] dark:bg-black flex flex-col items-center px-4 xl:px-6   pt-10 pb-20 ">
       {/* Title */}
       <H2 className="  text-center mb-10  dark:text-[#2B68C3] ">
          Integrated Toolkit for Risk Management
@@ -127,7 +127,7 @@ const ProcessALM: React.FC = () => {
       
       {/* Vertical Label */}
      <div className="flex absolute  -bottom-[2%] left-[12%] md:left-[30%] lg:left-[35%]  my-10 xl:my-0  xl:left-[91%] xl:bottom-[5%]">
-        <div className="bg-[#2B68C3] text-white px-4 py-4  rounded-full flex    flex-row xl:flex-col items-center gap-2">
+        <div className="bg-[#2B68C3] text-white px-4 py-4  rounded-full flex    flex-row xl:flex-col items-end gap-2">
           {"RESIDUAL MATURITIES".split("").map((char, i) => (
             <span key={i} className="text-sm font-quicksand font-semibold">
               {char}
