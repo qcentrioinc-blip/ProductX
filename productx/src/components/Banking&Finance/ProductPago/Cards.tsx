@@ -3,15 +3,15 @@ import { H4, P } from "../../../styles/Typography";
 export default function Cards() {
   const cards = [
     {
-      title: "Central Hub for Secure Transaction Management ",
+      title: "Central Hub for Secure Transaction Management- FFIEC Aligned ",
       content:
-        "The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. ",
+        " The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. Meets FFIEC expectations for payment system resilience. ",
       illustration: "/Pago/OnlineBanking.svg",
     },
     {
       title: "User-Facing Cube for Participant Interaction ",
       content:
-        "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. ",
+        "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. All user actions logged for SOC audit trails.",
       illustration: "/Pago/WebDesign.svg",
     },
   ];

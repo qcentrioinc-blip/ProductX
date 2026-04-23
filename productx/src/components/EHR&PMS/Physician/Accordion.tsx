@@ -48,12 +48,12 @@ const Accordion = () => {
  
   return (
     <section className="bg-white  dark:bg-[#042F2E] py-10">
-      <div className="xl:mx-auto max-w-7xl xl:px-0 px-4">
+      <div className="xl:mx-auto max-w-7xl xl:px-6 px-4">
         {/* Header */}
       
  
         {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-4 items-start">
           {/* Tabs */}
           <motion.ul
             ref={leftRef}

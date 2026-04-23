@@ -282,7 +282,7 @@ function DesktopView() {
 export default function Gain() {
   return (
     <section className="bg-[#0f172a] px-6  xl:px-16">
-      <div className="max-w-7xl mx-auto xl:px-0">
+      <div className="max-w-7xl mx-auto xl:px-6">
 
         {/* H2 — always scrolls normally */}
         <H2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold pt-10 pb-6 leading-tight max-w-full">

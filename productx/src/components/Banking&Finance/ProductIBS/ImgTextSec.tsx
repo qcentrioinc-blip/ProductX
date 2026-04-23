@@ -129,7 +129,7 @@ const ImgTextSec = () => {
 
       <div ref={containerRef} className="relative lg:h-[320vh]">
         <div className="lg:sticky lg:top-0 lg:min-h-screen lg:flex lg:items-center">
-          <div className="w-full px-6 xl:px-0">
+          <div className="w-full px-6 xl:px-6">
             <div className="max-w-7xl mx-auto">
 
               {/* Header */}

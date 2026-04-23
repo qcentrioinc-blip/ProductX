@@ -111,7 +111,7 @@ const AIFooter = () => {
       </div>
 
       {/* ========== MAIN SECTION ========== */}
-      <div className="relative w-full pb-16 px-4 sm:px-8 lg:px-0 z-10">
+      <div className="relative max-w-7xl mx-auto pb-16 px-4 sm:px-8 lg:px-0 z-10">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-20">
 
           {/* LEFT SECTION */}

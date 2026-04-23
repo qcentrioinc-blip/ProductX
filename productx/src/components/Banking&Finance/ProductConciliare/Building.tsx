@@ -204,7 +204,7 @@ const Building = () => {
           >
             <div className="flex gap-[19px] pb-1.5 xl:pb-0
                         min-w-max lg:min-w-0 xl:min-w-0
-                        lg:flex-wrap lg:justify-center lg:max-w-7xl lg:mx-auto xl:flex-wrap xl:justify-center xl:max-w-7xl xl:mx-auto">
+                        lg:flex-wrap lg:justify-center lg:max-w-7xl lg:mx-auto xl:flex-wrap xl:justify-center  xl:mx-auto">
               {filters.map((filter, index) => (
                 <button
                   key={filter}
@@ -232,7 +232,7 @@ const Building = () => {
                       p-2.5 sm:p-3 md:p-4 lg:p-6">
 
             <div className="
-          w-full lg:w-[42%] lg:shrink-0 xl:w-[530px] xl:min-w-[560px] xl:shrink-0
+          w-full lg:w-[42%] xl:w-[500px] shrink-0
           h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] xl:h-[512px]
           rounded-[4px] overflow-hidden bg-[#D9D9D9]
         ">
@@ -244,7 +244,7 @@ const Building = () => {
             </div>
 
             {/* ── Right Column ── */}
-            <div className="w-full lg:flex-1 xl:w-[750px] lg:min-h-[400px] xl:min-h-[512px] flex flex-col">
+            <div className="w-full  lg:min-h-[400px] xl:min-h-[512px] flex flex-col">
 
               {/* Top: Title + Desc + Checks */}
               <div className="flex flex-col gap-4 xl:gap-6">
@@ -260,7 +260,7 @@ const Building = () => {
 
                 {/* Description: 12→13→14→16px */}
                 <p
-                  className="font-normal dark:text-white text-[#141414] m-0 leading-[150%]
+                  className="font-normal dark:text-white text-[#141414] m-0 
                          text-[12px] sm:text-[13px] md:text-sm xl:text-base"
                   style={{ fontFamily: "'Quicksand', sans-serif" }}
                 >

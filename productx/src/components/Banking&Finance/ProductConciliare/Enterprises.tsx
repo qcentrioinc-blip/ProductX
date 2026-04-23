@@ -43,7 +43,7 @@
 
 // const Enterprises = () => {
 //   return (
-//     <section className="max-w-7xl xl:mx-auto  w-full text-black py-10 px-4 md:px-8 xl:px-0">
+//     <section className="max-w-7xl xl:mx-auto  w-full text-black py-10 px-4 md:px-8 xl:px-6">
 //       {/* Heading */}
 //       <div className="max-w-4xl mx-4 lg:mx-10 xl:mx-0 text-left mb-16">
 //         <H2>

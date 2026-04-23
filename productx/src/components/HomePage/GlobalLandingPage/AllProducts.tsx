@@ -93,7 +93,7 @@ export default function AllProducts() {
     <>
       <BNFNav />
       <div className="bg-gray-100 ">
-      <section className="max-w-7xl mx-auto xl:px-0 pt-24 lg:pt-48 py-8 md:py-12 px-4 sm:px-6 lg:px-12">
+      <section className="max-w-7xl mx-auto xl:px-6 pt-24 lg:pt-48 py-8 md:py-12 px-4 sm:px-6 lg:px-12">
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 lg:gap-14">

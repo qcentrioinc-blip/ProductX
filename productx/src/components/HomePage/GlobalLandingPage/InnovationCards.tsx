@@ -26,7 +26,7 @@ const InnovationCards = () => {
 
             {/* Heading */}
             <h2
-              className="text-[#2A2A2A] dark:text-white text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[64px] font-semibold leading-none tracking-normal m-0 w-full xl:w-[647px]"
+              className="text-[#2A2A2A] dark:text-white text-[36px] sm:text-[44px] lg:text-[42px] xl:text-[64px] font-semibold leading-none tracking-normal m-0 w-full  "
               style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
             >
               We build platforms that scale with you.
@@ -58,7 +58,7 @@ const InnovationCards = () => {
         </div>
 
         {/* ══════ ROW 2: Bottom Row ══════ */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[593px_1fr_1fr] xl:grid-cols-[700px_1fr_320px_320px] gap-3 xl:gap-[10px] ">
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[400px_1fr_1fr] xl:grid-cols-[600px_0fr_2fr_2fr] gap-3   ">
 
           {/* ── Bottom Left Card ── */}
           <div className="relative w-full h-[420px] sm:h-[400px] lg:h-[454px] xl:h-[454px] rounded-[30px] bg-[#E7E3D7] overflow-hidden sm:col-span-2 lg:col-span-1 flex flex-col justify-between p-5 xl:p-0">

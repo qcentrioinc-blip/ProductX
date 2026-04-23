@@ -97,7 +97,7 @@ const ThreeTab1 = () => {
             ─────────────────────────────────────────────────── */}
             <div className="
                 w-full max-w-7xl mx-auto 
-                px-4 md:px-6 lg:px-8 xl:px-0
+                px-4 md:px-6 lg:px-8 xl:px-6
                 pt-8 pb-6
                 text-left
             ">

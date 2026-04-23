@@ -69,7 +69,7 @@ className="absolute top-40 left-20 w-7 scale-110"
           </motion.div>
           {/* CARDS */}
           <motion.div style={{ y: cardsY }} className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-12 gap-8 max-w-full mx-auto w-full  px-6 xl:px-0">
+            <div className="grid grid-cols-12 gap-8 max-w-full mx-auto w-full  px-6 xl:px-6">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="xl:col-span-4">
                   <div className="bg-transparent border-5 border-[#EEDA68] dark:border-amber-400 rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">

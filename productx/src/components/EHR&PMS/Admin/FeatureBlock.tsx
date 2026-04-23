@@ -42,7 +42,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
   return (
     <>
       <div className="h-auto bg-[#F4F4F4] dark:bg-[#042F2E] px-4 py-10 ">
-        <div className="max-w-7xl xl:px-0 px-4 xl:mx-auto">
+        <div className="max-w-7xl xl:px-6 px-4 xl:mx-auto">
 
           {/* MOBILE / TABLET / iPAD PRO */}
           {!isDesktop && (
@@ -141,7 +141,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
           {isDesktop && (
             <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-20">
 
-              <div className="lg:w-3/5 flex flex-col items-start">
+              <div className="lg:w-2/5 flex flex-col items-start">
                 <H2EHR className="text-[#008280]">
   {content.heading}
 </H2EHR>

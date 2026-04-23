@@ -25,8 +25,8 @@ const AIBlogs = () => {
   ];
 
   return (
-    <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16 px-4 sm:px-6 xl:px-16">
-      <div className="mx-auto max-w-[1440px] w-full px-0 sm:px-4 lg:px-6 xl:px-6">
+    <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16 px-4 sm:px-6 xl:px-6">
+      <div className="mx-auto max-w-7xl w-full px-0 sm:px-4 lg:px-6 xl:px-6">
 
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[420px_1fr] gap-12 sm:gap-16 lg:gap-20 xl:gap-24">
@@ -100,7 +100,7 @@ const AIBlogs = () => {
           <div className="flex flex-col">
             {/* Top Description */}
             <P
-              className="text-[16px] dark:text-white sm:text-[18px] lg:text-[22px] xl:text-[22px]"
+              className="text-[16px] dark:text-white  "
 
             >
               Explore expert articles on Azure optimization, FinOps best practices, and real-world savings strategies. Learn how CloudDIET's AI-driven profiling and advanced cost intelligence help reduce waste and maximize your cloud ROI.
@@ -114,7 +114,7 @@ const AIBlogs = () => {
               {blogs.map((blog, index) => (
                 <div
                   key={blog.id}
-                  className={`flex flex-col md:pr-5 lg:pr-8 xl:pr-10 ${index > 0 ? "md:pl-5 lg:pl-8 xl:pl-10 md:border-l md:border-[#5551FF]/50" : "md:pl-0 xl:pl-0"
+                  className={`flex flex-col md:pr-5 lg:pr-8 xl:pr-4 ${index > 0 ? "md:pl-5 lg:pl-8 xl:pl-4 md:border-l md:border-[#5551FF]/50" : "md:pl-0 xl:pl-0"
                     }`}
                 >
                   {/* Blog Tag */}
@@ -133,7 +133,7 @@ const AIBlogs = () => {
                   <div className="flex flex-col">
                     {/* Image */}
                     <div
-                      className="relative overflow-hidden w-full sm:w-[190px] md:w-full lg:w-[210px] xl:w-[223px] h-[150px] sm:h-[160px] md:h-[150px] rounded-[8px]"
+                      className="relative overflow-hidden w-full  h-[150px] sm:h-[160px] md:h-[150px] rounded-[8px]"
                     >
                       <img
                         src={blog.image}
