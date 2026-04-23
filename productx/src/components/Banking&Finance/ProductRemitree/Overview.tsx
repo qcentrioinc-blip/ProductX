@@ -37,14 +37,14 @@ const Overview = () => {
                         text-center lg:text-left
                         pt-0
                         lg:pt-24
-                        xl:pt-32
+                        xl:pt-28
                     ">
                         {/* Heading */}
                         <H1 className="
                             leading-[110%] tracking-[-0.5px] text-black
                             mb-4 sm:mb-6
                         ">
-                            Cross-Border Remittance<br />Middleware Solution
+                            Cross-Border Remittance Middleware<br />Solution- OFAC and BSA Compliant
                         </H1>
 
                         {/* Description */}
@@ -58,7 +58,7 @@ const Overview = () => {
                             xl:max-w-[480px]
                             2xl:max-w-[520px]
                         ">
-                            Remitree bridges core banking systems with the Swift Alliance Gateway for seamless international payments. Automates message creation, validation, and transmission with built-in compliance screening.
+                            REMITREE bridges core banking systems with the Swift Alliance Gateway for seamless international payments. Automates message creation, validation, and transmission with built-in OFAC sanctions screening, BSA compliance, and FINCEN reporting. SOC 1/SOC 2 ready infrastructure.
                         </P>
 
                         {/* CTA Buttons */}
