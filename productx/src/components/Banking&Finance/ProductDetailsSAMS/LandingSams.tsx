@@ -1,5 +1,5 @@
 import { ContactUs } from "../../../styles/Button";
-import { H1, P } from "../../../styles/Typography";
+import {  H2, P } from "../../../styles/Typography";
 
 const LandingSams = () => {
     return (
@@ -67,7 +67,7 @@ const LandingSams = () => {
                         xl:absolute xl:left-[80px] xl:top-[180px] xl:w-[700px] xl:p-[20px]
                     ">
 
-                        <H1 className="
+                        <H2 className="
                             relative z-10 m-0 text-[#FAFAFA]
                              leading-[1.15]s
                              sm:leading-[1.15]
@@ -75,8 +75,8 @@ const LandingSams = () => {
                              lg:w-full lg:leading-[1.15]
                              xl:w-full xl:leading-[1.1]
                         ">
-                            Stressed Asset <br /> Management <br /> Solution for Banks
-                        </H1>
+                            Stressed Asset  <br /> Management Solution <br /> FDIC, OCC, and NCUA Compliant
+                        </H2>
 
                         <P className="
                             relative z-10 font-normal text-[#FAFAFA] leading-[1.5]
@@ -86,7 +86,7 @@ const LandingSams = () => {
                              lg:w-[95%] lg:mt-4
                             xl:w-[95%] xl:mt-4
                         ">
-                            SAMS automates NPL tracking, provisioning calculations, and regulatory reporting. Integrates customer data across multiple loan products for unified management.
+                            SAMS automates NPL tracking, CECL-compliant provisioning calculations, and regulatory reporting. Integrates customer data across multiple loan products for unified management. Meets FDIC, OCC, and NCUA asset classification guidelines.
                         </P>
 
                         <ContactUs
@@ -112,7 +112,7 @@ const LandingSams = () => {
                             relative z-10 
                             font-normal text-[#FAFAFA] leading-[1.3] m-0 max-w-lg
                             lg:left-[20px] lg:mt-[10px] lg:w-[320px]
-                            xl:left-[40px] xl:top-[50px] xl:w-[390px] xl:h-[88px]
+                            xl:left-[42px] xl:top-[50px] xl:w-[390px] xl:h-[88px]
                         ">
                             System identifies NPL records for agriculture and non-agriculture cases using IRAC guidelines. Differentiated logic for financial and non-financial parameters ensures accurate classification and provisioning.
                         </P>
@@ -136,7 +136,7 @@ const LandingSams = () => {
                                 lg:text-[24px]
                                 xl:text-[30px] xl:w-4xl xl:flex xl:items-center xl:justify-center
                             ">
-                                Automated NPL Management
+                                Automated NPL Management – FDIC Compliant
                             </span>
 
                             <div className="

@@ -2,7 +2,7 @@ import { H2, P } from "../../../styles/Typography";
 
 const features = [
   {
-    title: "Improved NPL Tracking Accuracy",
+    title: "Improved NPL Tracking Accuracy - FDIC Compliant",
     description:
       "Automated identification and flagging of NPLs reduces manual errors. System applies IRAC guidelines consistently across all loan products and customer types.",
     icon: "/BNFCos/Search.svg", // Path placeholder to map your asset
@@ -20,7 +20,7 @@ const features = [
     icon: "/BNFCos/Notes.svg",
   },
   {
-    title: "Proactive Risk Management",
+    title: "Proactive Risk Management - CECL Compliant",
     description:
       "Predictive analytics identify potential NPLs early for timely intervention. Real-time dashboards provide visibility into stressed assets across the portfolio.",
     icon: "/BNFCos/Tower.svg",
