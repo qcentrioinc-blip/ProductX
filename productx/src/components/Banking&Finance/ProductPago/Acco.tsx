@@ -93,7 +93,7 @@ const Acco = () => {
         </div>
 
         {/* GRID */}
-        <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-0 px-6  pb-10">
+        <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-6 px-6  pb-10">
           <div className="grid grid-cols-1 xl:grid-cols-[55%_45%] gap-0 xl:gap-14 items-start  h-full">
 
             {/* RIGHT IMAGE — desktop only */}

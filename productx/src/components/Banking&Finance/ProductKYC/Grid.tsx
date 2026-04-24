@@ -34,7 +34,7 @@ export default function Sec_Grid() {
 
   return (
     <section className="w-full flex flex-col items-center justify-start py-10">
-      <div className="max-w-7xl mx-auto px-6 xl:px-0">
+      <div className="max-w-7xl mx-auto px-6 xl:px-6">
         <H2 className="text-center mb-10 mt-2">
           Core capabilities of Diligent platform 
         </H2>

@@ -3,22 +3,22 @@ import { H4, P } from "../../../styles/Typography";
 export default function Cards() {
   const cards = [
     {
-      title: "Central Hub for Secure Transaction Management ",
+      title: "Central Hub for Secure Transaction Management- FFIEC Aligned ",
       content:
-        "The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. ",
+        " The Hub routes all payments securely, monitors regulatory compliance, and ensures high availability with built-in redundancy for uninterrupted operations. Meets FFIEC expectations for payment system resilience. ",
       illustration: "/Pago/OnlineBanking.svg",
     },
     {
-      title: "User-Facing Cube for Participant Interaction ",
+      title: "User-Facing Cube for Effective Participant Interaction",
       content:
-        "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. ",
+        "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. All user actions logged for SOC audit trails.",
       illustration: "/Pago/WebDesign.svg",
     },
   ];
 
   return (
     <section className="w-full bg-white dark:bg-black py-6">
-      <div className="max-w-7xl xl:mx-auto px-6 xl:px-0">
+      <div className="max-w-7xl xl:mx-auto px-6 xl:px-6">
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 xl:py-10 xl:gap-14">

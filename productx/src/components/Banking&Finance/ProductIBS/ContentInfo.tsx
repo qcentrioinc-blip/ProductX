@@ -3,7 +3,7 @@ import { H2, H3, H4, P } from "../../../styles/Typography";
 export default function ContentInfo() {
   return (
     <section className="w-full dark:bg-black">
-      <div className="max-w-7xl mx-auto py-10 px-10 xl:px-0">
+      <div className="max-w-7xl mx-auto py-10 px-10 xl:px-6">
 
         {/* Two Column Layout */}
         <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">

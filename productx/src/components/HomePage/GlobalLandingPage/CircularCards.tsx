@@ -448,7 +448,7 @@ export default function CircularCards() {
 </div>
       
      <FallingGridBg >
-        <div className="w-full relative flex z-20 flex-col items-center justify-start pt-4 overflow-hidden">
+        <div className="w-full relative flex z-20 flex-col items-center justify-start  overflow-hidden">
 
           <div className="mt-26 mb-4 text-center px-4">
             <H1 className="text-white">Shaping The Future Across Every Sector</H1>
@@ -457,7 +457,7 @@ export default function CircularCards() {
           {/* ── 5 Tabs ── */}
           <div
             ref={tabsRef}
-            className="mt-6 w-full lg:max-w-xl  bg-gray-50 rounded-full p-2 flex gap-2 mx-auto
+            className=" w-full lg:max-w-xl  bg-gray-50 rounded-full p-2 flex gap-2 mx-auto
             overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth
             xl:overflow-visible xl:justify-center"
             style={{ scrollPaddingLeft: "1rem", scrollPaddingRight: "1rem" }}
@@ -484,7 +484,7 @@ export default function CircularCards() {
 
           {/* ── DESKTOP CONTAINER ── */}
           <div
-            className="relative mt-10 hidden lg:block select-none"
+            className="relative hidden lg:block select-none"
             style={{
               width: containerW,
               height: containerH,
@@ -509,7 +509,7 @@ export default function CircularCards() {
               height: containerH_M,
               overflow: "hidden",
               cursor: "default",
-              touchAction: "none", 
+              touchAction: "pan-y", 
             }}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}

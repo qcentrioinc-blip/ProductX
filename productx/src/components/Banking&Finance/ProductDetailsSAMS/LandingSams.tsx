@@ -69,7 +69,7 @@ const LandingSams = () => {
 
                         <H1 className="
                             relative z-10 m-0 text-[#FAFAFA]
-                             leading-[1.15]
+                             leading-[1.15]s
                              sm:leading-[1.15]
                              md:leading-[1.15]
                              lg:w-full lg:leading-[1.15]
@@ -106,11 +106,11 @@ const LandingSams = () => {
                         relative z-[50]
                         md:mt-[40px] md:w-full
                         lg:absolute lg:left-[61%] lg:top-[230px] lg:mt-0
-                        xl:absolute xl:left-[880px] xl:top-[220px] xl:mt-0 xl:w-full
+                        xl:absolute xl:left-[850px] xl:top-[220px] xl:w-[390px]
                     ">
                         <P className="
                             relative z-10 
-                            font-normal text-[#FAFAFA] leading-[1.3] m-0 w-full
+                            font-normal text-[#FAFAFA] leading-[1.3] m-0 max-w-lg
                             lg:left-[20px] lg:mt-[10px] lg:w-[320px]
                             xl:left-[40px] xl:top-[50px] xl:w-[390px] xl:h-[88px]
                         ">

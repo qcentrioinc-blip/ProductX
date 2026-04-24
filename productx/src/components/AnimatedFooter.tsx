@@ -69,7 +69,7 @@ export default function AnimatedFooter() {
               <a href="/industries/cloud-finops-ai" target="_blank"><li className="mb-3  hover:underline ">Cloud Finops AI</li></a>
               <a href="/industries/banking-and-finance" target="_blank"><li className="mb-3  hover:underline ">Banking and Finance</li></a>
            <a href="/industries/ehr-and-pms" target="_blank"><li className="mb-3  hover:underline ">EHR-PMS</li></a>
-               <a href="/comingsoon" target="_blank"><li className="mb-3  hover:underline ">High Tech</li></a>
+               {/* <a href="/comingsoon" target="_blank"><li className="mb-3  hover:underline ">High Tech</li></a> */}
               
             </ul>
           </div>

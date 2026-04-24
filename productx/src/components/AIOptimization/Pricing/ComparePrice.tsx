@@ -53,7 +53,7 @@ const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <section className="dark:bg-black">
-        <div className="min-h-screen max-w-7xl mx-auto     flex flex-col py-10     ">
+        <div className="min-h-screen max-w-7xl mx-auto    flex flex-col py-10     ">
             {/* Header Section */}
             <div className="w-full flex flex-col   gap-6  ">
                 <div className="text-center">
@@ -66,10 +66,10 @@ const [modalOpen, setModalOpen] = useState(false);
                 </div>
 
                 {/* Pricing Table */}
-                <div className="w-full max-w-full bg-amber-50 dark:bg-slate-800 rounded-3xl md:rounded-[64px] border border-slate-600 overflow-hidden relative">
+                <div className="w-full max-w-full  bg-amber-50 dark:bg-slate-800 rounded-3xl md:rounded-[64px] border border-slate-600 overflow-hidden relative">
 
                     {/* Desktop View - Grid Layout */}
-               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible p-6 gap-4">
+               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible p-6    gap-4">
 
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">

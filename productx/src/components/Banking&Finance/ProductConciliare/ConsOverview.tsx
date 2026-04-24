@@ -71,7 +71,7 @@ const ConsOverview = () => {
 
   return (
     <>
-      <section className="w-full bg-white dark:bg-black py-16 px-4 xl:px-0">
+      <section className="w-full bg-white dark:bg-black py-16 px-4 xl:px-6">
         <div className="max-w-7xl lg:mx-auto xl:mx-auto">
           {/* Section Heading */}
           <div className="mb-6">

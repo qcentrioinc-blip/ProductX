@@ -256,6 +256,7 @@ const FiveIndustries = () => {
                             padding: "14px 56px",
                             backgroundColor: "#151923", // Black Dark Background
                             boxShadow: "0 4px 24px rgba(30,74,190,0.15)",
+                            marginTop:"10px"
                         }}
                     >
                         <H2

@@ -96,7 +96,7 @@ const AccordionPago = () => {
         </div>
 
         {/* GRID */}
-        <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-0 px-4 pb-10">
+        <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-6 px-4 pb-10">
           <div className="grid grid-cols-1 xl:grid-cols-[35%_65%]  items-start h-full">
 
             {/* LEFT TABS */}

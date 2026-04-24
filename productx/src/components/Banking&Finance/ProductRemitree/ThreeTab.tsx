@@ -63,19 +63,19 @@ const ThreeTab = () => {
             ],
         },
         {
-            title: 'Compliance and Screening',
+            title: 'Compliance and Screening - OFAC Sanctions Screening and BSA/AML Compliance',
             text: 'Transactions are screened for compliance using integrated AML systems. Performs checks against banned entities and countries to prevent fraud. Ensures regulatory adherence with automated alerts for suspicious activities. Strict Swift validation ensures messages meet international standards before transmission.',
             image: '/Remitree/ThreeTab2.webp',
             features: [
                 { text: 'AML system integration', icon: '/Remitree/integration.svg' },
-                { text: 'Banned entity screening', icon: '/Remitree/job-search.svg' },
-                { text: 'Regulatory compliance checks', icon: '/Remitree/file.svg' },
+                { text: 'OFAC SDN list and Banned entity screening', icon: '/Remitree/job-search.svg' },
+                { text: 'BSA/AML and FINCEN  Regulatory compliance checks', icon: '/Remitree/file.svg' },
                 { text: 'Automated alert generation', icon: '/Remitree/bell.svg' }
             ],
         },
         {
             title: 'System Integration Capabilities',
-            text: 'Effortlessly integrates with existing banking infrastructure for smooth data flow. Connects with core banking systems for real-time data synchronization. Treasury system integration fetches real-time currency rates. Corporate banking integration handles bulk processing and detailed reporting.',
+            text: 'Effortlessly integrates with existing banking infrastructure for smooth data flow. Connects with US core banking systems for real-time data synchronization. Treasury system integration fetches real-time currency rates. Corporate banking integration handles bulk processing and detailed reporting.',
             image: '/Remitree/ThreeTab3.webp',
             features: [
                 { text: 'Core banking synchronization', icon: '/Remitree/bell.svg' },

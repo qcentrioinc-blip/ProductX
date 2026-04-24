@@ -38,7 +38,7 @@ const nextBlog =
   return (
     <>
     <EHRNavbar/>
-    <section className="bg-[#ffffff] px-6 md:mt-20 mt-10 xl:px-0 lg:mt-32 text-[#000000] py-10">
+    <section className="bg-[#ffffff] px-6 md:mt-20 mt-10 xl:px-6 lg:mt-32 text-[#000000] py-10">
        <div className="max-w-7xl mx-auto">
         <H2EHR className=" font-semibold ">
             {blog.subtitle}

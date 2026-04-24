@@ -39,7 +39,7 @@ const CARDS = [
 const Benefits = () => {
   return (
     <div className="relative h-auto">
-      <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-0">
+      <div className="max-w-7xl xl:mx-auto mx-4 py-10 px-4 xl:px-6">
         <div className="grid grid-cols-1 xl:grid-cols-[minmax(400px,516px)_1fr] gap-10 xl:gap-16">
 
           {/* ================= LEFT COLUMN ================= */}

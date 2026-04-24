@@ -38,7 +38,7 @@ const nextBlog =
   return (
     <>
    <BNFNav/>
-    <section className="bg-[#ffffff] dark:bg-black px-6 md:pt-20 mt-10 xl:px-0 lg:pt-32 text-[#000000] py-10">
+    <section className="bg-[#ffffff] dark:bg-black px-6 md:pt-20 mt-10 xl:px-6 lg:pt-32 text-[#000000] py-10">
        <div className="max-w-7xl mx-auto">
         <H2 className=" font-semibold dark:text-white max-w-4xl ">
             {blog.subtitle}

@@ -544,7 +544,7 @@ const HWD = () => {
     ],
     PAGO: [
       {
-        title: "Retail Payment Processing",
+        title: "Reg E and PCI DSS Compliant",
         image: "/icon1.svg",
         description:
           "Handle diverse retail payment types for individual customers across digital and traditional channels.",

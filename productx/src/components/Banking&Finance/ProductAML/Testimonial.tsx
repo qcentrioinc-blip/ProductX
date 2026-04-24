@@ -25,7 +25,7 @@ export default function Testimonial() {
 
   return (
     <div className="bg-white dark:bg-black py-10">
-      <div className="max-w-7xl mx-auto  px-6 lg:px-10 xl:px-0">
+      <div className="max-w-7xl mx-auto  px-6 lg:px-10 xl:px-6">
 
 
         {/* Header */}

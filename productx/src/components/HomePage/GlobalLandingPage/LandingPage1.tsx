@@ -327,7 +327,7 @@ export default function InteractiveHeroSection() {
               <div className="relative flex flex-col justify-center mt-10 xl:mt-0">
                 <div ref={scrollContainerRef}
                   style={{ touchAction: 'auto', WebkitOverflowScrolling: "touch", scrollPadding: "1.5rem" }}
-                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-0">
+                  className="flex flex-row xl:flex-col items-center xl:items-end gap-6 xl:gap-6 overflow-x-auto xl:overflow-visible pt-6 pb-12 xl:py-0 scrollbar-hide justify-start xl:justify-end px-6 xl:px-6">
 
                   <AnimatePresence mode="popLayout">
                     {industries.map((industry, index) => (

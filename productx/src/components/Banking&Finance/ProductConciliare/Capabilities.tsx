@@ -45,7 +45,7 @@ const CARDS = [
 const Capabilities = () => {
   return (
     <div className="relative dark:bg-black min-h-screen">
-      <div className="max-w-7xl lg:mx-auto xl:mx-auto mx-4 py-10 px-4 lg:px-6 xl:px-0">
+      <div className="max-w-7xl lg:mx-auto xl:mx-auto mx-4 py-10 px-4 lg:px-6 xl:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(350px,516px)_1fr] gap-10 xl:gap-16">
 
           {/* ================= LEFT COLUMN ================= */}

@@ -118,7 +118,7 @@ const Automate = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white dark:bg-black px-4 py-6 sm:px-6 md:py-10  xl:px-0"
+      className="w-full bg-white dark:bg-black px-4 py-6 sm:px-6 md:py-10  xl:px-6"
     >
       <div className="max-w-7xl mx-auto">
 
