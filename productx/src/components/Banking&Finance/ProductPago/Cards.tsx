@@ -9,7 +9,7 @@ export default function Cards() {
       illustration: "/Pago/OnlineBanking.svg",
     },
     {
-      title: "User-Facing Cube for Participant Interaction ",
+      title: "User-Facing Cube for Effective Participant Interaction",
       content:
         "The Cube provides an intuitive interface for users to initiate, monitor, and manage transactions with real-time data and role-based access controls. All user actions logged for SOC audit trails.",
       illustration: "/Pago/WebDesign.svg",
