@@ -12,11 +12,11 @@ export default function ContentInfo() {
         <div className="text-white space-y-8 xl:pt-20">
 
           <H1 className="leading-tight">
-           Advanced Anti-Money Laundering Detection
+           Advanced Anti-Money Laundering Detection and Compliance System
           </H1>
 
           <P className="text-white/80 max-w-lg md:text-base">
-            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure regulatory compliance for financial institutions.
+            SHERLOCK monitors transactions and financial messages in real-time to detect suspicious activities and ensure BSA and FinCEN compliance for financial institutions. Supports SAR filing workflows and CDD Rule requirements.
           </P>
 
           <Link to="/marketplace">
@@ -24,7 +24,7 @@ export default function ContentInfo() {
           </Link>
 
           <P className="text-white/80 max-w-sm pt-10 xl:pt-32">
-            Risk profiling and KYC verification integrated with core banking systems for end-to-end compliance.
+            Risk profiling and CDD Rule-compliant KYC verification integrated with core banking systems for end-to-end BSA/AML compliance. 
           </P>
 
         </div>
@@ -82,8 +82,7 @@ export default function ContentInfo() {
   <p className="text-[#2B68C3] dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand
         leading-[120%]">
-    Screens SWIFT messages and customer transactions against global watch
-    lists automatically.
+    Screens SWIFT messages and customer transactions against OFAC SDN list and FinCEN watch lists automatically.
   </p>
 </div>
 

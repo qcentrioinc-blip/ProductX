@@ -30,19 +30,19 @@ export default function ThreeCards() {
 
   const cards = [
     {
-      title: "Real-Time Transaction Monitoring System ",
+      title: "Real-Time Transaction Monitoring System - BSA/ FinCEN Compliant ",
       description:
         "Analyzes customer transactions against configurable rules to detect suspicious patterns instantly. ",
       icon: "/ProductSherlock/icon1.svg",
     },
     {
-      title: "Financial Message Screening Module ",
+      title: "Financial Message Screening Module - OFAC and FinCEN Compliant ",
       description:
         "Monitors SWIFT and other financial messages for potential money laundering activities. ",
       icon: "/ProductSherlock/icon2.svg",
     },
     {
-      title: "Customer Risk Profiling Engine ",
+      title: " Customer Risk Profiling Engine - CDD Rule Compliant  ",
       description:
         "Assesses and categorizes customers based on risk profiles for ongoing compliance monitoring. ",
       icon: "/ProductSherlock/icon3.svg",
@@ -53,7 +53,7 @@ export default function ThreeCards() {
     <section className="w-full bg-white dark:bg-black py-10">
       <div className="max-w-8xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <H2 className="text-center dark:text-white mb-12">
-           Complete Anti-Money Laundering Solution for Banks 
+           Complete Anti-Money Laundering Solution- BSA, FinCEN, and FFIEC Compliant
         </H2>
 
         <motion.div
