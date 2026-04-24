@@ -19,7 +19,7 @@ const BlueBox = () => {
                         m-0
                         text-white leading-none
                     ">
-                        Ready to Automate<br />Your NPL Management
+                        Ready to Automate Your NPL <br /> Management- FDIC, OCC, and CECL Compliant
                     </H1>
 
                     {/* Ghost pill button */}

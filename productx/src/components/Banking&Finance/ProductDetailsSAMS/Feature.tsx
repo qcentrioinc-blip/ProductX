@@ -2,22 +2,22 @@ import { H2, H4, P } from "../../../styles/Typography";
 
 const features = [
   {
-    title: "Pre-Approved Loan Offers- ECOA Compliant",
+    title: "Automated NPL Identification – FDIC and OCC Guidelines",
     icon: "/SAMS/guide-book.svg",
     description:
-      "Back-office users upload pre-approved offers for selected customers. Quick submission and fast screening enable potential auto-approval for existing customers.",
+      "System identifies NPL records using IRAC guidelines with differentiated logic for financial and non-financial parameters across customer types.",
   },
   {
-    title: "Built-In OCR Technology",
+    title: "Unified Customer Data",
     icon: "/SAMS/big-data.svg",
     description:
-      " Reads standard document images like SSN and driving licenses. AI enhances OCR with machine learning to detect mismatches in name, birth date, and address.",
+      "Consolidates customer information from multiple systems using Uniform Customer Code for a complete view of all credit facilities.",
   },
   {
-    title: "Configurable Score Parameters",
+    title: "Provisioning and Classification",
     icon: "/SAMS/cube.svg",
     description:
-      "Built-in parameters for individual and corporate customers, including age, income ratio, debt equity, and interest coverage. Provision to add new parameters for score computation.",
+      "Automates asset classification and provision computation based on collateral values and regulatory guidelines for secured and unsecured loans.",
   },
 ];
 
@@ -27,7 +27,7 @@ const AboutFeaturesSection = () => {
       <div className="max-w-8xl mx-auto xl:px-20">
       {/* Section Title */}
       <div className=" text-left mb-12 ">
-        <H2 className="text-gray-900 dark:text-white">What Makes LOS Platform Unique – Fair Lending and FCRA Compliant </H2>
+        <H2 className="text-gray-900 dark:text-white">Complete Stressed Asset Management Platform</H2>
       </div>
 
       {/* Cards Grid */}
