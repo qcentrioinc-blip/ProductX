@@ -97,7 +97,7 @@ const ThreeTab1 = () => {
             ─────────────────────────────────────────────────── */}
             <div className="
                 w-full max-w-7xl mx-auto 
-                px-4 md:px-6 lg:px-8 xl:px-6
+                px-6 md:px-12 lg:px-20
                 pt-8 pb-6
                 text-left
             ">
@@ -123,10 +123,7 @@ const ThreeTab1 = () => {
             ─────────────────────────────────────────────────── */}
                     <div className="
                 hidden md:block w-full
-                px-4
-                md:px-6
-                lg:px-10
-                xl:px-16
+                px-6 md:px-12 lg:px-20
                 pb-4 xl:pb-6
             ">
                         <div className="
@@ -245,7 +242,7 @@ const ThreeTab1 = () => {
                     </div>
 
                     {/* ── MOBILE VERSION (below md only) ─────────────── */}
-                    <div className="md:hidden w-full flex flex-col items-center px-4 pb-4 relative z-10">
+                    <div className="md:hidden w-full flex flex-col items-center px-6 md:px-12 lg:px-20 pb-4 relative z-10">
                         <div className="w-full max-w-7xl rounded-xl overflow-hidden bg-white border-[1.5px] border-[#D5D5D5] h-[680px] sm:h-[700px] flex flex-col">
 
                             {/* Tab Header */}

@@ -65,7 +65,7 @@ const Seven = () => {
       </div>
 
       {/* Responsive Scroll Container for Mobile/Tablet */}
-      <div className="w-full overflow-x-auto pb-8 hide-scrollbar">
+      <div className="w-full overflow-x-auto pb-8 hide-scrollbar lg:overflow-hidden">
         {/* Main Flowchart Wrapper - Fixed width to perfectly fit inside max-w-7xl without truncating. Removing mx-auto ensures the left side is fully scrollable safely on small mobile screens. */}
         <div className="w-[1200px] min-w-[1200px] relative h-[600px]">
 
