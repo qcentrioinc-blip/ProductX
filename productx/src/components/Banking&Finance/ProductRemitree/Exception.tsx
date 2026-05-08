@@ -12,7 +12,7 @@ const Exception = () => {
 
   return (
     <section className="w-full bg-white dark:bg-slate-800 pt-6">
-    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[50vh]    font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-[50vh] font-sans p-4 md:p-8 overflow-hidden lg:overflow-hidden">
 
       {/* 1. Header Area */}
       <div className="w-full max-w-7xl mx-auto bg-[#2E68C6] py-3 text-center mb-10 shadow-sm flex items-center justify-center">
@@ -22,7 +22,7 @@ const Exception = () => {
       </div>
 
       {/* Responsive Scroll Container for Mobile/Tablet */}
-      <div className="w-full overflow-x-auto pb-8 hide-scrollbar">
+      <div className="w-full overflow-x-auto pb-8 hide-scrollbar lg:overflow-hidden">
         {/* Main Flowchart Wrapper - Fixed width to preserve Desktop structure on smaller screens */}
         <div className="w-[1200px] min-w-[1200px] xl:w-full max-w-7xl mx-auto flex flex-col items-center relative">
 

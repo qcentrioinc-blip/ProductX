@@ -43,7 +43,9 @@ const Overview = () => {
                         <H1 className="
                             leading-[110%] tracking-[-0.5px] text-black
                             mb-4 sm:mb-6
+        
                         ">
+                            {/* !text-[28px] md:!text-[34px] lg:!text-[38px] xl:!text-[44px] */}
                             Cross-Border Remittance Middleware<br />Solution- OFAC and BSA Compliant
                         </H1>
 

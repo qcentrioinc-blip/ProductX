@@ -1,5 +1,5 @@
 import { ContactUs } from "../../../styles/Button";
-import {  H2, P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 
 const LandingSams = () => {
     return (
@@ -83,14 +83,14 @@ const LandingSams = () => {
                              w-full opacity-90 mt-3
                              sm:mt-4
                             md:mt-4
-                             lg:w-[95%] lg:mt-4
+                             lg:w-[95%] lg:mt-2
                             xl:w-[95%] xl:mt-4
                         ">
                             SAMS automates NPL tracking, CECL-compliant provisioning calculations, and regulatory reporting. Integrates customer data across multiple loan products for unified management. Meets FDIC, OCC, and NCUA asset classification guidelines.
                         </P>
 
                         <ContactUs
-                            className="relative z-10 !bg-[#2B68C3] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-6 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
+                            className="relative z-10 !bg-[#2B68C3] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-4 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
                             onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });

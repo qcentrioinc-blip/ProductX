@@ -37,7 +37,7 @@ const INDUSTRIES = [
         label: ["Energy and", "Utilities"],
         image: EnergyWorkerImg,
         alt: "Energy and Utilities worker with hard hat",
-        labelPos: { top: "38%", left: "50%", transform: "translateX(-50%)" },
+        labelPos: { top: "39%", left: "50%", transform: "translateX(-50%)" },
         align: "center",
         imgHeight: "62%", // ✅ Equal for all
     },
@@ -256,7 +256,7 @@ const FiveIndustries = () => {
                             padding: "14px 56px",
                             backgroundColor: "#151923", // Black Dark Background
                             boxShadow: "0 4px 24px rgba(30,74,190,0.15)",
-                            marginTop:"10px"
+                            marginTop: "0px"
                         }}
                     >
                         <H2

@@ -12,7 +12,7 @@ const Configurable = () => {
                 style={{ backgroundColor: "#152934" }}
             >
                 <div
-                    className="flex flex-col px-6 py-12 sm:px-10 sm:py-16 lg:px-[52px] lg:pt-[160px] lg:pb-[40px] xl:px-[132px] xl:pt-[224px] xl:pb-[40px]"
+                    className="flex flex-col px-6 py-12 sm:px-10 sm:py-16 lg:px-[52px] lg:pt-[160px] lg:pb-[40px] xl:px-[100px] xl:pt-[224px] xl:pb-[40px]"
                     style={{
                         gap: "clamp(40px, 8vw, 210px)",
                         borderTopRightRadius: "10.91px",
