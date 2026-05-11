@@ -46,7 +46,7 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
         [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
      
         md:w-[450px] md:flex-shrink-0
-        xl:w-auto xl:flex-shrink xl:flex-1
+        lg:w-auto lg:flex-shrink lg:flex-1
       "
     >
       <div className="overflow-hidden aspect-video bg-gray-50  dark:bg-black flex items-center justify-center">
@@ -141,12 +141,12 @@ export default function Onboarding() {
             className="
               grid grid-cols-1 gap-8
               sm:grid-cols-2
-              xl:grid-cols-3
+              lg:grid-cols-3
  
               md:flex md:gap-6 md:overflow-x-auto
               md:-mx-6 md:px-6 md:pb-4
               md:overscroll-x-contain
-              xl:overflow-visible lg:px-0 lg:mx-0
+              lg:overflow-visible lg:px-0 lg:mx-0
             "
           >
             {cards.map((card, i) => (
