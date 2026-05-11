@@ -83,7 +83,7 @@ const Harper = () => {
                             </div>
  
                             <div className="mx-auto max-w-[600px] px-4">
-                                <H2 className="text-xl font-bold text-gray-900 mb-4">
+                                <H2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                                     {item.title}
                                 </H2>
                                 <P className="text-base text-gray-700 leading-relaxed">

@@ -91,16 +91,16 @@ export default function ThreeCards() {
     {cards.map((card, idx) => (
           <div
             key={idx}
-            className="w-full max-w-md rounded-lg bg-[#E4F0FF] p-6 flex flex-col gap-4"
+            className="w-full max-w-md rounded-lg bg-[#E4F0FF] dark:bg-black p-6 flex flex-col gap-4"
           >
           <div className="w-10 h-10 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
               <img src={card.icon} alt="" className="object-contain h-6 w-6"/>
             </div>
             <div className="flex flex-col gap-2">
-              <H4 >
+              <H4 className="dark:text-white">
                {card.title}
               </H4>
-             <P>
+             <P className="dark:text-white">
               {card.description}
               </P>
             </div>

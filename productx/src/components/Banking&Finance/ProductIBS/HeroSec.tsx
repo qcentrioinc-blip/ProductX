@@ -10,7 +10,7 @@ const HeroSec = () => {
       <div className="block md:hidden px-4 mt-18">
 
         {/* Heading */}
-        <H1 className=" text-gray-900 leading-snug mb-6">
+        <H1 className=" text-gray-900 dark:text-white leading-snug mb-6">
           FFIEC-Aligned Complete Internet Banking Solution for Financial Institutions
         </H1>
 
@@ -50,7 +50,7 @@ const HeroSec = () => {
       <div className="hidden md:block w-full overflow-hidden relative">
 
         <img
-          src="/ProductIBS/HERO_IBS.webp"
+          src="/ProductIBS/HEROIBS.webp"
           alt="section image"
           className="w-full h-auto object-cover"
         />

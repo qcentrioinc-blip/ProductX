@@ -54,7 +54,7 @@ const THEMES: Record<string, Theme> = {
     sectionBg: "",
     imageSrc: "/BuiltFor/ModernCare-Image.webp",
     headingPrimaryColor: "#008280",
-     darksectionBg: "#042F2E",
+     darksectionBg: "#141414",
     headingSecondaryColor: "#F5F5F5",
     paragraphColor: "#141414",
     bulletColor: "#efefef",

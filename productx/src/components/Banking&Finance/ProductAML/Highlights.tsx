@@ -57,7 +57,7 @@ export default function Highlights() {
           backgroundSize: "24px 24px",
         }}
       />
-      <H2 className="text-center dark:text-[#2B68C3] mb-16 max-w-2xl">  
+      <H2 className="text-center dark:text-[#2B68C3] px-4 xl:px-0 mb-16 max-w-2xl">  
     Key Highlights – FFIEC, OCC, and Federal Reserve Aligned
       </H2>
  

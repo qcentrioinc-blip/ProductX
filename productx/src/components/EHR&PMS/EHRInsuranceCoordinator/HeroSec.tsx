@@ -40,7 +40,7 @@ const HeroSec = () => {
 
   return (
      <div className="bg-[#DAF0F0]   p-4 rounded-[20px] dark:max-w-full max-w-[1450px] mx-auto">
-    <div className="bg-white px-6 py-16 lg:pt-30 font-bricolage dark:bg-[#042F2E] text-[#008280] overflow-x-hidden rounded-[20px]">
+    <div className="bg-white px-6 py-16 lg:pt-30 font-bricolage dark:bg-[#141414] text-[#008280] overflow-x-hidden rounded-[20px]">
       
       {/* Header Section */}
       <motion.header

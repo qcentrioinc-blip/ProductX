@@ -616,7 +616,7 @@ const FaqSection: React.FC = () => {
     <>
    <section
   className={`relative w-full py-6 md:px-6 xl:px-6 bg-white overflow-hidden ${
-    isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
+    isEHR ? "dark:bg-[#141414]" : "dark:bg-black"
   }`}
 >
         <div className="max-w-7xl mx-auto  px-6 md:px-10 xl:px-6 flex flex-col lg:flex-row gap-12 relative z-10">

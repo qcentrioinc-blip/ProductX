@@ -260,16 +260,19 @@ const EHRNavbar = () => {
           {/* <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link> */}
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-black'}`}>Marketplace</Link>
         </div>
-
-        <button
-          className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
-          onClick={handleToggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
-        </button>
+    
+       <div className="lg:hidden flex items-center gap-2">
+  <NavbarDayNightToggle />
+  <button
+    className="flex flex-col justify-center items-center gap-[6px] w-10 h-10"
+    onClick={handleToggleMenu}
+    aria-label="Toggle menu"
+  >
+    <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[9px]" : ""}`}></span>
+    <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
+    <span className={`block w-7 h-[3px] bg-black rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
+  </button>
+</div>
       </div>
 
       {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}
@@ -279,7 +282,7 @@ const EHRNavbar = () => {
         className={`hidden lg:flex fixed top-0 left-0 w-full z-[9999] justify-center transition-none pointer-events-none`}
       >
         <div
-          className={`bg-white dark:bg-teal-800 backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
+          className={`bg-white dark:bg-gray-300 backdrop-blur-md shadow-lg px-10 py-3 flex items-center justify-between pointer-events-auto
     transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
     ${isScrolled
               ? `w-full rounded-none scale-100 ${showTopBar ? 'translate-y-14' : ''}`
@@ -320,7 +323,7 @@ const EHRNavbar = () => {
                   onMouseEnter={handleKeepOpen}
                   onMouseLeave={handleCloseMenus}
                 >
-                  <div className="bg-white  dark:bg-teal-700 shadow-xl rounded-md p-3 border border-gray-100/50">
+                  <div className="bg-white  dark:bg-gray-300 shadow-xl rounded-md p-3 border border-gray-100/50">
                     {industryOptions.map((ind, index) => (
                       <Link
                         key={index}
@@ -341,7 +344,7 @@ const EHRNavbar = () => {
                           <h3 className="text-lg font-semibold font-quicksand text-gray-900">
                             {ind.name}
                           </h3>
-                          <p className="text-gray-600 dark:text-white   font-quicksand text-sm">
+                          <p className="text-gray-600   font-quicksand text-sm">
                             {ind.desc || "Click to explore"}
                           </p>
                         </div>
@@ -453,7 +456,7 @@ const EHRNavbar = () => {
           <div className="hidden lg:flex items-center gap-8">
             <button
               onClick={() => setDrawerOpen(true)}
-              className="text-gray-800 text-[18px] font-bold font-quicksand cursor-pointer"
+              className="text-gray-800 text-[18px]   font-bold font-quicksand cursor-pointer"
             >
               Support
             </button>

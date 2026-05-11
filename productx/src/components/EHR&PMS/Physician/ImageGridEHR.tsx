@@ -6,7 +6,7 @@ import ContactDrawer from "../Navbar/ContactDrawer";
 const ImageGridEHR = () => {
        const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <div className="h-full xl:min-h-screen bg-gradient-to-br from-slate-50 to-stone-100 dark:bg-gradient-to-br dark:from-[#042F2E] dark:to-[#042f2e] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="h-full xl:min-h-screen bg-gradient-to-br from-slate-50 to-stone-100 dark:bg-gradient-to-br dark:from-[#141414] dark:to-[#141414] py-16  lg:px-8">
       <div className="max-w-7xl   mx-6 xl:mx-auto">
         {/* Header Section */}
         {/* <div className="text-center mb-12">

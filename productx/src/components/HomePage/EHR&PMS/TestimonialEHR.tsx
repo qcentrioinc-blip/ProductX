@@ -45,15 +45,15 @@ const TestimonialEHR = () => {
 
   return (
     <> 
-    <section className="dark:bg-[#042F2E] ">
-    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 xl:px-6 lg:py-20 xl:py-0 mx-auto   ">
+    <section className="dark:bg-[#141414] ">
+    <div className="max-w-7xl  dark:bg-[#141414]  px-4 xl:px-6 lg:py-20 xl:py-0 mx-auto   ">
                 <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start     ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
                     
                   >
-                    <H2EHR className="font-mono dark:text-white">
+                    <H2EHR className="mt-4 dark:text-white">
                      Seamlessly Integrating Care and Operations 
                     </H2EHR>
                   </div>
@@ -69,7 +69,7 @@ const TestimonialEHR = () => {
                   </div>
                 </div>
               </div>
-   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 mt-10 mx-auto  xl:px-6">
+   <div className="max-w-7xl border border-[#166D48] dark:border-white rounded-2xl  p-8 mt-10 mx-auto  xl:px-6">
    
     {/* GREEN CARD + HEADING IN ONE ROW */}
   <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
@@ -124,7 +124,7 @@ const TestimonialEHR = () => {
 
       {/* Right Heading */}
       <div className="order-1 xl:order-2 flex justify-center xl:justify-end">
-  <H2EHR className="text-[#008280]  font-normal leading-tight text-center xl:text-right xl:pr-10">
+  <H2EHR className="text-[#008280] dark:text-teal-700 font-normal leading-tight text-center xl:text-right xl:pr-10">
     Our Four Pillars of Unified Practice Management
   </H2EHR>
 </div>

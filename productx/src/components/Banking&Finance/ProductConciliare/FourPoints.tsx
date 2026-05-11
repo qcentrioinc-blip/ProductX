@@ -196,7 +196,7 @@ const FourPoints = () => {
 
                             {/* Heading */}
                             <h2
-                                className="w-full text-center text-[#2B68C3] m-0 font-bricolage font-semibold leading-tight md:leading-none"
+                                className="w-full text-center dark:text-white text-[#2B68C3] m-0 font-bricolage font-semibold leading-tight md:leading-none"
                                 style={{ fontSize: "clamp(24px, 4vw, 42px)" }}
                             >
                                 {tabData[activeIndex].heading}
@@ -214,10 +214,10 @@ const FourPoints = () => {
                                         key={index}
                                         className="flex items-center gap-1.5 md:gap-[5px]"
                                     >
-                                        <span className="text-[#141414] text-base md:text-lg font-quicksand leading-none">
+                                        <span className="text-[#141414] dark:text-white text-base md:text-lg font-quicksand leading-none">
                                             •
                                         </span>
-                                        <span className="font-quicksand font-semibold md:font-medium text-sm md:text-base xl:text-lg leading-tight text-[#141414] text-center">
+                                        <span className="font-quicksand font-semibold md:font-medium text-sm md:text-base xl:text-lg leading-tight text-[#141414] dark:text-white text-center">
                                             {point}
                                         </span>
                                     </div>

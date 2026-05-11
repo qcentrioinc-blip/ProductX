@@ -56,9 +56,9 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen md:min-h-fit dark:bg-[#042F2E] lg:min-h-fit xl:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
+    <div className="min-h-screen md:min-h-fit dark:bg-[#141414] lg:min-h-fit xl:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl xl:mx-auto">
-        <div className="border-2 border-[#166D48] rounded-3xl p-6 md:p-10 lg:p-10 xl:p-12">
+        <div className="border-2 border-[#166D48] dark:border-white rounded-3xl p-6 md:p-10 lg:p-10 xl:p-12">
 
           {/* Top Section */}
           <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-8 mb-12">
@@ -84,7 +84,7 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
             </div>
 
             <div className="flex-1 text-left xl:text-right">
-              <H2EHR className="text-[#008280] dark:text-amber-400 leading-tight whitespace-pre-line">
+              <H2EHR className="text-[#008280] dark:text-teal-700 leading-tight whitespace-pre-line">
                 {content.heading}
               </H2EHR>
             </div>

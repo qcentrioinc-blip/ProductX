@@ -186,7 +186,7 @@ const Process = () => {
       </div>
 
       {/* ── MOBILE: unchanged ── */}
-      <div className="block xl:hidden bg-gray-100 py-8 xl:py-10 px-6">
+      <div className="block dark:bg-black xl:hidden bg-gray-100 py-8 xl:py-10 px-6">
         <div className="max-w-2xl mx-auto">
           <H2 className="text-blue-500 text-center mb-8">Our Implementation Process</H2>
 
@@ -204,7 +204,7 @@ const Process = () => {
                   {item.step}
                 </div>
                 <div className="flex flex-col lg:pl-2 items-start">
-                  <H3 className="my-4 lg:my-2 font-semibold">{item.title}</H3>
+                  <H3 className="my-4 lg:my-2  dark:text-white font-semibold">{item.title}</H3>
                   <P className="">{item.description}</P>
                 </div>
               </motion.div>

@@ -64,7 +64,7 @@ const Outcomes = () => {
 
   return (
     <>
-      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 xl:px-6">
+      <section className="w-full bg-white dark:bg-[#141414] py-16 px-4 xl:px-6">
         <div className="max-w-7xl xl:mx-auto">
           {/* Section Heading */}
           <div className="flex justify-center mb-12 text-[#008280]">
@@ -156,7 +156,7 @@ const Outcomes = () => {
           <div className="hidden xl:flex gap-8 flex-1">
             {/* Left Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#008280] dark:text-amber-400 mb-4 text-3xl font-bold">
+              <H2EHR className="text-[#008280] dark:text-teal-700 mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2EHR>
 

@@ -111,16 +111,16 @@ const EHRFooter = () => {
   ];
  
   return (
-    <footer className="bg-[#008280] dark:bg-[#042F2E]">
+    <footer className="bg-[#008280] dark:bg-[#141414]">
       {/* Green Gradient Layers */}
       <GradientLayers />
  
       {/* Main Container */}
-      <div className="bg-[#008280] dark:bg-[#042F2E] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
+      <div className="bg-[#008280] dark:bg-[#141414] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
  
         {/* TOP CARD - Newsletter */}
         <div
-          className="bg-white dark:bg-[#042F2E] shadow-xl w-full"
+          className="bg-white dark:bg-[#141414] shadow-xl w-full"
           style={{
             borderRadius: '10px',
             marginBottom: '11px',
@@ -254,7 +254,7 @@ const EHRFooter = () => {
  
         {/* BOTTOM CARD - Links */}
         <div
-          className="bg-white dark:bg-[#042F2E] shadow-xl w-full relative"
+          className="bg-white dark:bg-[#141414] shadow-xl w-full relative"
           style={{
             borderRadius: '8px',
             opacity: 1

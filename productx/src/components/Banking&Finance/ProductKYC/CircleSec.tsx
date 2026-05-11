@@ -81,9 +81,7 @@ const products: ProductTab[] = [
 
 const COUNT = products.length;
 
-// ── AnimatedLayer ─────────────────────────────────────────────────────
-// Reports its own rendered height via onHeightChange so the
-// container can size itself correctly — fixes mobile clip.
+ 
 const AnimatedLayer = ({
   product,
   isLeaving,
@@ -202,14 +200,14 @@ const AnimatedLayer = ({
             {product.features.map((feature, i) => (
               <div
                 key={i}
-                className="border border-blue-200 bg-white rounded-xl p-4 shadow-sm flex flex-col items-center text-center"
+                className="border border-blue-200 bg-white dark:bg-black rounded-xl p-4 shadow-sm flex flex-col items-center text-center"
               >
                 <img
                   src={feature.icon}
                   alt={feature.title}
                   className="h-8 w-8 mb-2 object-contain"
                 />
-                <H4 className="font-bold text-xs mb-1 text-gray-900 leading-tight">
+                <H4 className="font-bold text-xs mb-1 dark:text-white text-gray-900 leading-tight">
                   {feature.title}
                 </H4>
                 <P className="text-gray-600 text-xs leading-snug">{feature.text}</P>
@@ -310,7 +308,7 @@ export default function CircleSec() {
         style={{ height: `${COUNT * 100}vh` }}
         className="relative"
       >
-        <div className="sticky top-0 py-8 md:py-10 bg-white xl:bg-transparent xl:dark:bg-black">
+        <div className="sticky top-0 py-8 md:py-10 bg-white  xl:bg-transparent dark:bg-black">
           <div className="w-full px-4 sm:px-6 xl:px-20 max-w-7xl mx-auto">
 
             <H1 className="text-[#2f5fb3] mb-4 md:mb-6 text-center text-lg md:text-3xl font-bold leading-tight">

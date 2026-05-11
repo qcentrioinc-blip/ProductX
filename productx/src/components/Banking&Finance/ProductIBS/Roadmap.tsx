@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { H1, P } from "../../../styles/Typography";
+import { H1, H2, P } from "../../../styles/Typography";
 
 /* ─── All SVG Assets — UNCHANGED ─────────────────────────────────────── */
 const CirclesSVG = () => (
@@ -112,10 +112,10 @@ const Roadmap = () => (
             MOBILE / TABLET TITLE  (below lg)
         ══════════════════════════════════════════ */}
         <div className="lg:hidden mb-8 sm:mb-10 text-center px-4">
-            <h2 className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-tight">
-                <span className="text-[#2B68C3]">Key Modules of</span>
-                <span className="text-[#111827]"> the Platform</span>
-            </h2>
+            <H2 className="text-[24px]  sm:text-[30px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-tight">
+                <span className="text-[#2B68C3]">Key Modules of </span>
+                <span className="dark:text-white text-[#111827]"> the Platform</span>
+            </H2>
         </div>
 
         {/* ══════════════════════════════════════════
