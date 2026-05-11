@@ -30,7 +30,7 @@ const items: OverviewItem[] = [
 
 const Overview: React.FC = () => {
   return (
-    <section className="w-full bg-[#EEEEEE] dark:bg-[#042F2E]  py-10 px-4 xl:px-6">
+    <section className="w-full bg-[#EEEEEE] dark:bg-[#141414]  py-10 px-4 xl:px-6">
       <div className="mx-auto max-w-7xl ">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {items.map((item, index) => (
@@ -44,7 +44,7 @@ const Overview: React.FC = () => {
               {/* Text Content */}
               <div className="flex flex-col space-y-4">
                    <img className="h-12 w-12 shrink-0 rounded-full overflow-visible " src={item.image} />
-                <H4EHR className="mb-2 dark:text-amber-400">{item.title}</H4EHR>
+                <H4EHR className="mb-2 dark:text-white">{item.title}</H4EHR>
                 <P className="max-w-md">{item.description}</P>
               </div>
             </div>

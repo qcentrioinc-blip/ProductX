@@ -8,7 +8,7 @@ const FeatureGrid = () => {
   const [, setMenuOpen] = useState(false);
 
   return (
-    <section className="relative w-full  dark:bg-[#042f2e] bg-white ">
+    <section className="relative w-full  dark:bg-[#141414] bg-white ">
     <div className="mx-auto max-w-[1300px] px-4 py-10 font-bricolage text-[#1a1a1a]">
       
       {/* Main Container */}

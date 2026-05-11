@@ -56,9 +56,9 @@ const FirstPage = () => {
                                 lg:w-[300px] lg:p-[17px] lg:gap-[20px]"
                         >
                             {/* White Box */}
-                            <div className="flex flex-col bg-white rounded-[7px] p-5 gap-3">
+                            <div className="flex flex-col bg-white dark:bg-black rounded-[7px] p-5 gap-3">
                                 <P
-                                    className="text-[#2B68C3] leading-none
+                                    className="text-[#2B68C3]  leading-none
                                         text-[20px]
                                         sm:text-[22px]
                                         lg:text-[22px]"

@@ -67,7 +67,7 @@ export default function Keywords() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#F8F8F8] dark:bg-[#042f2e] h-auto xl:h-[150vh]"
+      className="relative bg-[#F8F8F8] dark:bg-[#141414] h-auto xl:h-[150vh]"
     >
       {/* STICKY AREA */}
       <div className="sticky top-0 h-auto xl:h-screen flex items-end justify-center overflow-hidden">

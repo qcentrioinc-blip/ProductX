@@ -32,14 +32,14 @@ export default function Sec_4() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 max-w-xl mb-10">
               <div>
-                <H4>Significant cost savings</H4>
+                <H4 className="dark:text-white">Significant cost savings</H4>
                 <P className="mt-4">
                   Over fifty percent reduction in CIP processing costs with automated workflows.
                 </P>
               </div>
 
               <div>
-                <H4>Security & Integrations</H4>
+                <H4 className="dark:text-white">Security & Integrations</H4>
                 <P className="mt-4">
                   Connect with core systems, screening engines, and data sources securely.
                 </P>

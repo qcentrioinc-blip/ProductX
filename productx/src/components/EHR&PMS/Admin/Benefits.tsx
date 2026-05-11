@@ -55,13 +55,13 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] dark:bg-[#042F2E] xl:min-h-[350vh] xl:pt-10 pb-20 px-6 "
+      className="relative w-full min-h-[150vh] dark:bg-[#141414] xl:min-h-[350vh] xl:pt-10 pb-20 px-6 "
     >
       <div className="xl:sticky max-w-7xl xl:mx-auto xl:px-6 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
         <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">
-          <H2EHR className="text-left  dark:text-amber-400 text-[#008280]">
+          <H2EHR className="text-left   text-[#008280]">
             Essential Tools for Clinic Administration
           </H2EHR>
         </div>

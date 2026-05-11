@@ -23,7 +23,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   className="relative flex flex-col  lg:items-center   py-10 lg:py-16   overflow-hidden"
 >
  
-   <div className="absolute inset-0 dark:bg-[#042f2e] bg-[#FFFFFF]"></div>
+   <div className="absolute inset-0 dark:bg-[#141414] bg-[#FFFFFF]"></div>
 {/* Decorative Stars */}
 <div className="absolute  lg:block hidden inset-0 pointer-events-none z-0">
   <StarIcon className="top-10 left-10 opacity-60" />

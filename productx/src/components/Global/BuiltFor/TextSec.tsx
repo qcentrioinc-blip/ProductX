@@ -95,7 +95,7 @@ export default function TextSec() {
   return (
  <section
   className={`w-full py-10 bg-white ${
-    isEHR ? "dark:bg-[#042f2e]" : "dark:bg-black"
+    isEHR ? "dark:bg-black" : "dark:bg-black"
   }`}
 >
       <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 xl:px-10">

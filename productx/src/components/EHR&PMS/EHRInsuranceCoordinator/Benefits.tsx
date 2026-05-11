@@ -56,13 +56,13 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full  dark:bg-[#042f2e] bg-white "
+      className="relative w-full  dark:bg-[#141414] bg-white "
     >
       <div className="xl:sticky xl:top-0 xl:h-screen flex flex-col justify-center items-center">
         
         {/* Section Heading */}
         <div className="w-full max-w-8xl mb-10 xl:mb-12">
-          <H2EHR className="text-center  dark:text-amber-400 text-[#008280]">
+          <H2EHR className="text-center    text-[#008280]">
             Access All Payer Data Instantly
             
           </H2EHR>

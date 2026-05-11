@@ -7,7 +7,7 @@ const WhyUnifiedHealth: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   return (
-    <section className="w-full bg-white dark:bg-[#042F2E]">
+    <section className="w-full bg-white dark:bg-[#141414]">
       <div className="mx-auto max-w-full  lg:px-0  py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
@@ -22,7 +22,7 @@ const WhyUnifiedHealth: React.FC = () => {
           </div>
 
           {/* CENTER CONTENT (top) */}
-          <div className="flex flex-col   justify-center items-start xl:pl-16">
+          <div className="flex flex-col px-4 xl:px-0  justify-center items-start xl:pl-16">
             {/* <span className="mb-3 font-quicksand text-md">
               Why Unified Health Net
             </span> */}
@@ -109,11 +109,11 @@ const WhyUnifiedHealth: React.FC = () => {
           </div>
 
           {/* EMPTY LEFT CELL (keeps alignment) */}
-          <div className="hidden lg:block" />
+          <div className="hidden  lg:block" />
 
           {/* BOTTOM FEATURES (center column only) */}
-          <div className="xl:-ml-72 ">
-            <H3EHR className="mb-4 text-[#008280] dark:text-amber-400">
+          <div className="xl:-ml-72 px-4 xl:px-0 ">
+            <H3EHR className="mb-4 text-[#008280] dark:text-white">
               Our Core Promise
             </H3EHR>
 

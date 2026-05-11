@@ -5,7 +5,7 @@ const MedicalFeature = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
-    <section className="dark:bg-[#042f2e] bg-white">
+    <section className="dark:bg-[#141414] bg-white">
     <section className="max-w-7xl mx-auto px-6 pb-8 md:pb-16 font-bricolage overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         

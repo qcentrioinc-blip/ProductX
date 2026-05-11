@@ -187,7 +187,7 @@ const InformationGrid = () => {
   })();
 
   return (
-    <section className="relative w-full  dark:bg-[#042f2e] bg-white ">
+    <section className="relative w-full  dark:bg-[#141414] bg-white ">
     <section className="max-w-7xl mx-auto px-6  py-16    overflow-hidden">
       {/* Header */}
       <motion.div
@@ -197,7 +197,7 @@ const InformationGrid = () => {
         transition={{ duration: 0.6, ease: easeOut }}
         className="mb-16 border-b border-gray-200 pb-10"
       >
-        <H2EHR className="text-[#008280] mb-6 dark:text-amber-400">{title}</H2EHR>
+        <H2EHR className="text-[#008280] mb-6 ">{title}</H2EHR>
         <P className="max-w-xl text-[#141414] leading-relaxed">
           {description}
         </P>
@@ -235,7 +235,7 @@ const InformationGrid = () => {
               className="absolute right-[-2rem] top-0 h-full w-[0.5px] bg-gray-300 origin-top"
             />
 
-            <H3EHR className="text-[#141414] mb-4 dark:text-white">{feature.title}</H3EHR>
+            <H3EHR className="text-[#141414] mb-4 dark:text-teal-700">{feature.title}</H3EHR>
             <P className="text-[#141414] leading-relaxed">{feature.text}</P>
           </motion.div>
         ))}

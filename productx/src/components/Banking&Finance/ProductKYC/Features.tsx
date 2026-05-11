@@ -119,14 +119,14 @@ const AnimatedLayer = ({
           alt={feature.title}
           className="w-full h-52 object-contain rounded-xl"
         />
-        <H3 className="text-gray-900 tracking-tight leading-tight text-lg">
+        <H3 className="text-gray-900  dark:text-white tracking-tight leading-tight text-lg">
           {feature.title}
         </H3>
         <P className="text-sm leading-relaxed text-gray-600">{feature.p1}</P>
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden md:grid md:grid-cols-9 md:gap-8 lg:gap-12 items-center h-full">
+      <div className="hidden md:grid md:grid-cols-9 md:gap-8 lg:gap-12 items-center h-full">  
         <div className="col-span-5 flex items-center justify-center">
           <img
             src={feature.imageSrc}

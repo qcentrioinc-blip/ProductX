@@ -47,7 +47,7 @@ const Accordion = () => {
   }, []);
  
   return (
-    <section className="bg-white  dark:bg-[#042F2E] py-10">
+    <section className="bg-white  dark:bg-[#141414] py-10">
       <div className="xl:mx-auto max-w-7xl xl:px-6 px-4">
         {/* Header */}
       
@@ -85,8 +85,8 @@ const Accordion = () => {
                           <H3EHR
                             className={` leading-tight transition ${
                               isActive
-                                ? "text-[#008280] dark:text-amber-400"
-                                : "text-gray-900 "
+                                ? "text-[#008280] dark:text-white"
+                                : "dark:text-white  text-[#141414]"
                             }`}
                           >
                             {tab.title}

@@ -10,9 +10,9 @@ const HeroSec = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
-    <section className="bg-white dark:bg-[#042f2e] overflow-hidden">
+    <section className="bg-white dark:bg-[#141414] overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 py-16 lg:pt-40">
-
+    
         {/* Image container */}
         <motion.div
           initial={{ opacity: 0, scale: 1.05 }}
@@ -87,7 +87,7 @@ const HeroSec = () => {
                   },
                 }}
               >
-                <H2EHR className="text-[#008280] dark:text-amber-400 leading-[1.15] mb-6">
+                <H2EHR className="text-[#008280] dark:text-white leading-[1.15] mb-6">
                   Simplify Front Desk,
                   Engage Patients
                 </H2EHR>

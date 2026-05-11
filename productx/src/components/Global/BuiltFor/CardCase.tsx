@@ -101,7 +101,7 @@ const CARD_CONFIG: Record<
   "ehr-and-pms": {
     "long-term-care": {
       bg: "#ffffff",
-      darkBg: "#042f2e",
+      darkBg: "#141414",
       darkHeadingColor: "#ffffff",
       headingColor: "#008280",
       heading: "Critical Pain Points",
