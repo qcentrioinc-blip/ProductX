@@ -42,12 +42,12 @@ const ThreeCardAI = () => {
                             md:w-[75vw]
                             lg:w-[28vw]
                             xl:w-[28vw]
-                            h-[285px]
+                            h-full min-h-[285px]
                             p-8 shadow-lg
                             rounded-lg
                             flex
                             flex-col
-                            gap-8
+                            gap-6
                             opacity-100
                             transition-all
                             duration-300
@@ -71,9 +71,9 @@ const ThreeCardAI = () => {
                                 fontWeight: 700,
                                 fontStyle: 'normal',
                                 fontSize: '24px',
-                                lineHeight: '100%',
+                                lineHeight: '120%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000',  
+                                backgroundColor: 'transparent',  
                             }}
                         >
                             {item.title}
@@ -88,9 +88,9 @@ const ThreeCardAI = () => {
                                 fontWeight: 400,
                                 fontStyle: 'normal',
                                 fontSize: '18px',
-                                lineHeight: '100%',
+                                lineHeight: '150%',
                                 letterSpacing: '0',
-                                backgroundColor: '#000000',  
+                                backgroundColor: 'transparent',  
                                 color: '#4B5563',
                             }}
                         >

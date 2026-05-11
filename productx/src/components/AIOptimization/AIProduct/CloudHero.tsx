@@ -234,7 +234,7 @@ function CenterImage({ overlapCount }: CenterImageProps) {
     <div
       className="absolute flex items-center justify-center z-20 pointer-events-auto
                  w-52 h-52 md:w-68 md:h-68 lg:w-72 lg:h-72 xl:w-72 xl:h-72
-                 left-[55%] top-[55%] md:left-[55%] md:top-[58%] lg:left-[55%] lg:top-[55%] xl:left-[55%] xl:top-[58%] -translate-x-1/2 -translate-y-1/2"
+                 left-[55%] top-[55%] md:left-[55%] md:top-[58%] lg:left-[60%] lg:top-[60%] xl:left-[55%] xl:top-[58%] -translate-x-1/2 -translate-y-1/2"
     >
       <motion.div
         data-cloud-target="true"
@@ -311,7 +311,7 @@ function BottomRightCard() {
       <div>
         <H4 className="mb-2">Cost Inefficiency Hotspots </H4>
         <P className="text-white/90">
-          CloudDIET identifies hidden cost drains across compute, storage, and licensing that standard FinOps tools overlook. 
+          CloudDIET identifies hidden cost drains across compute, storage, and licensing that standard FinOps tools overlook.
         </P>
       </div>
     </motion.div>
@@ -489,13 +489,13 @@ export default function CloudDietHero() {
       <div className="relative z-[30] px-14 pt-10 max-w-[820px] max-md:px-5 max-md:pt-5 max-md:max-w-full">
 
         <motion.div variants={fadeUp(0.10)} initial="hidden" animate="visible">
-          <H1 className="mt-14 lg:mt-30">
+          <H1 className="mt-[100px] lg:mt-[110px] xl:mt-[130px]">
             AI-Powered Azure<br />Optimization Platform
           </H1>
         </motion.div>
 
         <motion.div variants={fadeUp(0.22)} initial="hidden" animate="visible">
-          <P className="text-white/90 my-6 max-w-xl">
+          <P className="text-white/90 my-6 max-w-xl lg:max-w-md xl:max-w-xl">
             CloudDIET profiles your Azure resources, analyzes configurations and usage,
             and delivers recommendations that cut waste across IaaS, PaaS, and licensing.
             Enterprises save 30% on average with our pay-for-performance model.

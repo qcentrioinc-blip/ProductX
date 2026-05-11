@@ -87,7 +87,7 @@ export default function TitleSecAI() {
 
   return (
     <section
-      className="w-full h-[60vh] md:h-[50vh] xl:h-screen relative z-10 overflow-hidden"
+      className="w-full h-[60vh] md:h-[50vh] lg:h-screen relative z-10 overflow-hidden"
     >
       {/* BACKGROUND IMAGE WITH ZOOM */}
       <div
@@ -100,7 +100,7 @@ export default function TitleSecAI() {
 
       {/* CONTENT */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-8xl mx-10 xl:px-10 ">
+        <div className="max-w-8xl mx-10 lg:px-10 mt-20 lg:mt-32 xl:mt-0">
 
           <div className="w-full md:w-[100%] space-y-6">
             <H1 className="text-white leading-tight">

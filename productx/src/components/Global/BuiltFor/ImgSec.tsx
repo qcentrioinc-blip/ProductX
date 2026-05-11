@@ -115,7 +115,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
       headingColor: "text-[#254D70]",
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
-      cardTitle: "Start Saving ",
+      cardTitle: "Start Saving ", 
       cardPara: "See CloudDIET platform and cut your cloud bills today.",
       buttonLabel: "Try Now",
     },
@@ -253,10 +253,10 @@ export default function ImgSec() {
 
         <div className="relative z-10 w-full max-w-[90rem] mx-auto h-full xl:pt-4">
           {/* LEFT TEXT */}
-          <div className="absolute h-full xl:pt-6 xl:px-6">
+          <div className="absolute h-full xl:pt-6 xl:px-6 w-full">
             <div className="w-full  ">
               <H2
-                className={`leading-tight mt-10 pl-6 max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
+                className={`leading-tight mt-10 pl-6 max-w-[90%] md:max-w-[80%] lg:max-w-[55%] xl:max-w-[65%] 2xl:max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
                   ? "font-bricolageEHR"
                   : "font-bricolage"
                   }`}
