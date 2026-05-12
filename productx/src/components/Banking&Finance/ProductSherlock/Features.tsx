@@ -102,8 +102,8 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
   return (
     <section className="w-full bg-white dark:bg-black relative md:h-auto">
       <div ref={containerRef} className="w-full h-[200vh]">
-        <div className="sticky top-24 w-full   z-10 pt-4 pb-4">
-          
+        <div className="sticky top-10 w-full   z-10 pt-4 pb-4">
+        
           {/* Included Sticky Title */}
           <div className="w-full px-4 mb-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
             <H2 className="text-center text-[#2B68C3] tracking-tight leading-snug mb-2 md:mb-8">
@@ -112,7 +112,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
           </div>
 
           {/* MOBILE VIEW */}
-          <div className="md:hidden w-full overflow-hidden flex flex-col z-10 bg-white">
+          <div className="md:hidden w-full overflow-hidden flex flex-col z-10 dark:bg-black bg-white">
             <div
               ref={navScrollRef}
               className="w-full overflow-x-auto scrollbar-hide shrink-0 mb-4 scroll-smooth"
@@ -156,11 +156,11 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                     <img
                       src={item.imageSrc}
                       alt={item.title}
-                      className="w-full my-6 h-[40vh] md:h-full object-fill"
+                      className="w-full  h-[30vh] md:h-full object-fill"
                     />
                   </div>
                   <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
-                    <H3 className="text-gray-900 tracking-tight leading-tight text-[18px]">
+                    <H3 className="text-gray-900 dark:text-[#2B68C3] tracking-tight leading-tight text-[18px]">
                       {item.title}
                     </H3>
                     <div className="flex flex-col gap-3 text-center">
