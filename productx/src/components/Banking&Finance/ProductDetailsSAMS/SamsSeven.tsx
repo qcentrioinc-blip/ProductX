@@ -111,7 +111,7 @@ const SevenStep = () => {
             {/* ---------------------------------------- */}
             <div className="block lg:hidden w-full bg-[#EAECEF] dark:bg-black py-16 px-4 font-sans relative overflow-hidden">
                 <div className="text-center w-full mb-12">
-                    <H2 className="text-[32px] sm:text-[42px] font-extrabold text-[#0F172A] leading-[1.2] tracking-tight">
+                    <H2 className="text-[32px] sm:text-[42px] font-extrabold text-[#0F172A]  dark:text-white leading-[1.2] tracking-tight">
                         Implementation Methodology
                     </H2>
                 </div>
@@ -127,10 +127,10 @@ const SevenStep = () => {
                                 
                                 <TimelineCircle text={item.circleText} />
                                 <div 
-                                    className="flex-1 p-6 rounded-[16px] bg-white whitespace-normal mt-0"
+                                    className="flex-1 p-6 rounded-[16px] bg-white dark:bg-[#141414] whitespace-normal mt-0"
                                     style={{ boxShadow: "0 12px 32px -8px rgba(0,0,0,0.06)" }}
                                 >
-                                    <H4 className="text-[18px] sm:text-[20px] font-bold text-[#0F172A] leading-tight">{item.title}</H4>
+                                    <H4 className="text-[18px] sm:text-[20px] font-bold dark:text-white text-[#0F172A] leading-tight">{item.title}</H4>
                                     <P className="mt-3 text-[14px] leading-[1.65] text-[#6B7280]">{item.description}</P>
                                 </div>
                             </div>

@@ -826,7 +826,7 @@ const HWD = () => {
     <section>
       {/* Top Section */}
       <div
-        className="py-6 px-4 pb-12 md:p-8 min-h-[220px] xl:min-h-[250px]"
+        className="py-6 px-4 pb-8 md:p-8"
         style={{ backgroundColor: topBg }}
       >
 
@@ -841,8 +841,9 @@ const HWD = () => {
 
 
         <h3
-          className={`${headingFontClass} mb-4 text-[16px] whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
-          style={{ color: headingColor }}
+          className={`${headingFontClass} mb-4 text-[16px] xl:whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
+        
+           style={{ color: isSAMS ? "#ffffff" : headingColor }}
         >
           {title}
         </h3>
@@ -897,6 +898,7 @@ const HWD = () => {
             <div className="px-4 pb-4">
               <h2
                 className={`text-[#2A2A2A] ${headingFontClass} text-[24px] leading-none`}
+                 style={{ color: headingColor }}
               >
                 {headingContent.title}
               </h2>
@@ -920,7 +922,7 @@ const HWD = () => {
             ref={containerRef}
             className="relative h-[200vh]"
           >
-            <div className="sticky top-13 xl:top-0 h-screen flex flex-col justify-center overflow-hidden w-full shadow-md">
+            <div className="sticky top-13 xl:top-0 min-h-screen flex flex-col justify-start w-full">
               <div className="px-4 pt-6 pb-4">
                 <h2
                   className={`text-white ${headingFontClass} text-[24px] leading-none`}
@@ -936,7 +938,7 @@ const HWD = () => {
                   {cards.map((card, i) => (
                     <div
                       key={i}
-                      className="relative rounded-md overflow-hidden shadow-lg flex-shrink-0 w-[85vw] min-h-[420px]"
+                     className="relative rounded-md shadow-lg flex-shrink-0 w-[85vw] h-auto"
                       style={{ backgroundColor: bottomBg }}
                     >
                       <CardContent {...card} />

@@ -1,6 +1,7 @@
  
 import { useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
+import { useEffect, useState } from "react";
 
 // const NAVBAR_TOGGLE_ROUTES = ["/industries/cloud-finops-ai"];
 const ALLOWED_FLOATING_ROUTES = [
@@ -16,22 +17,25 @@ const DayNightToggle = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
   const { pathname } = useLocation();
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024); // ← ADD THIS
 
-  // const isInNavbar = NAVBAR_TOGGLE_ROUTES.some((r) => pathname.startsWith(r));
+  // ← ADD THIS EFFECT
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
- const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
-  r === "/" ? pathname === "/" : pathname.startsWith(r)
-);
+  const shouldShowFloating = ALLOWED_FLOATING_ROUTES.some((r) =>
+    r === "/" ? pathname === "/" : pathname.startsWith(r)
+  );
 
-// Hide everywhere except allowed routes
-if (!shouldShowFloating) return null;
+  // Hide everywhere except allowed routes
+  if (!shouldShowFloating) return null;
 
-// Hide floating toggle on mobile/tablet
-if (window.innerWidth < 1024) return null;
- 
+  // ← CHANGE THIS LINE — use reactive state instead of direct window.innerWidth
+  if (!isDesktop) return null;
 
-  // Hide floating button on routes that embed it in the navbars
-  // if (isInNavbar) return null;
 
   return (
   <button

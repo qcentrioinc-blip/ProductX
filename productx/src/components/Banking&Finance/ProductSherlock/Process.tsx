@@ -198,7 +198,7 @@ const Process = () => {
       </div>
 
       {/* ── MOBILE: unchanged ── */}
-      <div className="block xl:hidden bg-gray-100 py-8 xl:py-10 px-6">
+      <div className="block xl:hidden bg-gray-100 dark:bg-black py-8 xl:py-10 px-6">
         <div className="max-w-2xl mx-auto">
           <H2 className="text-blue-500 text-center mb-8">Sherlock Product Variants Overview</H2>
 
