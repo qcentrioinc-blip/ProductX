@@ -53,7 +53,7 @@ const themes: Record<string, Theme> = {
     paraColor: "#2A2A2A",
     cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
-    darkBg: "#042f2e",
+    darkBg: "#141414",
     darkHeadingColor: "#FFCA28",
     darkcardGradient: "#0b4f4a",
   },

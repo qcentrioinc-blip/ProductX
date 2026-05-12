@@ -13,7 +13,7 @@ const ImageShowcaseSection = () => {
   const scrollImages = [...images, ...images];
 
   return (
-    <section className="bg-[#008280] py-20  dark:bg-[#042f2e] px-4">
+    <section className="bg-[#008280] py-20  dark:bg-[#141414] px-4">
       <div className="max-w-8xl mx-auto lg:mx-16">
         <div className="relative bg-white dark:bg-teal-900 rounded-[32px] py-16 overflow-hidden">
           

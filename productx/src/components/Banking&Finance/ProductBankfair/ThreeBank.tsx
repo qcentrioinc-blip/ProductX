@@ -23,12 +23,12 @@ const CARDS = [
 
 const ThreeBank = () => {
     return (
-        <div className="relative w-full dark:bg-black bg-white py-16 xl:py-20">
+        <div className="relative w-full dark:bg-black bg-white py-16 xl:py-10">
             <div className="max-w-7xl xl:mx-auto mx-4 px-4 xl:px-6">
 
                 {/* Header Section */}
                 <div className="flex flex-col xl:flex-row justify-left items-start mb-12 xl:mb-12">
-                    <div className="flex-1 w-full relative">
+                    <div className="flex-1 w-full mb-4 relative">
                         <H1>
                             <div className="text-[#2B68C3] leading-[1.1]">Complete Core</div>
                             <div className= "leading-[1.1] dark:text-white">Banking Platform </div>

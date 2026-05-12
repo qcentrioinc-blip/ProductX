@@ -63,7 +63,7 @@ const GridSec = () => {
               />
 
               {/* Text */}
-              <div className="max-w-lg ml-6">
+              <div className="max-w-lg py-4 ml-6">
                 <H4 className="mb-3 dark:text-white">
                   Automate Daily Banking Operations
                 </H4>
@@ -87,7 +87,7 @@ const GridSec = () => {
             <div className="relative bg-white dark:bg-slate-950 rounded-2xl px-4 xl:px-10 border border-gray-300 flex items-center justify-between min-h-[180px] sm:min-h-[200px] md:min-h-[230px] lg:min-h-[300px]">
 
               {/* Text */}
-              <div className="max-w-xs mr-6">
+              <div className="max-w-xs py-4 mr-6">
                 <H4 className="mb-4 dark:text-white">
                   Manage Customer Lifecycle  End-to-End
                 </H4>

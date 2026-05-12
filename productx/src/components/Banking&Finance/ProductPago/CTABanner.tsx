@@ -7,7 +7,7 @@ const CTABanner = () => {
       className="
       relative
       w-full 
-      h-[40vh]
+      min-h-[60vh] 
        xl:h-[80vh]
       flex
       items-start

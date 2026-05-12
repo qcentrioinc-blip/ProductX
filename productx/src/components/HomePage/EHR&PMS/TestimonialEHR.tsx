@@ -53,7 +53,7 @@ const TestimonialEHR = () => {
                     className="space-y-4 transition-all duration-1000 ease-out"
                     
                   >
-                    <H2EHR className="font-mono dark:text-white">
+                    <H2EHR className="mt-4 dark:text-white">
                      Seamlessly Integrating Care and Operations 
                     </H2EHR>
                   </div>

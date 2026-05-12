@@ -156,7 +156,7 @@ const Outcomes = () => {
           <div className="hidden lg:flex gap-8 flex-1">
             {/* Left Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#008280] dark:text-amber-400 mb-4 text-3xl font-bold">
+              <H2EHR className="text-[#008280] dark:text-teal-700 mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2EHR>
 

@@ -101,11 +101,11 @@ const FeatureHighlights = () => {
   })();
 
   return (
-    <section className="relative  dark:bg-[#042f2e] bg-white">
-    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 py-10 dark:bg-[#042f2e] bg-white">
+    <section className="relative  dark:bg-[#141414] bg-white">
+    <section className="relative max-w-7xl mx-10 xl:mx-auto px-6 py-10 dark:bg-[#141414] bg-white">
       {/* Heading */}
       <div className="text-center mb-2">
-        <H2EHR className="text-[#008280] dark:text-white">{title}</H2EHR>
+        <H2EHR className="text-[#008280] dark:text-teal-700">{title}</H2EHR>
       </div>
 
       {/* Fade Gradients (Tablet only) */}

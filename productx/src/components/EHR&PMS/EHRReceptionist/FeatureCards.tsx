@@ -6,12 +6,12 @@ const FeatureCards = () => {
      const [drawerOpen, setDrawerOpen] = useState(false);
    
   return (
-    <section className="bg-white  dark:bg-[#042f2e] pb-16">
+    <section className="bg-white  dark:bg-[#141414] pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-6">
-          <H2EHR className="text-[#007976] dark:text-amber-400 mb-4">Your Command Center</H2EHR>
+          <H2EHR className="text-[#007976]  mb-4">Your Command Center</H2EHR>
           <P className="text-gray-600 text-sm">
             One unified dashboard gives you full control over patient scheduling, communication, and daily clinic operations. 
           </P>

@@ -5,7 +5,7 @@ const InfoWithImage = () => {
   const easeOut = [0.4, 0, 0.2, 1] as const;
 
   return (
-    <section className="relative overflow-hidden dark:bg-teal-900 bg-[#f4fbfa]">
+    <section className="relative overflow-hidden dark:bg-[#141414] bg-[#f4fbfa]">
       
       {/* Decorative circles */}
       <motion.div
@@ -33,7 +33,7 @@ const InfoWithImage = () => {
             transition={{ duration: 0.6, ease: easeOut }}
             className="lg:col-span-1 lg:row-start-1"
           >
-            <H2EHR className="text-[#008280]  dark:text-amber-400 mb-4 lg:whitespace-nowrap">
+            <H2EHR className="text-[#008280]  dark:text-white mb-4 lg:whitespace-nowrap">
               Essential Front-Desk Tools 
             </H2EHR>
 

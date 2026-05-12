@@ -60,7 +60,7 @@ className="absolute top-40 left-20 w-7 scale-110"
 
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center ">
-            <H2EHR className=" text-[#008280] dark:text-amber-400 mb-4">
+            <H2EHR className=" text-[#008280] dark:text-teal-700 mb-4">
               One Unified Platform
             </H2EHR>
             <P className=" mx-auto max-w-3xl dark:text-white text-black">

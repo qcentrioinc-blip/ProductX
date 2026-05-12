@@ -6,7 +6,7 @@ const ThreeTab = () => {
     const [activeTab, setActiveTab] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
     const navScrollRef = useRef<HTMLDivElement>(null);
-    const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);
+    const navBtnRefs = useRef<(HTMLButtonElement | null)[]>([]);    
 
     const tabs = ['Creation', 'Compliance', 'Integration'];
 

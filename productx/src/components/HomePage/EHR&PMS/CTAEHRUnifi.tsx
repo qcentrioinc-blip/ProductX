@@ -11,7 +11,7 @@ const CTAEHRUnifi: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {/* Left Content */}
-          <div className="flex flex-col   xl:h-[90vh] justify-center bg-[#008280] dark:bg-[#042F2E] px-6 py-16 text-white sm:px-10 xl:pl-26 lg:px-16">
+          <div className="flex flex-col   xl:h-[90vh] justify-center bg-[#008280] dark:bg-[#141414] px-6 py-16 text-white sm:px-10 xl:pl-26 lg:px-16">
             {/* <span className="mb-4 font-quicksand text-md">
               Generate any kind of
             </span> */}

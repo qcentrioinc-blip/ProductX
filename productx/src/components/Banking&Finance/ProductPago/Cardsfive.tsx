@@ -90,13 +90,13 @@ const Cardsfive = () => {
         <div className="relative col-span-1 sm:col-span-2 xl:hidden">
           <button
             onClick={() => scrollByOne("left")}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-2"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white  dark:bg-black  dark:border-white shadow-md rounded-full p-2"
           >
             <ChevronLeft />
           </button>
           <button
             onClick={() => scrollByOne("right")}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-2"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-black dark:border-white shadow-md rounded-full p-2"
           >
             <ChevronRight />
           </button>
@@ -112,7 +112,7 @@ const Cardsfive = () => {
                 key={card.id}
                 className="
                   snap-center flex-shrink-0 w-[95%] md:w-[55%] mx-auto
-                  rounded-2xl p-8 bg-[#F0F4FF] border border-gray-100
+                  rounded-2xl p-8 bg-[#F0F4FF] dark:bg-black border border-gray-100
                   shadow-sm hover:shadow-xl hover:shadow-black/5
                   transform transition-all duration-500 ease-out hover:-translate-y-2
                 "
@@ -124,7 +124,7 @@ const Cardsfive = () => {
     className="w-12 h-12 object-contain"
   />
 </div>
-                <H4 className="mb-3 text-[18px] md:text-[20px] font-semibold text-[#0F172A] leading-snug">
+                <H4 className="mb-3 text-[18px] dark:text-blue-950 md:text-[20px] font-semibold text-[#0F172A] leading-snug">
                   {card.title}
                 </H4>
                 <P className="">{card.desc}</P>

@@ -22,7 +22,7 @@ type FeatureBlockSecProps = {
 const FeatureBlock = ({ title, content }: { title: string; content: string }) => (
   <div className="flex flex-col items-start w-full">
     <span className="text-6xl font-bold text-[#F99526] dark:text-white mb-8">+</span>
-    <H3EHR className="mb-3 dark:text-[#f99526]">{title}</H3EHR>
+    <H3EHR className="mb-3 dark:text-white">{title}</H3EHR>
     <P className=" text-base leading-relaxed">{content}</P>
   </div>
 );
@@ -41,7 +41,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
 
   return (
     <>
-      <div className="h-auto bg-[#F4F4F4] dark:bg-[#042F2E] px-4 py-10 ">
+      <div className="h-auto bg-[#F4F4F4] dark:bg-[#141414] px-4 py-10 ">
         <div className="max-w-7xl xl:px-6 px-4 xl:mx-auto">
 
           {/* MOBILE / TABLET / iPAD PRO */}
@@ -59,7 +59,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
     px-6 h-12
     rounded-lg
     font-bricolage font-bold text-sm tracking-widest
-    bg-[#008280] text-white dark:bg-[#042F2E] dark:text-white
+    bg-[#008280] text-white dark:bg-black dark:text-white
     hover:bg-white hover:text-[#008280]
     border-2 border-[#008280]
     transition-all duration-300 ease-in-out

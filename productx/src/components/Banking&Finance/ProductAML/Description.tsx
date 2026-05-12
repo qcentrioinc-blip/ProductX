@@ -110,7 +110,7 @@ const Description = () => {
         </div>
 
         {/* Mobile sticky pill bar */}
-        <div className="xl:hidden sticky top-0 z-20 bg-white border-b border-neutral-100 py-3 px-4 sm:px-6">
+        <div className="xl:hidden sticky top-0 z-20 bg-white  dark:bg-black border-b border-neutral-100 py-3 px-4 sm:px-6">
           <div
             ref={tabsRef}
             className="flex gap-2 overflow-x-auto scrollbar-hide"
@@ -134,7 +134,7 @@ const Description = () => {
         </div>
 
         {/* Mobile sticky content */}
-        <div className="xl:hidden sticky top-[57px] z-10 bg-white px-4 sm:px-6 pt-4 pb-6 space-y-5">
+        <div className="xl:hidden sticky top-[57px]  z-10 bg-white dark:bg-black px-4 sm:px-6 pt-4 pb-6 space-y-5">
           {/* Image */}
           <div className="relative w-full rounded-2xl overflow-hidden">
             <img
@@ -147,12 +147,12 @@ const Description = () => {
           {/* Para */}
          
                   <div className=" flex flex-col space-y-6">
-            <H4>{contentData[activeIndex].head}</H4>
+            <H4 className="dark:text-white">{contentData[activeIndex].head}</H4>
             <P className="text-[#141414]">{contentData[activeIndex].para}</P>
           
             <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
               <img src="/CheckIcon.svg" alt="alt"/>
-              <P className="text-white ">{contentData[activeIndex].para2}</P>
+              <P className="text-white  ">{contentData[activeIndex].para2}</P>
               </div>
               </div>
               

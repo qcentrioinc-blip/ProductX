@@ -29,7 +29,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
   "ehr-and-pms": {
     sectionBg: "#ffffff",
     headingColor: "#008280",
-       darkSectionBg:"#042F2E",
+       darkSectionBg:"#141414",
      darkHeadingColor: "#ffffff",
      
     paraColor: "#141414",

@@ -32,6 +32,25 @@ const stepThresholds = [
  
 // const isActive = scrollProgress >= stepThresholds[index];
  
+const [isDark, setIsDark] = useState(false);
+
+useEffect(() => {
+  const checkDark = () => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  };
+
+  checkDark();
+
+  const observer = new MutationObserver(checkDark);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  return () => observer.disconnect();
+}, []);
+
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -116,9 +135,9 @@ Q 1120 300 960 300
 L 250 300
 "
  
-                stroke="#141414"
+                stroke={isDark ? "#FFFFFF" : "#141414"}
                 strokeWidth="2"
-                fill="none"
+                fill="none" 
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 pathLength="1"

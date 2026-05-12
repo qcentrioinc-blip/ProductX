@@ -81,38 +81,50 @@ const AccordionPago = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
+    return (
     <div
       ref={sectionRef}
       style={{ height: `${TABS.length * 100}vh` }}
-      className="relative  "
+      className="relative"
     >
       {/* STICKY CONTAINER */}
-      <div className="sticky top-0 h-[90vh]  dark:bg-black lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
+      <div className="sticky top-0 h-[90vh] dark:bg-black lg:[70vh] xl:h-[110vh] overflow-hidden bg-white flex flex-col">
 
         {/* HEADING */}
-        <div className=" max-w-full  mx-auto pt-10 pb-10 text-center px-6">
+        <div className="max-w-full mx-auto pt-10 pb-4 text-center px-6">
           <H2>NACHA Payment <br className="hidden xl:block"/>Processing Capabilities</H2>
         </div>
 
+        {/* MOBILE IMAGE — fixed position above tabs, outside the list */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab.id}
+            className="xl:hidden mx-4 mb-4 rounded-xl overflow-hidden shrink-0"
+            style={{ height: 180 }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+          >
+            <img
+              src={activeTab.image}
+              alt={activeTab.title}
+              className="h-full w-full object-cover rounded-xl"
+            />
+          </motion.div>
+        </AnimatePresence>
+
         {/* GRID */}
         <div className="flex-1 overflow-hidden xl:mx-auto max-w-7xl w-full xl:px-6 px-4 pb-10">
-          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%]  items-start h-full">
+          <div className="grid grid-cols-1 xl:grid-cols-[35%_65%] items-start h-full">
 
             {/* LEFT TABS */}
-            <motion.ul
-              ref={leftRef}
-              layout
-              className="space-y-0 xl:space-y-6"
-            >
+            <motion.ul ref={leftRef} layout className="space-y-0 xl:space-y-6">
               {TABS.map((tab, index) => {
                 const isActive = activeTab.id === tab.id;
 
                 return (
-                  <li
-                    key={tab.id}
-                    className="rounded-xl  min-h-[100px] xl:min-h-[100px]"
-                  >
+                  <li key={tab.id} className="rounded-xl min-h-[60px] xl:min-h-[100px]">
                     <button
                       type="button"
                       onClick={() => scrollToTab(index)}
@@ -120,35 +132,6 @@ const AccordionPago = () => {
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-1">
-
-                          {/* MOBILE IMAGE — above title, only when active, hidden on lg+ */}
-                          <AnimatePresence>
-                            {isActive && (
-                              <motion.div
-                                key={`mobile-img-${tab.id}`}
-                                initial={{ opacity: 0, y: 6 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -6 }}
-                                transition={{ duration: 0.3 }}
-                                className="xl:hidden mb-4 w-full rounded-xl overflow-hidden   "
-                                style={{ minHeight: 180 }}
-                              >
-                                {/* <HoverExpandImage
-                                  src={tab.image}
-                                  alt="Clinical feature preview"
-                                  className="w-full object-contain border border-gray-200 shadow-lg"
-                                /> */}
-                                {/* Placeholder — remove when HoverExpandImage is uncommented */}
-                                {/* <div className="w-full h-44    rounded-xl" /> */}
-                                <img
-  src={activeTab.image}
-  alt={activeTab.title}
-  className="h-full w-full object-cover rounded-xl"
-/>
-
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
 
                           {/* TITLE */}
                           <div className="flex items-center gap-2">
@@ -159,32 +142,37 @@ const AccordionPago = () => {
                             >
                               {tab.title}
                             </H3>
-
                             <motion.span
                               animate={{ x: isActive ? 4 : 0 }}
                               transition={{ duration: 0.3 }}
                               className={`transition ${
-                                isActive ? "text-[#2B68C3] " : "text-gray-600 "
+                                isActive ? "text-[#2B68C3]" : "text-gray-600"
                               }`}
                             >
                               <ArrowRight />
                             </motion.span>
                           </div>
 
-                          {/* SMOOTH DESCRIPTION */}
+                          {/* DESCRIPTION — only on active, no image inside */}
                           <AnimatePresence initial={false}>
                             {isActive && (
-                              <motion.p
+                              <motion.div
                                 key="content"
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="mt-3 text-md font-quicksand text-[18px] dark:text-white text-[#141414] max-w-2xl overflow-hidden"
+                                className="overflow-hidden"
                               >
-                                {tab.description}
-                                {tab.desc && <p className="mt-2 text-[18px]  dark:text-white font-quicksand">{tab.desc}</p>}
-                              </motion.p>
+                                <p className="mt-3 text-md font-quicksand text-[16px] dark:text-white text-[#141414] max-w-2xl">
+                                  {tab.description}
+                                </p>
+                                {tab.desc && (
+                                  <p className="mt-2 text-[16px] dark:text-white font-quicksand">
+                                    {tab.desc}
+                                  </p>
+                                )}
+                              </motion.div>
                             )}
                           </AnimatePresence>
 
@@ -193,7 +181,7 @@ const AccordionPago = () => {
                     </button>
 
                     {index !== TABS.length - 1 && (
-                      <hr className="mt-4 h-px w-full text-gray-400" />
+                      <hr className="mt-2 h-px w-full text-gray-400" />
                     )}
                   </li>
                 );
@@ -211,22 +199,16 @@ const AccordionPago = () => {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-                {/* <HoverExpandImage
-                  src={activeTab.image}
-                  alt="Clinical feature preview"
-                  className="h-full w-full bg-gray-100 object-contain"
-                /> */}
                 <img
-  src={activeTab.image}
-  alt={activeTab.title}
-  className="h-full w-full object-fill rounded-xl"
-/>
+                  src={activeTab.image}
+                  alt={activeTab.title}
+                  className="h-full w-full object-fill rounded-xl"
+                />
               </motion.div>
             </AnimatePresence>
 
           </div>
         </div>
-
       </div>
     </div>
   );

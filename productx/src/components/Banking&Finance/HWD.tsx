@@ -873,7 +873,24 @@ const HWD = () => {
   return (
     <>
       {/* ===== MOBILE ===== */}
-      <div className="block md:hidden">
+      <div
+  className={`block md:hidden ${
+    isEHR
+      ? "dark:bg-[#141414]"
+      : isConciliare ||
+        isCIP ||
+        isBankfair ||
+        isAlmanac ||
+        isSAMS ||
+        isRemitree ||
+        isPAGO ||
+        isSherlock ||
+        isIBS ||
+        isLOS
+      ? "dark:bg-black"
+      : ""
+  }`}
+>
         {isSAMS ? (
           /* --- SAMS: Simple horizontal swipe (no sticky, no tall container) --- */
           <div className="w-full py-6">
@@ -884,6 +901,7 @@ const HWD = () => {
                 {headingContent.title}
               </h2>
             </div>
+            
             <div className="flex gap-4 pl-4 pr-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
               {cards.map((card, i) => (
                 <div
@@ -905,7 +923,7 @@ const HWD = () => {
             <div className="sticky top-13 xl:top-0 h-screen flex flex-col justify-center overflow-hidden w-full shadow-md">
               <div className="px-4 pt-6 pb-4">
                 <h2
-                  className={`text-[#2A2A2A] ${headingFontClass} text-[24px] leading-none`}
+                  className={`text-white ${headingFontClass} text-[24px] leading-none`}
                 >
                   {headingContent.title}
                 </h2>
@@ -930,11 +948,11 @@ const HWD = () => {
           </div>
         )}
       </div>
-
+        
       {/* ===== DESKTOP/TABLET: Original grid layout ===== */}
     <div
   className={`hidden md:block ${
-    isEHR ? "dark:bg-[#042F2E]" : "dark:bg-black"
+    isEHR ? "dark:bg-[#141414]" : "dark:bg-[#141414]"
   }`}
 >
         <div className="w-full relative shadow-md flex flex-col items-center py-10 md:py-8 px-4 sm:px-6 md:px-10 ">

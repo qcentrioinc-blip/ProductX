@@ -30,7 +30,7 @@ const ImgSec = () => {
         </div>
 
         {/* Right Text */}
-        <div className="bg-gray-100 p-4 rounded-xl">
+        <div className="bg-gray-100 dark:bg-black p-4 rounded-xl">
           <P className=" leading-relaxed">
             Book a personalized demo to explore automation, compliance features,
             and multi-branch scalability.

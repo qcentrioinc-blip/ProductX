@@ -580,7 +580,7 @@ const HeroSec = () => {
       : 'md:grid-cols-1 max-w-3xl mx-auto';
 
   return (
-    <div className="relative min-h-screen dark:bg-[#042F2E] bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative min-h-screen dark:bg-black bg-white pt-20 lg:pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* Tab Navigation */}
       <div className="max-w-7xl mx-auto mb-12">
