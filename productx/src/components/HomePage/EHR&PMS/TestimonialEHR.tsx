@@ -46,8 +46,8 @@ const TestimonialEHR = () => {
   return (
     <> 
     <section className="dark:bg-[#042F2E] ">
-    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 xl:px-6 lg:py-20 xl:py-0 mx-auto   ">
-                <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start     ">
+    <div className="max-w-7xl  dark:bg-[#042F2E]  px-4 lg:px-6 lg:py-0 mx-auto   ">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start     ">
                   {/* Left Heading */}
                   <div
                     className="space-y-4 transition-all duration-1000 ease-out"
@@ -69,15 +69,15 @@ const TestimonialEHR = () => {
                   </div>
                 </div>
               </div>
-   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 mt-10 mx-auto  xl:px-6">
+   <div className="max-w-7xl border border-[#166D48] rounded-2xl  p-8 mt-10 mx-auto  lg:px-6">
    
     {/* GREEN CARD + HEADING IN ONE ROW */}
-  <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
+  <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] items-center gap-8 lg:gap-5 text-center lg:text-left">
 
 
 
       {/* Green Testimonial Card */}
-     <div className="order-2 xl:order-1 relative w-full max-w-md mx-auto xl:max-w-none xl:mx-0 lg:flex-shrink-0">
+     <div className="order-2 lg:order-1 relative w-full max-w-md mx-auto lg:max-w-none lg:mx-0 lg:flex-shrink-0">
 
                    <div className="relative  w-full ">
                      
@@ -110,11 +110,11 @@ const TestimonialEHR = () => {
 
      
                      {/* Card Content */}
-                    <div className="absolute   top-4 xl:top-8 z-10   xl:px-4">
-                      <H3EHR className="text-white mb-6 md:mt-4 xl:mt-0 -ml-24 md:-ml-44 lg:-ml-2 xl:-ml-0 p-4  inline-block border-b-2 border-white pb-2">
+                    <div className="absolute   top-4 lg:top-8 z-10   lg:px-4">
+                      <H3EHR className="text-white mb-6 md:mt-4 lg:mt-0 -ml-24 md:-ml-44 lg:-ml-0 p-4  inline-block border-b-2 border-white pb-2">
        How We Function
      </H3EHR>
-                       <P className="text-white max-w-sm md:max-w-lg xl:max-w-md md:-ml-2 mt-4 lg:-ml-0 md:mt-10 lg:mt-10 xl:mt-0 px-4 md:px-4  xl:pr-16 xl:pl-4 xl:-ml-2 xl:pt-6 ">
+                       <P className="text-white max-w-sm md:max-w-lg lg:max-w-md md:-ml-2 mt-4 lg:-ml-2 md:mt-10 lg:mt-0 px-4 md:px-4  lg:pr-16 lg:pl-4 lg:pt-6 ">
                         Ready to see the unified difference? Explore our platform in detail and discover how a seamless workflow can transform your practice. Check How We Work. 
                        </P>
                      </div>
@@ -123,8 +123,8 @@ const TestimonialEHR = () => {
      
 
       {/* Right Heading */}
-      <div className="order-1 xl:order-2 flex justify-center xl:justify-end">
-  <H2EHR className="text-[#008280]  font-normal leading-tight text-center xl:text-right xl:pr-10">
+      <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+  <H2EHR className="text-[#008280]  font-normal leading-tight text-center lg:text-right lg:pr-10">
     Our Four Pillars of Unified Practice Management
   </H2EHR>
 </div>
@@ -134,7 +134,7 @@ const TestimonialEHR = () => {
 
     {/* FEATURE GRID */}
     <div ref={sectionRef} className="relative mt-16  lg:mt-28">
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {card.map((item, index) => (
           <div
             key={index}
@@ -157,7 +157,7 @@ const TestimonialEHR = () => {
 
             {index !== 3 && (
               <div
-                className="absolute top-0 right-0 w-[2px] bg-[#008280] hidden xl:block"
+                className="absolute top-0 right-0 w-[2px] bg-[#008280] hidden lg:block"
                 style={{
                   height: isVisible ? "90%" : "0",
                   transition: "height 2s ease-out",

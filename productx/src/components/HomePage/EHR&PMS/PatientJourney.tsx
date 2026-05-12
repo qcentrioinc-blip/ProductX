@@ -66,11 +66,11 @@ const strokeProgress = Math.max(
     <>
    <section
   ref={sectionRef}
-  className="relative hidden xl:block dark:bg-[#042F2E] bg-white z-30"
+  className="relative hidden lg:block dark:bg-[#042F2E] bg-white z-30"
   style={{ height: "420vh" }}
 >
 
-      <div className="sticky top-20 h-[100vh] xl:[80vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] dark:bg-[#042F2E] border-[#008280] bg-white">
+      <div className="sticky top-20 h-[100vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] dark:bg-[#042F2E] border-[#008280] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
           <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
@@ -247,7 +247,7 @@ L 250 300
     </section>
  
  
-    <div className="xl:hidden bg-white px-6 py-6 xl:py-10">
+    <div className="lg:hidden bg-white px-6 py-6 lg:py-10">
   {/* Header */}
   <H2EHR className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
     End to End Patient Journey,<br />Unified in One Platform

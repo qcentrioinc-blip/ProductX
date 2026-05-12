@@ -64,15 +64,15 @@ const Outcomes = () => {
 
   return (
     <>
-      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 xl:px-6">
-        <div className="max-w-7xl xl:mx-auto">
+      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 lg:px-6">
+        <div className="max-w-7xl lg:mx-auto">
           {/* Section Heading */}
           <div className="flex justify-center mb-12 text-[#008280]">
             <H2EHR className="dark:text-white">Physician Pain Points Solved</H2EHR>
           </div>
 
           {/* ================= MOBILE / TABLET ================= */}
-          <div className="flex flex-col gap-12 xl:hidden">
+          <div className="flex flex-col gap-12 lg:hidden">
             {outcomes.map((item) => (
               <div key={item.id} className="flex flex-col gap-4">
                 <H2EHR className="text-[#008280]  text-2xl font-bold">
@@ -153,7 +153,7 @@ const Outcomes = () => {
           </div>
 
           {/* ================= DESKTOP (XL Screen) ================= */}
-          <div className="hidden xl:flex gap-8 flex-1">
+          <div className="hidden lg:flex gap-8 flex-1">
             {/* Left Text */}
             <div className="w-[30%] flex flex-col justify-center">
               <H2EHR className="text-[#008280] dark:text-amber-400 mb-4 text-3xl font-bold">
