@@ -65,9 +65,9 @@ const HeroSec = () => {
               transition: { duration: 0.6, ease: easeOut },
             },
           }}
-          className="bg-[#f2f2f2] rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
+          className="bg-[#f2f2f2] dark:bg-black rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
         >
-          <span className="text-4xl lg:text-5xl font-medium font-bricolage text-black mb-1">
+          <span className="text-4xl dark:text-teal-700 lg:text-5xl font-medium font-bricolage text-black mb-1">
             5x
           </span>
           <P className="text-[#141414] "> Faster Charting</P>

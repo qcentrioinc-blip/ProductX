@@ -124,7 +124,7 @@ const Cardsfive = () => {
     className="w-12 h-12 object-contain"
   />
 </div>
-                <H4 className="mb-3 text-[18px] dark:text-blue-950 md:text-[20px] font-semibold text-[#0F172A] leading-snug">
+                <H4 className="mb-3 text-[18px] dark:text-white md:text-[20px] font-semibold text-[#0F172A] leading-snug">
                   {card.title}
                 </H4>
                 <P className="">{card.desc}</P>
@@ -139,7 +139,7 @@ const Cardsfive = () => {
                 key={i}
                 onClick={() => scrollByOne(i > activeIndex ? "right" : "left")}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  activeIndex === i ? "bg-black scale-125" : "bg-gray-300"
+                  activeIndex === i ? "bg-black  dark:bg-blue-800 scale-125" : "bg-gray-300"
                 }`}
               />
             ))}

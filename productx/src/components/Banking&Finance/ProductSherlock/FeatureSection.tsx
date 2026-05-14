@@ -32,7 +32,7 @@ export default function FeatureSection() {
         {
           icon: "/ProductSherlock/icon25.svg",
           title: "Foreign Remittance Monitoring",
-          desc: "Monitors foreign inward and outward remittance transactions with complete tracking and screening capabilities for AML compliance",
+          desc: "Monitors foreign inward and outward remittance transactions with complete tracking and sc  reening capabilities for AML compliance",
         },
         {
           icon: "/ProductSherlock/icon26.svg",

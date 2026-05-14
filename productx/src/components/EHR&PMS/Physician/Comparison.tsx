@@ -35,7 +35,7 @@ const Comparison = () => {
 
   return (
     <div className="min-h-fit md:min-h-fit lg:min-h-fit xl:min-h-fit dark:bg-[#141414] bg-white py-10 pt-12 ">
-      <div className="max-w-8xl xl:mx-10 px-6">
+      <div className="max-w-8xl xl:mx-10 px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-8">
           <H2EHR className="text-[#008280] dark:text-white mb-2">

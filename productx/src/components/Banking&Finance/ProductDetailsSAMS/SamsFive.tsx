@@ -26,7 +26,7 @@ const SamsFive = () => {
   return (
     <section className="w-full bg-[#E5EDF9] dark:bg-black  ">
       <div
-        className="mx-auto w-full max-w-7xl  bg-[#E5EDF9] dark:bg-slate-900 rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16 my-4 sm:my-8 xl:my-0"
+        className="mx-auto w-full max-w-7xl  bg-[#E5EDF9] dark:bg-slate-900 rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16    xl:my-0"
 
       >
         {/* Header Section */}
@@ -53,7 +53,7 @@ const SamsFive = () => {
           <div
             className="w-full rounded-xl h-[350px] sm:h-auto md:h-auto md:min-h-full order-1 md:order-2 flex justify-center items-center"
           >
-            <img src="/SAMS/npaidentification.webp" alt="NPA Identification" className="w-full h-full object-fit" />
+            <img src="/SAMS/NPAIdentification.webp" alt="NPA Identification" className="w-full h-full object-fit" />
           </div>
 
           {/* Right Column (Renders 3rd on Mobile) */}

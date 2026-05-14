@@ -290,7 +290,7 @@ const BNFNav = () => {
               >
                 <div className=" flex justify-center items-center rounded-full text-[10px] font-semibold transition-all duration-300">
                   <img className="h-full w-full" src="/QBnFLogo.svg" alt="Company Logo" />
-                </div>
+                </div>  
                 <div className={`transition-transform relative top-[1.5px] duration-300 ${logoDropdownOpen ? "rotate-180" : "rotate-0"}`}>
                   <img src="/down.png" className="w-4 h-4" />
                 </div>
@@ -486,7 +486,7 @@ const BNFNav = () => {
       </Suspense>
 
       {/* MOBILE MENU */}
-      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px]  bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] dark:bg-black bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">

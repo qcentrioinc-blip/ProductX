@@ -86,7 +86,7 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         <div className="border-b border-gray-200 scrollbar-hide pb-3">
             <button
                 onClick={() => setMobileDropdown(mobileDropdown === "products" ? null : "products")}
-                className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold cursor-pointer py-2"
+                className="w-full dark:text-white  text-left flex justify-between items-center text-gray-800 text-lg font-semibold cursor-pointer py-2"
             >
                 Products
                 <svg
@@ -102,7 +102,7 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
 
             {mobileDropdown === "products" && (
                 <div
-                    className="mt-2 pl-3 pr-2 space-y-1 scrollbar-hide overflow-y-auto overscroll-contain"
+                    className="mt-2 pl-3 pr-2 space-y-1   scrollbar-hide overflow-y-auto overscroll-contain"
                     style={{ maxHeight: "calc(100vh - 350px)" }}
                 >
                     {megaMenuItems.map((item, index) => (
@@ -119,8 +119,8 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
                                 alt={item.title}
                             />
                             <div>
-                                <h3 className="text-base font-semibold">{item.title}</h3>
-                                <p className="text-gray-600 text-sm leading-snug">{item.desc}</p>
+                                <h3 className="text-base dark:text-white font-semibold">{item.title}</h3>
+                                <p className="text-gray-600 dark:text-white text-sm leading-snug">{item.desc}</p>
                             </div>
                         </Link>
                     ))}

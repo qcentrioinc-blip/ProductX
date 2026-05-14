@@ -127,7 +127,7 @@ const EHRFooter = () => {
             opacity: 1
           }}
         >
-          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-8 lg:py-10">
+          <div className=" md:px-16 lg:px-20 py-12 md:py-8 lg:py-10">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
  
               <div className="flex-shrink-0">
@@ -260,7 +260,7 @@ const EHRFooter = () => {
             opacity: 1
           }}
         >
-          <div className="px-12 md:px-16 lg:px-20 py-12 md:py-14">
+          <div className=" md:px-16 lg:px-20 py-12 md:py-14">
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.6fr_1.2fr] gap-x-16 lg:gap-x-20 gap-y-10 pb-16 lg:pb-0 items-stretch">
 

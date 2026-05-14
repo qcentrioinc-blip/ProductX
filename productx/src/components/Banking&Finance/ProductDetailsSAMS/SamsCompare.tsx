@@ -46,7 +46,7 @@ const SamsCompare = () => {
         {/* Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-y-20">
           {/* Left Column */}
-          <div className=" rounded-xl p-8 md:p-10  lg:p-12">
+          <div className=" rounded-xl  md:p-10  lg:p-12">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
@@ -86,7 +86,7 @@ const SamsCompare = () => {
           </div>
 
           {/* Right Column */}
-          <div className=" rounded-xl p-8 md:p-10 lg:p-12  ">
+          <div className=" rounded-xl  md:p-10 lg:p-12  ">
             {/* Icon Circle */}
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
