@@ -74,7 +74,7 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] dark:text-white dark:text-white leading-tight">
+                                <H3 className=" text-[#252430] dark:text-white   leading-tight">
                                     Compare plans
                                 </H3>
                                 <P className="text-[#141414] leading-relaxed max-w-[280px]">

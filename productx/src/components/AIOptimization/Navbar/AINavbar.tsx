@@ -6,7 +6,8 @@ import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
 import ContactModal from "./ContactModal";
-import  DayNightToggle, { NavbarDayNightToggle } from "../../Global/DayNightToggle";
+import { NavbarDayNightToggle } from "../../Global/DayNightToggle";
+ 
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
