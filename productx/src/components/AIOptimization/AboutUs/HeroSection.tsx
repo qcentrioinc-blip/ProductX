@@ -36,7 +36,7 @@ export default function HeroSection() {
           savings we deliver. Most customers see ROI in the first month.
         </P>
 
-        <ContactUsAI className="mt-8" onClick={() => setModalOpen(true)}>
+        <ContactUsAI className="my-8" onClick={() => setModalOpen(true)}>
           Start Saving
         </ContactUsAI>
       </div>

@@ -120,8 +120,8 @@ const Benefits = () => {
           {points.map((point, i) => (
             <div key={i} className="flex flex-col gap-6">
               {/* Text Top */}
-              <div className="p-6 rounded-xl bg-[#F1F1F1] border-t-4 border-[#008280]">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">
+              <div className="p-6 rounded-xl bg-[#F1F1F1] dark:bg-black border-t-4 border-[#008280]">
+                <h3 className="font-bold text-xl dark:text-teal-700 text-gray-900 mb-2">
                   {point.title}
                 </h3>
                 <P className="text-gray-700">{point.desc}</P>

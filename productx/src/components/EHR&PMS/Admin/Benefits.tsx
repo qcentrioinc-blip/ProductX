@@ -60,7 +60,7 @@ const Benefits = () => {
       <div className="xl:sticky max-w-7xl xl:mx-auto xl:px-6 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
-        <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">
+        <div className="w-full max-w-2xl mt-4 mb-10 xl:mt-10 xl:mb-12">
           <H2EHR className="text-left   text-[#008280]">
             Essential Tools for Clinic Administration
           </H2EHR>
@@ -118,8 +118,8 @@ const Benefits = () => {
           {points.map((point, i) => (
             <div key={i} className="flex flex-col gap-6">
               {/* Text Top */}
-              <div className="p-6 rounded-xl bg-[#F1F1F1] border-t-4 border-[#008280]">
-                <h3 className="font-bold text-xl text-gray-900 mb-2">
+              <div className="p-6 rounded-xl  dark:bg-[#141414] bg-[#F1F1F1] border-t-4 border-[#008280]">
+                <h3 className="font-bold dark:text-teal-700 text-xl text-gray-900 mb-2">
                   {point.title}
                 </h3>
                 <P className="text-gray-700">{point.desc}</P>

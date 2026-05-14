@@ -13,27 +13,27 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
     const megaMenuItems = [
         {
             title: "Physician",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Tools for faster, smarter clinical decisions.",
             path: `${base}/physician`,
         },
         {
             title: "Admin",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Complete control over operations and revenue.",
             path: `${base}/admin`,
         },
         {
             title: "Insurance Coordinator",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Accelerate claims and maximize reimbursements.",
             path: `${base}/insurance-coordinator`,
         },
         {
             title: "Receptionist",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Streamline front desk and patient flow.",
             path: `${base}/receptionist`,
         },
         {
             title: "Nurse",
-            desc: "Lorem ipsum dolor sit amet, gdjs",
+            desc: "Efficient documentation and care coordination",
             path: `${base}/nurse`,
         },
     ];
@@ -42,7 +42,7 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
         <div className="border-b border-gray-200 pb-3">
             <button onClick={() => {
                 setMobileDropdown(mobileDropdown === "products" ? null : "products");
-            }} className="w-full text-left flex justify-between items-center text-gray-800 text-lg font-semibold cursor-pointer">
+            }} className="w-full text-left flex justify-between items-center dark:text-white text-gray-800 text-lg font-semibold cursor-pointer">
                 Solutions
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`w-5 h-5 transition-transform duration-300 ${mobileDropdown === "products" ? "rotate-180" : ""}`}>
                     <path d="m6 9 6 6 6-6" />
@@ -53,8 +53,8 @@ const MobileProductsDropdown = ({ mobileDropdown, setMobileDropdown, setMenuOpen
                     {megaMenuItems.map((item, index) => (
                         <Link key={index} to={item.path} onClick={() => setMenuOpen(false)} className="flex gap-3 items-start py-2">
                             <div>
-                                <h3 className="text-base font-semibold">{item.title}</h3>
-                                <p className="text-gray-600 text-sm">{item.desc}</p>
+                                <h3 className="text-base  dark:text-white font-semibold">{item.title}</h3>
+                                <p className="text-gray-600 dark:text-white text-sm">{item.desc}</p>
                             </div>
                         </Link>
                     ))}

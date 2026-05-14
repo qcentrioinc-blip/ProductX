@@ -48,7 +48,7 @@ export default function PrivacyPolicyAI() {
   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),transparent_60%)]" />
   <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_40%,rgba(255,255,255,0.04)_50%,transparent_60%)]" />
 
-  <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center text-white">
+  <div className="relative z-10 mx-auto max-w-7xl  px-4 xl:px-6 py-28 text-center text-white">
     <H1 className="my-10 text-white text-5xl md:text-6xl font-semibold tracking-tight">
       Privacy Policy
     </H1>
@@ -76,7 +76,7 @@ export default function PrivacyPolicyAI() {
   </div>
 </section>
     <section className="w-full bg-white dark:bg-slate-950  py-10 text-gray-800">
-      <div className=" max-w-8xl px-10 mx-10 ">
+      <div className=" max-w-8xl xl:px-10 px-4 xl:mx-10 ">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
           
           {/* MAIN CONTENT */}
@@ -107,8 +107,8 @@ export default function PrivacyPolicyAI() {
               <P>
               How We Use Your Information 
               </P>
-              <ul className="list-disc list-inside py-4">
-                <li className='text-[18px] font-quicksand '>Profile your cloud resources to identify misconfigurations and waste. </li>
+              <ul className="list-disc list-inside dark:text-white   py-4">
+                <li className='text-[18px] font-quicksand '>Profi le your cloud resources to identify misconfigurations and waste. </li>
                 <li className='text-[18px] font-quicksand '>Generate accurate savings recommendations (e.g., identifying idle resources or improper SKUs). </li>
                 <li className='text-[18px] font-quicksand '>Provide dashboards and reporting on cost trends. </li>
                 <li className='text-[18px] font-quicksand '>Improve our AI algorithms (anonymously and in aggregate). </li>
@@ -149,7 +149,7 @@ export default function PrivacyPolicyAI() {
               <P>
                Depending on your jurisdiction (e.g., California, EU, UK), you may have the right to: 
               </P>
-              <ul className="list-disc list-inside py-4">
+              <ul className="list-disc list-inside dark:text-white py-4">
                 <li className='text-[18px] font-quicksand '>Access the personal information we hold. . </li>
                 <li className='text-[18px] font-quicksand '>Request correction or deletion of your data.  </li>
                 <li className='text-[18px] font-quicksand '>Opt out of any processing (though this may limit our ability to optimize your cloud).  </li>
@@ -346,7 +346,7 @@ export default function PrivacyPolicyAI() {
               {/* 4 */}
               <section className="scroll-mt-24"  id="terms-s avings">
                 <H4 className="dark:text-white my-4">4. Savings & Financial Performance</H4>
-                <ul className="list-disc list-inside py-4">
+                <ul className="list-disc list-inside dark:text-white py-4">
                   <li className="text-[18px] font-quicksand">
                     <strong>Pay-for-Performance Model:</strong> Unless otherwise agreed in a Service Order, Qnest
                     Global charges a percentage of the verified "Realized Savings."
@@ -379,7 +379,7 @@ export default function PrivacyPolicyAI() {
               {/* 6 */}
               <section className="scroll-mt-24"  id="terms-f ees">
                 <H4 className="dark:text-white my-4">6. Fees and Payment</H4>
-                <ul className="list-disc list-inside py-4">
+                <ul className="list-disc list-inside dark:text-white py-4">
                   <li className="text-[18px] font-quicksand">
                     <strong>Setup & Baseline Fees:</strong> Fees for the initial 6-week profiling period are due as
                     outlined in the Order Form.
@@ -407,7 +407,7 @@ export default function PrivacyPolicyAI() {
               {/* 8 */}
               <section className="scroll-mt-24"  id="terms-t ermination">
                 <H4 className="dark:text-white my-4">8. Term and Termination</H4>
-                <ul className="list-disc list-inside py-4">
+                <ul className="list-disc list-inside dark:text-white py-4">
                   <li className="text-[18px] font-quicksand">
                     <strong>Term:</strong> This Agreement begins on the Effective Date and continues for the Initial
                     Term specified in the Order Form (e.g., 12 months).

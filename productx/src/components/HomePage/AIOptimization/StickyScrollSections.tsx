@@ -262,7 +262,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
       <div className="flex items-center gap-4 mb-6">
         <span className={`text-5xl dark:text-white sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
       </div>
-      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#254D70] mb-4 sm:mb-6 leading-tight">
+      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#254D70]  dark:text-white   mb-4 sm:mb-6 leading-tight">
         {feature.title}
       </h3>
       <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
@@ -306,7 +306,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
           </div> */}
         </div>
         <H3
-          className={`mb-3 transition-all duration-300 ${isActive ? "text-gray-900" : "text-gray-700"
+          className={`mb-3 transition-all duration-300 ${isActive ? "text-[#254D70]" : "text-gray-700"
             }`}
         >
           {feature.title}
@@ -726,7 +726,7 @@ const hasAnimatedOnMobile = useRef(false);
         </div>
       </div>
  
-      <div className="max-w-8xl mx-4 sm:mx-6 lg:mx-6 flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
+      <div className="max-w-8xl  sm:mx-6 lg:mx-6 flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
  
         {/* LEFT NAV (Desktop and iPad Pro - lg screens and above) */}
         <div className="hidden lg:block w-56 sticky top-32 space-y-4 lg:mt-14 xl:mt-20">
@@ -910,7 +910,7 @@ const hasAnimatedOnMobile = useRef(false);
           <section
             ref={storyboardRef}
             id="security"
-            className="relative w-full bg-white  dark:bg-black font-bricolage"
+            className="relative w-full px-4 bg-white  dark:bg-black font-bricolage"
           >
             <H2 className="text-[#254D70]">
               Multi-Dimensional

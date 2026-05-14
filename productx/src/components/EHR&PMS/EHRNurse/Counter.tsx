@@ -37,7 +37,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   {/* Content Wrapper */}
   <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
     {/* Heading */}
-    <H2EHR className="font-semibold  text-left lg:text-center   dark:text-amber-400 mb-10 lg:mb-16 text-gray-800 leading-snug">
+    <H2EHR className="font-semibold  text-left lg:text-center   dark:text-white mb-10 lg:mb-16 text-gray-800 leading-snug">
       Eliminating the Top Nursing <br className="hidden lg:block" />Workflow Challenges 
     </H2EHR>
 
@@ -60,10 +60,10 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Left */}
   <div className="flex flex-col items-center">
-    <h2 className="text-4xl font-bricolage font-bold text-black">
+    <h2 className="text-4xl font-bricolage font-bold dark:text-white text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
-    <H4EHR className="text-[#2A2A2A]">Fewer Communication Gaps</H4EHR>
+    <H4EHR className="dark:text-white text-[#2A2A2A]">Fewer Communication Gaps</H4EHR>
     <P className="text-gray-600 mt-3 max-w-3xl  ">
       A unified task list and patient record ensure all team members are instantly updated, reducing errors and oversights. 
     </P>
@@ -110,10 +110,10 @@ const StarIcon = ({ className }: { className?: string }) => (
       </motion.div>
 <div className="flex lg:hidden flex-col w-full my-10 gap-12">
  <div className="flex flex-col items-center">
-    <h2 className="text-4xl font-bricolage font-bold text-black">
+    <h2 className="text-4xl font-bricolage dark:text-white font-bold text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
-    <H4EHR>Faster Documentation</H4EHR>
+    <H4EHR className="dark:text-white">Faster Documentation</H4EHR>
     
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
       Using smart templates reduces charting time dramatically, allowing more focus on direct patient care and less on paperwork. 
@@ -137,10 +137,10 @@ const StarIcon = ({ className }: { className?: string }) => (
 
       <div className="flex lg:hidden flex-col w-full my-10 gap-12">
         <div className="flex flex-col items-center">
-    <h2 className="text-4xl font-bricolage font-bold text-black">
+    <h2 className="text-4xl dark:text-white font-bricolage font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
-    <H4EHR> More Organized Shifts</H4EHR>
+    <H4EHR className="dark:text-white"> More Organized Shifts</H4EHR>
     <P className="text-[#141414] mt-3 max-w-3xl text-sm">
       Centralized access to patient data, orders, and schedules creates a structured, predictable workflow from check-in to handoff. 
     </P>
@@ -153,7 +153,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 1 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold dark:text-amber-400 text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold dark:text-white text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
     <H4EHR className="dark:text-white">Fewer Communication Gaps</H4EHR>
@@ -164,7 +164,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 2 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-bricolage dark:text-amber-400 text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage dark:text-white text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
     <H4EHR className="dark:text-white">Faster Documentation</H4EHR>
@@ -175,7 +175,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 3 */}
   <div>
-    <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold dark:text-amber-400 text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold dark:text-white text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
     <H4EHR className="dark:text-white"> More Organized Shifts</H4EHR>

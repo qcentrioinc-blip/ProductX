@@ -6,7 +6,7 @@ import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 import { createPortal } from "react-dom";
 import { prefetchLandingPageAIImages } from "../../HomePage/AIOptimization/LandingPageAI";
 import ContactModal from "./ContactModal";
-import  { NavbarDayNightToggle } from "../../Global/DayNightToggle";
+import  DayNightToggle, { NavbarDayNightToggle } from "../../Global/DayNightToggle";
 const MegaMenu = lazy(() => import("./MegaMenu"));
 const ResourcesMenu = lazy(() => import("./ResourcesMenu"));
 const BuiltForMenu = lazy(() => import("./BuiltForMenu"));
@@ -214,7 +214,8 @@ const AINavbar = () => {
           {/* <Link to={`${base}/platform`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Platform</Link> */}
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-white' : 'text-white'}`}>Marketplace</Link>
         </div>
-
+ <div className="lg:hidden flex items-center    gap-2">
+ <NavbarDayNightToggle/>
         <button
           className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
           onClick={handleToggleMenu}
@@ -224,6 +225,7 @@ const AINavbar = () => {
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}></span>
           <span className={`block w-7 h-[3px] bg-white rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}></span>
         </button>
+        </div>
       </div>
 
       {/* MAIN NAV (ALL SCREENS - PERMANENTLY FIXED) */}

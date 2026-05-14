@@ -65,11 +65,12 @@ const HWD = () => {
       CheckColor: "#A80040"
     },
     ai: {
-      topBg: "#FFFFFF",
-      bottomBg: "#F5F5F5",
-      headingColor: "#254D70",
-      textcolor: "#141414",
-      CheckColor: "#254D70"
+         topBg: isDark ? "#1a1a2e" : "#F5F5F5",
+     bottomBg: isDark ? "#ffffff" : "#FFFFFF", 
+      headingColor: isDark ? "#5b9cf6" : "##254D70",
+      textcolor: isDark ? "#ffffff" : "#000000",
+      CheckColor: isDark ? "#000000" : "#254D70",
+    
 
     },
     pago: {
@@ -887,7 +888,7 @@ const HWD = () => {
         isPAGO ||
         isSherlock ||
         isIBS ||
-        isLOS
+        isLOS ||isAI
       ? "dark:bg-black"
       : ""
   }`}
