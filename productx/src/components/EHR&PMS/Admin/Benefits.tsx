@@ -55,19 +55,19 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] dark:bg-[#141414] xl:min-h-[350vh] xl:pt-10 pb-20 px-6 "
+      className="relative w-full min-h-[150vh] dark:bg-[#141414] lg:min-h-[350vh] lg:pt-10 pb-20 px-6 "
     >
-      <div className="xl:sticky max-w-7xl xl:mx-auto xl:px-6 xl:top-0 xl:h-screen pb-10 flex flex-col justify-center items-start">
+      <div className="lg:sticky max-w-7xl lg:mx-auto lg:px-6 lg:top-0 lg:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
-        <div className="w-full max-w-2xl mb-10 xl:mt-10 xl:mb-12">
+        <div className="w-full max-w-2xl mb-10 lg:mt-10 lg:mb-12">
           <H2EHR className="text-left   text-[#008280]">
             Essential Tools for Clinic Administration
           </H2EHR>
         </div>
  
-        {/* --- DESKTOP VIEW (xl and up) --- */}
-        <div className="hidden xl:flex w-[100%] max-w-8xl items-center gap-12">
+        {/* --- DESKTOP VIEW (lg and up) --- */}
+        <div className="hidden lg:flex w-[100%] max-w-8xl items-center gap-12">
           {/* Interactive Cards */}
           <div className="flex flex-col w-[40%] gap-1">
             {points.map((point, i) => {
@@ -113,8 +113,8 @@ const Benefits = () => {
           </div>
         </div>
  
-        {/* --- MOBILE/TABLET VIEW (Below xl) --- */}
-        <div className="xl:hidden flex flex-col gap-12 w-full max-w-2xl lg:max-w-full">
+        {/* --- MOBILE/TABLET VIEW (Below lg) --- */}
+        <div className="lg:hidden flex flex-col gap-12 w-full max-w-2xl lg:max-w-full">
           {points.map((point, i) => (
             <div key={i} className="flex flex-col gap-6">
               {/* Text Top */}

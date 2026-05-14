@@ -33,7 +33,7 @@ const HeroSec = () => {
           hidden: {},
           visible: { transition: { staggerChildren: 0.12 } },
         }}
-        className="flex-grow grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 gap-4 pb-8"
+        className="flex-grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-4 pb-8"
       >
         
         {/* 1. Large Portrait Image */}
