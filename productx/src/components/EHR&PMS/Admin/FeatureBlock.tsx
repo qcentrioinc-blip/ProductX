@@ -7,7 +7,7 @@ import ContactDrawer from "../Navbar/ContactDrawer";
 /* FEATURE BLOCK */
 type FeatureBlockContent = {
   heading: string;
-  cta:string;
+  cta: string;
   features: {
     title: string;
     content: string;
@@ -48,12 +48,12 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
           {!isDesktop && (
             <div className="flex flex-col gap-10">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <H2EHR className="text-[#008280] dark:text-white">
-  {content.heading}
-</H2EHR>
- <button
- 
-  className="
+                <H2EHR className="text-[#008280] dark:text-white">
+                  {content.heading}
+                </H2EHR>
+                <button
+
+                  className="
     group
     inline-flex items-center justify-center
     px-6 h-12
@@ -68,49 +68,49 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
     shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
     cursor-pointer
   "
->
-  <span className="flex items-center dark:bg-transparent gap-2">
-     {content.cta}
- 
-    <span className="relative flex items-center justify-center w-[20px] h-[20px]">
-     
-      {/* Default Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-      >
-        <path d="M7 7h10v10" />
-        <path d="M7 17L17 7" />
-      </svg>
- 
-      {/* Hover Icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
- 
-    </span>
-  </span>
-</button>
+                >
+                  <span className="flex items-center dark:bg-transparent gap-2">
+                    {content.cta}
+
+                    <span className="relative flex items-center justify-center w-[20px] h-[20px]">
+
+                      {/* Default Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="absolute inset-0 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                      >
+                        <path d="M7 7h10v10" />
+                        <path d="M7 17L17 7" />
+                      </svg>
+
+                      {/* Hover Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+
+                    </span>
+                  </span>
+                </button>
 
                 {/* <ContactUs
                   onClick={(e) => {
@@ -124,15 +124,15 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
                 </ContactUs> */}
               </div>
 
-             <div className="flex flex-col sm:flex-row gap-8">
-  {content.features.map((item, index) => (
-    <FeatureBlock
-      key={index}
-      title={item.title}
-      content={item.content}
-    />
-  ))}
-</div>
+              <div className="flex flex-col sm:flex-row gap-8">
+                {content.features.map((item, index) => (
+                  <FeatureBlock
+                    key={index}
+                    title={item.title}
+                    content={item.content}
+                  />
+                ))}
+              </div>
 
             </div>
           )}
@@ -143,8 +143,8 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
 
               <div className="lg:w-2/5 flex flex-col items-start">
                 <H2EHR className="text-[#008280]">
-  {content.heading}
-</H2EHR>
+                  {content.heading}
+                </H2EHR>
 
 
                 <ContactUs
@@ -155,20 +155,20 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
                   }}
                   className="w-fit mt-4 transition-transform hover:scale-105 active:scale-95"
                 >
-               {content.cta}
+                  {content.cta}
                 </ContactUs>
               </div>
 
               <div className="lg:w-3/5">
                 <div className="flex flex-col sm:flex-row gap-8 sm:gap-20 mt-6 lg:mt-0">
-  {content.features.map((item, index) => (
-    <FeatureBlock
-      key={index}
-      title={item.title}
-      content={item.content}
-    />
-  ))}
-</div>
+                  {content.features.map((item, index) => (
+                    <FeatureBlock
+                      key={index}
+                      title={item.title}
+                      content={item.content}
+                    />
+                  ))}
+                </div>
 
               </div>
 
