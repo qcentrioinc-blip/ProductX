@@ -74,7 +74,7 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] dark:text-white leading-tight">
+                                <H3 className=" text-[#252430] dark:text-white   leading-tight">
                                     Compare plans
                                 </H3>
                                 <P className="text-[#141414] leading-relaxed max-w-[280px]">
@@ -96,7 +96,7 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Middle Column - Starter */}
                         <div className="h-full p-6 md:p-[40px] border border-gray-400 rounded-[26px] dark:bg-slate-950 bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] dark:text-white leading-tight">Starter</H3>
+                                <H3 className=" text-[#252430] dark:text-white dark:text-white leading-tight">Starter</H3>
                                 <P className="text-[#141414] dark:text-gray-300 leading-relaxed">
 
                                     Ideal for small to mid-sized teams beginning their Azure cost optimization journey.
@@ -237,7 +237,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                 </div>
 
                                 <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-[#E7EBFF]/60">
-                                    <H3 className=" text-[#252430] leading-tight">Enterprise</H3>
+                                    <H3 className=" text-[#252430] dark:text-white leading-tight">Enterprise</H3>
                                     <P className=" text-[#141414] leading-relaxed">
                                         Best for enterprises requiring advanced insights, unlimited subscriptions, and support.
                                     </P>
@@ -287,11 +287,11 @@ const [modalOpen, setModalOpen] = useState(false);
                     </div>
 
                     {/* Mobile & Tablet View - Stacked Layout */}
-                    <div className="lg:hidden flex flex-col">
+                    <div className="lg:hidden  flex flex-col">
 
                         {/* Compare Plans Header for Mobile */}
                         <div className="p-10 md:px-16 md:py-6 border-b border-gray-200">
-                            <H3 className=" text-[#252430] leading-tight mb-3">
+                            <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">
                                 Compare plans
                             </H3>
                             <P className="font-['Quicksand'] font-normal text-sm md:text-base text-[#141414] leading-relaxed">
@@ -302,7 +302,7 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Starter Plan Card - Mobile */}
                         <div className="p-10 md:px-16 md:py-10 border-b border-[#E6E9F5]">
                             <div className="mb-6">
-                                <H3 className=" text-[#252430] leading-tight mb-3">Starter</H3>
+                                <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">Starter</H3>
                                 <P className=" text-[#141414] leading-relaxed mb-6">
                                     Take Your Business to the Next Level Take Your Business to the Next Level
                                 </P>
@@ -340,7 +340,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                                 </div>
                                             )}
                                         </div>
-                                        <span className=" text-[#252430] leading-relaxed">
+                                        <span className=" text-[#252430]  dark:text-white leading-relaxed">
                                             {feature.name}
                                         </span>
                                     </div>
@@ -371,7 +371,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                 </div>
 
                                 <div className="mb-6">
-                                    <H3 className=" text-[#252430] leading-tight mb-3">Enterprise</H3>
+                                    <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">Enterprise</H3>
                                     <P className=" text-[#141414] leading-relaxed mb-6">
                                         Take Your Business to the Next Level Take Your Business to the Next Level
                                     </P>

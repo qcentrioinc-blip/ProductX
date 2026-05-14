@@ -19,7 +19,7 @@ const ImageShowcaseSection = () => {
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 px-6 sm:px-10">
-            <H2EHR className="text-[#008280] dark:text-amber-400 mb-4">Ready to Transform? </H2EHR>
+            <H2EHR className="text-[#008280] dark:text-white mb-4">Ready to Transform? </H2EHR>
             <P className="text-[#141414] leading-relaxed mb-40">
               Join the nurses who have streamlined their workflow with Unified Clinicapp. See firsthand how our tools reduce documentation time, improve coordination, and support safer patient care. Schedule your personalized demo today. 
             </P>

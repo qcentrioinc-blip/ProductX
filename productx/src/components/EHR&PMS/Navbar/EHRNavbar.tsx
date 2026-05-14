@@ -261,7 +261,7 @@ const EHRNavbar = () => {
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-black'}`}>Marketplace</Link>
         </div>
     
-       <div className="lg:hidden flex items-center gap-2">
+       <div className="lg:hidden flex items-center    gap-2">
   <NavbarDayNightToggle />
   <button
     className="flex flex-col justify-center items-center gap-[6px] w-10 h-10"
@@ -582,14 +582,14 @@ const EHRNavbar = () => {
       </Suspense>
 
       {/* MOBILE MENU */}
-      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div ref={menuRef} className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] dark:bg-black bg-white shadow-2xl z-[200] p-6 flex flex-col pb-20 transition-all duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <Link to={base} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 flex-1">
               <div className="w-12 h-12  text-white flex justify-center items-center rounded-full text-xs font-semibold">
                 <img className="h-10 w-full" src="/QEHRLogo2.svg" alt="Company Logo" />
               </div>
-              <span className="text-xl font-semibold text-gray-900">{currentIndustry}</span>
+              <span className="text-xl  dark:text-white font-semibold text-gray-900">{currentIndustry}</span>
             </Link>
           </div>
         </div>
@@ -604,7 +604,7 @@ const EHRNavbar = () => {
           {navItems.map((item) =>
             item.name !== "Solutions" && item.name !== "Built for" && item.name !== "Resources" ? (
               <div key={item.name} className="border-b border-gray-200 pb-3">
-                <Link to={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 text-lg font-semibold block">
+                <Link to={item.path} onClick={() => setMenuOpen(false)} className="text-gray-800 dark:text-white text-lg font-semibold block">
                   {item.name}
                 </Link>
               </div>
@@ -623,7 +623,7 @@ const EHRNavbar = () => {
           /> */}
 
           <div className="border-b border-gray-200 pb-3">
-            <button onClick={() => setDrawerOpen(true)} className="text-gray-800 text-lg font-semibold block">
+            <button onClick={() => setDrawerOpen(true)} className="text-gray-800 dark:text-white text-lg font-semibold block">
               Support
             </button>
           </div>
@@ -631,7 +631,7 @@ const EHRNavbar = () => {
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
           {/* <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link> */}
-          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Marketplace</Link>
+          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-black dark:text-teal-700 text-lg font-semibold">Marketplace</Link>
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
@@ -643,6 +643,7 @@ const EHRNavbar = () => {
               h-[48px]
               px-[20px] py-[12px]
               rounded-[8px]
+               dark:border-teal-700 dark:bg-teal-700 dark:text-white
               font-quicksand font-bold text-[14px]
               bg-black text-white
               border-2 border-black

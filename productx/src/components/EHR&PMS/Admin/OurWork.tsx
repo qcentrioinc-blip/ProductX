@@ -102,7 +102,7 @@ export default function OurWork() {
       </div>
     </section>
 
-    <section className="xl:hidden bg-white px-4 py-20 space-y-16">
+    <section className="xl:hidden dark:bg-black  bg-white px-4 py-20 space-y-16">
       <div className="flex items-center justify-start ">
           <H2EHR className="text-[#008280] mt-6 ">
             Eliminate These Common <br /> Administrative Headaches
@@ -116,7 +116,7 @@ export default function OurWork() {
         className="w-full h-[260px] sm:h-[300px] object-cover rounded-xl"
       />
       <div>
-        <H4EHR className="text-xl font-semibold mb-3 text-gray-900">
+        <H4EHR className="text-xl  dark:text-teal-700 font-semibold mb-3 text-gray-900">
           {card.title}
         </H4EHR>
         <P className="text-gray-700 leading-relaxed">
