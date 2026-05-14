@@ -48,15 +48,15 @@ export default function OurWork() {
     <>
     <section
       ref={sectionRef}
-      className="bg-white dark:bg-[#141414]  px-4 hidden xl:block"
+      className="bg-white dark:bg-[#141414]  px-4 hidden lg:block"
       style={{ height: "300vh" }}
     >
-      <div className="flex items-center  max-w-7xl justify-start xl:mx-auto">
-          <H2EHR className="text-[#008280] dark:text-white mt-6 xl:mt-10">
+      <div className="flex items-center  max-w-7xl justify-start lg:mx-auto">
+          <H2EHR className="text-[#008280] dark:text-white mt-6 lg:mt-10">
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
-      <div className="sticky top-0 h-screen flex max-w-7xl xl:mx-auto xl:px-6 px-4 gap-16">
+      <div className="sticky top-0 h-screen flex max-w-7xl lg:mx-auto lg:px-6 px-4 gap-16">
         {/* LEFT CONTENT — STACKS */}
         <div className="w-[45%] pt-24 space-y-16">
         
@@ -102,7 +102,7 @@ export default function OurWork() {
       </div>
     </section>
 
-    <section className="xl:hidden dark:bg-black  bg-white px-4 py-20 space-y-16">
+    <section className="lg:hidden bg-white px-4 py-20 space-y-16">
       <div className="flex items-center justify-start ">
           <H2EHR className="text-[#008280] mt-6 ">
             Eliminate These Common <br /> Administrative Headaches

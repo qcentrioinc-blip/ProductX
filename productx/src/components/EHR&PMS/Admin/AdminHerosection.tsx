@@ -13,14 +13,14 @@ const AdminHeroSection: React.FC = () => {
      
       
       {/* Main content container */}
-      <div className="max-w-7xl mx-auto    xl:px-6 px-6 py-12 pt-16 lg:pt-28 ">
-        <div className="grid xl:grid-cols-2 gap-4   items-center ">
+      <div className="max-w-7xl mx-auto    lg:px-6 px-6 py-12 pt-16 lg:pt-28 ">
+        <div className="grid lg:grid-cols-2 gap-4   items-center ">
           
           {/* Left content */}
           <div className="space-y-8 z-10 max-w-3xl">
             {/* Main heading with blue accent circle */}
             <div className="relative ">
-<H1EHR className="text-[#008280] mt-8 xl:mt-0   w-full">
+<H1EHR className="text-[#008280] mt-8 lg:mt-0   w-full">
   Complete Control Over Clinic Operations
 </H1EHR>
 
@@ -104,7 +104,7 @@ const AdminHeroSection: React.FC = () => {
           </div>
 
           {/* Right side - Image placeholder */}
-          <div className="relative z-10">s
+          <div className="relative z-10">
           
               {/* Image container - leave space for the actual image */}
               <div className="relative w-[100%]   pt-10   overflow-hidden  flex items-center justify-center">

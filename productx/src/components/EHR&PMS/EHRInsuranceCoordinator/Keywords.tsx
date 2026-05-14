@@ -67,16 +67,16 @@ export default function Keywords() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#F8F8F8] dark:bg-[#141414] h-auto xl:h-[150vh]"
+      className="relative bg-[#F8F8F8] dark:bg-[#141414] h-auto lg:h-[150vh]"
     >
       {/* STICKY AREA */}
-      <div className="sticky top-0 h-auto xl:h-screen flex items-end justify-center overflow-hidden">
-        <div className="relative w-full max-w-7xl mx-auto items-center flex xl:items-end justify-center pb-0">
+      <div className="sticky top-0 h-auto lg:h-screen flex items-end justify-center overflow-hidden">
+        <div className="relative w-full max-w-7xl mx-auto items-center flex lg:items-end justify-center pb-0">
 
           {/* SVG - arcs touch bottom - responsive sizing */}
           <svg 
             viewBox="0 0 1000 500" 
-            className="w-full h-auto max-h-[40vh] xl:max-h-none"
+            className="w-full h-auto max-h-[40vh] lg:max-h-none"
             preserveAspectRatio="xMidYMax meet"
           >
             {/* OUTER ARC */}
@@ -129,7 +129,7 @@ export default function Keywords() {
                   fontSize="16"
                  
                   fontFamily="Quicksand,sans-serif"
-                  className="font-bold  fill-black dark:fill-white xl:block"
+                  className="font-bold  fill-black dark:fill-white lg:block"
                   textAnchor="middle"
                 >
                   {p.label}
@@ -141,7 +141,7 @@ export default function Keywords() {
           {/* SEMI-CIRCLE GRADIENT BACKGROUND - responsive sizing */}
           <div
             className="absolute bottom-0 left-1/2 transform -translate-x-1/2 
-                       w-[200px] h-[100px] sm:w-[400px] sm:h-[200px] xl:w-[500px] xl:h-[250px]"
+                       w-[200px] h-[100px] sm:w-[400px] sm:h-[200px] lg:w-[500px] lg:h-[250px]"
             style={{
               borderRadius: "300px 300px 0 0",
               background:
@@ -159,11 +159,11 @@ export default function Keywords() {
           />
 
           {/* CENTER IMAGE - responsive sizing */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex xl:items-end justify-center">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex lg:items-end justify-center">
             <img
               src="/EHRIcons/InsuranceKeywords.webp"
               alt="Person"
-              className="w-[150px] sm:w-[200px] md:w-[260px] lg::w-[300px] xl:w-[320px] object-cover"
+              className="w-[150px] sm:w-[200px] md:w-[260px] lg:w-[320px] object-cover"
             />
           </div>
         </div>
