@@ -33,7 +33,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const update = () => setIsDesktop(window.innerWidth >= 1280);
+    const update = () => setIsDesktop(window.innerWidth >= 1024);
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
@@ -42,7 +42,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
   return (
     <>
       <div className="h-auto bg-[#F4F4F4] dark:bg-[#141414] px-4 py-10 ">
-        <div className="max-w-7xl xl:px-6  xl:mx-auto">
+        <div className="max-w-7xl lg:px-6 px-4 lg:mx-auto">
 
           {/* MOBILE / TABLET / iPAD PRO */}
           {!isDesktop && (
@@ -124,7 +124,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
                 </ContactUs> */}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {content.features.map((item, index) => (
                   <FeatureBlock
                     key={index}
@@ -160,7 +160,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
               </div>
 
               <div className="lg:w-3/5">
-                <div className="flex flex-col sm:flex-row gap-8 sm:gap-20 mt-6 lg:mt-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-20 mt-6 lg:mt-0">
                   {content.features.map((item, index) => (
                     <FeatureBlock
                       key={index}

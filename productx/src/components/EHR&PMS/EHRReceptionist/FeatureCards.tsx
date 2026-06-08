@@ -18,7 +18,7 @@ const FeatureCards = () => {
         </div>
  
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
          
           {/* Card 1 - Left */}
           <div className="flex flex-col rounded-[2rem] overflow-hidden  bg-[#F2F2F2] dark:bg-teal-800">
@@ -50,7 +50,7 @@ const FeatureCards = () => {
       e.stopPropagation();
       setDrawerOpen(true);
     }}
-  className="absolute   top-4 right-4 h-24 w-24 md:top-6 md:right-6 md:h-32 md:w-32 lg:top-6 lg:right-20 lg:w-44 lg:h-44 xl:top-2 xl:right-0 xl:w-28 xl:h-28 flex items-center justify-center z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
+  className="absolute   top-4 right-4 h-24 w-24 md:top-6 md:right-6 md:h-32 md:w-32 lg:top-2 lg:right-0 lg:w-28 lg:h-28 flex items-center justify-center z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
 >
   <img
     src="/EHRIcons/GreenArrow.svg"
@@ -62,7 +62,7 @@ const FeatureCards = () => {
             
   
            {/* Teal Rectangle Image with text overlay */}
-<div className="relative  md:h-[350px] lg:h-[400px] xl:h-[260px] p-8 pb-10">
+<div className="relative  md:h-[350px] lg:h-[260px] p-8 pb-10">
   
   {/* Background Image */}
   <img
@@ -77,7 +77,7 @@ const FeatureCards = () => {
     <H4EHR className="text-xl mb-3 text-white">
       Patient Flow Tracking
     </H4EHR>
-    <P className="text-teal-50  md:max-w-md xl:max-w-full leading-relaxed">
+    <P className="text-teal-50  md:max-w-md lg:max-w-full leading-relaxed">
       See exactly who has checked in, is in triage, or is waiting for the provider to reduce delays and improve efficiency.
     </P>
   </div>

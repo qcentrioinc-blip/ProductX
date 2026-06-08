@@ -14,7 +14,7 @@ interface FeaturePointProps {
 const FeatureItemCard: React.FC<FeatureItem> = ({ title, description, image }) => (
   <div className="flex flex-col py-4 last:border-b-0">
     <div className="flex flex-col">
-      <div className="flex flex-col md:px-6 xl:px-6 items-start gap-3 mb-2">
+      <div className="flex flex-col px-6 lg:px-6 items-start gap-3 mb-2">
         <img
           src={image}
           alt={title}
@@ -24,7 +24,7 @@ const FeatureItemCard: React.FC<FeatureItem> = ({ title, description, image }) =
           {title}
         </H3EHR>
       
-      <P className="leading-snug mt-1 xl:max-w-xl">
+      <P className="leading-snug mt-1 lg:max-w-xl">
         {description}
       </P>
       </div>
@@ -38,7 +38,7 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
 
   return (
     <div className="h-auto bg-[#F9F9F9] dark:bg-[#141414] py-10">
-      <div className="max-w-7xl px-6 xl:mx-auto xl:px-6">
+      <div className="max-w-7xl px-6 lg:mx-auto lg:px-6">
         
         {/* Title */}
         <div className="mb-10 lg:mb-16">
@@ -47,10 +47,10 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
           </H2EHR>
         </div>
 
-        <div className="flex flex-col xl:flex-row xl:space-x-16 xl:items-stretch items-start">
+        <div className="flex flex-col lg:flex-row lg:space-x-16 lg:items-stretch items-start">
           
           {/* Image */}
-          <div className="xl:w-1/2 w-full mb-10 xl:mb-0">
+          <div className="lg:w-1/2 w-full mb-10 lg:mb-0">
             <img
               src={content.heroImage}
               alt="Feature visual"
@@ -60,7 +60,7 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
           </div>
 
           {/* Feature List */}
-          <div className="xl:w-1/2 w-full flex flex-col justify-between">
+          <div className="lg:w-1/2 w-full flex flex-col justify-between">
             {content.features.map(item => (
               <FeatureItemCard key={item.id} {...item} />
             ))}
