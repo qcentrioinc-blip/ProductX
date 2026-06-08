@@ -5,7 +5,7 @@ import { H1 } from "../../../styles/Typography";
 import FallingGridBg from "./FallingGridBg";
 import Navbar from "../../Global/Navbar/Navbar";
 
-
+ 
 // ── 4 industries (tabs) ───────────────────────────────────────────────────────
 const industries = [
   { label: "Banking & Finance", link: "/industries/banking-and-finance", comingSoon: false, launch: null as Date | null },
