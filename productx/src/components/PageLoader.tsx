@@ -1,121 +1,230 @@
-"use client";
+import React, { useEffect, useState } from "react";
+import bgImage from "/Pageloadbg.png";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+interface PreloaderProps {
+  onComplete: () => void;
+}
 
-const PageLoader = () => {
-  const [, setCount] = useState(0);
+const PageLoader: React.FC<PreloaderProps> = ({ onComplete }) => {
+  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 25);
+useEffect(() => {
+  const steps = [10, 30, 45, 80, 100];
+  let index = 0;
 
-    return () => clearInterval(interval);
-  }, []);
+  const timer = setInterval(() => {
+    if (index < steps.length) {
+      setProgress(steps[index]);
+      index++;
+    } else {
+      clearInterval(timer);
+      setTimeout(() => {
+        onComplete();
+      }, 1000);
+    }
+  }, 900);
+
+  return () => clearInterval(timer);
+}, []); // ← empty array, runs ONCE on mount only
+
+  const sectorMap: Record<number, string> = {
+    10: "Banking Finance",
+    30: "Unified Healthcare",
+    45: "CloudFinOps AI",
+    80: "Across Every Sector",
+    100: "Welcome To Qnest",
+  };
+
+  const currentSector = sectorMap[progress] || "Banking Finance";
+
+  // Clean, premium spacing between phrases using explicit spaces and elegant divider dots
+ const baseText = "BANKING FINANCE  •  UNIFIED HEALTHCARE  •  CLOUD FINOPS AI  •  ";
+const repeatedText = `${baseText}${baseText}${baseText}${baseText}`;
 
   return (
-    <motion.div
-      initial={{ x: 0, opacity: 1 }}
-      animate={{ x: "-100%" }}
-      transition={{ 
-        delay: 2.2, 
-        duration: 1.5, 
-        ease: [0.65, 0, 0.35, 1] 
-      }}
-      className="fixed inset-0 z-[9999999999] bg-[#051026] overflow-hidden pointer-events-none"
-    >
-      {/* Premium Ambient Glow (Background) */}
-      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
-         <motion.div 
-           className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]"
-           animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-         />
-         <motion.div 
-           className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/10 rounded-full blur-[120px]"
-           animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-         />
-      </div> */}
+    <>
+      <style>
+        {`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
-      {/* Main Content Wrapper with Parallax Effect */}
-      <motion.div
-        initial={{ scale: 1, x: 0 }}
-        animate={{ 
-          scale: 0.9, 
-          x: -50, 
-          opacity: 0 
+        .loader-font{
+          font-family:'Cormorant Garamond', serif;
+        }
+
+        .fade-number{
+          animation:pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse{
+          0%{opacity:.5}
+          50%{opacity:1}
+          100%{opacity:.5}
+        }
+
+        /* Hardware-accelerated smooth rotation layer */
+        @keyframes spinTrack {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        .rotating-vector-group {
+          transform-origin: 500px 500px;
+          animation: spinTrack 45s linear infinite;
+        }
+      `}
+      </style>
+
+      <div
+        className="fixed inset-0 z-[9999] flex items-center justify-center loader-font overflow-hidden"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
-        transition={{ 
-          delay: 2.2, 
-          duration: 1.5, 
-          ease: [0.65, 0, 0.35, 1] 
-        }}
-        className="relative h-full flex items-center justify-center"
       >
-        
-        {/* Decorative Ring (Kept commented out as per your code) */}
-        {/* <motion.div
-          className="absolute border border-white/5 rounded-full"
-          style={{ width: 450, height: 450 }}
-          animate={{ rotate: 360, borderColor: ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.05)"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        /> */}
-
-        {/* LOGO + TEXT */}
-        <div className="flex items-center gap-2 z-10">
-          {/* Q IMAGE */}
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 150, 
-              damping: 20,
-              delay: 0.2 
-            }}
+        {/* Main Frame Outer Frame */}
+        <div
+          className="relative bg-black rounded-full flex items-center justify-center"
+          style={{
+            width: "42vw", // Adjusted slightly wider for premium framing
+            height: "92vh",
+            border: "1px solid rgba(216,208,192,.15)",
+          }}
+        >
+          {/* SVG Vector Canvas */}
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 1000 1000"
+            preserveAspectRatio="none"
+            className="absolute inset-0 pointer-events-none"
           >
-            {/* <img
-              src="/QLogo.svg"
-              alt="Q"
-              className="w-24 h-24 md:w-40 md:h-40 relative z-10 drop-shadow-[0_0_30px_rgba(59,130,246,0.4)]"
-            /> */}
-            <h1 className="text-5xl md:text-8xl lg:text-9xl 
-        font-bricolage       
-        bg-gradient-to-b from-purple-800 to-yellow-600 bg-[length:200%_auto] bg-clip-text text-transparent">Q</h1>
-          </motion.div>
+            <defs>
+              {/* Perfectly calculated text alignment track */}
+              <path
+                id="perfectCircleTrack"
+                d="M 500, 70 
+                   a 430,430 0 1,1 0,860 
+                   a 430,430 0 1,1 0,-860"
+              />
+            </defs>
 
-          {/* NEST WAVE TEXT */}
-          <div className="flex font-bold font-bricolage text-5xl md:text-8xl lg:text-9xl tracking-tight font-bricolage">
-            {["N", "E", "S", "T"].map((letter, index) => (
-              <motion.span
-                key={index}
-                // ✅ UPDATED: Brighter colors for full visibility
-                className="bg-gradient-to-b from-purple-800 to-yellow-600 bg-[length:200%_auto] bg-clip-text text-transparent"
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                  delay: 0.4 + (index * 0.08),
-                }}
+            {/* STATIC OUTER RING GEOMETRY */}
+            <circle
+              cx="500"
+              cy="500"
+              r="480"
+              fill="none"
+              stroke="#d8d0c0"
+              strokeWidth="1.5"
+              strokeOpacity="0.2"
+            />
+
+            {/* ROTATING TYPOGRAPHY ENGINE */}
+            <g className="rotating-vector-group">
+              <text
+                fill="#d8d0c0"
+                fontSize="26" /* Considerably larger text so it no longer looks like ants */
+                letterSpacing="14" /* Wide spacing between letters for a premium look */
+                xmlSpace="preserve" /* Forces browser to respect large spacing gaps */
+                fontWeight="400"
+                className="uppercase tracking-widest"
+                style={{ opacity: 0.9 }}
               >
-                {letter}
-              </motion.span>
-            ))}
+                {/* textLength dynamically balances spacing across the path perimeter */}
+                <textPath 
+                  href="#perfectCircleTrack" 
+                  startOffset="0%"
+                 
+                >
+                  {repeatedText}
+                </textPath>
+              </text>
+            </g>
+
+            {/* STATIC INNER RING GEOMETRY */}
+            <circle
+              cx="500"
+              cy="500"
+              r="380"
+              fill="none"
+              stroke="rgba(216,208,192,.2)"
+              strokeWidth="1"
+            />
+          </svg>
+
+          {/* ISOLATED STATIC CORE PANEL */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center text-[#e6dece] pointer-events-none select-none">
+            <div
+              style={{
+                fontSize: "3.2rem",
+                lineHeight: 1,
+                fontWeight: 300,
+                fontStyle: "italic"
+              }}
+            >
+              The
+            </div>
+
+            <div
+              style={{
+                fontSize: "clamp(4.5rem, 7.5vw, 9.5rem)",
+                lineHeight: 0.95,
+                fontWeight: 400,
+                letterSpacing: "0.01em"
+              }}
+            >
+              Qnest
+            </div>
+
+            <div
+              style={{
+                marginTop: "18px",
+                marginBottom: "10px",
+                letterSpacing: "0.45em",
+                textTransform: "uppercase",
+                fontSize: "11px",
+                opacity: 0.65,
+              }}
+            >
+              Across Every Sector
+            </div>
+
+            <div
+              className="fade-number"
+              style={{
+                fontSize: "4.2rem",
+                lineHeight: 1,
+                fontWeight: 300,
+                margin: "8px 0"
+              }}
+            >
+              {progress}%
+            </div>
+
+            <div
+              style={{
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                fontSize: "11px",
+                marginTop: "12px",
+                minHeight: "22px",
+                color: "#d8d0c0",
+                opacity: 0.85,
+                transition: "all .4s ease",
+              }}
+            >
+              {currentSector}
+            </div>
           </div>
         </div>
-
-      </motion.div>
-    </motion.div>
+      </div>
+    </>
   );
 };
 

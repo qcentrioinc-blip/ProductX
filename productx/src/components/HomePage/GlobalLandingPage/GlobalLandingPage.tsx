@@ -1,8 +1,8 @@
 // import LandingPage1 from "./LandingPage1"
 import CircularCards from "./CircularCards"
 // import Navbar from "../../Global/Navbar/Navbar"
-import { Suspense, useEffect, useState } from "react";
-import PageLoader from "../../PageLoader"
+import { Suspense, } from "react";
+// import PageLoader from "../../PageLoader"
 // import LandingPage1 from "./LandingPage1"
 // import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
@@ -14,21 +14,33 @@ import InnovationCards from "./InnovationCards"
 import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
+// import MainHero from "./MainHero";
+// import NewLanding from "./NewLanding";
+ 
 
 const GlobalLandingPage = () => {
-    const [loading, setLoading] = useState(true);
+//     const [loading, setLoading] = useState(true);
+    
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 3200); // 4s delay + 1.2s fade duration = unmount after fade fully completes
+//      const handleLoaderComplete = useCallback(() => {
+//     setLoading(false);
+//   }, []);
 
-  return () => clearTimeout(timer);
-}, []);
+// useEffect(() => {
+//   const timer = setTimeout(() => {
+//     setLoading(false);
+//   }, 3200); 
+//   return () => clearTimeout(timer);
+// }, []);
 
   
     return (
         <div className="relative">
+{/* <PageLoader onComplete={handleLoaderComplete} /> */}
+
+              {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
+{/* <MainHero/>
+<NewLanding/> */}
 
                 <CircularCards/>
             {/* <div id="landingpage">
@@ -93,7 +105,7 @@ useEffect(() => {
                 </div>
             </Suspense>
 {/* ✅ LOADER OVERLAY */}
-      {loading && <PageLoader />}
+  
         </div>
     )
 }
