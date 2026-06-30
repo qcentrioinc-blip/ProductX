@@ -104,7 +104,7 @@ const Description = () => {
       <div className="relative  h-[150vh] md:h-[200vh] xl:h-[300vh]  ">
         {/* Heading */}
         <div className="pb-4 md:pt-10 md:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:py-6 xl:px-6 md:3xl lg:w-[95%]">
-          <H2 className="text-left dark:text-[#2B68C3] ">
+          <H2 className="text-left dark:text-[#006C49] ">
             Key Features of ALMANAC for Financial Institutions
           </H2>
         </div>
@@ -123,7 +123,7 @@ const Description = () => {
                 className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200
                   ${
                     activeIndex === index
-                      ? "bg-[#2B68C3] text-white"
+                      ? "bg-[#006C49] text-white"
                       : "border border-neutral-400 bg-white text-neutral-700"
                   }`}
               >
@@ -150,7 +150,7 @@ const Description = () => {
             <H4 className="dark:text-white">{contentData[activeIndex].head}</H4>
             <P className="text-[#141414]">{contentData[activeIndex].para}</P>
           
-            <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
+            <div className="bg-[#006C49] p-4 rounded-2xl flex flex-row gap-x-4">
               <img src="/CheckIcon.svg" alt="alt"/>
               <P className="text-white  ">{contentData[activeIndex].para2}</P>
               </div>
@@ -160,7 +160,7 @@ const Description = () => {
 
           {/* Title + Description */}
           <div className="space-y-2">
-            <H3 className="text-[#2B68C3]">
+            <H3 className="text-[#006C49]">
               {contentData[activeIndex].title}
             </H3>
             <P>{contentData[activeIndex].description}</P>
@@ -180,8 +180,8 @@ const Description = () => {
                   className={`px-10 py-3 w-ful text-[20px] font-quicksand rounded-full transition duration-300
                     ${
                       activeIndex === index
-                        ? "bg-[#2B68C3] text-white"
-                        : "border border-[#2B68C3] dark:border-black dark:bg-gray-200 text-black "
+                        ? "bg-[#006C49] text-white"
+                        : "border border-[#006C49] dark:border-black dark:bg-gray-200 text-black "
                     }`}
                 >
                   {label}
@@ -206,7 +206,7 @@ const Description = () => {
             </div>
            
              
-            <div className="bg-[#2B68C3] p-4 rounded-2xl flex flex-row gap-x-4">
+            <div className="bg-[#006C49] p-4 rounded-2xl flex flex-row gap-x-4">
               <img src="/CheckIcon.svg" alt="alt"/>
               <P className="text-white ">{contentData[activeIndex].para2}</P></div>
             
@@ -219,7 +219,7 @@ const Description = () => {
             {/* Bottom Content Card */}
             <div className="flex flex-row justify-between items-center gap-6 mt-4 border-2 border-neutral-300  rounded-xl px-10 py-8">
               <div className="w-1/2">
-                <H3 className="text-[#2B68C3]">
+                <H3 className="text-[#006C49]">
                   {contentData[activeIndex].title}
                 </H3>
               </div>

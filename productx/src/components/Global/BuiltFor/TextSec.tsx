@@ -110,7 +110,7 @@ export default function TextSec() {
     ${
       isEHR
         ? "dark:text-[#FFCA28]"
-        : "dark:text-[#254D70]"
+        : "dark:text-[#006C49]"
     }
   `}
 >

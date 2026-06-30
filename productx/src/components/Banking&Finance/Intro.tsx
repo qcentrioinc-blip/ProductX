@@ -13,7 +13,7 @@ const Intro = () => {
           {/* LEFT SIDE */}
           <div>
             <H2 className="mb-6 leading-tight">
-              <span className="text-[#2B68C3]">
+              <span className="text-[#006C49]">
                 Complete banking technology stack{" "}
               </span>
               <span className="text-[#141414] dark:text-white">

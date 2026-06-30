@@ -28,19 +28,19 @@ export default function Highlights() {
  
   const mobileItems = [
     {
-      bg: "rgba(65,174,197,0.85)",
+      bg: "#00E79C",
       textColor: "text-black",
       circle: "Conforms with BASEL regulatory recommendations",
       pill: "Provides liquidity and interest rate tools",
     },
     {
-      bg: "rgba(52,125,218,0.85)",
+      bg: "#09A673",
       textColor: "text-white",
       circle: "Fully multi-currency compliant across modules",
       pill: "Simulates stress scenarios for risk assessment",
     },
     {
-      bg: "rgba(52,125,218,0.85)",
+      bg: "#006C49",
       textColor: "text-white",
       circle: "Integrates data from CBS and treasury systems",
       pill: "Supports strategic planning and budgeting needs",
@@ -51,13 +51,13 @@ export default function Highlights() {
     <div className="w-full pt-10 relative bg-[#EEF3FA] dark:bg-black  flex flex-col items-center overflow-hidden">
        
       <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#2B68C3 3px, transparent 3px)",
+          backgroundImage: "radial-gradient(#006C49 3px, transparent 3px)",
           backgroundSize: "24px 24px",
         }}
       />
-      <H2 className="text-center dark:text-[#2B68C3] px-4 xl:px-0 mb-16 max-w-2xl">  
+      <H2 className="text-center dark:text-[#006C49] px-4 xl:px-0 mb-16 max-w-2xl">  
     Key Highlights – FFIEC, OCC, and Federal Reserve Aligned
       </H2>
  
@@ -104,7 +104,7 @@ export default function Highlights() {
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
         width: 350, height: 350,
-        background: "rgba(65,174,197,0.85)",
+        background: "#00E79C",
         top: 0, left: 170,   // (740 - 400) / 2 = 170 → perfectly centered
         transform: go ? "translateX(0)" : "translateX(-500px)",
         opacity: go ? 1 : 0,
@@ -121,7 +121,7 @@ export default function Highlights() {
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
         width: 350, height: 350,
-        background: "rgba(52,125,218,0.85)",
+        background: "#09A673",
         top: 260, left: 10,
         transform: go ? "translateY(0)" : "translateY(400px)",
         opacity: go ? 1 : 0,
@@ -138,7 +138,7 @@ export default function Highlights() {
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
         width: 350, height: 350,
-        background: "rgba(52,125,218,0.85)",
+        background: "#006C49",
         top: 260, left: 320,   // 740 - 400 = 340 → right-aligned within container
         transform: go ? "translateY(0)" : "translateY(400px)",
         opacity: go ? 1 : 0,

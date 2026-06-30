@@ -30,7 +30,7 @@ const ThreeBank = () => {
                 <div className="flex flex-col xl:flex-row justify-left items-start mb-12 xl:mb-12">
                     <div className="flex-1 w-full mb-4 relative">
                         <H1>
-                            <div className="text-[#2B68C3] leading-[1.1]">Complete Core</div>
+                            <div className="text-[#006C49] leading-[1.1]">Complete Core</div>
                             <div className= "leading-[1.1] dark:text-white">Banking Platform </div>
                         </H1>
                     </div>
@@ -54,7 +54,7 @@ Bankfair is Qnest’s comprehensive core banking and loan management system desi
                                 </H3>
 
                                 {/* Title */}
-                                <H3 className="text-[#2B68C3] m-0">
+                                <H3 className="text-[#006C49] m-0">
                                     {card.title}
                                 </H3>
                             </div>

@@ -226,7 +226,7 @@ const Feature = () => {
         <div className="sticky top-0 dark:bg-black bg-white">
           <div className="mx-auto flex w-full max-w-7xl flex-col justify-center px-4 py-4 sm:px-6 md:min-h-[620px] md:py-5 lg:min-h-[680px] lg:px-10 xl:min-h-[720px] xl:py-6">
 
-            <H2 className="mb-3 mt-0 text-center text-[#2B68C3] tracking-tight leading-snug md:mb-5 xl:mb-6">
+            <H2 className="mb-3 mt-0 text-center text-[#006C49] tracking-tight leading-snug md:mb-5 xl:mb-6">
               Key features of Diligent platform
             </H2>
 
@@ -246,7 +246,7 @@ const Feature = () => {
                       onClick={() => handleTabClick(index)}
                       className={`flex-shrink-0 whitespace-nowrap py-2 px-4 rounded-full text-xs font-semibold transition-colors duration-300
                         ${isActive
-                          ? "bg-[#2B68C3] text-white"
+                          ? "bg-[#006C49] text-white"
                           : "bg-white border border-gray-300 text-gray-700"
                         }`}
                     >
@@ -284,8 +284,8 @@ const Feature = () => {
                       onClick={() => handleTabClick(index)}
                       className={`w-full rounded-full px-6 py-6 text-[17px] font-semibold text-center transition-all duration-300
                         ${isActive
-                          ? "bg-[#2B68C3] text-white shadow-md"
-                          : "border border-gray-300 text-gray-700 hover:border-[#2B68C3] hover:text-[#2B68C3]"
+                          ? "bg-[#006C49] text-white shadow-md"
+                          : "border border-gray-300 text-gray-700 hover:border-[#006C49] hover:text-[#006C49]"
                         }`}
                     >
                       {item.buttonLabel}

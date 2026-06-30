@@ -171,7 +171,7 @@ const ArticleCard: React.FC<ArticleData> = ({ date, imageSrc, title, subtitle, d
         />
       </div>
       <P className="text-gray-600 my-2 text-sm dark:text-white">{date}</P>
-      <H4 className="mb-4 dark:text-[#2B68C3]">{subtitle}</H4>
+      <H4 className="mb-4 dark:text-[#006C49]">{subtitle}</H4>
       <P className="text-gray-700 dark:text-white mb-4">{description}</P>
     </div>
   );
@@ -199,7 +199,7 @@ const ImageCard: React.FC = () => {
     <section className="pt-10 dark:bg-black">
       <div className="max-w-7xl mx-auto xl:max-w-8xl pb-10 xl:mx-auto px-6 xl:px-6">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
-          <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
+          <H2 className="text-[#006C49] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
             Banking & Finance Insights
           </H2>
           <Link to="/industries/banking-and-finance/blogs">

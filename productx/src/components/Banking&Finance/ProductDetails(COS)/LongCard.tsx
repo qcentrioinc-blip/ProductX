@@ -61,7 +61,7 @@ const LongCard = () => {
                         <div className="flex flex-col items-center p-5 gap-4">
                             {/* Blue circle */}
                             <div className="
-                                rounded-full bg-[#2B68C3] shrink-0
+                                rounded-full bg-[#006C49] shrink-0
                                 w-16 h-16
                                 sm:w-20 sm:h-20
                                 xl:w-[99px] xl:h-[99px]
@@ -189,7 +189,7 @@ const LongCard = () => {
                                     </span>
                                     <span className="
                                         font-['Bricolage_Grotesque'] font-semibold
-                                        text-[#2B68C3] leading-[100%]
+                                        text-[#006C49] leading-[100%]
                                         text-lg
                                         lg:text-xl
                                         xl:text-[32px]

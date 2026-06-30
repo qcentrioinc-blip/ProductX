@@ -142,7 +142,7 @@ const NewOneFooter = () => {
 
                 {/* Newsletter Heading */}
                 <div className="space-y-0 ">
-                  <H2 className='text-[#2B68C3]'>
+                  <H2 className='text-[#006C49]'>
                     Subscribe to our newsletter
                   </H2>
                 </div>
@@ -161,7 +161,7 @@ const NewOneFooter = () => {
   dark:bg-transparent dark:text-white dark:border-white 
   transition-colors duration-300
   ${isFooterEmailValid
-                        ? 'border-[#2B68C3] focus:border-[#2B68C3]'
+                        ? 'border-[#006C49] focus:border-[#006C49]'
                         : 'border-black focus:border-black'
                       }`}
                   />
@@ -175,7 +175,7 @@ const NewOneFooter = () => {
       transition-all duration-300 ease-in-out dark:border-white
       border border-transparent
       ${isFooterEmailValid
-                        ? 'bg-[#2B68C3] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
+                        ? 'bg-[#006C49] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
                         : 'bg-[#141414] text-white hover:bg-white hover:text-[#141414] hover:border-[#010101] hover:border-b-[4px] hover:-translate-y-[2px]'
                       }
     `}

@@ -6,7 +6,7 @@ import { ContactUs } from "../../../styles/Button";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Global/ThemeContext";
 
-const PRIMARY_COLOR = "#2B68C3";
+const PRIMARY_COLOR = "#006C49";
 
  
 
@@ -17,7 +17,7 @@ const LIGHT_BG_COLORS = [
   "#DCEAFF",
   "#ADCEFF",
   "#78A6EC",
-  "#2B68C3",
+  "#006C49",
 ];
 
 const DARK_BG_COLORS = [
@@ -146,7 +146,7 @@ const textColor = useMemo(() => {
     "#111827", // #DCEAFF
     "#111827", // #ADCEFF
     "#111827", // #78A6EC (still light!)
-    "#111827", // #2B68C3 (dark → white text)
+    "#111827", // #006C49 (dark → white text)
   ];
 
   return TEXT_COLORS[Math.min(index, TEXT_COLORS.length - 1)];

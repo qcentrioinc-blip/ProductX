@@ -47,7 +47,7 @@ const Benefits = () => {
             <div className="space-y-6 lg:space-y-8 w-full max-w-[516px]">
 
               <H2>
-                <div className="text-[#2B68C3]">Key Benefits of </div>
+                <div className="text-[#006C49]">Key Benefits of </div>
                 <div className="text-gray-800 dark:text-white">Using Bankfair</div>
               </H2>
 
@@ -92,7 +92,7 @@ Financial institutions choose Bankfair to streamline operations, ensure complian
                   </H3>
 
                   {/* Title */}
-                  <H3 className="text-[#2B68C3] m-0">
+                  <H3 className="text-[#006C49] m-0">
                     {card.title}
                   </H3>
 

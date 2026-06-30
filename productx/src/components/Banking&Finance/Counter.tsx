@@ -34,7 +34,7 @@ const Counter = () => {
   ref={sectionRef}
   onMouseDown={(e) => e.preventDefault()}
   onMouseMove={handleMouseMove}
-  className="relative overflow-hidden py-6 md:py-10 select-none dark:bg-gradient-to-r- dark:from-[#000000] dark:to-[#141414] bg-gradient-to-r from-[#2B68C34D] to-[#FED6004D]"
+  className="relative overflow-hidden py-6 md:py-10 select-none dark:bg-gradient-to-r- dark:from-[#000000] dark:to-[#141414] bg-gradient-to-r from-[#006C494D] to-[#FED6004D]"
 >
       {/* Glow effect following mouse */}
       <motion.div
@@ -50,7 +50,7 @@ const Counter = () => {
       <div className="max-w-7xl   mx-auto  px-8 lg:px-10 xl:px-6">
         {/* Heading */}
         <H2 className="  font-bold mb-12  lg:mx-6 md:mt-10 md:mb-16">
-          <span className="text-[#2B68C3]">Trusted by financial institutions  </span>
+          <span className="text-[#006C49]">Trusted by financial institutions  </span>
           <br className="xl:block hidden"/>
           <span className="text-[#333333] dark:text-white">across the globe</span>
         </H2>

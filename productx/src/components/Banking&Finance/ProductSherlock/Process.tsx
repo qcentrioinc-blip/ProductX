@@ -17,7 +17,7 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
 
       {/* Large step number watermark */}
       <motion.span
-        className="absolute text-[100px] font-bold text-[#2B68C3] select-none leading-none z-2"
+        className="absolute text-[100px] font-bold text-[#006C49] select-none leading-none z-2"
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 0.7 }}
         transition={{ duration: 0.7, delay: index * 0.12 }}

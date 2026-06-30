@@ -7,7 +7,7 @@ export default function CardInfo() {
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <H2 className="text-[#2B68C3]">
+          <H2 className="text-[#006C49]">
              Core Modules of SHERLOCK Platform
           </H2>
         </div>
@@ -19,7 +19,7 @@ export default function CardInfo() {
           <div className="flex flex-col items-start text-left md:pr-10 md:border-r md:border-gray-300 py-6 md:py-0">
             
             {/* Icon */}
-            <div className="w-12 h-12 bg-[#2B68C3] rounded-full flex items-center justify-center mb-5">
+            <div className="w-12 h-12 bg-[#006C49] rounded-full flex items-center justify-center mb-5">
               <img className="text-white w-8 h-8 z-10"  
               src="/ProductSherlock/icon13.svg"
               />
@@ -38,7 +38,7 @@ export default function CardInfo() {
           {/* Feature 2 */}
           <div className="flex flex-col items-start text-left md:px-10 md:border-r md:border-gray-300 py-6 md:py-0">
 
-            <div className="w-12 h-12 bg-[#2B68C3] rounded-full flex items-center justify-center mb-5">
+            <div className="w-12 h-12 bg-[#006C49] rounded-full flex items-center justify-center mb-5">
               <img className="text-white w-7 h-7 z-10"  
               src="/ProductSherlock/icon5.svg"
               />
@@ -57,7 +57,7 @@ export default function CardInfo() {
           {/* Feature 3 */}
           <div className="flex flex-col items-start text-left md:pl-10 py-6 md:py-0">
 
-            <div className="w-12 h-12 bg-[#2B68C3] rounded-full flex items-center justify-center mb-5 ">
+            <div className="w-12 h-12 bg-[#006C49] rounded-full flex items-center justify-center mb-5 ">
               <img className="text-white w-8 h-8 z-10"  
               src="/ProductSherlock/icon12.svg"
               />

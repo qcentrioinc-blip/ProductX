@@ -4,7 +4,7 @@ import { H1, P } from '../../../styles/Typography';
 
 const HeroSection = () => {
   return (
-  <section className="w-full bg-[#2B68C3] dark:bg-[#0f172a] xl:h-auto overflow-hidden transition-colors duration-300">
+  <section className="w-full bg-[#006C49] dark:bg-[#0f172a] xl:h-auto overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto  px-4 lg:px-6   xl:py-20 pt-16 xl:pt-36">
 
      <div className="flex flex-col xl:flex-row items-center pt-24 justify-between gap-12">

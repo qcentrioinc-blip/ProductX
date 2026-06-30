@@ -137,7 +137,7 @@ const AccordionPago = () => {
                           <div className="flex items-center gap-2">
                             <H3
                               className={`font-semibold leading-tight transition ${
-                                isActive ? "text-[#2B68C3]" : "text-black dark:text-white"
+                                isActive ? "text-[#006C49]" : "text-black dark:text-white"
                               }`}
                             >
                               {tab.title}
@@ -146,7 +146,7 @@ const AccordionPago = () => {
                               animate={{ x: isActive ? 4 : 0 }}
                               transition={{ duration: 0.3 }}
                               className={`transition ${
-                                isActive ? "text-[#2B68C3]" : "text-gray-600"
+                                isActive ? "text-[#006C49]" : "text-gray-600"
                               }`}
                             >
                               <ArrowRight />

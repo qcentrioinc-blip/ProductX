@@ -90,7 +90,7 @@ const LandingSams = () => {
                         </P>
 
                         <ContactUs
-                            className="relative z-10 !bg-[#2B68C3] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-4 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
+                            className="relative z-10 !bg-[#006C49] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-4 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
                             onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });

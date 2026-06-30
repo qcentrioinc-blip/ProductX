@@ -40,7 +40,7 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
 
   "banking-and-finance": {
     sectionBg: "#F2F2F2",
-     darkHeadingColor: "#2B68C3",
+     darkHeadingColor: "#006C49",
     headingColor: "#2A2A2A",
     paraColor: "#141414",
     buttonBg: "#141414",

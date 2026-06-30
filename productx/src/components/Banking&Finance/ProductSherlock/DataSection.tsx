@@ -8,7 +8,7 @@ export default function DataSection() {
 
       {/* TITLE */}
       <div className="max-w-5xl mx-auto text-center mb-6 lg:mb-12">
-        <H2 className="text-[#2B68C3] leading-tight">
+        <H2 className="text-[#006C49] leading-tight">
           KYC Compliance
            and Monitoring Tools
         </H2>
@@ -21,7 +21,7 @@ export default function DataSection() {
 
           {/* Monitoring */}
           <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate-900">
-            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Risk</H4>
+            <H4 className="  dark:text-white text-[#006C49] mb-2">Risk</H4>
             <ul className="list-disc pl-5 space-y-2 text-[14px] dark:text-white md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Risk profile creation based on customer type, residential status, and activities </li>
@@ -31,7 +31,7 @@ export default function DataSection() {
 
           {/* Detection */}
           <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate-900">
-            <H4 className="  dark:text-white text-[#2B68C3] mb-2">KYC</H4>
+            <H4 className="  dark:text-white text-[#006C49] mb-2">KYC</H4>
             <ul className="list-disc dark:text-white pl-5 space-y-2 text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li> Individual customer monitoring with same address customer identification features </li>
@@ -41,7 +41,7 @@ export default function DataSection() {
 
           {/* Case Mgmt */}
           <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate-900">
-            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Monitoring</H4>
+            <H4 className="  dark:text-white text-[#006C49] mb-2">Monitoring</H4>
             <ul className="list-disc pl-5 space-y-2 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Transaction monitoring and case management with customer and account level reports </li>
@@ -51,7 +51,7 @@ export default function DataSection() {
 
           {/* Compliance */}
           <div className="bg-white rounded-2xl shadow-xl p-5 dark:bg-slate-900">
-            <H4 className="  dark:text-white text-[#2B68C3] mb-2">Screening</H4>
+            <H4 className="  dark:text-white text-[#006C49] mb-2">Screening</H4>
             <ul className="list-disc pl-5 space-y-2 dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand">
               <li>Screening directory maintenance with sanction list name matching capabilities </li>
@@ -89,7 +89,7 @@ export default function DataSection() {
         <div className="flex justify-center items-center relative">
           <div className="absolute w-[500px] h-[500px]">
 
-            <div className="w-full h-full rounded-full bg-[#2B68C3] relative overflow-hidden">
+            <div className="w-full h-full rounded-full bg-[#006C49] relative overflow-hidden">
 
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[3px] h-full bg-white" />
               <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[3px] w-full bg-white" />

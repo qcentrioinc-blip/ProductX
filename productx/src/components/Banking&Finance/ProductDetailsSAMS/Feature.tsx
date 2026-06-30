@@ -41,7 +41,7 @@ const AboutFeaturesSection = () => {
             <img src={item.icon} alt={item.title} className="w-10 h-10 mb-4" />
 
             {/* Title */}
-            <H4 className="text-gray-900 dark:text-[#2B68C3] text-lg font-semibold mb-4">
+            <H4 className="text-gray-900 dark:text-[#006C49] text-lg font-semibold mb-4">
               {item.title}
             </H4>
 

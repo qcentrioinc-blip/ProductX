@@ -178,7 +178,7 @@ const Building = () => {
         leading-[120%]"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
           >
-            <span  className=" text-[#2B68C3]   " >Powerful Features That Transform</span>{' '}
+            <span  className=" text-[#006C49]   " >Powerful Features That Transform</span>{' '}
             <span className="dark:text-white "  >Financial Reconciliation</span>
           </h1>
 
@@ -215,7 +215,7 @@ const Building = () => {
                 px-3 py-1.5 text-[11px]
                 sm:px-4 sm:py-2 sm:text-xs lg:text-sm lg:px-8 lg:py-4
                 xl:px-8 xl:py-4 xl:text-sm
-                ${activeFilter === filter ? 'bg-[#2B68C3] text-white' : 'bg-white text-[#141414]'}
+                ${activeFilter === filter ? 'bg-[#006C49] text-white' : 'bg-white text-[#141414]'}
               `}
                   style={{ fontFamily: "'Quicksand', sans-serif" }}
                 >
@@ -304,7 +304,7 @@ const Building = () => {
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
-                    className="font-normal  dark:text-[#2B68C3] text-[#141414] leading-[140%]  m-0
+                    className="font-normal  dark:text-[#006C49] text-[#141414] leading-[140%]  m-0
                            lg:w-full xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[16px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
@@ -339,7 +339,7 @@ const Building = () => {
 
                   {/* Label: 11→13→14→15→18px */}
                   <p
-                    className="font-normal text-[#141414] dark:text-[#2B68C3] leading-[140%] m-0
+                    className="font-normal text-[#141414] dark:text-[#006C49] leading-[140%] m-0
                            lg:w-full xl:w-[252px]
                            text-[11px] sm:text-[13px] md:text-sm lg:text-[16px] xl:text-lg"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}

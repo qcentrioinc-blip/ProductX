@@ -476,7 +476,7 @@ export default function GlossaryPage() {
             className="mb-10 scroll-mt-[160px]"
           >
 
-            <H2 className="mb-4 dark:text-[#2b68c3]">{letter}</H2>
+            <H2 className="mb-4 dark:text-[#006C49]">{letter}</H2>
 
             {glossaryData[letter]?.length ? (
 

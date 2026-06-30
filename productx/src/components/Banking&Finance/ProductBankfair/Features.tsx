@@ -172,7 +172,7 @@ const Features = () => {
 
       {/* Title Section */}
       <div className="text-center max-w-6xl mx-auto mb-6 xl:mb-8">
-        <H2 className="text-[#2B68C3] mb-4 max-w-4xl mx-auto ">
+        <H2 className="text-[#006C49] mb-4 max-w-4xl mx-auto ">
           Powerful Features Designed for <span className=" text-black dark:text-white">Comprehensive Banking Operations</span>
         </H2>
         
@@ -208,7 +208,7 @@ const Features = () => {
                 px-3 py-1.5 text-[11px]
                 sm:px-4 sm:py-2 sm:text-xs lg:text-sm lg:px-8 lg:py-4
                 xl:px-8 xl:py-4 xl:text-sm
-                ${activeFilter === filter ? 'bg-[#2B68C3] text-white' : 'bg-white text-[#141414]'}
+                ${activeFilter === filter ? 'bg-[#006C49] text-white' : 'bg-white text-[#141414]'}
               `}
               style={{ fontFamily: "'Quicksand', sans-serif" }}
             >
@@ -244,7 +244,7 @@ const Features = () => {
 
             {/* Title: 20→22→24→26→32px */}
             <h2
-              className="font-bold text-[#141414] dark:text-[#2B68C3] m-0 leading-none
+              className="font-bold text-[#141414] dark:text-[#006C49] m-0 leading-none
                          text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] xl:text-[32px]"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >

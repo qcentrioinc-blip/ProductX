@@ -5,7 +5,7 @@ const BlueBox = () => {
         <div className="relative w-full overflow-hidden lg:max-w-8xl lg:mx-auto lg:flex lg:h-[730px]">
 
             <div className="
-                bg-[#2B68C3] dark:bg-black flex flex-col justify-between
+                bg-[#006C49] dark:bg-black flex flex-col justify-between
                 p-8 pt-12 pb-10
                 sm:p-10 sm:pt-14 sm:pb-12
                 lg:w-[71%] lg:h-[730px]

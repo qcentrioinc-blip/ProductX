@@ -20,10 +20,10 @@ export default function ProductNotFound() {
           transition={{ duration: 0.5 }}
           className="mb-8 flex justify-center"
         >
-          <div className="w-24 h-24 flex items-center justify-center rounded-full bg-[#2B68C3]/10">
+          <div className="w-24 h-24 flex items-center justify-center rounded-full bg-[#006C49]/10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-12 h-12 text-[#2B68C3]"
+              className="w-12 h-12 text-[#006C49]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -45,7 +45,7 @@ export default function ProductNotFound() {
           transition={{ duration: 0.6 }}
           className="text-[28px] md:text-[36px] lg:text-[48px]
                      font-bricolageEHR
-                     leading-[120%] text-[#2B68C3]"
+                     leading-[120%] text-[#006C49]"
         >
           We couldn’t locate this product
         </motion.h1>
@@ -74,14 +74,14 @@ export default function ProductNotFound() {
         >
           <Link
             to="/industries/banking-and-finance/marketplace"
-            className="px-6 py-3 bg-[#2B68C3] text-white rounded-lg font-bricolage hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-[#006C49] text-white rounded-lg font-bricolage hover:bg-blue-700 transition"
           >
             View Products
           </Link>
 
           <Link
             to="/contact"
-            className="px-6 py-3 border border-[#2B68C3] text-[#2B68C3] rounded-lg font-bricolage hover:bg-blue-50 transition"
+            className="px-6 py-3 border border-[#006C49] text-[#006C49] rounded-lg font-bricolage hover:bg-blue-50 transition"
           >
             Contact Our Team
           </Link>

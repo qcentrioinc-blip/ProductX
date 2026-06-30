@@ -24,7 +24,7 @@ const Banks = () => {
     <section className="dark:bg-black">
     <div className="relative max-w-7xl  mx-auto min-h-screen  py-10 xl:py-16 px-6 xl:px-6  lg:px-10  ">
       <div className="relative z-10">
-        <H2 className="font-semibold md:mb-10 dark:text-[#2B68C3] ">
+        <H2 className="font-semibold md:mb-10 dark:text-[#006C49] ">
                   Key Benefits of Implementing <br/> ALMANAC Platform
                 </H2>
         <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -41,7 +41,7 @@ const Banks = () => {
               />
 
               <div className="lg:mt-10 mt-4">
-                <H4 className="font-semibold text-[#2B68C3]">
+                <H4 className="font-semibold text-[#006C49]">
                   Complete Balance Sheet Control
                 </H4>
 
@@ -61,7 +61,7 @@ const Banks = () => {
                 className="bg-white dark:bg-slate-950  mt-4 shadow-lg rounded-md p-6 border-gray-300 border-2  sticky top-24"
                 style={{ zIndex: index + 1 }}
               >
-                <H4 className="mb-6 lg:mb-10 text-[#2B68C3] font-semibold">
+                <H4 className="mb-6 lg:mb-10 text-[#006C49] font-semibold">
                   {label}
                 </H4>
 

@@ -108,7 +108,7 @@ const RightPanel = () => {
   return (
     <div className="flex flex-1 flex-col lg:w-[55%] xl:w-auto lg:pl-4 xl:pl-6 lg:pr-2 pt-8 lg:pt-2 justify-between">
       <H2
-        className="font-black text-[#1A1E23] text-[32px]  dark:text-[#2b68c3] sm:text-[40px] lg:text-[40px] xl:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
+        className="font-black text-[#1A1E23] text-[32px]  dark:text-[#006C49] sm:text-[40px] lg:text-[40px] xl:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
       >
         Integrated EWS, SMA <br className="hidden lg:block" /> and NPL Solution
       </H2>

@@ -19,7 +19,7 @@ const ImageGrid = () => {
       Benefits
     </span>
  
-    <H2><span className="text-[#2B68C3]">Key Benefits of PAGO </span>  Payment System </H2>
+    <H2><span className="text-[#006C49]">Key Benefits of PAGO </span>  Payment System </H2>
  
     <P className="xl:max-w-md dark:text-white ">
       Financial institutions gain efficiency, security, and reliability across all payment types with lower operational costs. 
@@ -82,7 +82,7 @@ const ImageGrid = () => {
             {/* Right Sub-column */}
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6 h-full">
               {/* Card 2 */}
-              <div className="flex-[0.55] bg-[#FAFAFA] dark:bg-slate-950 space-y-10  border-2 border-[#2B68C3] rounded-md p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
+              <div className="flex-[0.55] bg-[#FAFAFA] dark:bg-slate-950 space-y-10  border-2 border-[#006C49] rounded-md p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col justify-start">
                
                    <div className="h-20 w-20 rounded-full flex items-center justify-center bg-black">
               <img src="/Pago/Eye.svg" alt="pago" className=""/>

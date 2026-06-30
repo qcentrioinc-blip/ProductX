@@ -172,21 +172,21 @@ export default function Map() {
  
                 {/* MOBILE left card — static, in normal flow */}
                 <div className="block md:hidden px-4 pb-4">
-                    <div className="bg-white rounded-2xl shadow-2xl p-6 w-full border-[12px] border-[#2B68C3]">
+                    <div className="bg-white rounded-2xl shadow-2xl p-6 w-full border-[12px] border-[#006C49]">
                         <div className="flex flex-col space-y-6">
  
  
                             {/* Section 1 */}
                             <div className="flex items-start gap-4 justify-between">
                                 <div
-                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                    className="text-3xl font-medium text-[#006C49] leading-none shrink-0"
                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
                                     6
                                 </div>
                                 <div className="flex flex-col">
                                     <div
-                                        className=" text-md text-[#2B68C3] mb-1 uppercase tracking-widest"
+                                        className=" text-md text-[#006C49] mb-1 uppercase tracking-widest"
                                         style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                     >
                                         Operational Countries
@@ -196,7 +196,7 @@ export default function Map() {
                                         {productionSites.map((site, index) => (
                                             <div
                                                 key={index}
-                                                className="text-xs text-[#2B68C3]"
+                                                className="text-xs text-[#006C49]"
                                                 style={{ fontFamily: 'Quicksand, sans-serif' }}
                                             >
                                                 {site}
@@ -210,19 +210,19 @@ export default function Map() {
                             {/* Section 2 */}
                             {/* <div className="flex items-start gap-6">
                                 <div
-                                    className="text-3xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                    className="text-3xl font-medium text-[#006C49] leading-none shrink-0"
                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
                                     400+
                                 </div>
                                 <div className="flex flex-col relative left-20  pt-2">
                                     <div
-                                        className="text-sm font-extrabold text-[#2B68C3] uppercase tracking-widest"
+                                        className="text-sm font-extrabold text-[#006C49] uppercase tracking-widest"
                                         style={{ fontFamily: 'Quicksand, sans-serif' }}
                                     >
                                       Skilled Professionals Globally
                                     </div>
-                                    <div className="text-xs text-[#2B68C3] mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                    <div className="text-xs text-[#006C49] mt-0.5" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                        Skilled Professionals Globally
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@ export default function Map() {
                             {/* Link */}
                             {/* <a
                                 href="#"
-                                className="text-[#2B68C3] text-sm font-semibold flex items-center group"
+                                className="text-[#006C49] text-sm font-semibold flex items-center group"
                                 style={{ fontFamily: 'Barlow, sans-serif' }}
                             >
                                 View All References
@@ -249,7 +249,7 @@ export default function Map() {
                         <div className="flex flex-col gap-2">
                             <div className="flex justify-between items-center">
                                 <div
-                                    className="bg-[#2B68C3] text-white px-4 py-2 rounded-full text-sm font-bold flex-1 mr-2"
+                                    className="bg-[#006C49] text-white px-4 py-2 rounded-full text-sm font-bold flex-1 mr-2"
                                     style={{ fontFamily: 'Barlow, sans-serif' }}
                                 >
                                     {selectedLocation.name}
@@ -274,7 +274,7 @@ export default function Map() {
                 {/* ── DESKTOP LEFT CARD — md+ only, scroll animation ── UNCHANGED ── */}
                 <motion.div
                     style={{ y: cardY, opacity: cardOpacity }}
-                    className="hidden md:block absolute left-12 top-[35%] z-30 bg-white rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-[#2B68C3]"
+                    className="hidden md:block absolute left-12 top-[35%] z-30 bg-white rounded-3xl shadow-2xl p-10 lg:p-12 w-[420px] lg:w-[480px] border-[15px] border-[#006C49]"
                 >
                     <div className="flex flex-col space-y-16">
  
@@ -282,21 +282,21 @@ export default function Map() {
                         {/* Section 1 */}
                         <div className="flex items-start gap-8 justify-between">
                             <div
-                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                className="text-5xl font-medium text-[#006C49] leading-none shrink-0"
                                 style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                             >
                                 6
                             </div>
                             <div className="flex flex-col">
                                 <div
-                                    className="text-base font-extrabold text-[#2B68C3] mb-2 uppercase tracking-widest"
+                                    className="text-base font-extrabold text-[#006C49] mb-2 uppercase tracking-widest"
                                     style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                                 >
                                     Operational Countries
                                 </div>
                                 <div className="space-y-1">
                                     {productionSites.map((site, index) => (
-                                        <div key={index} className="text-sm text-[#2B68C3]" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                        <div key={index} className="text-sm text-[#006C49]" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                             {site}
                                         </div>
                                     ))}
@@ -308,19 +308,19 @@ export default function Map() {
                         {/* Section 2 */}
                         {/* <div className="flex items-start gap-10">
                             <div
-                                className="text-5xl font-medium text-[#2B68C3] leading-none shrink-0"
+                                className="text-5xl font-medium text-[#006C49] leading-none shrink-0"
                                 style={{ fontFamily: 'Bricolage Grotesque, sans-serif' }}
                             >
                                 400+
                             </div>
                             <div className="flex flex-col pt-3">
                                 <div
-                                    className="text-base font-extrabold text-[#2B68C3] uppercase tracking-widest"
+                                    className="text-base font-extrabold text-[#006C49] uppercase tracking-widest"
                                     style={{ fontFamily: 'Quicksand, sans-serif' }}
                                 >
                                    Skilled Professionals Globally
                                 </div>
-                                <div className="text-sm  text-[#2B68C3] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                                <div className="text-sm  text-[#006C49] mt-1" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                    
                                 </div>
                             </div>
@@ -350,11 +350,11 @@ export default function Map() {
                                 <X size={18} strokeWidth={2} />
                             </button>
                         </div> */}
-                        <div className="bg-[#2B68C3] text-white px-6 py-3 rounded-full text-lg font-bold shadow-xl w-full" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                        <div className="bg-[#006C49] text-white px-6 py-3 rounded-full text-lg font-bold shadow-xl w-full" style={{ fontFamily: 'Barlow, sans-serif' }}>
                             {selectedLocation.name}
                         </div>
                         {/* <div className="bg-white rounded-3xl shadow-2xl p-6 lg:p-8">
-                            <p className="text-base text-[#2B68C3] leading-relaxed" style={{ fontFamily: 'Barlow, sans-serif' }}>
+                            <p className="text-base text-[#006C49] leading-relaxed" style={{ fontFamily: 'Barlow, sans-serif' }}>
                                 {selectedLocation.description}
                             </p>
                         </div> */}

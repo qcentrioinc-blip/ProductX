@@ -275,7 +275,7 @@ export default function BlogGridSection() {
                   <span className="text-xs font-semibold  font-quicksand  dark:text-white  text-bold text-[12px] text-[#1A4ABE] uppercase tracking-wide">
                     {post.category}
                   </span>
-                  <H4 className="font-semibold text-gray-900  dark:text-[#2b68c3] leading-snug">{post.title}</H4>
+                  <H4 className="font-semibold text-gray-900  dark:text-[#006C49] leading-snug">{post.title}</H4>
                   <P className="text-[#141414] text-sm leading-snug">{post.description}</P>
                   <div className="pt-2 text-gray-400 text-sm">
                     📅 {post.date}

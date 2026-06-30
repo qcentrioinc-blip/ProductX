@@ -56,7 +56,7 @@ const FeatureGridSection: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="w-full xl:w-1/2 flex flex-col justify-start"
         >
-          <H3 className="text-[#2B68C3] leading-snug mb-6">
+          <H3 className="text-[#006C49] leading-snug mb-6">
             Complete Internet Banking Platform for Retail and Corporate Customers 
           </H3>
 

@@ -36,12 +36,12 @@ const MFI = () => {
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#2B68C3 3px, transparent 3px)",
+          backgroundImage: "radial-gradient(#006C49 3px, transparent 3px)",
           backgroundSize: "24px 24px",
         }}
       />
       <div className="z-10 my-10 flex justify-center items-center">
-        <H2 className="dark:text-[#2B68C3]">Group Lending</H2>
+        <H2 className="dark:text-[#006C49]">Group Lending</H2>
       </div>
   
       <div className="max-w-7xl mx-auto pb-10 xl:py-20 px-6 xl:px-6 relative">
@@ -58,7 +58,7 @@ const MFI = () => {
             {/* LEFT CARD */}
             <div className="relative flex justify-end">
               <div className="absolute left-[34%] -top-10">
-  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+  <div className="w-14 h-14 bg-[#006C49] rounded-full flex items-center justify-center shadow-md">
     <img
       src="/LOS/hourglass.svg"
       alt="Group Lending"
@@ -83,7 +83,7 @@ const MFI = () => {
             {/* RIGHT CARD */}
             <div className="relative flex justify-start">
              <div className="absolute left-[60%] -translate-x-1/2 -top-10">
-  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+  <div className="w-14 h-14 bg-[#006C49] rounded-full flex items-center justify-center shadow-md">
     <img
       src="/LOS/IconHour.svg"
       alt="Workflow"
@@ -105,7 +105,7 @@ const MFI = () => {
           {/* Card 1 */}
           <div className="relative pt-10">
            <div className="absolute left-1/2 -translate-x-1/2 top-0">
-  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+  <div className="w-14 h-14 bg-[#006C49] rounded-full flex items-center justify-center shadow-md">
     <img
       src="/LOS/hourglass.svg"
       alt="Group Lending"
@@ -128,7 +128,7 @@ const MFI = () => {
           {/* Card 2 */}
           <div className="relative pt-10">
             <div className="absolute left-1/2 -translate-x-1/2 top-0">
-  <div className="w-14 h-14 bg-[#2B68C3] rounded-full flex items-center justify-center shadow-md">
+  <div className="w-14 h-14 bg-[#006C49] rounded-full flex items-center justify-center shadow-md">
     <img
       src="/LOS/IconHour.svg"
       alt="Group Lending"

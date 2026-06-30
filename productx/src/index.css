@@ -31,7 +31,7 @@
  
 
 :root {
-  --primary-color: #2B68C3;
+  --primary-color: #006C49;
   --secondary-color: #FBD178;
   -ms-overflow-style: none;
   /* scrollbar-width: none; */
@@ -242,7 +242,7 @@ video {
 
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 2px #2B68C3;
+  -webkit-text-stroke: 2px #006C49;
 }
 
 

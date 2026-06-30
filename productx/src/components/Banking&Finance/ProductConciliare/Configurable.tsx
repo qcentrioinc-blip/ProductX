@@ -40,7 +40,7 @@ const Configurable = () => {
                 <div
                     className="relative overflow-hidden flex-1"
                     style={{
-                        backgroundColor: "#2B68C3",
+                        backgroundColor: "#006C49",
                         minHeight: "260px",
                     }}
                 >
@@ -74,7 +74,7 @@ const Configurable = () => {
                     <div
                         className="relative overflow-hidden flex-1"
                         style={{
-                            backgroundColor: "#2B68C3",
+                            backgroundColor: "#006C49",
                             // minHeight: "260px",
                         }}
                     >

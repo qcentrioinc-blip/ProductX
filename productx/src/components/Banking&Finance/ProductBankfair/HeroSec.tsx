@@ -36,7 +36,7 @@ const HeroSec = () => {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-12">
 
-        <H1 className="text-[#2B68C3]">
+        <H1 className="text-[#006C49]">
           Smarter Banking, Simplified
         </H1>
 

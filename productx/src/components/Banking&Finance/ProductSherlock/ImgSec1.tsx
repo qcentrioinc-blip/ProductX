@@ -2,7 +2,7 @@ import { H1, H3, P } from "../../../styles/Typography";
 
 export default function ImgSec1() {
   return (
-    <section className="relative w-full bg-[#2B68C3]  dark:bg-black overflow-hidden">
+    <section className="relative w-full bg-[#006C49]  dark:bg-black overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col lg:flex-row items-start gap-12">
 

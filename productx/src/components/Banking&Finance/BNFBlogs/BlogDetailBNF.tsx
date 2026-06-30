@@ -77,7 +77,7 @@ const nextBlog =
             <div key={section.id} id={section.id}  className="scroll-mt-32">
               
               {section.heading && (
-                <H3 className="text-3xl dark:text-[#2b68c3] font-semibold mb-6">
+                <H3 className="text-3xl dark:text-[#006C49] font-semibold mb-6">
                   {section.heading}
                 </H3>
               )}
@@ -143,11 +143,11 @@ const nextBlog =
 )}
 {blog.faqs && (
   <div className="mt-16">
-    <H3 className="text-2xl font-semibold dark:text-[#2b68c3] mb-6">FAQs</H3>
+    <H3 className="text-2xl font-semibold dark:text-[#006C49] mb-6">FAQs</H3>
 
     {blog.faqs.map((faq, index) => (
       <div key={index} className="mb-6">
-        <H4 className="text-xl dark:text-[#2b68c3] font-semibold mb-2">
+        <H4 className="text-xl dark:text-[#006C49] font-semibold mb-2">
           {faq.question}
         </H4>
         <P>{faq.answer}</P>
@@ -188,19 +188,19 @@ const nextBlog =
 </div>
 
     <hr className="w-full h-2 dark:text-white"/>
-    <h5 className=" font-bricolage  dark:text-[#2b68c3] text-lg font-bold mt-6 mb-3">
+    <h5 className=" font-bricolage  dark:text-[#006C49] text-lg font-bold mt-6 mb-3">
   {blog.metaTitle}
 </h5  >
 
 <P className="text-gray-600 mb-6">
   {blog.metaDescription}
 </P>
-<H4 className="text-black mb-4 dark:text-[#2b68c3] ">Quick Summary:</H4>
+<H4 className="text-black mb-4 dark:text-[#006C49] ">Quick Summary:</H4>
 <P className="text-gray-600 mb-6">{blog.quickSummary}</P>
 
 {blog.keyTakeaways && (
   <div className="mb-8">
-    <H4 className="text-xl dark:text-[#2b68c3]  font-semibold mb-4">
+    <H4 className="text-xl dark:text-[#006C49]  font-semibold mb-4">
       Key Takeaways
     </H4>
 

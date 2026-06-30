@@ -96,7 +96,7 @@ const ThreeTab = () => {
                 flex flex-col items-center text-center w-full
                 px-4 py-4
             ">
-                <H1 className=" dark:text-[#2b68c3]
+                <H1 className=" dark:text-[#006C49]
                     leading-[1.1] text-[#232323] w-full
                     text-[22px]     max-w-full
                     sm:text-[30px]  sm:max-w-md
@@ -149,8 +149,8 @@ const ThreeTab = () => {
                                     lg:h-[68px]  lg:text-[22px] lg:pl-8
                                     xl:h-[90px]  xl:text-[30px] xl:pl-[60px] xl:pr-[40px]
                                     ${activeTab === index
-                                                ? 'bg-[#2B68C3]  text-white z-[1]'
-                                                : 'bg-transparent  text-[#2B68C3] z-0'
+                                                ? 'bg-[#006C49]  text-white z-[1]'
+                                                : 'bg-transparent  text-[#006C49] z-0'
                                             }
                                 `}
                                     >
@@ -171,7 +171,7 @@ const ThreeTab = () => {
                             xl:py-14  xl:px-16  xl:gap-7
                         ">
                                     <h2 className="
-                                font-['Bricolage_Grotesque'] font-bold text-[#2B68C3] leading-[120%]
+                                font-['Bricolage_Grotesque'] font-bold text-[#006C49] leading-[120%]
                                 text-[18px]
                                 md:text-[22px]
                                 lg:text-[28px]
@@ -201,7 +201,7 @@ const ThreeTab = () => {
                                         {tabContents[activeTab].features.map((feature, i) => (
                                             <div key={i} className="flex items-center gap-2 xl:gap-4">
                                                 <div className="
-                                            rounded-full bg-[#2B68C3] flex-shrink-0
+                                            rounded-full bg-[#006C49] flex-shrink-0
                                             flex items-center justify-center
                                             w-7 h-7
                                             md:w-8 md:h-8
@@ -254,8 +254,8 @@ const ThreeTab = () => {
                                     flex-1 py-4 px-5 min-w-[110px]
                                     text-sm font-semibold whitespace-nowrap transition-colors
                                     ${activeTab === index
-                                                ? 'bg-[#2B68C3] text-white'
-                                                : 'bg-transparent text-[#2B68C3]'
+                                                ? 'bg-[#006C49] text-white'
+                                                : 'bg-transparent text-[#006C49]'
                                             }
                                 `}
                                     >
@@ -267,7 +267,7 @@ const ThreeTab = () => {
                             {/* Content Body */}
                             <div className="p-6 flex flex-col gap-5">
                                 <h2 className="
-                            font-['Bricolage_Grotesque'] font-bold text-[#2B68C3] leading-[110%]
+                            font-['Bricolage_Grotesque'] font-bold text-[#006C49] leading-[110%]
                             text-[22px] sm:text-[26px]
                         ">
                                     {tabContents[activeTab].title}
@@ -284,7 +284,7 @@ const ThreeTab = () => {
                                 <div className="grid grid-cols-2 gap-y-[14px] gap-x-4">
                                     {tabContents[activeTab].features.map((feature, i) => (
                                         <div key={i} className="flex items-center gap-[10px]">
-                                            <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-[#2B68C3] flex-shrink-0">
+                                            <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-[#006C49] flex-shrink-0">
                                                 <img src={feature.icon} alt="icon" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                                             </div>
                                             <span className="font-['Quicksand'] text-[#333] text-[12px] sm:text-[14px]">

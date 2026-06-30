@@ -1,8 +1,8 @@
 // import LandingPage1 from "./LandingPage1"
 import CircularCards from "./CircularCards"
 // import Navbar from "../../Global/Navbar/Navbar"
-import { Suspense, } from "react";
-// import PageLoader from "../../PageLoader"
+import { Suspense, useCallback, useEffect, useState, } from "react";
+import PageLoader from "../../PageLoader"
 // import LandingPage1 from "./LandingPage1"
 // import Map from "./Map"
 import SlideReveal from "../../SlideReveal"
@@ -15,38 +15,42 @@ import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
 // import MainHero from "./MainHero";
-// import NewLanding from "./NewLanding";
+import NewLanding from "./NewLanding";
+import Rocket from "./Rocket";
+import ThreeTurns from "./ThreeTurns";
  
 
 const GlobalLandingPage = () => {
-//     const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     
 
-//      const handleLoaderComplete = useCallback(() => {
-//     setLoading(false);
-//   }, []);
+     const handleLoaderComplete = useCallback(() => {
+    setLoading(false);
+  }, []);
 
-// useEffect(() => {
-//   const timer = setTimeout(() => {
-//     setLoading(false);
-//   }, 3200); 
-//   return () => clearTimeout(timer);
-// }, []);
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 3200); 
+  return () => clearTimeout(timer);
+}, []);
 
   
     return (
         <div className="relative">
-{/* <PageLoader onComplete={handleLoaderComplete} /> */}
+{/* <PageLoader onComplete={handleLoaderComplete} />  */}
 
-              {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
-{/* <MainHero/>
-<NewLanding/> */}
+               {loading && <PageLoader onComplete={handleLoaderComplete} />}
+{/* <MainHero/> */}
+<NewLanding/>
 
                 <CircularCards/>
             {/* <div id="landingpage">
                 <LandingPage1 />
             </div> */}
             <LogoMarquee/>
+            <Rocket/>
+            <ThreeTurns/>
                 <GoalsSection/>
                 <InnovationCards/>
                 <Centric/>

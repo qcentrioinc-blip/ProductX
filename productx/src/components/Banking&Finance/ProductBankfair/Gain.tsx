@@ -118,7 +118,7 @@ function MobileView() {
     <div className="xl:hidden flex flex-col ">
  
       {/* ✅ STICKY TABS */}
-      <div className="sticky top-12 z-20 bg-[#0f172a] py-4">
+      <div className="sticky top-12 z-20 bg-[#006C49] py-4">
      <div
   ref={tabsRef}
   className="flex gap-3 overflow-x-auto no-scrollbar"
@@ -134,7 +134,7 @@ function MobileView() {
               }
               className={`flex-shrink-0 px-5 font-quicksand text-[18px] py-2.5 rounded-full text-sm font-medium border whitespace-nowrap transition ${
                 activeTab === i
-                  ? "bg-[#2B68C3] text-white border-[#2B68C3]"
+                  ? "bg-white text-[#006C49] border-white"
                   : "text-gray-300 border-white"
               }`}
             >
@@ -239,8 +239,8 @@ function DesktopView() {
                   onClick={() => setActiveTab(i)}
                   className={`px-12 py-1 font-quicksand text-[18px] rounded-full text-sm font-medium transition-all duration-300 border ${
                     activeTab === i
-                      ? "bg-[#2B68C3] text-white border-[#666666]"
-                      : "bg-transparent text-gray-300 border-[#FAFAFA] hover:border-blue-400 hover:text-white"
+                      ? "bg-white text-[#006C49] border-white"
+                      : "bg-transparent text-gray-300 border-[#FAFAFA] hover:border-green-900 hover:text-white"
                   }`}
                 >
                   {tab}
@@ -281,7 +281,7 @@ function DesktopView() {
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Gain() {
   return (
-    <section className="bg-[#0f172a] px-6  xl:px-16">
+    <section className="bg-[#006C49] px-6  xl:px-16">
       <div className="max-w-7xl mx-auto xl:px-6">
 
         {/* H2 — always scrolls normally */}

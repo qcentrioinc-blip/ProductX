@@ -32,7 +32,7 @@ type Content = {
 const THEMES: Record<string, Theme> = {
   "banking-and-finance": {
     bgImage: "/BuiltFor/img3.jpg",
-    cardBg: "bg-[#254D70]",
+    cardBg: "bg-[#006C49]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",
@@ -67,7 +67,7 @@ const THEMES: Record<string, Theme> = {
 
   "cloud-finops-ai": {
     bgImage: "/BuiltFor/ImageBg2.webp",
-    cardBg: "bg-[#254D70]",
+    cardBg: "bg-[#006C49]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",
@@ -102,7 +102,7 @@ const BANKING_AND_FINANCE_BG_IMAGES: Record<string, string> = {
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading: (<>
         CloudDIET cuts enterprise <br /> {" "} Azure waste.
       </>),
@@ -112,7 +112,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "saas-application-providers": {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ", 
@@ -121,7 +121,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "regulated-large-enterprise": {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading: (<>
         CloudDIET stops SaaS <br /> {" "}cloud waste.
       </>),
@@ -134,7 +134,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
 
   "banking-and-finance": {
     banks: {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading:
         "Modern banking requires modern solutions. We deliver both.",
       cardTitle: "Transform Your Bank",
@@ -143,7 +143,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "credit-union": {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading:
         "Built for credit unions. Powered by innovation. Focused on members.",
       cardTitle: "Empower Your Team",
@@ -152,7 +152,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "financial-unions": {
-      headingColor: "text-[#254D70]",
+      headingColor: "text-[#006C49]",
       heroHeading:
         "Enterprise-grade solutions for institutions built to last.",
       cardTitle: "Transform Operations",
@@ -256,7 +256,7 @@ export default function ImgSec() {
           <div className="absolute h-full xl:pt-6 xl:px-6 w-full">
             <div className="w-full  ">
               <H2
-                className={`leading-tight mt-10 pl-6 max-w-[90%] md:max-w-[80%] lg:max-w-[55%] xl:max-w-[65%] 2xl:max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
+                className={`leading-tight mt-10  pl-6 max-w-[90%] md:max-w-[80%] lg:max-w-[55%] xl:max-w-[65%] 2xl:max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
                   ? "font-bricolageEHR"
                   : "font-bricolage"
                   }`}

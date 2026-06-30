@@ -76,7 +76,7 @@ const ConsOverview = () => {
           {/* Section Heading */}
           <div className="mb-6">
             <H2 className="text-4xl md:text-5xl font-bold">
-              <span className="text-[#2B68C3]">Monitoring and</span> <span className="text-[#141414] dark:text-white">Reporting Capabilities</span>
+              <span className="text-[#006C49]">Monitoring and</span> <span className="text-[#141414] dark:text-white">Reporting Capabilities</span>
             </H2>
           </div>
 
@@ -84,7 +84,7 @@ const ConsOverview = () => {
           <div className="flex flex-col gap-12 lg:hidden">
             {outcomes.map((item) => (
               <div key={item.id} className="flex flex-col gap-4">
-                <H2 className="text-[#2B68C3] text-2xl font-bold">
+                <H2 className="text-[#006C49] text-2xl font-bold">
                   {item.title}
                 </H2>
 
@@ -181,7 +181,7 @@ const ConsOverview = () => {
                     key={item.id}
                     onClick={() => setActiveId(item.id)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${activeId === item.id
-                      ? "bg-[#2b68c3] scale-125"
+                      ? "bg-[#006C49] scale-125"
                       : "bg-gray-400 hover:bg-gray-500"
                       }`}
                     aria-label={`Go to ${item.title}`}
@@ -192,7 +192,7 @@ const ConsOverview = () => {
 
             {/* Right Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2 className="text-[#141414]  dark:text-[#2b68c3] mb-4 text-3xl font-bold">
+              <H2 className="text-[#141414]  dark:text-[#006C49] mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2>
 
@@ -204,7 +204,7 @@ const ConsOverview = () => {
               <div className="flex items-center gap-4 mt-8">
                 <button
                   onClick={handlePrev}
-                  className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D9D9D9] text-[#2B68C3] hover:bg-[#2B68C3] hover:text-white transition-colors duration-300 flex items-center justify-center shadow-lg"
+                  className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D9D9D9] text-[#006C49] hover:bg-[#006C49] hover:text-white transition-colors duration-300 flex items-center justify-center shadow-lg"
                   aria-label="Previous"
                 >
                   <ChevronLeft size={24} />
@@ -212,7 +212,7 @@ const ConsOverview = () => {
 
                 <button
                   onClick={handleNext}
-                  className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D9D9D9] text-[#2B68C3] hover:bg-[#2B68C3] hover:text-white  transition-colors duration-300 flex items-center justify-center shadow-lg"
+                  className="flex-shrink-0 w-10 h-10 rounded-full bg-[#D9D9D9] text-[#006C49] hover:bg-[#006C49] hover:text-white  transition-colors duration-300 flex items-center justify-center shadow-lg"
                   aria-label="Next"
                 >
                   <ChevronRight size={24} />

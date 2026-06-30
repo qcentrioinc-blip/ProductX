@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section className="w-full   flex justify-between items-center   bg-[#FFD600]">
      
       {/* Blue Job Info Section */}
-      <div className="bg-[#2B68C3]   md:h-[400px] lg:h-[300px]  w-screen text-white md:py-10 md:mr-16   mt-28 md:px-8 rounded-lg">
+      <div className="bg-[#006C49]   md:h-[400px] lg:h-[300px]  w-screen text-white md:py-10 md:mr-16   mt-28 md:px-8 rounded-lg">
         <div className="max-w-7xl flex flex-col  pt-10 items-start mx-10">
           <H2 className="  mb-8">
             Senior Content Specialist

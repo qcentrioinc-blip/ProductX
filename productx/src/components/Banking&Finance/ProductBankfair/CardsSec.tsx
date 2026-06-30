@@ -9,7 +9,7 @@ export default function CardsSec() {
       {/* Heading */}
       <div className="text-center max-w-5xl mx-auto mb-10">
         <H1 className="">
-          <span className="text-[#2B68C3]">
+          <span className="text-[#006C49]">
            Enterprise-Grade Security and
           </span>
           <br />
@@ -34,9 +34,9 @@ export default function CardsSec() {
           {/* Title */}
           <H3 className="text-gray-800 mb-4 leading-snug">
             OWASP{" "}
-            <span className="text-[#2B68C3]">Compliant Security </span>{" "}
+            <span className="text-[#006C49]">Compliant Security </span>{" "}
             <br />
-             Framework for  <span className="text-[#2B68C3]"> Banking Operations</span>
+             Framework for  <span className="text-[#006C49]"> Banking Operations</span>
           </H3>
 
           {/* Description */}

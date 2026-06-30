@@ -21,7 +21,7 @@ export default function StatsSection() {
           
           {/* 100+ */}
           <div className="text-center">
-            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#006C49] font-bold flex items-center justify-center">
               <CountUp from={0} to={100} direction="up" duration={1} />
               +
             </span>
@@ -30,7 +30,7 @@ export default function StatsSection() {
 
           {/* 4x */}
           <div className="text-center">
-            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#006C49] font-bold flex items-center justify-center">
               <CountUp from={0} to={4} direction="up" duration={1} />
               x
             </span>
@@ -39,7 +39,7 @@ export default function StatsSection() {
 
           {/* 85% */}
           <div className="text-center">
-            <span className="text-5xl text-[#2B68C3] font-bold flex items-center justify-center">
+            <span className="text-5xl text-[#006C49] font-bold flex items-center justify-center">
               <CountUp from={0} to={85} direction="up" duration={1} />
               %
             </span>

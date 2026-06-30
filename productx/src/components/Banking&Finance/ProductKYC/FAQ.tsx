@@ -625,13 +625,13 @@ const FaqSection: React.FC = () => {
             <div className="mb-4 text-sm text-gray-700  dark:text-white flex items-center">
              <span
   className={`w-8 h-1 rounded-full mr-2 ${
-    isEHR ? "bg-white" : "bg-gray-400 dark:bg-[#2B68C3]"
+    isEHR ? "bg-white" : "bg-gray-400 dark:bg-[#006C49]"
   }`}
 />
 
 <h3
   className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px] ${
-    isEHR ? "text-white" : "dark:text-[#2B68C3]"
+    isEHR ? "text-white" : "dark:text-[#006C49]"
   }`}
 >
   FAQ

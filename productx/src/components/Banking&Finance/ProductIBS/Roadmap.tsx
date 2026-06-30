@@ -4,11 +4,11 @@ import { H1, H2, P } from "../../../styles/Typography";
 /* ─── All SVG Assets — UNCHANGED ─────────────────────────────────────── */
 const CirclesSVG = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="454" height="454" viewBox="0 0 454 454" fill="none">
-        <circle cx="227" cy="227" r="227" fill="#2B68C3" fillOpacity="0.3" />
-        <circle cx="227" cy="227" r="220" stroke="#2B68C3" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
-        <circle cx="227" cy="227" r="138" fill="#2B68C3" fillOpacity="0.45" />
+        <circle cx="227" cy="227" r="227" fill="#006C49" fillOpacity="0.3" />
+        <circle cx="227" cy="227" r="220" stroke="#006C49" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
+        <circle cx="227" cy="227" r="138" fill="#006C49" fillOpacity="0.45" />
         <circle cx="227" cy="227" r="131" stroke="#5a8fd4" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="12 10" fill="none" />
-        <circle cx="227" cy="227" r="85" fill="#2B68C3" />
+        <circle cx="227" cy="227" r="85" fill="#006C49" />
         <circle cx="227" cy="7" r="6" fill="#ffffff" fillOpacity="0.85" />
         <circle cx="447" cy="227" r="4" fill="#ffffff" fillOpacity="0.5" />
     </svg>
@@ -103,7 +103,7 @@ const Roadmap = () => (
         ══════════════════════════════════════════ */}
         <div className="hidden lg:block" style={{ margin: "0 0 52px" }}>
             <H1 style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.5px", lineHeight: 1 }}>
-                <span style={{ color: "#2B68C3" }}>Key Modules of</span>
+                <span style={{ color: "#006C49" }}>Key Modules of</span>
                 <span className="dark:text-white text-[#111827]"  > the Platform</span>
             </H1>
         </div>
@@ -113,7 +113,7 @@ const Roadmap = () => (
         ══════════════════════════════════════════ */}
         <div className="lg:hidden mb-8 sm:mb-10 text-center px-4">
             <H2 className="text-[24px]  sm:text-[30px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight leading-tight">
-                <span className="text-[#2B68C3]">Key Modules of </span>
+                <span className="text-[#006C49]">Key Modules of </span>
                 <span className="dark:text-white text-[#111827]"> the Platform</span>
             </H2>
         </div>
@@ -179,11 +179,11 @@ const Roadmap = () => (
                 >
                     {/* Inline SVG so it scales with the wrapper div */}
                     <svg viewBox="0 0 454 454" fill="none" className="w-full h-full">
-                        <circle cx="227" cy="227" r="227" fill="#2B68C3" fillOpacity="0.3" />
-                        <circle cx="227" cy="227" r="220" stroke="#2B68C3" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
-                        <circle cx="227" cy="227" r="138" fill="#2B68C3" fillOpacity="0.45" />
+                        <circle cx="227" cy="227" r="227" fill="#006C49" fillOpacity="0.3" />
+                        <circle cx="227" cy="227" r="220" stroke="#006C49" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="18 12" fill="none" />
+                        <circle cx="227" cy="227" r="138" fill="#006C49" fillOpacity="0.45" />
                         <circle cx="227" cy="227" r="131" stroke="#5a8fd4" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="12 10" fill="none" />
-                        <circle cx="227" cy="227" r="85" fill="#2B68C3" />
+                        <circle cx="227" cy="227" r="85" fill="#006C49" />
                         <circle cx="227" cy="7" r="6" fill="#ffffff" fillOpacity="0.85" />
                         <circle cx="447" cy="227" r="4" fill="#ffffff" fillOpacity="0.5" />
                     </svg>

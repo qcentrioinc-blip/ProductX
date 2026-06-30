@@ -36,7 +36,7 @@ const ImageWithCards = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: easeOut }}
             >
-              <H2 className="text-[#2B68C3] mb-4 ">
+              <H2 className="text-[#006C49] mb-4 ">
                  Comprehensive Account Services for Customers 
               </H2>
 
@@ -158,7 +158,7 @@ const ImageWithCards = () => {
 
     {/* Ring 1 */}
     <div
-      className="absolute inset-0 rounded-full border-[10px] border-[#2B68C3] border-t-transparent border-r-transparent will-change-transform"
+      className="absolute inset-0 rounded-full border-[10px] border-[#006C49] border-t-transparent border-r-transparent will-change-transform"
       style={{ transform: "rotate(45deg)" }}
     />
 
@@ -178,10 +178,10 @@ const ImageWithCards = () => {
   {/* LIST */}
   <ul className="text-sm text-gray-600  dark:text-white space-y-2 font-bricolage">
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-[#2B68C3] shrink-0" /> Balance 
+      <span className="w-2 h-2 rounded-full bg-[#006C49] shrink-0" /> Balance 
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-[#2B68C3] shrink-0" /> History 
+      <span className="w-2 h-2 rounded-full bg-[#006C49] shrink-0" /> History 
     </li>
     <li className="flex items-center gap-2">
       <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0" /> Statements 

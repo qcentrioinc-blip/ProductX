@@ -9,7 +9,7 @@ export default function SecondSection() {
       <div className="hidden xl:flex w-full max-w-8xl mx-10 px-10 py-10 items-center justify-center">
         <div className="flex w-full justify-between items-center   gap-10">
           <H2
-            className="font-bold text-[#2B68C3] m-0 shrink-0 max-w-2xl"
+            className="font-bold text-[#006C49] m-0 shrink-0 max-w-2xl"
            
           >
    LOS for Retail and Corporate Lending Operations 
@@ -24,7 +24,7 @@ export default function SecondSection() {
 
       {/* Mobile/Tablet */}
       <div className="xl:hidden w-full px-6 py-6  md:px-16 md:py-20 flex flex-col items-start justify-center">
-        <H2 className="text-[#2B68C3]"
+        <H2 className="text-[#006C49]"
         >
           LOS for Retail and Corporate Lending Operations 
         </H2>

@@ -17,7 +17,7 @@ const InnovationCards = () => {
             {/* <div className="flex items-center gap-3">
               <div className="w-[32px] h-[3px] bg-gray-400 rounded-full flex-shrink-0" />
               <span
-                className="text-[#2B68C3] text-[18px] sm:text-[20px] xl:text-[24px] font-medium leading-none"
+                className="text-[#006C49] text-[18px] sm:text-[20px] xl:text-[24px] font-medium leading-none"
                 style={{ fontFamily: "Quicksand, sans-serif" }}
               >
                 Quis autem
@@ -41,7 +41,7 @@ const InnovationCards = () => {
 
             {/* Our Approach Title */}
             <span
-              className="text-[#2B68C3] text-[18px] sm:text-[20px] xl:text-[24px] font-semibold leading-none block pr-12 xl:pr-0 xl:w-[250px]"
+              className="text-[#006C49] text-[18px] sm:text-[20px] xl:text-[24px] font-semibold leading-none block pr-12 xl:pr-0 xl:w-[250px]"
               style={{ fontFamily: "Quicksand, sans-serif" }}
             >
               Our Approach
@@ -69,7 +69,7 @@ const InnovationCards = () => {
               {/* ✅ Heading Badge */}
               <div className="absolute top-[20px] left-[20px] flex items-center bg-white rounded-full px-[15px] py-[10px] h-[46px] w-fit z-20">
                 <span
-                  className="text-[#2B68C3] text-[18px] font-bricolage sm:text-[20px] font-semibold leading-none"
+                  className="text-[#006C49] text-[18px] font-bricolage sm:text-[20px] font-semibold leading-none"
 
                 >
                   How We Deliver
@@ -97,10 +97,10 @@ const InnovationCards = () => {
                       {["Agile", "Scalable", "Integrated", "Compliant", "Automated", "Reliable "].map((text, j) => (
                         <div
                           key={j}
-                          className="flex items-center border border-[#2B68C3] rounded-full px-[15px] py-[8px] h-[40px] whitespace-nowrap"
+                          className="flex items-center border border-[#006C49] rounded-full px-[15px] py-[8px] h-[40px] whitespace-nowrap"
                         >
                           <span
-                            className="text-[#2B68C3] text-[14px] font-semibold tracking-widest"
+                            className="text-[#006C49] text-[14px] font-semibold tracking-widest"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                           >
                             {text}
@@ -124,7 +124,7 @@ const InnovationCards = () => {
                       {["Practical solutions. Measurable results. Lasting impact. "].map((text, j) => (
                         <span
                           key={j}
-                          className="text-[#2B68C3] text-[20px] font-bold tracking-widest whitespace-nowrap"
+                          className="text-[#006C49] text-[20px] font-bold tracking-widest whitespace-nowrap"
                           style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                           {text}
@@ -151,7 +151,7 @@ const InnovationCards = () => {
               {/* ✅ Heading Badge - Static top left */}
               <div className="absolute top-[20px] left-[21px] flex items-center bg-white rounded-full px-[20px] py-[15px] h-[60px] w-[280px] z-0">
                 <span
-                  className="text-[#2B68C3] text-[24px] font-semibold leading-none block "
+                  className="text-[#006C49] text-[24px] font-semibold leading-none block "
                   style={{ fontFamily: "Quicksand, sans-serif" }}
                 >
                   Delivering Solutions
@@ -180,10 +180,10 @@ const InnovationCards = () => {
                       {["Agile", "Scalable", "Integrated", "Compliant", "Automated", "Reliable "].map((text, j) => (
                         <div
                           key={j}
-                          className="flex items-center border border-[#2B68C3] rounded-full px-[28px] py-[14px] h-[56px] whitespace-nowrap"
+                          className="flex items-center border border-[#006C49] rounded-full px-[28px] py-[14px] h-[56px] whitespace-nowrap"
                         >
                           <span
-                            className="text-[#2B68C3] text-[18px] font-semibold tracking-widest"
+                            className="text-[#006C49] text-[18px] font-semibold tracking-widest"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                           >
                             {text}
@@ -208,7 +208,7 @@ const InnovationCards = () => {
                       {["Practical solutions. Measurable results. Lasting impact."].map((text, j) => (
                         <span
                           key={j}
-                          className="text-[#2B68C3] text-[28px] font-bold tracking-widest whitespace-nowrap"
+                          className="text-[#006C49] text-[28px] font-bold tracking-widest whitespace-nowrap"
                           style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                           {text}
