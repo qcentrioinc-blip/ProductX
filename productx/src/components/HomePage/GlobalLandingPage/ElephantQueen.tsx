@@ -91,6 +91,7 @@ const AUTO_TRANSITION_DELAY = 5000
 export default function ElephantQueen() {
   const [activeScene, setActiveScene] = useState(0)
   const [isMenuOpen] = useState(false)
+  const [isPanelPinned, setIsPanelPinned] = useState(true)
   // const [isMuted, setIsMuted] = useState(false)
 
   // ===== RESPONSIVE: track window width =====
@@ -358,14 +359,15 @@ export default function ElephantQueen() {
     }, scrollSpacerRef)
 
     // ---- PANEL VISIBILITY: track when spacer is in view (for auto-transition) ----
+    // Also controls whether the panel is fixed or absolute
     ScrollTrigger.create({
       trigger: scrollSpacerRef.current,
       start: 'top bottom',
       end: 'bottom top',
-      onEnter: () => { isPanelVisibleRef.current = true },
-      onLeave: () => { isPanelVisibleRef.current = false },
-      onEnterBack: () => { isPanelVisibleRef.current = true },
-      onLeaveBack: () => { isPanelVisibleRef.current = false },
+      onEnter: () => { isPanelVisibleRef.current = true; setIsPanelPinned(true) },
+      onLeave: () => { isPanelVisibleRef.current = false; setIsPanelPinned(false) },
+      onEnterBack: () => { isPanelVisibleRef.current = true; setIsPanelPinned(true) },
+      onLeaveBack: () => { isPanelVisibleRef.current = false; setIsPanelPinned(false) },
     })
 
     return () => ctx.revert()
@@ -620,8 +622,8 @@ export default function ElephantQueen() {
   }, [mouseX, mouseY])
 
   return (
-    <>
-      {/* Scroll spacer */}
+    <div style={{ position: 'relative' }}>
+      {/* Scroll spacer — the panel lives inside so it can go absolute when unpinned */}
       <div
         ref={scrollSpacerRef}
         style={{
@@ -630,133 +632,138 @@ export default function ElephantQueen() {
           zIndex: 2,
           background: '#0d0d0d',
         }}
-      />
-
-      {/* Fixed visual panel — stays behind, sections below scroll over it */}
-      <div
-        ref={panelRef}
-        className="fixed inset-0 w-full h-screen overflow-hidden select-none"
-        style={{
-          background: SCENES[0].bgColor,
-          zIndex: 100, // Higher than the background spacer
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
       >
-        <div className="navbar-wrap absolute top-0 left-0 right-0 z-[200]">
-          <Navbar />
-        </div>
-        {/* Atmospheric overlays */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.4) 100%)' }} />
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '35%', background: 'radial-gradient(ellipse 80% 50% at 60% 100%, rgba(255,107,0,0.04) 0%, transparent 70%)' }} />
 
-        {/* ===== SCENE LAYERS ===== */}
-        {SCENES.map((s, i) => (
-          <div
-            key={`scene-${s.id}`}
-            ref={(el) => { sceneRefs.current[i] = el }}
-            data-scene={i}
-            className="absolute inset-0"
-            style={{
-              zIndex: 10 + i,
-              clipPath: i === 0 ? 'none' : `circle(0px at ${SUN_X}% ${SUN_Y}%)`,
-              willChange: 'clip-path, transform, opacity',
-              transformOrigin: `${SUN_X}% ${SUN_Y}%`,
-              background: s.bgColor,
-            }}
-          >
-            {/* Sun Glow — soft diffused atmosphere matching reference */}
+        {/* Visual panel — fixed while spacer is in view, absolute at bottom when scrolled past */}
+        <div
+          ref={panelRef}
+          className="w-full h-screen overflow-hidden select-none"
+          style={{
+            position: isPanelPinned ? 'fixed' : 'absolute',
+            top: isPanelPinned ? 0 : undefined,
+            bottom: isPanelPinned ? undefined : 0,
+            left: 0,
+            right: 0,
+            background: SCENES[0].bgColor,
+            zIndex: 1,
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="navbar-wrap absolute top-0 left-0 right-0 z-[200]">
+            <Navbar />
+          </div>
+          {/* Atmospheric overlays */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.4) 100%)' }} />
+          <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '35%', background: 'radial-gradient(ellipse 80% 50% at 60% 100%, rgba(255,107,0,0.04) 0%, transparent 70%)' }} />
+
+          {/* ===== SCENE LAYERS ===== */}
+          {SCENES.map((s, i) => (
             <div
-              ref={(el) => { sunGlowRefs.current[i] = el }}
-              className="absolute pointer-events-none"
+              key={`scene-${s.id}`}
+              ref={(el) => { sceneRefs.current[i] = el }}
+              data-scene={i}
+              className="absolute inset-0"
               style={{
-                left: `${SUN_X}%`,
-                top: `${SUN_Y}%`,
-                transform: 'translate(-50%, -50%)',
-                width: isMobile ? 'clamp(250px, 85vw, 450px)' : isTablet ? 'clamp(350px, 75vw, 750px)' : 'clamp(500px, 80vw, 1400px)',
-                height: isMobile ? 'clamp(250px, 85vw, 450px)' : isTablet ? 'clamp(350px, 75vw, 750px)' : 'clamp(500px, 80vw, 1400px)',
-                zIndex: 0,
-                opacity: i === 0 ? 1 : 0,
+                zIndex: 10 + i,
+                clipPath: i === 0 ? 'none' : `circle(0px at ${SUN_X}% ${SUN_Y}%)`,
+                willChange: 'clip-path, transform, opacity',
+                transformOrigin: `${SUN_X}% ${SUN_Y}%`,
+                background: s.bgColor,
               }}
             >
-              {/* Outer Atmosphere — large diffused glow */}
-              <div className="absolute" style={{
-                top: '5%', left: '5%', right: '5%', bottom: '5%',
-                background: `radial-gradient(circle, ${s.sunGlowColorLight}88 0%, ${s.sunGlowColorLight}44 50%, transparent 75%)`,
-                borderRadius: '50%',
-                mixBlendMode: 'lighten',
-              }} />
-              {/* Mid Glow */}
-              <div className="absolute" style={{
-                top: '15%', left: '15%', right: '15%', bottom: '15%',
-                background: `radial-gradient(circle, ${s.sunGlowColor}CC 0%, ${s.sunGlowColor}66 50%, transparent 85%)`,
-                borderRadius: '50%',
-                mixBlendMode: 'lighten',
-              }} />
-              {/* Inner Focus — core light */}
-              <div className="absolute" style={{
-                top: '25%', left: '25%', right: '25%', bottom: '25%',
-                background: `radial-gradient(circle, ${s.sunGlowColor} 0%, ${s.sunGlowColor}99 55%, transparent 100%)`,
-                borderRadius: '50%',
-                mixBlendMode: 'lighten',
-              }} />
-            </div>
-
-
-            {/* Sun — inside the scene layer, behind the animal (half sun - top half only) */}
-            <div
-              ref={(el) => { sunRefs.current[i] = el }}
-              className="absolute sun-element"
-              style={{
-                left: `${SUN_X}%`,
-                top: `${SUN_Y}%`,
-                transform: 'translate(-50%, -50%) scale(1)',
-                width: isMobile ? 'clamp(160px, 55vw, 280px)' : isTablet ? 'clamp(220px, 40vw, 400px)' : 'clamp(300px, 45vw, 650px)',
-                height: isMobile ? 'clamp(160px, 55vw, 280px)' : isTablet ? 'clamp(220px, 40vw, 400px)' : 'clamp(300px, 45vw, 650px)',
-                background: s.sunGradient,
-                boxShadow: `inset 0 0 ${isMobile ? '30px' : '60px'} rgba(255,255,255,0.15)`,
-                opacity: i === 0 ? 1 : 0, // only first sun visible initially
-                zIndex: 1,
-                clipPath: 'inset(-500px -500px 50% -500px)',
-                borderRadius: '50%',
-              }}
-            />
-
-            {/* Wave Image — covering full width and bottom starting from SUN_Y */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                left: 0,
-                right: 0,
-                bottom: 0,
-                top: `${SUN_Y - 0}%`, // Slight overlap to ensure no gap
-                zIndex: 2,
-                backgroundColor: s.waveColor,
-              }}
-            >
-              <img
-                src={s.waveImage}
-                alt="wave"
-                className="w-full h-full object-cover object-top"
+              {/* Sun Glow — soft diffused atmosphere matching reference */}
+              <div
+                ref={(el) => { sunGlowRefs.current[i] = el }}
+                className="absolute pointer-events-none"
                 style={{
-                  display: 'block',
-                  mixBlendMode: 'screen',
-                  opacity: 1, // Keep full opacity for the wave image over the color
+                  left: `${SUN_X}%`,
+                  top: `${SUN_Y}%`,
+                  transform: 'translate(-50%, -50%)',
+                  width: isMobile ? 'clamp(250px, 85vw, 450px)' : isTablet ? 'clamp(350px, 75vw, 750px)' : 'clamp(500px, 80vw, 1400px)',
+                  height: isMobile ? 'clamp(250px, 85vw, 450px)' : isTablet ? 'clamp(350px, 75vw, 750px)' : 'clamp(500px, 80vw, 1400px)',
+                  zIndex: 0,
+                  opacity: i === 0 ? 1 : 0,
+                }}
+              >
+                {/* Outer Atmosphere — large diffused glow */}
+                <div className="absolute" style={{
+                  top: '5%', left: '5%', right: '5%', bottom: '5%',
+                  background: `radial-gradient(circle, ${s.sunGlowColorLight}88 0%, ${s.sunGlowColorLight}44 50%, transparent 75%)`,
+                  borderRadius: '50%',
+                  mixBlendMode: 'lighten',
+                }} />
+                {/* Mid Glow */}
+                <div className="absolute" style={{
+                  top: '15%', left: '15%', right: '15%', bottom: '15%',
+                  background: `radial-gradient(circle, ${s.sunGlowColor}CC 0%, ${s.sunGlowColor}66 50%, transparent 85%)`,
+                  borderRadius: '50%',
+                  mixBlendMode: 'lighten',
+                }} />
+                {/* Inner Focus — core light */}
+                <div className="absolute" style={{
+                  top: '25%', left: '25%', right: '25%', bottom: '25%',
+                  background: `radial-gradient(circle, ${s.sunGlowColor} 0%, ${s.sunGlowColor}99 55%, transparent 100%)`,
+                  borderRadius: '50%',
+                  mixBlendMode: 'lighten',
+                }} />
+              </div>
+
+
+              {/* Sun — inside the scene layer, behind the animal (half sun - top half only) */}
+              <div
+                ref={(el) => { sunRefs.current[i] = el }}
+                className="absolute sun-element"
+                style={{
+                  left: `${SUN_X}%`,
+                  top: `${SUN_Y}%`,
+                  transform: 'translate(-50%, -50%) scale(1)',
+                  width: isMobile ? 'clamp(160px, 55vw, 280px)' : isTablet ? 'clamp(220px, 40vw, 400px)' : 'clamp(300px, 45vw, 650px)',
+                  height: isMobile ? 'clamp(160px, 55vw, 280px)' : isTablet ? 'clamp(220px, 40vw, 400px)' : 'clamp(300px, 45vw, 650px)',
+                  background: s.sunGradient,
+                  boxShadow: `inset 0 0 ${isMobile ? '30px' : '60px'} rgba(255,255,255,0.15)`,
+                  opacity: i === 0 ? 1 : 0, // only first sun visible initially
+                  zIndex: 1,
+                  clipPath: 'inset(-500px -500px 50% -500px)',
+                  borderRadius: '50%',
                 }}
               />
-            </div>
 
-            {/* Play Button — on top of sun */}
-            <div
-              className="absolute"
-              style={{
-                left: `${SUN_X}%`,
-                top: `${SUN_Y}%`,
-                transform: 'translate(-50%, -50%)',
-                zIndex: 2,
-              }}
-            >
-              {/* <div className="relative">
+              {/* Wave Image — covering full width and bottom starting from SUN_Y */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  top: `${SUN_Y - 0}%`, // Slight overlap to ensure no gap
+                  zIndex: 2,
+                  backgroundColor: s.waveColor,
+                }}
+              >
+                <img
+                  src={s.waveImage}
+                  alt="wave"
+                  className="w-full h-full object-cover object-top"
+                  style={{
+                    display: 'block',
+                    mixBlendMode: 'screen',
+                    opacity: 1, // Keep full opacity for the wave image over the color
+                  }}
+                />
+              </div>
+
+              {/* Play Button — on top of sun */}
+              <div
+                className="absolute"
+                style={{
+                  left: `${SUN_X}%`,
+                  top: `${SUN_Y}%`,
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 2,
+                }}
+              >
+                {/* <div className="relative">
                 <div
                   className="rounded-full border-2 border-white/70 flex items-center justify-center"
                   style={{
@@ -773,173 +780,173 @@ export default function ElephantQueen() {
                 <motion.div className="absolute inset-0 rounded-full border border-white/25" animate={{ scale: [1, 1.6], opacity: [0.5, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeOut' }} />
                 <motion.div className="absolute inset-0 rounded-full border border-white/15" animate={{ scale: [1, 2], opacity: [0.3, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeOut', delay: 0.8 }} />
               </div> */}
-            </div>
-
-            {/* Character Image — sits on the horizontal line */}
-            <motion.div
-              className="absolute animal-img-wrap"
-              style={{
-                left: isMobile ? '35%' : isTablet ? '40%' : '40%',
-                top: (isMobile || isTablet) ? '35%' : '25%',
-                transform: 'translate(-50%, -50%)',
-                x: imgPX,
-                y: imgPY,
-                zIndex: 4,
-              }}
-            >
-              <div style={{
-                width: isMobile ? 'clamp(280px, 85vw, 450px)' : isTablet ? 'clamp(380px, 60vw, 650px)' : 'clamp(350px, 50vw, 750px)',
-                height: isMobile ? 'clamp(320px, 65vh, 600px)' : isTablet ? 'clamp(400px, 70vh, 850px)' : 'clamp(450px, 75vh, 1000px)',
-              }}>
-                <img
-                  src={s.image} alt={s.title} className="w-full h-full object-contain object-bottom"
-                  style={{ maskImage: 'linear-gradient(to bottom, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 92%, transparent 100%)' }}
-                />
               </div>
-            </motion.div>
 
-            {/* Content Container (Title & Desc) */}
-            <div
-              className={(isMobile || isTablet)
-                ? 'absolute z-10 w-full'
-                : 'absolute left-8 lg:left-16 xl:left-24 top-1/2 -translate-y-1/2 z-10 max-w-md'
-              }
-              style={(isMobile || isTablet) ? {
-                left: '50%',
-                transform: 'translateX(-50%)',
-                top: isMobile ? '12%' : '15%',
-                bottom: 'auto',
-                maxWidth: isMobile ? '92vw' : '82vw',
-                textAlign: 'center' as const,
-                padding: isMobile ? '16px' : '24px',
-                borderRadius: '16px',
-                background: 'rgba(0,0,0,0.1)',
-                backdropFilter: 'blur(4px)',
-                WebkitBackdropFilter: 'blur(4px)',
-              } : {
-                maxWidth: '420px',
-              }}
-            >
-              <h1 className="scene-title text-white leading-[1.1] tracking-tight uppercase"
+              {/* Character Image — sits on the horizontal line */}
+              <motion.div
+                className="absolute animal-img-wrap"
                 style={{
-                  fontSize: isMobile ? 'clamp(18px, 6vw, 26px)' : isTablet ? 'clamp(24px, 4.5vw, 36px)' : 'clamp(32px, 5vw, 64px)',
-                  fontWeight: 700,
-                  textShadow: (isMobile || isTablet) ? '0 2px 10px rgba(0,0,0,0.3)' : 'none'
+                  left: isMobile ? '35%' : isTablet ? '40%' : '40%',
+                  top: (isMobile || isTablet) ? '35%' : '25%',
+                  transform: 'translate(-50%, -50%)',
+                  x: imgPX,
+                  y: imgPY,
+                  zIndex: 4,
                 }}
               >
-                {s.title}
-              </h1>
-              <p className="scene-desc text-white/70 mt-2 md:mt-4 leading-relaxed mx-auto"
-                style={{
-                  fontSize: isMobile ? 'clamp(10px, 3vw, 13px)' : isTablet ? '14px' : 'clamp(13px, 1.1vw, 16px)',
-                  lineHeight: (isMobile || isTablet) ? 1.5 : 1.7,
-                  maxWidth: (isMobile || isTablet) ? '450px' : '380px'
+                <div style={{
+                  width: isMobile ? 'clamp(280px, 85vw, 450px)' : isTablet ? 'clamp(380px, 60vw, 650px)' : 'clamp(350px, 50vw, 750px)',
+                  height: isMobile ? 'clamp(320px, 65vh, 600px)' : isTablet ? 'clamp(400px, 70vh, 850px)' : 'clamp(450px, 75vh, 1000px)',
+                }}>
+                  <img
+                    src={s.image} alt={s.title} className="w-full h-full object-contain object-bottom"
+                    style={{ maskImage: 'linear-gradient(to bottom, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 92%, transparent 100%)' }}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Content Container (Title & Desc) */}
+              <div
+                className={(isMobile || isTablet)
+                  ? 'absolute z-10 w-full'
+                  : 'absolute left-8 lg:left-16 xl:left-24 top-1/2 -translate-y-1/2 z-10 max-w-md'
+                }
+                style={(isMobile || isTablet) ? {
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  top: isMobile ? '12%' : '15%',
+                  bottom: 'auto',
+                  maxWidth: isMobile ? '92vw' : '82vw',
+                  textAlign: 'center' as const,
+                  padding: isMobile ? '16px' : '24px',
+                  borderRadius: '16px',
+                  background: 'rgba(0,0,0,0.1)',
+                  backdropFilter: 'blur(4px)',
+                  WebkitBackdropFilter: 'blur(4px)',
+                } : {
+                  maxWidth: '420px',
                 }}
               >
-                {s.description}
-              </p>
-            </div>
+                <h1 className="scene-title text-white leading-[1.1] tracking-tight uppercase"
+                  style={{
+                    fontSize: isMobile ? 'clamp(18px, 6vw, 26px)' : isTablet ? 'clamp(24px, 4.5vw, 36px)' : 'clamp(32px, 5vw, 64px)',
+                    fontWeight: 700,
+                    textShadow: (isMobile || isTablet) ? '0 2px 10px rgba(0,0,0,0.3)' : 'none'
+                  }}
+                >
+                  {s.title}
+                </h1>
+                <p className="scene-desc text-white/70 mt-2 md:mt-4 leading-relaxed mx-auto"
+                  style={{
+                    fontSize: isMobile ? 'clamp(10px, 3vw, 13px)' : isTablet ? '14px' : 'clamp(13px, 1.1vw, 16px)',
+                    lineHeight: (isMobile || isTablet) ? 1.5 : 1.7,
+                    maxWidth: (isMobile || isTablet) ? '450px' : '380px'
+                  }}
+                >
+                  {s.description}
+                </p>
+              </div>
 
-            {/* Right Caption */}
-            <div
-              className={isMobile
-                ? 'scene-caption absolute z-10 text-right'
-                : 'scene-caption absolute right-8 lg:right-16 xl:right-24 bottom-32 z-10 text-right'
-              }
-              style={isMobile ? {
-                right: '16px',
-                bottom: '1%',
-              } : isTablet ? {
-                right: '24px',
-                bottom: '3%',
-              } : undefined}
-            >
-              <div className="flex items-center justify-end gap-3">
-                <span className="text-white font-semibold" style={{ fontSize: isMobile ? '14px' : 'clamp(16px, 1.2vw, 20px)' }}>{i + 1}</span>
-                <div className="w-10 h-[1px] bg-white/20" />
-                <span className="text-white/30 font-semibold" style={{ fontSize: isMobile ? '14px' : 'clamp(16px, 1.2vw, 20px)' }}>{SCENES.length}</span>
+              {/* Right Caption */}
+              <div
+                className={isMobile
+                  ? 'scene-caption absolute z-10 text-right'
+                  : 'scene-caption absolute right-8 lg:right-16 xl:right-24 bottom-32 z-10 text-right'
+                }
+                style={isMobile ? {
+                  right: '16px',
+                  bottom: '1%',
+                } : isTablet ? {
+                  right: '24px',
+                  bottom: '3%',
+                } : undefined}
+              >
+                <div className="flex items-center justify-end gap-3">
+                  <span className="text-white font-semibold" style={{ fontSize: isMobile ? '14px' : 'clamp(16px, 1.2vw, 20px)' }}>{i + 1}</span>
+                  <div className="w-10 h-[1px] bg-white/20" />
+                  <span className="text-white/30 font-semibold" style={{ fontSize: isMobile ? '14px' : 'clamp(16px, 1.2vw, 20px)' }}>{SCENES.length}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-
-        {/* ===== RING LAYERS ===== */}
-        {SCENES.slice(0, -1).map((_, i) => (
-          <React.Fragment key={`ring-group-${i}`}>
-            {/* Outer glow */}
-            <div
-              ref={(el) => { ringGlowRefs.current[i] = el }}
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                zIndex: 25 + i * 2,
-                opacity: 0,
-                willChange: 'background, opacity',
-              }}
-            />
-            {/* Main ring border */}
-            <div
-              ref={(el) => { ringRefs.current[i] = el }}
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                zIndex: 26 + i * 2,
-                opacity: 0,
-                willChange: 'background, opacity',
-              }}
-            />
-          </React.Fragment>
-        ))}
-
-
-        {/* Side Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div initial={{ opacity: 0, x: -80 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -80 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="absolute top-0 left-0 bottom-0 w-72 bg-[#0d0d0d]/95 backdrop-blur-xl z-[190] flex flex-col pt-24 px-8 gap-1">
-              {['Home', 'Documentaries', 'About', 'Contact'].map((item, mi) => (
-                <motion.div key={item} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + mi * 0.08, duration: 0.5 }}>
-                  <motion.span className="block py-3 text-white text-lg font-light tracking-wide cursor-pointer border-b border-white/10" whileHover={{ x: 10, color: '#FFCC00' }} transition={{ duration: 0.25 }}>{item}</motion.span>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Episode Dots */}
-        <div ref={dotsRef} className="absolute z-[180] flex opacity-0"
-          style={{
-            ...(isMobile
-              ? { bottom: '16px', left: '50%', transform: 'translateX(-50%)', flexDirection: 'row' as const, gap: '8px' }
-              : { right: windowWidth < 1024 ? '24px' : '40px', top: '50%', transform: 'translateY(-50%)', flexDirection: 'column' as const, gap: '12px' }
-            ),
-          }}
-        >
-          {SCENES.map((_, i) => (
-            <motion.button key={i} className="cursor-pointer group relative flex items-center justify-end" whileHover={{ scale: 1.2 }} aria-label={`Go to episode ${i + 1}`}>
-              {!isMobile && (
-                <span className="text-white/0 group-hover:text-white/50 text-[10px] mr-3 font-medium tracking-wider transition-colors duration-300">{String(i + 1).padStart(2, '0')}</span>
-              )}
-              <div className="rounded-full transition-all duration-500" style={{
-                width: i === activeScene ? (isMobile ? '20px' : '28px') : (isMobile ? '6px' : '8px'),
-                height: isMobile ? '6px' : '8px',
-                backgroundColor: i === activeScene ? scene.sunColor : 'rgba(255,255,255,0.2)',
-                borderRadius: '4px',
-                boxShadow: i === activeScene ? `0 0 10px ${scene.sunColor}66` : 'none',
-              }} />
-            </motion.button>
           ))}
-        </div>
 
-        {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-[180]">
-          <div className="w-full h-[2px] bg-white/5">
-            <motion.div className="h-full" style={{
-              background: `linear-gradient(to right, ${scene.sunColor}, ${scene.sunColor}cc)`,
-              boxShadow: `0 0 8px ${scene.sunColor}80`,
-            }} animate={{ width: `${((activeScene + 1) / SCENES.length) * 100}%` }} transition={{ duration: 0.8 }} />
+          {/* ===== RING LAYERS ===== */}
+          {SCENES.slice(0, -1).map((_, i) => (
+            <React.Fragment key={`ring-group-${i}`}>
+              {/* Outer glow */}
+              <div
+                ref={(el) => { ringGlowRefs.current[i] = el }}
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  zIndex: 25 + i * 2,
+                  opacity: 0,
+                  willChange: 'background, opacity',
+                }}
+              />
+              {/* Main ring border */}
+              <div
+                ref={(el) => { ringRefs.current[i] = el }}
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  zIndex: 26 + i * 2,
+                  opacity: 0,
+                  willChange: 'background, opacity',
+                }}
+              />
+            </React.Fragment>
+          ))}
+
+
+          {/* Side Menu */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div initial={{ opacity: 0, x: -80 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -80 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="absolute top-0 left-0 bottom-0 w-72 bg-[#0d0d0d]/95 backdrop-blur-xl z-[190] flex flex-col pt-24 px-8 gap-1">
+                {['Home', 'Documentaries', 'About', 'Contact'].map((item, mi) => (
+                  <motion.div key={item} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + mi * 0.08, duration: 0.5 }}>
+                    <motion.span className="block py-3 text-white text-lg font-light tracking-wide cursor-pointer border-b border-white/10" whileHover={{ x: 10, color: '#FFCC00' }} transition={{ duration: 0.25 }}>{item}</motion.span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Episode Dots */}
+          <div ref={dotsRef} className="absolute z-[180] flex opacity-0"
+            style={{
+              ...(isMobile
+                ? { bottom: '16px', left: '50%', transform: 'translateX(-50%)', flexDirection: 'row' as const, gap: '8px' }
+                : { right: windowWidth < 1024 ? '24px' : '40px', top: '50%', transform: 'translateY(-50%)', flexDirection: 'column' as const, gap: '12px' }
+              ),
+            }}
+          >
+            {SCENES.map((_, i) => (
+              <motion.button key={i} className="cursor-pointer group relative flex items-center justify-end" whileHover={{ scale: 1.2 }} aria-label={`Go to episode ${i + 1}`}>
+                {!isMobile && (
+                  <span className="text-white/0 group-hover:text-white/50 text-[10px] mr-3 font-medium tracking-wider transition-colors duration-300">{String(i + 1).padStart(2, '0')}</span>
+                )}
+                <div className="rounded-full transition-all duration-500" style={{
+                  width: i === activeScene ? (isMobile ? '20px' : '28px') : (isMobile ? '6px' : '8px'),
+                  height: isMobile ? '6px' : '8px',
+                  backgroundColor: i === activeScene ? scene.sunColor : 'rgba(255,255,255,0.2)',
+                  borderRadius: '4px',
+                  boxShadow: i === activeScene ? `0 0 10px ${scene.sunColor}66` : 'none',
+                }} />
+              </motion.button>
+            ))}
           </div>
-        </div>
 
-        {/* Footer */}
-        {/* <footer ref={footerRef} className="absolute bottom-0 left-0 right-0 z-[180] flex items-center justify-between px-8 lg:px-12 py-4 opacity-0">
+          {/* Progress Bar */}
+          <div className="absolute bottom-0 left-0 right-0 z-[180]">
+            <div className="w-full h-[2px] bg-white/5">
+              <motion.div className="h-full" style={{
+                background: `linear-gradient(to right, ${scene.sunColor}, ${scene.sunColor}cc)`,
+                boxShadow: `0 0 8px ${scene.sunColor}80`,
+              }} animate={{ width: `${((activeScene + 1) / SCENES.length) * 100}%` }} transition={{ duration: 0.8 }} />
+            </div>
+          </div>
+
+          {/* Footer */}
+          {/* <footer ref={footerRef} className="absolute bottom-0 left-0 right-0 z-[180] flex items-center justify-between px-8 lg:px-12 py-4 opacity-0">
           <div className="flex items-center gap-5">
             {[
               { name: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -963,7 +970,8 @@ export default function ElephantQueen() {
             <span className="cursor-pointer hover:text-white/40 transition-colors">Cookies</span>
           </div>
         </footer> */}
+        </div>
       </div>
-    </>
+    </div>
   )
 }

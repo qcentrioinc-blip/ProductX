@@ -15,6 +15,7 @@ import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
 import CircularCards from "./CircularCards";
+// import ElephantQueen from "./ElephantQueen";
 // import NewLanding from "./NewLanding";
 // import NewLanding from "./NewLanding";
 // import ElephantQueen from "./ElephantQueen";
@@ -47,11 +48,11 @@ const GlobalLandingPage = () => {
             {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
             {/* <MainHero/> */}
             {/* <NewLanding/> */}
-            
+
             {/* <ElephantQueen /> */}
 
-            {/* Sections below scroll over the ElephantQueen fixed panel */}
-            <div className="relative" style={{ zIndex: 20, background: '#000' }}>
+            {/* Sections below scroll over the ElephantQueen panel */}
+            <div className="relative" style={{ zIndex: 10, background: '#000' }}>
                 <CircularCards />
                 {/* <div id="landingpage">
                 <LandingPage1 />
