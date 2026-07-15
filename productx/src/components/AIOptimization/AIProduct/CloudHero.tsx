@@ -142,7 +142,7 @@ function GridBackground() {
           >
             <defs>
               <pattern id="heroGrid" patternUnits="userSpaceOnUse" width="100" height="100">
-                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#4f7db5" strokeWidth="1" />
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="white" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#heroGrid)" />
@@ -198,26 +198,31 @@ function HexNode({ label, iconSrc, cost, costColor, mobile = false, tablet = fal
           style={{
             inset: borderInset,
             clipPath: HEX_CLIP,
-            background: "#4e6070",
+            background: "",
           }}
         />
-        <div
-          className="absolute inset-0 flex items-center justify-center z-[1]"
-          style={{
-            clipPath: HEX_CLIP,
-            background: "#0d1d33",
-          }}
-        >
-          <img src={iconSrc} alt={label} className={`${iconSize} object-contain relative z-[3]`} />
-          {/* Gloss */}
-          <div
-            className="absolute inset-0 pointer-events-none z-[2]"
-            style={{
-              clipPath: HEX_CLIP,
-              background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%)",
-            }}
-          />
-        </div>
+       <div
+  className="hex-glass absolute inset-0 flex items-center justify-center z-[1]"
+  style={{
+    clipPath: HEX_CLIP,
+  }}
+>
+  <img
+    src={iconSrc}
+    alt={label}
+    className={`${iconSize} object-contain relative z-[3]`}
+  />
+
+  {/* Gloss */}
+  <div
+    className="absolute inset-0 pointer-events-none z-[2]"
+    style={{
+      clipPath: HEX_CLIP,
+      background:
+        "linear-gradient(135deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.03) 80%, transparent 20%)",
+    }}
+  />
+</div>
       </div>
     </div>
   );
@@ -284,12 +289,22 @@ function CenterImage({ overlapCount }: CenterImageProps) {
 function BottomRightCard() {
   return (
     <motion.div
-      className="absolute bottom-[6%] right-[6%] z-[25] flex items-center rounded-[18px] border border-white/[0.09] backdrop-blur-[16px]"
+      className="  absolute
+    bottom-[6%]
+    right-[10%]
+    z-[25]
+    flex
+    items-center
+    rounded-[18px]
+    border border-white/25
+    backdrop-blur-2xl
+    bg-white/10
+    overflow-hidden"
       style={{
         width: "clamp(280px, 38vw, 550px)",
         padding: "clamp(16px, 2vw, 30px)",
         gap: "clamp(12px, 1.5vw, 20px)",
-        background: "rgba(10, 18, 48, 0.82)",
+         
         boxShadow: "0 12px 48px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)",
       }}
       variants={slideRight}
@@ -466,8 +481,8 @@ export default function CloudDietHero() {
   return (
     <div
       className="relative overflow-hidden text-white min-h-[120vh]
-                 max-lg:min-h-[100vh] max-md:min-h-screen max-md:flex max-md:flex-col max-md:pb-8"
-      style={{ background: "#020B2D", fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                 lg:min-h-[100vh] max-md:min-h-screen max-md:flex max-md:flex-col max-md:pb-8"
+      style={{ background: "#00AA72", fontFamily: "'Bricolage Grotesque', sans-serif" }}
     >
       <GridBackground />
 
@@ -486,7 +501,7 @@ export default function CloudDietHero() {
         }} />
 
       {/* Hero content */}
-      <div className="relative z-[30] px-14 pt-10 max-w-[820px] max-md:px-5 max-md:pt-5 max-md:max-w-full">
+      <div className="relative z-[30] px-14 pt-10 max-w-[820px] max-md:px-5 max-md:pt-5 max-md:max-w-full xl:px-[160px]">
 
         <motion.div variants={fadeUp(0.10)} initial="hidden" animate="visible">
           <H1 className="mt-[100px] lg:mt-[110px] xl:mt-[130px]">
@@ -666,8 +681,10 @@ export default function CloudDietHero() {
         </motion.div>
 
         <motion.div
-          className="mx-5 mb-5 p-5 mt-auto flex items-center gap-4 rounded-[18px] border border-white/[0.09] backdrop-blur-[16px]"
-          style={{ background: "rgba(10, 18, 48, 0.82)", boxShadow: "0 12px 48px rgba(0,0,0,0.55)" }}
+          className="mx-5 mb-5 p-5 mt-auto flex items-center gap-4 rounded-[18px]  border border-white/25
+    backdrop-blur-2xl
+    bg-white/10"
+          style={{ background: " ", boxShadow: "0 12px 48px rgba(0,0,0,0.55)" }}
           variants={fadeUp(0.7)}
           initial="hidden"
           animate="visible"
@@ -681,10 +698,9 @@ export default function CloudDietHero() {
             </svg>
           </div>
           <div>
-            <H4 className="mb-2">Lorem ipsum</H4>
+            <H4 className="mb-2">Cost Inefficiency Hotspots </H4>
             <P className="text-white/90">
-              We onboard users from 126+ countries whether you hold a passport or
-              a residence permit we've got you covered.
+         CloudDIET identifies hidden cost drains across compute, storage, and licensing that standard FinOps tools overlook.
             </P>
           </div>
         </motion.div>

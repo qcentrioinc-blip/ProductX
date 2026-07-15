@@ -19,9 +19,9 @@ export const ContactUsAI = ({ children, className = "", onClick }: { children: R
           w-full h-[50px]
           px-6
           rounded-xl
-          font-quicksand font-medium text-base
+          font-quadran font-medium text-base
           
-          bg-[#1F2937] text-white
+          bg-[#00AA72] text-white
           hover:bg-[#111827]
 
           transition-all duration-300
@@ -53,7 +53,7 @@ const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <section className="dark:bg-black">
-        <div className="min-h-screen max-w-7xl mx-auto    flex flex-col py-10     ">
+        <div className="min-h-screen    px-[40px] md:px-[60px] xl:px-[160px]  flex flex-col py-10     ">
             {/* Header Section */}
             <div className="w-full flex flex-col   gap-6  ">
                 <div className="text-center">
@@ -66,15 +66,15 @@ const [modalOpen, setModalOpen] = useState(false);
                 </div>
 
                 {/* Pricing Table */}
-                <div className="w-full max-w-full  bg-amber-50 dark:bg-slate-800 rounded-3xl md:rounded-[64px] border border-slate-600 overflow-hidden relative">
+                <div className="w-full    dark:bg-slate-800 rounded-3xl md:rounded-[64px] border-2 border-[#E7EBFF] overflow-hidden relative">
 
                     {/* Desktop View - Grid Layout */}
-               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible p-6    gap-4">
+               <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[344px_1fr_1fr] h-auto lg:h-[1063px] overflow-visible    gap-4">
 
                         {/* Left Column - Compare Plans */}
                         <div className="h-full border-r border-[#E6E9F5] p-6 md:p-[40px] flex flex-col">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] dark:text-white   leading-tight">
+                                <H3 className=" text-[#00AA72] dark:text-white   leading-tight">
                                     Compare plans
                                 </H3>
                                 <P className="text-[#141414] leading-relaxed max-w-[280px]">
@@ -84,7 +84,7 @@ const [modalOpen, setModalOpen] = useState(false);
 
                             <div className="flex-1 flex flex-col justify-between py-4 md:py-6">
                                 {features.map((feature, index) => (
-                                    <div key={index} className="flex items-center min-h-[50px] py-2 md:py-0 font-['Quicksand'] font-normal text-sm md:text-base lg:text-[18px] dark:text-white text-[#252430] leading-none border-b border-gray-300">
+                                    <div key={index} className="flex items-center min-h-[50px] py-2 md:py-0 font-quadran font-normal text-sm md:text-base lg:text-[16px] dark:text-white text-[#00AA72] leading-none border-b border-gray-300">
                                         {feature.name}
                                     </div>
                                 ))}
@@ -94,9 +94,9 @@ const [modalOpen, setModalOpen] = useState(false);
                         </div>
 
                         {/* Middle Column - Starter */}
-                        <div className="h-full p-6 md:p-[40px] border border-gray-400 rounded-[26px] dark:bg-slate-950 bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
+                        <div className="h-full p-6 md:p-[40px] border border-[#E7EBFF] rounded-[26px] dark:bg-slate-950 bg-white shadow-[0px_26px_40px_0px_#BCCAFF21] flex flex-col relative z-10">
                             <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-gray-300">
-                                <H3 className=" text-[#252430] dark:text-white dark:text-white leading-tight">Starter</H3>
+                                <H3 className=" text-[#00AA72] dark:text-white   leading-tight">Starter</H3>
                                 <P className="text-[#141414] dark:text-gray-300 leading-relaxed">
 
                                     Ideal for small to mid-sized teams beginning their Azure cost optimization journey.
@@ -148,15 +148,13 @@ const [modalOpen, setModalOpen] = useState(false);
                         <div
                            className="h-full p-6 md:p-[40px] rounded-[46px] rounded-br-[52px]  flex flex-col relative overflow-hidden
            transition-all duration-300 ease-out
-           bg-[#D6E4F7] dark:bg-transparent
-           hover:shadow-[0px_40px_80px_rgba(106,138,255,0.35)]
-           hover:border-[#4A6BFF]"
+           bg-[#00AA725E] dark:bg-transparent
+           "
                           style={{
   
-  border: "2px solid #185FA5",
   
   
-  boxShadow: "0 8px 32px rgba(24,95,165,0.2)",
+  
   zIndex: 10,
   position: "relative",
 }}
@@ -169,7 +167,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                     height: '1122.36px',
                                     top: '-59.36px',
                                     left: '-132.17px',
-                                    background: 'linear-gradient(180deg, rgba(106, 138, 255, 0.5) 0%, rgba(106, 138, 255, 0.08) 100%)',
+                                    background: 'linear-gradient(180deg, rgba(0,170,114,.35) 0%, rgba(0,170,114,.08) 100%)',
                                     borderRadius: '50%',
                                     border: '1px solid transparent',
                                     backgroundClip: 'padding-box',
@@ -184,7 +182,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                     top: '-59.36px',
                                     left: '-132.17px',
                                     borderRadius: '50%',
-                                    background: 'radial-gradient(103.58% 103.58% at 50% 50%, rgba(181, 194, 251, 0) 4.69%, #B5C2FB 100%)',
+                                    background: 'radial-gradient(103.58% 103.58% at 50% 50%, rgba(181, 194, 251, 0) 4.69%, #00AA725E 100%)',
                                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                                     WebkitMaskComposite: 'xor',
                                     maskComposite: 'exclude',
@@ -200,7 +198,8 @@ const [modalOpen, setModalOpen] = useState(false);
                                     height: '1100px',
                                     top: '-250px',
                                     right: '10px',
-                                    background: 'linear-gradient(180deg, rgba(106, 138, 255, 0.56) 0%, rgba(239, 242, 255, 0.2) 100%)',
+                                    background:
+'linear-gradient(180deg, rgba(0,170,114,.30) 0%, rgba(255,255,255,.08) 100%)',
                                     borderRadius: '50%',
                                     border: '1px solid transparent',
                                     backgroundClip: 'padding-box',
@@ -215,7 +214,8 @@ const [modalOpen, setModalOpen] = useState(false);
                                     top: '-250px',
                                     right: '10px',
                                     borderRadius: '50%',
-                                    background: 'linear-gradient(257.51deg, #B5C2FB 12.23%, rgba(181, 194, 251, 0) 105.71%)',
+                                   background:
+'linear-gradient(257.51deg, rgba(0,170,114,.55) 12.23%, rgba(0,170,114,0) 105.71%)',
                                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                                     WebkitMaskComposite: 'xor',
                                     maskComposite: 'exclude',
@@ -226,9 +226,9 @@ const [modalOpen, setModalOpen] = useState(false);
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="absolute top-0 right-0 lg:right-[-32px] lg:top-2 xl:right-[70px] xl:top-[10px]">
                                     <span
-                                        className="text-white lg:text-xs xl:text-sm font-medium px-4 py-2 rounded-xl"
+                                        className="text-white lg:text-xs bg-transparent xl:text-sm font-medium px-4 py-2 rounded-xl"
                                         style={{
-                                            background: 'linear-gradient(135deg, rgba(188, 202, 255, 0.6) 0%, rgba(181, 194, 251, 0.4) 100%)',
+                                             
                                             border: '1px solid #ffffff',
                                         }}
                                     >
@@ -237,7 +237,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                 </div>
 
                                 <div className="h-auto min-h-[120px] flex flex-col justify-start gap-3 md:gap-4 mb-2 border-b border-[#E7EBFF]/60">
-                                    <H3 className=" text-[#252430] dark:text-white leading-tight">Enterprise</H3>
+                                    <H3 className=" text-black leading-tight">Enterprise</H3>
                                     <P className=" text-[#141414] leading-relaxed">
                                         Best for enterprises requiring advanced insights, unlimited subscriptions, and support.
                                     </P>
@@ -291,10 +291,10 @@ const [modalOpen, setModalOpen] = useState(false);
 
                         {/* Compare Plans Header for Mobile */}
                         <div className="p-10 md:px-16 md:py-6 border-b border-gray-200">
-                            <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">
+                            <H3 className=" text-[#00AA72] dark:text-white leading-tight mb-3">
                                 Compare plans
                             </H3>
-                            <P className="font-['Quicksand'] font-normal text-sm md:text-base text-[#141414] leading-relaxed">
+                            <P className="font-quadran font-normal text-sm md:text-base text-[#141414] leading-relaxed">
                                 Choose your plan according to your organisational plan
                             </P>
                         </div>
@@ -302,7 +302,7 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Starter Plan Card - Mobile */}
                         <div className="p-10 md:px-16 md:py-10 border-b border-[#E6E9F5]">
                             <div className="mb-6">
-                                <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">Starter</H3>
+                                <H3 className=" text-[#00AA72] dark:text-white leading-tight mb-3">Starter</H3>
                                 <P className=" text-[#141414] leading-relaxed mb-6">
                                     Take Your Business to the Next Level Take Your Business to the Next Level
                                 </P>
@@ -340,7 +340,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                                 </div>
                                             )}
                                         </div>
-                                        <span className=" text-[#252430]  dark:text-white leading-relaxed">
+                                        <span className=" text-[#00AA72]  dark:text-white leading-relaxed">
                                             {feature.name}
                                         </span>
                                     </div>
@@ -357,21 +357,21 @@ const [modalOpen, setModalOpen] = useState(false);
                         {/* Enterprise Plan Card - Mobile */}
                         <div className="p-10 md:px-16 md:py-10 relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-white"
                             style={{
-                                background: 'linear-gradient(180deg, rgba(106, 138, 255, 0.5) 0%, rgba(106, 138, 255, 0.08) 100%)',
+                                background: 'linear-gradient(180deg, rgba(0,170,114,.35) 0%, rgba(0,170,114,.08) 100%)',
                                 borderWidth: '1px',
                                 borderStyle: 'solid',
-                                borderImageSource: 'radial-gradient(103.58% 103.58% at 50% 50%, rgba(181, 194, 251, 0) 4.69%, #B5C2FB 100%)',
+                                borderImageSource: 'radial-gradient(103.58% 103.58% at 50% 50%, rgba(181, 194, 251, 0) 4.69%, #00AA725E 100%)',
                                 borderImageSlice: 1
                             }}>
                             <div className="relative z-10">
                                 <div className="absolute top-2 right-2">
-                                    <span className="bg-blue-500 text-white text-xs font-medium px-3 py-1 rounded-full">
+                                    <span className=" text-white text-xs font-medium px-3 py-1 rounded-full">
                                         Best offer
                                     </span>
                                 </div>
 
                                 <div className="mb-6">
-                                    <H3 className=" text-[#252430] dark:text-white leading-tight mb-3">Enterprise</H3>
+                                    <H3 className=" text-black leading-tight mb-3">Enterprise</H3>
                                     <P className=" text-[#141414] leading-relaxed mb-6">
                                         Take Your Business to the Next Level Take Your Business to the Next Level
                                     </P>
@@ -391,7 +391,7 @@ const [modalOpen, setModalOpen] = useState(false);
                                                     </div>
                                                 )}
                                             </div>
-                                            <span className="font-['Quicksand'] font-normal text-sm md:text-base text-[#252430] leading-relaxed">
+                                            <span className="font-quadran font-normal text-sm md:text-base text-[#00AA72] leading-relaxed">
                                                 {feature.name}
                                             </span>
                                         </div>

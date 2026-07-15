@@ -4,7 +4,7 @@ import { H1, P } from "../../../styles/Typography";
 
 export default function ContentInfo() {
   return (
-    <section className="w-full bg-[#006C49] dark:bg-black overflow-hidden xl:h-screen relative">
+    <section className="w-full bg-[#00AA72] dark:bg-black overflow-hidden xl:h-screen relative">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-0 pt-16 lg:pt-32 pb-10 grid lg:grid-cols-2 gap-12 items-center">
 
@@ -32,7 +32,7 @@ export default function ContentInfo() {
         {/* BIG IMAGE FOR MD & SMALL SCREENS */}
         <div className="flex justify-center lg:hidden">
           <img
-            src="/ProductSherlock/hero.webp"
+            src="/BNFCos/sherlock.webp"
             alt="big shape"
             className="w-[350px] md:w-[370px]"
           />
@@ -45,7 +45,7 @@ export default function ContentInfo() {
 
       {/* LARGE IMAGE */}
       <img
-        src="/ProductSherlock/hero.webp"
+        src="/BNFCos/sherlock.webp"
         alt="big shape"
         className="
         hidden lg:block
@@ -79,7 +79,7 @@ export default function ContentInfo() {
     alt="Create Account"/>
   </div>
 
-  <p className="text-[#006C49] dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
+  <p className="text-[#00AA72] dark:text-white text-[14px] md:text-[16px] lg:text-[16px] xl:text-[18px]
         font-quicksand
         leading-[120%]">
     Screens SWIFT messages and customer transactions against OFAC SDN list and FinCEN watch lists automatically.

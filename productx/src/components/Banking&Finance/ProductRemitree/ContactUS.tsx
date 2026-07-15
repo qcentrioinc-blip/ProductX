@@ -190,7 +190,7 @@ useEffect(() => {
         <div className="relative w-full overflow-visible">
 
           {/* Blue background band */}
-          <div className="absolute left-0 top-0 h-[560px] w-full bg-[#006C49] pt-10">
+          <div className="absolute left-0 top-0 h-[560px] w-full bg-[#00AA72] pt-10">
             {/* <img
               src="/FormLineWHite.png"
               alt="curve"
@@ -233,7 +233,7 @@ useEffect(() => {
                       onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
                       className={`w-full px-5 py-3.5 rounded-full font-quicksand placeholder-black border-2 
                         focus:outline-none transition-colors duration-300
-                        ${isEmailValid ? 'border-[#006C49] focus:border-[#006C49]' : 'border-gray-200 focus:border-blue-500'}`}
+                        ${isEmailValid ? 'border-[#00AA72] focus:border-[#00AA72]' : 'border-gray-200 focus:border-blue-500'}`}
                     />
 
                     <div ref={dropdownRef} className="relative">
@@ -287,7 +287,7 @@ useEffect(() => {
                       className={`px-8 py-3.5 rounded-full font-semibold font-quicksand flex items-center gap-2 group
                         transition-all duration-300 ease-in-out cursor-pointer
                         ${isEmailValid
-                          ? 'bg-[#006C49] text-white shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
+                          ? 'bg-[#00AA72] text-white shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
                           : 'bg-black text-white'}`}
                     >
                       SUBMIT
@@ -308,7 +308,7 @@ useEffect(() => {
         className="xl:hidden relative w-full max-w-[1400px] mx-auto"
       >
         <div className="flex flex-col min-h-full relative">
-          <div className="relative bg-[#006C49] h-[52vh] pt-12 px-6 overflow-hidden">
+          <div className="relative bg-[#00AA72] h-[52vh] pt-12 px-6 overflow-hidden">
             {/* <img
               src="/FormLineWHite.png"
               alt="Background curve graphic"
@@ -341,7 +341,7 @@ useEffect(() => {
                   onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
                   className={`w-full px-5 py-3.5 rounded-lg font-quicksand placeholder-black border-2 
                     focus:outline-none transition-colors duration-300
-                    ${isEmailValid ? 'border-[#006C49] focus:border-[#006C49]' : 'border-gray-200 focus:border-blue-500'}`}
+                    ${isEmailValid ? 'border-[#00AA72] focus:border-[#00AA72]' : 'border-gray-200 focus:border-blue-500'}`}
                 />
                <div ref={dropdownRefMobile} className="relative">
   <div
@@ -392,7 +392,7 @@ useEffect(() => {
                   className={`px-8 py-3.5 rounded-full font-semibold flex items-center gap-2 group
                     transition-all duration-300 ease-in-out
                     ${isEmailValid
-                      ? 'bg-[#006C49] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
+                      ? 'bg-[#00AA72] text-white hover:bg-blue-700 shadow-[0_4px_20px_rgba(43,104,195,0.4)]'
                       : 'bg-black text-white hover:bg-gray-800'}`}
                 >
                   SUBMIT

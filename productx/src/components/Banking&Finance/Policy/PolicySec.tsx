@@ -44,11 +44,11 @@ export default function PolicySectionWrapper() {
     },
     banking: {
       BgColor: "#FFFFFF",
-      TextColor: "#006C49", // Blue for headings
+      TextColor: "#00AA72", // Blue for headings
       ParagraphColor: "#000000", // Black for paragraphs
-      AccentColor: "#006C49", // Blue for left line
+      AccentColor: "#00AA72", // Blue for left line
       BtnTextColor: "#FFFFFF", // Blue for button text
-      BtnBgInactive: "#006C4920",
+      BtnBgInactive: "#00AA7220",
     },
     hightech: {
       BgColor: "#000000",

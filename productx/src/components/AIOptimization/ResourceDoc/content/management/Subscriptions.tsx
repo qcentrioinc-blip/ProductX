@@ -7,14 +7,14 @@ const Subscriptions: React.FC = () => {
   const [open, setOpen] = useState(true);
   return (
     <div className="space-y-4">
-     <h1 className=" text-lg text-[#254D70]  md:text-3xl lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg text-[#00AA72]  md:text-3xl lg:text-4xl my-4 font-quadran   ">
           Subscriptions 
         </h1>
 
       
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">CloudDIET leverages Service Principals to access your Azure environment in a secure and auditable way </p>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Adding Subscriptions to CloudDIET  </h3>
+  <h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4">  Adding Subscriptions to CloudDIET  </h3>
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 
@@ -25,14 +25,14 @@ Azure Subscriptions can be added to CloudDIET at any time, but you must first ha
      
 
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  
+  <h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4">  
 Changing Credentials 
   </h3>
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 The Credentials associated with an Azure Subscription can be changed at any time as long as that Subscription is not actively being profiled.  </p>
 
-    <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4"> Pausing and Resuming Subscription Profiling   </h3>
+    <h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4"> Pausing and Resuming Subscription Profiling   </h3>
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 
@@ -67,7 +67,7 @@ Subscriptions can be paused at any time as long as that Subscription is not acti
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -83,7 +83,7 @@ Subscriptions can be paused at any time as long as that Subscription is not acti
     </div>
 
 
-<h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Removing Subscriptions   </h3>
+<h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4">  Removing Subscriptions   </h3>
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
 
 Subscriptions can be removed at any time as long as that Subscription is not actively being profiled. 
@@ -114,7 +114,7 @@ Subscriptions can be removed at any time as long as that Subscription is not act
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -131,7 +131,7 @@ Subscriptions can be removed at any time as long as that Subscription is not act
 
 
 
-    <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Subscriptions Status 
+    <h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4">  Subscriptions Status 
   </h3>
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">
  

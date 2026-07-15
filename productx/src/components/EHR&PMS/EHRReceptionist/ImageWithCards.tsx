@@ -36,7 +36,7 @@ const ImageWithCards = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: easeOut }}
             >
-              <H2EHR className="text-teal-700 mb-4 ">
+              <H2EHR className="text-[#00AA72]   mb-4 ">
                  Measurable Front-Desk Improvements 
               </H2EHR>
 
@@ -169,14 +169,14 @@ const ImageWithCards = () => {
     />
 
     {/* Center Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center font-bricolage">
+    <div className="absolute inset-0 flex flex-col items-center justify-center font-quadran  ">
       <span className="text-3xl font-semibold leading-none">40% </span>
       <span className="text-xs text-gray-500 dark:text-white">Fewer Manual Tasks</span>
     </div>
   </div>
 
   {/* LIST */}
-  <ul className="text-sm text-gray-600 dark:text-white space-y-2 font-bricolage">
+  <ul className="text-sm text-gray-600 dark:text-white space-y-2 font-quadran  ">
     <li className="flex items-center gap-2">
       <span className="w-2 h-2 rounded-full bg-teal-400 shrink-0 dark:text-white" /> Reduced
     </li>

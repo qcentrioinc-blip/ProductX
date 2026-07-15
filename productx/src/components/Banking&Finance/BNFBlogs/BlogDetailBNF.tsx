@@ -77,7 +77,7 @@ const nextBlog =
             <div key={section.id} id={section.id}  className="scroll-mt-32">
               
               {section.heading && (
-                <H3 className="text-3xl dark:text-[#006C49] font-semibold mb-6">
+                <H3 className="text-3xl dark:text-[#00AA72] font-semibold mb-6">
                   {section.heading}
                 </H3>
               )}
@@ -136,18 +136,18 @@ const nextBlog =
     <P className="mb-6">{blog.cta.description}</P>
     {/* <button 
      onClick={() => setDrawerOpen(true)}
-    className="bg-[#008280] font-bricolage text-white px-6 py-3 rounded-md">
+    className="bg-[#00AA72] font-quadran   text-white px-6 py-3 rounded-md">
       Request Demo
     </button> */}
   </div>
 )}
 {blog.faqs && (
   <div className="mt-16">
-    <H3 className="text-2xl font-semibold dark:text-[#006C49] mb-6">FAQs</H3>
+    <H3 className="text-2xl font-semibold dark:text-[#00AA72] mb-6">FAQs</H3>
 
     {blog.faqs.map((faq, index) => (
       <div key={index} className="mb-6">
-        <H4 className="text-xl dark:text-[#006C49] font-semibold mb-2">
+        <H4 className="text-xl dark:text-[#00AA72] font-semibold mb-2">
           {faq.question}
         </H4>
         <P>{faq.answer}</P>
@@ -161,11 +161,11 @@ const nextBlog =
   {previousBlog ? (
     <button
       onClick={() => navigate(`/industries/banking-and-finance/blogs/${previousBlog.slug}`)}
-      className="flex items-center space-x-2  text-[#008280] "
+      className="flex items-center space-x-2  text-[#00AA72] "
     >
       <span className=" "><ArrowLeft/></span>
       <span className="text-left">
-        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#008280] dark:text-white">Previous</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#00AA72] dark:text-white">Previous</div>
         {/* <div className="font-semibold">{previousBlog.subtitle}</div> */}
       </span>
     </button>
@@ -175,10 +175,10 @@ const nextBlog =
   {nextBlog ? ( 
     <button
       onClick={() => navigate(`/industries/banking-and-finance/blogs/${nextBlog.slug}`)}
-      className="flex items-center space-x-2 text-[#008280]  text-right"
+      className="flex items-center space-x-2 text-[#00AA72]  text-right"
     >
       <span className="text-right">
-        <div className=" font-quicksand text-lg text-gray-700 font-bold dark:text-white hover:text-[#008280]">Next</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold dark:text-white hover:text-[#00AA72]">Next</div>
         {/* <div className="font-semibold">{nextBlog.subtitle}</div> */}
       </span>
       <span className=" "><ArrowRight/></span>
@@ -188,19 +188,19 @@ const nextBlog =
 </div>
 
     <hr className="w-full h-2 dark:text-white"/>
-    <h5 className=" font-bricolage  dark:text-[#006C49] text-lg font-bold mt-6 mb-3">
+    <h5 className=" font-quadran    dark:text-[#00AA72] text-lg font-bold mt-6 mb-3">
   {blog.metaTitle}
 </h5  >
 
 <P className="text-gray-600 mb-6">
   {blog.metaDescription}
 </P>
-<H4 className="text-black mb-4 dark:text-[#006C49] ">Quick Summary:</H4>
+<H4 className="text-black mb-4 dark:text-[#00AA72] ">Quick Summary:</H4>
 <P className="text-gray-600 mb-6">{blog.quickSummary}</P>
 
 {blog.keyTakeaways && (
   <div className="mb-8">
-    <H4 className="text-xl dark:text-[#006C49]  font-semibold mb-4">
+    <H4 className="text-xl dark:text-[#00AA72]  font-semibold mb-4">
       Key Takeaways
     </H4>
 
@@ -232,7 +232,7 @@ const nextBlog =
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="block text-[18px] font-quicksand text-black hover:text-[#008280]"
+                className="block text-[18px] font-quicksand text-black hover:text-[#00AA72]"
               >
                 {section.heading || "Introduction"}
                 

@@ -24,7 +24,7 @@ const CTABanner = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12   lg:px-10  xl:px-6 pt-10 xl:pt-24  w-full">
 
         {/* Heading */}
-        <h1 className="text-[#002459] font-bricolage text-[24px] max-w-4xl md:text-[56px] lg:text-[72px] ">
+        <h1 className="text-[#002459] font-quadran   text-[24px] max-w-4xl md:text-[56px] lg:text-[72px] ">
         Payment and Settlement System Overview
         </h1>
 

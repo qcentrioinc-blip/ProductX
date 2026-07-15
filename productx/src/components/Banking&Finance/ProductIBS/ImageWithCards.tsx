@@ -36,7 +36,7 @@ const ImageWithCards = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: easeOut }}
             >
-              <H2 className="text-[#006C49] mb-4 ">
+              <H2 className="text-[#00AA72] mb-4 ">
                  Comprehensive Account Services for Customers 
               </H2>
 
@@ -158,7 +158,7 @@ const ImageWithCards = () => {
 
     {/* Ring 1 */}
     <div
-      className="absolute inset-0 rounded-full border-[10px] border-[#006C49] border-t-transparent border-r-transparent will-change-transform"
+      className="absolute inset-0 rounded-full border-[10px] border-[#00AA72] border-t-transparent border-r-transparent will-change-transform"
       style={{ transform: "rotate(45deg)" }}
     />
 
@@ -169,19 +169,19 @@ const ImageWithCards = () => {
     />
 
     {/* Center Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center font-bricolage">
+    <div className="absolute inset-0 flex flex-col items-center justify-center font-quadran  ">
       <span className="text-3xl dark:text-white font-semibold leading-none">24/7 </span>
       <span className="text-xs dark:text-white text-gray-500">Availability</span>
     </div>
   </div>
 
   {/* LIST */}
-  <ul className="text-sm text-gray-600  dark:text-white space-y-2 font-bricolage">
+  <ul className="text-sm text-gray-600  dark:text-white space-y-2 font-quadran  ">
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-[#006C49] shrink-0" /> Balance 
+      <span className="w-2 h-2 rounded-full bg-[#00AA72] shrink-0" /> Balance 
     </li>
     <li className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-[#006C49] shrink-0" /> History 
+      <span className="w-2 h-2 rounded-full bg-[#00AA72] shrink-0" /> History 
     </li>
     <li className="flex items-center gap-2">
       <span className="w-2 h-2 rounded-full bg-slate-700 shrink-0" /> Statements 

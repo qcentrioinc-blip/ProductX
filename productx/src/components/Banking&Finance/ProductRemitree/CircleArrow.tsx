@@ -9,14 +9,14 @@ const CircleArrow = () => {
             <div
                 className="absolute inset-0 opacity-20 pointer-events-none"
                 style={{
-                    backgroundImage: "radial-gradient(#006C49 3px, transparent 3px)",
+                    backgroundImage: "radial-gradient(#00AA72 3px, transparent 3px)",
                     backgroundSize: "24px 24px",
                 }}
             />
 
             {/* --- Header Section --- */}
             <div className="text-center px-4 mb-16 z-10">
-                <H2 className="text-[36px] md:text-[44px] dark:text-[#006C49] text-[#2d3748] font-bold tracking-tight mb-4">
+                <H2 className="text-[36px] md:text-[44px] dark:text-[#00AA72] text-[#2d3748] font-bold tracking-tight mb-4">
                     Key Features of Remitree Platform
                 </H2>
                 <P className="text-[16px] text-[#718096] max-w-[700px] mx-auto leading-relaxed">

@@ -10,7 +10,7 @@ const GridSec = () => {
 
           <H1 className="dark:text-white">
             How Bankfair Powers<br />
-            <span className="text-[#006C49]">Banking Operations</span>
+            <span className="text-[#00AA72]">Banking Operations</span>
           </H1>
 
           <P className="max-w-xl">

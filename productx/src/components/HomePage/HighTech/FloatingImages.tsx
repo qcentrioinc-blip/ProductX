@@ -74,7 +74,7 @@ const [active, setActive] = useState(false);
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Background heading */}
         <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-          <h2  className=" text-3xl  md:text-5xl lg:text-8xl  font-bricolage text-center max-w-7xl">
+          <h2  className=" text-3xl  md:text-5xl lg:text-8xl  font-quadran   text-center max-w-7xl">
             Global recognition and awards
           </h2>
         </div>

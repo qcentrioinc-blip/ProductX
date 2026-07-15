@@ -131,14 +131,14 @@ const HighTechNavbar = () => {
       {/* TOP TRANSPARENT BAR */}
       <div
         className="fixed top-0 z-50 left-0 w-full
-        bg-white/10 backdrop-blur-lg font-bricolage
+        bg-white/10 backdrop-blur-lg font-quadran  
         border-b border-white/20
          px-4 sm:px-6 md:px-8 pt-3 pb-1
         flex justify-between transition-all duration-300"
       >
         <Link to="/" className="flex items-center">
           <div className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
+            <span className="text-gray-800 font-quadran   text-sm sm:text-base">
               LOGO
             </span>
           </div>

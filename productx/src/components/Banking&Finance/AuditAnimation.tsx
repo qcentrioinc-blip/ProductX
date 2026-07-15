@@ -56,7 +56,7 @@ export default function AuditAnimation() {
               style={{ opacity: textOpacity, y: textY }}
               className="absolute bottom-16 right-10 w-[30%] pointer-events-none"
             >
-              <H3 className="text-[#006C49] font-bold mb-3">
+              <H3 className="text-[#00AA72] font-bold mb-3">
                 Domain experts in managing banking operations and compliance
               </H3>
 
@@ -84,7 +84,7 @@ export default function AuditAnimation() {
             </div>
 
             <div className="mx-auto mt-8 w-full max-w-full px-6 pb-6 text-left">
-              <H3 className="text-[#006C49] font-bold mb-3">
+              <H3 className="text-[#00AA72] font-bold mb-3">
                 Domain experts in managing banking operations and compliance
               </H3>
 

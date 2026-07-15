@@ -33,7 +33,7 @@ const Transform = () => {
         <div className="w-full xl:w-1/2 flex flex-col  gap-6">
 
           {/* Heading */}
-          <H2 className="text-3xl sm:text-4xl dark:text-[#006C49]  font-extrabold  leading-tight">
+          <H2 className="text-3xl sm:text-4xl dark:text-[#00AA72]  font-extrabold  leading-tight">
             Verification, Corporate Screening, and Approval Workflows
           </H2>
 
@@ -50,7 +50,7 @@ const Transform = () => {
                 className="flex flex-col gap-4 p-5 rounded-2xl border border-[#D9D9D9] bg-[#F8F8F8] dark:bg-slate-950 hover:shadow-md transition-shadow duration-200"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-full bg-[#006C49] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#00AA72] flex items-center justify-center flex-shrink-0">
                  <img
   src={feature.icon}
   alt={feature.title}

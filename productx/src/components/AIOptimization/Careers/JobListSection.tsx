@@ -111,7 +111,7 @@ export default function JobListSection() {
 
           {/* Right Section */}
           <div className="flex flex-col justify-between">
-            <p className="text-2xl font-bricolage text-[#141414] mb-6">
+            <p className="text-2xl font-quadran   text-[#141414] mb-6">
             Tell us your unique skills and experience to join our growing AI cloud team. 
             </p>
 

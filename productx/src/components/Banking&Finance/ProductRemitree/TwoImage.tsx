@@ -12,7 +12,7 @@ const CheckIcon = () => (
     >
         <path
             d="M4 10.5L8.5 15L16 6"
-            stroke="#006C49"
+            stroke="#00AA72"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -47,7 +47,7 @@ const TextBlock = ({ title, description, features }: { title: React.ReactNode, d
 
         {/* Heading */}
         <H2 className="
-            leading-none tracking-normal text-[#006C49]
+            leading-none tracking-normal text-[#00AA72]
             
         ">
             {title}

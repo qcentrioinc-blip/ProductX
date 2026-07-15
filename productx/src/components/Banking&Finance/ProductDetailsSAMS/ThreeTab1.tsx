@@ -143,8 +143,8 @@ const ThreeTab1 = () => {
                                     lg:h-[68px]  lg:text-[22px] lg:pl-8
                                     xl:h-[90px]  xl:text-[30px] xl:pl-[60px] xl:pr-[40px]
                                     ${activeTab === index
-                                                ? 'bg-[#006C49] text-white z-[1]'
-                                                : 'bg-transparent text-[#006C49] z-0'
+                                                ? 'bg-[#00AA72] text-white z-[1]'
+                                                : 'bg-transparent text-[#00AA72] z-0'
                                             }
                                 `}
                                     >
@@ -165,7 +165,7 @@ const ThreeTab1 = () => {
                             xl:py-14  xl:px-16  xl:gap-7
                         ">
                                     <h2 className="
-                                font-['Bricolage_Grotesque'] font-bold text-[#006C49] leading-[120%]
+                                font-['Bricolage_Grotesque'] font-bold text-[#00AA72] leading-[120%]
                                 text-[18px]
                                 md:text-[22px]
                                 lg:text-[28px]
@@ -256,8 +256,8 @@ const ThreeTab1 = () => {
                                     flex-1 py-4 px-5 min-w-[110px]
                                     text-sm font-semibold whitespace-nowrap transition-colors
                                     ${activeTab === index
-                                                ? 'bg-[#006C49] text-white'
-                                                : 'bg-transparent text-[#006C49]'
+                                                ? 'bg-[#00AA72] text-white'
+                                                : 'bg-transparent text-[#00AA72]'
                                             }
                                 `}
                                     >
@@ -269,7 +269,7 @@ const ThreeTab1 = () => {
                             {/* Content Body */}
                             <div className="p-6 flex flex-col gap-5 flex-1">
                                 <h2 className="
-                            font-['Bricolage_Grotesque'] font-bold text-[#006C49] leading-[110%]
+                            font-['Bricolage_Grotesque'] font-bold text-[#00AA72] leading-[110%]
                             text-[22px] sm:text-[26px]
                         ">
                                     {tabContents[activeTab].title}

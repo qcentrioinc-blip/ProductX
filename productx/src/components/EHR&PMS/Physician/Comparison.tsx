@@ -38,7 +38,7 @@ const Comparison = () => {
       <div className="max-w-8xl xl:mx-10 px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <H2EHR className="text-[#008280] dark:text-white mb-2">
+          <H2EHR className="text-[#00AA72] dark:text-white mb-2">
           Key Benefits for Physicians Like You
           </H2EHR>
         </div>

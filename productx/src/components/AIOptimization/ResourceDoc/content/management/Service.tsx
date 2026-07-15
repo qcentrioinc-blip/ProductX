@@ -7,14 +7,14 @@ const Service: React.FC = () => {
   const [open, setOpen] = useState(true);
   return (
     <div className="space-y-4">
-     <h1 className=" text-lg text-[#254D70] md:text-3xl lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg text-[#00AA72] md:text-3xl lg:text-4xl my-4 font-quadran   ">
           Service Principals
         </h1>
 
       
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">CloudDIET uses Service Principals to securely and auditably access your Azure environment.   </p>
 
-  <h3 className="font-bricolage  text-xl lg:text-2xl my-4 dark:text-white">  Adding Credentials to CloudDIET </h3>
+  <h3 className="font-quadran    text-xl lg:text-2xl my-4 dark:text-white">  Adding Credentials to CloudDIET </h3>
  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 Create Service Principals in Azure Active Directory using the Onboarding Guide. Then add their credentials in CloudDIET settings. Most customers use one Service Principal, but multiple are supported. Each Azure Subscription must link to only one Service Principal, but different Subscriptions may use different ones.   </p>
@@ -49,7 +49,7 @@ Create Service Principals in Azure Active Directory using the Onboarding Guide. 
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -64,12 +64,12 @@ Create Service Principals in Azure Active Directory using the Onboarding Guide. 
       </div>
     </div>
 
-  <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">   Updating Secrets  </h3>
+  <h3 className="font-quadran   dark:text-white text-xl lg:text-2xl my-4">   Updating Secrets  </h3>
  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 You can rotate Service Principal secrets anytime in CloudDIET settings. Once saved, secrets are not visible but can be updated again later.  </p>
 
-    <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">   Removing Credentials   </h3>
+    <h3 className="font-quadran   dark:text-white text-xl lg:text-2xl my-4">   Removing Credentials   </h3>
  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Removed credentials cannot be recovered. 
@@ -102,7 +102,7 @@ Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Re
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -118,7 +118,7 @@ Remove credentials from CloudDIET anytime if no Azure Subscription is linked. Re
     </div>
 
 
-<h3 className="font-bricolage  text-xl dark:text-white lg:text-2xl my-4">  Auditing   </h3>
+<h3 className="font-quadran    text-xl dark:text-white lg:text-2xl my-4">  Auditing   </h3>
  <p className="font-quicksand dark:text-white text-base text-gray-700 leading-relaxed">
 
 Service Principal activity can be audited in Azure Active Directory using native tools like Sign-in logs. 

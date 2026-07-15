@@ -589,8 +589,8 @@ const HeroSec = () => {
             <button
               key={plan}
               onClick={() => setActiveTab(plan)}
-              className={`relative py-3 px-2 text-xs md:text-xl font-bold rounded-full transition-colors z-10 font-bricolage duration-300 ${
-                activeTab === plan ? 'text-[#1e8d8d]' : 'text-[#1e8d8d]/60'
+              className={`relative py-3 px-2 text-xs md:text-xl font-bold rounded-full transition-colors z-10 font-quadran   duration-300 ${
+                activeTab === plan ? 'text-[#00AA72]' : 'text-[#00AA72]/60'
               }`}
             >
               {activeTab === plan && (
@@ -614,7 +614,7 @@ const HeroSec = () => {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="text-center mb-16"
       >
-        <H3EHR className="text-[#1e8d8d]">
+        <H3EHR className="text-[#00AA72]">
           {activeData.heroTitle}
         </H3EHR>
 
@@ -630,7 +630,7 @@ const HeroSec = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className={`grid gap-6 items-start relative z-10 ${gridCols}`}
+          className={`grid gap-6 items-stretch relative z-10 ${gridCols}`}
         >
           <AnimatePresence mode="wait">
             {visibleCards.map((card) => {
@@ -638,80 +638,112 @@ const HeroSec = () => {
               // Only apply "Featured" styles (pop out, heavy border) if we have 3 cards
               const isFeatured = card.isFeatured && visibleCards.length === 3;
               
-              const cardClass = `
-                flex flex-col h-full overflow-hidden min-h-[600px] rounded-xl bg-white
-                ${isFeatured 
-                  ? 'shadow-2xl border-[8px] border-[#008280]  dark:bg-teal-950 transform md:-translate-y-4 min-h-[620px]' 
-                  : 'shadow-lg border border-teal-500/30'
-                }
-              `;
+              // const cardClass = `
+              //   flex flex-col h-full overflow-hidden min-h-[600px] rounded-xl bg-white
+              //   ${isFeatured 
+              //     ? 'shadow-2xl border-[8px] border-[#00AA72]  dark:bg-teal-950 transform md:-translate-y-4 min-h-[620px]' 
+              //     : 'shadow-lg border border-teal-500/30'
+              //   }
+              // `;
 
               return (
-                <motion.div 
-                  key={`${activeTab}-${card.type}`}
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className={cardClass}
-                >
-                  {/* Featured Badge (Only for middle card in 3-column layout) */}
-                  {isFeatured && (
-                    <div className="bg-[#008280] text-white text-[14px] font-bold uppercase tracking-widest py-1.5 text-center font-bricolage">Most Popular</div>
-                  )}
-
-                  <div className={`p-8 text-center border-b dark:bg-teal-900 border-gray-50 ${isFeatured ? 'mt-4' : ''}`}>
-                    <H3EHR className={`font-bold mb-1 ${isFeatured ? 'text-2xl text-[#008280]' : 'dark:text-white text-gray-800'}`}>
-                      {card.data.title}
-                    </H3EHR>
-                    {card.data.subtitle && (
-                      <P className={`font-bold leading-tight ${!isFeatured ? 'text-2xl text-[#008280]' : ''}`}>
-                        {card.data.subtitle}
-                      </P>
-                    )}
-                    
-                    <button
-              onClick={() => setDrawerOpen(true)}
-              className="text-gray-800 dark:text-white text-[18px] font-bold font-quicksand cursor-pointer"
-            >
-              Support
-            </button>
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                setDrawerOpen(true);
-              }}
-  className="
-    mt-8 w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-wider 
-    transition-all duration-300 cursor-pointer flex items-center justify-center
-    /* Default State: Black background, white text */
-    bg-black/90 text-white border border-transparent
-    /* Hover State: White background, gray border, black text */
-    hover:bg-white hover:text-black hover:border-gray-300
-  "
+          <motion.div
+  key={`${activeTab}-${card.type}`}
+  variants={itemVariants}
+  initial="hidden"
+  animate="visible"
+  exit="exit"
+  className={`
+    flex flex-col h-full overflow-hidden bg-white
+    rounded-[28px]
+    ${
+      isFeatured
+        ? "border-[6px] border-[#00AA72] shadow-[0_30px_70px_rgba(0,170,114,0.22)] md:-translate-y-5"
+        : "border border-[#00AA72] shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
+    }
+  `}
 >
-  {card.data.buttonText}
-</button>
+  {/* Featured Badge */}
+  {isFeatured && (
+  <div className="bg-[#00AA72] text-white text-center py-2 text-sm font-bold uppercase">
+    MOST POPULAR
+  </div>
+)}
 
-                    {/* {card.data.secondaryButton && (
-                      <button className="flex-1 py-3 px-1 border border-gray-300 text-gray-700 rounded text-[10px] font-bold uppercase w-full mt-2">
-                        {card.data.secondaryButton}
-                      </button>
-                    )} */}
-                  </div>
+  {/* ===================== */}
+  {/* TOP WHITE SECTION */}
+  {/* ===================== */}
+  <div
+    className={`
+      className="bg-white text-center px-8 pt-8 pb-8
+      ${
+        isFeatured
+          ? "border-[6px] border-b-0 border-[#00AA72]"
+          : "border-t border-l border-r border-[#00AA72]"
+      }
+    `}
+  >
+    <H3EHR
+      className={`font-bold mb-2 ${
+        isFeatured
+          ? "text-[#00AA72]"
+          : "text-[#00AA72] dark:text-white"
+      }`}
+    >
+      {card.data.title}
+    </H3EHR>
 
-                  <div className="p-6 text-[13px] text-gray-600 space-y-6">
-                    {card.data.sections.map((sec: any, i: number) => (
-                      <div key={i}>
-                        <H4EHR className="font-bold text-gray-900 mb-1 flex items-center"><RightChevron className="mr-2 text-[#008280]" /> {sec.head}</H4EHR  >
-                        {/* {sec.sub && <p className="text-[11px] text-gray-500 mb-2 ml-5">{sec.sub}</p>} */}
-                        <ul className="ml-5 space-y-1 text-[16px] font-semibold font-quicksand">
-                          {sec.items.map((item: string) => <li key={item} className="before:content-['•'] before:mr-2 before:text-gray-400">{item}</li>)}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
+    {card.data.subtitle && (
+      <P className="font-bold text-[#00AA72]">
+        {card.data.subtitle}
+      </P>
+    )}
+
+    <button
+      onClick={() => setDrawerOpen(true)}
+      className="mt-6 text-black dark:text-white font-bold"
+    >
+      Support
+    </button>
+
+    <button
+      onClick={() => {
+        setMenuOpen(false);
+        setDrawerOpen(true);
+      }}
+      className="mt-6 w-full py-3 bg-black text-white rounded-md font-bold uppercase"
+    >
+      {card.data.buttonText}
+    </button>
+  </div>
+
+  {/* ===================== */}
+  {/* LOWER GRAY SECTION */}
+  {/* ===================== */}
+<div className="flex-1 bg-[#F4F7FB] px-7 py-7 rounded-b-[22px]">
+    <div className="space-y-6">
+      {card.data.sections.map((sec: any, i: number) => (
+        <div key={i}>
+          <H4EHR className="font-bold text-gray-900 mb-2 flex items-center">
+            <RightChevron className="mr-2 text-[#00AA72]" />
+            {sec.head}
+          </H4EHR>
+
+          <ul className="ml-5 space-y-1 text-[16px] font-semibold font-quicksand">
+            {sec.items.map((item: string) => (
+              <li
+                key={item}
+                className="before:content-['•'] before:mr-2 before:text-gray-400"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</motion.div>
               );
             })}
           </AnimatePresence>
@@ -719,7 +751,7 @@ const HeroSec = () => {
       </div>
 
       <div className="absolute bottom-0 left-0 w-full pointer-events-none">
-        <img src="/EHR-PMS/Pricing/Vector.webp" alt="decoration" className="w-full h-auto object-cover opacity-80" />
+        <img src="/EHR-PMS/Pricing/Vector.svg" alt="decoration" className="w-full h-auto object-cover opacity-80" />
       </div>
     </div>
   );

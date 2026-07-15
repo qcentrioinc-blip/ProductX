@@ -107,7 +107,7 @@ const IndustryCard = React.forwardRef<HTMLDivElement, IndustryCardProps>(
                   <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 font-quicksand">
                     Launching in
                   </div>
-                  <div className="text-xl md:text-2xl font-bold font-bricolage uppercase tracking-wider text-white drop-shadow-md whitespace-nowrap">
+                  <div className="text-xl md:text-2xl font-bold font-quadran   uppercase tracking-wider text-white drop-shadow-md whitespace-nowrap">
                     {countdownText}
                   </div>
                 </div>
@@ -305,7 +305,7 @@ export default function InteractiveHeroSection() {
                   </Link>
                 </div>
 
-                <div className="flex flex-wrap font-bricolage gap-10 xl:gap-15 mt-12 xl:mt-0">
+                <div className="flex flex-wrap font-quadran   gap-10 xl:gap-15 mt-12 xl:mt-0">
                   {[
                     { label: '30%', sub: 'AI-Driven Outcomes' },
                     { label: '24/7', sub: 'End-to-End Delivery' },

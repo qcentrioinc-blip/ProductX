@@ -10,7 +10,7 @@ const ImgSec = () => {
       <div className="block md:hidden px-4">
 
         {/* Title */}
-        <H1 className=" text-[#006C49] leading-snug mb-6">
+        <H1 className=" text-[#00AA72] leading-snug mb-6">
           Transform Your Bank with Bankfair
         </H1>
 
@@ -44,7 +44,7 @@ const ImgSec = () => {
 <div className="hidden md:grid grid-cols-12 w-full min-h-[500px]">
 
   {/* Left Green Section */}
-  <div className="col-span-5 bg-[#006C49] text-white flex flex-col justify-between p-10 lg:p-14">
+  <div className="col-span-5 bg-[#00AA72] text-white flex flex-col justify-between p-10 lg:p-14">
     <div>
       <H1 className="text-white leading-tight max-w-lg">
         Transform Your Bank with Bankfair
@@ -70,7 +70,7 @@ const ImgSec = () => {
   <div className="col-span-4 flex flex-col">
 
     {/* Green Top */}
-    <div className="bg-[#006C49] flex justify-end items-start p-8 h-1/2">
+    <div className="bg-[#00AA72] flex justify-end items-start p-8 h-1/2">
       <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center">
         <img
           src="/BankfairDollar.svg" // replace with your icon

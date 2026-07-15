@@ -78,7 +78,7 @@ export default function ConsilierCard() {
                                 />
                             </div>
 
-                            <H4 className="mt-2 dark:text-[#006C49]">{card.title}</H4>
+                            <H4 className="mt-2 dark:text-[#00AA72]">{card.title}</H4>
 
                             <P className="text-gray-800 mt-3">
                                 {card.description}

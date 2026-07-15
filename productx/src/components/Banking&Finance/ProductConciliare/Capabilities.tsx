@@ -53,7 +53,7 @@ const Capabilities = () => {
             <div className="space-y-6 lg:space-y-8 w-full lg:max-w-[516px]">
 
               <H2>
-                <div className="text-[#006C49]">What is</div>
+                <div className="text-[#00AA72]">What is</div>
                 <div className="text-gray-800 dark:text-white">Conciliare</div>
               </H2>
 
@@ -99,7 +99,7 @@ const Capabilities = () => {
                   </div>
 
                   {/* Title */}
-                  <H3 className="text-[#006C49] m-0">
+                  <H3 className="text-[#00AA72] m-0">
                     {card.title}
                   </H3>
 

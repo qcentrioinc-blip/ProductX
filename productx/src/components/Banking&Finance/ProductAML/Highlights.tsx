@@ -40,7 +40,7 @@ export default function Highlights() {
       pill: "Simulates stress scenarios for risk assessment",
     },
     {
-      bg: "#006C49",
+      bg: "#00AA72",
       textColor: "text-white",
       circle: "Integrates data from CBS and treasury systems",
       pill: "Supports strategic planning and budgeting needs",
@@ -53,11 +53,11 @@ export default function Highlights() {
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#006C49 3px, transparent 3px)",
+          backgroundImage: "radial-gradient(#00AA72 3px, transparent 3px)",
           backgroundSize: "24px 24px",
         }}
       />
-      <H2 className="text-center dark:text-[#006C49] px-4 xl:px-0 mb-16 max-w-2xl">  
+      <H2 className="text-center dark:text-[#00AA72] px-4 xl:px-0 mb-16 max-w-2xl">  
     Key Highlights – FFIEC, OCC, and Federal Reserve Aligned
       </H2>
  
@@ -77,7 +77,7 @@ export default function Highlights() {
             }}
           >
             <div
-              className={`w-full rounded-3xl border-4 border-dashed border-black py-8 px-8 text-center font-bricolage text-[18px] font-semibold ${item.textColor}`}
+              className={`w-full rounded-3xl border-4 border-dashed border-black py-8 px-8 text-center font-quadran   text-[18px] font-semibold ${item.textColor}`}
               style={{ background: item.bg }}
             >
               {item.circle}
@@ -138,7 +138,7 @@ export default function Highlights() {
       className="absolute rounded-full border-4 border-dashed border-black flex items-center justify-center text-center px-12"
       style={{
         width: 350, height: 350,
-        background: "#006C49",
+        background: "#00AA72",
         top: 260, left: 320,   // 740 - 400 = 340 → right-aligned within container
         transform: go ? "translateY(0)" : "translateY(400px)",
         opacity: go ? 1 : 0,

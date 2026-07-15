@@ -35,7 +35,7 @@ export default function Cards() {
   return (
     <section className="w-full bg-white dark:bg-black py-10 md:py-16 xl:pt-10 xl:pb-0" >
       <div className="max-w-8xl  xl:mx-10 px-4  sm:px-8 lg:px-16">
-        <H2 className="pb-6 dark:text-[#006C49]">Key Benefits of Loan Origination System </H2>
+        <H2 className="pb-6 dark:text-[#00AA72]">Key Benefits of Loan Origination System </H2>
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2  gap-6 md:gap-10  xl:py-10 xl:gap-14">
       
@@ -61,7 +61,7 @@ export default function Cards() {
 
               {/* RIGHT CONTENT */}
               <div className="flex flex-col gap-3 sm:gap-4 w-full sm:w-2/3">
-                <H4 className="text-[#006C49]">{card.title}</H4>
+                <H4 className="text-[#00AA72]">{card.title}</H4>
                 <P className="text-sm sm:text-base  dark:text-white leading-relaxed">
                   {card.content}
                 </P>

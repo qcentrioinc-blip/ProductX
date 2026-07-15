@@ -110,7 +110,7 @@ const InsightThoughtBnF = () => {
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10">
                 {/* Header Section */}
                 <div className="flex justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
-                    <H2 className="text-[#006C49] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
+                    <H2 className="text-[#00AA72] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
                         {title}
                     </H2>
                     <a href="/industries/banking-and-finance/blogs" className="flex-shrink-0">

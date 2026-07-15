@@ -138,7 +138,7 @@ export default function Timeline() {
                   {!isTop && (
                     <div className="mb-16 text-center">
                       <div className={`anim-text-up ${show ? "show" : ""}`}>
-                        <H4 className="font-semibold  dark:text-[#006C49] text-lg">{item.title}</H4>
+                        <H4 className="font-semibold  dark:text-[#00AA72] text-lg">{item.title}</H4>
                         <P className="text-gray-500 text-sm mt-2 max-w-full">
                           {item.description}
                         </P>
@@ -151,7 +151,7 @@ export default function Timeline() {
                     {isTop ? (
                       <>
                         {/* Circle ABOVE line */}
-                        <div className={`anim-circle w-24 h-24 font-bricolage text-[24px] md:text-[30px] xl:text-[40px] rounded-full bg-[#006C49] text-white flex items-center justify-center text-lg font-semibold shadow-md ${show ? "show" : ""}`}>
+                        <div className={`anim-circle w-24 h-24 font-quadran   text-[24px] md:text-[30px] xl:text-[40px] rounded-full bg-[#00AA72] text-white flex items-center justify-center text-lg font-semibold shadow-md ${show ? "show" : ""}`}>
                           {item.id}
                         </div>
 
@@ -170,7 +170,7 @@ export default function Timeline() {
                         <div className={`anim-stem-up w-[4px] -mt-1 h-20 dark:bg-white bg-black ${show ? "show" : ""}`} />
 
                         {/* Circle BELOW line */}
-                        <div className={`anim-circle w-24 h-24 font-bricolage text-[24px] md:text-[30px] xl:text-[40px] rounded-full bg-[#006C49] text-white flex items-center justify-center text-lg font-semibold shadow-md ${show ? "show" : ""}`}>
+                        <div className={`anim-circle w-24 h-24 font-quadran   text-[24px] md:text-[30px] xl:text-[40px] rounded-full bg-[#00AA72] text-white flex items-center justify-center text-lg font-semibold shadow-md ${show ? "show" : ""}`}>
                           {item.id}
                         </div>
                       </>
@@ -181,7 +181,7 @@ export default function Timeline() {
                   {isTop && (
                     <div className="mt-16 text-center">
                       <div className={`anim-text-down ${show ? "show" : ""}`}>
-                        <H4 className="font-semibold text-lg dark:text-[#006C49]">{item.title}</H4>
+                        <H4 className="font-semibold text-lg dark:text-[#00AA72]">{item.title}</H4>
                         <P className="text-gray-500 text-sm mt-2 max-w-full">
                           {item.description}
                         </P>

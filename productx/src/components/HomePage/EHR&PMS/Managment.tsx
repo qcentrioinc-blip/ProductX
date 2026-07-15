@@ -219,13 +219,13 @@ export default function Management() {
                       imageOnRight ? "lg:order-2 lg:pr-4 xl:pr-20" : "lg:order-1 lg:pl-4 xl:pl-20"
                     }`}
                   >
-                    <H2EHR className=" font-light text-[#008280] dark:text-teal-700">
+                    <H2EHR className=" font-light text-[#00AA72] dark:text-[#00AA72]  ">
                       {card.title}
                     </H2EHR>
 
                     <P>{card.description}</P>
 
-                    <div className="relative bg-gray-100 border-14 border-[#008280] rounded-2xl aspect-video flex items-center justify-center overflow-hidden">
+                    <div className="relative bg-gray-100 border-14 border-[#00AA72] rounded-2xl aspect-video flex items-center justify-center overflow-hidden">
                       {typeof activeIndex === "number" ? (
                         <img
                           src={card.items[activeIndex].image}
@@ -257,12 +257,12 @@ export default function Management() {
                               onClick={() => toggleAccordion(card.id, index)}
                               className="w-full flex items-start gap-4 text-left"
                             >
-                              <H4EHR className="text-lg font-semibold text-teal-700  flex-1">
+                              <H4EHR className="text-lg font-semibold text-[#00AA72]    flex-1">
                                 {item.title}
                               </H4EHR>
 
                               <svg
-                                className={`w-6 h-6 text-teal-700 transition-transform duration-300 ${
+                                className={`w-6 h-6 text-[#00AA72]   transition-transform duration-300 ${
                                   isOpen ? "rotate-180" : ""
                                 }`}
                                 fill="none"

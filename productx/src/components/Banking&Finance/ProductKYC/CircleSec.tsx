@@ -26,8 +26,8 @@ const products: ProductTab[] = [
     para: "Automate and streamline your customer due diligence processes with our comprehensive Enterprise CDD solution. Our platform offers a fully configurable policy engine that allows you to set up and manage your CIP and CDD requirements without any coding. With real-time data capture and seamless integration with external and internal systems, you can ensure compliance with evolving regulations while providing a frictionless onboarding experience for your customers.",
     description:
       "Re-configure on the GO! No more expensive, time consuming system change requests.",
-    image: "/ProductDetails4/KYC1.webp",
-    mobileImage: "/ProductDetails4/KYC1_mobile.webp",
+    image: "/cip.webp",
+    mobileImage: "/MobileImage.webp",
   },
   {
     label: "ID and V Monitor",
@@ -200,7 +200,7 @@ const AnimatedLayer = ({
             {product.features.map((feature, i) => (
               <div
                 key={i}
-                className="border border-blue-200 bg-white dark:bg-black rounded-xl p-4 shadow-sm flex flex-col items-center text-center"
+                className="border border-[#E1EDFF] bg-white dark:bg-black rounded-xl p-4 shadow-sm flex flex-col items-center text-center"
               >
                 <img
                   src={feature.icon}
@@ -311,7 +311,7 @@ export default function CircleSec() {
         <div className="sticky top-0 py-8 md:py-10 bg-white  xl:bg-transparent dark:bg-black">
           <div className="w-full px-4 sm:px-6 xl:px-20 max-w-7xl mx-auto">
 
-            <H1 className="text-[#2f5fb3] mb-4 md:mb-6 text-center text-lg md:text-3xl font-bold leading-tight">
+            <H1 className="text-[#00AA72] mb-4 md:mb-6 text-center text-lg md:text-3xl font-bold leading-tight">
               Solution Components
             </H1>
 
@@ -333,7 +333,7 @@ export default function CircleSec() {
                       text-[10px] md:text-sm lg:text-base
                       rounded-full transition-colors duration-300 border flex-shrink-0
                       ${isActive
-                        ? "text-white border-transparent bg-[#2f5fb3] shadow-md"
+                        ? "text-white border-transparent bg-[#00AA72] shadow-md"
                         : "text-gray-600 border-gray-300 bg-white hover:bg-gray-100"
                       }
                     `}
@@ -341,7 +341,7 @@ export default function CircleSec() {
                     {isActive && (
                       <motion.div
                         layoutId="activePill"
-                        className="absolute inset-0 bg-[#2f5fb3] rounded-full z-[-1]"
+                        className="absolute inset-0 bg-[#00AA72] rounded-full z-[-1]"
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
                       />
                     )}
@@ -352,7 +352,7 @@ export default function CircleSec() {
             </div>
 
             {/* Description */}
-            <H4 className="text-[#2f5fb3] mb-6 md:mb-8 max-w-3xl mx-auto text-center text-xs md:text-base font-bold leading-tight px-2">
+            <H4 className="text-[#00AA72] mb-6 md:mb-8 max-w-3xl mx-auto text-center text-xs md:text-base font-bold leading-tight px-2">
               {active.description}
             </H4>
 

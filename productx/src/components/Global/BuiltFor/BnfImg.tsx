@@ -51,7 +51,7 @@ export default function BnfImg() {
                 >
                     <div className="lg:absolute lg:top-[100px] lg:left-[40px] xl:left-[81.21px] lg:max-w-2xl xl:w-5xl">
                         <h2
-                            className="font-bricolage text-[#006C49] leading-none m-0 pt-0"
+                            className="font-quadran   text-[#00AA72] leading-none m-0 pt-0"
                             style={{
                                 fontWeight: 600, // SemiBold
                                 fontSize: "clamp(36px, 5vw, 64px)",

@@ -14,16 +14,17 @@ import InnovationCards from "./InnovationCards"
 import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
-import CircularCards from "./CircularCards";
+// import CircularCards from "./CircularCards";
+import ElephantQueen from "./ElephantQueen";
 // import NewLanding from "./NewLanding";
 // import NewLanding from "./NewLanding";
 // import ElephantQueen from "./ElephantQueen";
 // import Navbar from "../../Global/Navbar/Navbar";
 // import MainHero from "./MainHero";
 // import MainHero from "./MainHero";
-import NewLanding from "./NewLanding";
-// import Rocket from "./Rocket";
-// import ThreeTurns from "./ThreeTurns";
+// import NewLanding from "./NewLanding";
+import Rocket from "./Rocket";
+import ThreeTurns from "./ThreeTurns";
  
 
 const GlobalLandingPage = () => {
@@ -45,19 +46,21 @@ const GlobalLandingPage = () => {
         <div className="relative">
 {/* <PageLoader onComplete={handleLoaderComplete} />  */}
 
-               {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
-{/* <MainHero/> */}
-<NewLanding/>
+            {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
+            {/* <MainHero/> */}
+            {/* <NewLanding/> */}
 
-            {/* Sections below scroll over the ElephantQueen fixed panel */}
-            <div className="relative" style={{ zIndex: 20, background: '#000' }}>
-                <CircularCards />
+            <ElephantQueen />
+
+            {/* Sections below scroll over the ElephantQueen panel */}
+            <div className="relative" style={{ zIndex: 10, background: '' }}>
+                {/* <CircularCards /> */}
                 {/* <div id="landingpage">
                 <LandingPage1 />
             </div> */}
             <LogoMarquee/>
-            {/* <Rocket/>
-            <ThreeTurns/> */}
+            <Rocket/>
+            <ThreeTurns/>
                 <GoalsSection/>
                 <InnovationCards/>
                 <Centric/>

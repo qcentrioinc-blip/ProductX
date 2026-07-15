@@ -136,7 +136,7 @@ const nextBlog =
     <P className="mb-6">{blog.cta.description}</P>
     <button 
      onClick={() => setDrawerOpen(true)}
-    className="bg-[#008280] font-bricolage text-white px-6 py-3 rounded-md">
+    className="bg-[#00AA72] font-quadran   text-white px-6 py-3 rounded-md">
       Request Demo
     </button>
   </div>
@@ -161,11 +161,11 @@ const nextBlog =
   {previousBlog ? (
     <button
       onClick={() => navigate(`/blogs/${previousBlog.slug}`)}
-      className="flex items-center space-x-2 text-[#008280] "
+      className="flex items-center space-x-2 text-[#00AA72] "
     >
       <span className=" "><ArrowLeft/></span>
       <span className="text-left">
-        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#008280]">Previous</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#00AA72]">Previous</div>
         {/* <div className="font-semibold">{previousBlog.subtitle}</div> */}
       </span>
     </button>
@@ -175,10 +175,10 @@ const nextBlog =
   {nextBlog ? ( 
     <button
       onClick={() => navigate(`/blogs/${nextBlog.slug}`)}
-      className="flex items-center space-x-2 text-[#008280]  text-right"
+      className="flex items-center space-x-2 text-[#00AA72]  text-right"
     >
       <span className="text-right">
-        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#008280]">Next</div>
+        <div className=" font-quicksand text-lg text-gray-700 font-bold hover:text-[#00AA72]">Next</div>
         {/* <div className="font-semibold">{nextBlog.subtitle}</div> */}
       </span>
       <span className=" "><ArrowRight/></span>
@@ -188,7 +188,7 @@ const nextBlog =
 </div>
 
     <hr className="w-full h-2"/>
-    <h5 className=" font-bricolage  text-lg font-bold mt-6 mb-3">
+    <h5 className=" font-quadran    text-lg font-bold mt-6 mb-3">
   {blog.metaTitle}
 </h5  >
 
@@ -232,7 +232,7 @@ const nextBlog =
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="block text-[18px] font-quicksand text-black hover:text-[#008280]"
+                className="block text-[18px] font-quicksand text-black hover:text-[#00AA72]"
               >
                 {section.heading || "Introduction"}
                 

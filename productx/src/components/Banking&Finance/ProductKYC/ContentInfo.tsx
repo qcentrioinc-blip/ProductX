@@ -12,11 +12,11 @@ export default function Sec_4() {
         <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">
 
           {/* Vertical Divider (Desktop Only) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#006C49] -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#00AA72] -translate-x-1/2" />
 
           {/* LEFT SECTION */}
           <div className="flex-1 lg:pr-16">
-            <H2 className="text-[#006C49] mb-6 max-w-xl">
+            <H2 className="text-[#00AA72] mb-6 max-w-xl">
               Zero code policy configuration engine
             </H2>
 
@@ -26,7 +26,7 @@ export default function Sec_4() {
             </P>
 
             <div
-              style={{ borderTop: "0.2px solid #006C49" }}
+              style={{ borderTop: "0.2px solid #00AA72" }}
               className="w-full max-w-xl my-10"
             />
 
@@ -66,7 +66,7 @@ export default function Sec_4() {
             {/* Card 1 */}
             <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
-                <Settings className="text-[#006C49] mt-1" size={30} />
+                <Settings className="text-[#00AA72] mt-1" size={30} />
                 <div>
                   <H4 className="dark:text-white">Zero code policy configuration engine</H4>
                   <P className="mt-2 text-gray-900">
@@ -79,7 +79,7 @@ export default function Sec_4() {
             {/* Card 2 */}
             <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
-                <LifeBuoy className="text-[#006C49] mt-1" size={30} />
+                <LifeBuoy className="text-[#00AA72] mt-1" size={30} />
                 <div>
                   <H4 className="dark:text-white">Full client lifecycle coverage</H4>
                   <P className="mt-2 text-gray-900">
@@ -92,7 +92,7 @@ export default function Sec_4() {
             {/* Card 3 */}
             <div className="border border-gray-300 rounded-lg px-6 py-4 dark:bg-slate-900 bg-white">
               <div className="flex flex-col gap-4 items-start">
-                <Plug className="text-[#006C49] mt-1" size={30} />
+                <Plug className="text-[#00AA72] mt-1" size={30} />
                 <div>
                   <H4 className="dark:text-white">Seamless API integrations</H4>
                   <P className="mt-2 text-gray-900">

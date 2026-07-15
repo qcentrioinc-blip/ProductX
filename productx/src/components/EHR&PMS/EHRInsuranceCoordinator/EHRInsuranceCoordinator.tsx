@@ -1,4 +1,5 @@
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
+import Overview from "../../HomePage/EHR&PMS/Overview"
 import FeaturePoint from "../Admin/FeaturePoint"
 import FeatureHighlights from "../EHRNurse/FeatureHighlights"
 import InformationGrid from "../EHRNurse/InformationGrid"
@@ -24,6 +25,7 @@ export const EHRInsuranceCoordinator = () => {
         {/* <PointsSec/> */}
       <FeatureGrid/>
       <Keywords/>
+      <Overview/>
       <InformationGrid/>
        <FeaturePoint role="insuranceCoordinator" />
 

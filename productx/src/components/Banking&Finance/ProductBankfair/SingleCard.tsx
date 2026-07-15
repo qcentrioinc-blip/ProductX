@@ -14,7 +14,7 @@ const SingleCard = () => {
                 {/* Section Heading */}
                 <div className="text-center mb-10 md:mb-12">
                     <H2 className="text-3xl md:text-[44px] font-bold leading-tight">
-                        <span className="text-[#006C49]">Enterprise-Grade Security and</span>
+                        <span className="text-[#00AA72]">Enterprise-Grade Security and</span>
                         <br className="hidden md:block" />{""}
                         <span className="text-gray-900 dark:text-white">Regulatory Compliance Standards</span>
                     </H2>
@@ -27,9 +27,9 @@ const SingleCard = () => {
                     <div className="lg:col-span-5 w-full bg-white dark:bg-slate-950 rounded-[24px] p-4 md:p-6    lg:p-6 shadow-[2px_2px_5px_rgba(0,0,0,0.9)] flex flex-col justify-center   ">
                         {/* Card Sub-Heading */}
                         <H4 className="text-[20px] lg:text-[22px] font-bold text-gray-900  dark:text-white leading-snug mb-4">
-                            OWASP Compliant <span className="text-[#006C49]">Security Framework</span>
+                            OWASP Compliant <span className="text-[#00AA72]">Security Framework</span>
                             <br className="hidden xl:block" />
-                            for Banking <span className="text-[#006C49]">Operations</span>
+                            for Banking <span className="text-[#00AA72]">Operations</span>
                         </H4>
 
                         {/* Description */}

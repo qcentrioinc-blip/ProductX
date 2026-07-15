@@ -6,7 +6,7 @@ interface SlideData {
   title: string;
   description: string;
   circleColor: string;       // Inner solid core circle (e.g. "bg-[#0F38A1]")
-  lightShadeColor: string;   // Outer light tint shade ring (e.g. "bg-[#006C49]/20 ")
+  lightShadeColor: string;   // Outer light tint shade ring (e.g. "bg-[#00AA72]/20 ")
   imageSrc: string;     
   alt: string;
 }
@@ -17,7 +17,7 @@ const SLIDE_DATA: SlideData[] = [
     title: "BANKING AND FINANCE",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit it amet, Lorem ipsum dolor sit amet",
     circleColor: "bg-[#0F38A1]",
-    lightShadeColor: "bg-[#006C49]/20 ",
+    lightShadeColor: "bg-[#00AA72]/20 ",
     imageSrc: "/Global/BNFHero.png",
     alt: "Banking and Finance",
   },

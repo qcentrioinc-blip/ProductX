@@ -37,7 +37,7 @@ export default function TitleSecBnF() {
         {/* Desktop Wrapper helps match the Figma constraints while mobile stays fluid */}
         <div className="lg:absolute lg:top-[309.5px] lg:left-[40px] xl:left-[80px] lg:w-[500px] xl:w-[600px] flex flex-col gap-[24px]">
           <h1
-            className="text-[#006C49] m-0 p-0 font-bricolage"
+            className="text-[#00AA72] m-0 p-0 font-quadran  "
             style={{
               fontWeight: 700,
               fontSize: "clamp(40px, 5vw, 64px)",

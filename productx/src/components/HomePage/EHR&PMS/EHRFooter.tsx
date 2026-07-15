@@ -111,12 +111,12 @@ const EHRFooter = () => {
   ];
  
   return (
-    <footer className="bg-[#008280] dark:bg-[#141414]">
+    <footer className="bg-[#00AA72] dark:bg-[#141414]">
       {/* Green Gradient Layers */}
       <GradientLayers />
  
       {/* Main Container */}
-      <div className="bg-[#008280] dark:bg-[#141414] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
+      <div className="bg-[#00AA72] dark:bg-[#141414] flex flex-col pt-16 items-left max-w-8xl px-4 sm:px-6 md:px-8 lg:px-16">
  
         {/* TOP CARD - Newsletter */}
         <div
@@ -142,7 +142,7 @@ const EHRFooter = () => {
                     fontWeight: 400,
                     fontSize: 'clamp(28px, 5vw, 40px)',
                     lineHeight: '120%',
-                    color: '#008280'
+                    color: '#00AA72'
                   }}
                 >
                   Subscribe to our newsletter
@@ -154,12 +154,12 @@ const EHRFooter = () => {
                       placeholder="Enter your mail"
                       value={email}
                       onChange={handleEmailChange}
-                      className={`px-6 rounded-full font-bricolage border-2 bg-white outline-none text-gray-800 placeholder:text-gray-500 transition-colors ${
+                      className={`px-6 rounded-full font-quadran   border-2 bg-white outline-none text-gray-800 placeholder:text-gray-500 transition-colors ${
                         emailError
                           ? 'border-red-700 focus:border-red-700'
                           : submitted
-                          ? 'border-[#008280] focus:border-[#008280]'
-                          : 'border-gray-300 focus:border-[#008280]'
+                          ? 'border-[#00AA72] focus:border-[#00AA72]'
+                          : 'border-gray-300 focus:border-[#00AA72]'
                       }`}
                       style={{
                         fontFamily: "'Quicksand', sans-serif",
@@ -179,7 +179,7 @@ const EHRFooter = () => {
                     {/* Success message */}
                     {submitted && !emailError && (
                       <p
-                        className="mt-2 text-[#008280] font-bricolage text-sm pl-4"
+                        className="mt-2 text-[#00AA72] font-quadran   text-sm pl-4"
                         style={{ fontFamily: "'Quicksand', sans-serif" }}
                       >
                         ✓ You've successfully subscribed!
@@ -194,10 +194,10 @@ const EHRFooter = () => {
                       inline-flex items-center justify-center
                       px-6 h-12
                       rounded-lg
-                      font-bricolage font-bold text-sm tracking-widest
-                      bg-[#008280] text-white 
-                      hover:bg-white hover:text-[#008280]
-                      border-2 border-[#008280]
+                      font-quadran   font-bold text-sm tracking-widest
+                      bg-[#00AA72] text-white 
+                      hover:bg-white hover:text-[#00AA72]
+                      border-2 border-[#00AA72]
                       transition-all duration-300 ease-in-out
                       hover:border-b-[4px]
                       hover:-translate-y-[2px]
@@ -206,7 +206,7 @@ const EHRFooter = () => {
                       self-start
                     "
                   >
-                    <span className="flex items-center font-bricolage gap-2">
+                    <span className="flex items-center font-quadran   gap-2">
                       Submit
  
                       <span className="relative flex items-center justify-center w-[20px] h-[20px]">
@@ -284,7 +284,7 @@ const EHRFooter = () => {
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 font-quicksand dark:text-white font-bold text-lg text-[#008280] transition-opacity inline-block"
+                        className="hover:opacity-80 font-quicksand dark:text-white font-bold text-lg text-[#00AA72] transition-opacity inline-block"
                       >
                         {link.name}
                       </a>
@@ -313,7 +313,7 @@ const EHRFooter = () => {
                     <li key={link.name}>
                       <a
                         href={link.path}
-                        className="hover:opacity-80 font-quicksand font-bold  dark:text-white text-lg text-[#008280] transition-opacity inline-block"
+                        className="hover:opacity-80 font-quicksand font-bold  dark:text-white text-lg text-[#00AA72] transition-opacity inline-block"
                       >
                         {link.name}
                       </a>
@@ -341,7 +341,7 @@ const EHRFooter = () => {
                   <li>
                     <a
                       href={`${base}/blogs`}
-                      className="hover:opacity-80 font-quicksand font-bold text-lg text-[#008280] transition-opacity inline-block"
+                      className="hover:opacity-80 font-quicksand font-bold text-lg text-[#00AA72] transition-opacity inline-block"
                     >
                       Blogs
                     </a>

@@ -19,13 +19,13 @@ export default function HeroSection() {
 
         {/* Heading */} 
         <div className="max-w-4xl mb-12">
-          <H1 className="text-[#006C49] leading-tight">
+          <H1 className="text-[#00AA72] leading-tight">
            FFIEC-Aligned Asset Liability Management System
           </H1>
         </div>
 
         {/* Main Card */}
-        <div className="grid lg:grid-cols-[1.1fr_1fr] bg-[#006C49] dark:bg-blue-950 rounded-2xl overflow-hidden min-h-[520px]">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] bg-[#00AA72] dark:bg-blue-950 rounded-2xl overflow-hidden min-h-[520px]">
 
           {/* Left Image */}
           <div className="relative w-full h-full">

@@ -6,7 +6,7 @@ const HeroSec = () => {
 
   return (
     <section className="dark:bg-[#141414]">
-    <section className="w-full min-h-screen max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 pt-20 lg:pt-40 font-bricolage flex flex-col overflow-hidden">
+    <section className="w-full min-h-screen max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 pt-20 lg:pt-40 font-quadran   flex flex-col overflow-hidden">
       
       {/* Header Section */}
       <motion.div
@@ -16,7 +16,7 @@ const HeroSec = () => {
         transition={{ duration: 0.6, ease: easeOut }}
         className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8"
       >
-        <H2EHR className="text-[#2A2A2A] dark:text-teal-700 leading-tight max-w-xl">
+        <H2EHR className="text-[#2A2A2A] dark:text-[#00AA72]   leading-tight max-w-xl">
            Clinical Efficiency at Your Fingertips
         </H2EHR>
         <P className="max-w-md text-[#141414] leading-relaxed md:pt-2 xl:pt-8">
@@ -67,7 +67,7 @@ const HeroSec = () => {
           }}
           className="bg-[#f2f2f2] dark:bg-black rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
         >
-          <span className="text-4xl dark:text-teal-700 lg:text-5xl font-medium font-bricolage text-black mb-1">
+          <span className="text-4xl dark:text-[#00AA72]   lg:text-5xl font-medium font-quadran   text-black mb-1">
             5x
           </span>
           <P className="text-[#141414] "> Faster Charting</P>
@@ -142,7 +142,7 @@ const HeroSec = () => {
           }}
           className="bg-[#f2f2f2] dark:bg-teal-900 rounded-3xl p-6 flex flex-col justify-center lg:row-span-1"
         >
-          <span className="text-4xl lg:text-5xl font-bricolage font-medium text-black mb-1">
+          <span className="text-4xl lg:text-5xl font-quadran   font-medium text-black mb-1">
             30+
           </span>
           <P className="text-[#141414] text-xs lg:text-sm">

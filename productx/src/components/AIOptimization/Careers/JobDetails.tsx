@@ -79,7 +79,7 @@ export default function JobDetails() {
                 <button
                     onClick={() => setActiveTab("overview")}
                     className={`
-                    py-3 text-3xl font-semibold w-full font-bricolage
+                    py-3 text-3xl font-semibold w-full font-quadran  
                     ${activeTab === "overview" 
                         ? "text-[#020059] border-b-2 border-black" 
                         : "text-[#666666]"
@@ -93,7 +93,7 @@ export default function JobDetails() {
                 <button
                     onClick={() => setActiveTab("application")}
                     className={`
-                    py-3 text-3xl font-semibold w-full font-bricolage
+                    py-3 text-3xl font-semibold w-full font-quadran  
                     ${activeTab === "application" 
                         ? "text-[#020059] border-b-2 border-black" 
                         : "text-[#666666]"
@@ -200,7 +200,7 @@ const OverviewContent = () => {
 
 const ApplicationForm = () => {
   return (
-    <form className="space-y-6 font-bricolage">
+    <form className="space-y-6 font-quadran  ">
       <input
         type="text"
         placeholder="Name"

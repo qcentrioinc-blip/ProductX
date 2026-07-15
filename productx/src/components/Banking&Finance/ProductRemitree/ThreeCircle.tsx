@@ -39,7 +39,7 @@ const CircleCard = ({ title, text, image }: any) => (
 
     {/* Title */}
     <h3 className="
-            font-['Bricolage_Grotesque'] dark:text-[#006C49] font-semibold
+            font-['Bricolage_Grotesque'] dark:text-[#00AA72] font-semibold
             leading-none tracking-normal text-[#141414] w-full
             text-[18px]
             sm:text-[20px]
@@ -87,7 +87,7 @@ const ThreeCircle = () => {
 
         {/* ── Title ── */}
         <H2 className="
-                    leading-none tracking-normal text-center text-[#006C49] w-full
+                    leading-none tracking-normal text-center text-[#00AA72] w-full
                     
                 ">
           What Makes REMITREE Unique

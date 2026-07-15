@@ -34,7 +34,7 @@ const InfoColumns: React.FC<InfoColumnsProps> = ({ columns = defaultColumns }) =
           <div className="w-full max-w-[320px] flex flex-col items-center">
             {/* Blue Square */}
             <div
-              className="bg-[#006C49] mb-5 shrink-0"
+              className="bg-[#00AA72] mb-5 shrink-0"
               style={{ width: "75px", height: "75px", borderRadius: "20px" }}
             />
 

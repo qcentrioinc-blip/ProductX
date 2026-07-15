@@ -4,7 +4,7 @@ const Overview = () => {
   return (
     <section className="w-full h-auto bg-[#C1D7F3] flex flex-col items-center  text-center px-6">
       <div className="max-w-6xl">
-        <H2 className="text-[#006C49] mb-6 mt-20">
+        <H2 className="text-[#00AA72] mb-6 mt-20">
           Sed ut perspiciatis
         </H2>
 

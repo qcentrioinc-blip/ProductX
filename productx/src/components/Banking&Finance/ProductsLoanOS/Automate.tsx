@@ -55,7 +55,7 @@ const Card = ({
         relative flex flex-col justify-between rounded-2xl p-6 h-100 xl:h-[350px]
         transition-all duration-700 ease-out
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        ${isDark ? 'bg-[#1e3a6e] text-white' : 'bg-[#dbeafe] text-[#143D79]'}
+        ${isDark ? 'bg-[#004A32] text-white' : 'bg-[#00AA72] text-[#143D79]'}
         hover:-translate-y-2 hover:shadow-2xl
       `}
       style={{ transitionDelay: visible ? `${index * 120}ms` : '0ms' }}
@@ -64,13 +64,13 @@ const Card = ({
       <div
         className={`
           w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0
-          ${isBlueIcon ? 'bg-blue-500' : 'bg-gray-900'}
+          ${isBlueIcon ? 'bg-[#00AA72]' : 'bg-black'}
         `}
       >
      <div
   className={`
-    w-12 h-12 rounded-full flex items-center font-bricolage tect-[18px] justify-center flex-shrink-0
-    ${isBlueIcon ? 'bg-blue-500 text-white' : 'bg-gray-900 text-white'}
+    w-12 h-12 rounded-full flex items-center font-quadran   tect-[18px] justify-center flex-shrink-0
+    ${isBlueIcon ? 'bg-[#00AA72] text-white' : 'bg-black text-white'}
     font-bold text-lg
   `}
 >

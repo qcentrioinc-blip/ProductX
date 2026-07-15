@@ -12,7 +12,7 @@ export default function ContentInfo() {
 
           {/* LEFT SECTION */}
           <div className="flex-1">
-            <H2 className="text-[#006C49] mb-6 max-w-3xl">
+            <H2 className="text-[#00AA72] mb-6 max-w-3xl">
               Key Benefits of SHERLOCK AML System 
             </H2>
 
@@ -21,7 +21,7 @@ export default function ContentInfo() {
             </P>
 
             <div
-              style={{ borderTop: "0.2px solid #006C49" }}
+              style={{ borderTop: "0.2px solid #00AA72" }}
               className="w-full max-w-xl my-12"
             />
 
@@ -61,7 +61,7 @@ export default function ContentInfo() {
 
               {/* Card 1 */}
               <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
-                <div className="w-12 h-12 bg-[#006C49] flex items-center justify-center rounded-full mb-4">
+                <div className="w-12 h-12 bg-[#00AA72] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon8.svg"
                 alt="image"/>
@@ -74,7 +74,7 @@ export default function ContentInfo() {
 
               {/* Card 2 */}
               <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
-                <div className="w-12 h-12 bg-[#006C49] flex items-center justify-center rounded-full mb-4">
+                <div className="w-12 h-12 bg-[#00AA72] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon4.svg"
                 alt="image"/>
@@ -101,7 +101,7 @@ export default function ContentInfo() {
                 {/* Content */}
                 <div className="relative p-6 text-white">
 
-                  <div className="w-12 h-12 bg-[#006C49] flex items-center justify-center rounded-full mb-4">
+                  <div className="w-12 h-12 bg-[#00AA72] flex items-center justify-center rounded-full mb-4">
                     <img
                       className="w-8 h-8"
                       src="/ProductSherlock/icon9.svg"
@@ -121,7 +121,7 @@ export default function ContentInfo() {
 
               {/* Card 4 */}
               <div className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition">
-               <div className="w-12 h-12 bg-[#006C49] flex items-center justify-center rounded-full mb-4">
+               <div className="w-12 h-12 bg-[#00AA72] flex items-center justify-center rounded-full mb-4">
                    <img className="w-8 h-8 rounded-xl"
                 src="/ProductSherlock/icon10.svg"
                 alt="image"/>

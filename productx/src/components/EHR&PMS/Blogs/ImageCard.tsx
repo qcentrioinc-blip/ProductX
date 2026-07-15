@@ -99,7 +99,7 @@ const ImageCard: React.FC = () => {
    
             <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
                 {/* <div>
-                    <H2 className=' text-left text-[#008280] mb-10 xl:mb-12'>Sed ut perspiciatis Unde <br/>Seduo ut perspiciatis </H2>
+                    <H2 className=' text-left text-[#00AA72] mb-10 xl:mb-12'>Sed ut perspiciatis Unde <br/>Seduo ut perspiciatis </H2>
                     </div> */}
                 <div
                     // Grid setup remains responsive: 1 col (mobile), 2 col (md), 3 col (lg)

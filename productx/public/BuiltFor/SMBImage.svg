@@ -1,8 +1,8 @@
 <svg width="648" height="657" viewBox="0 0 648 657" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect x="38.0312" y="33.0479" width="609.936" height="623.904" rx="8" fill="url(#pattern0_8021_3002)"/>
-<rect x="315" width="191.039" height="206" rx="5.75419" fill="#254D70"/>
+<rect x="315" width="191.039" height="206" rx="5.75419" fill="#00AA72"/>
 <rect x="320.754" y="5.75415" width="179.531" height="194.492" rx="5.75419" fill="url(#pattern1_8021_3002)"/>
-<rect y="520" width="238" height="78" rx="10" fill="#254D70"/>
+<rect y="520" width="238" height="78" rx="10" fill="#00AA72"/>
 <rect x="10" y="526.5" width="218" height="65" rx="10" fill="url(#pattern2_8021_3002)"/>
 <defs>
 <pattern id="pattern0_8021_3002" patternContentUnits="objectBoundingBox" width="1" height="1">

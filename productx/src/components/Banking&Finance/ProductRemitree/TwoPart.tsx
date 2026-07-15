@@ -18,7 +18,7 @@ const TwoPart = () => {
           style={{
             width: "46.6%",
             minHeight: "700px", // Matched parent
-            background: "#006C49",
+            background: "#00AA72",
             position: "relative",
           }}
         >
@@ -66,7 +66,7 @@ const TwoPart = () => {
                 fontWeight: 700,
                 fontSize: "clamp(28px, 4.5vw, 40px)",
                 lineHeight: "110%",
-                color: "#006C49",
+                color: "#00AA72",
               }}
             >
               Consecte adipiscing werdasec ku werdasec ku
@@ -88,7 +88,7 @@ const TwoPart = () => {
             <div className="flex flex-col gap-4">
               {[1, 2, 3].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <Check size={24} style={{ color: "#006C49", marginTop: "2px" }} />
+                  <Check size={24} style={{ color: "#00AA72", marginTop: "2px" }} />
                   <p
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
@@ -147,7 +147,7 @@ const TwoPart = () => {
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontSize: "clamp(26px, 4vw, 32px)",
-                color: "#006C49",
+                color: "#00AA72",
                 lineHeight: "115%",
               }}
             >
@@ -169,7 +169,7 @@ const TwoPart = () => {
             <div className="flex flex-col gap-4">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <Check size={22} style={{ color: "#006C49", marginTop: "2px" }} />
+                  <Check size={22} style={{ color: "#00AA72", marginTop: "2px" }} />
                   <p
                     style={{
                       fontFamily: "'Quicksand', sans-serif",
@@ -201,7 +201,7 @@ const TwoPart = () => {
           style={{
             fontFamily: "'Bricolage Grotesque', sans-serif",
             fontSize: "clamp(22px, 6vw, 28px)",
-            color: "#006C49",
+            color: "#00AA72",
             lineHeight: "115%",
           }}
         >
@@ -228,7 +228,7 @@ const TwoPart = () => {
         <div className="flex flex-col gap-4">
           {[1, 2, 3].map((i) => (
             <div key={i} className="flex items-start gap-3">
-              <Check size={20} style={{ color: "#006C49", marginTop: "2px" }} />
+              <Check size={20} style={{ color: "#00AA72", marginTop: "2px" }} />
               <p
                 style={{
                   fontFamily: "'Quicksand', sans-serif",

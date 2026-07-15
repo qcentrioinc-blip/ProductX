@@ -112,7 +112,7 @@ export default function CTA() {
           sm:text-[28px]
           md:text-[42px]
           lg:text-[48px]
-          font-bricolage
+          font-quadran  
           font-semibold
           leading-[115%]
           tracking-tight
@@ -178,7 +178,7 @@ const Character = memo(function Character({
       ? [range[0], range[1], 1]
       : range,
     highlight
-      ? ["#9ca3af", finalColor, "#2563eb"]
+      ? ["#9ca3af", finalColor, "#00AA72"]
       : ["#9ca3af", finalColor]
   );
 

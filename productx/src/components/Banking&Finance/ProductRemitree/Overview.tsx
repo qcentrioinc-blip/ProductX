@@ -76,7 +76,7 @@ const Overview = () => {
                                 }}
                             >Explore Remitree</ContactUs>
                             {/* <button className="
-                                bg-transparent text-[#006C49]
+                                bg-transparent text-[#00AA72]
                                 h-[44px] xl:h-[48px]
                                 px-5 sm:px-6
                                 rounded-lg font-semibold
@@ -87,10 +87,10 @@ const Overview = () => {
                                 WATCH OVERVIEW
                                 <span className="
                                     w-6 h-6 xl:w-[26px] xl:h-[26px]
-                                    rounded-full border-2 border-[#006C49]
+                                    rounded-full border-2 border-[#00AA72]
                                     flex items-center justify-center flex-shrink-0
                                 ">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#006C49">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#00AA72">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </span>

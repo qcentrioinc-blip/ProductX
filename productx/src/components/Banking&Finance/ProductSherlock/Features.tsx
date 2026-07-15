@@ -106,7 +106,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
         
           {/* Included Sticky Title */}
           <div className="w-full px-4 mb-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
-            <H2 className="text-center text-[#006C49] tracking-tight leading-snug mb-2 md:mb-8">
+            <H2 className="text-center text-[#00AA72] tracking-tight leading-snug mb-2 md:mb-8">
                 Key features of SHERLOCK AML System 
             </H2>
           </div>
@@ -129,7 +129,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                       py-2 px-4 rounded-full text-[12px] font-semibold transition-colors border
                       ${
                         isActive
-                          ? "bg-[#006C49] text-white border-transparent shadow-md"
+                          ? "bg-[#00AA72] text-white border-transparent shadow-md"
                           : "bg-white border-gray-300 text-gray-700"
                       }`}
                     >
@@ -160,7 +160,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                     />
                   </div>
                   <div className="w-full text-center flex flex-col gap-3 max-w-lg overflow-y-auto custom-scrollbar">
-                    <H3 className="text-gray-900 dark:text-[#006C49] tracking-tight leading-tight text-[18px]">
+                    <H3 className="text-gray-900 dark:text-[#00AA72] tracking-tight leading-tight text-[18px]">
                       {item.title}
                     </H3>
                     <div className="flex flex-col gap-3 text-center">
@@ -186,7 +186,7 @@ const Feature: React.FC<FeatureSwitcherProps> = () => {
                     className={`px-6 py-4 rounded-full text-sm font-semibold transition-all font-quicksand border cursor-pointer
                     ${
                       isActive
-                        ? "bg-[#006C49] text-white shadow-md border-transparent"
+                        ? "bg-[#00AA72] text-white shadow-md border-transparent"
                         : "bg-white border-gray-300 text-gray-700"
                     }`}
                   >

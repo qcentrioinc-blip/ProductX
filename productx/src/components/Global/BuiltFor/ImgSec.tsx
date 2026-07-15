@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import { ContactUs, ContactUsAI } from "../../../styles/Button";
-import { H2, H3, P } from "../../../styles/Typography";
+import {  H3, P } from "../../../styles/Typography";
 import { useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
@@ -32,7 +32,7 @@ type Content = {
 const THEMES: Record<string, Theme> = {
   "banking-and-finance": {
     bgImage: "/BuiltFor/img3.jpg",
-    cardBg: "bg-[#006C49]",
+    cardBg: "bg-[#00AA72]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",
@@ -44,7 +44,7 @@ const THEMES: Record<string, Theme> = {
 
   "ehr-and-pms": {
     bgImage: "/BuiltFor/.webp",
-    cardBg: "bg-[#008280]",
+    cardBg: "bg-[#00AA72]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-white",
@@ -67,7 +67,7 @@ const THEMES: Record<string, Theme> = {
 
   "cloud-finops-ai": {
     bgImage: "/BuiltFor/ImageBg2.webp",
-    cardBg: "bg-[#006C49]",
+    cardBg: "bg-[#00AA72]",
     cardText: "text-white",
     paraColor: "text-[#CCCCCC]",
     borderColor: "border-[#D9D9D9]",
@@ -102,7 +102,7 @@ const BANKING_AND_FINANCE_BG_IMAGES: Record<string, string> = {
 const CONTENT: Record<string, Record<string, Content>> = {
   "cloud-finops-ai": {
     enterprises: {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading: (<>
         CloudDIET cuts enterprise <br /> {" "} Azure waste.
       </>),
@@ -112,7 +112,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "saas-application-providers": {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading:
         "CloudDIET secures Azure savings, ensures compliance. ",
       cardTitle: "Start Saving ", 
@@ -121,7 +121,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "regulated-large-enterprise": {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading: (<>
         CloudDIET stops SaaS <br /> {" "}cloud waste.
       </>),
@@ -134,7 +134,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
 
   "banking-and-finance": {
     banks: {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading:
         "Modern banking requires modern solutions. We deliver both.",
       cardTitle: "Transform Your Bank",
@@ -143,7 +143,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "credit-union": {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading:
         "Built for credit unions. Powered by innovation. Focused on members.",
       cardTitle: "Empower Your Team",
@@ -152,7 +152,7 @@ const CONTENT: Record<string, Record<string, Content>> = {
     },
 
     "financial-unions": {
-      headingColor: "text-[#006C49]",
+      headingColor: "text-[#00AA72]",
       heroHeading:
         "Enterprise-grade solutions for institutions built to last.",
       cardTitle: "Transform Operations",
@@ -246,34 +246,36 @@ export default function ImgSec() {
   return (
     <>
       <section
-        className="relative w-full lg:h-[50vh] xl:h-[80vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center lg:block"
+        className="relative  lg:h-[50vh] xl:h-[80vh] bg-cover bg-center  rounded-lg bg-no-repeat  mx-[40px] md:mx-[60px] xl:mx-[160px] justify-center lg:block"
         style={{ backgroundImage: `url(${getBgImage()})` }}
       >
 
 
-        <div className="relative z-10 w-full max-w-[90rem] mx-auto h-full xl:pt-4">
+        <div className="relative z-10 w-full max-w-full mx-auto h-full xl:pt-4 ">
           {/* LEFT TEXT */}
-          <div className="absolute h-full xl:pt-6 xl:px-6 w-full">
-            <div className="w-full  ">
+          <div className="absolute h-full xl:pt-6 w-full">
+            {/* <div className="w-full  ">
               <H2
-                className={`leading-tight mt-10  pl-6 max-w-[90%] md:max-w-[80%] lg:max-w-[55%] xl:max-w-[65%] 2xl:max-w-5xl ${content.headingColor} ${industry === "ehr-and-pms"
-                  ? "font-bricolageEHR"
-                  : "font-bricolage"
+                className={`leading-tight md:mt-10  pl-6 max-w-[100%] md:max-w-[80%] lg:max-w-[55%] xl:max-w-[65%]   ${content.headingColor} ${industry === "ehr-and-pms"
+                  ? "font-quadran"
+                  : "font-quadran"
                   }`}
               >
                 {content.heroHeading}
               </H2>
 
 
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* FLOATING CARD RIGHT */}
         <div
-          className="relative w-full px-6 md:px-12 pb-12
-          lg:absolute lg:bottom-0 lg:right-0 lg:pb-0 lg:px-0 lg:w-auto
-          lg:max-w-[90rem] lg:mx-auto pointer-events-none z-20"
+         className="
+relative w-full pb-12
+lg:absolute lg:bottom-0 lg:right-0
+lg:pb-0
+"
         >
           <div className="flex justify-start xl:justify-end pointer-events-auto">
             <div

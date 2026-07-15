@@ -312,7 +312,7 @@ return (
       bg-white/70 backdrop-blur-md
       border border-white/60
       rounded-full
-      text-md font-bold font-bricolage text-black
+      text-md font-bold font-quadran   text-black
       shadow-md
       cursor-pointer
       hover:bg-white

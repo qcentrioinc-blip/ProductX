@@ -17,7 +17,7 @@ const Arrow = () => {
         <defs>
           <linearGradient id="chGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#26C894" />
-            <stop offset="100%" stopColor="#006C49" />
+            <stop offset="100%" stopColor="#00AA72" />
           </linearGradient>
         </defs>
 
@@ -68,14 +68,14 @@ const ProcessALM: React.FC = () => {
   return (
     <div className="w-full relative   bg-[#E7E7E7] dark:bg-black flex flex-col items-center px-4 xl:px-6   pt-10 pb-20 ">
       {/* Title */}
-      <H2 className="  text-center mb-10  dark:text-[#006C49] ">
+      <H2 className="  text-center mb-10  dark:text-[#00AA72] ">
          Integrated Toolkit for Risk Management
       </H2>
 
       {/* Main Content */}
       <div className="flex  flex-col xl:flex-row items-center    gap-4 xl:gap-6 w-full max-w-7xl">
         {/* Left Circle */}
-        <div className="bg-[#006C49] text-white rounded-full w-60 h-60  md:w-72 md:h-72 xl:w-76 xl:h-76 flex flex-col items-center justify-center -lg">
+        <div className="bg-[#00AA72] text-white rounded-full w-60 h-60  md:w-72 md:h-72 xl:w-76 xl:h-76 flex flex-col items-center justify-center -lg">
           <h2 className=" text-[24px] md:text-[32px] xl:text-[40px] font-quicksand font-semibold mb-2">Data</h2>
           <ul className=" text-[18px] md:text-[24px] xl:text-[24px] space-y-0 font-quicksand text-center">
             <li>• Structural Statements </li>
@@ -88,7 +88,7 @@ const ProcessALM: React.FC = () => {
         <Arrow />
 
         {/* Middle Box */}
-        <div className="bg-gradient-to-b from-[#006C49] via-[#006C49] to-[#006C49] rounded-3xl p-10 w-72 md:w-80 flex flex-col gap-4">
+        <div className="bg-gradient-to-b from-[#00AA72] via-[#00AA72] to-[#00AA72] rounded-3xl p-10 w-72 md:w-80 flex flex-col gap-4">
           {[
             "Gap",
             "Duration",
@@ -119,7 +119,7 @@ const ProcessALM: React.FC = () => {
           ].map((item, index) => (
             <div key={index} className=" text-[18px] xl:text-[24px] font-quicksand font-semibold ">
               {item}
-              <div className="mt-2 h-[3px] w-full rounded-4xl  bg-[#006C49] opacity-100" />
+              <div className="mt-2 h-[3px] w-full rounded-4xl  bg-[#00AA72] opacity-100" />
             </div>
           ))}
         </div>
@@ -127,7 +127,7 @@ const ProcessALM: React.FC = () => {
       
       {/* Vertical Label */}
      <div className="flex absolute  -bottom-[2%] left-[12%] md:left-[30%] lg:left-[35%]  my-10 xl:my-0  xl:left-[91%] xl:bottom-[5%]">
-        <div className="bg-[#006C49] text-white px-4 py-4  rounded-full flex    flex-row xl:flex-col items-end gap-2">
+        <div className="bg-[#00AA72] text-white px-4 py-4  rounded-full flex    flex-row xl:flex-col items-end gap-2">
           {"RESIDUAL MATURITIES".split("").map((char, i) => (
             <span key={i} className="text-sm font-quicksand font-semibold">
               {char}

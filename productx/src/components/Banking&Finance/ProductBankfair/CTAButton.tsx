@@ -32,7 +32,7 @@ export default function Section() {
           <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 md:p-6 flex flex-col sm:flex-row justify-between sm:space-x-8 space-y-6 sm:space-y-0 min-h-[420px]">
             <div className="flex flex-col justify-between">
               <div>
-                <button className="border dark:border-gray-200 text-[#006C49] border-[#141414] font-quicksand text-[18px] xl:text-[22px] px-6 py-2 rounded-full mb-6">
+                <button className="border dark:border-gray-200 text-[#00AA72] border-[#141414] font-quicksand text-[18px] xl:text-[22px] px-6 py-2 rounded-full mb-6">
                Configure Once
                 </button>
 
@@ -60,7 +60,7 @@ export default function Section() {
           <div className="flex flex-col justify-start items-start">
             <H2 className="text-4xl md:text-5xl dark:text-white font-bold leading-tight mb-6">
              Account Services and<br />
-              <span className="text-[#006C49]"> Lifecycle Management  </span>
+              <span className="text-[#00AA72]"> Lifecycle Management  </span>
             </H2>
 
             <P className="mb-8 max-w-3xl xl:max-w-xl ">
@@ -113,9 +113,9 @@ export const AccordionItem: React.FC<Props> = ({
     <div className="bg-white  dark:bg-slate-950 rounded-xl p-5 w-full">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex font-bricolage text-[18px] xl:text-[24px] justify-between items-center text-left font-medium"
+        className="w-full flex font-quadran   text-[18px] xl:text-[24px] justify-between items-center text-left font-medium"
       >
-        <span className="pr-4 dark:text-[#006C49]">{title}</span>
+        <span className="pr-4 dark:text-[#00AA72]">{title}</span>
         <span className="text-xl flex-shrink-0">{open ? "-" : "+"}</span>
       </button>
 

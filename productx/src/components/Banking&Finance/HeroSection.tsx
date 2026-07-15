@@ -96,7 +96,7 @@ const HeroSection = () => {
  
       {/* Content */}
       <div className="absolute left-4 md:left-14 lg:left-12 xl:left-28 top-1/2 xl:top-72 overflow-hidden text-left">
-        <h1 className="text-white font-bricolage text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px]">
+        <h1 className="text-white font-quadran   text-[20px] md:text-[32px] lg:text-[56px] xl:text-[74px]">
           Enterprise AI-enabled platforms{" "}
           <br className="md:block hidden" />
  

@@ -8,7 +8,7 @@ const Brief = () => {
           
           <div className="space-y-4">
                 <H2EHR
-                className="text-[#008280]  dark:text-teal-700 leading-tight"
+                className="text-[#00AA72]  dark:text-[#00AA72]   leading-tight"
                
                                 >
               Tools Designed for Clinical Excellence

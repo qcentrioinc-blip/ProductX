@@ -120,7 +120,7 @@ export default function Keywords() {
                 }}
               >
                 {/* Point circle */}
-                <circle cx={p.x} cy={p.y} r="6" fill="#EEDA68" />
+                <circle cx={p.x} cy={p.y} r="6" fill="#00AA72" />
                 
                 {/* Label positioned outside the arc with custom offsets */}
                 <text  
@@ -145,7 +145,7 @@ export default function Keywords() {
             style={{
               borderRadius: "300px 300px 0 0",
               background:
-                "radial-gradient(ellipse at center bottom, #008280 0%, rgba(0,130,128,0.4) 40%, transparent 90%)",
+                "radial-gradient(ellipse at center bottom, #00AA72 0%, rgba(0,130,128,0.4) 40%, transparent 90%)",
 
               transformOrigin: "bottom center",
               transform: animate

@@ -17,7 +17,7 @@ export default function GoalsSection() {
 
         {/* ── LEFT: ~45% ── */}
         <div className="w-full lg:w-[60%] flex flex-col items-start">
-          <h2 className="text-gray-900 dark:text-white font-bricolage  text-lg md:text-[24px]  lg:text-[56px] leading-tight  mb-2 md:mb-5">
+          <h2 className="text-gray-900 dark:text-white font-quadran    text-lg md:text-[24px]  lg:text-[56px] leading-tight  mb-2 md:mb-5">
             Turning goals into<br className="xl:block hidden" /> measurable results.
           </h2>
 
@@ -64,11 +64,11 @@ export default function GoalsSection() {
 
             {/* Vertical Gradient Line */}
             <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-[2px]
-      bg-gradient-to-b from-transparent via-[#006C49] to-transparent" />
+      bg-gradient-to-b from-transparent via-[#00AA72] to-transparent" />
 
             {/* Horizontal Gradient Line */}
             <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-full h-[2px]
-      bg-gradient-to-r from-transparent via-[#006C49] to-transparent" />
+      bg-gradient-to-r from-transparent via-[#00AA72] to-transparent" />
 
             {stats.map((stat, i) => (
               <div
@@ -76,7 +76,7 @@ export default function GoalsSection() {
                 className="flex flex-col items-start justify-center px-8 py-8 sm:px-12 sm:py-10"
               >
                 <span
-                  className="text-4xl sm:text-5xl font-bold dark:text-[#006C49] text-gray-900 leading-none mb-2"
+                  className="text-4xl sm:text-5xl font-bold dark:text-[#00AA72] text-gray-900 leading-none mb-2"
                   style={{ fontFamily: "Bricolage Grotesque, sans-serif" }}
                 >
                   {stat.value}

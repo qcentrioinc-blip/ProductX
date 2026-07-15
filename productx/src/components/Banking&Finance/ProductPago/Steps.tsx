@@ -92,11 +92,11 @@ const Steps = () => {
                   {stepsData.map((step, i) => (
                     <div key={step.id} className="flex flex-col items-center z-10">
                       <div
-                        className={`xl:w-18 xl:h-18 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex font-bricolage text-lg sm:text-[32px] items-center justify-center font-semibold transition-all
+                        className={`xl:w-18 xl:h-18 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex font-quadran   text-lg sm:text-[32px] items-center justify-center font-semibold transition-all
                         ${
                           activeStep === step.id
-                            ? "bg-[#006C49] text-white scale-110"
-                            : "border-4 border-[#006C49] bg-white text-[#006C49]"
+                            ? "bg-[#00AA72] text-white scale-110"
+                            : "border-4 border-[#00AA72] bg-white text-[#00AA72]"
                         }`}
                       >
                         {step.id}
@@ -131,10 +131,10 @@ const Steps = () => {
                     {active.keywords.map((word, i) => (
                       <span
                         key={i}
-                        className={`px-3 sm:px-5 py-2 sm:py-3 rounded-full font-bricolage text-sm sm:text-[18px] ${
+                        className={`px-3 sm:px-5 py-2 sm:py-3 rounded-full font-quadran   text-sm sm:text-[18px] ${
                           i === 0
-                            ? "bg-[#006C49] text-white"
-                            : "bg-gray-200 text-[#006C49]"
+                            ? "bg-[#00AA72] text-white"
+                            : "bg-gray-200 text-[#00AA72]"
                         }`}
                       >
                         {word}

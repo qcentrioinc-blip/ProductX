@@ -26,7 +26,7 @@ const CARD_CONFIG: Record<
       bg: "#FAFAFA",
       darkBg: "#000000",
       darkHeadingColor: "#60a5fa",
-      headingColor: "#254D70",
+      headingColor: "#00AA72",
       heading: " Azure Spend Issues",
       cards: [
         { id: 1, title: "Hidden Waste", desc: "Oversized VMs, storage, and PaaS services cost money across subscriptions you manage", image: "/BuiltFor/Recycle.svg" },
@@ -39,7 +39,7 @@ const CARD_CONFIG: Record<
       bg: "#FAFAFA",
        darkBg: "#000000",
       darkHeadingColor: "#60a5fa",
-      headingColor: "#254D70",
+      headingColor: "#00AA72",
       heading: "SaaS Cost Problems",
       cards: [
         { id: 1, title: "Scale Waste", desc: "App Services and Functions run fixed without auto-scaling in SaaS apps. ", image: "/BuiltFor/BalanceScale.svg" },
@@ -50,7 +50,7 @@ const CARD_CONFIG: Record<
 
     "regulated-large-enterprise": {
       bg: "#FAFAFA",
-      headingColor: "#254D70",
+      headingColor: "#00AA72",
        darkBg: "#000000",
       darkHeadingColor: "#60a5fa",
       heading: "Industry Struggles Today",
@@ -103,7 +103,7 @@ const CARD_CONFIG: Record<
       bg: "#ffffff",
       darkBg: "#141414",
       darkHeadingColor: "#ffffff",
-      headingColor: "#008280",
+      headingColor: "#00AA72",
       heading: "Critical Pain Points",
       cards: [
         { id: 1, title: "Fragmented Care Coordination", desc: "Disconnected teams lead to inconsistent care plans and communication gaps for residents.", image: "/BuiltFor/hand-holding-medical.webp" },
@@ -115,7 +115,7 @@ const CARD_CONFIG: Record<
        bg: "#ffffff",
       darkBg: "#042f2e",
       darkHeadingColor: "#ffffff",
-      headingColor: "#008280",
+      headingColor: "#00AA72",
       heading: "Critical Operational Hurdles",
       cards: [
         { id: 1, title: "Inefficient Visit Coordination", desc: "Manual scheduling and route planning for field clinicians wastes time and resources.", image: "/BuiltFor/visit.png" },
@@ -127,7 +127,7 @@ const CARD_CONFIG: Record<
       bg: "#ffffff",
       darkBg: "#042f2e",
       darkHeadingColor: "#ffffff",
-      headingColor: "#008280",
+      headingColor: "#00AA72",
       heading: "Critical Operational Hurdles",
       cards: [
         { id: 1, title: "Fragmented Patient Data", desc: "Disconnected systems create information silos, hindering coordinated inpatient and outpatient care.", image: "/BuiltFor/portfolio.png" },
@@ -199,7 +199,7 @@ export default function Cardcase() {
 
       {/* CONTENT WRAPPER */}
       <div className="relative max-w-7xl mx-10 md:px-3 lg:px-5 xl:px-8">
-        <h2 className={`mb-10 text-[24px] md:text-[32px] lg:text-[64px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`}  style={{ color: isDark ? (config.darkHeadingColor ?? "#ffffff") : (config.headingColor || "#254D70") }}>{config.heading}</h2>
+        <h2 className={`mb-10 text-[24px] md:text-[32px] lg:text-[64px] ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran  "}`}  style={{ color: isDark ? (config.darkHeadingColor ?? "#ffffff") : (config.headingColor || "#00AA72") }}>{config.heading}</h2>
 
         {/* CARDS GRID */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch w-full justify-start">
@@ -216,11 +216,11 @@ export default function Cardcase() {
             >
               {/* Placeholder Circle */}
               <div className="w-20 h-20">
-                <img src={card.image} alt={card.title} className="w-full h-full object-contain p-4" />
+                <img src={card.image} alt={card.title} className="w-full text-[#00AA72]  h-full object-contain p-4" />
               </div>
 
               {/* Title */}
-              <h4 className={`mt-6  text-[16px] md:text-[20px] lg:text-[24px] text-gray-900 dark:text-white  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`}>{card.title}</h4>
+              <h4 className={`mt-6  text-[16px] md:text-[20px] lg:text-[24px] text-gray-900 dark:text-white  ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran  "}`}>{card.title}</h4>
 
               {/* Description */}
               <P className="leading-relaxed mt-6">{card.desc}</P>
