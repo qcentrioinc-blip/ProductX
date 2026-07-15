@@ -4,7 +4,7 @@ export default function GridSecClinic() {
   return (
     <section className="w-full  text-white pb-16 ">
       
-      <div className="max-w-8xl  lg:mx-14 mx-4 lg:px-10  px-4  pt-6 rounded-xl bg-[#00AA72]     ">
+      <div className="max-w-8xl  lg:mx-14 mx-4 lg:px-10  px-4  pt-6 rounded-xl bg-[#008280]     ">
 
         {/* Heading */}
         <H2 className="text-left xl:text-center xl:py-10">    

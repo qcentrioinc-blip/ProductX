@@ -45,7 +45,7 @@ const StarIcon = ({ className }: { className?: string }) => (
     <div className="relative flex flex-col  lg:flex-row items-center   sm:gap-4 md:gap-0 w-full max-w-8xl  lg:px-6 ">
       {/* Left Box */}
       <motion.div
-        className="relative bg-[#00AA72] w-[100%] rounded-lg lg:rounded-l-lg  lg:px-0 px-2 h-[320px] flex items-center justify-center overflow-hidden"
+        className="relative bg-[#008280] w-[100%] rounded-lg lg:rounded-l-lg  lg:px-0 px-2 h-[320px] flex items-center justify-center overflow-hidden"
         initial={{ x: "-100%", opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -60,7 +60,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Left */}
   <div className="flex flex-col items-center">
-    <h2 className="text-4xl font-quadran   font-bold dark:text-white text-black">
+    <h2 className="text-4xl font-bricolage font-bold dark:text-white text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
     <H4EHR className="dark:text-white text-[#2A2A2A]">Fewer Communication Gaps</H4EHR>
@@ -71,7 +71,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   </div>
       {/* Middle Green Box */}
       <motion.div
-        className="relative bg-[#00AA72] text-white rounded-lg shadow-xl my-4 w-[100%]  h-[600px] flex flex-col justify-center items-center border border-[#4c8e72]"
+        className="relative bg-[#008280] text-white rounded-lg shadow-xl my-4 w-[100%]  h-[600px] flex flex-col justify-center items-center border border-[#4c8e72]"
         initial={{ y: "-100%", opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -110,7 +110,7 @@ const StarIcon = ({ className }: { className?: string }) => (
       </motion.div>
 <div className="flex lg:hidden flex-col w-full my-10 gap-12">
  <div className="flex flex-col items-center">
-    <h2 className="text-4xl font-quadran   dark:text-white font-bold text-black">
+    <h2 className="text-4xl font-bricolage dark:text-white font-bold text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
     <H4EHR className="dark:text-white">Faster Documentation</H4EHR>
@@ -123,7 +123,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 </div>
       {/* Right Box */}
       <motion.div
-        className="relative bg-[#00AA72] rounded-r-lg w-[100%] lg:px-0 px-2  h-[320px] flex items-center justify-center overflow-hidden"
+        className="relative bg-[#008280] rounded-r-lg w-[100%] lg:px-0 px-2  h-[320px] flex items-center justify-center overflow-hidden"
         initial={{ x: "100%", opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -137,7 +137,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
       <div className="flex lg:hidden flex-col w-full my-10 gap-12">
         <div className="flex flex-col items-center">
-    <h2 className="text-4xl dark:text-white font-quadran   font-bold text-black">
+    <h2 className="text-4xl dark:text-white font-bricolage font-bold text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
     <H4EHR className="dark:text-white"> More Organized Shifts</H4EHR>
@@ -153,7 +153,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 1 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-quadran   -mt-44 font-bold dark:text-white text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage -mt-44 font-bold dark:text-white text-black">
       {isInView && <CountUp end={56} duration={2} suffix="%" />} 
     </h2>
     <H4EHR className="dark:text-white">Fewer Communication Gaps</H4EHR>
@@ -164,7 +164,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 2 */}
   <div className="mr-38">
-    <h2 className="lg:text-6xl text-4xl font-quadran   dark:text-white text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage dark:text-white text-black">
       {isInView && <CountUp end={4} duration={2} suffix="X" />}
     </h2>
     <H4EHR className="dark:text-white">Faster Documentation</H4EHR>
@@ -175,7 +175,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
   {/* Counter 3 */}
   <div>
-    <h2 className="lg:text-6xl text-4xl font-quadran   md:-mt-44 font-bold dark:text-white text-black">
+    <h2 className="lg:text-6xl text-4xl font-bricolage md:-mt-44 font-bold dark:text-white text-black">
       {isInView && <CountUp end={150} duration={2} suffix="%" />}
     </h2>
     <H4EHR className="dark:text-white"> More Organized Shifts</H4EHR>

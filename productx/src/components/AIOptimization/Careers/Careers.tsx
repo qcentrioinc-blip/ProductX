@@ -36,7 +36,7 @@ export default function Careers() {
   }}
           className="
             inline-flex 
-            font-quadran  
+            font-bricolage
             items-center 
             justify-center 
             px-6 sm:px-8 

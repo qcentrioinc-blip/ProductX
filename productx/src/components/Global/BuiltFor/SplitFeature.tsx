@@ -36,16 +36,16 @@ const THEMES: Record<string, Theme> = {
     sectionBg: "white",
     darksectionBg: "#000000",
     imageSrc: "/BuiltFor/img2.png",
-    headingPrimaryColor: "#00AA72",
+    headingPrimaryColor: "#2B68C3",
     headingSecondaryColor: "#2A2A2A",
     paragraphColor: "#141414",
     bulletColor: "#fafafa",
-    statsColor: "#000000",
+    statsColor: "#254D70",
     bulletIcons: [
-      "/dollar.svg",
-      "/time-fast.svg",
-      "/uparrow.svg",
-      "/risk.svg",
+      "/BuiltForBnf/dollar.svg",
+      "/BuiltForBnf/time-fast.svg",
+      "/BuiltForBnf/uparrow.svg",
+      "/BuiltForBnf/risk.svg",
     ],
 
   },
@@ -53,17 +53,17 @@ const THEMES: Record<string, Theme> = {
   "ehr-and-pms": {
     sectionBg: "",
     imageSrc: "/BuiltFor/ModernCare-Image.webp",
-    headingPrimaryColor: "#00AA72",
+    headingPrimaryColor: "#008280",
      darksectionBg: "#141414",
     headingSecondaryColor: "#F5F5F5",
     paragraphColor: "#141414",
     bulletColor: "#efefef",
-    statsColor: "#00AA72",
+    statsColor: "#008280",
     bulletIcons: [
-      "/BuiltFor/user.svg",
-      "/BuiltFor/arrow-down.svg",
-      "/BuiltFor/arrow-up.svg",
-      "/BuiltFor/rotate-square.svg",
+      "/BuiltFor/user.png",
+      "/BuiltFor/arrow-down.png",
+      "/BuiltFor/arrow-up.png",
+      "/BuiltFor/rotate-square.png",
     ],
   },
 
@@ -74,7 +74,7 @@ const THEMES: Record<string, Theme> = {
     headingPrimaryColor: "#F5F5F5",
     headingSecondaryColor: "#F99526",
     paragraphColor: "#CCCCCC",
-    bulletColor: "##00AA72",
+    bulletColor: "#2B68C3",
     statsColor: "#F99526",
     bulletIcons: [
       "/BuiltFor/user.png",
@@ -88,11 +88,11 @@ const THEMES: Record<string, Theme> = {
     sectionBg: "white",
     darksectionBg: "#000000",
     imageSrc: "/BuiltFor/EnterpriseSplit.webp",
-    headingPrimaryColor: "#00AA72",
-    headingSecondaryColor: "#00AA72",
+    headingPrimaryColor: "#254D70",
+    headingSecondaryColor: "#254D70",
     paragraphColor: "#141414",
     bulletColor: "#efefef",
-    statsColor: "#00AA72",
+    statsColor: "#254D70",
     bulletIcons: [
       "/BuiltFor/Waste.svg",
       "/BuiltFor/money.svg",
@@ -108,7 +108,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
   "banking-and-finance": {
     banks: {
       headingPrimary: "Tangible outcomes for forward-thinking banking institutions",
-      imageSrc: "/bank3rd.webp",
+      imageSrc: "/BuiltForBnf/bank3rd.webp",
       paragraph: "Measurable improvements in efficiency, compliance, and customer experience across your banking operations.",
       bulletPoints: [
         "Reduced operational costs",
@@ -117,10 +117,10 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Enhanced risk management",
       ],
       bulletIcons: [
-        "/dollar.svg",
-        "/compliance.svg",
-        "/handshake-deal.svg",
-        "/risk.svg",
+        "/BuiltForBnf/dollar.svg",
+        "/BuiltForBnf/compliance.svg",
+        "/BuiltForBnf/handshake-deal.svg",
+        "/BuiltForBnf/risk.svg",
       ],
       stats: [
         { value: "85%", label: "Straight-through processing rate" },
@@ -139,10 +139,10 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Lower operational costs",
       ],
       bulletIcons: [
-        "/time-fast.svg",
-        "/down-arrow.svg",
-        "/revenue-alt.svg",
-        "/cheap-stack.svg",
+        "/BuiltForBnf/time-fast.svg",
+        "/BuiltForBnf/down-arrow.svg",
+        "/BuiltForBnf/revenue-alt.svg",
+        "/BuiltForBnf/cheap-stack.svg",
       ],
       stats: [
         { value: "85%", label: "Straight-through processing rate" },
@@ -161,10 +161,10 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
         "Reduced operational risk",
       ],
       bulletIcons: [
-        "/time-fast.svg",
-        "/uparrow.svg",
-        "/revenue-alt.svg",
-        "/risk.svg",
+        "/BuiltForBnf/time-fast.svg",
+        "/BuiltForBnf/uparrow.svg",
+        "/BuiltForBnf/revenue-alt.svg",
+        "/BuiltForBnf/risk.svg",
       ],
       stats: [
         { value: "85%", label: "Straight-through processing achievement" },
@@ -184,7 +184,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
           Delivers For Enterprises
         </>
       ),
-      imageSrc: "/EnterpriseSplit.webp",
+      imageSrc: "/BuiltFor/EnterpriseSplit.webp",
       paragraph: "CloudDIET helps enterprise IT teams cut Azure costs fast across subscriptions with guaranteed savings, engineering insights, and clear fix steps.",
       bulletPoints: [
         "Cut Waste Fast",
@@ -201,7 +201,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "saas-application-providers": {
       headingPrimary: "Impact We Deliver",
-      imageSrc: "/DigitalBuilt.webp",
+      imageSrc: "/BuiltFor/DigitalBuilt.webp",
       // headingSecondary: "Deliver",
       paragraph:
         "CloudDIET cuts cloud waste and saves organizations 30% on average spend. Fast ROI from month one with assured results. ",
@@ -220,7 +220,7 @@ const CONTENT: Record<string, Record<string, SplitContent>> = {
 
     "regulated-large-enterprise": {
       headingPrimary: "The Enterprise Impact We Deliver ",
-      imageSrc: "/SMBBuilt.webp",
+      imageSrc: "/BuiltFor/SMBBuilt.webp",
       // headingSecondary: "Built For SMBs",
       paragraph:
         "CloudDIET delivers enterprise-grade optimization without FinOps overhead.",
@@ -319,14 +319,14 @@ export default function SplitFeature() {
           : themeConfig.sectionBg,
       }}
     >
-      <div className="max-w-full w-full px-[40px] md:px-[60px] xl:px-[160px] pb-4  grid grid-cols-1 lg:grid-cols-[1fr_1fr]  gap-10 items-center">
+      <div className="max-w-[1440px] mx-auto w-full px-6 lg:px-10 xl:px-10 pb-10 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] xl:grid-cols-[1.5fr_1fr] gap-10 items-center">
 
         {/* LEFT IMAGE */}
-        <div className="flex justify-start  h-full md:h-[600px] lg:justify-start xl:justify-start">
+        <div className="flex justify-start h-[600px] lg:justify-start xl:justify-start">
           <img
             src={content.imageSrc}
             alt="Feature"
-            className="w-full h-full rounded-lg object-cover md:object-contain "
+            className="w-full h-full rounded-lg object-contain lg:object-cover"
           />
         </div>
 
@@ -336,8 +336,8 @@ export default function SplitFeature() {
           {/* HEADING */}
           <H2
             className={`leading-tight lg:mb-10 xl:mb-10 mx-auto max-w-3xl ${industry === "ehr-and-pms"
-              ? "font-quadran  EHR"
-              : "font-quadran  "
+              ? "font-bricolageEHR"
+              : "font-bricolage"
               }`}
           >
             <span style={{ color: themeConfig.headingPrimaryColor }}>
@@ -381,8 +381,8 @@ export default function SplitFeature() {
             {content.stats.map((stat, index) => (
               <div key={index}>
                 <H3 className={` text-[${themeConfig.statsColor}] ${industry === "ehr-and-pms"
-                  ? "font-quadran  EHR"
-                  : "font-quadran  "
+                  ? "font-bricolageEHR"
+                  : "font-bricolage"
                   }`}>{stat.value}</H3>
                 <P className={`mt-2 ${themeConfig.paragraphColor}`}>
                   {stat.label}

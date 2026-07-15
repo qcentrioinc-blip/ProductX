@@ -431,7 +431,7 @@ export default function GlossaryPage() {
 
   return (
 
-    <div className="w-full  dark:bg-black font-quadran  ">
+    <div className="w-full  dark:bg-black font-bricolage">
 
       <div
         className={`sticky z-40 bg-black text-white border-b border-gray-700 transition-all duration-300 ${isScrollUp ? "top-14 lg:top-[120px]" : "top-0 lg:top-18"
@@ -476,7 +476,7 @@ export default function GlossaryPage() {
             className="mb-10 scroll-mt-[160px]"
           >
 
-            <H2 className="mb-4 dark:text-[#00AA72]">{letter}</H2>
+            <H2 className="mb-4 dark:text-[#2b68c3]">{letter}</H2>
 
             {glossaryData[letter]?.length ? (
 

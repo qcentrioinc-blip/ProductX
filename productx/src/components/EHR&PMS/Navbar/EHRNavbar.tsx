@@ -247,10 +247,10 @@ const EHRNavbar = () => {
   return createPortal(
     <>
       {/* TOP TRANSPARENT BAR - Scrolls away */}
-      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-quadran   px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="   px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-quadran   text-sm sm:text-base">
+            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
               <img className="h-10 w-full" src="/QnestEHRLogo.svg" alt="Company Logo" />
             </span>
           </div>
@@ -330,7 +330,7 @@ const EHRNavbar = () => {
                         to={ind.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-[#00AA72]   hover:bg-gray-100 transition-all"
+                        className="flex items-center gap-4 p-2 rounded-md dark:hover:bg-teal-700 hover:bg-gray-100 transition-all"
                       >
                         {/* ICON */}
                         <img
@@ -470,10 +470,10 @@ const EHRNavbar = () => {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-[#00AA72] text-white
-    hover:bg-white hover:text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-[#008280] text-white
+    hover:bg-white hover:text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]
     hover:-translate-y-[2px]
@@ -631,7 +631,7 @@ const EHRNavbar = () => {
 
         <div className="flex justify-between mt-10 gap-6 pt-4">
           {/* <Link to={`${base}/platform`} onClick={() => setMenuOpen(false)} className="text-purple-600 text-lg font-semibold">Platform</Link> */}
-          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-black dark:text-[#00AA72]   text-lg font-semibold">Marketplace</Link>
+          <Link to={`${base}/marketplace`} onClick={() => setMenuOpen(false)} className="text-black dark:text-teal-700 text-lg font-semibold">Marketplace</Link>
         </div>
 
         <div className="mt-6 flex justify-start items-center gap-4">
@@ -643,7 +643,7 @@ const EHRNavbar = () => {
               h-[48px]
               px-[20px] py-[12px]
               rounded-[8px]
-               dark:border-[#00AA72]   dark:bg-[#00AA72]   dark:text-white
+               dark:border-teal-700 dark:bg-teal-700 dark:text-white
               font-quicksand font-bold text-[14px]
               bg-black text-white
               border-2 border-black

@@ -34,11 +34,11 @@ const Counter = () => {
   ref={sectionRef}
   onMouseDown={(e) => e.preventDefault()}
   onMouseMove={handleMouseMove}
-  className="relative overflow-hidden py-6 md:py-10 select-none dark:bg-gradient-to-r- dark:from-[#000000] dark:to-[#141414] bg-gradient-to-r from-[#00AA724D] to-[#E8F2FF]"
+  className="relative overflow-hidden py-6 md:py-10 select-none dark:bg-gradient-to-r- dark:from-[#000000] dark:to-[#141414] bg-gradient-to-r from-[#2B68C34D] to-[#FED6004D]"
 >
       {/* Glow effect following mouse */}
       <motion.div
-      className="absolute w-[100px] h-[100px] rounded-full blur-3xl bg-[#E8F2FF] pointer-events-none will-change-transform"
+      className="absolute w-[100px] h-[100px] rounded-full blur-3xl bg-amber-500 pointer-events-none will-change-transform"
         animate={{
           x: mousePos.x - 60,
           y: mousePos.y - 60,
@@ -50,7 +50,7 @@ const Counter = () => {
       <div className="max-w-7xl   mx-auto  px-8 lg:px-10 xl:px-6">
         {/* Heading */}
         <H2 className="  font-bold mb-12  lg:mx-6 md:mt-10 md:mb-16">
-          <span className="text-[#00AA72]">Trusted by financial institutions  </span>
+          <span className="text-[#2B68C3]">Trusted by financial institutions  </span>
           <br className="xl:block hidden"/>
           <span className="text-[#333333] dark:text-white">across the globe</span>
         </H2>
@@ -74,11 +74,11 @@ const Counter = () => {
             {/* Counter with Icon */}
             <div className="flex items-center  gap-3 md:gap-4">
               <img
-                src="/TrendUp.svg"
+                src="/TrendUp.png"
                 alt="Trend icon"
                 className="h-12 md:h-14 lg:h-18"
               />
-              <h2 className="   text-[#141414]  dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-quadran  ">
+              <h2 className="   text-[#141414]  dark:text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bricolage">
                 {inView && (
                   <CountUp
                     start={0}

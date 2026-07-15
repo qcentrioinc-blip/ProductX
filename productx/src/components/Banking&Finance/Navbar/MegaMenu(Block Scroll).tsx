@@ -143,7 +143,7 @@ const MegaMenu1 = ({ isScrolled, showTopBar, handleKeepOpen, handleCloseMenus, p
                     >
                         <img src={item.img} className="w-12 h-12 rounded-xl object-cover" loading="eager" alt={item.title} />
                         <div>
-                            <h3 className="text-lg font-quadran   text-gray-800">{item.title}</h3>
+                            <h3 className="text-lg font-bricolage text-gray-800">{item.title}</h3>
                             <P className="text-gray-600 text-sm leading-snug">{item.desc}</P>
                         </div>
                     </Link>

@@ -28,7 +28,7 @@ const LandingPageAI = () => {
         <div
           className="relative w-full h-[60vh] md:h-[56vh] lg:h-screen xl:h-screen bg-cover bg-center "
           style={{
-            backgroundImage: `url(${"/Pricing.webp"})`,
+            backgroundImage: `url(${"/AI-CloudFinOps/Features/LandingBackground.webp"})`,
           }}
         >
           {/* Dark Overlay for better text readability */}
@@ -61,18 +61,18 @@ const LandingPageAI = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full   text-center lg:top-12 xl:top-12 px-[40px] md:px-[60px] xl:px-[160px]">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center lg:top-12 xl:top-12">
             {/* Main Heading */}
             <H1
               className="max-w-6xl mb-6"
 
             >
               <span
-                className="text-[#00AA72]"
+                className="text-[#254D70]"
               >
                 Smarter Azure Cost <br />
               </span>
-              <span className="text-[#00AA72]">Optimization With AI </span>
+              <span className="text-[#254D70]">Optimization With AI </span>
             </H1>
 
             {/* Description */}

@@ -1384,7 +1384,7 @@ export default function ContactHero() {
           <div className="md:w-1/2 ">
             <form className="max-w-lg">
               {/* Name */}
-              <label className="block text-xl font-extrabold font-quadran   ">Name</label>
+              <label className="block text-xl font-extrabold font-bricolage ">Name</label>
               <input
                 type="text"
                 className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
@@ -1393,7 +1393,7 @@ export default function ContactHero() {
               />
 
               {/* Email */}
-              <label className="block text-xl font-extrabold font-quadran   ">Email</label>
+              <label className="block text-xl font-extrabold font-bricolage ">Email</label>
               <input
                 type="email"
                 className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
@@ -1402,7 +1402,7 @@ export default function ContactHero() {
               />
 
               {/* Purpose (select) */}
-              <label className="block text-xl font-extrabold font-quadran   ">Purpose</label>
+              <label className="block text-xl font-extrabold font-bricolage ">Purpose</label>
               <div className="relative mb-6">
                 <select
                   className="appearance-none w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-2 pr-8 text-white"
@@ -1426,7 +1426,7 @@ export default function ContactHero() {
               </div>
 
               {/* Mobile Number */}
-              <label className="block text-xl font-extrabold font-quadran   ">Mobile Number</label>
+              <label className="block text-xl font-extrabold font-bricolage ">Mobile Number</label>
               <input
                 type="tel"
                 className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none py-3 text-white placeholder-gray-500 mb-2"
@@ -1435,7 +1435,7 @@ export default function ContactHero() {
               />
 
               {/* Message */}
-              <label className="block text-xl font-extrabold font-quadran   ">Message</label>
+              <label className="block text-xl font-extrabold font-bricolage ">Message</label>
               <textarea
                 rows={3}
                 className="w-full bg-transparent border-0 border-b border-gray-600 focus:border-gray-300 outline-none  text-white placeholder-gray-500 mb-2 resize-none"
@@ -1451,7 +1451,7 @@ export default function ContactHero() {
                     w-[180px] h-[48px]
                     px-[10px] py-[12px]
                     rounded-[8px]
-                    font-quadran   font-bold
+                    font-bricolage font-bold
                     text-[16px]
                     border-2 border-[#141414]
                     bg-[#F99526] text-[#141414]

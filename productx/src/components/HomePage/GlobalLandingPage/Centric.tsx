@@ -37,7 +37,7 @@ const Centric = () => {
                     {/* Grey Box */}
                     <div className="absolute top-[140px] left-0 right-0 h-[227px] bg-[#EAEAEA] flex flex-col justify-center px-8 gap-4">
                         <span
-                            className="relative left-10 text-[#00AA72] text-[24px] font-semibold leading-none block"
+                            className="relative left-10 text-[#2B68C3] text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Driven by Outcomes
@@ -66,7 +66,7 @@ const Centric = () => {
                     {/* People-Centric Delivery */}
                     <div className="absolute top-[250px] left-8 right-8 flex flex-col gap-4">
                         <span
-                            className="text-[#00AA72] dark:text-white text-[24px] font-semibold leading-none block"
+                            className="text-[#2B68C3] dark:text-white text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             People‑Centric Delivery
@@ -95,7 +95,7 @@ const Centric = () => {
                     {/* Grey Box */}
                     <div className="absolute top-[270px] left-0 right-0 h-[231px] bg-[#EAEAEA] flex flex-col justify-center px-8 gap-4">
                         <span
-                            className="text-[#00AA72] text-[24px] font-semibold leading-[120%] block"
+                            className="text-[#2B68C3] text-[24px] font-semibold leading-[120%] block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Accountable Partnership
@@ -128,7 +128,7 @@ const Centric = () => {
                     {/* People-Centric Delivery */}
                     <div className="absolute top-[450px] left-8 right-8 flex flex-col gap-4">
                         <span
-                            className="text-[#00AA72] dark:text-white text-[24px] font-semibold leading-none block"
+                            className="text-[#2B68C3] dark:text-white text-[24px] font-semibold leading-none block"
                             style={{ fontFamily: "Quicksand, sans-serif" }}
                         >
                             Built for Scale
@@ -149,7 +149,7 @@ const Centric = () => {
                 {/* Col 1 */}
                 <div className="bg-[#EAEAEA] px-8 py-8 flex flex-col gap-4">
                     <span
-                        className="text-[#00AA72] text-[20px] font-semibold leading-none"
+                        className="text-[#2B68C3] text-[20px] font-semibold leading-none"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
                         Driven by Outcomes
@@ -166,7 +166,7 @@ const Centric = () => {
                 {/* Col 2 */}
                 <div className="px-8 py-8 flex flex-col gap-4">
                     <span
-                        className="text-[#00AA72] text-[20px] font-semibold leading-none"
+                        className="text-[#2B68C3] text-[20px] font-semibold leading-none"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
                         People‑Centric Delivery
@@ -183,7 +183,7 @@ const Centric = () => {
                 {/* Col 3 */}
                 <div className="bg-[#EAEAEA] px-8 py-8 flex flex-col gap-4">
                     <span
-                        className="text-[#00AA72] text-[20px] font-semibold leading-[120%]"
+                        className="text-[#2B68C3] text-[20px] font-semibold leading-[120%]"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
                         Accountable Partnership
@@ -200,7 +200,7 @@ const Centric = () => {
                 {/* Col 4 */}
                 <div className="px-8 py-8 flex flex-col gap-4">
                     <span
-                        className="text-[#00AA72] text-[20px] font-semibold leading-none"
+                        className="text-[#2B68C3] text-[20px] font-semibold leading-none"
                         style={{ fontFamily: "Quicksand, sans-serif" }}
                     >
                         Built for Scale

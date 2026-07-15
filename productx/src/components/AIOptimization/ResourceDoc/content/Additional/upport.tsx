@@ -3,7 +3,7 @@
 const upport = () => {
   return (
     <div className="space-y-4">
-     <h1 className="  text-[#00AA72] text-lg md:text-3xl lg:text-4xl my-4 font-quadran   ">
+     <h1 className="  text-[#254D70] text-lg md:text-3xl lg:text-4xl my-4 font-bricolage ">
      Support
         </h1>
       

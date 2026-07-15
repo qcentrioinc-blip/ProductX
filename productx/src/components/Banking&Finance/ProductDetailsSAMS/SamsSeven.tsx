@@ -12,7 +12,7 @@ const LeftArrowIcon = () => (
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <path d="M28 0 L0 16 L28 32 Z" fill="#00AA72" />
+        <path d="M28 0 L0 16 L28 32 Z" fill="#2563EB" />
     </svg>
 );
 
@@ -26,7 +26,7 @@ const RightArrowIcon = () => (
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <path d="M0 0 L18 12 L0 24 Z" fill="#00AA72" />
+        <path d="M0 0 L18 12 L0 24 Z" fill="#2563EB" />
     </svg>
 );
 
@@ -79,7 +79,7 @@ const TimelineCard = ({ title, description, isTop }: { title: string; descriptio
 
         {/* Connector vertical line - Exactly matches horizontal line thickness */}
         <div
-            className={`absolute left-1/2 -translate-x-1/2 w-[4px] h-6 bg-[#00AA72] ${isTop ? 'top-full' : 'bottom-full'
+            className={`absolute left-1/2 -translate-x-1/2 w-[4px] h-6 bg-[#2563EB] ${isTop ? 'top-full' : 'bottom-full'
                 }`}
         />
     </div>
@@ -87,7 +87,7 @@ const TimelineCard = ({ title, description, isTop }: { title: string; descriptio
 
 const TimelineCircle = ({ text }: { text: string }) => (
     <div
-        className="relative w-[52px] h-[52px] flex items-center justify-center rounded-full border-[4px] border-[#00AA72] bg-white text-[#00AA72] font-bold text-[18px] shrink-0"
+        className="relative w-[52px] h-[52px] flex items-center justify-center rounded-full border-[4px] border-[#2563EB] bg-white text-[#2563EB] font-bold text-[18px] shrink-0"
         style={{ zIndex: 10 }}
     >
         {text}
@@ -122,7 +122,7 @@ const SevenStep = () => {
                             <div key={index} className="flex flex-row items-start gap-4 sm:gap-6 relative z-10">
                                 {/* Segment Line - hidden on the last item */}
                                 {index !== timelineItems.length - 1 && (
-                                    <div className="absolute left-[26px] top-[52px] bottom-[-32px] w-[4px] bg-[#00AA72] translate-x-[-50%] z-[-1]" />
+                                    <div className="absolute left-[26px] top-[52px] bottom-[-32px] w-[4px] bg-[#2563EB] translate-x-[-50%] z-[-1]" />
                                 )}
                                 
                                 <TimelineCircle text={item.circleText} />
@@ -165,7 +165,7 @@ const SevenStep = () => {
                         className="relative flex items-center h-full gap-x-[320px] pl-[15vw] pr-[40vw] w-max"
                     >
                         {/* Horizontal Line strictly coupled and contained to exactly start from first card and end at last card */}
-                        <div className="absolute left-[5vw] right-[30vw] top-1/2 h-[4px] -translate-y-1/2 bg-[#00AA72] z-[0]">
+                        <div className="absolute left-[5vw] right-[30vw] top-1/2 h-[4px] -translate-y-1/2 bg-[#2563EB] z-[0]">
                             <LeftArrowIcon />
                             <RightArrowIcon />
                         </div>

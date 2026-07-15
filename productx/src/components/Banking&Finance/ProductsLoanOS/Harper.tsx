@@ -66,7 +66,7 @@ const Harper = () => {
             {/* ---------------------------------------- */}
             <div className="block lg:hidden bg-white dark:bg-black py-8 px-4">
                 <div className="mb-8">
-                    <H1 className="font-bold text-gray-900 dark:text-[#00AA72] text-left ml-2 sm:ml-16 lg:ml-20">
+                    <H1 className="font-bold text-gray-900 dark:text-[#2B68C3] text-left ml-2 sm:ml-16 lg:ml-20">
                         Complete Loan Origination System Feature 
                     </H1>
                 </div>
@@ -107,7 +107,7 @@ const Harper = () => {
  
                     {/* Title */}
                     <div className="py-6 px-20 z-20">
-                        <H2 className="dark:text-[#00AA72]"
+                        <H2 className="dark:text-[#2B68C3]"
                         >
                             The Complete Loan Origination System Feature 
                         </H2>

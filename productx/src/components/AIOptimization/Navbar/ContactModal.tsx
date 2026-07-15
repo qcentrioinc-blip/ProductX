@@ -211,7 +211,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           placeholder="Your Name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-lg border font-quadran   bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
                             errors.name ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
@@ -222,7 +222,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           placeholder="Your Email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-lg border font-quadran   bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
                             errors.email ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
@@ -233,7 +233,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           placeholder="Phone Number"
                           value={formData.phone}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-lg border font-quadran   bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
                             errors.phone ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
@@ -244,7 +244,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                           rows={4}
                           value={formData.message}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-lg border font-quadran   bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border font-bricolage bg-gray-50 focus:bg-white focus:outline-none transition-colors ${
                             errors.message ? "border-red-400 ring-1 ring-red-400" : "border-gray-200 focus:border-black"
                           }`}
                         />
@@ -253,7 +253,7 @@ const ContactModal = ({ open, onClose }: ContactModalProps) => {
                       {/* Checkbox */}
                       <motion.label
                        
-                        className="flex items-center gap-2 text-sm text-gray-600 font-quadran  "
+                        className="flex items-center gap-2 text-sm text-gray-600 font-bricolage"
                       >
                         <input
                           type="checkbox"

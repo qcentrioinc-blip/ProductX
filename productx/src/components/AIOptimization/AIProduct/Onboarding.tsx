@@ -38,20 +38,18 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
   }, [isPlaying]);
  
   return (
-   <div
-  className="
-    group relative overflow-hidden
-    rounded-tl-[32px]
-    bg-white dark:bg-slate-900
-    border border-[#00AA72]/30
-    hover:scale-[1.02]
-    hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
-    transition-all duration-300
-    md:w-[450px] md:flex-shrink-0
-    lg:w-auto lg:flex-shrink lg:flex-1
-  "
->
-    <div className="overflow-hidden aspect-video rounded-t-[28px] bg-gray-50 dark:bg-black flex items-center justify-center">
+    <div
+      className="
+        group relative overflow-hidden rounded-lg bg-white dark:bg-slate-900
+        border-2 border-slate-300
+        hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(10,15,60,0.35)]
+        [transition:transform_0.3s_ease-out,box-shadow_0.3s_ease-out]
+     
+        md:w-[450px] md:flex-shrink-0
+        lg:w-auto lg:flex-shrink lg:flex-1
+      "
+    >
+      <div className="overflow-hidden aspect-video bg-gray-50  dark:bg-black flex items-center justify-center">
         {shouldLoad ? (
           <video
             ref={videoRef}
@@ -66,21 +64,14 @@ const VideoCard = memo(({ card, shouldLoad, isPlaying }: {
         )}
       </div>
  
-   <div>
-  {/* Green Title Bar */}
-  <div className="bg-[#00AA72] px-7 py-5">
-    <H4 className="text-white font-semibold">
-      {card.title}
-    </H4>
-  </div>
-
-  {/* Description */}
-  <div className="px-7 py-5">
-    <P className="leading-relaxed text-black">
-      {card.desc}
-    </P>
-  </div>
-</div>
+      <div className="relative p-6 lg:px-10">
+        <H4 className="mb-2 text-lg font-semibold dark:text-blue-300 text-slate-900">
+          {card.title}
+        </H4>
+        <P className="leading-relaxed text-black">
+          {card.desc}
+        </P>
+      </div>
     </div>
   );
 });
@@ -136,10 +127,10 @@ export default function Onboarding() {
       <div
         ref={sectionRef}
         id="benefits"
-        className="relative max-w-full  px-[40px]   md:px-[60px] xl:px-[160px]"
+        className="relative max-w-8xl    lg:px-10 mx-6 lg:mx-10"
       >
         {/* Heading */}
-        <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold dark:text-white text-[#000000]">
+        <H2 className="mb-8 lg:mb-18 max-w-4xl mx-auto text-left xl:text-center font-semibold dark:text-white text-[#254D70]">
           Cloud Optimization Features That Deliver Results
         </H2>
  

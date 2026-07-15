@@ -87,7 +87,7 @@ export default function FeatureSection() {
             }}
           >
             {/* FIXED BLUE CIRCLE */}
-            <div className="w-10 h-10 bg-[#00AA72] rounded-full flex-shrink-0" />
+            <div className="w-10 h-10 bg-[#2B68C3] rounded-full flex-shrink-0" />
 
             <div>
               <H3 className="text-xl font-semibold text-black mb-0">
@@ -111,7 +111,7 @@ export default function FeatureSection() {
                 "all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s",
             }}
           >
-            <div className="w-10 h-10 bg-[#00AA72] rounded-full flex-shrink-0" />
+            <div className="w-10 h-10 bg-[#2B68C3] rounded-full flex-shrink-0" />
 
             <div>
               <H3 className="text-xl font-semibold text-black mb-0">
@@ -135,7 +135,7 @@ export default function FeatureSection() {
                 "all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s",
             }}
           >
-            <div className="w-10 h-10 bg-[#00AA72] rounded-full flex-shrink-0" />
+            <div className="w-10 h-10 bg-[#2B68C3] rounded-full flex-shrink-0" />
 
             <div>
               <H3 className="text-xl font-semibold text-black mb-0">

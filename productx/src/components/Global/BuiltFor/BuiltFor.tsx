@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import InsightThought from "../../Banking&Finance/InsightThought";
 import NewOneFooter from "../../Banking&Finance/ProductRemitree/NewOneFooter";
 import BuiltForIntro from "./BuiltForIntro";
-// import Cardcase from "./CardCase";
+import Cardcase from "./CardCase";
 import GradientCardsSection from "./GradientCards";
 import ImgSec from "./ImgSec";
 import SplitFeature from "./SplitFeature";
@@ -23,7 +23,6 @@ import TitleSectionSwitcher from "./TitleSectionSwitcher";
 import AIBlogs from "../../HomePage/AIOptimization/AIBlogs";
 import ContactUS from "../../Banking&Finance/ProductRemitree/ContactUS";
 import ContactSecHT from "../../HighTech/ContactSecHT";
-import EHRNew from "./EHRNew";
 // import InsightThoughtBnF from "./InsightThoughtBnF";
 
 // Valid built-for types per industry
@@ -48,7 +47,7 @@ export const BuiltFor = () => {
           <p className="text-gray-600 mb-6">The Built-For page you're looking for doesn't exist.</p>
           <a
             href={`/industries/${industry}`}
-            className="px-6 py-3 bg-[#00AA72] text-white rounded-lg hover:bg-[#1a3a54] transition-colors"
+            className="px-6 py-3 bg-[#254D70] text-white rounded-lg hover:bg-[#1a3a54] transition-colors"
           >
             Go Back to {industry.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())}
           </a>
@@ -103,8 +102,7 @@ export const BuiltFor = () => {
       </div>
 
       <TextSec />
-      <EHRNew/>
-      {/* <Cardcase /> */}
+      <Cardcase />
       <BuiltForIntro />
 
       <GradientCardsSection />

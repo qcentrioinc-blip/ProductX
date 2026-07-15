@@ -384,7 +384,7 @@ export default function CircularCards() {
                   WebkitBackdropFilter: "blur(10px)",
                 }}
               >
-                <span className={`text-white font-bold font-quadran   items-center xl:pl-4 tracking-wide text-center drop-shadow ${mobile ? "text-[10px]" : "text-sm xl:text-xl"}`}>
+                <span className={`text-white font-bold font-bricolage items-center xl:pl-4 tracking-wide text-center drop-shadow ${mobile ? "text-[10px]" : "text-sm xl:text-xl"}`}>
                   {ind.label}
                 </span>
               </div>
@@ -396,17 +396,17 @@ export default function CircularCards() {
             <>
               <div className={`absolute inset-0 bg-black/25 flex items-end justify-center ${mobile ? "pb-3 px-2" : "pb-5 px-4"}`}>
                 <div className="text-center">
-                  <span className={`text-white font-bold font-quadran   tracking-wide drop-shadow-lg block ${mobile ? "text-[10px]" : "text-base"}`}>
+                  <span className={`text-white font-bold font-bricolage tracking-wide drop-shadow-lg block ${mobile ? "text-[10px]" : "text-base"}`}>
                     {ind.label}
                   </span>
-                  <span className={`inline-block mt-1 font-quadran   bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold tracking-wider border border-white/30 ${mobile ? "text-[8px] px-2 py-0.5" : "text-[11px] px-3 py-0.5"}`}>
+                  <span className={`inline-block mt-1 font-bricolage bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold tracking-wider border border-white/30 ${mobile ? "text-[8px] px-2 py-0.5" : "text-[11px] px-3 py-0.5"}`}>
                     COMING SOON
                   </span>
                 </div>
               </div>
 
               {/* Countdown overlay */}
-              <div className={`absolute inset-0 flex flex-col items-center font-quadran   justify-center text-white text-center transition-all duration-500 ${mobile ? "px-2" : "px-4"} ${isTop ? "backdrop-blur-md opacity-100" : "backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}>
+              <div className={`absolute inset-0 flex flex-col items-center font-bricolage justify-center text-white text-center transition-all duration-500 ${mobile ? "px-2" : "px-4"} ${isTop ? "backdrop-blur-md opacity-100" : "backdrop-blur-sm opacity-0 group-hover:opacity-100"}`}>
                 <div className={`${mobile ? "w-5" : "w-8"} h-px bg-white/40 mb-3`} />
                 <span className={`${mobile ? "text-[11px]" : "text-lg"} font-bold mb-1`}>{ind.label}</span>
                 <div className="flex items-center gap-1 mb-3">

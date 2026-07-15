@@ -9,7 +9,7 @@ const FeatureGrid = () => {
 
   return (
     <section className="relative w-full  dark:bg-[#141414] bg-white ">
-    <div className="mx-auto max-w-[1300px] px-4 py-10 font-quadran   text-[#1a1a1a]">
+    <div className="mx-auto max-w-[1300px] px-4 py-10 font-bricolage text-[#1a1a1a]">
       
       {/* Main Container */}
       <div className="flex flex-col gap-6 lg:flex-row">
@@ -30,7 +30,7 @@ const FeatureGrid = () => {
               min-h-[260px] md:min-h-[346px]
             "
           >
-            <H2EHR className="mb-6 leading-tight text-[#00AA72]">
+            <H2EHR className="mb-6 leading-tight text-[#008280]">
               Solve Core Revenue Cycle Challenges
             </H2EHR>
             <p className="text-[#141414] text-[18px] font-quicksand leading-relaxed max-w-xl">
@@ -49,7 +49,7 @@ const FeatureGrid = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="
                 flex flex-col gap-3
-                rounded-[20px] bg-[#00AA72]
+                rounded-[20px] bg-[#EEDA68]
                 px-6 py-6
                 flex-1
                 hover:-translate-y-1 transition-transform
@@ -130,9 +130,9 @@ const FeatureGrid = () => {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-white text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-white text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     
     hover:border-b-[4px]

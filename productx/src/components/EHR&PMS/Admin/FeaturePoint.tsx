@@ -20,7 +20,7 @@ const FeatureItemCard: React.FC<FeatureItem> = ({ title, description, image }) =
           alt={title}
           className="w-8 h-8 object-contain"
         />
-        <H3EHR className="text-[#00AA72] leading-tight">
+        <H3EHR className="text-[#008280] leading-tight">
           {title}
         </H3EHR>
       
@@ -42,7 +42,7 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
         
         {/* Title */}
         <div className="mb-10 lg:mb-16">
-          <H2EHR className="text-[#00AA72] dark:text-white leading-snug">
+          <H2EHR className="text-[#008280] dark:text-white leading-snug">
             {content.pageTitle}
           </H2EHR>
         </div>

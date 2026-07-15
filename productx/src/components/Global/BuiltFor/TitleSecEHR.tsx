@@ -40,7 +40,7 @@ export default function TitleSecEHR() {
 
         {/* Title Section */}
         <div className="text-center max-w-5xl w-full">
-          <H1EHR className="text-[36px] md:text-[52px] lg:text-[72px] leading-[110%] lg:leading-[100%] font-normal  text-[#00AA72]" style={{ fontFamily: "Bricolage Grotesque" }}>
+          <H1EHR className="text-[36px] md:text-[52px] lg:text-[72px] leading-[110%] lg:leading-[100%] font-normal  text-[#008280]" style={{ fontFamily: "Bricolage Grotesque" }}>
             {content.heading}
           </H1EHR>
         </div>

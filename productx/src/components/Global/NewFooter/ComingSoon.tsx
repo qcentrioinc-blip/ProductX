@@ -5,7 +5,7 @@ export default function ComingSoon() {
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0A0F3C] to-[#1E2440] px-6">
       <div className="max-w-8xl text-center text-white">
         
-        <h1 className="text-4xl  font-quadran   md:text-7xl font-bold mb-6">
+        <h1 className="text-4xl  font-bricolage md:text-7xl font-bold mb-6">
            <span className="text-3xl"> A Smarter Platform Is</span><br className="xl:block hidden"/>  Coming Soon
         </h1>
 

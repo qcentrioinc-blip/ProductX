@@ -9,7 +9,6 @@ import FeatureBlockSec from "./FeatureBlock"
 import FeaturePoint from "./FeaturePoint"
 import OurWork from "./OurWork"
 import { featureblockContent } from "../Physician/featureblockContent"
-import Overview from "../../HomePage/EHR&PMS/Overview"
 
 const Admin = () => {
   return (
@@ -19,7 +18,6 @@ const Admin = () => {
       <FeaturesEHR content={featuresEHRContent.admin} />
        <Benefits />
         <FeaturePoint role="admin" />
-        <Overview/>
 
         <OurWork/>
         <FeatureBlockSec content={featureblockContent.admin} />

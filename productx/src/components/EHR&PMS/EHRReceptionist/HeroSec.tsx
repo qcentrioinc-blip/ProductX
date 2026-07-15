@@ -11,7 +11,7 @@ const HeroSec = () => {
 
   return (
     <section className="bg-white dark:bg-[#141414] overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6 pt-16 lg:pt-40">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 lg:pt-40">
     
         {/* Image container */}
         <motion.div
@@ -19,7 +19,7 @@ const HeroSec = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: easeOut }}
-          className="relative overflow-hidden"
+          className="relative rounded-[28px] overflow-hidden"
         >
           <img
             src="/EHR-PMS/Receptionist/img.webp"
@@ -87,7 +87,7 @@ const HeroSec = () => {
                   },
                 }}
               >
-                <H2EHR className="text-[#00AA72] dark:text-white leading-[1.15] mb-6">
+                <H2EHR className="text-[#008280] dark:text-white leading-[1.15] mb-6">
                   Simplify Front Desk,
                   Engage Patients
                 </H2EHR>
@@ -129,9 +129,9 @@ const HeroSec = () => {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-white text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-white text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
  
     hover:border-b-[4px]

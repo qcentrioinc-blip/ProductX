@@ -119,7 +119,7 @@ const FourPoints = () => {
                                     key={index}
                                     ref={(el) => { navBtnRefs.current[index] = el; }}
                                     onClick={() => handleNavClick(index)}
-                                    className={`font-quadran   font-semibold text-lg md:text-xl text-[#00AA72] whitespace-nowrap select-none transition-opacity duration-300 cursor-pointer bg-transparent border-none px-0 ${activeIndex === index ? "opacity-100" : "opacity-55"
+                                    className={`font-bricolage font-semibold text-lg md:text-xl text-[#2B68C3] whitespace-nowrap select-none transition-opacity duration-300 cursor-pointer bg-transparent border-none px-0 ${activeIndex === index ? "opacity-100" : "opacity-55"
                                         }`}
                                 >
                                     {item}
@@ -131,7 +131,7 @@ const FourPoints = () => {
                         {/* Horizontal progress bar */}
                         <div className="w-full h-[3px] rounded-full overflow-hidden mt-2 flex">
                             <div
-                                className="h-full bg-[#00AA72] rounded-l-full transition-all duration-400"
+                                className="h-full bg-[#2B68C3] rounded-l-full transition-all duration-400"
                                 style={{
                                     width: `${blueWidthPercent}%`,
                                     transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -156,7 +156,7 @@ const FourPoints = () => {
                                     style={{ height: `${ITEM_SLOT}px` }}
                                 >
                                     <span
-                                        className={`font-quadran   font-semibold text-[32px] leading-none  text-[#00AA72] select-none transition-opacity duration-300 flex items-center whitespace-nowrap ${activeIndex === index ? "opacity-100" : "opacity-55"
+                                        className={`font-bricolage font-semibold text-[32px] leading-none  text-[#2B68C3] select-none transition-opacity duration-300 flex items-center whitespace-nowrap ${activeIndex === index ? "opacity-100" : "opacity-55"
                                             }`}
                                     >
                                         {item}
@@ -171,7 +171,7 @@ const FourPoints = () => {
                             style={{ height: `${TOTAL_HEIGHT}px` }}
                         >
                             <div
-                                className="w-[3px] bg-[#00AA72] rounded-t"
+                                className="w-[3px] bg-[#2B68C3] rounded-t"
                                 style={{
                                     height: `${blueHeight}px`,
                                     transition: "height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -196,7 +196,7 @@ const FourPoints = () => {
 
                             {/* Heading */}
                             <h2
-                                className="w-full text-center dark:text-white text-[#00AA72] m-0 font-quadran   font-semibold leading-tight md:leading-none"
+                                className="w-full text-center dark:text-white text-[#2B68C3] m-0 font-bricolage font-semibold leading-tight md:leading-none"
                                 style={{ fontSize: "clamp(24px, 4vw, 42px)" }}
                             >
                                 {tabData[activeIndex].heading}

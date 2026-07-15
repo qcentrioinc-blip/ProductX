@@ -83,7 +83,7 @@ export default function HeroSection() {
     md:min-h-[1050px] 
     lg:min-h-[1200px]
     xl:min-h-[730px]
-     bg-white dark:bg-gradient-t-o-r dark:from-black dark:to-black
+     bg-gradient-to-r from-yellow-400/40 to-yellow-400/20 dark:bg-gradient-t-o-r dark:from-black dark:to-black
   "
   // style={yellowGradientStyle}
 >
@@ -116,7 +116,7 @@ export default function HeroSection() {
         ref={animatedRef}
         className="absolute shadow-2xl overflow-hidden"
         style={{
-          background: '#00AA72',
+          background: '#2B68C3',
           ...(isMobile ? {
   bottom: '0',
   left: '0',
@@ -124,7 +124,7 @@ export default function HeroSection() {
   width: '85%',
 
             borderRadius: '0 9999px 9999px 0',
-            borderBottom: '24px solid #000000',
+            borderBottom: '24px solid #F99526',
           } : {
             bottom: '8px',
             top: '0',
@@ -132,7 +132,7 @@ export default function HeroSection() {
             height: '95%',
             width: '32%',
             borderRadius: '0 0 9999px 9999px',
-            borderLeft: '24px solid #000000',
+            borderLeft: '24px solid #F99526',
           })
         }}
       >
@@ -249,7 +249,7 @@ export default function HeroSection() {
             })
           }}
         >
-          <H1 className="xl:py-6 max-w-2xl text-[#000000]">
+          <H1 className="xl:py-6 max-w-2xl text-[#2b68c3]">
             Enterprise Digital CIP and  CDD Automation Platform
           </H1>
           <P className="mb-8 font-quicksand max-w-[700px]">
@@ -263,7 +263,7 @@ export default function HeroSection() {
 
           {/* ================= STATS SECTION ================= */}
 <div className="mt-16 w-full max-w-xl">
-  <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-16 text-[#00AA72]">
+  <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-16 text-[#2B68C3]">
 
     {/* Stat 1 */}
     <div className="flex flex-col items-center lg:items-start">
@@ -279,7 +279,7 @@ export default function HeroSection() {
     </div>
 
     {/* Divider */}
-    <div className="h-12 sm:h-16 w-px bg-[#00AA72] opacity-40"></div>
+    <div className="h-12 sm:h-16 w-px bg-[#2B68C3] opacity-40"></div>
 
     {/* Stat 2 */}
     <div className="flex flex-col items-center lg:items-start">

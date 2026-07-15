@@ -105,7 +105,7 @@ const FeatureHighlights = () => {
     <section className="relative max-w-7xl lg:mx-10 xl:mx-auto px-6 py-10 dark:bg-[#141414] bg-white">
       {/* Heading */}
       <div className="text-center mb-2">
-        <H2EHR className="text-[#00AA72] dark:text-[#00AA72]  ">{title}</H2EHR>
+        <H2EHR className="text-[#008280] dark:text-teal-700">{title}</H2EHR>
       </div>
 
       {/* Fade Gradients (Tablet only) */}

@@ -25,8 +25,8 @@ const AIBlogs = () => {
   ];
 
   return (
-    <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16  ">
-      <div className="  px-[40px] md:px-[60px] xl:px-[160px]">
+    <section className="w-full overflow-hidden bg-white dark:bg-black text-black pt-16 pb-16 px-4 sm:px-6 xl:px-6">
+      <div className="mx-auto max-w-7xl w-full px-0 sm:px-4 lg:px-6 xl:px-6">
 
         {/* GRID: Stacks on mobile, side-by-side on large screens */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] xl:grid-cols-[420px_1fr] gap-12 sm:gap-16 lg:gap-20 xl:gap-24">
@@ -42,7 +42,7 @@ const AIBlogs = () => {
                   fontWeight: 600,
                   lineHeight: "100%",
                   letterSpacing: "0%",
-                  color: "#00AA72",
+                  color: "#254D70",
                 }}
               >
                 Stay Ahead with
@@ -107,7 +107,7 @@ const AIBlogs = () => {
             </P>
 
             {/* Divider */}
-            <div className="mt-8 sm:mt-10 lg:mt-12 xl:mt-12 h-[0.5px] w-full bg-[#00AA72]" />
+            <div className="mt-8 sm:mt-10 lg:mt-12 xl:mt-12 h-[0.5px] w-full bg-[#254D70]" />
 
             {/* Blog Cards */}
             <div className="mt-8 sm:mt-10 lg:mt-12 xl:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-8 md:gap-0 lg:gap-0 xl:gap-0">
@@ -155,7 +155,7 @@ const AIBlogs = () => {
                     {/* Content */}
                     <div className="mt-4 flex flex-col justify-between min-h-[110px]">
                       <h3
-                        className="text-[22px] font-quadran   dark:text-white "
+                        className="text-[22px] font-bricolage dark:text-white "
 
                       >
                         {blog.title}
@@ -170,7 +170,7 @@ const AIBlogs = () => {
                             fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "120%",
-                            color: "#00AA72",
+                            color: "#254D70",
                           }}
                         >
                           Read Now

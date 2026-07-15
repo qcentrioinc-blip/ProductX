@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { H2, H3, P } from "../../../styles/Typography";
+import { H3, P } from "../../../styles/Typography";
 
 const features = [
   { title: "Varied Solutions", description: "Built for specific goals.", image: "/AIProduct/Feature1.svg", points: [ "Implement AWS, Azure, and Google Cloud solutions.  ",
@@ -28,111 +27,34 @@ const features = [
 ];
 
 export default function FeatureCards() {
-  const [open, setOpen] = useState(0);
   return (
-<section className="w-full bg-[#00AA72] py-20">
-  <div className="px-[40px]   md:px-[60px] xl:px-[160px]">
-
-    <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
-
-      {/* LEFT SIDE */}
-      <div className="text-white lg:sticky top-28">
-
-        <P className="font-semibold text-white mb-4">
-          {features[open].title}
-        </P>
-
-        <H2 className="text-white max-w-md">
-          {features[open].description}
-        </H2>
-
-      </div>
-
-      {/* RIGHT SIDE */}
-      <div className="space-y-4">
-
-        {features.map((item, index) => {
-
-          const active = open === index;
+    <section className="w-full relative overflow-hidden dark:bg-black bg-gray-50">
+      <div className="xl:ml-32 max-w-8xl py-10 px-6 xl:px-6 grid grid-cols-1 md:grid-cols-2 gap-y-16  xl:pt-4 xl:pb-20 relative z-10">
+        {features.map((item, idx) => {
+           // Animation logic handled by CSS animation, no need for ref or isVisible state.
 
           return (
-            <div
-              key={index}
-              className="bg-white overflow-hidden"
-            >
-
-              {/* HEADER */}
-
-              <button
-                onClick={() => setOpen(active ? -1 : index)}
-                className="w-full flex justify-between items-center px-6 py-5"
-              >
-
-                <div className="flex items-center gap-3">
-
-                  <div className="h-5 w-5 rounded-full bg-[#00AA72] flex items-center justify-center text-white text-xs">
-                    ✓
-                  </div>
-
-                  <H3 className="text-[#3A3A3A]">
-                    {item.title}
-                  </H3>
-
+            <div key={idx} className="flex flex-col gap-10 mx-4 xl:mx-0 transition-all duration-700 opacity-0 transform translate-y-8" style={{ animation: `fadeInUp 0.5s ease-out forwards ${idx * 0.1}s` }}>
+               {/* @keyframes fadeInUp defined in global css */}
+              <div className="xl:flex-row flex flex-col gap-10">
+                <img src={item.image} alt={item.title} className="flex-shrink-0 rounded-sm object-contain h-20 w-20 md:max-h-16 md:max-w-16 xl:max-h-[150px] xl:max-w-[150px]" />
+                <div className="space-y-2">
+                  <H3 className="inline-block border-b-2 border-[#254D70] font-semibold text-[#254D70]">{item.title}</H3>
+                  <P className="mt-2 text-[28px] font-quicksand text-sm text-[#141414] dark:text-white">{item.description}</P>
                 </div>
-
-                <svg
-                  className={`w-5 h-5 transition ${
-                    active ? "rotate-180" : ""
-                  }`}
-                  fill="#00AA72"
-                  stroke="#00AA72"
-                  strokeWidth=""
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-
-              </button>
-
-              {/* BODY */}
-
-              <div
-                className={`transition-all duration-300  overflow-hidden ${
-                  active ? "max-h-96 pb-5" : "max-h-0"
-                }`}
-              >
-
-                <ul className="px-12  xl:ml-16 space-y-5">
-
-                  {item.points.map((point, i) => (
-
-                    <li
-                      key={i}
-                      className="list-disc text-gray-700"
-                    >
-                      {point}
-                    </li>
-
-                  ))}
-
-                </ul>
-
               </div>
-
+              <ul className="space-y-2 text-sm items-center text-[#141414] dark:text-white">
+                {item.points.map((point, i) => (
+                  <li key={i} className="flex items-center font-quicksand lg:text-lg">
+                    <span className="h-1.5 w-1.5 mx-2 rounded-full bg-[#141414]" /><span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           );
-
         })}
-
       </div>
-
-    </div>
-
-  </div>
-</section>
+      <style>{`@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }`}</style>
+    </section>
   );
 }

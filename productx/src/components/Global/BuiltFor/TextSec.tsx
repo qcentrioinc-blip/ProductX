@@ -94,23 +94,23 @@ export default function TextSec() {
 
   return (
  <section
-  className={`w-full py-6 bg-white ${
+  className={`w-full py-10 bg-white ${
     isEHR ? "dark:bg-black" : "dark:bg-black"
   }`}
 >
-      <div className="max-w-full px-[40px] md:px-[60px] xl:px-[160px]">
+      <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-10 xl:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}
           <div>
           <h5
   className={`mb-3 text-[14px] md:text-[16px] lg:text-[20px]
-    ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran  "}
+    ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
     font-Regular leading-[120%]
     ${
       isEHR
         ? "dark:text-[#FFCA28]"
-        : "dark:text-[#00AA72]"
+        : "dark:text-[#254D70]"
     }
   `}
 >
@@ -118,7 +118,7 @@ export default function TextSec() {
 </h5>
 
             <h3 className={`leading-snug dark:text-white text-[20px] md:text-[24px] lg:text-[32px]
-        ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran  "}
+        ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
         font-semibold
         
      `}>{content.h2}</h3>

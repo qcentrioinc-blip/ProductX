@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { H2EHR,  H4EHR, P } from "../../../styles/Typography";
+import { H2EHR, H3EHR, H4EHR, P } from "../../../styles/Typography";
 import ContactDrawer from "../Navbar/ContactDrawer";
 
 type FeatureItem = {
@@ -22,7 +22,7 @@ type FeaturesEHRProps = {
 const VerticalDivider = ({ animate, delay = 0 }: { animate: boolean; delay?: number }) => (
   <div className="hidden lg:flex items-stretch justify-center w-[2px] flex-shrink-0">
     <div
-      className="w-[2px] bg-[#00AA72] origin-top"
+      className="w-[2px] bg-[#008280] origin-top"
       style={{
         height: animate ? "100%" : "0%",
         transition: animate
@@ -58,13 +58,36 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
   return (
     <div className="min-h-screen md:min-h-fit dark:bg-[#042F2E] lg:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl lg:mx-auto">
-        <div className="rounded-3xl p-6 md:p-10 lg:p-12">
+        <div className="border-2 border-[#166D48] rounded-3xl p-6 md:p-10 lg:p-12">
 
-          {/* Top Heading Section - Left Aligned */}
-          <div className="w-full text-left mb-12">
-            <H2EHR className="text-black dark:text-amber-400 font-bold uppercase tracking-wide leading-tight whitespace-pre-line">
-              {content.heading}
-            </H2EHR>
+          {/* Top Section */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-12">
+            <div className="relative w-full lg:w-auto lg:flex-shrink-0">
+              <div className="relative w-full">
+                <img src="/EHRIcons/GreenRec.webp" alt="ehr and pms" className="lg:h-66" />
+                <button
+                  type="button"
+                  onClick={() => setDrawerOpen(true)}
+                  className="absolute top-6 right-6 md:top-6 md:right-6 lg:top-2 lg:right-2 w-16 h-16 xs:w-20 xs:h-20 lg:w-32 lg:h-32 z-30 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
+                  <img src="/EHRIcons/GreenArrow.svg" alt="arrow" className="w-full h-full object-contain pointer-events-none" />
+                </button>
+                <div className="p-2 absolute top-8 z-10 md:p-6">
+                  <H3EHR className="text-white mb-12 xs:mb-18 md:mb-40 lg:mb-4 inline-block border-b-2 whitespace-pre-normal md:whitespace-normal lg:whitespace-pre-normal border-white">
+                    {content.cardTitle}
+                  </H3EHR>
+                  <P className="text-white max-w-xs md:max-w-sm lg:max-w-lg lg:whitespace-pre-line lg:mt-5 leading-relaxed">
+                    {content.cardDescription}
+                  </P>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 text-left lg:text-right">
+              <H2EHR className="text-[#008280] dark:text-amber-400 leading-tight whitespace-pre-line">
+                {content.heading}
+              </H2EHR>
+            </div>
           </div>
 
           {/* Features Grid — with animated vertical dividers */}
@@ -73,25 +96,26 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
             className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:items-stretch gap-6 lg:gap-0"
           >
             {content.features.map((feature, index) => (
-              <div key={feature.id} className="flex flex-row flex-1 lg:items-stretch">
+              <>
                 {/* Divider BEFORE each column except the first */}
                 {index > 0 && (
                   <VerticalDivider
+                    key={`div-${index}`}
                     animate={linesVisible}
                     delay={(index - 1) * 180} // stagger: 0ms, 180ms, 360ms
                   />
                 )}
 
-                <div className="flex flex-col flex-1 lg:px-6 first:pl-0 last:pr-0">
+                <div key={feature.id} className="flex flex-col flex-1 lg:px-6 first:pl-0 last:pr-0">
                   <img
                     className="w-10 h-10 overflow-visible my-8"
                     src={feature.image}
                     alt={feature.title}
                   />
-                  <H4EHR className="mb-2 dark:text-white font-semibold text-lg text-[#2A2A2A]">{feature.title}</H4EHR>
-                  <P className="text-sm leading-relaxed text-[#141414] opacity-90">{feature.description}</P>
+                  <H4EHR className="mb-2 dark:text-white">{feature.title}</H4EHR>
+                  <P className="text-sm leading-relaxed">{feature.description}</P>
                 </div>
-              </div>
+              </>
             ))}
           </div>
 

@@ -331,7 +331,7 @@ export const ContactUsHighYellow = ({ children, className = "", onClick }: Butto
             w-auto h-[48px] 
             px-[10px] py-[12px]
             rounded-[8px]
-            font-quadran   font-bold
+            font-bricolage font-bold
             text-[16px] 
             border-2 border-[#141414]
             bg-[#F99526] text-[#141414]
@@ -427,7 +427,7 @@ export const ContactUsAI = ({ children, className = "", onClick }: ButtonProps) 
           px-[24px] py-[12px]
           rounded-[8px]
           font-quicksand font-bold text-[16px]
-          bg-[#00AA72] text-white
+          bg-[#0079FF] text-white
         
           shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
           transition-all duration-300
@@ -475,7 +475,7 @@ export const ContactUsEHR = ({ children, className = "", onClick }: ButtonProps)
           rounded-[8px]
           border border-black
           font-quicksand font-bold text-[16px]
-          bg-[#00AA72] text-white
+          bg-[#008280] text-white
         
           shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)]
           transition-all duration-300

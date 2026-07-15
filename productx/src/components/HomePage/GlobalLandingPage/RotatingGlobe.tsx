@@ -51,7 +51,7 @@
 //                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
 //                 backgroundColor="rgba(255,255,255,1)"
 //                 showAtmosphere={true}
-//                 atmosphereColor="#00AA72"
+//                 atmosphereColor="#2B68C3"
 //                 atmosphereAltitude={0.15}
 //                 showGraticules={true}
 //                 width={dimensions.width}

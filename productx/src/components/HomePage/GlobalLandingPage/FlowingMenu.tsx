@@ -20,7 +20,7 @@ const FlowingMenu: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full h-[250px] bg-black overflow-hidden font-quadran   border-t border-b border-white/15">
+    <div className="relative w-full h-[250px] bg-black overflow-hidden font-bricolage border-t border-b border-white/15">
       <nav className="flex flex-col h-full">
         {items.map((item, i) => (
           <MenuItem
@@ -154,7 +154,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     () =>
       Array.from({ length: 4 }).map((_, i) => (
         <React.Fragment key={i}>
-          <span className="uppercase text-[4vh] font-normal px-[1vw] pt-[1vh] text-black whitespace-nowrap font-quadran  ">
+          <span className="uppercase text-[4vh] font-normal px-[1vw] pt-[1vh] text-black whitespace-nowrap font-bricolage">
             {hoverText}
           </span>
 
@@ -187,7 +187,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
         className="relative z-10 flex h-full items-center justify-center uppercase
-          font-semibold text-white text-[4vh] select-none font-quadran  "
+          font-semibold text-white text-[4vh] select-none font-bricolage"
       >
         {text}
       </a>

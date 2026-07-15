@@ -201,8 +201,8 @@ export default function TechSection() {
 
         {/* ── DESKTOP: vertical scroll (hidden on mobile) ── */}
         <div className="relative hidden lg:block w-full lg:w-[320px] xl:w-[360px] shrink-0">
-          <div className="absolute left-0 top-0 w-[10px] h-full bg-[#00AA72]" />
-          <div className="absolute right-0 top-0 w-[10px] h-full bg-[#00AA72]" />
+          <div className="absolute left-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
+          <div className="absolute right-0 top-0 w-[10px] h-full bg-[#2B68C3]" />
           <div className="bg-white dark:bg-slate-950 mx-[10px]">
             <div
               ref={scrollRef}
@@ -234,8 +234,8 @@ export default function TechSection() {
 
         {/* ── MOBILE: same container, horizontal scroll ── */}
         <div className="relative w-full lg:hidden shrink-0">
-          <div className="absolute left-0 top-0 w-[6px] h-full bg-[#00AA72]" />
-          <div className="absolute right-0 top-0 w-[6px] h-full bg-[#00AA72]" />
+          <div className="absolute left-0 top-0 w-[6px] h-full bg-[#2B68C3]" />
+          <div className="absolute right-0 top-0 w-[6px] h-full bg-[#2B68C3]" />
           <div className="bg-white mx-[6px] py-6">
             <div
               ref={mobileScrollRef}

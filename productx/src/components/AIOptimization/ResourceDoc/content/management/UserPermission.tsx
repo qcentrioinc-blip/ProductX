@@ -7,14 +7,14 @@ const UserPermission: React.FC = () => {
   const [open, setOpen] = useState(true);
   return (
     <div className="space-y-4">
-     <h1 className=" text-lg md:text-3xl text-[#00AA72] lg:text-4xl my-4 font-quadran   ">
+     <h1 className=" text-lg md:text-3xl text-[#254D70] lg:text-4xl my-4 font-bricolage ">
           User Permissions
         </h1>
 
       
  <p className="font-quicksand text-base text-gray-700 dark:text-white leading-relaxed">CloudDIET authentication and single sign-on are integrated with your Azure Active Directory. Additional CloudDIET roles are available to manage user access.   </p>
 
-  <h3 className="font-quadran    text-xl lg:text-2xl dark:text-white my-4">  Adding Users </h3>
+  <h3 className="font-bricolage  text-xl lg:text-2xl dark:text-white my-4">  Adding Users </h3>
  <p className="font-quicksand text-base text-gray-700  dark:text-white leading-relaxed">No manual user addition is needed—authentication uses your Azure Active Directory. Users are automatically added and listed when they log in with their organizational account.  </p>
 
 <img className="xl:pl-16" src="/AI-CloudFinOps/Resources/UserPemi.webp" alt="Savings Plan Visualization"/>
@@ -65,7 +65,7 @@ const UserPermission: React.FC = () => {
 </div>
 
 
-     <h3 className="font-quadran    dark:text-white text-xl lg:text-2xl my-4">   Removing Users  </h3>
+     <h3 className="font-bricolage  dark:text-white text-xl lg:text-2xl my-4">   Removing Users  </h3>
  <p className="font-quicksand dark:text-white text-base text-gray-700 leading-relaxed">
 
 Users can be removed from by navigating to Users & Roles, selecting the user, and clicking Remove User. </p>
@@ -94,7 +94,7 @@ Users can be removed from by navigating to Users & Roles, selecting the user, an
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -108,7 +108,7 @@ Users can be removed from by navigating to Users & Roles, selecting the user, an
     </div>
 
 
-    <h3 className="font-quadran   dark:text-white text-xl lg:text-2xl my-4">   Restricting  Users  </h3>
+    <h3 className="font-bricolage dark:text-white text-xl lg:text-2xl my-4">   Restricting  Users  </h3>
  <p className="font-quicksand text-base dark:text-white text-gray-700 leading-relaxed">
 
 By default, users in your organizational Azure Active Directory can sign in and access CloudDIET. You can restrict who can sign in by changing the CloudDIET Enterprise Application properties within your Azure Active Directory.  </p>
@@ -147,7 +147,7 @@ Under Properties, select Yes for Assignment required. </li>
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 

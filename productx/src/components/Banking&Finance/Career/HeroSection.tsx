@@ -5,7 +5,7 @@ import {   ChevronRight,ChevronLeft } from "lucide-react" // Changed import for 
  
 
 const H1 = ({ children }: { children: React.ReactNode }) => (
-<h1 className="text-4xl md:text-5xl font-quadran   lg:text-6xl font-bold">{children}</h1>
+<h1 className="text-4xl md:text-5xl font-bricolage lg:text-6xl font-bold">{children}</h1>
 )
 
 // Define the content labels for the image cards

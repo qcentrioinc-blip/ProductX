@@ -23,7 +23,7 @@ const LandingSams = () => {
                     absolute z-[1]
                     lg:w-[320px] lg:h-[150px] lg:left-[14%] lg:top-0
                     xl:w-[449px] xl:h-[209px] xl:left-[204px] xl:top-0
-                    bg-[url('/BNFCos/Rect1.svg')] bg-cover bg-center bg-no-repeat
+                    bg-[url('/BNFCos/Rect1.png')] bg-cover bg-center bg-no-repeat
                     [clip-path:polygon(10%_0%,100%_0%,100%_100%,0%_100%)]
                 " />
 
@@ -33,14 +33,14 @@ const LandingSams = () => {
                     absolute z-[10]
                     lg:w-[75%] lg:h-[750px] lg:top-[8px] lg:left-[31%]
                     xl:w-[1070px] xl:h-[917px] xl:top-[11px] xl:left-[450px]
-                    bg-[url('/BNFCos/Rect2.svg')] bg-cover bg-center bg-no-repeat
+                    bg-[url('/BNFCos/Rect2.png')] bg-cover bg-center bg-no-repeat
                     [clip-path:polygon(30%_0%,100%_0%,120%_100%,30%_100%,14%_80%)]
                 " />
 
                 {/* Subtle decorative bg — Mobile & Tablet only (below lg) */}
                 <div className="
                     lg:hidden absolute inset-0 z-0 pointer-events-none
-                    bg-[url('/BNFCos/Rect2.svg')] bg-cover bg-right opacity-20
+                    bg-[url('/BNFCos/Rect2.png')] bg-cover bg-right opacity-20
                     [clip-path:polygon(35%_0%,100%_0%,100%_100%,35%_100%,20%_50%)]
                 " />
 
@@ -90,7 +90,7 @@ const LandingSams = () => {
                         </P>
 
                         <ContactUs
-                            className="relative z-10 !bg-[#00AA72] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-4 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
+                            className="relative z-10 !bg-[#2B68C3] !text-[#FAFAFA] !border-none hover:!bg-[#1e4e94] mt-5 lg:mt-4 xl:mt-4 flex items-center justify-center gap-2 !px-5 !py-2.5 md:!px-6 md:!py-3.5 !rounded-[8px] uppercase text-[14px] md:text-[15px] font-semibold tracking-wide w-fit"
                             onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });

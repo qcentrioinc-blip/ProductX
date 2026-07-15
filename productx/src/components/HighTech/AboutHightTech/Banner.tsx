@@ -34,7 +34,7 @@ const Banner = () => {
 
         {/* RIGHT SIDE */}
         <div className="space-y-6  mt-4">
-          <p   className="  font-bold  text-xl font-quadran   leading-normal">
+          <p   className="  font-bold  text-xl font-bricolage leading-normal">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. occaecat cupidatat non.
           </p>
 

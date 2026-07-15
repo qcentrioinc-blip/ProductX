@@ -128,7 +128,7 @@ export default function AllProducts() {
       flex-shrink-0
     "
   >
-    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#00AA72]" />
+    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#2B68C3]" />
   </div>
 
 </div>

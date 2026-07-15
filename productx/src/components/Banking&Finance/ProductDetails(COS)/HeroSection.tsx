@@ -71,8 +71,8 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative w-full flex items-start justify-center overflow-hidden pt-0 mt-0">
       {/* Backgrounds */}
       <div className="absolute inset-0 hidden md:flex">
-        <div className="w-1/2 bg-[#00AA72]" />
-        <div className="w-1/2 bg-[#00AA72] relative">
+        <div className="w-1/2 bg-[#2B68C3]" />
+        <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Desktop Circles */}
           <div
             className="absolute z-0"
@@ -106,8 +106,8 @@ export default function HeroSection() {
 
       {/* Mobile & Tablet Background with Circles */}
       <div className="absolute inset-0 flex flex-col md:hidden">
-        <div className="flex-1 bg-[#00AA72]" />
-        <div className="flex-1 bg-[#00AA72] relative">
+        <div className="flex-1 bg-[#2B68C3]" />
+        <div className="flex-1 bg-[#2B68C3] relative">
           {/* Mobile & Tablet Circles - Responsive */}
           <div
             className="absolute z-0"
@@ -141,8 +141,8 @@ export default function HeroSection() {
 
       {/* Tablet Circles */}
       <div className="absolute inset-0 hidden md:flex lg:hidden">
-        <div className="w-1/2 bg-[#00AA72]" />
-        <div className="w-1/2 bg-[#00AA72] relative">
+        <div className="w-1/2 bg-[#2B68C3]" />
+        <div className="w-1/2 bg-[#2B68C3] relative">
           {/* Tablet Circles */}
           <div
             className="absolute z-0"
@@ -230,7 +230,7 @@ export default function HeroSection() {
         </div>
 
         {/* Image Section */}
-        <div className="relative w-screen md:mt-22  md:w-1/2 bg-[#00AA72] md:bg-transparent pb-5 flex justify-center">
+        <div className="relative w-screen md:mt-22  md:w-1/2 bg-[#2B68C3] md:bg-transparent pb-5 flex justify-center">
           {/* Mobile layout */}
           <motion.div
             className="flex flex-col md:hidden gap-4 z-10"

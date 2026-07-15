@@ -253,7 +253,7 @@ export default function LogoMarquee() {
               draggable={false}
               className="object-cover w-full h-auto"
             />
-            <span className="absolute bottom-4 font-quadran   text-[14px] md:text-[16px] lg:text-[20px] font-extrabold text-blue-800 leading-tight">
+            <span className="absolute bottom-4 font-bricolage text-[14px] md:text-[16px] lg:text-[20px] font-extrabold text-blue-800 leading-tight">
               {logo.tagline}
             </span>
           </Link>

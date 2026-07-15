@@ -114,7 +114,7 @@ export default function HeroBottomNavbar() {
       className={`bg-white shadow-md w-full sticky z-[100] border-b border-gray-200 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${showGlobalNav ? "top-[124px] delay-300" : "top-[-1px] delay-500"
         }`}
     >
-      <div ref={scrollContainerRef} className="max-w-8xl lg:mx-10 px-4 lg:px-12 scrollbar-hide::-webkit-scrollbar scrollbar-hide font-quadran   py-4 flex gap-10 overflow-x-auto scroll-smooth">
+      <div ref={scrollContainerRef} className="max-w-8xl lg:mx-10 px-4 lg:px-12 scrollbar-hide::-webkit-scrollbar scrollbar-hide font-bricolage py-4 flex gap-10 overflow-x-auto scroll-smooth">
         {navItems.map((item) => (
           <a
             key={item.id}

@@ -1,7 +1,4 @@
 import EHRFooter from "../../HomePage/EHR&PMS/EHRFooter"
-import InfoWithImage from "../EHRReceptionist/InfoWithImage"
- 
-import Pillar from "../EHRReceptionist/Pillar"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Counter from "./Counter"
 import FeatureHighlights from "./FeatureHighlights"
@@ -15,8 +12,6 @@ export const EHRNursing = () => {
     <div>
         <EHRNavbar />
         <HeroSec/>
-        <Pillar/>
-       <InfoWithImage/>
         <FeatureHighlights/>
         <MedicalFeature />
         <InformationGrid/>

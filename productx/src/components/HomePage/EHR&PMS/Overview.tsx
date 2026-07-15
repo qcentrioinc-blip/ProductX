@@ -30,33 +30,24 @@ const items: OverviewItem[] = [
 
 const Overview: React.FC = () => {
   return (
-   <section className="w-full bg-[#089768] py-16 px-4 xl:px-6">
+    <section className="w-full bg-[#EEEEEE] dark:bg-[#141414]  py-10 px-4 xl:px-6">
       <div className="mx-auto max-w-7xl ">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {items.map((item, index) => (
-           <div
-  key={index}
-  className="relative bg-white dark:bg-[#089768] rounded-none overflow-hidden rounded-bl-[5rem] shadow-sm px-8 py-8 min-h-[280px]"
->
-  {/* Bottom Left Curved Cut */}
-  
+            <div
+              key={index}
+              className="flex items-start gap-4 rounded-md   p-6"
+            >
+              {/* Left Circle */}
+           
 
-  <div className="flex flex-col gap-5">
-    <img
-      src={item.image}
-      alt={item.title}
-      className="w-12 h-12 object-contain"
-    />
-
-    <H4EHR className="text-[#0F9D7A] dark:text-[#16C79A]">
-      {item.title}
-    </H4EHR>
-
-    <P className="text-[#5F6368] dark:text-gray-300 leading-7">
-      {item.description}
-    </P>
-  </div>
-</div>
+              {/* Text Content */}
+              <div className="flex flex-col space-y-4">
+                   <img className="h-12 w-12 shrink-0 rounded-full overflow-visible " src={item.image} />
+                <H4EHR className="mb-2 dark:text-white">{item.title}</H4EHR>
+                <P className="max-w-md">{item.description}</P>
+              </div>
+            </div>
           ))}
         </div>
       </div>

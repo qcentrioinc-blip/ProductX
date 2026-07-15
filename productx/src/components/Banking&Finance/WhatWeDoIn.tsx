@@ -42,7 +42,7 @@ const WhatWeDoIn = () => {
     },
   ];
 
-  const images = ["/BNFWhat.svg", "/WhatWe2.svg", "/WhatWe3.svg"];
+  const images = ["/BNFWhat.webp", "/WhatWe2.webp", "/WhatWe3.webp"];
 const isDark = document.documentElement.classList.contains("dark");
   // Track desktop breakpoint (xl = 1280px)
   useEffect(() => {
@@ -156,7 +156,7 @@ const isDark = document.documentElement.classList.contains("dark");
           {/* ── Heading ── */}
           <div className="shrink-0 flex justify-between items-start gap-8 xl:px-6 ">
             <div className="max-w-4xl ">
-              <H2 className="font-bold text-[#00AA72]">
+              <H2 className="font-bold text-[#2B68C3]">
                 Who <span className="text-[#141414] dark:text-white"> We </span> Serve
               </H2>
               <P className="pt-2 text-justify  xl:pr-20  leading-tight">
@@ -225,7 +225,7 @@ const isDark = document.documentElement.classList.contains("dark");
                 return (
                   <div
                     key={item.id}
-                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isOpen ? "bg-[#E5FFF7] dark:bg-slate-950" : "bg-[#F6F6F6] dark:bg-gray-700 "
+                    className={`relative cursor-pointer overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isOpen ? "bg-blue-100 dark:bg-slate-950" : "bg-[#F6F6F6] dark:bg-gray-700 "
                       }`}
                     style={{ minHeight: isOpen ? "auto" : "100px" }}
                     onClick={() => {
@@ -234,7 +234,7 @@ const isDark = document.documentElement.classList.contains("dark");
                   >
                     {/* Number */}
                     <span
-                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${isOpen ? "text-[#3E3E3E] dark:text-white" : "text-[#00AA72]"
+                      className={`absolute left-6 top-3 text-6xl font-bold leading-none transition-colors duration-500 ${isOpen ? "text-[#3E3E3E] dark:text-white" : "text-[#2B68C3]"
                         }`}
                     >
                       {String(item.id).padStart(2, "0")}

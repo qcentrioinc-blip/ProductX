@@ -48,7 +48,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
           {!isDesktop && (
             <div className="flex flex-col gap-10">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <H2EHR className="text-[#00AA72] dark:text-white">
+                <H2EHR className="text-[#008280] dark:text-white">
                   {content.heading}
                 </H2EHR>
                 <button
@@ -58,10 +58,10 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-[#00AA72] text-white dark:bg-black dark:text-white
-    hover:bg-white hover:text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-[#008280] text-white dark:bg-black dark:text-white
+    hover:bg-white hover:text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]
     hover:-translate-y-[2px]
@@ -142,7 +142,7 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
             <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-20">
 
               <div className="lg:w-2/5 flex flex-col items-start">
-                <H2EHR className="text-[#00AA72]">
+                <H2EHR className="text-[#008280]">
                   {content.heading}
                 </H2EHR>
 

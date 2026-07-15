@@ -51,7 +51,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="w-full bg-[#00AA72]   relative overflow-hidden">
+      <div className="w-full bg-[#2B68C3]   relative overflow-hidden">
 
 
         {/* Text Section */}

@@ -49,7 +49,7 @@ const ContactSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-quadran   font-semibold leading-[120%] text-[28px] sm:text-[32px] md:text-[40px]"
+            className="font-bricolage font-semibold leading-[120%] text-[28px] sm:text-[32px] md:text-[40px]"
           >
             <span className="bg-gradient-to-r from-[#28B87B] to-[#F99526] bg-clip-text text-transparent">
               Sed ut perspiciatis

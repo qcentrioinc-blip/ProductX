@@ -84,7 +84,7 @@ export default function FooterHT() {
           <div className="flex flex-row justify-center md:gap-20 gap-10">
             <div>
               <H4 className="mb-3">Products</H4>
-              <ul className="space-y-2 text-sm font-quadran  ">
+              <ul className="space-y-2 text-sm font-bricolage">
                 <li>• HRMS</li>
                 <li>• DBMS</li>
               </ul>
@@ -92,7 +92,7 @@ export default function FooterHT() {
 
             <div>
               <H4 className="mb-3">Quick Links</H4>
-              <ul className="space-y-2 text-sm font-quadran  ">
+              <ul className="space-y-2 text-sm font-bricolage">
                 <a href="/industries/high-tech/aboutus">
                 <li>• About Us</li>
                 </a>

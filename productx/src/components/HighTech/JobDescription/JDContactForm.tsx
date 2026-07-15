@@ -12,7 +12,7 @@ const ContactFormSection = () => {
           <form className="space-y-10">
             {/* Name */}
             <div>
-              <label className="block text-xl font-extrabold font-quadran   mb-2">
+              <label className="block text-xl font-extrabold font-bricolage mb-2">
                 Name
               </label>
               <input
@@ -23,7 +23,7 @@ const ContactFormSection = () => {
 
             {/* Email */}
             <div>
-              <label className="block text-xl font-extrabold  font-quadran   mb-2">
+              <label className="block text-xl font-extrabold  font-bricolage mb-2">
                 Email
               </label>
               <input
@@ -34,7 +34,7 @@ const ContactFormSection = () => {
 
             {/* Resume (right-aligned upload) */}
             <div>
-              <label className="block text-xl font-extrabold font-quadran   mb-2">
+              <label className="block text-xl font-extrabold font-bricolage mb-2">
                 Resume
               </label>
               <div className="relative w-full border-b border-gray-300 pb-2">
@@ -55,7 +55,7 @@ const ContactFormSection = () => {
 
             {/* Radio Options */}
             <div>
-              <p className="mb-4 text-xl font-extrabold font-quadran    text-gray-800">
+              <p className="mb-4 text-xl font-extrabold font-bricolage  text-gray-800">
                 Are you an immediate joiner
               </p>
               <div className="space-y-3">

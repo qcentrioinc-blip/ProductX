@@ -288,11 +288,11 @@ export default function Firm() {
         enabled={!isMobile}
         spotlightRadius={590}
       /> */}
-      <section className="w-full xl:pt-4 pt-8  dark:bg-black px-[40px]   md:px-[60px] xl:px-[160px]" >
-        <div className=" ">
+      <section className="w-full xl:pt-4 pt-8  dark:bg-black px-4 sm:px-6 lg:px-8" >
+        <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center ">
-            <H2 className="  max-w-3xl mx-auto  dark:text-white text-[#00AA72]">
+            <H2 className="  max-w-3xl mx-auto  dark:text-white text-[#254D70]">
               How CloudDIET Compares Better To Other Tools & Platforms
             </H2>
  
@@ -302,12 +302,12 @@ export default function Firm() {
           </div>
  
           {/* Outer White Container */}
-          <div className="bg-white dark:bg-slate-700 rounded-3xl md:mt-8 ">
-            <div className="grid bg-[#F7FFEC] dark:bg-slate-400 rounded-4xl  grid-cols-1 lg:grid-cols-2 lg:gap-6">
+          <div className="bg-white dark:bg-slate-700 rounded-3xl md:mt-8 p-4 sm:p-6 md:p-8">
+            <div className="grid bg-gray-100 dark:bg-slate-400 rounded-4xl grid-cols-1 lg:grid-cols-2 lg:gap-6">
  
               {/* Other Firms */}
               <div className="rounded-4xl animated-card my-10 p-6 ml-4 sm:p-8 text-left">
-                 <H3 className=" xl:pt-10">Other Platforms </H3>
+                <H3>Other Platforms </H3>
                 <ul className="mt-8 space-y-12">
                   {withoutCloudDietFeatures.map((item) => (
                     <li key={item.id} className="flex items-start gap-4">
@@ -317,8 +317,8 @@ export default function Firm() {
                         className="mt-1 h-7 w-7 shrink-0"
                       />
                       <div>
-                        <H4 className="my-1 ">{item.title}</H4>
-                        <P className="mt-2">{item.desc}</P>
+                        <H4>{item.title}</H4>
+                        <P className="mt-4">{item.desc}</P>
                       </div>
                     </li>
                   ))}
@@ -329,26 +329,26 @@ export default function Firm() {
               {/* With CloudDiet */}
               <div
                 className="
-  bg-white  rounded-tl-[3rem]  rounded-br-[3rem]  dark:bg-slate-700 mx-4 my-10 p-6 sm:p-8 text-left
-  border-[0.5rem]  dark:border-gray-800 border-[#00AA72] 
+  bg-white  rounded-4xl  dark:bg-slate-700 mx-4 my-10 p-6 sm:p-8 text-left
+  border-4  dark:border-gray-800 border-[#254D70]
   shadow-xl
   md:-ml-4
 "
               
               >
-                <H3 className="text-[#00AA72] xl:pt-10"> With CloudDiet</H3>
+                <H3 className="dark:text-white">CloudDiet</H3>
  
                 <ul className="mt-8 space-y-12">
                   {cloudDietFeatures.map((item) => (
                     <li key={item.id} className="flex items-start gap-4">
                       <img
-                        src="/CheckCircle.svg"
+                        src="/CheckCircle.png"
                         alt="check"
                         className="mt-1 h-7 w-7 shrink-0"
                       />
                       <div>
-                        <H4 className="my-1 text-[#00AA72]">{item.title}</H4>
-                        <P className="mt-2">{item.desc}</P>
+                        <H4 className="my-1 dark:text-black">{item.title}</H4>
+                        <P className="mt-4">{item.desc}</P>
                       </div>
                     </li>
                   ))}

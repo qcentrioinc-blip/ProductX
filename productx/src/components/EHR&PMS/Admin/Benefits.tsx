@@ -61,7 +61,7 @@ const Benefits = () => {
        
         {/* Section Heading */}
         <div className="w-full max-w-2xl mb-10 lg:mt-10 lg:mb-12">
-          <H2EHR className="text-left   text-[#00AA72]">
+          <H2EHR className="text-left   text-[#008280]">
             Essential Tools for Clinic Administration
           </H2EHR>
         </div>
@@ -79,7 +79,7 @@ const Benefits = () => {
                   className={`
                     py-8 px-6 cursor-pointer transition-all duration-500 ease-out border-l-4
                     ${isActive
-                      ? "bg-[#F1F1F1] dark:bg-teal-900 border-[#00AA72] opacity-100"
+                      ? "bg-[#F1F1F1] dark:bg-teal-900 border-[#008280] opacity-100"
                       : "bg-transparent border-transparent opacity-50 hover:opacity-80"
                     }
                   `}
@@ -118,8 +118,8 @@ const Benefits = () => {
           {points.map((point, i) => (
             <div key={i} className="flex flex-col gap-6">
               {/* Text Top */}
-              <div className="p-6 rounded-xl  dark:bg-[#141414] bg-[#F1F1F1] border-t-4 border-[#00AA72]">
-                <h3 className="font-bold dark:text-[#00AA72]   text-xl text-gray-900 mb-2">
+              <div className="p-6 rounded-xl  dark:bg-[#141414] bg-[#F1F1F1] border-t-4 border-[#008280]">
+                <h3 className="font-bold dark:text-teal-700 text-xl text-gray-900 mb-2">
                   {point.title}
                 </h3>
                 <P className="text-gray-700">{point.desc}</P>

@@ -9,13 +9,13 @@ const AddingService: React.FC = () => {
  
   return (
     <div className="space-y-2">
-     <h1 className=" text-lg md:text-3xl text-[#00AA72] lg:text-4xl my-4 font-quadran   ">
+     <h1 className=" text-lg md:text-3xl text-[#254D70] lg:text-4xl my-4 font-bricolage ">
             Adding Service Principals 
         </h1>
 
         <P className="font-quicksand text-lg leading-tight tracking-wide">Once you created the Service Principal(s) with the required permissions in your Azure environment, you must configure them in CloudDIET.  </P>
 
-     <h2 className="font-quadran   text-xl md:text-2xl dark:text-white  lg:text-3xl my-4">Configuration Steps  </h2>
+     <h2 className="font-bricolage text-xl md:text-2xl dark:text-white  lg:text-3xl my-4">Configuration Steps  </h2>
          <ol className="list-decimal dark:text-white list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li> Log in to CloudDIET, navigate to Settings, and then Credentials. </li>
   <img className="xl:pl-16 " src="/AI-CloudFinOps/Resources/Adding1.webp" alt="" />
@@ -28,7 +28,7 @@ const AddingService: React.FC = () => {
 
 </ol>
 
- <h3 className="font-quadran    text-xl  dark:text-white lg:text-2xl my-4">Note </h3>
+ <h3 className="font-bricolage  text-xl  dark:text-white lg:text-2xl my-4">Note </h3>
    <div className="my-6">
       <div className="flex border border-gray-300 rounded-md overflow-hidden bg-white shadow-sm">
         
@@ -51,7 +51,7 @@ const AddingService: React.FC = () => {
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 

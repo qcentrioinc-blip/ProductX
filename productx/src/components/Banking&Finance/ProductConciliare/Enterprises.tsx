@@ -49,7 +49,7 @@
 //         <H2>
 //           How Conciliare Works:
 //           <br />
-//           <span className="text-[#00AA72]">From Data to Decision</span>
+//           <span className="text-[#2B68C3]">From Data to Decision</span>
 
 //         </H2>
 //       </div>
@@ -67,7 +67,7 @@
 //                 className="bg-white rounded-lg p-6 flex flex-col border border-gray-500 row-span-2"
 //               >
 //                 <div>
-//                   <H4 className="pt-0 text-[#00AA72]">
+//                   <H4 className="pt-0 text-[#2B68C3]">
 //                     {card.title}
 //                   </H4>
 //                   <P className="pt-4">{card.description}</P>
@@ -94,7 +94,7 @@
 //                 className="bg-white rounded-lg p-6 flex flex-col justify-between border border-gray-500 col-span-2"
 //               >
 //                 <div>
-//                   <H4 className="pt-0 text-[#00AA72]">
+//                   <H4 className="pt-0 text-[#2B68C3]">
 //                     {card.title}
 //                   </H4>
 //                   <P className="pt-4">{card.description}</P>
@@ -120,7 +120,7 @@
 //               className="bg-white rounded-lg p-6 flex flex-col justify-between border border-gray-500"
 //             >
 //               <div>
-//                 <H4 className="pt-0 text-[#00AA72]">
+//                 <H4 className="pt-0 text-[#2B68C3]">
 //                   {card.title}
 //                 </H4>
 //                 <P className="pt-4">{card.description}</P>
@@ -149,7 +149,7 @@
 //             key={card.id}
 //             className="min-w-[80%] bg-white rounded-lg p-4 snap-center"
 //           >
-//             <H4 className="pt-0 text-[#00AA72]">
+//             <H4 className="pt-0 text-[#2B68C3]">
 //               {card.title}
 //             </H4>
 //             <P className="pt-2">{card.description}</P>
@@ -192,7 +192,7 @@ const Enterprises = () => {
         <div className="flex flex-col gap-6 lg:gap-7 xl:gap-8 w-full lg:flex-1 lg:min-w-0">
 
           {/* Blue Badge */}
-          <div className="flex items-center justify-center w-[260px] h-[56px] lg:w-[278px] lg:h-[60px] xl:w-[298px] xl:h-[64px] rounded-[40px] px-[10px] bg-[#00AA72] box-border">
+          <div className="flex items-center justify-center w-[260px] h-[56px] lg:w-[278px] lg:h-[60px] xl:w-[298px] xl:h-[64px] rounded-[40px] px-[10px] bg-[#2B68C3] box-border">
             <span
               className="text-center text-[#FAFAFA] text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] leading-none tracking-normal"
               style={{ fontFamily: "Quicksand, sans-serif", fontWeight: 400 }}

@@ -7,8 +7,8 @@ const CloudDiet = () => {
     const [modalOpen, setModalOpen] = useState(false);
     return (
         <>
-            <section className="relative w-full  overflow-hidden bg-[#fafafa] dark:bg-black px-6 sm:px-8 xl:px-0 py-12 sm:py-16 xl:py-10">
-                <div className="max-w-full px-[40px] md:px-[60px] xl:px-[160px] relative">
+            <section className="relative w-full  overflow-hidden bg-[#fafafa] dark:bg-black px-6 sm:px-8 xl:px-16 py-12 sm:py-16 xl:py-10">
+                <div className="mx-auto max-w-8xl px-2 sm:px-4 xl:px-6 relative">
  
                     <div className="grid xl:grid-cols-2 gap-10 xl:gap-12 items-center">
  
@@ -17,11 +17,12 @@ const CloudDiet = () => {
  
                             {/* Top Purple Text */}
                             <p
-                                className="font-quadran text-[20px]"
+                                className="text-[18px] sm:text-[20px] xl:text-[24px]"
                                 style={{
-                                   
+                                    fontFamily: "'Quicksand', sans-serif",
+                                    fontWeight: 700,
                                     lineHeight: "110%",
-                                    color: "#00AA72",
+                                    color: "#0079FF",
                                 }}
                             >
                                Ready to optimize your Azure spend?
@@ -29,7 +30,7 @@ const CloudDiet = () => {
  
                             {/* Main Heading */}
                             <H2
-                                
+                                className="text-[32px] dark:text-white sm:text-[42px] md:text-[48px] xl:text-[64px]"
                                 
                             >
                                 Start saving with CloudDIET today.
@@ -42,7 +43,7 @@ const CloudDiet = () => {
                                         e.preventDefault();
                                         setModalOpen(true);
                                     }}
-                                    className="!bg-[#00AA72] !text-[#F5F5F5] !py-[14px] !px-[24px] !text-[14px] uppercase hover:!bg-gray-800 hover:!text-white shadow-lg hover:shadow-xl"
+                                    className="!bg-[#254D70] !text-[#F5F5F5] !py-[14px] !px-[24px] !text-[14px] uppercase hover:!bg-gray-800 hover:!text-white shadow-lg hover:shadow-xl"
                                 >
                                     Book Your Demo
                                 </ContactUs>
@@ -52,11 +53,11 @@ const CloudDiet = () => {
  
                         {/* RIGHT CONTENT */}
                         <div className="flex items-center justify-center xl:justify-end mt-6 sm:mt-8 xl:mt-0">
-                            <div className="relative xl:mt-20 flex justify-center z-20">
+                            <div className="relative mt-20 flex justify-center z-20">
           <div className="px-8 py-4 flex items-center gap-3 ">
            {/* <img src="/ClouddietLogo2.svg" alt="CloudDIET Logo" className="h-28 w-auto" /> */}
 
-            <div className="text-black  dark:text-[#00AA72] text-6xl font-quadran font-medium">
+            <div className="text-[#1E2440]  dark:text-[#0079FF] text-6xl font-bricolage font-extrabold">
               Cloud<span className=" font-medium">DIET</span>
             </div>
           </div>

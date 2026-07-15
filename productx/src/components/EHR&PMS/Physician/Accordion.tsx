@@ -85,7 +85,7 @@ const Accordion = () => {
                           <H3EHR
                             className={` leading-tight transition ${
                               isActive
-                                ? "text-[#00AA72] dark:text-white"
+                                ? "text-[#008280] dark:text-white"
                                 : "dark:text-white  text-[#141414]"
                             }`}
                           >

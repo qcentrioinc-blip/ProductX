@@ -299,7 +299,7 @@ const ImageContainer = () => {
           href="https://login.clouddiet.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center w-44 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#00AA72]"
+          className="group flex items-center justify-center w-44 h-[48px] px-[24px] py-[12px] rounded-[8px] font-quicksand font-bold text-[16px] bg-white text-black shadow-[0_6px_2px_-4px_rgba(14,14,44,0.1)] transition-all duration-300 hover:bg-white hover:text-[#254D70]"
         >
           Login
           <span className="flex items-center gap-2 ml-2">

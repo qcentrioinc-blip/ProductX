@@ -23,7 +23,7 @@ const Openings = () => {
           {jobs.map((job, index) => (
             <div
               key={index}
-              className={`font-quadran   border-gray-800 transition-colors duration-300 p-5 
+              className={`font-bricolage border-gray-800 transition-colors duration-300 p-5 
                 ${index % 2 === 0 ? "lg:hover:bg-gray-600/40" : "lg:hover:bg-gray-800/40"}
                 `}
             >

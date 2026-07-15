@@ -30,7 +30,7 @@ export default function Testimonial() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <H2 className="font-bold text-gray-900 dark:text-[#00AA72]">
+          <H2 className="font-bold text-gray-900 dark:text-[#2B68C3]">
          Complete Asset Liability Management Platform
           </H2>
         </div>
@@ -43,7 +43,7 @@ export default function Testimonial() {
          className="bg-white rounded-lg  dark:bg-gray-900 border border-gray-200 shadow-md md:p-4 p-6 lg:p-5 xl:p-6 md:h-[230px] lg:h-[300px] xl:h-[240px]"
             >
              <div className="flex justify-start mb-4">
-  <div className="w-16 h-16 rounded-full flex bg-[#00AA72] items-center justify-center">
+  <div className="w-16 h-16 rounded-full flex bg-[#2B68C3] items-center justify-center">
     <img
       src={testimonial.icon}
       alt={testimonial.name}

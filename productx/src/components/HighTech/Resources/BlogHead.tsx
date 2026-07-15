@@ -15,7 +15,7 @@ const BlogHead: React.FC<BlogHeadProps> = ({ activeCategory, setActiveCategory }
     const isActive = activeCategory === category;
 
     const baseClasses =
-      'w-full sm:w-auto px-10 py-3 text-lg font-light font-quadran   transition duration-300 transform hover:scale-[1.02] shadow-lg';
+      'w-full sm:w-auto px-10 py-3 text-lg font-light font-bricolage transition duration-300 transform hover:scale-[1.02] shadow-lg';
 
     const dynamicClasses = isActive
       ? `rounded-full px-10 text-white ${activeGradient}`

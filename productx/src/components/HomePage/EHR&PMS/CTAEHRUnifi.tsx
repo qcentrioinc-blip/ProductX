@@ -11,7 +11,7 @@ const CTAEHRUnifi: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {/* Left Content */}
-          <div className="flex flex-col   xl:h-[90vh] justify-center bg-[#00AA72] dark:bg-[#141414] px-6 py-16 text-white sm:px-10 xl:pl-26 lg:px-16">
+          <div className="flex flex-col   xl:h-[90vh] justify-center bg-[#008280] dark:bg-[#141414] px-6 py-16 text-white sm:px-10 xl:pl-26 lg:px-16">
             {/* <span className="mb-4 font-quicksand text-md">
               Generate any kind of
             </span> */}
@@ -33,9 +33,9 @@ const CTAEHRUnifi: React.FC = () => {
                 group
     px-6
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-white text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-white text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     
     hover:border-b-[4px]

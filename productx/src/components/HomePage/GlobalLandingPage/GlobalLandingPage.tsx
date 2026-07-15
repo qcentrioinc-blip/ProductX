@@ -14,8 +14,8 @@ import InnovationCards from "./InnovationCards"
 import Centric from "./Centric"
 import ImgSec from "./ImgSec"
 import RotatingGlobe from "./RotatingGlobe"
-// import CircularCards from "./CircularCards";
-import ElephantQueen from "./ElephantQueen";
+import CircularCards from "./CircularCards";
+// import ElephantQueen from "./ElephantQueen";
 // import NewLanding from "./NewLanding";
 // import NewLanding from "./NewLanding";
 // import ElephantQueen from "./ElephantQueen";
@@ -23,49 +23,46 @@ import ElephantQueen from "./ElephantQueen";
 // import MainHero from "./MainHero";
 // import MainHero from "./MainHero";
 // import NewLanding from "./NewLanding";
-import Rocket from "./Rocket";
-import ThreeTurns from "./ThreeTurns";
- 
+
 
 const GlobalLandingPage = () => {
-//     const [loading, setLoading] = useState(true);
-    
+    //     const [loading, setLoading] = useState(true);
 
-//      const handleLoaderComplete = useCallback(() => {
-//     setLoading(false);
-//   }, []);
 
-// useEffect(() => {
-//   const timer = setTimeout(() => {
-//     setLoading(false);
-//   }, 3200); 
-//   return () => clearTimeout(timer);
-// }, []);
+    //      const handleLoaderComplete = useCallback(() => {
+    //     setLoading(false);
+    //   }, []);
+
+    // useEffect(() => {
+    //   const timer = setTimeout(() => {
+    //     setLoading(false);
+    //   }, 3200); 
+    //   return () => clearTimeout(timer);
+    // }, []);
+
 
     return (
         <div className="relative">
-{/* <PageLoader onComplete={handleLoaderComplete} />  */}
+            {/* <PageLoader onComplete={handleLoaderComplete} /> */}
 
             {/* {loading && <PageLoader onComplete={handleLoaderComplete} />} */}
             {/* <MainHero/> */}
             {/* <NewLanding/> */}
 
-            <ElephantQueen />
+            {/* <ElephantQueen /> */}
 
             {/* Sections below scroll over the ElephantQueen panel */}
-            <div className="relative" style={{ zIndex: 10, background: '' }}>
-                {/* <CircularCards /> */}
+            <div className="relative" style={{ zIndex: 10, background: '#000' }}>
+                <CircularCards />
                 {/* <div id="landingpage">
                 <LandingPage1 />
             </div> */}
-            <LogoMarquee/>
-            <Rocket/>
-            <ThreeTurns/>
-                <GoalsSection/>
-                <InnovationCards/>
-                <Centric/>
-            <Suspense fallback={null}>
-                {/* <div className="gpu-optimized">
+                <LogoMarquee />
+                <GoalsSection />
+                <InnovationCards />
+                <Centric />
+                <Suspense fallback={null}>
+                    {/* <div className="gpu-optimized">
                     <AnimatedStatement />
                 </div> */}
                     {/* <div id="futuresection" className="gpu-optimized">

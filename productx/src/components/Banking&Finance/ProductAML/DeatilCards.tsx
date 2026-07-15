@@ -5,19 +5,19 @@ const cards = [
     title: " Complexity",
     description:
       "Manual gap analysis, duration calculations, and stress testing across multiple currencies is time-consuming and error-prone. ALMANAC automates these processes completely.",
-       icon: "/AML/Banks.png",
+       icon: "/AML/Banks.svg",
   },
   {
     title: "Visibility",
     description:
       "Banks struggle to predict liquidity needs and interest rate impacts. ALMANAC provides real-time dashboards and scenario simulations for proactive decision-making.",
-       icon: "/AML/ALMEye.png",
+       icon: "/AML/ALMEye.svg",
   },
   {
     title: "Compliance",
     description:
       "Generating accurate regulatory reports for multiple authorities is challenging. ALMANAC automates report generation aligned with Basel and central bank requirements.",
-       icon: "/AML/ALMCompliance.png",
+       icon: "/AML/ALMCompliance.svg",
   },
 ];
 

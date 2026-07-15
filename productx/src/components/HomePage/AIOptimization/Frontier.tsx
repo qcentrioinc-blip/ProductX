@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { H2, H3 } from "../../../styles/Typography";
+import { H2 } from "../../../styles/Typography";
 
 const Frontier = () => {
     const features = [
@@ -30,8 +30,8 @@ const Frontier = () => {
     ];
 
     return (
-        <section className="w-full bg-[#F8F8F8] dark:bg-black  py-12 sm:py-16 md:py-20 lg:py-10  ">
-            <div className="  w-full px-[40px] md:px-[60px] xl:px-[160px]">
+        <section className="w-full bg-[#F8F8F8] dark:bg-black  py-12 sm:py-16 md:py-20 lg:py-10 px-4 sm:px-8 xl:px-10">
+            <div className="max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-10 lg:px-10 xl:px-6">
 
                 <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] xl:grid-cols-[600px_1fr]  gap-12 sm:gap-16 xl:gap-20">
 
@@ -41,7 +41,7 @@ const Frontier = () => {
 
                             {/* Heading */}
                             <H2
-                                className="relative mb-10   text-[#00AA72] sm:mb-12 md:mb-16 text-center lg:text-left xl:text-left"
+                                className="relative mb-10  dark:text-white text-[#254D70] sm:mb-12 md:mb-16 text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] text-center lg:text-left xl:text-left"
                                 
                             >
                                Real-World Cloud Optimization Measures 
@@ -61,15 +61,19 @@ const Frontier = () => {
 
                                     <div className="space-y-4 sm:space-y-6 md:space-y-10">
 
-                                        <H3
-                                            className="text-[#00AA72] font-quadran"
-                                           
+                                        <h3
+                                            className="text-[20px] sm:text-[22px] md:text-[24px]"
+                                            style={{
+                                                fontFamily: "'Bricolage Grotesque', sans-serif",
+                                                fontWeight: 700,
+                                                color: "#254D70",
+                                            }}
                                         >
                                             {feature.title}
-                                        </H3>
+                                        </h3>
 
                                         <div className="flex items-start gap-3 sm:gap-4">
-                                            <ArrowRight className="w-10 sm:w-7 md:w-20 h-5 sm:h-6 text-[#00AA72]" />
+                                            <ArrowRight className="w-10 sm:w-7 md:w-12 h-5 sm:h-6 text-[#0079FF]" />
 
                                             <p
                                                 className="text-[15px] dark:text-white sm:text-[16px] md:text-[18px] leading-[150%]"

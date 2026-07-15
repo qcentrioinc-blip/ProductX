@@ -27,7 +27,7 @@ const WhyUnifiedHealth: React.FC = () => {
               Why Unified Health Net
             </span> */}
 
-            <H2EHR className="mb-6 leading-snug text-[#00AA72]">
+            <H2EHR className="mb-6 leading-snug text-[#008280]">
               Built for Modern Healthcare’s Demands
             </H2EHR>
 
@@ -44,10 +44,10 @@ const WhyUnifiedHealth: React.FC = () => {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-quadran   font-bold text-sm tracking-widest
-    bg-[#00AA72] text-white
-    hover:bg-white hover:text-[#00AA72]
-    border-2 border-[#00AA72]
+    font-bricolage font-bold text-sm tracking-widest
+    bg-[#008280] text-white
+    hover:bg-white hover:text-[#008280]
+    border-2 border-[#008280]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]
     hover:-translate-y-[2px]
@@ -113,16 +113,16 @@ const WhyUnifiedHealth: React.FC = () => {
 
           {/* BOTTOM FEATURES (center column only) */}
           <div className="xl:-ml-72 px-4 xl:px-0 ">
-            <H3EHR className="mb-4 text-[#00AA72] dark:text-white">
+            <H3EHR className="mb-4 text-[#008280] dark:text-white">
               Our Core Promise
             </H3EHR>
 
-            <div className="mb-8 h-px w-full bg-[#00AA72]" />
+            <div className="mb-8 h-px w-full bg-[#008280]" />
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
               {/* Feature 1 */}
               <div>
-                <H4EHR className="mb-2 text-[#00AA72]">
+                <H4EHR className="mb-2 text-[#008280]">
                   Uncompromising Simplicity
                 </H4EHR>
                 <div className="flex  flex-col-reverse   xl:flex-row">
@@ -135,7 +135,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
               {/* Feature 2 */}
               <div>
-                <H4EHR className="mb-2 text-[#00AA72]">
+                <H4EHR className="mb-2 text-[#008280]">
                   Unmatched Efficiency
                 </H4EHR>
                 <div className="flex  flex-col-reverse    xl:flex-row">

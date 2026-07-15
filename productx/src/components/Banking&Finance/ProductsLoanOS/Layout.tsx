@@ -50,7 +50,7 @@ const Layout = () => {
               className="flex items-center max-w-xl gap-10 p-6 rounded-2xl border border-[#D9D9D9] dark:bg-slate-900 shadow-sm bg-[#F8F8F8] hover:shadow-md transition-shadow duration-200"
             >
               {/* Icon */}
-              <div className="flex-shrink-0 w-12 h-12 rounded-full  bg-[#00AA72] flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full  bg-[#2B68C3] flex items-center justify-center">
                 <img
   src={feature.icon}
   alt={feature.title}

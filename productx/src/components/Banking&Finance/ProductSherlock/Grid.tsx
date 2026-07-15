@@ -40,7 +40,7 @@ export default function Grid() {
               <div key={index} className="flex items-start gap-5">
 
                 {/* Blue circle with icon */}
-                <div className="w-12 h-12 rounded-full bg-[#00AA72] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#2B68C3] flex items-center justify-center shrink-0">
                   <img
                     src={item.icon}
                     alt="icon"

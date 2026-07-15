@@ -60,7 +60,7 @@ className="absolute top-40 left-20 w-7 scale-110"
 
           {/* TITLE */}
           <motion.div style={{ opacity: titleOpacity }} className="absolute top-24 w-full z-10 text-center ">
-            <H2EHR className=" text-[#00AA72] dark:text-[#00AA72]   mb-4">
+            <H2EHR className=" text-[#008280] dark:text-teal-700 mb-4">
               One Unified Platform
             </H2EHR>
             <P className=" mx-auto max-w-3xl dark:text-white text-black">
@@ -72,10 +72,10 @@ className="absolute top-40 left-20 w-7 scale-110"
             <div className="grid grid-cols-12 gap-8 max-w-full mx-auto w-full  px-6 lg:px-6">
               {cards.map((c, i) => (
                 <motion.div key={i} style={{ marginTop: i !== 1 ? sideOffset : 0 }} className="col-span-12 lg:col-span-4">
-                  <div className="bg-transparent border-5 border-[#00AA72] dark:border-amber-400 rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">
+                  <div className="bg-transparent border-5 border-[#EEDA68] dark:border-amber-400 rounded-br-[6rem] rounded-tl-[6rem] h-[550px]   py-10 px-6   flex flex-col justify-between">
                     <div>
-                      <H2EHR className="text-[#00AA72] dark:text-white">{c.num}</H2EHR>
-                      <H3EHR className=" text-[#00AA72] dark:text-white">{c.title}</H3EHR>
+                      <H2EHR className="text-[#008280] dark:text-white">{c.num}</H2EHR>
+                      <H3EHR className=" text-[#008280] dark:text-white">{c.title}</H3EHR>
                     </div>
                     <H4EHR className="text-[#2A2A2A] dark:text-white">{c.desc}</H4EHR>
                   </div>
@@ -87,21 +87,21 @@ className="absolute top-40 left-20 w-7 scale-110"
       </div>
       {/* MOBILE */}
       <div className="lg:hidden py-16 px-4 space-y-8">
-        <H2EHR className="text-center  text-[#00AA72]">
+        <H2EHR className="text-center  text-[#008280]">
           Why Qnest
         </H2EHR>
         {cards.map((c, i) => (
           <motion.div
   key={i}
-  className="bg-white border-5 border-[#00AA72] rounded-br-[3rem] rounded-tl-[3rem] p-6"
+  className="bg-white border-5 border-[#EEDA68] rounded-br-[3rem] rounded-tl-[3rem] p-6"
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: i * 0.2 }}  
   viewport={{ once: true }}
 >
 
-            <H1EHR className=" text-[#00AA72]">{c.num}</H1EHR>
-            <H3EHR className="text-[#00AA72]">{c.title}</H3EHR>
+            <H1EHR className=" text-[#008280]">{c.num}</H1EHR>
+            <H3EHR className="text-[#008280]">{c.title}</H3EHR>
             <H4EHR className="mt-4 text-[#2A2A2A]">{c.desc}</H4EHR>
           </motion.div>
         ))}
