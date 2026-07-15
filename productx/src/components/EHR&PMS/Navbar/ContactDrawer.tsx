@@ -126,12 +126,12 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
         {/* Close Button with animation */}
         <button
           onClick={onClose}
-          className="absolute right-0 top-0 p-2 rounded-full transition-all duration-300 hover:bg-[#008280] hover:text-white hover:rotate-90"
+          className="absolute right-0 top-0 p-2 rounded-full transition-all duration-300 hover:bg-[#00AA72] hover:text-white hover:rotate-90"
         >
           <X size={22} />
         </button>
 
-        <H3 className="text-[#008280] mb-6">
+        <H3 className="text-[#00AA72] mb-6">
           Let’s Connect With Us
         </H3>
 
@@ -139,7 +139,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
         {status === "success" ? (
           <div className="flex flex-col items-center justify-center flex-grow text-center gap-4">
             <div className="text-6xl animate-bounce">🎉</div>
-            <h2 className="text-2xl font-bold text-[#008280]">
+            <h2 className="text-2xl font-bold text-[#00AA72]">
               Submitted Successfully!
             </h2>
             <p className="text-gray-600 max-w-sm">
@@ -180,7 +180,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 
             {/* Dropdown Multi Select */}
 <div ref={interestRef} className="relative">
-  <label className="text-md font-semibold text-[#008280] ml-1 mb-2 block">
+  <label className="text-md font-semibold text-[#00AA72] ml-1 mb-2 block">
     What services are you interested in?
   </label>
 
@@ -268,7 +268,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
           border:2px solid #d1d5db;
           outline:none;
         }
-        .input:focus { border-color:#008280; }
+        .input:focus { border-color:#00AA72; }
 
         .textarea {
           padding:16px 22px;
@@ -277,7 +277,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
           outline:none;
           resize:none;
         }
-        .textarea:focus { border-color:#008280; }
+        .textarea:focus { border-color:#00AA72; }
 
         .chip-input {
   width:100%;
@@ -294,12 +294,12 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 }
 
 .chip-input:hover {
-  border-color:#008280;
+  border-color:#00AA72;
   box-shadow:0 12px 25px rgba(22,109,72,.15);
 }
 
 .chip-active {
-  border-color:#008280;
+  border-color:#00AA72;
   box-shadow:0 8px 20px rgba(0,130,128,.2);
 }
 
@@ -312,7 +312,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
   width:20px;
   height:20px;
   fill:none;
-  stroke:#008280;
+  stroke:#00AA72;
   stroke-width:2.5;
   transition:transform .3s ease;
 }
@@ -351,20 +351,20 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 .dropdown-item:hover {
   transform:translateY(-2px);
   box-shadow:0 10px 20px rgba(0,0,0,.08);
-  border-color:#008280;
+  border-color:#00AA72;
 }
 
 .active {
-  background:#008280;
+  background:#00AA72;
   color:white;
-  border-color:#008280;
+  border-color:#00AA72;
 }
 
 .dot {
   width:16px;
   height:16px;
   border-radius:50%;
-  border:2px solid #008280;
+  border:2px solid #00AA72;
   transition:.2s;
 }
 
@@ -374,7 +374,7 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
 }
 
 .chip {
-  background:#008280;
+  background:#00AA72;
   color:white;
   padding:6px 12px;
   border-radius:999px;
@@ -401,12 +401,12 @@ const ContactDrawer = ({ open, onClose }: ContactDrawerProps) => {
   to { opacity:1; transform:translateY(0); }
 }
         .active {
-          background:#008280;
+          background:#00AA72;
           color:white;
         }
 
         .submit-btn {
-          background:#008280;
+          background:#00AA72;
           color:white;
           padding:14px;
           border-radius:14px;

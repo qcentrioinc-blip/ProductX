@@ -47,7 +47,7 @@ const ConsilierCTA = () => {
 
                         {/* ── Blue Outer Card ── */}
                         <div
-                            className="w-full lg:w-full xl:w-[650px] box-border rounded-[10px] bg-[#2B68C3] flex items-center justify-center px-4 py-5 md:px-6 md:py-6 xl:px-[37px] xl:py-8"
+                            className="w-full lg:w-full xl:w-[650px] box-border rounded-[10px] bg-[#00AA72] flex items-center justify-center px-4 py-5 md:px-6 md:py-6 xl:px-[37px] xl:py-8"
                         >
                             {/* ── White Inner Card ── */}
                             <div

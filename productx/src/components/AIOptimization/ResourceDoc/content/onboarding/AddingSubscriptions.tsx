@@ -9,7 +9,7 @@ const AddingSubscriptions: React.FC = () => {
  
   return (
     <div className="space-y-2">
-     <h1 className=" text-lg md:text-3xl text-[#254D70] lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg md:text-3xl text-[#00AA72] lg:text-4xl my-4 font-quadran   ">
             Adding Subscriptions
         </h1>
 
@@ -36,7 +36,7 @@ const AddingSubscriptions: React.FC = () => {
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 
@@ -49,7 +49,7 @@ const AddingSubscriptions: React.FC = () => {
       </div>
     </div>
 
-     <h2 className="font-bricolage text-xl md:text-2xl lg:text-3xl dark:text-white  my-4">Configuration Steps  </h2>
+     <h2 className="font-quadran   text-xl md:text-2xl lg:text-3xl dark:text-white  my-4">Configuration Steps  </h2>
          <ol className="list-decimal dark:text-white list-inside space-y-6 font-quicksand text-lg leading-tight tracking-wide">
   <li>  Log in to CloudDIET and navigate to Settings </li>
   <img  className="xl:pl-16 " src="/AI-CloudFinOps/Resources/AddingSubs1.webp" alt="" />
@@ -83,7 +83,7 @@ const AddingSubscriptions: React.FC = () => {
             {open ? "×" : "+"  }
           </button>
 
-          {/* <h3 className="font-bricolage text-lg text-gray-900 mb-1">
+          {/* <h3 className="font-quadran   text-lg text-gray-900 mb-1">
             Note
           </h3> */}
 

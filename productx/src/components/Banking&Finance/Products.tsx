@@ -169,7 +169,7 @@ const Products = () => {
         <div className="mb-8 relative md:mb-12 lg:pl-10 flex items-center justify-between">
 
           <H2 className="font-bold leading-tight">
-            <span className="text-[#2B68C3]">Sed ut perspiciatis</span><br />
+            <span className="text-[#00AA72]">Sed ut perspiciatis</span><br />
             <span className="text-[#666666]">undeSed ut perspiciatis</span>
           </H2>
           {/* LEFT BUTTON */}
@@ -177,7 +177,7 @@ const Products = () => {
             <button
               onClick={scrollLeft}
               className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
-                 text-[#2B68C3]"
+                 text-[#00AA72]"
             >
               <ArrowLeft size={20} />
             </button>
@@ -185,7 +185,7 @@ const Products = () => {
             <button
               onClick={scrollRight}
               className="bg-white shadow-lg w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center rounded-full 
-                  text-[#2B68C3]"
+                  text-[#00AA72]"
             >
               <ArrowRight size={20} />
             </button>

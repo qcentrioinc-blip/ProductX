@@ -89,10 +89,10 @@ const strokeProgress = Math.max(
   style={{ height: "420vh" }}
 >
 
-      <div className="sticky top-20 h-[100vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] dark:bg-[#042F2E] border-[#008280] bg-white">
+      <div className="sticky top-20 h-[100vh] flex flex-col items-center overflow-hidden z-30 border-l-[30px] dark:bg-[#042F2E] border-[#00AA72] bg-white">
         {/* Header - Fixed at top with spacing */}
         <div className="w-full pt-12   flex-shrink-0">
-          <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-teal-600 text-center px-4 leading-tight">
+          <H2EHR className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#00AA72] text-center px-4 leading-tight">
             End to End Patient Journey,<br />Unified in One Platform
           </H2EHR>
         </div>
@@ -158,8 +158,8 @@ L 250 300
         cx={x}
         cy={y}
         r="14"
-        fill={isActive ? "#EEDA68" : "#FFFFFF"}
-        stroke={isActive ? "#EEDA68" : "#D1D5DB"}
+        fill={isActive ? "#008938" : "#FFFFFF"}
+        stroke={isActive ? "#008938" : "#D1D5DB"}
         strokeWidth="2"
       />
  
@@ -185,7 +185,7 @@ L 250 300
         <div className="flex justify-center">
           <P
             className="text-center text-sm font-semibold leading-tight"
-            style={{ color: isActive ? "#111827" : "#9CA3AF" }}
+            style={{ color: isActive ? "#008938" : "#9CA3AF" }}
           >
             {steps[index]}
           </P>
@@ -209,8 +209,8 @@ L 250 300
         cx={x}
         cy={y}
         r="16"
-        fill={isActive ? "#EEDA68" : "#FFFFFF"}
-        stroke={isActive ? "#EEDA68" : "#D1D5DB"}
+        fill={isActive ? "#008938" : "#FFFFFF"}
+        stroke={isActive ? "#008938" : "#D1D5DB"}
         strokeWidth="2"
       />
  
@@ -279,7 +279,7 @@ L 250 300
         key={index}
         className="flex items-start gap-4 border border-gray-200 rounded-xl p-4"
       >
-        <div className="w-10 h-10 rounded-full bg-[#EEDA68] flex items-center justify-center font-bold">
+        <div className="w-10 h-10 rounded-full bg-[#00AA72] flex items-center justify-center font-bold">
           {index + 1}
         </div>
         <P className=" font-medium">

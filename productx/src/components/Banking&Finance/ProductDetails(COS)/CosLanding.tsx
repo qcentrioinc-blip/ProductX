@@ -67,7 +67,7 @@ const CosLanding = () => {
                             {/* White Box */}
                             <div className="flex flex-col bg-white rounded-[7px] p-5 gap-3">
                                 <p
-                                    className="text-[#2B68C3] leading-none
+                                    className="text-[#00AA72] leading-none
                                         text-[20px]
                                         sm:text-[22px]
                                         lg:text-[22px]"
@@ -165,7 +165,7 @@ const CosLanding = () => {
                             }}
                         >
                             <p
-                                className="text-[#2B68C3] leading-none"
+                                className="text-[#00AA72] leading-none"
                                 style={{
                                     fontFamily: "'Bricolage Grotesque', sans-serif",
                                     fontWeight: 500,

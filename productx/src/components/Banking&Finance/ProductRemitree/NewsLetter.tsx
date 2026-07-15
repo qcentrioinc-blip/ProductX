@@ -84,7 +84,7 @@ const NewsLetter = () => {
       className=" w-full flex flex-col items-center dark:bg-black justify-center bg-[#F2F7FF] py-6 px-4 md:px-8 overflow-hidden"
     >
       <h1 className="w-full max-w-7xl mx-auto font-['Bricolage_Grotesque',_sans-serif] font-semibold text-3xl md:text-5xl leading-tight text-center mb-16 md:mb-24">
-        <span className="text-[#2B68C3]">How Diligent automates</span>
+        <span className="text-[#00AA72]">How Diligent automates</span>
         <br />
         
         <span className="text-[#141414] dark:text-white">
@@ -102,7 +102,7 @@ const NewsLetter = () => {
           <div className="absolute top-[102px] md:top-[150px] left-10 md:left-[60px] right-10 md:right-[60px] h-[2px] bg-gray-200 z-0">
             {/* Animated Progress Line */}
             <div
-              className="h-full bg-[#2B68C3] transition-all duration-700 ease-out"
+              className="h-full bg-[#00AA72] transition-all duration-700 ease-out"
               style={{
                 width: `${(lineProgress / (items.length - 1)) * 100}%`
               }}
@@ -120,7 +120,7 @@ const NewsLetter = () => {
                 </div>
 
                 {/* Blue Dot */}
-                <div className="w-3 h-3 bg-[#2B68C3] rounded-full" />
+                <div className="w-3 h-3 bg-[#00AA72] rounded-full" />
               </div>
 
               {/* Text */}

@@ -34,7 +34,7 @@ const AIProduct = () => {
   const showFAQ = useDeferredRender(4000);
 
   return (
-    <div className="relative font-bricolage font-semibold">
+    <div className="relative font-quadran   font-semibold">
       <div id='landingpage'>
         <CloudDietHero  />
         {/* <HeroCombined /> */}

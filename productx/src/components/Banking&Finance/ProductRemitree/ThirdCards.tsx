@@ -12,7 +12,7 @@ const ThirdCards = () => {
           {/* LEFT SIDE */}
           <div>
             <H2 className="mb-6 leading-tight">
-              <span className="text-[#2B68C3] block">Robust Security Framework</span>
+              <span className="text-[#00AA72] block">Robust Security Framework</span>
               <span className="text-[#141414] dark:text-white block">for Payment Transactions</span>
             </H2>
 
@@ -69,7 +69,7 @@ const ThirdCards = () => {
                   className={`flex items-center gap-5 xl:gap-6 py-5 xl:py-5 ${i !== arr.length - 1 ? 'border-b border-[#cbd5e1]' : ''
                     }`}
                 >
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-[#2B68C3]">
+                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-[#00AA72]">
                     {/* Applying a blue color filter to the original white icons so they look like standalone dummy icons */}
                     <img src={stat.img} alt="icon" className="w-[34px] h-[34px] xl:w-12 xl:h-12 object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(87%) saturate(1637%) hue-rotate(200deg) brightness(91%) contrast(92%)' }} />
                   </div>

@@ -206,7 +206,7 @@ const AINavbar = () => {
   return createPortal(
     <>
       {/* TOP TRANSPARENT BAR - Scrolls away */}
-      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 z-50 left-0 w-full h-14 bg-bg-white/80 bg-white/10 backdrop-blur-lg font-quadran   px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <img className="h-10 w-full" src="/WhiteQnestLogo.webp" alt="Company Logo" />
         </Link>
@@ -415,10 +415,10 @@ const AINavbar = () => {
           flex items-center justify-center
           px-6 h-11
     rounded-lg
-    font-bricolage font-bold text-sm tracking-widest
-    bg-[#254D70] text-white
-    hover:bg-white hover:text-[#254D70]
-    border-2 border-[#254D70]
+    font-quadran   font-bold text-sm tracking-widest
+    bg-[#00AA72] text-white
+    hover:bg-white hover:text-[#00AA72]
+    border-2 border-[#00AA72]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]
     hover:-translate-y-[2px]

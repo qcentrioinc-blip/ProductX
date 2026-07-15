@@ -190,7 +190,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
         {activeFeature > 0 && (
           <button
             onClick={() => onNavigate('prev')}
-            className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#254D70] hover:text-[#254D70] active:scale-95"
+            className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#00AA72] hover:text-[#00AA72] active:scale-95"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
           </button>
@@ -219,7 +219,7 @@ const FeatureVisualization: React.FC<FeatureVisualizationProps> = ({
         {activeFeature < features.length - 1 && (
           <button
             onClick={() => onNavigate('next')}
-            className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#254D70] hover:text-[#254D70] active:scale-95"
+            className="p-2 rounded-lg border border-gray-200 bg-white transition-all duration-300 shadow-sm hover:border-[#00AA72] hover:text-[#00AA72] active:scale-95"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
           </button>
@@ -262,7 +262,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
       <div className="flex items-center gap-4 mb-6">
         <span className={`text-5xl dark:text-white sm:text-6xl font-bold opacity-20 ${feature.highlight}`}>0{feature.id}</span>
       </div>
-      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#254D70]  dark:text-white   mb-4 sm:mb-6 leading-tight">
+      <h3 className="text-3xl sm:text-2xl md:text-2xl font-bold text-[#00AA72]  dark:text-white   mb-4 sm:mb-6 leading-tight">
         {feature.title}
       </h3>
       <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
@@ -306,7 +306,7 @@ const MobileFeatureBlock: React.FC<MobileFeatureBlockProps> = ({
           </div> */}
         </div>
         <H3
-          className={`mb-3 transition-all duration-300 ${isActive ? "text-[#254D70]" : "text-gray-700"
+          className={`mb-3 transition-all duration-300 ${isActive ? "text-[#00AA72]" : "text-gray-700"
             }`}
         >
           {feature.title}
@@ -704,10 +704,10 @@ const hasAnimatedOnMobile = useRef(false);
                 <button
                   key={s.id}
                   onClick={() => scrollToSection(i)}
-                  className={`px-4 py-2 text-sm font-medium font-bricolage rounded-full transition-all duration-300 shadow-sm
+                  className={`px-4 py-2 text-sm font-medium font-quadran   rounded-full transition-all duration-300 shadow-sm
                     ${active === i
-                      ? "bg-[#254D70] text-white shadow-lg"
-                      : "text-gray-600 hover:text-[#254D70] hover:bg-gray-100"
+                      ? "bg-[#00AA72] text-white shadow-lg"
+                      : "text-gray-600 hover:text-[#00AA72] hover:bg-gray-100"
                     }`}
                 >
                   {s.label}
@@ -719,14 +719,14 @@ const hasAnimatedOnMobile = useRef(false);
           {/* Progress Bar */}
           <div className="h-1 w-full bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <motion.div
-              className="h-full bg-[#254D70] shadow-sm"
+              className="h-full bg-[#00AA72] shadow-sm"
               animate={{ width: `${((active + progress) / sections.length) * 100}%` }}
             />
           </div>
         </div>
       </div>
  
-      <div className="max-w-8xl  sm:mx-6 lg:mx-6 flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
+      <div className="max-w-full px-[40px] md:px-[60px] xl:px-[160px]  flex flex-col lg:flex-row items-start gap-8 lg:gap-10">
  
         {/* LEFT NAV (Desktop and iPad Pro - lg screens and above) */}
         <div className="hidden lg:block w-56 sticky top-32 space-y-4 lg:mt-14 xl:mt-20">
@@ -735,11 +735,11 @@ const hasAnimatedOnMobile = useRef(false);
               <button
                 onClick={() => scrollToSection(i)}
                 className={`w-full flex items-center gap-2 uppercase text-[16px] md:text-[20px] lg:text-[24px]
-                  font-bricolage leading-[120%] transition-all duration-300
-                  ${active === i ? "text-[#254D70] font-semibold" : "text-gray-400 hover:text-gray-600"}`}
+                  font-quadran   leading-[120%] transition-all duration-300
+                  ${active === i ? "text-[#00AA72] font-semibold" : "text-gray-400 hover:text-gray-600"}`}
               >
                 <span className={`h-2 w-2 rounded-full transition-all duration-300 flex-shrink-0
-                  ${active === i ? "bg-[#254D70] shadow" : "bg-gray-300"}`} />
+                  ${active === i ? "bg-[#00AA72] shadow" : "bg-gray-300"}`} />
                 <span className="text-left">{s.label}</span>
               </button>
  
@@ -747,7 +747,7 @@ const hasAnimatedOnMobile = useRef(false);
               {active === i && (
                 <div className="relative mt-2 h-[2px] w-full overflow-hidden">
                   <motion.div
-                    className="absolute left-0 top-0 h-full bg-[#254D70]"
+                    className="absolute left-0 top-0 h-full bg-[#00AA72]"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress * 100}%` }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -768,7 +768,7 @@ const hasAnimatedOnMobile = useRef(false);
             className="min-h-[30vh] sm:min-h-[30vh] xl:min-h-[90vh] scroll-mt-20 xl:scroll-mt-32 mt-4 lg:mt-10 xl:mt-16 mx-6 lg:mx-4"
           >
             <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-16">
-              <H2 className="text-[#254D70]">
+              <H2 className="text-[#00AA72]">
                 Transform Your Cloud
                 <br className="hidden lg:block" />
                 <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
@@ -779,7 +779,7 @@ const hasAnimatedOnMobile = useRef(false);
  
                 {/* LEFT BLOCK */}
                 <div className="mt-3 md:mt-4 lg:mt-6 lg:p-6">
-                  <H3 className="text-[#254D70] mb-3">
+                  <H3 className="text-[#00AA72] mb-3">
                     Engineering-Led Profiling
                   </H3>
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -806,7 +806,7 @@ const hasAnimatedOnMobile = useRef(false);
  
                 {/* RIGHT BLOCK */}
                 <div className="xl:mt-6 md:mt-6 lg:mt-3 mt-6 lg:p-6">
-                  <H3 className="text-[#254D70] mb-3">
+                  <H3 className="text-[#00AA72] mb-3">
                     Advanced Cost Intelligence
                   </H3>
                   <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -839,7 +839,7 @@ const hasAnimatedOnMobile = useRef(false);
             id="cloud"
             className="min-h-[40vh] sm:min-h-[40vh] xl:min-h-[90vh] scroll-mt-20 lg:scroll-mt-32"
           >
-            <H2 className="text-[#254D70] mx-6">
+            <H2 className="text-[#00AA72] mx-6">
               Engineered for Azure Cost
               <br className="hidden lg:block" />
               <span className="hidden lg:inline-block lg:ml-[-10px] xl:ml-100" />
@@ -850,7 +850,7 @@ const hasAnimatedOnMobile = useRef(false);
  
               {/* LEFT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
-                <H3 className="text-[#254D70] mb-3">
+                <H3 className="text-[#00AA72] mb-3">
                   Savings Plan Designer
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -877,7 +877,7 @@ const hasAnimatedOnMobile = useRef(false);
  
               {/* RIGHT BLOCK */}
               <div className="p-6 md:mt-6 lg:mt-8">
-                <H3 className="text-[#254D70] mb-3">
+                <H3 className="text-[#00AA72] mb-3">
                   Guided Optimization Workflows
                 </H3>
                 <P className="leading-relaxed mb-4 max-w-full md:max-w-2xl lg:max-w-2xl xl:max-w-xl">
@@ -910,9 +910,9 @@ const hasAnimatedOnMobile = useRef(false);
           <section
             ref={storyboardRef}
             id="security"
-            className="relative w-full px-4 bg-white  dark:bg-black font-bricolage"
+            className="relative w-full px-4 bg-white  dark:bg-black font-quadran  "
           >
-            <H2 className="text-[#254D70]">
+            <H2 className="text-[#00AA72]">
               Multi-Dimensional
               <br className="hidden lg:block" />
               <span className="hidden dark:text-white lg:inline-block lg:ml-60 xl:ml-100" />

@@ -42,7 +42,7 @@ const accordionData = [
 
 const CheckIcon = () => (
   <svg
-    className="w-5 h-5 text-[#2B68C3] mr-3 mt-0.5 flex-shrink-0"
+    className="w-5 h-5 text-[#00AA72] mr-3 mt-0.5 flex-shrink-0"
     fill="none"
     stroke="currentColor"
     strokeWidth={2.5}
@@ -138,7 +138,7 @@ const ImgTextSec = () => {
   {/* LEFT CONTENT */}
   <div >
     <H2 className="max-w-4xl">
-      <span className="text-[#2B68C3]">Powerful Features of </span>
+      <span className="text-[#00AA72]">Powerful Features of </span>
       <span className="dark:text-white">Internet Banking Solution</span>
     </H2>
 
@@ -183,7 +183,7 @@ const ImgTextSec = () => {
                         onClick={() => handleClick(index)}
                         className={`w-full text-left px-4 py-4 transition-colors duration-300
                           ${isActive
-                            ? "bg-[#2B68C3]/20"
+                            ? "bg-[#00AA72]/20"
                             : "bg-gray-50 lg:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700"
                           }`}
                       >
@@ -191,14 +191,14 @@ const ImgTextSec = () => {
                           <H4 className="flex items-center text-base">
                             <svg
                               className={`w-5 h-5 mr-3 flex-shrink-0 transition-transform duration-500
-                                ${isActive ? "rotate-90 text-[#2B68C3]" : "text-gray-400"}`}
+                                ${isActive ? "rotate-90 text-[#00AA72]" : "text-gray-400"}`}
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
                               <path d="M7.293 14.707l4-4-4-4" />
                             </svg>
                             <span>
-                              <span className="text-[#2B68C3]">{data.title.part1}</span>
+                              <span className="text-[#00AA72]">{data.title.part1}</span>
                               <span className="dark:text-white">{data.title.part2}</span>
                             </span>
                           </H4>

@@ -16,16 +16,16 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full lg:h-[80vh] xl:h-[80vh] overflow-hidden flex items-center justify-center">
+    <section className="relative w-full lg:h-[40vh] xl:h-[80vh] overflow-hidden flex items-center justify-center">
 
       {/* BACKGROUND IMAGE */}
       <div
         className="absolute inset-0 bg-center bg-no-repeat bg-cover  "
-        style={{ backgroundImage: "url('/AIHero.webp')" }}
+        style={{ backgroundImage: "url('/Pricing.webp')" }}
       />
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-3xl px-4 mt-12 lg:mt-20 xl:mt-20 text-center text-[#254D70] flex flex-col items-center">
+      <div className="relative z-10 max-w-3xl px-[40px] md:px-[60px] xl:px-[160px]  mt-20 xl:mt-20 text-center text-[#00AA72] flex flex-col items-center">
         <H1 className="font-bold leading-tight">
           Pay Only for <br />
           What You Save

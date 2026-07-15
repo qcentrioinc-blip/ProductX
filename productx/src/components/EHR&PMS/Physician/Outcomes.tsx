@@ -67,7 +67,7 @@ const Outcomes = () => {
       <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 lg:px-6">
         <div className="max-w-7xl lg:mx-auto">
           {/* Section Heading */}
-          <div className="flex justify-center mb-12 text-[#008280]">
+          <div className="flex justify-center mb-12 text-[#00AA72]">
             <H2EHR className="dark:text-white">Physician Pain Points Solved</H2EHR>
           </div>
 
@@ -75,7 +75,7 @@ const Outcomes = () => {
           <div className="flex flex-col gap-12 lg:hidden">
             {outcomes.map((item) => (
               <div key={item.id} className="flex flex-col gap-4">
-                <H2EHR className="text-[#008280]  text-2xl font-bold">
+                <H2EHR className="text-[#00AA72]  text-2xl font-bold">
                   {item.title}
                 </H2EHR>
 
@@ -92,10 +92,10 @@ const Outcomes = () => {
             inline-flex items-center justify-center w-fit
             px-6 h-12
             rounded-lg
-            font-bricolage font-bold text-sm tracking-widest
-            bg-[#008280] text-white
-            hover:bg-white hover:text-[#008280]
-            border-2 border-[#008280]
+            font-quadran   font-bold text-sm tracking-widest
+            bg-[#00AA72] text-white
+            hover:bg-white hover:text-[#00AA72]
+            border-2 border-[#00AA72]
             transition-all duration-300 ease-in-out
             hover:border-b-[4px]
             hover:-translate-y-[2px]
@@ -156,7 +156,7 @@ const Outcomes = () => {
           <div className="hidden lg:flex gap-8 flex-1">
             {/* Left Text */}
             <div className="w-[30%] flex flex-col justify-center">
-              <H2EHR className="text-[#008280] dark:text-teal-700 mb-4 text-3xl font-bold">
+              <H2EHR className="text-[#00AA72] dark:text-[#00AA72]   mb-4 text-3xl font-bold">
                 {activeOutcome.title}
               </H2EHR>
 
@@ -203,7 +203,7 @@ const Outcomes = () => {
                     onClick={() => setActiveId(item.id)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       activeId === item.id
-                        ? "bg-[#008280] scale-125"
+                        ? "bg-[#00AA72] scale-125"
                         : "bg-gray-400 hover:bg-gray-500"
                     }`}
                     aria-label={`Go to ${item.title}`}

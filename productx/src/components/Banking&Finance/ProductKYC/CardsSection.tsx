@@ -78,7 +78,7 @@ export default function CardsSection() {
                 />
               </div>
 
-              <H4 className="mt-2 dark:text-[#2b68c3]">{card.title}</H4>
+              <H4 className="mt-2 dark:text-[#00AA72]">{card.title}</H4>
 
               <P className="text-gray-800 dark:text-white mt-3">
                 {card.description}

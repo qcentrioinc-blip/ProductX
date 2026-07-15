@@ -597,7 +597,7 @@ const FaqSection: React.FC = () => {
   const isEHR = pathname.startsWith("/industries/ehr-and-pms");
   const isAI = pathname.startsWith("/industries/cloud-finops-ai");
   const isBnF = pathname.startsWith("/industries/banking-and-finance");
-  const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+  const headingFontClass = isEHR ? "font-quadran  EHR" : "font-quadran  ";
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -625,20 +625,20 @@ const FaqSection: React.FC = () => {
             <div className="mb-4 text-sm text-gray-700  dark:text-white flex items-center">
              <span
   className={`w-8 h-1 rounded-full mr-2 ${
-    isEHR ? "bg-white" : "bg-gray-400 dark:bg-[#2B68C3]"
+    isEHR ? "bg-white" : "bg-gray-400 dark:bg-[#00AA72]"
   }`}
 />
 
 <h3
   className={`${headingFontClass} text-[20px] md:text-[24px] lg:text-[32px] ${
-    isEHR ? "text-white" : "dark:text-[#2B68C3]"
+    isEHR ? "text-white" : "dark:text-[#00AA72]"
   }`}
 >
   FAQ
 </h3>
             </div>
             <h2
-              className={`mb-4 ${headingFontClass}   dark:text-white text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#008280]" : "text-black"
+              className={`mb-4 ${headingFontClass}   dark:text-white text-[24px] md:text-[32px] lg:text-[48px] ${isEHR ? "text-[#00AA72]" : "text-black"
                 }`}
             >
               {introContent.heading}

@@ -202,7 +202,7 @@ export default function CircleSteps() {
               <div className="w-full h-full flex items-center justify-center px-4 md:px-8 lg:px-12">
                 <motion.p
                   style={{ clipPath }}
-                  className="text-white max-w-2xl font-bold font-bricolage
+                  className="text-white max-w-2xl font-bold font-quadran  
                              text-sm md:text-lg lg:text-[29px] text-center"
                 >
                   {step.text}

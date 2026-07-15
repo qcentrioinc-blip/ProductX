@@ -45,11 +45,11 @@ const UseCases = () => {
 
 
   return (
-    <section className="w-full bg-[#F5F5F5] dark:bg-black py-10 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+    <section className="w-full bg-[#F5F5F5] dark:bg-black py-10 px-[40px] md:px-[60px] xl:px-[160px]">
+      <div className=" " style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
 
         {/* SECTION HEADING */}
-        <H2 className="text-[#254D70] mb-10">
+        <H2 className="text-[#00AA72] mb-10">
           Unoptimized to Optimized Cloud Spend
         </H2>
 
@@ -69,8 +69,8 @@ const UseCases = () => {
                     transition-[width,background-color] duration-500 ease-in-out
                     flex items-center overflow-hidden
                     ${isActive
-                      ? 'bg-[#254D70] text-white border-[#254D70] shadow-lg'
-                      : 'bg-white text-[#254D70] border-[#254D70] hover:shadow-md'
+                      ? 'bg-[#00AA72] text-white border-[#00AA72] shadow-lg'
+                      : 'bg-white text-[#00AA72] border-[#00AA72] hover:shadow-md'
                     }
                   `}
                   style={{ width: isActive ? ACTIVE_WIDTH : INACTIVE_WIDTH }}
@@ -128,8 +128,8 @@ const UseCases = () => {
             <div
               className="
                   h-14 flex items-center px-6
-                  bg-[#254D70] text-white
-                  border border-[#254D70]
+                  bg-[#00AA72] text-white
+                  border border-[#00AA72]
                   font-quicksand text-sm
                 "
             >

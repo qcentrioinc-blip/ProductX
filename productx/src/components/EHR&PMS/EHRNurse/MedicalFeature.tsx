@@ -6,7 +6,7 @@ const MedicalFeature = () => {
 
   return (
     <section className="dark:bg-[#141414] bg-white">
-    <section className="max-w-7xl mx-auto px-6 pb-8 md:pb-16 font-bricolage overflow-hidden">
+    <section className="max-w-7xl mx-auto px-6 pb-8 md:pb-16 font-quadran   overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
         {/* Left Side: Image */}
@@ -52,7 +52,7 @@ const MedicalFeature = () => {
             }}
             className="space-y-4"
           >
-            <H2EHR className="text-[#008280] dark:text-white">
+            <H2EHR className="text-[#00AA72] dark:text-white">
               Essential Nursing Tools 
             </H2EHR>
             <P className="text-[#141414] leading-relaxed max-w-lg xl:mb-6">

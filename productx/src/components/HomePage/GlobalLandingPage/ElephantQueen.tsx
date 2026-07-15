@@ -45,7 +45,7 @@ const SCENES = [
     waveImage: '/wave2.png',
     waveColor: '#004C4B',
     bgColor: '#399695',
-    ringColor: '#008280',
+    ringColor: '#00AA72',
   },
   {
     id: 3,

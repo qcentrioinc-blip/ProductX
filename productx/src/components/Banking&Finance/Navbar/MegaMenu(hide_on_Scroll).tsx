@@ -148,7 +148,7 @@ const MegaMenu = ({
             />
 
             <div>
-              <h3 className="text-lg font-bricolage text-gray-800">
+              <h3 className="text-lg font-quadran   text-gray-800">
                 {item.title}
               </h3>
 

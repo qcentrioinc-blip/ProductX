@@ -70,13 +70,14 @@ const items: Item[] = [
     description:
       "Provide read-only access to billing and configuration metadata. We never access your data, files, databases, or applications. CloudDIET operates at the Azure control plane level using Resource Manager APIs, ensuring zero performance impact. Your credentials are stored in an HSM-backed vault with a zero-trust security model, and you can revoke access anytime. ",
     cta: "Get Started",
-    image: "/AIProduct/CDImage.webp",
+    image: "/CDImage.webp",
   },
   {
     title: "AI Analysis",
     description:
       "Our profiling engine analyzes hundreds of measures to identify misconfigurations, waste, and optimization opportunities across your cloud estate. CloudDIET examines resource configurations, usage metrics, and billing data to pinpoint over-provisioning, unused capacity, and suboptimal SKUs. It builds baselines and trends over days or weeks to surface both immediate and long-term savings opportunities.",
-    video: "/Video/RealiseSaving.mp4",
+    // video: "/Video/RealiseSaving.mp4",
+    image:"/RealiseSaving.svg",
     cta: "Learn More",
     reverse: true,
   },
@@ -84,20 +85,21 @@ const items: Item[] = [
     title: "Realize Savings",
     description:
       " We provide an assured savings estimate before implementation. Our team helps execute recommended optimizations, and you only pay a percentage of the savings realized. This performance-based model ensures you keep 80-90% of savings while we handle the work. Most customers see positive ROI within the first month of using CloudDIET.",
-    video: "/Video/AIAnalysis.mp4",
+    // video: "/Video/AIAnalysis.mp4",
+    image:"/AIAnalysis.svg",
     cta: "See Results",
   },
 ];
 
 export default function ImageGrid() {
   return (
-    <section className="relative max-w-8xl dark:bg-black overflow-hidden">
+    <section className="relative max-w-full px-[40px]   md:px-[60px] xl:px-[160px] dark:bg-black overflow-hidden">
       <div className="relative z-10">
         <div className="flex flex-col items-center justify-center text-center">
-          <H2 className="mb-6  pt-10 text-[#254D70]">How CloudDIET Works For You</H2>
+          <H2 className="mb-6  pt-10 text-[#00AA72]">How CloudDIET Works For You</H2>
           <P className="mb-14   max-w-sm px-5 md:px-0 md:max-w-lg lg:max-w-2xl xl:mb-20">A secure, four-step process combining AI-powered analysis with engineering expertise to guarantee cloud savings, without ever accessing your data.</P>
         </div>
-        <div className="space-y-12 max-w-7xl mx-auto px-4 lg:px-6 pb-10"> 
+        <div className="space-y-12   pb-10"> 
           {items.map((item, index) => (
             <div key={index} className="grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 gap-x-20">
               <div className={`${item.reverse ? "md:order-2" : ""}`}>
@@ -118,7 +120,7 @@ export default function ImageGrid() {
 </div>
               </div>
               <div className={`${item.reverse ? "md:order-1 max-w-xl" : "max-w-xl"}`}>
-                <H3 className="mb-3 text-[#254D70]">{item.title}</H3>
+                <H3 className="mb-3 text-[#00AA72]">{item.title}</H3>
                 <P className="mb-4  tracking-wide leading-snug">{item.description}</P>
                 <div className="flex mt-8 flex-row items-center space-x-2">
                   <a href="https://clouddiet.ai/signup" target="_blank" className="flex items-center gap-2">

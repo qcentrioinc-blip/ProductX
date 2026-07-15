@@ -52,7 +52,7 @@ export default function OurWork() {
       style={{ height: "300vh" }}
     >
       <div className="flex items-center  max-w-7xl justify-start lg:mx-auto">
-          <H2EHR className="text-[#008280] dark:text-white mt-6 lg:mt-10">
+          <H2EHR className="text-[#00AA72] dark:text-white mt-6 lg:mt-10">
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
@@ -73,7 +73,7 @@ export default function OurWork() {
                     : "translateY(40px)",
               }}
             >
-              <H4EHR className="text-2xl dark:text-teal-700 font-semibold mb-4 text-gray-900">
+              <H4EHR className="text-2xl dark:text-[#00AA72]   font-semibold mb-4 text-gray-900">
                 {card.title}
               </H4EHR >
               <P className="leading-relaxed text-gray-700 max-w-md">
@@ -104,7 +104,7 @@ export default function OurWork() {
 
     <section className="lg:hidden bg-white px-4 py-20 space-y-16">
       <div className="flex items-center justify-start ">
-          <H2EHR className="text-[#008280] mt-6 ">
+          <H2EHR className="text-[#00AA72] mt-6 ">
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
@@ -116,7 +116,7 @@ export default function OurWork() {
         className="w-full h-[260px] sm:h-[300px] object-cover rounded-xl"
       />
       <div>
-        <H4EHR className="text-xl  dark:text-teal-700 font-semibold mb-3 text-gray-900">
+        <H4EHR className="text-xl  dark:text-[#00AA72]   font-semibold mb-3 text-gray-900">
           {card.title}
         </H4EHR>
         <P className="text-gray-700 leading-relaxed">

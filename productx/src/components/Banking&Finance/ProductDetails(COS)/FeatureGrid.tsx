@@ -13,7 +13,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ number, text }) => {
       <div className="flex items-start gap-4">
         
         {/* FULL HEIGHT RED LINE */}
-        <div className="h-full border-l-4 border-[#2B68C3]"></div>
+        <div className="h-full border-l-4 border-[#00AA72]"></div>
 
         {/* Number + Text */}
         <div>
@@ -40,7 +40,7 @@ export default function FeatureGrid() {
 
         {/* Column 1: Heading (Left Side) */}
         <div className="lg:col-span-1">
-          <H2 className="leading-tight text-center lg:text-left text-[#2B68C3] xl:mt-8">
+          <H2 className="leading-tight text-center lg:text-left text-[#00AA72] xl:mt-8">
             Why Choose CloudDIET Solutions
           </H2>
         </div>

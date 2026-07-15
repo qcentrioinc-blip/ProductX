@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import ContactModal from "../../AIOptimization/Navbar/ContactModal";
 import ContactDrawer from "../../EHR&PMS/Navbar/ContactDrawer";
@@ -28,19 +28,19 @@ type IntroContent = {
 const STYLE_CONFIG: Record<string, IntroStyle> = {
   "ehr-and-pms": {
     sectionBg: "#ffffff",
-    headingColor: "#008280",
+    headingColor: "#00AA72",
        darkSectionBg:"#141414",
      darkHeadingColor: "#ffffff",
      
     paraColor: "#141414",
     buttonBg: "ffffff",
-    buttonText: "#008280",
+    buttonText: "#00AA72",
     contactAction: "drawer",
   },
 
   "banking-and-finance": {
     sectionBg: "#F2F2F2",
-     darkHeadingColor: "#2B68C3",
+     darkHeadingColor: "#00AA72",
     headingColor: "#2A2A2A",
     paraColor: "#141414",
     buttonBg: "#141414",
@@ -62,10 +62,10 @@ const STYLE_CONFIG: Record<string, IntroStyle> = {
   "cloud-finops-ai": {
     sectionBg: "#FAFAFA",
     darkSectionBg:"#000000",
-    headingColor: "#254D70",
+    headingColor: "#00AA72",
     paraColor: "#141414",
     buttonBg: "white",
-    buttonText: "#254D70",
+    buttonText: "#00AA72",
     contactAction: "modal",
   },
 };
@@ -197,22 +197,22 @@ export default function BuiltForIntro() {
 
           style={{ backgroundColor: isDark ? (style.darkSectionBg ?? "#000000") : style.sectionBg }}
       >
-        <div className="max-w-8xl mx-10 xl:px-10">
-          <div className="max-w-6xl">
+        <div className="max-w-full px-[40px] md:px-[60px] xl:px-[160px]  ">
+          <div className="">
 
-            <h2 className={`mb-6 text-[32px] md:text-[48px] lg:text-[72px] ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`} style={{
+            <H2 className={` mb-4 ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran"}`} style={{
   color: isDark
     ? style.darkHeadingColor ?? style.headingColor
     : style.headingColor,
 }}>
               {content.heading}
-            </h2>
+            </H2>
 
-            <P className={`mb-4 ${style.paraColor}`}>
+            <P className={` max-w-2xl mb-4 ${style.paraColor}`}>
               {content.para1}
             </P>
 
-            <P className={`mb-8 ${style.paraColor}`}>
+            <P className={` max-w-2xl mb-8 ${style.paraColor}`}>
               {content.para2}
             </P>
             <button

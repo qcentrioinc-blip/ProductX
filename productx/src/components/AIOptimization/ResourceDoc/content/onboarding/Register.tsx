@@ -7,7 +7,7 @@ import React from "react";
 const Register: React.FC = () => {
   return (
     <div className="space-y-2">
-     <h1 className=" text-lg  text-[#254D70] md:text-3xl lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg  text-[#00AA72] md:text-3xl lg:text-4xl my-4 font-quadran   ">
             Register
         </h1>
 

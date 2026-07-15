@@ -22,7 +22,7 @@ const Navbar = () => {
         {/* Logo */}
 
         <Link to="/">
-          <div className="text-[#010101] font-bricolage font-light text-xl  px-2   rounded">
+          <div className="text-[#010101] font-quadran   font-light text-xl  px-2   rounded">
 
             <img className="h-15 w-full" src="/QnestLogo.svg" />
           </div>
@@ -32,14 +32,14 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-8 ml-auto">
           {/* <Link
             to="/"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
+            className={`transition font-quadran   font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
           >
             Home
           </Link> */}
           {/* <Link
             to="/platform"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
+            className={`transition font-quadran   font-[20px] ${isLightNavbar ? "text-black hover:text-black/80" : "text-black hover:text-black/80"
               }`}
           >
             Platform
@@ -47,12 +47,12 @@ const Navbar = () => {
 
           <Link
             to="/marketplaceglobal"
-            className={`transition font-bricolage font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-black/80"
+            className={`transition font-quadran   font-[20px] ${isLightNavbar ? "text-white hover:text-black/80" : "text-white hover:text-black/80"
               }`}
           >
             <button
   className={`
-    relative px-5 py-2.5 rounded-full font-bricolage text-[16px]
+    relative px-5 py-2.5 rounded-full font-quadran   text-[16px]
     backdrop-blur-md border transition-all duration-300
     overflow-hidden group cursor-pointer
 
@@ -104,7 +104,7 @@ const Navbar = () => {
           <Link to="/contact">
             <button
   className={`
-    relative px-5 py-2.5 rounded-full font-bricolage text-[16px]
+    relative px-5 py-2.5 rounded-full font-quadran   text-[16px]
     backdrop-blur-md border transition-all duration-300
     overflow-hidden group cursor-pointer
 

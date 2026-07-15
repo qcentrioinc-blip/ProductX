@@ -23,7 +23,7 @@ export default function PartnershipsSection() {
       <div className="max-w-7xl mx-auto bg-white lg:mt-20 rounded-md shadow-2xl p-6 md:p-12">
 
         {/* TITLE */}
-        <H2 className="text-[#2B68C3] mb-10">Ecosystem of partnerships</H2>
+        <H2 className="text-[#00AA72] mb-10">Ecosystem of partnerships</H2>
 
         {/* LOGOS */}
         <div className="flex flex-wrap justify-center md:justify-between gap-6 md:gap-8 mb-10">

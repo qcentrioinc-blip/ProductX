@@ -24,7 +24,7 @@ const PhysicianHeroSection = () => {
         <div className="grid grid-cols-1 mt-10  lg:mt-36 lg:px-6  lg:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}
           <div>
-            <H2EHR className="text-4xl font-semibold text-[#008280]  leading-tight">
+            <H2EHR className="text-4xl font-semibold text-[#00AA72]  leading-tight">
               Practice Medicine,
              
               Not Paperwork.
@@ -87,12 +87,12 @@ const PhysicianHeroSection = () => {
             </div>
  
             <div>
-              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-teal-700">55X</H2EHR>
+              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-[#00AA72]  ">55X</H2EHR>
               <H4EHR className="dark:text-white">Faster Charting</H4EHR>
             </div>
  
             <div>
-              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-teal-700">85%</H2EHR>
+              <H2EHR className="text-4xl font-bold text-gray-900 dark:text-[#00AA72]  ">85%</H2EHR>
               <H4EHR className="dark:text-white">Fewer Clicks</H4EHR>
             </div>
           </div>

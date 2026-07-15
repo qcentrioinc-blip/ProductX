@@ -130,7 +130,7 @@ const filteredPosts = blogPosts.filter(
               {/* Content Container */}
               <div className="p-6 ">
                 {/* Date and Category */}
-                <div className="flex  font-bricolage  justify-between items-center mb-4">
+                <div className="flex  font-quadran    justify-between items-center mb-4">
                   <span className="text-sm text-gray-500">{post.date}</span>
                   <span className="text-sm border-1 border-gray-700 px-4 py-1 rounded-full">
                     {post.category}
@@ -154,7 +154,7 @@ const filteredPosts = blogPosts.filter(
              <div className="flex justify-end items-start pr-4 pb-4">
   <Link
     to="/industries/high-tech/resources-detail"
-    className="text-blue-800 font-bricolage font-medium relative group flex items-center gap-1"
+    className="text-blue-800 font-quadran   font-medium relative group flex items-center gap-1"
   >
     <span>Read More</span>
     <span className="transition-transform duration-300 group-hover:translate-x-1">

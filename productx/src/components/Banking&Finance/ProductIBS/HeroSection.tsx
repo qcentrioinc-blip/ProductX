@@ -112,7 +112,7 @@ const HeroSec = () => {
   };
 
   return (
-    <section className="relative w-full bg-[#2B68C3] pt-[85px] pb-[35px] overflow-hidden h-full">
+    <section className="relative w-full bg-[#00AA72] pt-[85px] pb-[35px] overflow-hidden h-full">
 
       {/* FIX: Use a regular <style> tag instead of <style jsx> */}
       <style>{`
@@ -157,7 +157,7 @@ const HeroSec = () => {
 
             {/* Paragraph (Visible for Mobile and iPad Pro) */}
             <div className="mt-6 lg:mt-8 block xl:hidden bg-white/90 rounded-xl p-3 shadow-md z-20 xs:max-w-[350px] items-center mx-[1px] lg:mx-0 md:px-5 order-3">
-              <P className="text-center lg:text-center text-[#2B68C3] leading-relaxed">
+              <P className="text-center lg:text-center text-[#00AA72] leading-relaxed">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
               </P>
@@ -167,7 +167,7 @@ const HeroSec = () => {
           {/* Right Paragraph (Visible for 1280px and above) */}
           <div className="hidden xl:flex flex-1 lg:max-w-md">
             <div className="bg-white/90 z-20 rounded-xl p-4 shadow-md mt-20 xl:mt-26 2xl:mt-25">
-              <P className="leading-relaxed text-[#2B68C3]">
+              <P className="leading-relaxed text-[#00AA72]">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
               </P>

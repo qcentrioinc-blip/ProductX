@@ -45,7 +45,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="bg-[#C1D7F3] w-full text-[#2B68C3] p-10 lg:px-20 lg:py-20 flex flex-col items-center overflow-hidden">
+    <div className="bg-[#C1D7F3] w-full text-[#00AA72] p-10 lg:px-20 lg:py-20 flex flex-col items-center overflow-hidden">
       <H2 className="mb-10 text-left w-full mx-10">Sed ut perspiciatis</H2>
 
        

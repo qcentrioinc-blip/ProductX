@@ -88,7 +88,7 @@ const Acco = () => {
 <div className="sticky top-0 h-[80vh] lg:h-[65vh] xl:h-[110vh] overflow-hidden bg-white dark:bg-black  flex flex-col">
 
         {/* HEADING */}
-        <div className="max-w-2xl mx-auto dark:text-[#2B68C3] pt-10 pb-6 text-center px-6 ">
+        <div className="max-w-2xl mx-auto dark:text-[#00AA72] pt-10 pb-6 text-center px-6 ">
           <H1>Central Hub and Control Features</H1>
         </div>
 
@@ -161,7 +161,7 @@ const Acco = () => {
                           <div className="flex items-center gap-2">
                             <H3
                               className={`font-semibold  leading-tight transition ${
-                                isActive ? "text-[#2B68C3]" : "text-black dark:text-white"
+                                isActive ? "text-[#00AA72]" : "text-black dark:text-white"
                               }`}
                             >
                               {tab.title}
@@ -171,7 +171,7 @@ const Acco = () => {
                               animate={{ x: isActive ? 4 : 0 }}
                               transition={{ duration: 0.3 }}
                               className={`transition ${
-                                isActive ? "text-[#2B68C3]" : "text-gray-600"
+                                isActive ? "text-[#00AA72]" : "text-gray-600"
                               }`}
                             >
                               <ArrowRight />

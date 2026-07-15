@@ -1,4 +1,4 @@
-import { P } from "../../../styles/Typography";
+import { H2, P } from "../../../styles/Typography";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
@@ -49,7 +49,7 @@ const themes: Record<string, Theme> = {
   },
   "/industries/ehr-and-pms/built-for": {
     sectionBg: "#ffffff",
-    headingColor: "#008280",
+    headingColor: "#00AA72",
     paraColor: "#2A2A2A",
     cardGradient: "linear-gradient(135deg, #F2F2FF, #F2F2FF)",
     circleColor: "#FFFFFF",
@@ -71,7 +71,7 @@ const themes: Record<string, Theme> = {
     darkBg: "#000000",
     darkHeadingColor: "#60a5fa",
     sectionBg: "#FFFFFF",
-    headingColor: "#254D70",
+    headingColor: "#00AA72",
     paraColor: "#141414",
     cardGradient: "linear-gradient(135deg, #EAE9FF, #EAE9FF)",
     circleColor: "#FFFFFF",
@@ -89,11 +89,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "Practical applications of our solutions solving daily operational challenges for banking teams.",
       },
       cards: [
-        { id: 1, title: "Faster Onboarding", desc: "Digitize KYC to reduce customer account setup time significantly.", image: "/BuiltForBnf/time-fast.svg" },
-        { id: 2, title: "Automated Compliance", desc: " Screen transactions against watch lists without manual effort.", image: "/BuiltForBnf/compliance.svg" },
-        { id: 3, title: "Seamless Payments", desc: "Process cross-border remittances with straight-through efficiency.", image: "/BuiltForBnf/wallet-money.svg" },
-        { id: 4, title: "Risk Monitoring", desc: "Detect potential NPAs early using predictive analytics.", image: "/BuiltForBnf/risk-alt.svg" },
-        { id: 5, title: "Accurate Reconciliation", desc: "Match high-volume transactions automatically across systems.", image: "/BuiltForBnf/digital-banking.svg" },
+        { id: 1, title: "Faster Onboarding", desc: "Digitize KYC to reduce customer account setup time significantly.", image: "/time-fast.svg" },
+        { id: 2, title: "Automated Compliance", desc: " Screen transactions against watch lists without manual effort.", image: "/compliance.svg" },
+        { id: 3, title: "Seamless Payments", desc: "Process cross-border remittances with straight-through efficiency.", image: "/wallet-money.svg" },
+        { id: 4, title: "Risk Monitoring", desc: "Detect potential NPAs early using predictive analytics.", image: "/risk-alt.svg" },
+        { id: 5, title: "Accurate Reconciliation", desc: "Match high-volume transactions automatically across systems.", image: "/digital-banking.svg" },
       ],
     },
     "credit-union": {
@@ -102,11 +102,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "Practical ways our solutions help credit unions serve members better every day.",
       },
       cards: [
-        { id: 1, title: "Member Onboarding", desc: " Open new accounts digitally with automated KYC verification.", image: "/BuiltForBnf/dial-med.svg" },
-        { id: 2, title: "Loan Processing", desc: "Approve member loans faster using digital applications and eVerification.", image: "/BuiltForBnf/handshake-deal.svg" },
-        { id: 3, title: "League Payments", desc: "Route transactions through your league seamlessly to central networks.", image: "/BuiltForBnf/payment-pos.svg" },
-        { id: 4, title: "Daily Reconciliation", desc: "Match member transactions automatically across multiple systems.", image: "/BuiltForBnf/daily-calendar.svg" },
-        { id: 5, title: "Regulatory Reporting", desc: "Generate compliance reports without manual data gathering.", image: "/BuiltForBnf/assept-document.svg" },
+        { id: 1, title: "Member Onboarding", desc: " Open new accounts digitally with automated KYC verification.", image: "/dial-med.svg" },
+        { id: 2, title: "Loan Processing", desc: "Approve member loans faster using digital applications and eVerification.", image: "/handshake-deal.svg" },
+        { id: 3, title: "League Payments", desc: "Route transactions through your league seamlessly to central networks.", image: "/payment-pos.svg" },
+        { id: 4, title: "Daily Reconciliation", desc: "Match member transactions automatically across multiple systems.", image: "/daily-calendar.svg" },
+        { id: 5, title: "Regulatory Reporting", desc: "Generate compliance reports without manual data gathering.", image: "/assept-document.svg" },
       ],
     },
     "financial-unions": {
@@ -115,11 +115,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "Practical applications solving complex challenges across your entire financial operations.",
       },
       cards: [
-        { id: 1, title: "Multi-Entity Management", desc: "Configure unlimited branches with centralized control and oversight.", image: "/BuiltForBnf/dial-med.svg" },
-        { id: 2, title: "Cross-Border Payments", desc: "Process international remittances with full SWIFT and AML compliance.", image: "/BuiltForBnf/wallet-money.svg" },
-        { id: 3, title: "Asset Liability Management", desc: "Forecast liquidity and manage interest rate risk proactively.", image: "/BuiltForBnf/balance-scale.svg" },
-        { id: 4, title: "NPA Tracking", desc: "Identify stressed assets early using automated IRAC guidelines.", image: "/BuiltForBnf/risk.svg" },
-        { id: 5, title: "Enterprise Reconciliation", desc: "Match millions of transactions across disparate systems automatically.", image: "/BuiltForBnf/assept-document.svg" },
+        { id: 1, title: "Multi-Entity Management", desc: "Configure unlimited branches with centralized control and oversight.", image: "/dial-med.svg" },
+        { id: 2, title: "Cross-Border Payments", desc: "Process international remittances with full SWIFT and AML compliance.", image: "/wallet-moneys.svg" },
+        { id: 3, title: "Asset Liability Management", desc: "Forecast liquidity and manage interest rate risk proactively.", image: "/balance-scale.svg" },
+        { id: 4, title: "NPA Tracking", desc: "Identify stressed assets early using automated IRAC guidelines.", image: "/risk.svg" },
+        { id: 5, title: "Enterprise Reconciliation", desc: "Match millions of transactions across disparate systems automatically.", image: "/assept-document.svg" },
       ],
     },
   },
@@ -177,11 +177,11 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
         desc: "See how Unified Clinicapp solves daily challenges in your long-term care facility.",
       },
       cards: [
-        { id: 1, title: "MDS Submission", desc: "Complete and submit accurate Minimum Data Set reports seamlessly.", image: "/BuiltFor/analytics.png" },
-        { id: 2, title: "Interdisciplinary Coordination", desc: "Coordinate care plans across nurses, therapists, and dietary staff instantly.", image: "/BuiltFor/team.png" },
-        { id: 3, title: "Medication Administration", desc: "Manage and document medication schedules with a unified MAR.", image: "/BuiltFor/database-management.png" },
-        { id: 4, title: "Family Engagement", desc: "Provide families secure portal access to updates and documents.", image: "/BuiltFor/house-hands.png" },
-        { id: 5, title: "Complex Billing", desc: "Accurately process Medicare, Medicaid, and private payor claims together.", image: "/BuiltFor/file-invoice.png" },
+        { id: 1, title: "MDS Submission", desc: "Complete and submit accurate Minimum Data Set reports seamlessly.", image: "/BuiltFor/analytics.svg" },
+        { id: 2, title: "Interdisciplinary Coordination", desc: "Coordinate care plans across nurses, therapists, and dietary staff instantly.", image: "/BuiltFor/team.svg" },
+        { id: 3, title: "Medication Administration", desc: "Manage and document medication schedules with a unified MAR.", image: "/BuiltFor/database-management.svg" },
+        { id: 4, title: "Family Engagement", desc: "Provide families secure portal access to updates and documents.", image: "/BuiltFor/house-hands.svg" },
+        { id: 5, title: "Complex Billing", desc: "Accurately process Medicare, Medicaid, and private payor claims together.", image: "/BuiltFor/file-invoice.svg" },
       ],
     },
     "home-healthcare": {
@@ -196,7 +196,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       cards: [
         { id: 1, title: "Mobile Documentation", desc: "Clinicians chart visits, vitals, and notes directly on mobile devices.", image: "/BuiltFor/mobile-hand.png" },
         { id: 2, title: "Real-Time Scheduling", desc: "Coordinate caregiver visits, routes, and patient assignments from anywhere.", image: "/BuiltFor/calendar-clock.png" },
-        { id: 3, title: "Family Portal", desc: "Provide families secure access to care plans and visit updates.", image: "/BuiltFor/team.png" },
+        { id: 3, title: "Family Portal", desc: "Provide families secure access to care plans and visit updates.", image: "/BuiltFor/team.svg" },
         { id: 4, title: "Visit-Based Billing", desc: "Accurately capture and submit charges per completed in-home visit.", image: "/BuiltFor/marker.png" },
         { id: 5, title: "Compliance Tracking", desc: "Document and report on care plan adherence and outcomes.", image: "/BuiltFor/file-invoice.png" },
       ],
@@ -213,7 +213,7 @@ const CONTENT: Record<string, Record<string, SectionContent>> = {
       cards: [
         { id: 1, title: "Multi-Department Scheduling", desc: "Coordinate appointments, surgeries, and provider time across all locations seamlessly.", image: "/BuiltFor/analytics.png" },
         { id: 2, title: "Unified Patient Records", desc: "Access complete clinical history and documents from any department instantly.", image: "/BuiltFor/member-list.png" },
-        { id: 3, title: "Coordinated Care Handoffs", desc: "Manage safe patient transitions from ED to inpatient to outpatient care.", image: "/BuiltFor/database-management.png" },
+        { id: 3, title: "Coordinated Care Handoffs", desc: "Manage safe patient transitions from ED to inpatient to outpatient care.", image: "/BuiltFor/database-management.svg" },
         { id: 4, title: "Integrated Lab Management", desc: "Order, track, and view results directly within the patient's unified timeline.", image: "/BuiltFor/house-hands.png" },
         { id: 5, title: "Enterprise Revenue Cycle", desc: "Manage high-volume billing, claims, and financial reporting from one dashboard.", image: "/BuiltFor/money-transfer.png" },
       ],
@@ -284,18 +284,18 @@ export default function FiveCardGradientSection() {
 
   return (
     <section
-      className="w-full py-10   xl:py-16"
+      className="w-full pt-6 pb-4"
       style={{ backgroundColor: isDark ? (active.darkBg ?? "#0f172a") : active.sectionBg }}
     >
 
 
-      <div className="max-w-8xl mx-10 xl:px-10">
+      <div className="max-w-full px-[40px] md:px-[60px] xl:px-[160px]">
 
         {/* ---------- MOBILE / TABLET INTRO ---------- */}
         <div className="mb-8 lg:hidden">
-          <h2 style={{ color: active.headingColor }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}`}>
+          <H2 style={{ color: active.headingColor }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran"}`}>
             {sectionContent.intro.title}
-          </h2>
+          </H2>
           <P style={{ color: active.paraColor }} className="max-w-md">
             {sectionContent.intro.desc}
           </P>
@@ -306,15 +306,14 @@ export default function FiveCardGradientSection() {
           {/* ---------- DESKTOP INTRO (UNCHANGED) ---------- */}
           <div className="hidden lg:block col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="">
-              <h2 style={{
+              <H2 style={{
                 color: isDark
                   ? active.darkHeadingColor ?? active.headingColor
                   : active.headingColor,
-              }} className={`mb-4 text-[32px] md:text-[48px] lg:text-[72px]  ${industry === "ehr-and-pms" ? "font-bricolageEHR" : "font-bricolage"}
-                style={{ color: active.headingColor }}`}
+              }} className={`mb-4 ]  ${industry === "ehr-and-pms" ? "font-quadran  EHR" : "font-quadran"}`}
               >
                 {sectionContent.intro.title}
-              </h2>
+              </H2>
 
               <P style={{ color: active.paraColor }} className="max-w-md">
                 {sectionContent.intro.desc}

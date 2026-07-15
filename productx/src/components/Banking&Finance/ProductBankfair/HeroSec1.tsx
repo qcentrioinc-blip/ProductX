@@ -4,7 +4,7 @@ import { ContactUs } from "../../../styles/Button";
 
 const HeroSec1 = () => {
   return (
-    <section className="w-full dark:bg-black bg-[#2B68C3] pt-20 lg:pt-40 px-6 pb-8 text-white">
+    <section className="w-full dark:bg-black bg-[#00AA72] pt-20 lg:pt-40 px-6 pb-8 text-white">
       <div className="max-w-7xl mx-auto">
 
         {/* ================= MOBILE ================= */}
@@ -44,14 +44,14 @@ const HeroSec1 = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 alt=""
               />
-              <H4 className="relative h-full flex text-[#2B68C3] items-center justify-center text-center font-semibold">
+              <H4 className="relative h-full flex text-[#00AA72] items-center justify-center text-center font-semibold">
                 Multi-Currency <br /> Banking Operations
               </H4>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white   text-gray-800 rounded-2xl p-4 flex items-center gap-4 shadow-lg">
-              <div className="w-[60px] h-[60px] rounded-full bg-[#2B68C3] flex items-center justify-center flex-shrink-0">
+              <div className="w-[60px] h-[60px] rounded-full bg-[#00AA72] flex items-center justify-center flex-shrink-0">
                 <img
                   src="/ProductBankfair/icon1.svg"
                   alt="icon"
@@ -113,14 +113,14 @@ const HeroSec1 = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   alt=""
                 />
-                <H4 className="relative h-full flex text-[#2B68C3] items-center justify-center text-center font-semibold">
+                <H4 className="relative h-full flex text-[#00AA72] items-center justify-center text-center font-semibold">
                   Multi-Currency <br /> Banking Operations
                 </H4>
               </div>
 
               {/* Card 2 */}
               <div className="bg-white text-gray-800 rounded-2xl p-6 flex items-center gap-5 shadow-lg min-h-[80px] md:min-h-[130px] lg:min-h-[180px]">
-                <div className="w-[72px] h-[72px] rounded-full bg-[#2B68C3] flex items-center justify-center flex-shrink-0">
+                <div className="w-[72px] h-[72px] rounded-full bg-[#00AA72] flex items-center justify-center flex-shrink-0">
                   <img
                     src="/ProductBankfair/icon1.svg"
                     alt="icon"

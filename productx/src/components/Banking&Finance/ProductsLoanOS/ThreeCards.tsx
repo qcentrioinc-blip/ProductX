@@ -32,7 +32,7 @@ export default function ThreeCards() {
           <div
             className="flex-1 xl:w-[685px] dark:bg-slate-950 bg-[#F3F3F3] border-2 border-[#666666] rounded-lg  p-8 flex flex-col gap-4 relative"
           >
-            <div className="w-18 h-18 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
+            <div className="w-18 h-18 bg-[#00AA72] rounded-full shrink-0 flex items-center justify-center">
               <img src="/LOS/sign.svg" alt="" className="object-contain h-12 w-12"/>
             </div>
             <div className="flex flex-col gap-2">
@@ -61,12 +61,12 @@ export default function ThreeCards() {
     key={idx}
     className="flex-1 rounded-lg border-2 bg-[#F3F3F3] dark:bg-slate-950 border-[#666666] py-6 px-8 flex flex-col gap-4"
   >
-     <div className="w-14 h-14 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
+     <div className="w-14 h-14 bg-[#00AA72] rounded-full shrink-0 flex items-center justify-center">
               <img src={card.icon} alt="" className="object-contain h-8 w-8"/>
             </div>
 
     <div className="flex flex-col gap-2">
-      <H4 className="dark:text-[#2B68C3]"
+      <H4 className="dark:text-[#00AA72]"
       >
         {card.title}
       </H4>
@@ -93,7 +93,7 @@ export default function ThreeCards() {
             key={idx}
             className="w-full max-w-md rounded-lg bg-[#E4F0FF] dark:bg-black p-6 flex flex-col gap-4"
           >
-          <div className="w-10 h-10 bg-[#2B68C3] rounded-full shrink-0 flex items-center justify-center">
+          <div className="w-10 h-10 bg-[#00AA72] rounded-full shrink-0 flex items-center justify-center">
               <img src={card.icon} alt="" className="object-contain h-6 w-6"/>
             </div>
             <div className="flex flex-col gap-2">

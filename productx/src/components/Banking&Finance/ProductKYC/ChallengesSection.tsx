@@ -8,7 +8,7 @@ export default function ChallengesSection() {
       
         
         <img  
-          src="/ProductDetails4/KYC2.webp"
+          src="/cip2.webp"
           alt="Challenges We Address"
           className="
            w-full

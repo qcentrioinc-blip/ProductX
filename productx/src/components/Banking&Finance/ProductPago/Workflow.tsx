@@ -6,7 +6,7 @@ import { ContactUs } from "../../../styles/Button";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Global/ThemeContext";
 
-const PRIMARY_COLOR = "#2B68C3";
+const PRIMARY_COLOR = "#00AA72";
 
  
 
@@ -17,7 +17,7 @@ const LIGHT_BG_COLORS = [
   "#DCEAFF",
   "#ADCEFF",
   "#78A6EC",
-  "#2B68C3",
+  "#00AA72",
 ];
 
 const DARK_BG_COLORS = [
@@ -146,7 +146,7 @@ const textColor = useMemo(() => {
     "#111827", // #DCEAFF
     "#111827", // #ADCEFF
     "#111827", // #78A6EC (still light!)
-    "#111827", // #2B68C3 (dark → white text)
+    "#111827", // #00AA72 (dark → white text)
   ];
 
   return TEXT_COLORS[Math.min(index, TEXT_COLORS.length - 1)];
@@ -198,7 +198,7 @@ const textColor = useMemo(() => {
           <div key={step.id} className="flex flex-col items-center text-center space-y-4">
 
             {/* Step Title */}
-            <h3 style={{color:textColor}} className="text-[16px] font-bricolage leading-snug text-[#111827]">
+            <h3 style={{color:textColor}} className="text-[16px] font-quadran   leading-snug text-[#111827]">
               {step.title}
             </h3>
 
@@ -268,7 +268,7 @@ const textColor = useMemo(() => {
                   ref={(el) => {
                     stepRefs.current[index] = el;
                   }}
-                  className="flex items-center gap-4 xl:mb-10    text-[16px] font-bricolage md:gap-8 relative z-10"
+                  className="flex items-center gap-4 xl:mb-10    text-[16px] font-quadran   md:gap-8 relative z-10"
                 >
                   {/* Circle */}
                   <motion.div
@@ -314,7 +314,7 @@ const textColor = useMemo(() => {
                          style={{
    color: isActive ? "#111827" : textColor
   }}
-                      className={`  leading-tight  lg:text-[18px]   transition-colors duration-300 ${isActive ? "font-bricolage" : ""
+                      className={`  leading-tight  lg:text-[18px]   transition-colors duration-300 ${isActive ? "font-quadran  " : ""
                         }`}
                     >
                       {step.title}

@@ -85,7 +85,7 @@ export default function FeatureSection() {
     <section className="w-full dark:bg-black py-6 px-4 md:px-8">
       {/* TITLE */}
       <div className="max-w-5xl mx-auto text-center mb-10 md:mb-14">
-        <H2 className="text-[#2B68C3] leading-tight">
+        <H2 className="text-[#00AA72] leading-tight">
           Sherlock Product Variants Key Differentiators
         </H2>
       </div>
@@ -134,8 +134,8 @@ export default function FeatureSection() {
     className={`cursor-pointer w-full sm:w-auto px-6 py-4 rounded-full text-sm sm:text-base font-medium transition-all duration-300
       ${
         activeTab === "advance"
-          ? "bg-[#2B68C3] text-white scale-105"
-          : "bg-white text-[#2B68C3]"
+          ? "bg-[#00AA72] text-white scale-105"
+          : "bg-white text-[#00AA72]"
       }`}
   >
     <H3>Advance Variant</H3>
@@ -146,8 +146,8 @@ export default function FeatureSection() {
     className={`cursor-pointer w-full sm:w-auto px-6 py-4 rounded-full text-sm sm:text-base font-medium transition-all duration-300
       ${
         activeTab === "lite"
-          ? "bg-[#2B68C3] text-white scale-105"
-          : "bg-white text-[#2B68C3]"
+          ? "bg-[#00AA72] text-white scale-105"
+          : "bg-white text-[#00AA72]"
       }`}
   >
     <H3>Lite & Mini Variants</H3>

@@ -242,7 +242,7 @@ function Card({ title, active, className, style }: CardProps) {
         absolute
         px-4 py-4
         w-[260px]
-        bg-white text-[#2B68C3] font-semibold text-center
+        bg-white text-[#00AA72] font-semibold text-center
         transition-all duration-500
         ${active ? "opacity-100 scale-100" : "opacity-30 scale-95"}
         ${className ?? ""}

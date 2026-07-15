@@ -33,7 +33,7 @@ const AnimatedStatementWithImageTrail = () => {
       {/* TEXT */}
       <div className="relative z-10 text-center max-w-8xl mx-10">
         <motion.h2
-          className="text-[24px] md:text-[32px] lg:text-[64px] font-semibold text-[#2A2A2A] leading-relaxed font-bricolage"
+          className="text-[24px] md:text-[32px] lg:text-[64px] font-semibold text-[#2A2A2A] leading-relaxed font-quadran  "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}

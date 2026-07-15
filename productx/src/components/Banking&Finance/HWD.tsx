@@ -41,20 +41,20 @@ const HWD = () => {
     ehr: {
        topBg: isDark ? "#042F2E" : "#F5F5F5",
       bottomBg: isDark ? "#00796b" : "#FFFFFF",
-      headingColor: isDark ? "#ffffff" : "#008280",
+      headingColor: isDark ? "#ffffff" : "#00AA72",
      
        textcolor: isDark ? "#ffffff" : "#141414",
       
-      CheckColor: isDark ? "#fafafa" : "#008280",
+      CheckColor: isDark ? "#fafafa" : "#00AA72",
 
 
     },
     banking: {
      topBg: isDark ? "#1a1a2e" : "#F5F5F5",
       bottomBg: isDark ? "#0f0f1a" : "#FFFFFF",
-      headingColor: isDark ? "#5b9cf6" : "#2B68C3",
+      headingColor: isDark ? "#5b9cf6" : "#000000",
       textcolor: isDark ? "#e0e0e0" : "#000000",
-      CheckColor: isDark ? "#5b9cf6" : "#254D70",
+      CheckColor: isDark ? "#5b9cf6" : "#00AA72",
     },
 
     hightech: {
@@ -67,18 +67,18 @@ const HWD = () => {
     ai: {
          topBg: isDark ? "#1a1a2e" : "#F5F5F5",
      bottomBg: isDark ? "#ffffff" : "#FFFFFF", 
-      headingColor: isDark ? "#5b9cf6" : "##254D70",
+      headingColor: isDark ? "#5b9cf6" : "##00AA72",
       textcolor: isDark ? "#ffffff" : "#000000",
-      CheckColor: isDark ? "#000000" : "#254D70",
+      CheckColor: isDark ? "#000000" : "#00AA72",
     
 
     },
     pago: {
       topBg: isDark ? "#1a1a2e" : "#F5F5F5",
       bottomBg: isDark ? "#0f0f1a" : "#FFFFFF",
-      headingColor: isDark ? "#5b9cf6" : "#2B68C3",
+      headingColor: isDark ? "#5b9cf6" : "#00AA72",
       textcolor: isDark ? "#e0e0e0" : "#000000",
-      CheckColor: isDark ? "#5b9cf6" : "#254D70",
+      CheckColor: isDark ? "#5b9cf6" : "#00AA72",
     },
   };
   const HEADING_CONTENT = {
@@ -321,7 +321,7 @@ const HWD = () => {
     Almanac: [
       {
         title: "Liquidity Risk Management ",
-        image: "/AML/SecurityRisk.svg",
+        image: "/AML/SecurityRisks.svg",
         description:
           "Monitor and manage short-term and structural liquidity positions across the organization. ",
         points: [
@@ -355,7 +355,7 @@ const HWD = () => {
       },
       {
         title: "Interest Rate Risk Analysis ",
-        image: "/AML/BriefCase.svg",
+        image: "/AML/BriefCases.svg",
         description:
           "Measure and manage exposure to interest rate fluctuations across assets and liabilities.",
         points: [
@@ -811,8 +811,8 @@ const HWD = () => {
   else palette = COLORS.banking;
   const { topBg, bottomBg, headingColor, textcolor, CheckColor } = palette;
 
-  const bottomTextColor = isAI ? "#254D70" : textcolor;
-  const headingFontClass = isEHR ? "font-bricolageEHR" : "font-bricolage";
+  const bottomTextColor = isAI ? "#00AA72" : textcolor;
+  const headingFontClass = isEHR ? "font-quadran  EHR" : "font-quadran  ";
 
 
 
@@ -844,7 +844,7 @@ const HWD = () => {
         <h3
           className={`${headingFontClass} mb-4 text-[16px] xl:whitespace-nowrap md:text-[20px] lg:text-[24px] font-bold`}
         
-           style={{ color: isSAMS ? "#ffffff" : headingColor }}
+           style={{ color: isSAMS ? "#00AA72" : headingColor }}
         >
           {title}
         </h3>
@@ -926,7 +926,7 @@ const HWD = () => {
             <div className="sticky top-13 xl:top-0 min-h-screen flex flex-col justify-start w-full">
               <div className="px-4 pt-6 pb-4">
                 <h2
-                  className={`text-white ${headingFontClass} text-[24px] leading-none`}
+                  className={`text-black ${headingFontClass} text-[24px] leading-none`}
                 >
                   {headingContent.title}
                 </h2>

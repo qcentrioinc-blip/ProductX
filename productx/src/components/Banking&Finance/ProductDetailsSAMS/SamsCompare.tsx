@@ -38,7 +38,7 @@ const SamsCompare = () => {
       <div className="max-w-8xl xl:mx-10 px-6">
         {/* Header */}
         {/* <div className="text-center mb-8">
-           className="text-[#008280] mb-2">
+           className="text-[#00AA72] mb-2">
           Key Benefits for Physicians Like You
           <>
         </div> */}
@@ -51,7 +51,7 @@ const SamsCompare = () => {
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
                 src="/SAMS/standard.webp"
-                className="h-48 md:h-56 lg:h-72 object-cover border border-blue-500 border-12"
+                className="h-48 md:h-56 lg:h-72 object-cover border border-[#00AA72] border-12"
               />
             </div>
 
@@ -70,7 +70,7 @@ const SamsCompare = () => {
               {leftItems.map((item) => (
                 <div key={item.number} className="flex gap-4">
                   {/* Number Badge */}
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#E5EDF9] border border-[#2563EB] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#FFEFDD] border border-[#166D48] rounded-full flex items-center justify-center">
                     <span className="text-gray-800 font-semibold text-sm">
                       {item.number}
                     </span>
@@ -91,7 +91,7 @@ const SamsCompare = () => {
             <div className="w-full rounded-xl mb-6">
               <HoverExpandImage
                 src="/SAMS/SMA.webp"
-                className="h-48 md:h-56 lg:h-72 object-cover border border-blue-500 border-12"
+                className="h-48 md:h-56 lg:h-72 object-cover border border-[#00AA72] border-12"
               />
             </div>
 
@@ -110,7 +110,7 @@ const SamsCompare = () => {
               {rightItems.map((item) => (
                 <div key={item.number} className="flex gap-4">
                   {/* Number Badge */}
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#E5EDF9] border border-[#2563EB] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#FFEFDD] border border-[#166D48] rounded-full flex items-center justify-center">
                     <span className="text-gray-800 font-semibold text-sm">
                       {item.number}
                     </span>

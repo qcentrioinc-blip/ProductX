@@ -6,8 +6,8 @@ export default function Cards() {
       title: "Strategic Capital Distribution Across Business Lines",
       content:
         "Optimize capital allocation to meet strategic objectives using predictive analytics and long-term funding planning tools.",
-      shape: "/AML/Group.svg",
-      illustration: "/AML/Group.svg",
+      shape: "/AML/Groups.svg",
+      illustration: "/AML/Groups.svg",
     },
     {
       title: " Regulatory Compliance with Business Management",

@@ -225,10 +225,10 @@ const BNFNav = () => {
     <>
     
       {/* TOP TRANSPARENT BAR */}
-      <div className={`fixed top-0 z-50 left-0 w-full h-14  bg-white/10 backdrop-blur-lg font-bricolage px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className={`fixed top-0 z-50 left-0 w-full h-14  bg-white/10 backdrop-blur-lg font-quadran   px-4 sm:px-6 md:px-8 flex items-center justify-between transition-transform duration-300 ${showTopBar ? 'translate-y-0' : '-translate-y-full'}`}>
         <Link to="/" className="flex items-center cursor-pointer" aria-label="Go to Homepage">
           <div className="px-4 py-1 rounded-lg">
-            <span className="text-gray-800 font-bricolage text-sm sm:text-base">
+            <span className="text-gray-800 font-quadran   text-sm sm:text-base">
               <img className="h-10 w-full" src="/QnestLogo.svg" alt="Company Logo" />
             </span>
           </div>

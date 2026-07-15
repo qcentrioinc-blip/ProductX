@@ -45,7 +45,7 @@ const CTA = () => {
           <div className="space-y-6 mt-8 xl:space-y-10">
             {features.slice(0, 2).map((item) => (
               <div key={item.id} className="flex gap-2  items-center">
-            <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#00AA72] rounded-full flex items-center justify-center flex-shrink-0">
   <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
 </div>
                 <P className="leading-tight pt-2 dark:text-white">{item.text}</P>
@@ -57,7 +57,7 @@ const CTA = () => {
         <div className="space-y-6  mt-8 xl:space-y-10">
             {features.slice(2, 4).map((item) => (
               <div key={item.id} className="flex gap-2 items-center">
-           <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#2B68C3] rounded-full flex items-center justify-center flex-shrink-0">
+           <div className="w-8 h-8 xl:w-14 xl:h-14 bg-[#00AA72] rounded-full flex items-center justify-center flex-shrink-0">
   <img src={item.icon} alt="" className="w-4 xl:w-8 object-contain" />
 </div>
                 <P className="leading-tight pt-2 dark:text-white">{item.text}</P>

@@ -43,7 +43,7 @@ export default function TwoProducts() {
 
   {/* LEFT SIDE (HEADINGS) */}
   <span>
-    <H2 className="text-[#2B68C3] leading-tight">
+    <H2 className="text-[#00AA72] leading-tight">
       Banking and finance Products
    
    <br className="   md:block hidden"/> <span className="text-[#141414] dark:text-white leading-tight">
@@ -137,7 +137,7 @@ export default function TwoProducts() {
     hover:scale-110
   "
 >
-  <ArrowRight className="w-6 h-6 text-[#2B68C3]" />
+  <ArrowRight className="w-6 h-6 text-[#00AA72]" />
 </a>
   </div>
 

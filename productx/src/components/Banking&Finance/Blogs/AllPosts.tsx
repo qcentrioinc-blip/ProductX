@@ -181,7 +181,7 @@ export default function BlogGridSection() {
 
         {/* HEADING + SEARCH */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-6">
-          <H2 className="text-[#1A4ABE] font-bold">Banking & Finance Insights</H2>
+          <H2 className="text-[#00AA72] font-bold">Banking & Finance Insights</H2>
 
           <div className="relative w-full md:w-[300px] xl:w-[500px] flex-none">
             <input
@@ -192,7 +192,7 @@ export default function BlogGridSection() {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full border dark:text-white border-gray-300 rounded-md shadow-sm py-3 px-6 pr-10 outline-none focus:border-[#1A4ABE]"
+              className="w-full border dark:text-white border-gray-300 rounded-md shadow-sm py-3 px-6 pr-10 outline-none focus:border-[#00AA72]"
             />
             <span className="absolute right-4 top-3 text-[#141414]">🔍</span>
           </div>
@@ -272,10 +272,10 @@ export default function BlogGridSection() {
                 </div>
 
                 <div className="p-5 space-y-2">
-                  <span className="text-xs font-semibold  font-quicksand  dark:text-white  text-bold text-[12px] text-[#1A4ABE] uppercase tracking-wide">
+                  <span className="text-xs font-semibold  font-quicksand  dark:text-white  text-bold text-[12px] text-[#00AA72] uppercase tracking-wide">
                     {post.category}
                   </span>
-                  <H4 className="font-semibold text-gray-900  dark:text-[#2b68c3] leading-snug">{post.title}</H4>
+                  <H4 className="font-semibold text-gray-900  dark:text-[#00AA72] leading-snug">{post.title}</H4>
                   <P className="text-[#141414] text-sm leading-snug">{post.description}</P>
                   <div className="pt-2 text-gray-400 text-sm">
                     📅 {post.date}

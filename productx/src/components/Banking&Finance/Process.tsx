@@ -17,7 +17,7 @@ const DotPattern: React.FC<{ index: number }> = ({ index }) => {
 
       {/* Large step number watermark */}
       <motion.span
-        className="absolute text-[100px] font-bold text-[#2B68C3] select-none leading-none z-2"
+        className="absolute text-[100px] font-bold text-[#00AA72] select-none leading-none z-2"
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 0.7 }}
         transition={{ duration: 0.7, delay: index * 0.12 }}
@@ -101,7 +101,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ title, description, index }) 
 
       {/* Centre circle */}
       <div className="flex-shrink-0 w-24 flex items-center justify-center z-10">
-        <div className="w-12 h-12 bg-blue-500 text-[24px] font-bricolage rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg ring-4 ring-white">
+        <div className="w-12 h-12 bg-[#00AA72] text-[24px] font-quadran   rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg ring-4 ring-white">
           {/* {index + 1} */}
         </div>
       </div>
@@ -163,7 +163,7 @@ const Process = () => {
       <div className="hidden xl:block bg-[#EFEFEF] dark:bg-black py-20 px-6" id="our-process" style={{ fontFamily: "Bricolage Grotesque" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <H2 className="text-blue-500">Our Implementation Process</H2>
+            <H2 className="text-[#00AA72]">Our Implementation Process</H2>
           </div>
 
           <div className="relative">
@@ -188,7 +188,7 @@ const Process = () => {
       {/* ── MOBILE: unchanged ── */}
       <div className="block dark:bg-black xl:hidden bg-gray-100 py-8 xl:py-10 px-6">
         <div className="max-w-2xl mx-auto">
-          <H2 className="text-blue-500 text-center mb-8">Our Implementation Process</H2>
+          <H2 className="text-[#00AA72] text-center mb-8">Our Implementation Process</H2>
 
           <div className="relative pl-16 space-y-8">
             {steps.map((item, index) => (
@@ -200,7 +200,7 @@ const Process = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="absolute -left-[64px] top-1 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-semibold shadow-md">
+                <div className="absolute -left-[64px] top-1 w-14 h-14 bg-[#00AA72] rounded-full flex items-center justify-center text-white text-xs font-semibold shadow-md">
                   {item.step}
                 </div>
                 <div className="flex flex-col lg:pl-2 items-start">

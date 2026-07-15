@@ -9,12 +9,12 @@ export default function ContentInfo() {
         <div className="relative flex flex-col lg:flex-row gap-16 lg:gap-20">
 
           {/* Vertical Divider (Desktop Only) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#2B68C3] -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#00AA72] -translate-x-1/2" />
 
           {/* LEFT SECTION */}
           <div className="flex-1 lg:pr-16">
 
-            <H2 className="text-black mb-6 max-w-2xl dark:text-[#2b68c3] ">
+            <H2 className="text-black mb-6 max-w-2xl dark:text-[#00AA72] ">
               Problems IBS Solves for Banks
             </H2>
 
@@ -25,7 +25,7 @@ export default function ContentInfo() {
             {/* Feature Row */}
             <div className="flex items-center gap-6 mt-6 xl:mt-26">
 
-              <div className="w-20 h-20 rounded-full bg-[#2B68C3] flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-[#00AA72] flex items-center justify-center">
                 <img
                   src="/ProductIBS/icon9.svg"
                   alt="icon"
@@ -33,7 +33,7 @@ export default function ContentInfo() {
                 />
               </div>
 
-              <H3 className="text-[#2B68C3]">
+              <H3 className="text-[#00AA72]">
                  Go Digital Now
               </H3>
 

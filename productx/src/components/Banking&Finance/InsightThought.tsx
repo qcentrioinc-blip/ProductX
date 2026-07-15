@@ -32,7 +32,7 @@ const InsightThought = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-6">
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6 sm:mb-8 lg:mb-12">
-                    <H2 className="text-[#2B68C3] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
+                    <H2 className="text-[#00AA72] text-xl sm:text-2xl lg:text-3xl flex-shrink-0">
                       Banking & Finance Insights
                     </H2>
                     <a href="/industries/banking-and-finance/blogs" className="flex-shrink-0">

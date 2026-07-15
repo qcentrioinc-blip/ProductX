@@ -82,13 +82,13 @@ const HeroSection = () => {
       >
 
         <h1
-          className="text-8xl font-bricolage text-white flex items-center gap-4 transition-all duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)]"
+          className="text-8xl font-quadran   text-white flex items-center gap-4 transition-all duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)]"
           style={{
             transform: pageOpened ? 'translateX(-100%)' : 'translateX(0)',
             opacity: pageOpened ? 0 : 1,
           }}
         >
-          <span className="text-8xl font-bricolage font-light">|</span> QNEST
+          <span className="text-8xl font-quadran   font-light">|</span> QNEST
         </h1>
       </div>
 
@@ -199,7 +199,7 @@ const HeroSection = () => {
                 }}
               >
                 <h2
-                  className="text-3xl mt-10 md:mt-0 font-bricolage md:text-4xl lg:text-5xl leading-tight"
+                  className="text-3xl mt-10 md:mt-0 font-quadran   md:text-4xl lg:text-5xl leading-tight"
                   style={{
                     background: 'linear-gradient(90deg, #28B87B 0%, #F99526 100%)',
                     WebkitBackgroundClip: 'text',

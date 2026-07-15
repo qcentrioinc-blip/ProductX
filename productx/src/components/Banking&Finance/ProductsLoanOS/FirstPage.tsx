@@ -18,7 +18,7 @@ const FirstPage = () => {
         <>
            
  
-            <section className="w-full overflow-hidden bg-[#2B68C3] dark:bg-black max-w-8xl mx-auto">
+            <section className="w-full overflow-hidden bg-[#00AA72] dark:bg-black max-w-8xl mx-auto">
  
                 {/* ════════════════════════════════════════
                     MOBILE + TABLET + LG iPad Pro Layout
@@ -58,7 +58,7 @@ const FirstPage = () => {
                             {/* White Box */}
                             <div className="flex flex-col bg-white dark:bg-black rounded-[7px] p-5 gap-3">
                                 <P
-                                    className="text-[#2B68C3]  leading-none
+                                    className="text-[#00AA72]  leading-none
                                         text-[20px]
                                         sm:text-[22px]
                                         lg:text-[22px]"
@@ -154,7 +154,7 @@ const FirstPage = () => {
                            
                         >
                             <H4
-                                className="text-[#2B68C3] "
+                                className="text-[#00AA72] "
                                
                             >
                             Simplify Applications with Digital Forms and Pre-Approved Offers

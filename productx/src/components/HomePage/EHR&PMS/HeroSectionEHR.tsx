@@ -27,7 +27,7 @@ import TestimonialEHR from "./TestimonialEHR";
 
 const HeroSectionEHR = () => {
   return (
-<div className="font-bricolage ">
+<div className="font-quadran   ">
 
       {/* NO BACKGROUND */}
       <LandingPageEHS />

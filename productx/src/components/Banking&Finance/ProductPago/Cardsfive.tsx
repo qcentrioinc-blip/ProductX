@@ -66,7 +66,7 @@ const Cardsfive = () => {
 
       {/* ── MOBILE / TABLET INTRO ── */}
       <div className="mb-8 xl:hidden">
-        <H1 className="mb-4 font-bricolage text-[#2B68C3]">
+        <H1 className="mb-4 font-quadran   text-[#00AA72]">
           {INTRO.title}
         </H1>
         <P className="max-w-full text-black dark:text-white">
@@ -78,7 +78,7 @@ const Cardsfive = () => {
 
         {/* ── DESKTOP INTRO ── */}
         <div className="hidden xl:block col-span-1 sm:col-span-2 lg:col-span-1">
-          <H1 className="mb-4 text-[#2B68C3] font-bricolage">
+          <H1 className="mb-4 text-[#00AA72] font-quadran  ">
             {INTRO.title}
           </H1>
           <P className="max-w-md dark:text-white  text-black">

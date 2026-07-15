@@ -12,7 +12,7 @@ const toggle = (index: number) => {
  
   return (
     <div className="space-y-2">
-     <h1 className=" text-lg md:text-3xl text-[#254D70] lg:text-4xl my-4 font-bricolage ">
+     <h1 className=" text-lg md:text-3xl text-[#00AA72] lg:text-4xl my-4 font-quadran   ">
             Profiling Activities
         </h1>
 
@@ -30,7 +30,7 @@ const toggle = (index: number) => {
   <li>  <b>Resource Configuration:</b> CloudDIET inspects Azure control-plane configurations, like a Storage Account set to Geo-Redundant Storage (GRS) in East US and its creation date, without viewing any customer data.  </li>
    
 </ol>
- <h2 className="font-bricolage text-xl dark:text-white md:text-2xl lg:text-3xl my-6">
+ <h2 className="font-quadran   text-xl dark:text-white md:text-2xl lg:text-3xl my-6">
   Frequently Asked Questions
 </h2>
 
@@ -110,7 +110,7 @@ const toggle = (index: number) => {
 </div>
 
       
-      <h2 className="font-bricolage text-xl dark:text-white  md:text-2xl lg:text-3xl my-4"> 
+      <h2 className="font-quadran   text-xl dark:text-white  md:text-2xl lg:text-3xl my-4"> 
 Examples of what CloudDIET can access </h2>
  <p className="font-quicksand text-base dark:text-white  text-gray-700 leading-relaxed">These examples show what CloudDIET can and cannot access. CloudDIET does not view all metrics or configurations, and it lacks permission and the ability to access data plane content. </p>
 <div className="overflow-x-auto mt-6 xl:pl-16">

@@ -24,9 +24,9 @@ const cards = [
 // ─── Main Component ───────────────────────────────────────────────────────────
 const SamsFive = () => {
   return (
-    <section className="w-full bg-[#E5EDF9] dark:bg-black  ">
+    <section className="w-full bg-[#F4F4F4] dark:bg-black  ">
       <div
-        className="mx-auto w-full max-w-7xl  bg-[#E5EDF9] dark:bg-slate-900 rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16    xl:my-0"
+        className="mx-auto w-full max-w-7xl  bg-[#F4F4F4] dark:bg-slate-900 rounded-none sm:rounded-[24px] px-4 sm:px-8 py-10 sm:py-16    xl:my-0"
 
       >
         {/* Header Section */}

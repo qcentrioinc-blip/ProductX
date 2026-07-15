@@ -316,7 +316,7 @@ const ResourceDoc: React.FC = () => {
     <>
     <section className="w-full dark:bg-black bg-[#FAFAFA]">
     <AINavbar/>
-    <div id="landingpage" className="flex min-h-screen pt-28 dark:bg-black bg-[#FAFAFA]">
+    <div id="landingpage"  className="flex px-[40px] md:px-[60px] xl:px-[160px] min-h-screen pt-28 dark:bg-black bg-[#FAFAFA]">
       
       {/* LEFT NAV */}
       {/* <aside className="w-64 bg-[#FAFAFA]/25 px-6 py-8 sticky top-0 h-screen overflow-y-auto  scrollbar-hide border-r border-gray-200 shadow-[4px_0_10px_-2px_rgba(0,0,0,0.08)]">
@@ -331,7 +331,7 @@ const ResourceDoc: React.FC = () => {
                 className={`relative block text-md py-1 font-quicksand font-medium rounded px-3 transition-colors
                   ${
                     slug === item.slug
-                      ? "text-[#254D70] font-medium before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
+                      ? "text-[#00AA72] font-medium before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
                       : "text-gray-700 hover:bg-gray-100"
                   }
                 `}
@@ -375,7 +375,7 @@ const ResourceDoc: React.FC = () => {
                   onClick={() => setMobileNavOpen(false)}
                   className={`relative block text-md py-1 font-quicksand font-medium rounded px-3 transition-colors
               ${slug === item.slug
-                      ? "text-[#254D70] dark:text-white font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600"
+                      ? "text-[#00AA72] dark:text-white font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-[#00AA72]"
                       : "text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-500"
                     }
             `}
@@ -416,14 +416,14 @@ const ResourceDoc: React.FC = () => {
           </span>
         </div>
 
-        <div className="font-quicksand text-[#254D70] dark:text-white mb-6">
-          <Link to="/industries/cloud-finops-ai" className="hover:text-blue-600">
+        <div className="font-quicksand text-[#00AA72] dark:text-white mb-6">
+          <Link to="/industries/cloud-finops-ai" className="hover:text-green-600">
             Home
           </Link>
           {" > "}
-          <span className="text-[#254D70] dark:text-white">{categoryConfig?.label}</span>
+          <span className="text-[#00AA72] dark:text-white">{categoryConfig?.label}</span>
           {" > "}
-          <span className="text-[#254D70] font-medium dark:text-white">
+          <span className="text-[#00AA72] font-medium dark:text-white">
             {currentItem?.label}
           </span>
         </div>
@@ -447,7 +447,7 @@ const ResourceDoc: React.FC = () => {
           {flatItems[flatIndex - 1] ? (
             <Link
               to={`/industries/${industry}/resources/${flatItems[flatIndex - 1].category}/${flatItems[flatIndex - 1].slug}`}
-              className="text-[#020059] font-bricolage font-bold text-[18px] flex items-center gap-3 hover:text-blue-800 transition-colors"
+              className="text-[#00AA72] font-quadran   font-bold text-[18px] flex items-center gap-3 hover:text-green-800 transition-colors"
             >
               <div className="w-8 h-8 rounded-full bg-[#CCCCCC] flex items-center justify-center">
                 <img
@@ -465,7 +465,7 @@ const ResourceDoc: React.FC = () => {
           {flatItems[flatIndex + 1] ? (
             <Link
               to={`/industries/${industry}/resources/${flatItems[flatIndex + 1].category}/${flatItems[flatIndex + 1].slug}`}
-              className="text-[#020059] font-bricolage font-bold text-[18px] flex items-center gap-3 hover:text-blue-800 transition-colors"
+              className="text-[#00AA72] font-quadran   font-bold text-[18px] flex items-center gap-3 hover:text-green-800 transition-colors"
             >
               <span>Next</span>
               <div className="w-8 h-8 rounded-full bg-[#CCCCCC] flex items-center justify-center">
@@ -515,9 +515,9 @@ const ResourceDoc: React.FC = () => {
                   >
                     <a
                       href={`#${item.id}`}
-                      className={`block py-1.5 px-3 -ml-[2px] border-l-2 border-[#254D70] transition-all duration-200 ${activeId === item.id
-                        ? "text-[#254D70] dark:text-blue-800 border-[#254D70] font-medium bg-blue-50/50"
-                        : "text-gray-600 border-transparent hover:text-[#254D70] hover:border-gray-300"
+                      className={`block py-1.5 px-3 -ml-[2px] border-l-2 border-[#00AA72] transition-all duration-200 ${activeId === item.id
+                        ? "text-[#00AA72] dark:text-blue-800 border-[#00AA72] font-medium bg-blue-50/50"
+                        : "text-gray-600 border-transparent hover:text-[#00AA72] hover:border-gray-300"
                         }`}
                       onClick={(e) => {
                         e.preventDefault();
@@ -546,7 +546,7 @@ const ResourceDoc: React.FC = () => {
               <div className="flex items-center gap-3 mb-3">
                 <button
                   onClick={handleAudioToggle}
-                  className="w-10 h-10 rounded-full bg-[#254D70] flex items-center justify-center hover:bg-[#4440EE] transition flex-shrink-0"
+                  className="w-10 h-10 rounded-full bg-[#00AA72] flex items-center justify-center hover:bg-[#4440EE] transition flex-shrink-0"
                 >
                   {isPlaying ? (
                     // Pause Icon
@@ -572,10 +572,10 @@ const ResourceDoc: React.FC = () => {
                 className="w-full h-2 bg-gray-200 rounded-full cursor-pointer mb-2 group"
               >
                 <div
-                  className="h-full bg-[#254D70] rounded-full transition-all relative"
+                  className="h-full bg-[#00AA72] rounded-full transition-all relative"
                   style={{ width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%' }}
                 >
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#254D70] rounded-full opacity-0 group-hover:opacity-100 transition" />
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#00AA72] rounded-full opacity-0 group-hover:opacity-100 transition" />
                 </div>
               </div>
 

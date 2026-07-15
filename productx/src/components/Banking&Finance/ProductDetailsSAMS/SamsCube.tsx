@@ -4,7 +4,7 @@ import { H2, P } from "../../../styles/Typography";
 // ─── Objects3D — Replaced invalid SVG wrapper with a centered image ─────────
 const Objects3D = () => (
   <div className="flex items-center justify-center px-4 sm:px-8 py-2">
-    <img src="/SAMS/Cube.png" alt="Cube" className="w-[70%] sm:w-[80%] h-auto object-contain" />
+    <img src="/BNFCos/Cube.webp" alt="Cube" className="w-[70%] sm:w-[80%] h-auto object-contain" />
   </div>
 );
 
@@ -19,8 +19,8 @@ interface GroupButtonProps {
 const GroupButton = ({ className = "", children = "Group", isActive = false, onClick }: GroupButtonProps) => (
   <button
     onClick={onClick}
-    className={`rounded-[8px] border-[1.5px] border-[#5976F6] py-[6px] sm:py-[8px] text-[12px] sm:text-[13.5px] font-bold transition-colors hover:bg-blue-50/50 
-      ${isActive ? "!bg-[#5976F6] text-white hover:!bg-[#5976F6]" : "bg-transparent text-gray-900"} 
+    className={`rounded-[8px] border-[1.5px] border-[#024731] py-[6px] sm:py-[8px] text-[12px] sm:text-[13.5px] font-bold transition-colors hover:bg-blue-50/50 
+      ${isActive ? "!bg-[#024731] text-white hover:!bg-[#024731]" : "bg-transparent text-gray-900"} 
       ${className}`}
   >
     {children}
@@ -108,7 +108,7 @@ const RightPanel = () => {
   return (
     <div className="flex flex-1 flex-col lg:w-[55%] xl:w-auto lg:pl-4 xl:pl-6 lg:pr-2 pt-8 lg:pt-2 justify-between">
       <H2
-        className="font-black text-[#1A1E23] text-[32px]  dark:text-[#2b68c3] sm:text-[40px] lg:text-[40px] xl:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
+        className="font-black text-[#1A1E23] text-[32px]  dark:text-[#00AA72] sm:text-[40px] lg:text-[40px] xl:text-[48px] leading-[1.1] lg:leading-[1.07] tracking-tight mb-8"
       >
         Integrated EWS, SMA <br className="hidden lg:block" /> and NPL Solution
       </H2>

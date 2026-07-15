@@ -40,7 +40,7 @@ const HeroSec = () => {
 
   return (
     <div className="bg-[#DAF0F0]   p-4 rounded-[20px] dark:max-w-full max-w-[1450px] mx-auto">
-      <div className="bg-white px-6 py-16 lg:pt-30 font-bricolage dark:bg-[#141414] text-[#008280] overflow-x-hidden rounded-[20px]">
+      <div className="bg-white px-6 py-16 lg:pt-30 font-quadran   dark:bg-[#141414] text-[#00AA72] overflow-x-hidden rounded-[20px]">
 
         {/* Header Section */}
         <motion.header
@@ -63,9 +63,9 @@ const HeroSec = () => {
     inline-flex items-center justify-center
     px-6 h-12
     rounded-lg
-    font-bricolage font-bold text-sm tracking-widest
-    bg-white text-[#008280]
-    border-2 border-[#008280]
+    font-quadran   font-bold text-sm tracking-widest
+    bg-white text-[#00AA72]
+    border-2 border-[#00AA72]
     transition-all duration-300 ease-in-out
     hover:border-b-[4px]
     hover:-translate-y-[2px]
@@ -144,7 +144,7 @@ const HeroSec = () => {
               backgroundPosition: "center",
             }}
           >
-            <div className="mb-4 lg:mb-12 text-5xl text-[#008280]">⟶</div>
+            <div className="mb-4 lg:mb-12 text-5xl text-[#00AA72]">⟶</div>
             <p className="text-base leading-relaxed    text-[14px] md:text-[16px]   lg:text-[16px] xl:text-[18px]
         font-quicksand
       
