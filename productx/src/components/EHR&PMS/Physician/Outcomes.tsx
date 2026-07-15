@@ -64,8 +64,8 @@ const Outcomes = () => {
 
   return (
     <>
-      <section className="w-full bg-white dark:bg-[#042F2E] py-16 px-4 lg:px-6">
-        <div className="max-w-7xl lg:mx-auto">
+      <section className="w-full bg-white dark:bg-[#042F2E] py-4">
+        <div className="px-[40px] md:px-[60px] xl:px-[160px]">
           {/* Section Heading */}
           <div className="flex justify-center mb-12 text-[#00AA72]">
             <H2EHR className="dark:text-white">Physician Pain Points Solved</H2EHR>

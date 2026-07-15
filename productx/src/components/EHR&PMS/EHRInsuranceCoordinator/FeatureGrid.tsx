@@ -9,7 +9,7 @@ const FeatureGrid = () => {
 
   return (
     <section className="relative w-full  dark:bg-[#141414] bg-white ">
-    <div className="mx-auto max-w-[1300px] px-4 py-10 font-quadran   text-[#1a1a1a]">
+    <div className="px-[40px] md:px-[60px] xl:px-[160px]  py-10 font-quadran   text-[#1a1a1a]">
       
       {/* Main Container */}
       <div className="flex flex-col gap-6 lg:flex-row">

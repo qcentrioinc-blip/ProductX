@@ -1,3 +1,5 @@
+import { H2 } from "../../../styles/Typography";
+
 const pillars = [
   {
     image: "/EHRIcons/HandsTogether.svg",
@@ -21,13 +23,13 @@ const pillars = [
 
 const Pillar = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-4">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
         {/* Heading */}
         <div className="max-w-2xl mb-14">
-          <h2 className="text-[#2B2B2B] text-3xl lg:text-[42px] font-bold uppercase leading-tight">
+          <H2 className="text-[#2B2B2B]   uppercase leading-tight">
             Our Four Pillars of Unified Practice Management
-          </h2>
+          </H2>
         </div>
 
         {/* Cards */}

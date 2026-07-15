@@ -6,7 +6,7 @@ const ImageWithCards = () => {
 
   return (
     <section className="bg-white dark:bg-[#141414] overflow-hidden">
-      <div className="max-w-7xl  px-4 pb-20 pt-10 mx-auto">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px] py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
           {/* LEFT IMAGE */}

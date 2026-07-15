@@ -11,7 +11,7 @@ const HeroSec = () => {
 
   return (
     <section className="bg-white dark:bg-[#141414] overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6 pt-16 lg:pt-40">
+      <div className="relative px-[40px] md:px-[60px] xl:px-[160px] pt-16 lg:pt-40">
     
         {/* Image container */}
         <motion.div

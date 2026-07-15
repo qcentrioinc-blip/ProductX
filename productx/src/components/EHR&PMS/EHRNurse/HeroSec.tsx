@@ -6,7 +6,7 @@ const HeroSec = () => {
 
   return (
     <section className="dark:bg-[#141414]">
-    <section className="w-full min-h-screen max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 pt-20 lg:pt-40 font-quadran   flex flex-col overflow-hidden">
+    <section className="w-full min-h-screen px-[40px] md:px-[60px] xl:px-[160px] pt-20 lg:pt-40 font-quadran   flex flex-col overflow-hidden">
       
       {/* Header Section */}
       <motion.div

@@ -41,8 +41,8 @@ export default function FeatureBlockSec({ content }: FeatureBlockSecProps) {
 
   return (
     <>
-      <div className="h-auto bg-[#F4F4F4] dark:bg-[#141414] px-4 py-10 ">
-        <div className="max-w-7xl lg:px-6 px-4 lg:mx-auto">
+      <div className="h-auto bg-[#F4F4F4] dark:bg-[#141414]  py-10 ">
+        <div className="px-[40px] md:px-[60px] xl:px-[160px]">
 
           {/* MOBILE / TABLET / iPAD PRO */}
           {!isDesktop && (

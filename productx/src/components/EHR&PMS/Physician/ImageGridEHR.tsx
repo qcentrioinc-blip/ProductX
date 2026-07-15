@@ -6,8 +6,8 @@ const ImageGridEHR = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="h-full lg:min-h-screen  py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-6 lg:mx-auto">
+    <div className="h-full lg:min-h-screen  py-6">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
         
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-13 gap-3 lg:gap-4">

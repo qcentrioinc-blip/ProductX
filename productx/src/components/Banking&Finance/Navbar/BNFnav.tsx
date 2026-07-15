@@ -6,7 +6,7 @@ import MobileResourcesDropdown from "./MobileResourcesDropdown";
 import MobileBuiltForDropdown from "./MobileBuiltForDropdown";
 
 import { ContactUs } from "../../../styles/Button";
-import { NavbarDayNightToggle } from "../../Global/DayNightToggle";
+// import { NavbarDayNightToggle } from "../../Global/DayNightToggle";
 // import DayNightToggle from "../../Global/DayNightToggle";
 
 const MegaMenu = lazy(() => import("./MegaMenu"));
@@ -240,7 +240,7 @@ const BNFNav = () => {
           <Link to={`${base}/marketplace`} className={`font-medium transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Marketplace</Link>
         </div>
     <div className="lg:hidden flex items-center gap-2">
-  <NavbarDayNightToggle />
+  {/* <NavbarDayNightToggle /> */}
         <button
           className="lg:hidden flex flex-col justify-center items-center gap-[6px] w-10 h-10"
           onClick={handleToggleMenu}

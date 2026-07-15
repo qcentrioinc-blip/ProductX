@@ -48,15 +48,15 @@ export default function OurWork() {
     <>
     <section
       ref={sectionRef}
-      className="bg-white dark:bg-[#141414]  px-4 hidden lg:block"
+      className="bg-white dark:bg-[#141414]    hidden lg:block"
       style={{ height: "300vh" }}
     >
-      <div className="flex items-center  max-w-7xl justify-start lg:mx-auto">
+      <div className="flex items-center   px-[40px] md:px-[60px] xl:px-[160px] justify-start ">
           <H2EHR className="text-[#00AA72] dark:text-white mt-6 lg:mt-10">
             Eliminate These Common <br /> Administrative Headaches
           </H2EHR>
       </div>
-      <div className="sticky top-0 h-screen flex max-w-7xl lg:mx-auto lg:px-6 px-4 gap-16">
+      <div className="sticky top-0 h-screen flex px-[40px] md:px-[60px] xl:px-[160px]   gap-16">
         {/* LEFT CONTENT — STACKS */}
         <div className="w-[45%] pt-24 space-y-16">
         

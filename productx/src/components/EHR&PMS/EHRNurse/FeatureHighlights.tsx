@@ -1,4 +1,4 @@
-import { H2EHR, H3EHR, P } from "../../../styles/Typography";
+import { H2, H3EHR, P } from "../../../styles/Typography";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useLocation } from "react-router-dom";
@@ -102,10 +102,10 @@ const FeatureHighlights = () => {
 
   return (
     <section className="relative  dark:bg-[#141414] bg-white">
-    <section className="relative max-w-7xl lg:mx-10 xl:mx-auto px-6 py-10 dark:bg-[#141414] bg-white">
+    <section className="relative px-[40px] md:px-[60px] xl:px-[160px] py-6 dark:bg-[#141414] bg-white">
       {/* Heading */}
       <div className="text-center mb-2">
-        <H2EHR className="text-[#00AA72] dark:text-[#00AA72]  ">{title}</H2EHR>
+        <H2 className="text-[#00AA72] dark:text-[#00AA72]  ">{title}</H2>
       </div>
 
       {/* Fade Gradients (Tablet only) */}

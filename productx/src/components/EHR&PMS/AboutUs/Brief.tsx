@@ -3,7 +3,7 @@ import {  H2EHR, P } from "../../../styles/Typography";
 const Brief = () => {
   return (
     <section className="w-full  py-12 md:pb-16  dark:bg-[#141414] lg:pb-20  ">
-      <div className="max-w-7xl  px-4 xl:mx-auto justify-between xl:px-6 items-center  ">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px] justify-between  items-center  ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-36 items-center">
           
           <div className="space-y-4">

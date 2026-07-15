@@ -69,18 +69,18 @@ const CostOptimization = () => {
           <div className="absolute inset-0 pointer-events-none" style={{ height: '500px' }}>
             <svg className="w-full h-full" viewBox="0 0 1200 500" preserveAspectRatio="none">
               <path
-                d="M 12  font-quadran 0 170 L 120 220 Q 120 260, 160 260 L 330 260 Q 360 260, 360 230 L 360 170"
+                d="M 120 170 L 120 220 Q 120 260, 160 260 L 330 260 Q 360 260, 360 230 L 360 170"
                 stroke="black"
                 strokeWidth="3"
                 fill="none"
               />
               <path
-                d="M 70  font-quadran  170 L 70 340 Q 70 380, 130 380 L 1000 380 Q 1060 380, 1060 340 L 1060 170"
+                d="M 70 170 L 70 340 Q 70 380, 130 380 L 1000 380 Q 1060 380, 1060 340 L 1060 170"
                 stroke="black"
                 strokeWidth="3"
                 fill="none"
               />
-              <line x1="240" y1="260" x2="240" y2="290" stroke="black" strokeWidth="2" />
+              <line x1="240" y1="260" x2="240" y2="290" stroke="black" strokeWidth="3" />
               <line x1="600" y1="380" x2="600" y2="450" stroke="black" strokeWidth="3" />
             </svg>
           </div>
@@ -114,7 +114,7 @@ const CostOptimization = () => {
 
                   {/* Curve from first horizontal line */}
                   {/* <path
-                    d="  font-quadran M 30 80 Q 50 80, 50 100"
+                    d=" M 30 80 Q 50 80, 50 100"
                     stroke="black"
                     strokeWidth="2.5"
                     fill="none"
@@ -149,7 +149,7 @@ const CostOptimization = () => {
 
                   {/* Curve from second horizontal line */}
                   {/* <path
-                    d="  font-quadran M 30 230 Q 50 230, 50 210"
+                    d=" M 30 230 Q 50 230, 50 210"
                     stroke="black"
                     strokeWidth="2.5"
                     fill="none"
@@ -198,7 +198,7 @@ const CostOptimization = () => {
                 {COST_LAYERS.map((layer, index) => (
                   <div key={index} className="w-full">
                     <div className="border border-white  rounded-md p-4 bg-[#FAFAFA] text-[#141414] min-h-[90px] flex flex-col justify-center">
-                      <p className="text-sm text-[#  font-quadran 00AA72]  mb-2 font-semibold">
+                      <p className="text-sm text-[#00AA72]  mb-2 font-semibold">
                         {layer.title}
                       </p>
                       <p className="text-xs">

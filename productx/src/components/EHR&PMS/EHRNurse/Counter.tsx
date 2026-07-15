@@ -20,7 +20,7 @@ const StarIcon = ({ className }: { className?: string }) => (
   return (
    <section
   ref={ref}
-  className="relative flex flex-col  lg:items-center   py-10 lg:py-16   overflow-hidden"
+  className="relative flex flex-col  lg:items-center   py-6  overflow-hidden"
 >
  
    <div className="absolute inset-0 dark:bg-[#141414] bg-[#FFFFFF]"></div>
@@ -35,7 +35,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 </div>
 
   {/* Content Wrapper */}
-  <div className="relative z-10 flex flex-col max-w-8xl px-4 lg:px-10    justify-center">
+  <div className="relative z-10 flex flex-col px-[40px] md:px-[60px] xl:px-[160px]   justify-center">
     {/* Heading */}
     <H2EHR className="font-semibold  text-left lg:text-center   dark:text-white mb-10 lg:mb-16 text-gray-800 leading-snug">
       Eliminating the Top Nursing <br className="hidden lg:block" />Workflow Challenges 

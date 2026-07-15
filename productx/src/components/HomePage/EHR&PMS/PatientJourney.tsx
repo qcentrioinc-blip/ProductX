@@ -266,7 +266,7 @@ L 250 300
     </section>
  
  
-    <div className="lg:hidden bg-white px-6 py-6 lg:py-10">
+    <div className="lg:hidden bg-white px-[40px] md:[60px] py-6 lg:py-10">
   {/* Header */}
   <H2EHR className="text-2xl sm:text-3xl font-semibold text-teal-600 text-center mb-10  ">
     End to End Patient Journey,<br />Unified in One Platform

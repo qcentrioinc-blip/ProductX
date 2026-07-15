@@ -1,19 +1,21 @@
+import { H2, P } from "../../../styles/Typography";
+
 const NewSection = () => {
   return (
-    <section className="bg-white py-16 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-6 ">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
         {/* Top Border */}
         <div className="  ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Content */}
             <div>
-              <h2 className="text-3xl lg:text-[40px] font-bold leading-tight text-[#111827] mb-6">
+              <H2 className=" font-bold leading-tight text-[#111827] mb-6">
                 Navigating Digital Excellence with AI, Cloud Solutions, and
                 Strategic Innovation
-              </h2>
+              </H2>
 
               <div className="space-y-5 text-gray-600 text-base leading-8">
-                <p>
+                <P>
                   Qcentrio is one of the leaders in developing new technologies
                   in the IT industry—artificial intelligence and machine
                   learning, advanced cloud solutions, and strategic advisory
@@ -21,7 +23,7 @@ const NewSection = () => {
                   propels our mission to convey avant-garde, pragmatic solutions
                   that do more than satisfy and often exceed our clients'
                   needs.
-                </p>
+                </P>
 
              
               </div>

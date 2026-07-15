@@ -13,9 +13,9 @@ const ImageShowcaseSection = () => {
   const scrollImages = [...images, ...images];
 
   return (
-    <section className="bg-[#00AA72] py-20  dark:bg-[#141414] px-4">
-      <div className="max-w-8xl mx-auto lg:mx-16">
-        <div className="relative bg-white dark:bg-teal-900 rounded-[32px] py-16 overflow-hidden">
+    <section className="bg-[#00AA72] py-6  dark:bg-[#141414] ">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
+        <div className="relative bg-white dark:bg-teal-900 rounded-[32px] py-8 overflow-hidden">
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 px-6 sm:px-10">

@@ -14,7 +14,7 @@ interface FeaturePointProps {
 const FeatureItemCard: React.FC<FeatureItem> = ({ title, description, image }) => (
   <div className="flex flex-col py-4 last:border-b-0">
     <div className="flex flex-col">
-      <div className="flex flex-col px-6 lg:px-6 items-start gap-3 mb-2">
+      <div className="flex flex-col items-start gap-3 mb-2">
         <img
           src={image}
           alt={title}
@@ -38,7 +38,7 @@ const FeaturePoint: React.FC<FeaturePointProps> = ({ role }) => {
 
   return (
     <div className="h-auto bg-[#F9F9F9] dark:bg-[#141414] py-10">
-      <div className="max-w-7xl px-6 lg:mx-auto lg:px-6">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
         
         {/* Title */}
         <div className="mb-10 lg:mb-16">

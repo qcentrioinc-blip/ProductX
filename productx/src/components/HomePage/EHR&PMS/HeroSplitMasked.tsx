@@ -7,8 +7,8 @@ const HeroSplitMasked = () => {
 
   return (  
     <>
-      <section className="w-full bg-[#F5F5F5]  dark:bg-[#141414] py-10  xl:px-6 ">
-        <div className="max-w-7xl px-4  xl:px-6  xl:mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <section className="w-full bg-[#F5F5F5]  dark:bg-[#141414] py-10   ">
+        <div className="px-[40px] md:px-[60px] xl:px-[160px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
           {/* LEFT CONTENT */}
           <div className="space-y-6">

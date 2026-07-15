@@ -47,8 +47,8 @@ const Accordion = () => {
   }, []);
  
   return (
-    <section className="bg-white  dark:bg-[#141414] py-10">
-      <div className="xl:mx-auto max-w-7xl xl:px-6 md:px-4">
+    <section className="bg-white  dark:bg-[#141414] py-4">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]">
         {/* Header */}
       
  
@@ -73,7 +73,7 @@ const Accordion = () => {
                       text-left
                       cursor-pointer
                       rounded-xl
-                      p-4
+                      
                       transition-colors
                       hover:bg-gray-100 dark:hover:bg-teal-900
                     "

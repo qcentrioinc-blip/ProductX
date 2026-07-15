@@ -55,9 +55,9 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] dark:bg-[#141414] lg:min-h-[350vh] lg:pt-10 pb-20 px-6 "
+      className="relative w-full min-h-[150vh] dark:bg-[#141414] lg:min-h-[350vh] lg:pt-10 pb-20   "
     >
-      <div className="lg:sticky max-w-7xl lg:mx-auto lg:px-6 lg:top-0 lg:h-screen pb-10 flex flex-col justify-center items-start">
+      <div className="lg:sticky px-[40px] md:px-[60px] xl:px-[160px] lg:top-0 lg:h-screen pb-10 flex flex-col justify-center items-start">
        
         {/* Section Heading */}
         <div className="w-full max-w-2xl mb-10 lg:mt-10 lg:mb-12">

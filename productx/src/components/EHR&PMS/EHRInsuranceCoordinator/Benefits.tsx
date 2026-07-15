@@ -56,12 +56,12 @@ const Benefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] lg:min-h-[350vh] lg:pt-10 pb-20 px-6 dark:bg-[#141414] bg-white "
+      className="relative w-full min-h-[150vh] lg:min-h-[350vh] lg:py-6   dark:bg-[#141414] bg-white "
     >
       <div className="lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center items-center">
         
         {/* Section Heading */}
-        <div className="w-full max-w-8xl mb-10 lg:mb-12">
+        <div className="px-[40px] md:px-[60px] xl:px-[160px]mb-10 lg:mb-12">
           <H2EHR className="text-center    text-[#00AA72]">
             Access All Payer Data Instantly
             
@@ -69,7 +69,7 @@ const Benefits = () => {
         </div>
 
         {/* --- DESKTOP VIEW (lg and up) --- */}
-        <div className="hidden lg:flex w-[90%] max-w-7xl items-stretch gap-12">
+        <div className="hidden lg:flex w-[90%] max-w-full px-[40px] md:px-[60px] xl:[80px] items-stretch gap-12">
           {/* Interactive Cards */}
          <div className="flex flex-col w-[40%] gap-4 h-full">
             {points.map((point, i) => {

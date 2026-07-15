@@ -56,9 +56,9 @@ const FeaturesEHR = ({ content }: FeaturesEHRProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen md:min-h-fit dark:bg-[#042F2E] lg:min-h-fit bg-white py-10 px-4 sm:px-8 lg:px-8">
-      <div className="max-w-7xl lg:mx-auto">
-        <div className="rounded-3xl p-6 md:p-10 lg:p-12">
+    <div className="min-h-screen md:min-h-fit dark:bg-[#042F2E] lg:min-h-fit bg-white py-10 ">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px] lg:mx-auto">
+        <div className="rounded-3xl">
 
           {/* Top Heading Section - Left Aligned */}
           <div className="w-full text-left mb-12">

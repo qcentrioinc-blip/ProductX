@@ -8,7 +8,7 @@ const WhyUnifiedHealth: React.FC = () => {
 
   return (
     <section className="w-full bg-white dark:bg-[#141414]">
-      <div className="mx-auto max-w-full  lg:px-0  py-16">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px]  py-16">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-16   lg:grid-cols-[1fr_2fr_1fr]">
 
@@ -112,7 +112,7 @@ const WhyUnifiedHealth: React.FC = () => {
           <div className="hidden  lg:block" />
 
           {/* BOTTOM FEATURES (center column only) */}
-          <div className="xl:-ml-72 px-4 xl:px-0 ">
+          <div className="xl:-ml-80 px-4 xl:px-0 ">
             <H3EHR className="mb-4 text-[#00AA72] dark:text-white">
               Our Core Promise
             </H3EHR>

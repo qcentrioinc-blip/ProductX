@@ -4,11 +4,11 @@ import InfoWithImage from "../EHRReceptionist/InfoWithImage"
 import Pillar from "../EHRReceptionist/Pillar"
 import EHRNavbar from "../Navbar/EHRNavbar"
 import Counter from "./Counter"
-import FeatureHighlights from "./FeatureHighlights"
+// import FeatureHighlights from "./FeatureHighlights"
 import HeroSec from "./HeroSec"
 import ImageShowcaseSection from "./ImageShowcaseSection"
-import InformationGrid from "./InformationGrid"
-import MedicalFeature from "./MedicalFeature"
+// import InformationGrid from "./InformationGrid"
+// import MedicalFeature from "./MedicalFeature"
 
 export const EHRNursing = () => {
   return (
@@ -17,9 +17,9 @@ export const EHRNursing = () => {
         <HeroSec/>
         <Pillar/>
        <InfoWithImage/>
-        <FeatureHighlights/>
-        <MedicalFeature />
-        <InformationGrid/>
+        {/* <FeatureHighlights/>
+        <MedicalFeature /> */}
+        {/* <InformationGrid/> */}
         <ImageShowcaseSection/>
         <Counter/>
         <EHRFooter/>

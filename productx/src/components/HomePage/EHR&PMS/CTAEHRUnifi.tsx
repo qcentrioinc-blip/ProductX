@@ -8,10 +8,10 @@ const CTAEHRUnifi: React.FC = () => {
   return (
     <>
       <section className="w-full  overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
 
           {/* Left Content */}
-          <div className="flex flex-col   xl:h-[90vh] justify-center bg-[#00AA72] dark:bg-[#141414] px-6 py-16 text-white sm:px-10 xl:pl-26 lg:px-16">
+          <div className="flex flex-col  px-[40px] md:px-[60px] xl:px-[160px]  xl:h-[90vh] justify-center bg-[#00AA72] dark:bg-[#141414] py-16 text-white">
             {/* <span className="mb-4 font-quicksand text-md">
               Generate any kind of
             </span> */}

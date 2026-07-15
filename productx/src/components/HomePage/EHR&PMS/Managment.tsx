@@ -212,11 +212,11 @@ export default function Management() {
   // }
 >
 
-                <div className="flex flex-col lg:flex-row gap-12 p-8 lg:px-16">
+                <div className="flex flex-col lg:flex-row gap-12 py-8 px-[40px] md:px-[60px] xl:px-[160px]">
                   {/* IMAGE + TITLE */}
                   <div
                     className={`w-full lg:w-1/2 flex flex-col gap-6 ${
-                      imageOnRight ? "lg:order-2 lg:pr-4 xl:pr-20" : "lg:order-1 lg:pl-4 xl:pl-20"
+                      imageOnRight ? "lg:order-2 " : "lg:order-1  "
                     }`}
                   >
                     <H2EHR className=" font-light text-[#00AA72] dark:text-[#00AA72]  ">

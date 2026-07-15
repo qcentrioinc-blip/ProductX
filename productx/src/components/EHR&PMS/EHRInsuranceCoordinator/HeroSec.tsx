@@ -39,8 +39,8 @@ const HeroSec = () => {
     "w-full h-[160px] md:h-[180px]  rounded-[33.83px] p-8 flex flex-col justify-center transition-all relative overflow-hidden";
 
   return (
-    <div className="bg-[#DAF0F0]   p-4 rounded-[20px] dark:max-w-full max-w-[1450px] mx-auto">
-      <div className="bg-white px-6 py-16 lg:pt-30 font-quadran   dark:bg-[#141414] text-[#00AA72] overflow-x-hidden rounded-[20px]">
+    <div className="    rounded-[20px] dark:max-w-full ">
+      <div className="bg-white  py-16 lg:pt-30 font-quadran  px-[40px] md:px-[60px] xl:px-[160px]  dark:bg-[#141414] text-[#00AA72] overflow-x-hidden rounded-[20px]">
 
         {/* Header Section */}
         <motion.header

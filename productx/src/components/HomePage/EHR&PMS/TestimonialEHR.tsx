@@ -47,7 +47,7 @@ const TestimonialEHR = () => {
   return (
     <> 
       <section className="dark:bg-[#042F2E] overflow-hidden">
-        <div className="max-w-7xl dark:bg-[#042F2E] px-4 lg:px-6 lg:py-0 mx-auto">
+        <div className="max-w-full  dark:bg-[#042F2E] px-[40px] md:px-[60px] xl:px-[160px]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start">
             {/* Left Heading */}
             <div className="space-y-4 transition-all duration-1000 ease-out">
@@ -66,7 +66,7 @@ const TestimonialEHR = () => {
         </div>
 
         {/* --- DESIGN LAYOUT ROW --- */}
-        <div className="max-w-7xl mt-10 mx-auto px-4 lg:px-6">
+        <div className="max-w-full mt-10 px-[40px] md:px-[60px] xl:px-[160px]">
           <div className="relative flex flex-col lg:flex-row items-center w-full">
             
             {/* Left Green Content Card Container */}
@@ -103,7 +103,7 @@ const TestimonialEHR = () => {
         </div>
 
         {/* FEATURE GRID */}
-        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+        <div className="px-[40px] md:px-[60px] xl:px-[160px] pb-4">
           <div ref={sectionRef} className="relative mt-16 lg:mt-24">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {card.map((item, index) => (

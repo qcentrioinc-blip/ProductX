@@ -188,7 +188,7 @@ const InformationGrid = () => {
 
   return (
     <section className="relative w-full  dark:bg-[#141414] bg-white ">
-    <section className="max-w-7xl mx-auto px-6  py-16    overflow-hidden">
+    <section className="px-[40px] md:px-[60px] xl:px-[160px]  py-16    overflow-hidden">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}

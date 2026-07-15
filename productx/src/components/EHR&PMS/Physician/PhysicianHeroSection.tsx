@@ -4,7 +4,7 @@ const PhysicianHeroSection = () => {
   return (
     <section className="relative w-full bg-white dark:bg-[#141414] py-10 overflow-hidden">
        {/* Wave Shape */}
-  <img
+  {/* <img
     src="/EHR-PMS/Physician/shape1.svg"
     alt="decorative wave"
     className="
@@ -18,8 +18,8 @@ const PhysicianHeroSection = () => {
       opacity-100
       z-0
     "
-  />
-      <div className="  max-w-7xl  px-4 lg:mx-auto lg:pt-0">
+  /> */}
+      <div className=" px-[40px] md:px-[60px] xl:px-[160px] lg:pt-0">
         {/* Top Content */}
         <div className="grid grid-cols-1 mt-10  lg:mt-36 lg:px-6  lg:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Left Text */}

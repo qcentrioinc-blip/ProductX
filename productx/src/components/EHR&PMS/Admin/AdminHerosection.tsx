@@ -13,7 +13,7 @@ const AdminHeroSection: React.FC = () => {
      
       
       {/* Main content container */}
-      <div className="max-w-7xl mx-auto    lg:px-6 px-6 py-12 pt-16 lg:pt-28 ">
+      <div className="px-[40px] md:px-[60px] xl:px-[160px] pt-16 lg:pt-28 ">
         <div className="grid lg:grid-cols-2 gap-4   items-center ">
           
           {/* Left content */}
