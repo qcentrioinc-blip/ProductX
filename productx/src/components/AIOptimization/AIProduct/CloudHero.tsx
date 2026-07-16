@@ -504,7 +504,7 @@ export default function CloudDietHero() {
       <div className="relative z-[30] px-14 pt-10 max-w-[820px] max-md:px-5 max-md:pt-5 max-md:max-w-full xl:px-[160px]">
 
         <motion.div variants={fadeUp(0.10)} initial="hidden" animate="visible">
-          <H1 className="mt-[100px] lg:mt-[110px] xl:mt-[130px]">
+          <H1 className="mt-[100px]  font-quadran lg:mt-[110px] xl:mt-[130px]">
             AI-Powered Azure<br />Optimization Platform
           </H1>
         </motion.div>

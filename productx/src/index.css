@@ -6,14 +6,22 @@
 
 @font-face {
   font-family: "Quadran";
-  src: url("/fonts/Quadran-Light.woff2") format("woff2");
+  src: url("/fonts/Quadran-Light.eot") format("eot");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quadran";
-  src: url("/fonts/Quadran-Regular.woff2") format("woff2");
+  src: url("/fonts/Quadran-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quadran";
+  src: url("/fonts/Quadran-Regular.woff2") format("woff2"),
+       url("/fonts/Quadran-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -44,7 +52,9 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
  
-
+.font-quadran {
+  font-family: "Quadran", sans-serif;
+}
 
 :root {
   --primary-color: #00AA72;
@@ -232,19 +242,6 @@ video {
 }
 
 
-
-
-.font-quadranEHR {
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 400;
-
-}
-
-.font-quicksand {
-  font-family: "Quicksand", sans-serif;
-   font-weight: 400;
-
-}
 
 .font-schibsted {
   font-family: "Schibsted Grotesk", sans-serif;
